@@ -1,6 +1,6 @@
 {
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "default",
+  "$schema": "https://nyxbui.design/schema.json",
+  "style": "miami",
   "rsc": true,
   "tsx": true,
   "tailwind": {
@@ -10,7 +10,7 @@
     "cssVariables": true,
     "prefix": ""
   },
-  "aliases": {
+  "aliases": {  
     "components": "@/components",
     "utils": "@/lib/utils"
   }
