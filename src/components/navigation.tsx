@@ -24,8 +24,7 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: "Discord",
     href: "https://discord.gg/nnShMQzR4b",
-    description: "Join our Discord server to chat with the community.",
-    target: "_blank",
+    description: "Join our Discord server to chat with the community."
   },
 ]
  
