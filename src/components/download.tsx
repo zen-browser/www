@@ -3,7 +3,7 @@
 import { ny } from "@/lib/utils";
 import GridPattern from "./ui/grid-pattern";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import { DownloadCloudIcon, DownloadIcon } from "lucide-react";
+import { DownloadIcon } from "lucide-react";
 
 const BASE_URL = "https://github.com/zen-browser/desktop/releases/download/latest";
 
@@ -18,7 +18,10 @@ const releases: any  = {
 };
 
 function getDefaultPlatformBasedOnUserAgent() {
-  const userAgent = window.navigator.userAgent;
+  let userAgent = "";
+  if (typeof window !== "undefined") {
+    userAgent = window.navigator.userAgent;   
+  }  
   if (userAgent.includes("Win")) {
     return "Windows";
   }
