@@ -18,7 +18,7 @@ const releases: any  = {
 };
 
 function getDefaultPlatformBasedOnUserAgent() {
-  const userAgent = navigator.userAgent;
+  const userAgent = window.navigator.userAgent;
   if (userAgent.includes("Win")) {
     return "Windows";
   }
