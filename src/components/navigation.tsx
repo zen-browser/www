@@ -30,7 +30,7 @@ const components: { title: string; href: string; description: string }[] = [
  
 export function Navigation() {
   return (
-    <div className="absolute z-10 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
+    <div className="backdrop-blur fixed z-10 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>

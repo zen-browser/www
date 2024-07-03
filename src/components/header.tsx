@@ -26,7 +26,8 @@ export default function Header() {
             'w-full z-0',
         )}
       />
-      <div className="z-10 flex mb-10  items-center justify-center">
+      <div className="z-10 flex mb-10 items-center justify-center">
+        <a href="/download">
          <AnimatedGradientText>
             🎉
             {' '}
@@ -41,6 +42,7 @@ export default function Header() {
             </span>
             <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
          </AnimatedGradientText>
+        </a>
       </div>
       <WordPullUp
          className="text-3xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
@@ -58,7 +60,7 @@ export default function Header() {
               framerProps={{
                 show: { transition: { delay: 0.2 } },
               }}
-              text="Fade Up"
+              text="Documentation"
           />
         </a>
         <ShinyButton text="Download now" />
