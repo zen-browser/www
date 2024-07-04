@@ -8,16 +8,10 @@ import { Form, FormField, FormItem, FormLabel } from "./ui/form";
 import { useForm } from "react-hook-form";
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod'
+import { releases } from "@/lib/releases";
 import { addDownload } from "@/lib/db";
 
 const BASE_URL = "https://github.com/zen-browser/desktop/releases/download/latest";
-
-const releases: any  = {
-  Windows: "zen.installer.exe",
-  WindowsZip: "zen.win64.zip",
-  //MacOS: [],
-  Linux: "zen.linux.tar.bz2",
-};
 
 function getDefaultPlatformBasedOnUserAgent() {
   let userAgent = "";
@@ -25,7 +19,7 @@ function getDefaultPlatformBasedOnUserAgent() {
     userAgent = window.navigator.userAgent;   
   }  
   if (userAgent.includes("Win")) {
-    return "Windows";
+    return "WindowsZip";
   }
   if (userAgent.includes("Mac")) {
     return "MacOS";
@@ -58,6 +52,7 @@ export default function DownloadPage() {
     console.log("Releases for platform: ", releasesForPlatform)
     const url = `${BASE_URL}/${releasesForPlatform}`;
     console.log("URL: ", url)
+    window.open(url, "_blank");
   }
 
   return (
@@ -102,7 +97,7 @@ export default function DownloadPage() {
                           <SelectContent>
                               <SelectGroup>
                                 <SelectLabel>Operating System</SelectLabel>
-                                <SelectItem value="Windows">Windows Installer</SelectItem>
+                                <SelectItem value="Windows" disabled>Windows Installer</SelectItem>
                                 <SelectItem value="WindowsZip">Windows (Zip)</SelectItem>
                                 <SelectItem value="MacOS" disabled>MacOS</SelectItem>
                                 <SelectItem value="Linux">Linux</SelectItem>

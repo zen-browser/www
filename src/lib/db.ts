@@ -1,31 +1,32 @@
+"use server";
+
 import { sql } from '@vercel/postgres';
-import { config } from 'dotenv';
- 
-var hasLoadedEnv = false;
-function loadEnv() {
-    if (hasLoadedEnv) {
-        return;
-    }
-    config();
-}
+import { releases } from './releases';
 
 async function createDownloadsTable() {
-    loadEnv();
     await sql`
         CREATE TABLE IF NOT EXISTS downloads (
-        id SERIAL PRIMARY KEY,
-        platform TEXT NOT NULL,
-        count INT NOT NULL
+            platform TEXT NOT NULL PRIMARY KEY CONSTRAINT platform_check CHECK (platform IN ('WindowsZip', 'Linux')),
+            count INT NOT NULL DEFAULT 0
         );
     `;
-} 
+}
 
 export async function addDownload(platform: string) {
     await createDownloadsTable();
+    let hasPlatform: any = await sql`
+        SELECT COUNT(*) FROM downloads WHERE platform = ${platform};
+    `;
+    if (hasPlatform.rows[0].count > 0) {
+        await sql`
+            UPDATE downloads
+            SET count = count + 1
+            WHERE platform = ${platform};
+        `;
+        return;
+    }
     await sql`
         INSERT INTO downloads (platform, count)
-        VALUES (${platform}, 1)
-        ON CONFLICT (platform)
-        DO UPDATE SET count = downloads.count + 1;
+        VALUES (${platform}, 1);
     `;
 }
