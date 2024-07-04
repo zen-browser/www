@@ -32,7 +32,12 @@ export function Navigation() {
   return (
     <div className="backdrop-blur fixed z-10 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
       <NavigationMenu>
-        <NavigationMenuList>
+        <NavigationMenuList className="w-full">
+          <NavigationMenuItem className="cursor-pointer mr-20">
+            <NavigationMenuLink href="/" asChild>
+              <Logo withText />
+            </NavigationMenuLink>
+          </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
             <NavigationMenuContent>

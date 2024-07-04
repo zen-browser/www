@@ -63,7 +63,9 @@ export default function Header() {
               text="Documentation"
           />
         </a>
-        <ShinyButton text="Download now" />
+        <a href="/download">
+          <ShinyButton text="Download now" />
+        </a>
       </div>
       <ChevronDown className="absolute bottom-5 left-1/2 size-7 mb-10 animate-bounce" style={{
         transform: 'translateX(-50%)',

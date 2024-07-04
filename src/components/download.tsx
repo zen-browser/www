@@ -2,19 +2,20 @@
 
 import { ny } from "@/lib/utils";
 import GridPattern from "./ui/grid-pattern";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs";
-import { DownloadIcon } from "lucide-react";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "./ui/select";
+import { Button } from "./ui/button";
+import { Form, FormField, FormItem, FormLabel } from "./ui/form";
+import { useForm } from "react-hook-form";
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod'
 
 const BASE_URL = "https://github.com/zen-browser/desktop/releases/download/latest";
 
 const releases: any  = {
-  Windows: [
-    "zen.win64.zip",
-  ],
+  Windows: "zen.installer.exe",
+  WindowsZip: "zen.win64.zip",
   //MacOS: [],
-  Linux: [
-    "zen.linux.tar.bz2",
-  ],
+  Linux: "zen.linux.tar.bz2",
 };
 
 function getDefaultPlatformBasedOnUserAgent() {
@@ -34,7 +35,30 @@ function getDefaultPlatformBasedOnUserAgent() {
   return "Windows";
 }
 
+const formSchema = z.object({
+  platform: z.string().nonempty(),
+});
+
 export default function DownloadPage() {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      platform: getDefaultPlatformBasedOnUserAgent(),
+    },
+  });
+
+  const onSubmit = async (data: any) => {
+    const platform = data.platform;
+    console.log("Data: ", data)
+    console.log("Platform: ", platform)
+    console.log("Releases: ", releases)
+    const releasesForPlatform = releases[platform];
+    console.log("Releases for platform: ", releasesForPlatform)
+    const url = `${BASE_URL}/${releasesForPlatform}`;
+    console.log("URL: ", url)
+    window.location.href = url;
+  }
+
   return (
     <div className="w-full relative h-screen flex items-center justify-center">
       <div className="w-1/2 relative h-full px-64 flex items-cetner justify-center flex-col">
@@ -60,38 +84,37 @@ export default function DownloadPage() {
           Get started with Zen Browser today. Get back to browsing the web with peace of mind.
         </p>
       </div>
-      <div className="w-1/2 relative flex items-cetner justify-start">
-        <Tabs defaultValue={getDefaultPlatformBasedOnUserAgent()} className="mx-auto w-fit flex flex-col items-start justify-center">
-          <TabsList>
-            {Object.keys(releases).map((platform) => (
-              <TabsTrigger key={platform} value={platform}>{platform}</TabsTrigger>
-            ))}
-          </TabsList>
-          {Object.keys(releases).map((platform) => (
-            <TabsContent key={platform} value={platform} className="border rounded-md p-5 border-gray">
-              <table>
-                <thead className="">
-                  <tr>
-                    <th className="text-start pb-4 min-w-64">File</th>
-                    <th className="text-start pb-4">Download</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {releases[platform].map((release: string) => (
-                    <tr key={release} className="relative w-full">
-                      <td className="min-w-64">{release}</td>
-                      <td className="flex items-center w-full justify-center">
-                        <a href={`${BASE_URL}/${release}`} className="text-blue-500">
-                          <DownloadIcon size={24} />
-                        </a>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </TabsContent>
-          ))}
-        </Tabs>
+      <div className="w-1/2 relative flex flex-col relative items-cetner justify-start">
+        <div className="w-1/2 relative">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+                <FormField
+                  control={form.control}
+                  name="platform"
+                  render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Select your operating system</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <SelectTrigger className="w-full mb-5">
+                              <SelectValue placeholder="Operating System" />
+                          </SelectTrigger>
+                          <SelectContent>
+                              <SelectGroup>
+                                <SelectLabel>Operating System</SelectLabel>
+                                <SelectItem value="Windows">Windows Installer</SelectItem>
+                                <SelectItem value="WindowsZip">Windows (Zip)</SelectItem>
+                                <SelectItem value="MacOS" disabled>MacOS</SelectItem>
+                                <SelectItem value="Linux">Linux</SelectItem>
+                              </SelectGroup>
+                          </SelectContent>
+                        </Select>
+                      </FormItem>
+                  )}
+                />
+              <Button type="submit">Download Zen 🎉</Button>
+            </form>
+          </Form>
+        </div>
       </div>
     </div>
   );
