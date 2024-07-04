@@ -11,7 +11,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { releases } from "@/lib/releases";
 import { addDownload } from "@/lib/db";
 
-const BASE_URL = "https://github.com/zen-browser/desktop/releases/download/latest";
+const BASE_URL = "https://github.com/zen-browser/desktop/releases/latest/download";
 
 function getDefaultPlatformBasedOnUserAgent() {
   let userAgent = "";
