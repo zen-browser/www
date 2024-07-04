@@ -8,6 +8,7 @@ import { Form, FormField, FormItem, FormLabel } from "./ui/form";
 import { useForm } from "react-hook-form";
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod'
+import { addDownload } from "@/lib/db";
 
 const BASE_URL = "https://github.com/zen-browser/desktop/releases/download/latest";
 
@@ -49,6 +50,7 @@ export default function DownloadPage() {
 
   const onSubmit = async (data: any) => {
     const platform = data.platform;
+    addDownload(platform);
     console.log("Data: ", data)
     console.log("Platform: ", platform)
     console.log("Releases: ", releases)
@@ -56,7 +58,6 @@ export default function DownloadPage() {
     console.log("Releases for platform: ", releasesForPlatform)
     const url = `${BASE_URL}/${releasesForPlatform}`;
     console.log("URL: ", url)
-    window.location.href = url;
   }
 
   return (
