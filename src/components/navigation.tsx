@@ -14,6 +14,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Logo from "./logo"
+import { ModeToggle } from "./mode-toggle"
  
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -30,7 +31,7 @@ const components: { title: string; href: string; description: string }[] = [
  
 export function Navigation() {
   return (
-    <div className="backdrop-blur fixed z-10 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
+    <div className="bg-background fixed z-10 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
       <NavigationMenu>
         <NavigationMenuList className="w-full">
           <NavigationMenuItem className="cursor-pointer mr-20">
@@ -94,6 +95,7 @@ export function Navigation() {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
+          <ModeToggle />
         </NavigationMenuList>
       </NavigationMenu>
     </div>

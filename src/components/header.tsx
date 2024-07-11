@@ -73,7 +73,8 @@ export default function Header() {
           transform: 'translateX(-50%)',
         }} />
       </div>
-      <img src="/browser.png" className={ny('mx-auto shadow mt-24 z-0 w-3/4 rounded-xl overflow-hidden border-2 border-blue-500')} />
+      <img src="/browser-dark.png" className={ny('hidden dark:block mx-auto shadow mt-24 z-0 w-3/4 rounded-xl overflow-hidden border-2 border-blue-500')} />
+      <img src="/browser-light.png" className={ny('dark:hidden mx-auto shadow mt-24 z-0 w-3/4 rounded-xl overflow-hidden border-2 border-blue-500')} />
     </>
   )
 }
