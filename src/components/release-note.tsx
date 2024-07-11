@@ -3,7 +3,7 @@ import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { CheckCheckIcon, StarIcon } from "lucide-react";
 import { Button } from "./ui/button";
 
-export default function ReleaseNote({ data }: { data: ReleaseNote }) {
+export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
   return (
     <div className="flex flex-col mt-52 mb-24">
       <div className="mx-auto w-1/3">

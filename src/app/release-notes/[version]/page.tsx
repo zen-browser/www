@@ -8,7 +8,7 @@ import { releaseNotes } from '@/lib/release-notes';
 import Link from 'next/link';
 import { useParams } from 'next/navigation'
 
-export default function() {
+export default function ReleaseNotePage() {
   const params = useParams<{ version: string }>()
   const { version } = params;
 
