@@ -19,7 +19,7 @@ function getDefaultPlatformBasedOnUserAgent() {
     userAgent = window.navigator.userAgent;   
   }  
   if (userAgent.includes("Win")) {
-    return "WindowsInstaller";
+    return "WindowsStubInstaller";
   }
   if (userAgent.includes("Mac")) {
     return "MacOS";
@@ -98,6 +98,7 @@ export default function DownloadPage() {
                               <SelectGroup>
                                 <SelectLabel>Operating System</SelectLabel>
                                 <SelectItem value="WindowsInstaller">Windows Installer</SelectItem>
+                                <SelectItem value="WindowsStubInstaller">Windows Pretty Installer</SelectItem>
                                 <SelectItem value="WindowsZip">Windows (Zip)</SelectItem>
                                 <SelectItem value="MacOS" disabled>MacOS</SelectItem>
                                 <SelectItem value="Linux">Linux</SelectItem>
