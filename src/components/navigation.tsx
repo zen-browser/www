@@ -35,7 +35,7 @@ export function Navigation() {
       <NavigationMenu>
         <NavigationMenuList className="w-full">
           <NavigationMenuItem className="cursor-pointer mr-20">
-            <NavigationMenuLink href="/" asChild>
+            <NavigationMenuLink href="/">
               <Logo withText />
             </NavigationMenuLink>
           </NavigationMenuItem>
