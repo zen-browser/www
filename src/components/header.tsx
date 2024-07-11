@@ -55,14 +55,14 @@ export default function Header() {
           className="!text-xl text-muted-foreground !font-medium"
         />
         <div className="max-w-1/4 mt-10 flex items-center justify-center">
-          <a href="/docs" className="mr-5">
+          <a href="/release-notes" className="mr-5">
             <FadeText
                 className="text-md font-medium text-black dark:text-white"
                 direction="up"
                 framerProps={{
                   show: { transition: { delay: 0.2 } },
                 }}
-                text="Documentation"
+                text="Release Notes"
             />
           </a>
           <a href="/download">
