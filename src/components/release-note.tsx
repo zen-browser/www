@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
   return (
     <div className="flex flex-col mt-52 mb-24">
-      <div className="mx-auto w-1/3">
+      <div className="mx-auto w-full px-10 md:px-0 md:w-1/2 lg:w-1/3">
         <h1 className="text-4xl font-bold">Release notes for {data.version} 🎉</h1>
         <p className="text-sm mt-1 font-bold text-muted-foreground">{data.date}</p>
         {data.extra && (

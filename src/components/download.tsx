@@ -19,7 +19,7 @@ function getDefaultPlatformBasedOnUserAgent() {
     userAgent = window.navigator.userAgent;   
   }  
   if (userAgent.includes("Win")) {
-    return "WindowsStubInstaller";
+    return "WindowsInstaller";
   }
   if (userAgent.includes("Mac")) {
     return "MacOS";
@@ -56,8 +56,8 @@ export default function DownloadPage() {
   }
 
   return (
-    <div className="w-full relative h-screen flex items-center justify-center">
-      <div className="w-1/2 relative h-full px-64 flex items-cetner justify-center flex-col">
+    <div className="w-full relative h-screen flex items-center justify-center flex-col lg:flex-row">
+      <div className="w-full lg:w-1/2 relative h-full px-12 lg:px-24 xl:px-32 2xl:px-64 text-center flex items-cetner justify-center flex-col">
         <GridPattern  
           numSquares={30}
           maxOpacity={0.5}
@@ -80,8 +80,8 @@ export default function DownloadPage() {
           Get started with Zen Browser today. Get back to browsing the web with peace of mind.
         </p>
       </div>
-      <div className="w-1/2 relative flex flex-col relative items-cetner justify-start">
-        <div className="w-1/2 relative">
+      <div className="w-full lg:w-1/2 relative flex flex-col relative items-cetner justify-start">
+        <div className="w-full lg:w-2/3 relative flex flex-col items-center mx-auto mt-10 lg:mt-0">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
                 <FormField

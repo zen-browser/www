@@ -15,8 +15,9 @@ import {
 } from "@/components/ui/navigation-menu"
 import Logo from "./logo"
 import { ModeToggle } from "./mode-toggle"
+import { MobileNav } from "./mobile-nav"
  
-const components: { title: string; href: string; description: string }[] = [
+export const components: { title: string; href: string; description: string }[] = [
   {
     title: "Privacy Policy",
     href: "/privacy-policy",
@@ -32,8 +33,9 @@ const components: { title: string; href: string; description: string }[] = [
 export function Navigation() {
   return (
     <div className="bg-background fixed z-10 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
+      <MobileNav />
       <NavigationMenu>
-        <NavigationMenuList className="w-full">
+        <NavigationMenuList className="w-full hidden sm:flex">
           <NavigationMenuItem className="cursor-pointer mr-20">
             <NavigationMenuLink href="/">
               <Logo withText />
