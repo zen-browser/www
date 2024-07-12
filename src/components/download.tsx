@@ -22,12 +22,14 @@ function getDefaultPlatformBasedOnUserAgent() {
     return "WindowsInstaller";
   }
   if (userAgent.includes("Mac")) {
-    return "MacOS";
+    // TODO:
+    // return "MacOS";
+    return "";
   }
   if (userAgent.includes("Linux")) {
     return "Linux";
   }
-  return "WindowsInstaller";
+  return "";
 }
 
 const formSchema = z.object({
