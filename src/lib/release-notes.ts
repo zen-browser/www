@@ -15,7 +15,7 @@ export interface ReleaseNote {
 
 export const releaseNotes: ReleaseNote[] = [
   {
-    version: "0.0.0-a.3",
+    version: "1.0.0-a.1",
     date: "11/07/2024",
     extra: "This release will be the first release considered as stable. It's still in alpha, but it's the first release that we consider to be stable enough for daily use. You can start using it as your main browser right now if you are reading this!",
     features: [
