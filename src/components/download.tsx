@@ -27,7 +27,7 @@ function getDefaultPlatformBasedOnUserAgent() {
   if (userAgent.includes("Linux")) {
     return "Linux";
   }
-  return "Windows";
+  return "WindowsInstaller";
 }
 
 const formSchema = z.object({
