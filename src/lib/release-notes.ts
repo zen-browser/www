@@ -47,7 +47,7 @@ export const releaseNotes: ReleaseNote[] = [
     date: "12/07/2024",
     extra: "This release is the second alpha release of the 1.0.0-alpha series. It includes a lot of bug fixes and improvements given the feedback we received from the first alpha release. This release is still not considered stable, but it's a big step towards the first stable release. Thanks for your feedback, everyone!",
     features: [
-      "Added support for macOS arm64!",
+      "Added support for macOS aaarch64!",
       "Some performance improvements.",
     ],
     fixes: [
