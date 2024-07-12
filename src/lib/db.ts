@@ -6,7 +6,7 @@ import { releases } from './releases';
 async function createDownloadsTable() {
     await sql`
         CREATE TABLE IF NOT EXISTS downloads (
-            platform TEXT NOT NULL PRIMARY KEY CONSTRAINT platform_check CHECK (platform IN ('WindowsZip', 'Linux')),
+            platform TEXT NOT NULL PRIMARY KEY,
             count INT NOT NULL DEFAULT 0
         );
     `;
