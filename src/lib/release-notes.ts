@@ -68,7 +68,7 @@ export const releaseNotes: ReleaseNote[] = [
       "Removed support window's stub installer, it's under development.",
     ]
   },
-];
+].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
   return note.version.includes("-a.");
