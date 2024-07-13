@@ -74,7 +74,7 @@ export const releaseNotes: ReleaseNote[] = [
     extra: "This release is the third alpha release of the 1.0.0-alpha series. One big feature of this release is the new workspaces feature. This feature allows you to create different workspaces with different tabs and configurations. This release also includes a lot of bug fixes and improvements.",
     features: [
       "Added support for workspaces. (Experimental)",
-      "Better support for macOS aaarch64.",
+      "Better support for macOS aarch64.",
     ],
     fixes: [
       {
@@ -91,7 +91,7 @@ export const releaseNotes: ReleaseNote[] = [
       },
     ],
     breakingChanges: [
-      "Change the update URL meaning that since 1.0.0-a.2 (previous release) the browser will be able to update itself.",
+      "Changed the update URL meaning that since 1.0.0-a.2 (previous release) the browser will be able to update itself.",
     ]
   },
 ].reverse();
