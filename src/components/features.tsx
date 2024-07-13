@@ -39,8 +39,7 @@ export default function Features() {
           <FeatureCard title="Customizable"
               description="Customize Zen to fit your needs. Change the theme, layout, and more." />
           <FeatureCard title="Workspaces"
-              description="Create workspaces to keep your tabs organized." 
-              todo />
+              description="Create workspaces to keep your tabs organized." />
           <FeatureCard title="Better new tab page"
               description="The new tab page in Zen is designed to help you get to your favorite websites faster." />
           <FeatureCard title="Tab groups"

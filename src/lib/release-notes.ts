@@ -45,7 +45,7 @@ export const releaseNotes: ReleaseNote[] = [
   {
     version: "1.0.0-a.2",
     date: "12/07/2024",
-    extra: "This release is the second alpha release of the 1.0.0-alpha series. It includes a lot of bug fixes and improvements given the feedback we received from the first alpha release. This release is still not considered stable, but it's a big step towards the first stable release. Thanks for your feedback, everyone!",
+    extra: "This release is the second alpha release of the 1.0.0-alpha series. It includes a lot of bug fixes and improvements given the feedback we received from the first alpha release. This release is still not considered stable, but it's a big step towards the first stable release.",
     features: [
       "Added support for macOS aaarch64!",
       "Some performance improvements.",
@@ -66,6 +66,32 @@ export const releaseNotes: ReleaseNote[] = [
     ],
     breakingChanges: [
       "Removed support window's stub installer, it's under development.",
+    ]
+  },
+  {
+    version: "1.0.0-a.3",
+    date: "14/07/2024",
+    extra: "This release is the third alpha release of the 1.0.0-alpha series. One big feature of this release is the new workspaces feature. This feature allows you to create different workspaces with different tabs and configurations. This release also includes a lot of bug fixes and improvements.",
+    features: [
+      "Added support for workspaces. (Experimental)",
+      "Better support for macOS aaarch64.",
+    ],
+    fixes: [
+      {
+        description: "Fixed subwindows not being displayed correctly.",
+        issue: 54,
+      },
+      {
+        description: "Fixed zen's compact view mode.",
+        issue: 45,
+      },
+      {
+        description: "Fixed displaying tab icons when they are pinned.",
+        issue: 52,
+      },
+    ],
+    breakingChanges: [
+      "Change the update URL meaning that since 1.0.0-a.2 (previous release) the browser will be able to update itself.",
     ]
   },
 ].reverse();

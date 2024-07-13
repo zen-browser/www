@@ -9,6 +9,10 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
       <div className="mx-auto w-full px-10 md:px-0 md:w-1/2 lg:w-1/3">
         <h1 className="text-4xl font-bold">Release notes for {data.version} 🎉</h1>
         <p className="text-sm mt-1 font-bold text-muted-foreground">{data.date}</p>
+        <p className="text-md mt-4 text-muted-foreground">
+          If you encounter any issues, please report them on <a href="https://github.com/zen-browser/desktop/issues/">the issues page</a>. 
+          <br/>Thanks everyone for your feedback! 🙌 
+        </p>
         {data.extra && (
           <p className="text-md mt-8">{data.extra}</p>
         )}
