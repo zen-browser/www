@@ -13,7 +13,9 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
           If you encounter any issues, please report them on <a href="https://github.com/zen-browser/desktop/issues/" className="text-underline text-blue-500">the issues page</a>. Thanks everyone for your feedback! ❤️
         </p>
         {data.extra && (
-          <p className="text-md mt-8">{data.extra}</p>
+          <p className="text-md mt-8" dangerouslySetInnerHTML=
+            {{__html: data.extra.replace(/(\n)/g, "<br />")}}>
+          </p>
         )}
         {data.breakingChanges && (
           <>

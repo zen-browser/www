@@ -94,6 +94,31 @@ export const releaseNotes: ReleaseNote[] = [
       "Changed the update URL meaning that since 1.0.0-a.2 (previous release) the browser will be able to update itself.",
     ]
   },
+  {
+    version: "1.0.0-a.4",
+    date: "14/07/2024",
+    extra: "This release is the fourth alpha release of the 1.0.0-alpha series. This release includes a lot of bug fixes and improvements. The main focus of this release was to improve some small details and the compact view mode.\n\nThis release is very small but it includes some important fixes and I wont be able to work on the browser for the next few days so I decided to release it now.\n\nSorry!",
+    features: [
+      "Improved compact view mode.",
+      "Tabs with no icons will now display a default icon.",
+      "Improved workspaces feature (Experimental).",
+      "Added support for pinned tabs.",
+    ],
+    fixes: [
+      {
+        description: "Fixed the compact view mode not displaying correctly when it's not fullscreen.",
+        issue: 58,
+      },
+      {
+        description: "Fixed \"Weird margins in popup windows\".",
+        issue: 54, 
+      },
+      {
+        description: "Fixed pinned tab icons not being displayed correctly.",
+        issue: 52,
+      }
+    ],
+  }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
