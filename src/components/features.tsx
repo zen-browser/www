@@ -7,7 +7,7 @@ import TextReveal from "./ui/text-reveal";
 import styled, { css, keyframes } from "styled-components";
 
 const profileColors = [
-  "#F5ED97",
+  "#e8cd7d",
   "#C2E3B7",
   "#EEDBF9",
 ];
