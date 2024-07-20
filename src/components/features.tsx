@@ -1,8 +1,74 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Feature, { FeatureCard } from "./feature";
 import { Button } from "./ui/button";
 import TextReveal from "./ui/text-reveal";
+import styled, { css, keyframes } from "styled-components";
+
+const profileColors = [
+  "#F5ED97",
+  "#C2E3B7",
+  "#EEDBF9",
+];
+
+const enterAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    left: 100%;
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    left: 50%;
+  }
+`;
+
+const exitAnimation = keyframes`
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    left: 50%;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    left: 0;
+  }
+`;
+
+const ProfileImage = styled.img<{ enter: boolean }>`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  animation: ${({ enter }: any) => enter ? css`${enterAnimation} 0.5s` : css`${exitAnimation} 0.5s`} forwards;
+`;
 
 export default function Features() {
+  const [currentProfileColor, setCurrentProfileColor] = useState(profileColors[0]);
+  const [profile1Enter, setProfile1Enter] = useState(false);
+  const [profile2Enter, setProfile2Enter] = useState(false);
+  const [profile3Enter, setProfile3Enter] = useState(false);
+
+  useEffect(() => {
+    let currentProfile = 0;
+    setProfile1Enter(true);
+    setCurrentProfileColor(profileColors[currentProfile]);
+    
+    const profiles = document.querySelectorAll("#profile-1, #profile-2, #profile-3");
+    setInterval(() => {
+      currentProfile = (currentProfile + 1) % profiles.length;
+      setProfile1Enter(currentProfile === 0);
+      setProfile2Enter(currentProfile === 1);
+      setProfile3Enter(currentProfile === 2);
+      setCurrentProfileColor(profileColors[currentProfile]);
+    }, 3500);
+  }, []);
   return (
     <div>
       <TextReveal text="Zen will change the way you browse the web. 🌟" />
@@ -25,10 +91,10 @@ export default function Features() {
       <Feature 
         title="Profiles"
         description="Switch between profiles with ease. Create multiple profiles to keep your work and personal browsing separate."
-        color="#C2E3B7">
-        <img src="/profiles.png" alt="Profiles" className="absolute left-1/2 w-3/4 top-1/2" style={{
-          transform: "translate(-50%, -50%)"
-        }} />
+        color={currentProfileColor}>
+        <ProfileImage enter={profile1Enter} src="/profile-1.png" alt="Profiles" id="profile-1" className="absolute left-1/2 w-3/4 top-1/2" />
+        <ProfileImage enter={profile2Enter} src="/profile-2.png" alt="Profiles" id="profile-2" className="absolute left-1/2 w-3/4 top-1/2" />
+        <ProfileImage enter={profile3Enter} src="/profile-3.png" alt="Profiles" id="profile-3" className="absolute left-1/2 w-3/4 top-1/2" />
       </Feature>
       <div className="my-40 w-full flex items-center justify-center flex-col">
         <h1 className="text-5xl text-center font-bold w-1/2">Want more?</h1>

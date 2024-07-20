@@ -19,7 +19,7 @@ export default function Feature({
         <h1 className="text-6xl font-bold">{title}</h1>
         <p className="text-muted-foreground mt-3">{description}</p>
       </div>
-      <div className={ny(`mt-10 lg:ml-64 lg:mt-0 w-96 h-96 rounded-lg relative overflow-hidden`)} style={{ backgroundColor: color }}>
+      <div className={ny(`mt-10 lg:ml-64 lg:mt-0 w-96 h-96 rounded-lg relative overflow-hidden transition-all duration-300`)} style={{ backgroundColor: color }}>
         {children}
       </div>  
     </div>
