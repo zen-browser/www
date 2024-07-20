@@ -118,7 +118,36 @@ export const releaseNotes: ReleaseNote[] = [
         issue: 52,
       }
     ],
-  }
+  },
+  {
+    version: "1.0.0-a.5",
+    date: "16/07/2024",
+    extra: "This release is a very small release that includes some speed improvements and privacy improvements. This release is the fifth alpha release of the 1.0.0-alpha series.",
+    features: [
+      "Improved performance of the browser, specially for windows users.",
+      "Changed some of firefox's default privacy settings to improve privacy.",
+      "Allowed using GPU for rendering by default.",
+      "Set the default user agent to Firefox.",
+    ],
+    fixes: [
+      {
+        description: "Fixed license not being clear.",
+        issue: 62,
+      },
+      {
+        description: "Fixed Zen not being able to execute on some linux distributions.",
+        issue: 36,
+      },
+      {
+        description: "Fixed sites like whatsapp web not working correctly.",
+        issue: 59,
+      },
+      {
+        description: "Fixed some background overlapping the browser view.",
+        issue: 48,
+      }
+    ],
+  },
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
