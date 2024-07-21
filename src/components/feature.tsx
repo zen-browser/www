@@ -12,7 +12,7 @@ export default function Feature({
   color: string;
 }) {
   return (
-    <div className="flex flex-col lg:flex-row items-center relative mx-auto mt-32">
+    <div className="flex flex-col lg:flex-row items-center relative mx-auto mt-40 pb-40 border-b">
       <div
         className={"flex flex-col justify-center max-w-96"}
       >

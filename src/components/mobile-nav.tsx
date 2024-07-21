@@ -54,6 +54,12 @@ export function MobileNav() {
                   >
                     Source Code
                   </MobileLink>
+                  <MobileLink
+                     href="https://patreon.com/zen_browser"
+                     onOpenChange={setOpen}
+                  >
+                     Donate {"<"}3
+                  </MobileLink>
                   {components.map(({title, href, description}) => (
                      <MobileLink
                         href={href}

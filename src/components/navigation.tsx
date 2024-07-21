@@ -16,6 +16,7 @@ import {
 import Logo from "./logo"
 import { ModeToggle } from "./mode-toggle"
 import { MobileNav } from "./mobile-nav"
+import { HeartIcon } from "lucide-react"
  
 export const components: { title: string; href: string; description: string }[] = [
   {
@@ -75,6 +76,14 @@ export function Navigation() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
+            <Link target="_blank" href="https://patreon.com/zen_browser" legacyBehavior passHref className="opacity-70 cursor-not-allowed">
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <HeartIcon size={16} />
+                <span className="ml-2">Donate</span>
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuTrigger>Useful Links</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -89,13 +98,6 @@ export function Navigation() {
                 ))}
               </ul>
             </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="#" legacyBehavior passHref className="opacity-70 cursor-not-allowed">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentation
-              </NavigationMenuLink>
-            </Link>
           </NavigationMenuItem>
           <ModeToggle />
         </NavigationMenuList>
