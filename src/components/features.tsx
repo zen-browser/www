@@ -67,7 +67,7 @@ export default function Features() {
       setProfile2Enter(currentProfile === 1);
       setProfile3Enter(currentProfile === 2);
       setCurrentProfileColor(profileColors[currentProfile]);
-    }, 3500);
+    }, 2500);
   }, []);
   return (
     <div>

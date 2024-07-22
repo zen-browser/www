@@ -8,11 +8,20 @@ import ShinyButton from "./ui/shiny-button";
 import GridPattern from "./ui/grid-pattern";
 import BlurIn from "./ui/blur-in";
 import { FadeText } from "./ui/fade-text";
+import styled, { keyframes } from "styled-components";
+
+const HeaderElement = styled.div`
+  background: light-dark(white, rgba(0, 0, 0, 0.5));
+`;
 
 export default function Header() {
   return (
     <>
-      <div className="w-full relative flex h-screen justify-center flex-col align-center">
+      <div className="absolute top-3/4 z-10">
+        <img src="/browser-dark.png" className={ny('hidden dark:block mx-auto shadow-sm border mt-24 z-0 w-4/5 rounded-xl overflow-hidden')} />
+        <img src="/browser-light.png" className={ny('dark:hidden mx-auto shadow-sm border mt-24 z-0 w-4/5 rounded-xl overflow-hidden')} />
+      </div>
+      <HeaderElement className="w-full relative flex h-screen justify-center flex-col align-center border-b">
         <GridPattern  
           numSquares={30}
           maxOpacity={0.5}
@@ -40,7 +49,7 @@ export default function Header() {
               `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
                 )}
               >
-                Introducing Zen Beta
+                Introducing Zen Alpha
               </span>
               <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
           </AnimatedGradientText>
@@ -69,12 +78,7 @@ export default function Header() {
             <ShinyButton text="Download now" />
           </a>
         </div>
-        <ChevronDown className="absolute bottom-5 left-1/2 size-7 mb-10 animate-bounce" style={{
-          transform: 'translateX(-50%)',
-        }} />
-      </div>
-      <img src="/browser-dark.png" className={ny('hidden dark:block mx-auto shadow mt-24 z-0 w-3/4 rounded-xl overflow-hidden border-2 border-blue-500')} />
-      <img src="/browser-light.png" className={ny('dark:hidden mx-auto shadow mt-24 z-0 w-3/4 rounded-xl overflow-hidden border-2 border-blue-500')} />
+      </HeaderElement>
     </>
   )
 }
