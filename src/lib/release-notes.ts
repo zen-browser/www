@@ -148,6 +148,71 @@ export const releaseNotes: ReleaseNote[] = [
       }
     ],
   },
+  {
+    version: "1.0.0-a.6",
+    date: "24/07/2024",
+    extra: "Welcome to the sixth alpha release of the 1.0.0-alpha series, gettin' closer to the first stable release!\n\nThis release includes a lot of bug fixes and improvements. The main focus of this release was to improve some small details and performance.",
+    features: [
+      "Improved performance of the browser.",
+      "Added support for the latest version of Firefox (128.0.2).",
+      "Improved the compact view mode.",
+      "Started working on flatpak support.",
+      "Improved the workspaces feature. (Added icons and control buttons)",
+      "Implemented better branding for the Installer.",
+      "Created better better visual feedback for the user. (Animations and Split views)",
+      "Made an opt-out for the watermark.",
+      "Enabled further customization for buttons (Pill buttons and sizes).",
+      "Added performance focused user settings by default.",
+      "Added theme-related profile avatars.",
+      "Added a way to expand the sidebar tabs and to be able to customize the sidebar.",
+      "Started experimenting with PGO builds. (linux only currently)",
+      "Added scrollable tabs support.",
+      "Added context menu button for quick sidebar website addition.",
+      "Enabled smooth scrolling by default.",
+      "Added container identification to the tab bar.",
+    ],
+    fixes: [
+      {
+        description: "Fixed pinned tabs not being displayed correctly.",
+      },
+      {
+        description: "Fixed pressing \"Bookmarks\" twice in the bottom left doesn't close the bookmarks tab",
+        issue: 74
+      },
+      {
+        description: "Fixed wrong colors for web-content popups.",
+        issue: 70
+      },
+      {
+        description: "Fixed padding when DOM fullscreen is enabled.",
+        issue: 67
+      },
+      {
+        description: "Tab Bar Icons Hidden When Many Tabs are Open",
+        issue: 64
+      },
+      {
+        description: "Disabled Zen Workspaces when private browsing is enabled."
+      },
+      {
+        description: "Fixed web view padding when opening a hidden popup.",
+        issue: 54
+      }, 
+      {
+        description: "The Windows NSIS installer correctly installs the browser in the right path now instead of \"Mozilla Developer Preview\".",
+      },
+      {
+        description: "Fixed overall windows installer branding.",
+      },
+      {
+        description: "Fixed update URLs and support links.",
+      }
+    ],
+    breakingChanges: [
+      "Updated CPU requirements for x86_64-v3",
+      "Changed the way profile avatars are stored, may not be any issues, please report them if you find any."
+    ],
+  },
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
