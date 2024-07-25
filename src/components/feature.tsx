@@ -12,14 +12,14 @@ export default function Feature({
   color: string;
 }) {
   return (
-    <div className="flex flex-col lg:flex-row items-center relative mx-auto mt-40 pb-40 border-b">
+    <div className="flex flex-col lg:flex-row lg:p-10 items-center relative mx-auto mt-40 pb-40 border-b">
       <div
         className={"flex flex-col justify-center max-w-96"}
       >
         <h1 className="text-6xl font-bold">{title}</h1>
         <p className="text-muted-foreground mt-3">{description}</p>
       </div>
-      <div className={ny(`mt-10 lg:ml-64 lg:mt-0 w-96 h-96 rounded-lg relative overflow-hidden transition-all duration-300`)} style={{ backgroundColor: color }}>
+      <div className={ny(`mt-10 lg:ml-auto lg:mt-0 w-96 h-96 rounded-lg relative overflow-hidden transition-all duration-300`)} style={{ backgroundColor: color }}>
         {children}
       </div>  
     </div>
