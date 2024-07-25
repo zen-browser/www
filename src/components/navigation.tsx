@@ -76,7 +76,7 @@ export function Navigation() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link target="_blank" href="https://patreon.com/zen_browser" legacyBehavior passHref className="opacity-70 cursor-not-allowed">
+            <Link target="_blank" href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" legacyBehavior passHref className="opacity-70 cursor-not-allowed">
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 <HeartIcon size={16} />
                 <span className="ml-2">Donate</span>
