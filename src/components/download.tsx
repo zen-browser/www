@@ -124,7 +124,7 @@ export default function DownloadPage() {
                 <div className="mt-20 rounded border bg-muted p-4 text-muted-foreground">
                   <p>
                     <strong>Mac user?</strong><br/>
-                    Setting up the MacOS version of Zen Browser is a bit more involved. We're working on making this easier, but for now you can follow these steps:
+                    Setting up the MacOS version of Zen Browser is a bit more involved. We&#39re working on making this easier, but for now you can follow these steps:
                     <a href="https://github.com/zen-browser/desktop/issues/53" target="_blank" rel="noreferrer">
                       <Button className="mt-5">View MacOS instructions</Button>
                     </a>
