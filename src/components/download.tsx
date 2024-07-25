@@ -115,7 +115,7 @@ export default function DownloadPage() {
                 <div className="mt-20 rounded border bg-muted p-4 text-muted-foreground">
                   <p>
                     <strong>Linux user?</strong><br/>
-                    We've recently added support for flatpak! You can download the flatpak version by running the following command:
+                    We&#39ve recently added support for flatpak! You can download the flatpak version by running the following command:
                     <pre className="bg-white dark:bg-black p-2 rounded mt-4 overflow-auto">flatpak install flathub com.zen.browser</pre>
                   </p>
                 </div>
