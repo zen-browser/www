@@ -43,6 +43,7 @@ export default function DownloadPage() {
       platform: getDefaultPlatformBasedOnUserAgent(),
     },
   });
+  const watchRelease = form.watch("platform");
 
   const onSubmit = async (data: any) => {
     const platform = data.platform;
@@ -104,6 +105,7 @@ export default function DownloadPage() {
                                 <SelectItem value="MacOS">MacOS</SelectItem>
                                 <SelectItem value="Linux">Linux</SelectItem>
                                 <SelectItem value="WindowsStubInstaller" disabled>Windows Pretty Installer</SelectItem>
+                                <SelectItem value="Flatpak">Local Flatpak (Linux)</SelectItem>
                               </SelectGroup>
                           </SelectContent>
                         </Select>
@@ -111,7 +113,7 @@ export default function DownloadPage() {
                   )}
                 />
               <Button type="submit">Download Zen 🎉</Button>
-              {form.getValues().platform === "Linux" && (
+              {watchRelease === "Linux" && (
                 <div className="mt-20 rounded border bg-muted p-4 text-muted-foreground">
                   <p>
                     <strong>Linux user?</strong><br/>
@@ -120,7 +122,7 @@ export default function DownloadPage() {
                   </p>
                 </div>
               )}
-              {form.getValues().platform === "MacOS" && (
+              {watchRelease === "MacOS" && (
                 <div className="mt-20 rounded border bg-muted p-4 text-muted-foreground">
                   <p>
                     <strong>Mac user?</strong><br/>

@@ -213,6 +213,39 @@ export const releaseNotes: ReleaseNote[] = [
       "Changed the way profile avatars are stored, may not be any issues, please report them if you find any."
     ],
   },
+  {
+    version: "1.0.0-a.7",
+    date: "27/07/2024",
+    extra: "This release is the seventh alpha release of the 1.0.0-alpha series. This release includes some important bug fixes and improvements. The main focus of this release was to improve some small details and improve stability.",
+    features: [
+      "A grid system for pinned tabs.",
+      "Flatpak support.",
+      "More performance improvements.",
+      "Added newtab wallpapers (Version 2).",
+      "Enabled hiding floating sidebar web panels when clicking outside.",
+      "Branded more the installer.",
+      "Used more intuitive icons for the sidebar.",
+      "Improved animations.",
+      "More compact view stability improvements.",
+    ],
+    fixes: [
+      {
+        description: "Fixed the browser crashing when updating on linux.",
+        issue: 76
+      },
+      {
+        description: "Fixed workspace deleting button, deleting the wrong workspace.",
+        issue: 81
+      },
+      {
+        description: "Fixed the expanded sidebar for the compact view.",
+        issue: 79
+      },
+      {
+        description: "Fixed small margin on hidden windows.",
+      }
+    ],
+  }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {

@@ -4,4 +4,5 @@ export const releases: any  = {
     WindowsZip: "zen.win64.zip",
     MacOS: "zen.macos.dmg",
     Linux: "zen.linux.tar.bz2",
+    Flatpak: "com.zen.browser.flatpak",
 };
