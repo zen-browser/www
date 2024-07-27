@@ -105,7 +105,6 @@ export default function DownloadPage() {
                                 <SelectItem value="MacOS">MacOS</SelectItem>
                                 <SelectItem value="Linux">Linux</SelectItem>
                                 <SelectItem value="WindowsStubInstaller" disabled>Windows Pretty Installer</SelectItem>
-                                <SelectItem value="Flatpak">Local Flatpak (Linux)</SelectItem>
                               </SelectGroup>
                           </SelectContent>
                         </Select>
@@ -118,7 +117,7 @@ export default function DownloadPage() {
                   <p>
                     <strong>Linux user?</strong><br/>
                     We{"'"}ve recently added support for flatpak! You can download the flatpak version by running the following command:
-                    <pre className="bg-white dark:bg-black p-2 rounded mt-4 overflow-auto">flatpak install flathub com.zen.browser</pre>
+                    <pre className="bg-white dark:bg-black p-2 rounded mt-4 overflow-auto">flatpak install flathub io.github.zen_browser</pre>
                   </p>
                 </div>
               )}
