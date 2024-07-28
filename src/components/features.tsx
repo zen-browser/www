@@ -1,4 +1,3 @@
-"use client";
 
 import { useEffect, useState } from "react";
 import Feature, { FeatureCard } from "./feature";
@@ -98,7 +97,7 @@ export default function Features() {
       </Feature>
       <div className="my-40 w-full flex items-center justify-center flex-col">
         <h1 className="text-5xl text-center font-bold w-1/2">Want more?</h1>
-        <p className="text-muted-foreground text-center mt-3 w-1/2">Zen is packed with features that will change the way you browse the web. Download it today and experience a new way to browse the web.</p>
+        <p className="text-muted-foreground text-center mt-3 w-1/2">Zen Browser is packed with features that will change the way you browse the web. Download it today and experience a new way to browse the web.</p>
         <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10">
           <FeatureCard title="Beautifully designed"
               description="Zen is designed to be easy to use and beautiful to look at." />

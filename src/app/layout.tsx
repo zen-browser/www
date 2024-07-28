@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Zen Browser",
   description: "Download now and experience the Zen Browser",
+  keywords: ["Zen", "Browser", "Zen Browser", "Web", "Internet", "Fast"],
 };
 
 export default function RootLayout({

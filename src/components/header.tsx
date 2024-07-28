@@ -1,4 +1,3 @@
-"use client";
 
 import { ny } from "@/lib/utils";
 import AnimatedGradientText from "./ui/animated-gradient-text";
