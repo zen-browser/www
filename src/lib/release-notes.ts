@@ -245,7 +245,42 @@ export const releaseNotes: ReleaseNote[] = [
         description: "Fixed small margin on hidden windows.",
       }
     ],
-  }
+  },
+  {
+    version: "1.0.0-a.8",
+    date: "29/07/2024",
+    extra: "This release is the eighth alpha release of the 1.0.0-alpha series.\n\nThis release includes some small bug fixes and improvements. The main focus of this release was to improve some small details and improve stability.",
+    features: [
+      "Added support for the latest version of Firefox (128.0.3).",
+      "Improved the compact view mode.",
+      "New logo for the browser!",
+      "Imrpoved speed of the browser.",
+    ],
+    fixes: [
+      {
+        description: "Lowered the CPU requirements for Linux users.",
+      },
+      {
+        description: "Fixed browser updater crashing on some linux distributions.",
+        issue: 76
+      },
+      {
+        description: "Added more contrast to web context menus on light themes.",
+        issue: 88,
+      },
+      {
+        description: "Fixed horizontal separator not showing on pinned tabs.",
+        issue: 100,
+      }, 
+      {
+        description: "Created a small hotfix for themes and some broken extensions.",
+        issue: 89
+      }
+    ],
+    breakingChanges: [
+      "Changed the ID for flatpak to io.github.zen_browser.zen",
+    ]
+  },
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
