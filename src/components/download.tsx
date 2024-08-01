@@ -151,7 +151,7 @@ export default function DownloadPage() {
     console.log("arch: ", arch);
     setHasDownloaded(true);
     addDownload(releaseTarget);
-    //window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
+    window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
     throwConfetti();
   };
 
