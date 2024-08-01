@@ -1,18 +1,18 @@
 export const releases: any = {
-    WindowsInstaller: "zen.installer-x64.exe",
-    WindowsInstaller32: "zen.installer-x32.exe",
+    WindowsInstaller: "zen.installer.exe",
+    WindowsInstallerGeneric: "zen.installer-generic.exe",
     
-    WindowsZip: "zen.win-x64.zip",
-    WindowsZip32: "zen.win-x32.zip",
+    WindowsZip: "zen.win-specific.zip",
+    WindowsZipGeneric: "zen.win-generic.zip",
 
     MacOS: "zen.macos-aarch64.dmg",
     MacOSIntel: "zen.macos-x64.dmg",
 
-    Linux: "zen.linux-x64.tar.bz2",
-    Linux32: "zen.linux-x32.tar.bz2",
+    Linux: "zen.linux-specific.tar.bz2",
+    LinuxGeneric: "zen.linux-generic.tar.bz2",
 
-    LinuxAppImage: "zen-x64.AppImage",
-    LinuxAppImage32: "zen-x32.AppImage",
+    LinuxAppImage: "zen-specific.AppImage",
+    LinuxAppImageGeneric: "zen-generic.AppImage",
 };
 
 // platform
@@ -20,27 +20,27 @@ export const releases: any = {
 //      -> file
 export const releaseTree: any = {
     windows: {
-        x64: {
+        specific: {
             installer: "WindowsInstaller",
             portable: "WindowsZip",
         },
-        x32: {
-            installer: "WindowsInstaller32",
-            portable: "WindowsZip32",
+        generic: {
+            installer: "WindowsInstallerGeneric",
+            portable: "WindowsZipGeneric",
         },
     },
     macos: {
-        x64: "MacOSIntel",
-        arm: "MacOS",
+        generic: "MacOSIntel",
+        specific: "MacOS",
     },
     linux: {
-        x64: {
+        specific: {
             portable: "Linux",
             appimage: "LinuxAppImage",
         },
-        x32: {
-            portable: "Linux32",
-            appimage: "LinuxAppImage32",
+        generic: {
+            portable: "LinuxGeneric",
+            appimage: "LinuxAppImageGeneric",
         },
     },
 };

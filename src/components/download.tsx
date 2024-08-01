@@ -92,7 +92,7 @@ export default function DownloadPage() {
   const [linuxDownloadType, setLinuxDownloadType] = useState<string | null>(null);
 
   const [selectedPlatform, setSelectedPlatform] = useState(getDefaultPlatformBasedOnUserAgent());
-  const [selectedArchitecture, setSelectedArchitecture] = useState("64-bit");
+  const [selectedArchitecture, setSelectedArchitecture] = useState("specific");
   const [selectedWindowsDownloadType, setSelectedWindowsDownloadType] = useState("installer");
   const [selectedLinuxDownloadType, setSelectedLinuxDownloadType] = useState("portable");
 
@@ -130,14 +130,7 @@ export default function DownloadPage() {
 
   const startDownload = () => {
     const platform = releaseTree[selectedPlatform.toLowerCase()];
-    let arch: string;
-    if (selectedArchitecture === "64-bit") {
-      arch = "x64";
-    } else if (selectedArchitecture === "aarch64") {
-      arch = "arm";
-    } else {
-      arch = "x32";
-    }
+    let arch: string = selectedArchitecture;
     let releaseTarget: string;
     if (selectedPlatform === "MacOS") {
       releaseTarget = platform[arch];
@@ -148,7 +141,7 @@ export default function DownloadPage() {
     }
     console.log("Downloading: ");
     console.log("platform: ", selectedPlatform);
-    console.log("arch: ", arch);
+    console.log("compat: ", arch);
     setHasDownloaded(true);
     addDownload(releaseTarget);
     window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
@@ -184,7 +177,7 @@ export default function DownloadPage() {
   }
 
   const changeToFlatpak = () => {
-    if (selectedArchitecture === "64-bit") {
+    if (selectedArchitecture === "specific") {
       setSelectedLinuxDownloadType("flatpak");
     }
   }
@@ -254,14 +247,14 @@ export default function DownloadPage() {
                 <FieldTitle>Select Architecture</FieldTitle>
                 <FieldDescription>Choose the architecture of your device, either 32-bit or 64-bit.</FieldDescription>
                 <div className="flex items-center justify-center">
-                  <div onClick={() => setSelectedArchitecture("64-bit")} className={ny("select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "64-bit" ? "border-blue-400" : "")}>
+                  <div onClick={() => setSelectedArchitecture("specific")} className={ny("select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "64-bit" ? "border-blue-400" : "")}>
                     <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">🚀</h1>
-                    <h1 className="text-2xl font-semibold my-2">64 Bits</h1>
+                    <h1 className="text-2xl font-semibold my-2">Optimized</h1>
                     <p className="text-muted-foreground mx-auto text-center">Blazing fast and compatible with modern devices</p>
                   </div>
-                  <div onClick={() => setSelectedArchitecture("32-bit")} className={ny("select-none w-full h-full mb-2 ml-10 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "32-bit" ? "border-blue-400" : "")}>
+                  <div onClick={() => setSelectedArchitecture("generic")} className={ny("select-none w-full h-full mb-2 ml-10 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "32-bit" ? "border-blue-400" : "")}>
                     <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">👴</h1>
-                    <h1 className="text-2xl font-semibold my-2">32 Bits</h1>
+                    <h1 className="text-2xl font-semibold my-2">Generic</h1>
                     <p className="text-muted-foreground mx-auto text-center">Slow but compatible with older devices.</p>
                   </div>
                 </div>
@@ -275,12 +268,12 @@ export default function DownloadPage() {
                 <FieldTitle>Download Zen for MacOS</FieldTitle>
                 <FieldDescription>Click the button below to download Zen for MacOS.</FieldDescription>
                 <div className="flex items-center justify-center">
-                  <div onClick={() => setSelectedArchitecture("aarch64")} className={ny("select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "aarch64" ? "border-blue-400" : "")}>
+                  <div onClick={() => setSelectedArchitecture("specific")} className={ny("select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "aarch64" ? "border-blue-400" : "")}>
                     <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">🍏</h1>
                     <h1 className="text-2xl font-semibold my-2">aarch64</h1>
                     <p className="text-muted-foreground mx-auto text-center">64-bit ARM architecture, for Apple's M1 or M2 chips</p>
                   </div>
-                  <div onClick={() => setSelectedArchitecture("64-bit")} className={ny("select-none w-full h-full mb-2 ml-10 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "64-bit" ? "border-blue-400" : "")}>
+                  <div onClick={() => setSelectedArchitecture("generic")} className={ny("select-none w-full h-full mb-2 ml-10 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "64-bit" ? "border-blue-400" : "")}>
                     <h1 className="text-5xl font-bold my-2 opacity-40 dark:opacity-20">x64</h1>
                     <h1 className="text-2xl font-semibold my-2">Intel</h1>
                     <p className="text-muted-foreground mx-auto text-center">64-bit Intel architecture, for older Macs</p>
