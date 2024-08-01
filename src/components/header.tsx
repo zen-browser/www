@@ -1,83 +1,103 @@
+'use client'
 
-import { ny } from "@/lib/utils";
-import AnimatedGradientText from "./ui/animated-gradient-text";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import WordPullUp from "./ui/word-pull-up";
-import ShinyButton from "./ui/shiny-button";
-import GridPattern from "./ui/grid-pattern";
-import BlurIn from "./ui/blur-in";
-import { FadeText } from "./ui/fade-text";
-import styled, { keyframes } from "styled-components";
+import { ArrowRightIcon } from '@radix-ui/react-icons'
+import { useInView } from 'framer-motion'
+import { useRef } from 'react'
+import AnimatedGradientText from './ui/animated-gradient-text'
+import { Button } from './ui/button'
+import { BorderBeam } from './ui/border-beam'
+import { ny } from '@/lib/utils'
+import { ChevronRight } from 'lucide-react'
+import Particles from './ui/particles'
 
-const HeaderElement = styled.div`
-  background: light-dark(white, rgba(0, 0, 0, 0.5));
-`;
 
 export default function Header() {
-  return (
+   const ref = useRef(null)
+   const inView = useInView(ref, { once: true, margin: '-100px' })
+   return (
     <>
-      <div className="absolute top-3/4 z-10">
-        <img src="/browser-dark.png" className={ny('hidden dark:block mx-auto shadow-sm border mt-24 z-0 w-4/5 rounded-xl overflow-hidden')} />
-        <img src="/browser-light.png" className={ny('dark:hidden mx-auto shadow-sm border mt-24 z-0 w-4/5 rounded-xl overflow-hidden')} />
-      </div>
-      <HeaderElement className="w-full relative flex h-screen justify-center flex-col align-center border-b">
-        <GridPattern  
-          numSquares={30}
-          maxOpacity={0.5}
-          height={50}
-          width={50}
-          duration={3}
-          repeatDelay={1}
-          x={-1}
-          y={-1}
-          strokeDasharray="4 2"
-          className={ny(
-              '[mask-image:radial-gradient(350px_circle_at_center,white,transparent)]',
-              'w-full z-0',
-          )}
-        />
-        <div className="z-10 flex mb-10 items-center justify-center">
-          <a href="/download">
-          <AnimatedGradientText>
-              🎉
-              {' '}
-              <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />
-              {' '}
-              <span
-                className={ny(
-              `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
-                )}
-              >
-                Introducing Zen Alpha
-              </span>
-              <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
-          </AnimatedGradientText>
+      <section
+         id="hero"
+         className="relative mx-auto mt-40 max-w-7xl px-6 text-center md:px-8"
+      >
+         <a href="/download">
+            <AnimatedGradientText>
+                🎉
+                {' '}
+                <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />
+                {' '}
+                <span
+                  className={ny(
+                `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`,
+                  )}
+                >
+                  Introducing Zen Alpha
+                </span>
+                <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+            </AnimatedGradientText>
           </a>
-        </div>
-        <WordPullUp
-          className="text-3xl font-bold tracking-[-0.02em] text-black dark:text-white md:text-7xl md:leading-[5rem]"
-          words="Make It Yours"
-        />
-        <BlurIn
-          word="Firefox based browser with a focus on privacy and customization."
-          className="!text-xl text-muted-foreground !font-medium"
-        />
-        <div className="max-w-1/4 mt-10 flex items-center justify-center">
-          <a href="/release-notes" className="mr-5">
-            <FadeText
-                className="text-md font-medium text-black dark:text-white"
-                direction="up"
-                framerProps={{
-                  show: { transition: { delay: 0.2 } },
-                }}
-                text="Release Notes"
-            />
-          </a>
-          <a href="/download">
-            <ShinyButton text="Download now" />
-          </a>
-        </div>
-      </HeaderElement>
+         <h1 className="animate-fade-in -translate-y-4 text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-semibold leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] sm:text-6xl md:text-7xl lg:text-8xl dark:from-white dark:to-white/40">
+            Zen is the best way
+            <br className="hidden md:block" />
+            {' '}
+            to browse the web.
+         </h1>
+         <p className="animate-fade-in mb-12 -translate-y-4 text-balance text-lg tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-xl">
+            Beautifully designed, privacy-focused, and packed with features.
+            <br className="hidden md:block" />
+            {' '}
+            We care about your experience, not your data.
+         </p>
+         <Button className="animate-fade-in -translate-y-4 gap-1 rounded-lg text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black" onClick={() => window.location.href = '/download'}>
+            <span>Download Zen Now </span>
+            <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+         </Button>
+         <div
+            ref={ref}
+            className="animate-fade-up relative mt-32 opacity-0 [--animation-delay:400ms] [perspective:2000px] after:absolute after:inset-0 after:z-50 after:[background:linear-gradient(to_top,hsl(var(--background))_30%,transparent)]"
+         >
+            <div
+               className={`rounded-xl border border-white/10 bg-white bg-opacity-[0.01] before:absolute before:bottom-1/2 before:left-0 before:top-0 before:size-full before:opacity-0 before:[background-image:linear-gradient(to_bottom,var(--color-one),var(--color-one),transparent_40%)] before:[filter:blur(180px)] ${
+            inView ? 'before:animate-image-glow' : ''
+          }`}
+            >
+               <BorderBeam
+                  size={200}
+                  duration={12}
+                  delay={11}
+                  colorFrom="var(--color-one)"
+                  colorTo="var(--color-two)"
+               />
+
+               <img
+                  src="/browser-dark.png"
+                  alt="browser Image"
+                  className="relative hidden size-full rounded-[inherit] border object-contain dark:block"
+               />
+               <img
+                  src="/browser-light.png"
+                  alt="browser Image"
+                  className="relative block size-full rounded-[inherit]  border object-contain dark:hidden"
+               />
+            </div>
+         </div>
+      </section>
+      <Particles
+        className="absolute inset-0 -z-10 hidden dark:block"
+        quantity={50}
+        ease={70}
+        size={0.05}
+        staticity={40}
+        color="#ffffff"
+      />
+      <Particles
+        className="absolute inset-0 -z-10 block dark:hidden"
+        quantity={50}
+        ease={70}
+        size={0.05}
+        staticity={40}
+        color="#000000"
+      />
     </>
-  )
+   )
 }

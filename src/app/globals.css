@@ -1,9 +1,9 @@
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
-  @layer base {
-    :root {
+@layer base {
+   :root {
       --background: 0 0% 100%;
       --foreground: 0 0% 3.9%;
 
@@ -33,10 +33,23 @@
       --ring: 0 0% 3.9%;
 
       --radius: 0.5rem;
-    }
 
-    .dark {
-      --background: 0 0% 3.9%;
+      /* Custom properties */
+      --navigation-height: 3.5rem;
+      --color-one: #ffbd7a;
+
+      --color-two: #fe8bbb;
+      --color-three: #9e7aff;
+
+      /*
+    --color-one: #37ecba;
+    --color-two: #72afd3;
+    --color-three: #ff2e63;
+     */
+   }
+
+   .dark {
+      --background: 0 0% 0%;
       --foreground: 0 0% 98%;
 
       --card: 0 0% 3.9%;
@@ -63,14 +76,15 @@
       --border: 0 0% 14.9%;
       --input: 0 0% 14.9%;
       --ring: 0 0% 83.1%;
-    }
-  }
+      --color-one: #6aa8e2;
+   }
+}
 
-  @layer base {
-    * {
+@layer base {
+   * {
       @apply border-border;
-    }
-    body {
+   }
+   body {
       @apply bg-background text-foreground;
-    }
-  }
+   }
+}
