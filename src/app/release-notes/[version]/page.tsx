@@ -6,11 +6,15 @@ import ReleaseNote from '@/components/release-note';
 import { Button } from '@/components/ui/button';
 import { releaseNotes } from '@/lib/release-notes';
 import Link from 'next/link';
-import { useParams } from 'next/navigation'
+import { redirect, useParams } from 'next/navigation'
 
 export default function ReleaseNotePage() {
   const params = useParams<{ version: string }>()
   const { version } = params;
+
+  if (version === 'latest') {
+    return redirect(`/release-notes/${releaseNotes[0].version}`);
+  }
 
   const releaseNote = releaseNotes.find((note) => note.version === version);
   if (!releaseNote) {
