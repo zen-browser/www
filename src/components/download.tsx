@@ -64,7 +64,6 @@ const field_exit = keyframes`
 `;
 
 const FormField = styled.div<{ enter: boolean, out: boolean }>`
-  overflow: hidden;
   max-height: 0;
   flex-direction: column;
   margin-top: 3rem;
