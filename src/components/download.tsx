@@ -325,7 +325,7 @@ export default function DownloadPage() {
                     <p className="text-muted-foreground mx-auto text-center">Download Zen as a ZIP file</p>
                   </div>
                   <div onClick={() => changeToFlatpak()} className={ny("select-none w-full h-full mb-2 ml-5 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedLinuxDownloadType === "flatpak" ? "border-blue-400" : "",
-                    selectedArchitecture === "32-bit" ? "opacity-50 cursor-not-allowed" : "")}>
+                    selectedArchitecture === "generic" ? "opacity-50 cursor-not-allowed" : "")}>
                     <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">🧑‍💻</h1>
                     <h1 className="text-2xl font-semibold my-2">Flatpak</h1>
                     <p className="text-muted-foreground mx-auto text-center">
