@@ -352,7 +352,7 @@ export default function DownloadPage() {
       </div>
       <Particles
         className="absolute inset-0 -z-10 hidden dark:block"
-        quantity={30}
+        quantity={50}
         ease={70}
         size={0.05}
         staticity={70}
