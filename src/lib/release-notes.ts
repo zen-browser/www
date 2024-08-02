@@ -281,6 +281,54 @@ export const releaseNotes: ReleaseNote[] = [
       "Changed the ID for flatpak to io.github.zen_browser.zen",
     ]
   },
+  {
+    version: "1.0.0-a.11",
+    date: "02/08/2024",
+    extra: "This release is the eleventh alpha release of the 1.0.0-alpha series.\n\nWe skipped some releases because we were working on some big features and improvements. This release includes some big performance improvements and support for other platforms.\n\nHopefuly things will get a bit more stable from now on.",
+    features: [
+      "Added support for Windows Generic CPUs.",
+      "Added support for Linux Generic CPUs.",
+      "Added support for macOS x86_64 CPUs.",
+      "Added support for macOS arm64 CPUs.",
+      "Allow the user to change the sidebar's max width.",
+      "Started to work on a new onboarding experience.",
+      "Support for AppImage. Both specific and generic.",
+      "New icons for MacOS and Windows/Linux (Different icons for each OS).",
+      "Added a floating URL bar option.",
+      "Added option to hide the toolbar as well in compact view.",
+      "Move security button to the right of the URL bar.",
+      "Added introduction for side web panels.",
+      "Drastically improved the performance of the browser.",
+    ],
+    fixes: [
+      {
+        description: "Fixed the browser crashing when updating on MacOS.",
+        issue: 84,
+      },
+      {
+        description: "Fixed 'Couldn't load XPCOM' error on some windows installations.",
+        issue: 107
+      },
+      {
+        description: "Fixed the browser crashing when updating on Linux.",
+      },
+      {
+        description: "Fixed pinned tabs not being properly aligned.",
+        issue: 110
+      },
+      {
+        description: "Remove padding around close button on Windows.",
+        issue: 134
+      },
+      {
+        description: "Fixed a part of the tab list and the corner border is showing/clipping in Fullscreen",
+        issue: 124
+      },
+    ],
+    breakingChanges: [
+      "Changed the ID for AppImage to io.github.zen_browser.zen",
+    ]
+  }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
