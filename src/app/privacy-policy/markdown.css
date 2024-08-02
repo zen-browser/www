@@ -1,0 +1,33 @@
+
+#policy h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+  font-weight: bold;
+}
+
+#policy h2 {
+  font-size: 1.5em;
+  margin: 0.83em 0;
+  font-weight: bold;
+}
+
+#policy h3 {
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+
+#policy ul {
+  margin: 1em;
+}
+
+#policy li {
+  list-style: circle;
+}
+
+#policy a {
+  color: #007bff;
+}
+
+#policy hr {
+  margin: 2em 0;
+}
