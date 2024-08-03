@@ -1,18 +1,18 @@
 export const releases: any = {
     WindowsInstaller: "zen.installer.exe",
-    WindowsInstallerGeneric: "zen.installer.exe",
+    WindowsInstallerGeneric: "zen.installer-generic.exe",
     
-    WindowsZip: "zen.win64.zip",
-    WindowsZipGeneric: "zen.win64.zip",
+    WindowsZip: "zen.win-specific.zip",
+    WindowsZipGeneric: "zen.win-generic.zip",
 
-    MacOS: "zen.macos.dmg",
-    MacOSIntel: "zen.macos.dmg",
+    MacOS: "zen.macos-aarch64.dmg",
+    MacOSIntel: "zen.macos-x64.dmg",
 
-    Linux: "zen.linux.tar.bz2",
-    LinuxGeneric: "zen.linux.tar.bz2",
+    Linux: "zen.linux-specific.tar.bz2",
+    LinuxGeneric: "zen.linux-generic.tar.bz2",
 
-    LinuxAppImage: "zen.AppImage",
-    LinuxAppImageGeneric: "zen.AppImage",
+    LinuxAppImage: "zen-specific.AppImage",
+    LinuxAppImageGeneric: "zen-generic.AppImage",
 };
 
 // platform

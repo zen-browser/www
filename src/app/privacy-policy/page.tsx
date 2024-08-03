@@ -43,6 +43,7 @@ Any customizations, settings, and preferences you make within Zen Browser are st
 Zen Browser offers a "Sync" feature, similar to Firefox Sync, which allows you to synchronize your browsing data (such as bookmarks, passwords, and settings) across multiple devices. Here's how we handle your data when you use Sync:
 
 * Please check [Firefox Privacy Notice](https://www.mozilla.org/en-US/privacy/) for more information.
+* [This is how we store your passwords](https://support.mozilla.org/en-US/kb/how-firefox-securely-saves-passwords#:~:text=Firefox%20Desktop%20encrypts%20your%20passwords,cryptography%20to%20obscure%20your%20passwords.)
 
 # 4. Data Security
 Although Zen Browser does not collect your data, we are committed to protecting the information that is stored locally on your device and, if you use the Sync feature, the encrypted data stored on our servers. We recommend that you use secure passwords, enable device encryption, and regularly update your software to ensure your data remains safe. 
