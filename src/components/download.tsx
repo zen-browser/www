@@ -128,22 +128,27 @@ export default function DownloadPage() {
   }
 
   const startDownload = () => {
-    const platform = releaseTree[selectedPlatform.toLowerCase()];
-    let arch: string = selectedArchitecture;
     let releaseTarget: string;
-    if (selectedPlatform === "MacOS") {
-      releaseTarget = platform[arch];
+    if (selectedLinuxDownloadType === "flatpak") {
+      window.open("https://flathub.org/apps/io.github.zen_browser.zen", "_blank");
+      releaseTarget = "flatpak";
     } else {
-      releaseTarget = platform[arch][selectedPlatform === "Windows" 
-        ? selectedWindowsDownloadType as string
-        : selectedLinuxDownloadType as string];
+      const platform = releaseTree[selectedPlatform.toLowerCase()];
+      let arch: string = selectedArchitecture;
+      if (selectedPlatform === "MacOS") {
+        releaseTarget = platform[arch];
+      } else {
+        releaseTarget = platform[arch][selectedPlatform === "Windows" 
+          ? selectedWindowsDownloadType as string
+          : selectedLinuxDownloadType as string];
+      }
+      console.log("Downloading: ");
+      console.log("platform: ", selectedPlatform);
+      console.log("compat: ", arch);
+      window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
     }
-    console.log("Downloading: ");
-    console.log("platform: ", selectedPlatform);
-    console.log("compat: ", arch);
     setHasDownloaded(true);
     addDownload(releaseTarget);
-    window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
     throwConfetti();
   };
 
