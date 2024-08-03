@@ -131,7 +131,7 @@ export default function DownloadPage() {
   const startDownload = () => {
     let releaseTarget: string;
     if (selectedLinuxDownloadType === "flatpak") {
-      window.open("https://flathub.org/apps/io.github.zen_browser.zen", "_blank");
+      window.open("https://dl.flathub.org/repo/appstream/io.github.zen_browser.zen.flatpakref");
       releaseTarget = "flatpak";
     } else {
       const platform = releaseTree[selectedPlatform.toLowerCase()];
