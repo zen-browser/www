@@ -10,6 +10,7 @@ import { Button } from "./ui/button";
 import Particles from "./ui/particles";
 import confetti from 'canvas-confetti';
 import { releases, releaseTree } from "@/lib/releases";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 const BASE_URL = "https://github.com/zen-browser/desktop/releases/latest/download";
 
@@ -351,6 +352,12 @@ export default function DownloadPage() {
               }>
                 {((flowIndex === 1 && platform === "MacOS") || flowIndex === 2) ? "Download 🥳" : "Continue"} 
               </Button>
+            </div>
+          )}
+          {((platform === "Linux" || platform === "Windows") && flowIndex === 1) && (
+            <div className="mt-5 flex items-center">
+              <InfoCircledIcon className="size-4 mr-2" />
+              <p className="text-muted-foreground">Confused about which architecture to choose? <a href="https://github.com/zen-browser/desktop/blob/main/docs/requirements.md#supported-cpus-for-optimized-builds-windows-and-linux" target="_blank" className="text-blue-400">System requirements</a>.</p>
             </div>
           )}
         </div>
