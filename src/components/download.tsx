@@ -250,7 +250,7 @@ export default function DownloadPage() {
                 out={platform !== "Windows" && platform !== "Linux" && flowIndex >= 1}
               >
                 <FieldTitle>Select Architecture</FieldTitle>
-                <FieldDescription>Choose the architecture of your device, either 32-bit or 64-bit.</FieldDescription>
+                <FieldDescription>Choose the architecture of your device, either optimized or generic.</FieldDescription>
                 <div className="flex items-center justify-center">
                   <div onClick={() => setSelectedArchitecture("specific")} className={ny("select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "specific" ? "border-blue-400" : "")}>
                     <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">🚀</h1>
@@ -357,7 +357,7 @@ export default function DownloadPage() {
           {((platform === "Linux" || platform === "Windows") && flowIndex === 1) && (
             <div className="mt-5 flex items-center">
               <InfoCircledIcon className="size-4 mr-2" />
-              <p className="text-muted-foreground">Confused about which architecture to choose? <a href="https://github.com/zen-browser/desktop/blob/main/docs/requirements.md#supported-cpus-for-optimized-builds-windows-and-linux" target="_blank" className="text-blue-400">System requirements</a>.</p>
+              <p className="text-muted-foreground">Confused about which build to choose? <a href="https://github.com/zen-browser/desktop/blob/main/docs/requirements.md#supported-cpus-for-optimized-builds-windows-and-linux" target="_blank" className="text-blue-400">System requirements</a>.</p>
             </div>
           )}
         </div>
