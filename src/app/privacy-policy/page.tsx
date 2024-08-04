@@ -74,8 +74,8 @@ We try to disable all telemetry data collection in Zen Browser. But, we may have
 # 9. Contact Us
 If you have any questions or concerns about this Privacy Policy or Zen Browser, please contact us at:
 
-* Discord: [Zen Browser](https://discord.gg/nnShMQzR4b)
-* GitHub: [Zen Browser](https://github.com/zen-browser)
+* Discord: [Zen Browser's Discord](https://discord.gg/nnShMQzR4b)
+* GitHub: [Organization](https://github.com/zen-browser)
 
 ---
 
