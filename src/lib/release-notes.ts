@@ -328,7 +328,52 @@ export const releaseNotes: ReleaseNote[] = [
     breakingChanges: [
       "Changed the ID for AppImage to io.github.zen_browser.zen",
     ]
-  }
+  },
+  {
+    version: "1.0.0-a.12",
+    date: "04/08/2024",
+    extra: "This release is the twelfth alpha release of the 1.0.0-alpha series.\n\nThis release includes some nice features and improvements. The main focus of this release was to improve some small details and improve stability.",
+    features: [
+      "Added support for the vertical tabs to remember their width.",
+      "Added support for disallowing the sidebar web panels to closed when clicked outside and floating (Settings).",
+      "Added support for the sidebar web panels to remember their width and if they are floating.",
+      "Allow installing unsigned extensions.",
+      "Imrpoved onboarding experience.",
+      "New compact mode design, it's much better now.",
+      "Reduced CPU requirements for MacOS Intel CPUs.",
+      "Reduced blur for floating URL bar.",
+      "Allow the sidebar to be wider, customisable in about:config.",
+    ],
+    fixes: [
+      {
+        description: "Task Manager Icon Missing in Flatpak Version",
+        issue: 146,
+      },
+      {
+        description: "Clicking \"Next\" on \"Choose your search engine\" intro page does nothing",
+        issue: 145,
+      },
+      {
+        description: "Crash Report on Intel Mac running Monterey 12.7",
+        issue: 144,
+      },
+      {
+        description: "Fixed pinned tabs not being properly aligned.",
+      },
+      {
+        description: "\"Delete Web Panel\" closes the sidebar",
+        issue: 143,
+      },
+      {
+        description: "Disallow remove workspace deletion for default workspace",
+        issue: 136,
+      },
+      {
+        description: "Fixed small sidebar display bug",
+        issue: 125,
+      },
+    ],
+  },
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
