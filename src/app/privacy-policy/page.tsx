@@ -42,7 +42,6 @@ Any customizations, settings, and preferences you make within Zen Browser are st
 # 3. Sync Feature
 Zen Browser offers a "Sync" feature, similar to Firefox Sync, which allows you to synchronize your browsing data (such as bookmarks, passwords, and settings) across multiple devices. Here's how we handle your data when you use Sync:
 
-* Please check [Firefox Privacy Notice](https://www.mozilla.org/en-US/privacy/) for more information.
 * [This is how we store your passwords](https://support.mozilla.org/en-US/kb/how-firefox-securely-saves-passwords#:~:text=Firefox%20Desktop%20encrypts%20your%20passwords,cryptography%20to%20obscure%20your%20passwords.)
 
 # 4. Data Security
@@ -57,10 +56,22 @@ You have full control over all data stored locally on your device by Zen Browser
 ## 5.2. Do Not Track
 Zen Browser automatically honors "Do Not Track" requests by default. We ensure that no tracking of your activity occurs, in compliance with this setting.
 
-# 6. Changes to This Privacy Policy
+# 6. Websites and Services
+
+Zen Browser may contain links to external websites or services that are not owned or operated by us. We are not responsible for the content or privacy practices of these sites. We recommend that you review the privacy policies of these sites before providing them with any personal information.
+
+When you click on the "Download" button, a number in the database is incremented to track the number of downloads. This is done to understand the popularity of the browser and improve the user experience. But no personal data is collected.
+
+# 7. Changes to This Privacy Policy
 We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any significant changes by updating the effective date at the top of this policy. Continued use of Zen Browser after such changes constitutes your acceptance of the new terms.
 
-# 7. Contact Us
+# 8. Other telemetry done by Mozilla Firefox
+
+We try to disable all telemetry data collection in Zen Browser. But, we may have missed some. Check the below links for more information.
+
+* Please check [Firefox Privacy Notice](https://www.mozilla.org/en-US/privacy/) for more information.
+
+# 9. Contact Us
 If you have any questions or concerns about this Privacy Policy or Zen Browser, please contact us at:
 
 * Discord: [Zen Browser](https://discord.gg/nnShMQzR4b)
