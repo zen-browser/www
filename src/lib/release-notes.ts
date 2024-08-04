@@ -374,6 +374,34 @@ export const releaseNotes: ReleaseNote[] = [
       },
     ],
   },
+  {
+    version: "1.0.0-a.13",
+    date: "05/08/2024",
+    extra: "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
+    features: [
+      "Allow to remember sidebar width even after collapsing it.",
+    ],
+    fixes: [
+      {
+        description: "Task Manager Icon Missing in Flatpak Version",
+        issue: 146,
+      },
+      {
+        description: "Condensed Vertical Tabs not working in Compact Mode",
+        issue: 160,
+      },
+      {
+        description: "Remember sidebar width on toggle",
+        issue: 149,
+      },
+      {
+        description: "Fixed startup issue with AppImage",
+      },
+      {
+        description: "Fixed typos on the onboarding experience.",
+      },
+    ],
+  },
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {

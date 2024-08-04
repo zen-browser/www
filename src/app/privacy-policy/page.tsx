@@ -20,6 +20,8 @@ Welcome to Zen Browser! Your privacy is our priority. This Privacy Policy outlin
 ## 1. Information We Do Not Collect
 Zen Browser is designed with privacy in mind. We do not collect, store, or share any of your personal data. Here’s what that means:
 
+* Crash reports can be sent to Mozilla Firefox. But, we do not collect any crash reports. Crash reports are sent securely to Mozilla Firefox to help improve the stability of the browser. They do not contain any personal information.
+
 ## 1.1. No Telemetry
 We do not collect any telemetry data. Unlike other browsers that may track usage statistics or crash reports, Zen Browser does not gather any such information.
 
@@ -40,8 +42,9 @@ Zen Browser stores certain data locally on your device to enhance your browsing 
 Any customizations, settings, and preferences you make within Zen Browser are stored locally on your device. We do not have access to or control over this data.
 
 # 3. Sync Feature
-Zen Browser offers a "Sync" feature, similar to Firefox Sync, which allows you to synchronize your browsing data (such as bookmarks, passwords, and settings) across multiple devices. Here's how we handle your data when you use Sync:
+Zen Browser offers a "Sync" feature, this is implemented using Mozilla Firefox's Sync feature. This feature allows you to synchronize your bookmarks, history, passwords, and other data across multiple devices. Here’s how it works:
 
+* [Mozilla Firefox Sync](https://www.mozilla.org/en-US/privacy/mozilla-accounts/)
 * [This is how we store your passwords](https://support.mozilla.org/en-US/kb/how-firefox-securely-saves-passwords#:~:text=Firefox%20Desktop%20encrypts%20your%20passwords,cryptography%20to%20obscure%20your%20passwords.)
 
 # 4. Data Security
@@ -69,6 +72,8 @@ We may update this Privacy Policy from time to time to reflect changes in our pr
 
 We try to disable all telemetry data collection in Zen Browser. But, we may have missed some. Check the below links for more information.
 
+You can also optionally enable telemetry data collection and other Mozilla Research Studies in Zen Browser. This is disabled by default. You can enable it by going to the settings page.
+
 * Please check [Firefox Privacy Notice](https://www.mozilla.org/en-US/privacy/) for more information.
 
 # 9. Contact Us
@@ -79,9 +84,7 @@ If you have any questions or concerns about this Privacy Policy or Zen Browser, 
 
 ---
 
-By using Zen Browser, you agree to this Privacy Policy. Remember, with Zen, your privacy is in your hands.
-
-`}
+By using Zen Browser, you agree to this Privacy Policy. Remember, with Zen, your privacy is in your hands.`}
         </Markdown>
       </div>
       <Footer />  
