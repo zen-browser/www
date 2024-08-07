@@ -402,6 +402,27 @@ export const releaseNotes: ReleaseNote[] = [
       },
     ],
   },
+  {
+    version: "1.0.0-a.15",
+    date: "07/08/2024",
+    extra: "This release is the fifteenth alpha release of the 1.0.0-alpha series.\n\nI've skipped version 1.0.0-a.14 because of the quality of the release, it was not good enough to be released.\n\nThis release includes some bug fixes and improvements.\n\nThanks everyone for the feedback! It may look like a small release but it includes some important fixes and improvements.",
+    features: [
+      "Added support for the latest version of Firefox (129.0).",
+      "Reworked on split views.",
+      "Improved the performance of the browser.",
+      "Allow the sidebar to be at the right side of the browser.",
+    ],
+    fixes: [
+      {
+        description: "Blank space when closing tabs",
+        issue: 181,
+      },
+      {
+        description: "Tab bar: misaligned icons and hover background",
+        issue: 180,
+      },
+    ],
+  }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
