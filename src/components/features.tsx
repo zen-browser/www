@@ -4,104 +4,98 @@ import Feature, { FeatureCard } from "./feature";
 import { Button } from "./ui/button";
 import TextReveal from "./ui/text-reveal";
 import styled, { css, keyframes } from "styled-components";
-import BlurFade from "./ui/blur-fade";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from './ui/table';
+import { CheckIcon, XIcon } from "lucide-react";
+import { QuestionMarkIcon } from "@radix-ui/react-icons";
 
-const profileColors = [
-  "#e8cd7d",
-  "#C2E3B7",
-  "#EEDBF9",
-];
+function Checkmark() {
+  return <CheckIcon className="mx-auto text-black mx-auto rounded-full bg-green-500 dark:bg-green-400 p-1 w-7 h-7" />
+}
 
-const enterAnimation = keyframes`
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-    left: 100%;
-  }
+function Cross() {
+  return <XIcon className="mx-auto text-black mx-auto rounded-full bg-red-500 dark:bg-red-400 p-1 w-7 h-7" />
+}
 
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    left: 50%;
-  }
-`;
-
-const exitAnimation = keyframes`
-  from {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-    left: 50%;
-  }
-
-  to {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.5);
-    left: 0;
-  }
-`;
-
-const ProfileImage = styled.img<{ enter: boolean }>`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 75%;
-  animation: ${({ enter }: any) => enter ? css`${enterAnimation} 0.5s` : css`${exitAnimation} 0.5s`} forwards;
-`;
+function Question() {
+  return <QuestionMarkIcon className="mx-auto text-black mx-auto rounded-full bg-yellow-500 dark:bg-yellow-400 p-1 w-7 h-7" />
+}
 
 export default function Features() {
-  const [currentProfileColor, setCurrentProfileColor] = useState(profileColors[0]);
-  const [profile1Enter, setProfile1Enter] = useState(false);
-  const [profile2Enter, setProfile2Enter] = useState(false);
-  const [profile3Enter, setProfile3Enter] = useState(false);
-
-  useEffect(() => {
-    let currentProfile = 0;
-    setProfile1Enter(true);
-    setCurrentProfileColor(profileColors[currentProfile]);
-    
-    const profiles = document.querySelectorAll("#profile-1, #profile-2, #profile-3");
-    setInterval(() => {
-      currentProfile = (currentProfile + 1) % profiles.length;
-      setProfile1Enter(currentProfile === 0);
-      setProfile2Enter(currentProfile === 1);
-      setProfile3Enter(currentProfile === 2);
-      setCurrentProfileColor(profileColors[currentProfile]);
-    }, 2500);
-  }, []);
   return (
     <div>
       {/*<TextReveal text="Zen will change the way you browse the web. 🌟" />*/}
-      <BlurFade delay={0.35} inView>
-        <Feature 
-          title="Split Views" 
-          description="View multiple tabs at once. Divide your screen into multiple views and browse multiple websites at the same time."
-          color="#EEDBF9">
-          <img src="/split-view.png" alt="Split Views" className="w-64 h-64 absolute left-1/2 top-1/2" style={{
-            transform: "translate(-50%, -50%)"
-          }} />
-        </Feature>
-      </BlurFade>
-      <BlurFade delay={0.35} inView>
-        <Feature 
-          title="Sidebar" 
-          description="Access websites with ease. The sidebar allows you to quickly access your favorite websites without disrupting your browsing experience."
-          color="#F5ED97">
-          <img src="/sidebar.png" alt="Split Views" className="absolute left-1/2 top-1/2 w-4/5 rounded-lg overflow-hidden" style={{
-            transform: "translate(-50%, -50%)"
-          }} />
-        </Feature>
-      </BlurFade>
-      <BlurFade delay={0.35} inView>
-        <Feature 
-          title="Profiles"
-          description="Switch between profiles with ease. Create multiple profiles to keep your work and personal browsing separate."
-          color={currentProfileColor}>
-          <ProfileImage enter={profile1Enter} src="/profile-1.png" alt="Profiles" id="profile-1" className="absolute left-1/2 w-3/4 top-1/2" />
-          <ProfileImage enter={profile2Enter} src="/profile-2.png" alt="Profiles" id="profile-2" className="absolute left-1/2 w-3/4 top-1/2" />
-          <ProfileImage enter={profile3Enter} src="/profile-3.png" alt="Profiles" id="profile-3" className="absolute left-1/2 w-3/4 top-1/2" />
-        </Feature>
-      </BlurFade>
+      <div className="flex flex-col lg:flex-row w-full p-5 lg:p-0">
+        <div className="w-full ml-4">
+          <div className="bg-pink-300 p-5 border-2 rounded-lg mb-2"></div>
+          <div className="bg-blue-300 p-5 border-2 rounded-lg mb-2"></div>
+        </div>
+        <div className="w-full mr-4 mt-4">
+          <div className="bg-yellow-300 border-2 p-5 rounded-lg mb-2"></div>
+          <div className="bg-green-300 border-2 p-5 rounded-lg mb-2"></div>
+        </div>
+      </div>
+      <div className="flex relative flex-col items-start justify-start w-full bg-background p-12 rounded-lg border-2 md:shadow-xl">
+        <h3 className="text-lg font-bold text-center">Packed with features</h3>
+        <div className="w-full p-16">
+        <Table>
+          <TableHeader>
+            <TableRow className="!border-none">
+              <TableHead className="py-2 text-2xl absolute font-bold text-black dark:text-white">How Zen differs from other browsers</TableHead>
+              <TableHead className="py-2 font-bold text-center"><img src="/favicon.ico" className="bg-black dark:bg-white rounded-md mx-auto mb-2 w-8 h-8" />Zen</TableHead>
+              <TableHead className="py-2 pl-4 pr-0 font-bold text-center opacity-60"><img src="/floorp.png" className="bg-black dark:bg-white rounded-md p-1 mx-auto mb-2 w-7 h-7" />Floorp</TableHead>
+              <TableHead className="py-2 pl-0 font-bold text-center opacity-60"><img src="/librewolf.png" className="bg-black dark:bg-white rounded-md mx-auto p-1 mb-2 w-7 h-7" />LibreWolf</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell className="py-3 font-medium">Contain fine-grained security measures like sandboxing</TableCell>
+              <TableCell className="py-3"><Checkmark /></TableCell>
+              <TableCell className="py-3 pl-4 pr-0"><Cross /></TableCell>
+              <TableCell className="py-3"><Checkmark /></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="py-3 font-medium">Optimized for peak performance</TableCell>
+              <TableCell className="py-3"><Checkmark /></TableCell>
+              <TableCell className="py-3 pl-4 pr-0"><Cross /></TableCell>
+              <TableCell className="py-3"><Cross /></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="py-3 font-medium">Customizable with cutting-edge features</TableCell>
+              <TableCell className="py-3"><Checkmark /></TableCell>
+              <TableCell className="py-3 pl-4 pr-0"><Checkmark /></TableCell>
+              <TableCell className="py-3"><Cross /></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="py-3 font-medium">Based on the latest version of Firefox</TableCell>
+              <TableCell className="py-3"><Checkmark /></TableCell>
+              <TableCell className="py-3 pl-4 pr-0"><Cross /></TableCell>
+              <TableCell className="py-3"><Cross /></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="py-3 font-medium">Updated regularly with new features and latest security patches</TableCell>
+              <TableCell className="py-3"><Checkmark /></TableCell>
+              <TableCell className="py-3 pl-4 pr-0"><Question /></TableCell>
+              <TableCell className="py-3"><Cross /></TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="py-3 font-medium">Open-source</TableCell>
+              <TableCell className="py-3"><Checkmark /></TableCell>
+              <TableCell className="py-3 pl-4 pr-0"><Checkmark /></TableCell>
+              <TableCell className="py-3"><Checkmark /></TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+        </div>
+      </div>
       <div className="my-40 w-full flex items-center justify-center flex-col">
         <h1 className="text-5xl text-center font-bold w-1/2">Want more?</h1>
         <p className="text-muted-foreground text-center mt-3 w-1/2">Zen Browser is packed with features that will change the way you browse the web. Download it today and experience a new way to browse the web.</p>
