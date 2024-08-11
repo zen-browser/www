@@ -17,6 +17,7 @@ import {
 import { CheckIcon, XIcon } from "lucide-react";
 import { QuestionMarkIcon } from "@radix-ui/react-icons";
 import ShineBorder from "./ui/shine-border";
+import SparklesText from "./ui/sparkles-text";
 
 function Checkmark() {
   return <CheckIcon className="mx-auto text-black mx-auto rounded-full bg-green-500 dark:bg-green-400 p-1 w-7 h-7" />
@@ -34,6 +35,8 @@ export default function Features() {
   return (
     <div>
       {/*<TextReveal text="Zen will change the way you browse the web. 🌟" />*/}
+      <h1 className="text-5xl font-bold mt-20 text-center flex justify-center items-center mb-2">What does Zen offer <SparklesText className="mx-2" text="YOU" />?</h1>
+      <p className="text-muted-foreground text-center mb-24">Zen Browser is packed with features that will change the way you browse the web. Here are<br/> some of the features that Zen offers.</p>
       <div className="flex flex-col lg:flex-row w-full mt-4 p-5 lg:p-0">
         <div className="w-full flex mx-auto lg:mx-0 flex-col lg:mb-24 lg:ml-4 lg:mt-24">
           <div className="bg-background relative mx-auto lg:mx-0 flex flex-col max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
