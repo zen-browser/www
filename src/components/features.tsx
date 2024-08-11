@@ -35,13 +35,13 @@ export default function Features() {
     <div>
       {/*<TextReveal text="Zen will change the way you browse the web. 🌟" />*/}
       <div className="flex flex-col lg:flex-row w-full mt-4 p-5 lg:p-0">
-        <div className="w-full flex flex-col lg:mb-24 lg:ml-4 lg:mt-24">
+        <div className="w-full flex mx-auto lg:mx-0 flex-col lg:mb-24 lg:ml-4 lg:mt-24">
           <div className="bg-background relative flex flex-col max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
             <h1 className="text-5xl font-bold">Split views</h1>
             <p className="text-muted-foreground mt-3">Split your browser into multiple views to browse multiple websites at once.</p>
             <img src="/split-view.png" className="mt-8 w-full h-full" />
           </div>
-          <div className="bg-background relative flex flex-col mt-8 max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
+          <div className="bg-background mx-auto lg:mx-0 relative flex flex-col mt-8 max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
             <h1 className="text-5xl font-bold">Workspaces</h1>
             <p className="text-muted-foreground mt-3">Create workspaces to keep your tabs organized and your browsing experience clutter-free.</p>
             <img src="/workspaces.png" className="mt-8 w-full h-full" />
