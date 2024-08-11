@@ -422,7 +422,47 @@ export const releaseNotes: ReleaseNote[] = [
         issue: 180,
       },
     ],
-  }
+  },
+  {
+    version: "1.0.0-a.17",
+    date: "11/08/2024",
+    extra: "This release is the seventeenth alpha release of the 1.0.0-alpha series.\n\nThis release includes some bug fixes and improvements.\n\nThanks everyone for the feedback! We've skipped version 1.0.0-a.16 because of the size of the releases. One more step closer to the first stable release!",
+    features: [
+      "Added support for default keyboard shortcuts.",
+      "Added JavaScript Bytecode Cache.",
+      "Added shortcuts for split views.",
+      "Updated UserAgent for website panels (Mobile UserAgent).",
+      "Added support for zsync in AppImages.",
+      "New tab button is now stuck to the last tab.",
+      "Any inactive tab will be dimmed.",
+      "Allowed prefetching for network requests.",
+      "Added security measures for the browser (Sandboxing).",
+      "Added more optimizations for Specific CPUs.",
+      "Added shortcuts for cycling through workspaces.",
+      "Fixed settings linguistics.",
+      "Promoted hardware acceleration for flatpaks.",
+      "Added shortcut for toggling the sidebar.",
+      "Windows generic CPU support is now stable!",
+    ],
+    fixes: [
+      {
+        description: "Toolbar only partially shown in Compact Mode",
+        issue: 205,
+      },
+      {
+        description: "Closed tabs are not really closed",
+        issue: 216,
+      },
+      {
+        description: "Getting 0xc0000142 error while trying to open zen.exe",
+        issue: 209,
+      },
+      {
+        description: "Fixed pinned tabs separator display issue",
+        issue: 195,
+      },
+    ],
+  },
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
