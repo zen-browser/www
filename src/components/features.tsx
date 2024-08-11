@@ -36,7 +36,7 @@ export default function Features() {
       {/*<TextReveal text="Zen will change the way you browse the web. 🌟" />*/}
       <div className="flex flex-col lg:flex-row w-full mt-4 p-5 lg:p-0">
         <div className="w-full flex mx-auto lg:mx-0 flex-col lg:mb-24 lg:ml-4 lg:mt-24">
-          <div className="bg-background relative flex flex-col max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
+          <div className="bg-background relative mx-auto lg:mx-0 flex flex-col max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
             <h1 className="text-5xl font-bold">Split views</h1>
             <p className="text-muted-foreground mt-3">Split your browser into multiple views to browse multiple websites at once.</p>
             <img src="/split-view.png" className="mt-8 w-full h-full" />
@@ -48,12 +48,12 @@ export default function Features() {
           </div>
         </div>
         <div className="w-full lg:mr-4 flex flex-col">
-          <div className="bg-background relative mt-8 lg:mt-0 flex-col flex max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
+          <div className="bg-background relative mx-auto lg:mx-0 mt-8 lg:mt-0 flex-col flex max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
             <h1 className="text-5xl font-bold">Profile switching</h1>
             <p className="text-muted-foreground mt-3">Switch between profiles to keep your work and personal browsing separate.</p>
             <img src="/profiles.png" className="mt-8 w-full h-full" />
           </div>
-          <div className="bg-background relative mt-8 flex-col flex max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
+          <div className="bg-background relative mx-auto lg:mx-0 mt-8 flex-col flex max-w-lg justify-center rounded-xl border-2 p-20 md:shadow-xl">
             <h1 className="text-5xl font-bold">Side web panels</h1>
             <p className="text-muted-foreground mt-3">Access your favorite websites and services without leaving the page you're on.</p>
             <img src="/sidebar.png" className="mt-8 w-full h-full" />
