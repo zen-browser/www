@@ -35,7 +35,7 @@ export default function Features() {
   return (
     <div>
       {/*<TextReveal text="Zen will change the way you browse the web. 🌟" />*/}
-      <h1 className="text-5xl font-bold mt-20 text-center flex justify-center items-center mb-2">What does Zen offer <SparklesText className="mx-2" text="YOU" />?</h1>
+      <h1 className="text-5xl font-bold mt-20 text-center flex justify-center items-center mb-2">What does Zen offer to <SparklesText className="mx-2" text="YOU" />?</h1>
       <p className="text-muted-foreground text-center mb-24">Zen Browser is packed with features that will change the way you browse the web. Here are<br/> some of the features that Zen offers.</p>
       <div className="flex flex-col lg:flex-row w-full mt-4 p-5 lg:p-0">
         <div className="w-full flex mx-auto lg:mx-0 flex-col lg:mb-24 lg:ml-4 lg:mt-24">
