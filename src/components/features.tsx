@@ -131,9 +131,9 @@ export default function Features() {
         <div className="w-full p-16">
           <Table>
             <TableHeader>
-              <TableRow className="!border-none">
-                <TableHead className="py-2 text-2xl absolute font-bold text-black dark:text-white">
-                  <span className="hidden md:block">
+              <TableRow className="!border-none" style={{ pointerEvents: 'none'}}>
+                <TableHead className="py-2 text-2xl font-bold text-black dark:text-white">
+                  <span className="">
                     How Zen differs from other browsers
                   </span>
                 </TableHead>
