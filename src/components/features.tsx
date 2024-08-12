@@ -89,15 +89,25 @@ export default function Features() {
         <div className="w-full p-16">
           <Table>
             <TableHeader>
-              <TableRow className="!border-none">
-                <TableHead className="py-2 text-2xl absolute font-bold text-black dark:text-white">
-                  <span className="hidden md:block">
+              <TableRow className="!border-none" style={{ pointerEvents: 'none'}}>
+                <TableHead className="py-2 text-2xl font-bold text-black dark:text-white">
+                  <span className="">
                     How Zen differs from other browsers
                   </span>
                 </TableHead>
-                <TableHead className="py-2 font-bold text-center"><img src="/favicon.ico" className="bg-black dark:bg-white rounded-md mx-auto mb-2 w-8 h-8" />Zen</TableHead>
-                <TableHead className="py-2 pl-4 pr-0 font-bold text-center opacity-60"><img src="/floorp.png" className="bg-black dark:bg-white rounded-md p-1 mx-auto mb-2 w-7 h-7" />Floorp</TableHead>
-                <TableHead className="py-2 pl-0 font-bold text-center opacity-60"><img src="/librewolf.png" className="bg-black dark:bg-white rounded-md mx-auto p-1 mb-2 w-7 h-7" />LibreWolf</TableHead>
+                <TableHead className="font-bold text-center min-w-[70px]">
+                  <img src="/favicon.ico" className="dark:bg-white rounded-md mx-auto mb-2 w-9 h-9" />
+                  Zen
+                </TableHead>
+                <TableHead className="pl-4 pr-0 font-bold text-center opacity-60 min-w-[70px]">
+                  <img src="/floorp.png" className="dark:bg-white rounded-md p-1 mx-auto mt-1 mb-3 w-7 h-7" />
+                  Floorp
+                </TableHead>
+                
+                <TableHead className="font-bold text-center opacity-60 min-w-[70px] ">
+                  <img src="/librewolf.png" className="dark:bg-white rounded-md mx-auto p-1 mt-1 mb-3 w-7 h-7" />
+                  LibreWolf
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
