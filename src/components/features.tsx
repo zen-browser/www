@@ -176,7 +176,7 @@ export default function Features() {
           <RabbitIcon className="mx-auto hidden md:block w-32 h-32" />
           <div className="flex flex-col max-w-lg text-center md:text-start">
             <h1 className="text-5xl font-bold flex items-center flex-col md:flex-row">Built for <SparklesText className="md:mx-2" text="speed" /></h1>
-            <p className="text-muted-foreground mt-3">
+            <p className="text-muted-foreground px-5 md:p-0 mt-3">
               Zen is built with speed in mind. Improving release after release, with new optimizations and technologies to make your browsing experience faster.<br /><br />
               We have been working and benchmarking Zen to make it the fastest browser out there.
             </p>
@@ -185,7 +185,7 @@ export default function Features() {
         <div className="flex flex-col lg:flex-row w-full mt-52 p-5 justify-between items-center">
           <div className="flex flex-col max-w-lg text-center md:text-start">
             <h1 className="text-5xl font-bold flex flex-col md:flex-row items-center">Privacy is <SparklesText className="md:mx-2" text="key" /></h1>
-            <p className="text-muted-foreground mt-3">
+            <p className="text-muted-foreground px-5 md:p-0 mt-3">
               Zen is designed with privacy in mind. We found the perfect balance between privacy and functionality, so you can browse the web without worrying about your data.
             </p>
           </div>
@@ -195,7 +195,7 @@ export default function Features() {
           <LockClosedIcon className="mx-auto hidden md:block w-32 h-32" />
           <div className="flex flex-col text-center md:text-start max-w-lg">
             <h1 className="text-5xl font-bold items-center flex-col">Security is <SparklesText className="inline" text="important" /></h1>
-            <p className="text-muted-foreground mt-3">
+            <p className="text-muted-foreground px-5 md:p-0 mt-3">
               Zen is built with security in mind. We use the latest technologies and security measures that no other firefox-based browser offers.
             </p>
           </div>
