@@ -12,7 +12,7 @@ export default function PrivacyPolicy() {
         <Markdown>
           {`
 # Privacy Policy
-* Last updated: 2024-08-02
+* Last updated: 2024-08-12
 
 # Introduction
 Welcome to Zen Browser! Your privacy is our priority. This Privacy Policy outlines the types of personal information we collect, how we use it, and the steps we take to protect your data when you use Zen Browser.
