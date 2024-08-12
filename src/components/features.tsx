@@ -14,7 +14,7 @@ import {
   TableRow,
 } from "./ui/table";
 import { CheckIcon, EyeIcon, EyeOffIcon, RabbitIcon, XIcon } from "lucide-react";
-import { LockClosedIcon, QuestionMarkIcon } from "@radix-ui/react-icons";
+import { EyeClosedIcon, LockClosedIcon, QuestionMarkIcon } from "@radix-ui/react-icons";
 import ShineBorder from "./ui/shine-border";
 import SparklesText from "./ui/sparkles-text";
 
@@ -179,7 +179,7 @@ export default function Features() {
               Zen is designed with privacy in mind. We found the perfect balance between privacy and functionality, so you can browse the web without worrying about your data.
             </p>
           </div>
-          <EyeOffIcon className="mx-auto hidden md:block w-32 h-32" />
+          <EyeClosedIcon className="mx-auto hidden md:block w-32 h-32" />
         </div>
         <div className="flex flex-col lg:flex-row w-full mt-52 p-5 justify-between items-center">
           <LockClosedIcon className="mx-auto hidden md:block w-32 h-32" />
