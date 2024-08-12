@@ -13,8 +13,8 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
-import { CheckIcon, XIcon } from "lucide-react";
-import { QuestionMarkIcon } from "@radix-ui/react-icons";
+import { CheckIcon, EyeIcon, EyeOffIcon, RabbitIcon, XIcon } from "lucide-react";
+import { LockClosedIcon, QuestionMarkIcon } from "@radix-ui/react-icons";
 import ShineBorder from "./ui/shine-border";
 import SparklesText from "./ui/sparkles-text";
 
@@ -161,6 +161,36 @@ export default function Features() {
           </Table>
         </div>
       </ShineBorder>
+      <div className="flex flex-col items-center justify-center w-full mt-40">
+        <div className="flex flex-col lg:flex-row w-full mt-4 p-5 lg:p-0 justify-between items-center">
+          <RabbitIcon className="mx-auto w-32 h-32" />
+          <div className="flex flex-col max-w-lg">
+            <h1 className="text-5xl font-bold flex items-center">Built for <SparklesText className="mx-2" text="speed" /></h1>
+            <p className="text-muted-foreground mt-3">
+              Zen is built with speed in mind. Improving release after release, with new optimizations and technologies to make your browsing experience faster.<br /><br />
+              We have been working and benchmarking Zen to make it the fastest browser out there.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col lg:flex-row w-full mt-52 p-5 lg:p-0 justify-between items-center">
+          <div className="flex flex-col max-w-lg">
+            <h1 className="text-5xl font-bold flex items-center">Privacy is <SparklesText className="mx-2" text="key" /></h1>
+            <p className="text-muted-foreground mt-3">
+              Zen is designed with privacy in mind. We found the perfect balance between privacy and functionality, so you can browse the web without worrying about your data.
+            </p>
+          </div>
+          <EyeOffIcon className="mx-auto w-32 h-32" />
+        </div>
+        <div className="flex flex-col lg:flex-row w-full mt-52 p-5 lg:p-0 justify-between items-center">
+          <LockClosedIcon className="mx-auto w-32 h-32" />
+          <div className="flex flex-col max-w-lg">
+            <h1 className="text-5xl font-bold flex items-center">Security is <SparklesText className="mx-2" text="important" /></h1>
+            <p className="text-muted-foreground mt-3">
+              Zen is built with security in mind. We use the latest technologies and security measures that no other firefox-based browser offers.
+            </p>
+          </div>
+        </div>
+      </div>
       <div className="my-40 w-full flex items-center justify-center flex-col">
         <h1 className="text-5xl text-center font-bold w-1/2">Want more?</h1>
         <p className="text-muted-foreground text-center mt-3 w-1/2">
