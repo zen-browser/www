@@ -11,7 +11,7 @@ import Particles from "./ui/particles";
 import confetti from 'canvas-confetti';
 import { releases, releaseTree } from "@/lib/releases";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
-
+import SparklesText from "./ui/sparkles-text";
 const BASE_URL = "https://github.com/zen-browser/desktop/releases/latest/download";
 
 function getDefaultPlatformBasedOnUserAgent() {
@@ -214,8 +214,10 @@ export default function DownloadPage() {
             </div>
           ) || (
             <>
-              <h1 className="text-6xl font-bold">Download Zen</h1>
-              <p className="text-muted-foreground mt-3">We are so excited for you to try Zen Browser. But first, we need to know what kind of device you are using. It will be fast, we promise.</p>
+              <h1 className="text-6xl font-bold">Download <SparklesText className="mx-2" text="Zen  " /></h1>
+              <p className="text-muted-foreground mt-3">
+                We're thrilled for you to experience Zen Browser. First, let us know which device you're using. This will only take a moment, we promise.
+              </p>
             </>
           )}
           <div className="relative w-full">
