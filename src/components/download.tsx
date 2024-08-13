@@ -384,9 +384,7 @@ export default function DownloadPage() {
                       🍏
                     </h1>
                     <h1 className="text-2xl font-semibold my-2">aarch64</h1>
-                    <p className="text-muted-foreground mx-auto text-center">
-                      64-bit ARM architecture, for Apple's M1 or M2 chips
-                    </p>
+                    <p className="text-muted-foreground mx-auto text-center">64-bit ARM architecture, for Apple's M Series Chips</p>
                   </div>
                   <div
                     onClick={() => setSelectedArchitecture("generic")}
