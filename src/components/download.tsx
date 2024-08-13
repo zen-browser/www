@@ -278,7 +278,7 @@ export default function DownloadPage() {
                   <div onClick={() => setSelectedArchitecture("specific")} className={ny("select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "specific" ? "border-blue-400" : "")}>
                     <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">🍏</h1>
                     <h1 className="text-2xl font-semibold my-2">aarch64</h1>
-                    <p className="text-muted-foreground mx-auto text-center">64-bit ARM architecture, for Apple's M1 or M2 chips</p>
+                    <p className="text-muted-foreground mx-auto text-center">64-bit ARM architecture, for Apple's M Series Chips</p>
                   </div>
                   <div onClick={() => setSelectedArchitecture("generic")} className={ny("select-none w-full h-full mb-2 ml-10 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border", selectedArchitecture === "generic" ? "border-blue-400" : "")}>
                     <h1 className="text-5xl font-bold my-2 opacity-40 dark:opacity-20">x64</h1>
