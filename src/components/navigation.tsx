@@ -29,6 +29,11 @@ export const components: { title: string; href: string; description: string }[] 
     href: "https://discord.gg/nnShMQzR4b",
     description: "Join our Discord server to chat with the community."
   },
+  {
+    title: "Source Code",
+    href: "https://github.com/zen-browser",
+    description: "Check out our source code on GitHub and leave a star!"
+  },
 ]
  
 export function Navigation() {
@@ -66,8 +71,8 @@ export function Navigation() {
                 <ListItem href="/download" title="Download">
                   Start using Zen Browser today with just a few clicks.
                 </ListItem>
-                <ListItem href="https://github.com/zen-browser" title="Source Code" target="_blank">
-                  View the source code on GitHub and maybe leave a star!
+                <ListItem href="/themes" title="Themes Marketplace">
+                  Customize your browser with a variety of themes!
                 </ListItem>
                 <ListItem href="/release-notes" title="Release Notes">
                   Stay up to date with the latest changes.
