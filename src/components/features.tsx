@@ -230,9 +230,8 @@ export default function Features() {
           </Table>
         </div>
       </ShineBorder>
-      <div className="flex flex-col items-center justify-center w-full mt-40">
-        <div className="flex flex-wrap lg:flex-row w-full mt-4 p-5 justify-between items-center">
-          <RabbitIcon className="mx-auto hidden md:block w-32 h-32" />
+      <div className="flex flex-col items-center justify-center mt-40">
+        <div className="flex flex-wrap lg:flex-row w-full mt-4 p-5 justify-center items-center">
           <div className="flex flex-col max-w-lg text-center md:text-start">
             <h1 className="text-5xl font-bold flex items-center flex-col md:flex-row">
               Built for <SparklesText className="md:mx-2" text="speed" />
@@ -247,8 +246,9 @@ export default function Features() {
               browser out there.
             </p>
           </div>
+          <RabbitIcon className="mx-auto hidden md:block w-32 h-32" />
         </div>
-        <div className="flex flex-col lg:flex-row w-full mt-52 p-5 justify-between items-center">
+        <div className="flex flex-col lg:flex-row w-full mt-52 p-5 justify-center items-center">
           <div className="flex flex-wrap max-w-lg text-center md:text-start">
             <h1 className="text-5xl font-bold flex flex-wrap md:flex-row items-center">
               Privacy is <SparklesText className="md:mx-2" text="key" />
@@ -261,8 +261,7 @@ export default function Features() {
           </div>
           <EyeClosedIcon className="mx-auto hidden md:block w-32 h-32" />
         </div>
-        <div className="flex flex-wrap lg:flex-row w-full mt-52 p-5 justify-between items-center">
-          <LockClosedIcon className="mx-auto hidden md:block w-32 h-32" />
+        <div className="flex flex-wrap lg:flex-row w-full mt-52 p-5 justify-center items-center">
           <div className="flex flex-wrap text-center md:text-start max-w-lg">
             <h1 className="text-5xl font-bold items-center flex-col">
               Security is <SparklesText className="inline" text="important" />
@@ -272,6 +271,7 @@ export default function Features() {
               and security measures that no other firefox-based browser offers.
             </p>
           </div>
+          <LockClosedIcon className="mx-auto hidden md:block w-32 h-32" />
         </div>
       </div>
       <div className="my-40 w-full flex items-center justify-center flex-col">
