@@ -255,7 +255,7 @@ export default function DownloadPage() {
             </div>
           )) || (
             <>
-              <h1 className="text-6xl font-bold">Download <SparklesText className="mx-2" text="Zen  " /></h1>
+              <h1 className="text-6xl font-bold flex flex-col lg:flex-row">Download <SparklesText className="mx-2" text="Zen" /></h1>
               <p className="text-muted-foreground mt-3">
                 We're thrilled for you to experience Zen Browser. First, let us know which device you're using. This will only take a moment, we promise.
               </p>
