@@ -27,7 +27,7 @@ export default function ThemeCard({
           <p className="text-md mt-2 overflow-ellipsis text-muted-foreground text-start">{theme.description}</p>
         </ThemeCardWrapepr>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent forceMount>
         <DialogHeader>
           <img src={theme.image} alt={theme.name} className="w-full h-32 object-cover rounded-md mb-10" />
           <DialogTitle>{theme.name}</DialogTitle>
