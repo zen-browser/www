@@ -1,6 +1,5 @@
 
 import { getThemeFromId } from "@/lib/themes";
-import { NextApiRequest, NextApiResponse } from "next";
 
 function getQSParamFromURL(
   key: string,
@@ -12,7 +11,7 @@ function getQSParamFromURL(
   return urlParams.get(key);
 }
 
-export async function GET(request: NextApiRequest, response: NextApiResponse) {
+export async function GET(request: Request, response: Response) {
   const id = getQSParamFromURL("id", request.url);
   if (!id) {
     return Response.json({ error: "id is required" });
