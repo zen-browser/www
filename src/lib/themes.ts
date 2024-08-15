@@ -5,6 +5,7 @@ export interface ZenTheme {
   image: string
   downloadUrl: string
   id: string
+  homepage?: string
 }
 
 export function getAllThemes(): ZenTheme[] {
@@ -22,4 +23,8 @@ export function getAllThemes(): ZenTheme[] {
 
 export function getThemesFromSearch(themes: ZenTheme[], query: string): ZenTheme[] {
   return themes.filter((theme) => theme.name.toLowerCase().includes(query.toLowerCase()));
+}
+
+export function getThemeFromId(id: string): ZenTheme | undefined {
+  return getAllThemes().find((theme) => theme.id === id);
 }
