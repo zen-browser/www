@@ -3,6 +3,7 @@ import Feature, { FeatureCard } from "./feature";
 import { Button } from "./ui/button";
 import TextReveal from "./ui/text-reveal";
 import styled, { css, keyframes } from "styled-components";
+import Link from "next/link";
 import {
   Table,
   TableBody,
@@ -13,10 +14,21 @@ import {
   TableHeader,
   TableRow,
 } from "./ui/table";
-import { CheckIcon, EyeIcon, EyeOffIcon, RabbitIcon, XIcon } from "lucide-react";
-import { EyeClosedIcon, LockClosedIcon, QuestionMarkIcon } from "@radix-ui/react-icons";
+import {
+  CheckIcon,
+  EyeIcon,
+  EyeOffIcon,
+  RabbitIcon,
+  XIcon,
+} from "lucide-react";
+import {
+  EyeClosedIcon,
+  LockClosedIcon,
+  QuestionMarkIcon,
+} from "@radix-ui/react-icons";
 import ShineBorder from "./ui/shine-border";
 import SparklesText from "./ui/sparkles-text";
+import Image from "next/image";
 
 function Checkmark() {
   return (
@@ -59,7 +71,13 @@ export default function Features() {
             <p className="text-muted-foreground mt-3">
             Stay organized and clutter-free by creating workspaces tailored to your browsing needs.
             </p>
-            <img src="/workspaces.png" className="mt-8 w-full h-full" />
+            <Image
+              height={500}
+              width={300}
+              src="/workspaces.png"
+              className="mt-8 w-full h-full"
+              alt=""
+            />
           </div>
         </div>
         <div className="w-full lg:mr-4 flex flex-col">
@@ -68,14 +86,26 @@ export default function Features() {
             <p className="text-muted-foreground mt-3">
             Seamlessly switch between work and personal profiles for a focused browsing experience.
             </p>
-            <img src="/profiles.png" className="mt-8 w-full h-full" />
+            <Image
+              height={500}
+              width={300}
+              src="/profiles.png"
+              className="mt-8 w-full h-full"
+              alt=""
+            />
           </div>
           <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto lg:mx-0 mt-8 flex-col flex lg:max-w-md justify-center rounded-xl md:border-2 p-20 md:shadow-xl">
             <h1 className="text-5xl font-bold">Side web panels</h1>
             <p className="text-muted-foreground mt-3">
             Access favorite sites and services instantly, without leaving your current page.
             </p>
-            <img src="/sidebar.png" className="mt-8 w-full h-full" />
+            <Image
+              height={500}
+              width={300}
+              src="/sidebar.png"
+              className="mt-8 w-full h-full"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -94,17 +124,34 @@ export default function Features() {
                   How Zen compares to other browsers
                   </span>
                 </TableHead>
-                <TableHead className="font-bold text-center min-w-[70px]">
-                  <img src="/favicon.ico" className="dark:bg-white rounded-md mx-auto mb-2 w-9 h-9" />
+                <TableHead className="py-2 font-bold text-center">
+                  <Image
+                    height={32}
+                    width={32}
+                    src="/favicon.ico"
+                    className="bg-black dark:bg-white rounded-md mx-auto mb-2 w-8 h-8"
+                    alt="zen"
+                  />
                   Zen
                 </TableHead>
-                <TableHead className="pl-4 pr-0 font-bold text-center opacity-60 min-w-[70px]">
-                  <img src="/floorp.png" className="dark:bg-white rounded-md p-1 mx-auto mt-1 mb-3 w-7 h-7" />
+                <TableHead className="py-2 pl-4 md:pr-0 pr-2 font-bold text-center opacity-60">
+                  <Image
+                    height={32}
+                    width={32}
+                    src="/floorp.png"
+                    className="bg-black dark:bg-white rounded-md p-1 mx-auto mb-2 w-7 h-7"
+                    alt="floorp"
+                  />
                   Floorp
                 </TableHead>
-                
-                <TableHead className="font-bold text-center opacity-60 min-w-[70px] ">
-                  <img src="/librewolf.png" className="dark:bg-white rounded-md mx-auto p-1 mt-1 mb-3 w-7 h-7" />
+                <TableHead className="py-2 pl-0 font-bold text-center opacity-60">
+                  <Image
+                    height={32}
+                    width={32}
+                    src="/librewolf.png"
+                    className="bg-black dark:bg-white rounded-md mx-auto p-1 mb-2 w-7 h-7"
+                    alt="librewolf"
+                  />
                   LibreWolf
                 </TableHead>
               </TableRow>
@@ -179,6 +226,7 @@ export default function Features() {
             Zen is engineered for speed, consistently outperforming competitors with every release, ensuring a faster browsing experience.
             </p>
           </div>
+          <RabbitIcon className="mx-auto hidden md:block w-32 h-32" />
         </div>
         <div className="flex flex-col lg:flex-row w-full mt-20 p-5 justify-between items-center">
           <div className="flex flex-col max-w-lg text-center md:text-start">
@@ -197,6 +245,7 @@ export default function Features() {
             Zen incorporates advanced security technologies that outshine other Firefox-based browsers, keeping you safe online.
             </p>
           </div>
+          <LockClosedIcon className="mx-auto hidden md:block w-32 h-32" />
         </div>
       </div>
       <div className="my-20 w-full flex items-center justify-center flex-col">
@@ -220,12 +269,9 @@ export default function Features() {
           <FeatureCard title="Vertical tabs"
               description="Maximize space and order with vertical tabs, designed for easy access." />
         </div>
-        <Button
-          onClick={() => (window.location.href = "/download")}
-          className="mt-8"
-        >
-          Download Zen Browser
-        </Button>
+        <Link href="/download">
+        <Button className="mt-8">Download Zen Browser</Button>
+        </Link>
       </div>
     </div>
   );

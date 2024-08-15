@@ -43,6 +43,12 @@ export function MobileNav() {
                     Download
                   </MobileLink>
                   <MobileLink
+                     href="/themes"
+                    onOpenChange={setOpen}
+                  >
+                    Themes
+                  </MobileLink>
+                  <MobileLink
                      href="/release-notes"
                     onOpenChange={setOpen}
                   >

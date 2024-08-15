@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@hookform/resolvers": "^3.7.0",
+    "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-checkbox": "^1.1.1",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
@@ -26,29 +26,29 @@
     "clsx": "^2.1.1",
     "cobe": "^0.6.3",
     "dotenv": "^16.4.5",
-    "framer-motion": "^11.2.12",
+    "framer-motion": "^11.3.24",
     "lucide-react": "^0.400.0",
     "next": "14.2.4",
     "next-themes": "^0.3.0",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-hook-form": "^7.52.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.52.2",
     "react-markdown": "^9.0.1",
-    "react-spring": "^9.7.3",
+    "react-spring": "^9.7.4",
     "styled-components": "^6.1.12",
-    "tailwind-merge": "^2.3.0",
+    "tailwind-merge": "^2.5.1",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.6.4",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
+    "@types/node": "^20.14.15",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "^8.57.0",
     "eslint-config-next": "14.2.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "postcss": "^8.4.41",
+    "tailwindcss": "^3.4.9",
+    "typescript": "^5.5.4"
   }
 }
