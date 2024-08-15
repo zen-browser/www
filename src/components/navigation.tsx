@@ -38,7 +38,7 @@ export const components: { title: string; href: string; description: string }[] 
  
 export function Navigation() {
   return (
-    <div className="bg-background z-10 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
+    <div className="bg-background z-40 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
       <MobileNav />
       <NavigationMenu>
         <NavigationMenuList className="w-full hidden sm:flex">

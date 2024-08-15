@@ -55,12 +55,6 @@ export function MobileNav() {
                     Release Notes
                   </MobileLink>
                   <MobileLink
-                    href="https://github.com/zen-browser"
-                    onOpenChange={setOpen}
-                  >
-                    Source Code
-                  </MobileLink>
-                  <MobileLink
                      href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                      onOpenChange={setOpen}
                   >
