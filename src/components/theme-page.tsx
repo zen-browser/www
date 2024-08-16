@@ -3,16 +3,16 @@ import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import '../app/privacy-policy/markdown.css';
-import { ChevronLeft, MoveLeftIcon } from "lucide-react";
+import { ChevronLeft, LoaderCircleIcon, LoaderIcon, LoaderPinwheelIcon, MoveLeftIcon } from "lucide-react";
 
 export default function ThemePage({ theme }: { theme: ZenTheme }) {
-  const [readme, setReadme] = useState("");
+  const [readme, setReadme] = useState<string | null>(null);
   useEffect(() => {
     getThemeMarkdown(theme).then(setReadme);
   }, []);
 
   return (
-    <div className="mt-24 lg:mt-56 flex-col lg:flex-row flex mx-auto items-start">
+    <div className="mt-24 lg:mt-56 flex-col lg:flex-row flex mx-auto items-start relative">
       <div className="flex flex-col w-md border-r p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm relative">
         <img src={theme.image} alt={theme.name} className="w-full object-cover rounded-lg border shadow" />
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
@@ -40,8 +40,12 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
           <ChevronLeft className="w-4 h-4 mr-1" />
           <h3 className="text-md">Go back</h3>
         </div>
-        <div id="policy">
-          <Markdown>{`${readme}`}</Markdown>
+        <div id="policy" className="w-full">
+          {readme === null ? (
+              <LoaderCircleIcon className="animate-spin w-12 h-12 mx-auto" />
+          ) : (
+              <Markdown>{`${readme}`}</Markdown>
+          )}
         </div>
         <hr className="my-5" />
         <p className="text-muted-foreground text-sm">
