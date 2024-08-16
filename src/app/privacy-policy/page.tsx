@@ -25,7 +25,7 @@ Zen Browser is designed with privacy in mind. We do not collect, store, or share
 ## 1.1. No Telemetry
 We do not collect any telemetry data. 
 
-However, you can opt-in to share telemetry data to Mozilla for the improvement of FireFox (the base upon which the Zen Browser is built). It will be treated in accordance with their Privacy Police which you can read about [here](https://www.mozilla.org/en-US/privacy/).
+However, you can opt-in to share telemetry data to Mozilla for the improvement of FireFox (the base upon which the Zen Browser is built). It will be treated in accordance with their Privacy Policy which you can read about [here](https://www.mozilla.org/en-US/privacy/).
 
 ## 1.2. No Personal Data Collection
 Zen Browser does not collect any personal information such as your IP address, browsing history, search queries, or form data.
@@ -44,7 +44,7 @@ Zen Browser stores certain data locally on your device to enhance your browsing 
 Any customizations, settings, and preferences you make within Zen Browser are stored locally on your device. We do not have access to or control over this data.
 
 # 3. Sync Feature
-Zen Browser offers a "Sync" feature, this is implemented using Mozilla Firefox's Sync feature. This feature allows you to synchronize your bookmarks, history, passwords, and other data across multiple devices. For this feature to work, your data is encrypted and stored on Mozilla’s servers and is treated in accordance with their Privacy Police. We, at Zen, cannot view any of this data. 
+Zen Browser offers a "Sync" feature, this is implemented using Mozilla Firefox's Sync feature. This feature allows you to synchronize your bookmarks, history, passwords, and other data across multiple devices. For this feature to work, your data is encrypted and stored on Mozilla’s servers and is treated in accordance with their Privacy Policy. We, at Zen, cannot view any of this data. 
 
 * [Mozilla Firefox Sync](https://www.mozilla.org/en-US/privacy/mozilla-accounts/)
 * [This is how we store your passwords](https://support.mozilla.org/en-US/kb/how-firefox-securely-saves-passwords#:~:text=Firefox%20Desktop%20encrypts%20your%20passwords,cryptography%20to%20obscure%20your%20passwords.)
