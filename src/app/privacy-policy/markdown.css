@@ -5,6 +5,10 @@
   font-weight: bold;
 }
 
+#policy h1:first-child {
+  margin-top: 0 !important;
+}
+
 #policy h2 {
   font-size: 1.5em;
   margin: 0.83em 0;
