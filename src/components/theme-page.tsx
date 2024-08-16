@@ -31,6 +31,7 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
         <Button
           className="mt-4 hidden"
           id="install-theme"
+          zen-theme-id={theme.id}
         >Install Theme</Button>
         <p id="install-theme-error" className="text-muted-foreground text-sm mt-2">You need to have Zen Browser installed to install this theme. <a href="/download" className="text-blue-500">Download now!</a></p>
       </div>
