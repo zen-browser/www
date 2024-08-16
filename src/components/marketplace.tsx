@@ -9,7 +9,7 @@ export default function MarketplacePage() {
   const [themes, setThemes] = React.useState<ZenTheme[]>([]);
 
   React.useEffect(() => {
-    setThemes(getAllThemes());
+    getAllThemes().then(setThemes);
   }, []);
 
   return (

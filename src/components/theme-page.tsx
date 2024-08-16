@@ -8,7 +8,7 @@ import { ChevronLeft, MoveLeftIcon } from "lucide-react";
 export default function ThemePage({ theme }: { theme: ZenTheme }) {
   const [readme, setReadme] = useState<string | null>(null);
   useEffect(() => {
-    setReadme(getThemeMarkdown(theme));
+    getThemeMarkdown(theme).then(setReadme);
   }, []);
 
   return (
@@ -35,10 +35,10 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
         <p id="install-theme-error" className="text-muted-foreground text-sm mt-2">You need to have Zen Browser installed to install this theme. <a href="/download" className="text-blue-500">Download now!</a></p>
       </div>
       <hr className="block my-4 lg:hidden" />
-      <div className="flex flex-col p-5 !pt-0 max-w-xl w-full">
+      <div className="flex flex-col p-5 !pt-0 max-w-xl min-w-xl w-full">
         <div className="flex my-2 items-center cursor-pointer opacity-70" onClick={() => window.history.back()}>
-          <ChevronLeft className="w-6 h-6 mr-1" />
-          <h3 className="text-lg font-bold">Go back</h3>
+          <ChevronLeft className="w-4 h-4 mr-1" />
+          <h3 className="text-md">Go back</h3>
         </div>
         <div id="policy">
           <Markdown>{`${readme}`}</Markdown>

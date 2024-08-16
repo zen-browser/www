@@ -1,4 +1,3 @@
-import fetch from "sync-fetch";
 
 export interface ZenTheme {
   name: string
@@ -15,12 +14,12 @@ export interface ZenTheme {
 }
 
 const THEME_API = "https://zen-browser.github.io/theme-store/themes.json";
-const CACHE_OPTIONS = {};
+const CACHE_OPTIONS = { cache: "force-cache" } as RequestInit;
 
-export function getAllThemes(): ZenTheme[] {
+export async function getAllThemes() {
   // Fetch from the API
-  const response = fetch(THEME_API, CACHE_OPTIONS);
-  const themes = response.json();
+  const response = await fetch(THEME_API, CACHE_OPTIONS);
+  const themes = await response.json();
   // transform in to a ZenTheme[] as it is currently an object
   let themesArray: ZenTheme[] = [];
   for (let key in themes) {
@@ -33,12 +32,12 @@ export function getThemesFromSearch(themes: ZenTheme[], query: string): ZenTheme
   return themes.filter((theme) => theme.name.toLowerCase().includes(query.toLowerCase()));
 }
 
-export function getThemeFromId(id: string): ZenTheme | undefined {
-  return getAllThemes().find((theme) => theme.id === id);
+export async function getThemeFromId(id: string) {
+  return (await getAllThemes()).find((theme) => theme.id === id);
 }
 
-export function getThemeMarkdown(theme: ZenTheme): string {
-  return fetch(theme.readme, CACHE_OPTIONS).text();
+export async function getThemeMarkdown(theme: ZenTheme) {
+  return (await fetch(theme.readme, CACHE_OPTIONS)).text();
 }
 
 export function getThemeAuthorLink(theme: ZenTheme): string {

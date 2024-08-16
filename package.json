@@ -36,7 +36,6 @@
     "react-markdown": "^9.0.1",
     "react-spring": "^9.7.4",
     "styled-components": "^6.1.12",
-    "sync-fetch": "^0.5.2",
     "tailwind-merge": "^2.5.1",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.23.8"
