@@ -11,8 +11,8 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
   }, []);
 
   return (
-    <div className="mt-56 flex mx-auto items-start">
-      <div className="flex flex-col w-md border-r pr-5 mr-5 w-full md:max-w-sm relative">
+    <div className="mt-56 flex-col lg:flex-row flex mx-auto items-start">
+      <div className="flex flex-col w-md border-r p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm relative">
         <img src={theme.image} alt={theme.name} className="w-full object-cover rounded-lg border shadow" />
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
         <p className="text-sm text-muted-foreground mt-2">{theme.description}</p>
