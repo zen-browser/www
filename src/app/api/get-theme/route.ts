@@ -16,7 +16,7 @@ export async function GET(request: Request, response: Response) {
   if (!id) {
     return Response.json({ error: "id is required" });
   }
-  const theme = getThemeFromId(id);
+  const theme = await getThemeFromId(id);
   if (!theme) {
     return Response.json({ error: "theme not found" });
   }
