@@ -12,8 +12,8 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
   }, []);
 
   return (
-    <div className="mt-24 lg:mt-56 flex-col lg:flex-row flex mx-auto items-start relative">
-      <div className="flex flex-col w-md border-r p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm relative">
+    <div className="mt-24 lg:mt-56 flex-col lg:flex-row relative flex mx-auto items-start relative">
+      <div className="flex flex-col relative lg:fixed w-md h-full p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm">
         <img src={theme.image} alt={theme.name} className="w-full object-cover rounded-lg border shadow" />
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
         <p className="text-sm text-muted-foreground mt-2">{theme.description}</p>
@@ -36,7 +36,7 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
         <p id="install-theme-error" className="text-muted-foreground text-sm mt-2">You need to have Zen Browser installed to install this theme. <a href="/download" className="text-blue-500">Download now!</a></p>
       </div>
       <hr className="block my-4 lg:hidden" />
-      <div className="flex flex-col p-5 !pt-0 max-w-xl min-w-xl w-full">
+      <div className="flex flex-col border-l lg:min-h-96 pl-10 lg:ml-96 max-w-xl lg:min-w-96 w-full">
         <div className="flex my-2 items-center cursor-pointer opacity-70" onClick={() => window.history.back()}>
           <ChevronLeft className="w-4 h-4 mr-1" />
           <h3 className="text-md">Go back</h3>
@@ -45,7 +45,7 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
           {readme === null ? (
               <LoaderCircleIcon className="animate-spin w-12 h-12 mx-auto" />
           ) : (
-              <Markdown>{`${readme}`}</Markdown>
+            <Markdown>{`${readme}`}</Markdown>
           )}
         </div>
         <hr className="my-5" />
