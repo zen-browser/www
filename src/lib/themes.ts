@@ -40,3 +40,7 @@ export function getThemeFromId(id: string): ZenTheme | undefined {
 export function getThemeMarkdown(theme: ZenTheme): string {
   return fetch(theme.readme, CACHE_OPTIONS).text();
 }
+
+export function getThemeAuthorLink(theme: ZenTheme): string {
+  return `https://github.com/${theme.author}`;
+}

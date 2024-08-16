@@ -1,4 +1,4 @@
-import { getThemeMarkdown, ZenTheme } from "@/lib/themes";
+import { getThemeAuthorLink, getThemeMarkdown, ZenTheme } from "@/lib/themes";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
@@ -46,7 +46,7 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
         <hr className="my-5" />
         <p className="text-muted-foreground text-sm">
           Theme by{" "}
-          <a href={`https://github.com/${theme.author}`} className="text-blue-500 text-md mt-4" target="_blank" rel="noopener noreferrer">
+          <a href={getThemeAuthorLink(theme)} className="text-blue-500 text-md mt-4" target="_blank" rel="noopener noreferrer">
             {theme.author}
           </a>
         </p>

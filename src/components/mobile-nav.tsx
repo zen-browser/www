@@ -46,7 +46,7 @@ export function MobileNav() {
                      href="/themes"
                     onOpenChange={setOpen}
                   >
-                    Themes
+                    Theme Store
                   </MobileLink>
                   <MobileLink
                      href="/release-notes"
