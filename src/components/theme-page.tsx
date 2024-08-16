@@ -6,7 +6,7 @@ import '../app/privacy-policy/markdown.css';
 import { ChevronLeft, MoveLeftIcon } from "lucide-react";
 
 export default function ThemePage({ theme }: { theme: ZenTheme }) {
-  const [readme, setReadme] = useState<string | null>(null);
+  const [readme, setReadme] = useState("");
   useEffect(() => {
     getThemeMarkdown(theme).then(setReadme);
   }, []);
