@@ -18,7 +18,7 @@ export default function MarketplacePage() {
         <h1 className="text-7xl font-bold">Themes Marketplace</h1>
         <ThemesSearch input={searchInput} setInput={setSearchInput} />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10 w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10 w-full">
         {getThemesFromSearch(themes, searchInput).map((theme) => (
           <ThemeCard key={theme.name} theme={theme} />
         ))}
