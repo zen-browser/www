@@ -125,7 +125,7 @@ export default function Features() {
             </p>
             <img src="/split-view.png" className="mt-8 w-full h-full h-auto" />
           </div>
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background mx-auto lg:mx-0 relative flex flex-col mt-8 max-w-lg justify-center rounded-xl md:border-2 lg:p-20 pt-24 lg:pt-0 md:shadow-xl hover:scale-105">
+          <div className="hover:border-blue-500 transition-all duration-100 bg-background mx-auto lg:mx-0 relative flex flex-col mt-8 max-w-lg justify-center rounded-xl md:border-2 pt-24 lg:p-20 md:shadow-xl hover:scale-105">
             <h1 className="text-5xl font-bold">Workspaces</h1>
             <p className="text-muted-foreground mt-3">
             Stay organized and clutter-free by creating workspaces tailored to your browsing needs.
@@ -140,7 +140,7 @@ export default function Features() {
           </div>
         </div>
         <div className="w-full lg:mr-4 flex flex-col">
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto lg:mx-0 mt-8 lg:mt-0 flex-col flex max-w-lg justify-center rounded-xl md:border-2 lg:p-20 pt-24 lg:pt-0 md:shadow-xl hover:scale-105">
+          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto lg:mx-0 mt-8 lg:mt-0 flex-col flex max-w-lg justify-center rounded-xl md:border-2 pt-24 lg:p-20 md:shadow-xl hover:scale-105">
             <h1 className="text-5xl font-bold">Profile switching</h1>
             <p className="text-muted-foreground mt-3">
             Seamlessly switch between work and personal profiles for a focused browsing experience.
@@ -153,7 +153,7 @@ export default function Features() {
               alt=""
             />
           </div>
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto lg:mx-0 mt-8 flex-col flex max-w-lg justify-center rounded-xl md:border-2 lg:p-20 pt-24 lg:pt-0 md:shadow-xl hover:scale-105">
+          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto lg:mx-0 mt-8 flex-col flex max-w-lg justify-center rounded-xl md:border-2 pt-24 lg:p-20 md:shadow-xl hover:scale-105">
             <h1 className="text-5xl font-bold">Side web panels</h1>
             <p className="text-muted-foreground mt-3">
             Access favorite sites and services instantly, without leaving your current page.
