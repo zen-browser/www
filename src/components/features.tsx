@@ -64,9 +64,9 @@ export default function Features() {
           <h1 className="text-3xl font-bold">The only limit is your</h1>
           <SparklesText className="!text-3xl" text="Imagination" />
           <p className="text-muted-foreground mt-3">
-            Zen{'’'}s Compact Mode offers a streamlined browsing experience that maximizes your screen space, perfect for smaller screens.
+            Zen's theme marketplace offers a wide range of themes to customize your browsing experience. Try them out today!
           </p>
-          <Button className="mt-8" onClick={() => window.location.href = "/download"}>Try it now</Button>
+          <Button className="mt-8" onClick={() => window.location.href = "/themes"}>Try it now</Button>
         </div>
         <div className="relative hidden xl:flex h-[500px] w-full max-w-xl items-center justify-center overflow-hidden">
          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
