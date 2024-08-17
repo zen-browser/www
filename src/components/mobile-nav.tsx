@@ -18,7 +18,7 @@ export function MobileNav() {
    return (
       <Sheet open={open} onOpenChange={setOpen}>
          <SheetTrigger asChild>
-            <div className="z-40 flex w-full items-center space-between">
+            <div className="z-40 flex w-full items-center space-between sm:hidden">
                <Logo className="size-6 ml-4 sm:hidden" />
                <Button
                   variant="ghost"
