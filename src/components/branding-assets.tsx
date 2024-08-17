@@ -7,22 +7,49 @@ export function BrandingAssets() {
         <h1 className="text-4xl lg:text-7xl font-bold">Branding Assets</h1>
         <p className="text-muted-foreground mt-2">Download Zen Browser branding assets for your website or project.</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-10 w-full">
-        {LOGO_COLORS.map((color) => (
-          <div key={color} className="flex flex-col items-center">
-            <img src={`/logos/zen-${color}.png`} alt={`Zen Browser ${color} logo`} className="w-40 h-40 mt-4" />
-            <div className="flex items-center my-2">
-              <p className="text-lg">{color} - </p>
-              <a
-                href={`/logos/zen-${color}.png`}
-                download={`zen-${color}.png`}
-                className="text-blue-500 text-md ml-2"
-              >
-                Download
-              </a>
+      <div className="flex w-full lg:w-2/3 flex-col mt-10">
+        <h2 className="text-2xl font-bold mt-10">Logos</h2>
+        <p className="text-muted-foreground mt-2">
+          Download the Zen Browser logo in different colors.
+        </p>
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-10 w-full">
+          {LOGO_COLORS.map((color) => (
+            <div key={color} className="flex flex-col items-center">
+              <img src={`/logos/zen-${color}.png`} alt={`Zen Browser ${color} logo`} className="w-24 h-24 mt-4" />
+              <div className="flex items-center my-2">
+                <a
+                  href={`/logos/zen-${color}.png`}
+                  download={`zen-${color}.png`}
+                  className="text-blue-500 text-md ml-2"
+                >
+                  {color}
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+      </div>
+      <div className="flex w-full lg:w-2/3 flex-col mt-10">
+        <h2 className="text-2xl font-bold mt-10">Empty Logos</h2>
+        <p className="text-muted-foreground mt-2">
+          Download the Zen Browser logo in different colors without a filled Zen letter.
+        </p>
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-10 w-full">
+          {LOGO_COLORS.map((color) => (
+            <div key={color} className="flex flex-col items-center">
+              <img src={`/logos/zen-alpha-${color}.png`} alt={`Zen Browser ${color} logo`} className="w-24 h-24 mt-4" />
+              <div className="flex items-center my-2">
+                <a
+                  href={`/logos/zen-alpha-${color}.png`}
+                  download={`zen-alpha-${color}.png`}
+                  className="text-blue-500 text-md ml-2"
+                >
+                  {color}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="mt-10">
         <h2 className="text-2xl font-bold">License</h2>
@@ -37,6 +64,9 @@ export function BrandingAssets() {
             CC BY-SA 4.0
           </a>
           . Thanks to <a href="https://www.onnno.nl/" className="text-blue-500">Donno (mr. Logos)</a> for the assets.
+          <br />
+          These logos however shall not be modified in a way that suggests the licensor endorses you or your use.
+          <br />
           <br />
           You are free to share and adapt the assets for any purpose, even commercially.
         </p>
