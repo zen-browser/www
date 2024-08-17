@@ -59,7 +59,7 @@ export default function Features() {
   }, []);
   return (
     <div className="relative w-full mb-52 p-5 xl:p-0">
-      <div className="w-full xl:w-1/2 p-5 xl:p-0 mx-auto grid mt-52 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
+      <div className="w-full md:w-2/3 2xl:w-1/2 p-5 xl:p-0 mx-auto grid mt-52 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
         <div className="flex flex-col xl:p-20 justify-center">
           <h1 className="text-3xl font-bold">The only limit is your</h1>
           <SparklesText className="!text-3xl" text="Imagination" />
@@ -116,7 +116,7 @@ export default function Features() {
       <p className="text-muted-foreground text-center mx-auto w-3/4 md:w-full p-5 xl:p-0 mb-24">
       Discover how Zen Browser can transform your web experience with powerful features that keep you ahead.
       Here are<br className="hidden md:block"/> some of the features that Zen offers.</p>
-      <div className="w-full xl:w-1/2 mx-auto flex flex-col xl:flex-row w-full mt-4 p-5 xl:p-0">
+      <div className="w-full md:w-2/3 2xl:w-1/2 mx-auto flex flex-col xl:flex-row w-full mt-4 p-5 xl:p-0">
         <div className="w-full flex mx-auto xl:mr-8 flex-col xl:mb-24 xl:ml-4 xl:mt-10">
           <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl md:border-2 xl:p-20 md:shadow-xl hover:scale-105"> 
             <h1 className="text-5xl font-bold">Split views</h1>
@@ -172,7 +172,7 @@ export default function Features() {
         borderWidth={2}
         borderRadius={12}
         color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-        className="w-full xl:w-1/2 mx-auto mt-52 flex relative flex-col items-start justify-start w-full bg-background xl:p-12 rounded-xl md:shadow-xl"
+        className="w-full md:w-2/3 2xl:w-1/2 mx-auto mt-52 flex relative flex-col items-start justify-start w-full bg-background xl:p-12 rounded-xl md:shadow-xl"
       >
         <div className="w-full xl:p-16">
           <Table>
@@ -320,7 +320,7 @@ export default function Features() {
           alt=""
         />
       </div>
-      <div className="w-full xl:w-1/2 mx-auto p-5 xl:p-0 mx-auto grid mt-24 lg:mt-52 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
+      <div className="w-full overflow-hidden md:w-2/3 2xl:w-1/2 mx-auto p-5 xl:p-0 mx-auto grid mt-24 lg:mt-52 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
         <div className="flex flex-col xl:p-20">
           <h1 className="text-3xl font-bold">Introducing</h1>
           <SparklesText className="!text-3xl" text="Compact Mode" />
