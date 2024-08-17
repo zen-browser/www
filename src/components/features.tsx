@@ -281,7 +281,7 @@ export default function Features() {
           <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 0 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
             <div className="flex flex-col max-w-xl text-center md:text-start">
               <h1 className="text-5xl xl:text-5xl font-bold flex flex-col lg:flex-row">Built for
-                <SparklesText className="!text-5xl xl:!text-5xl" text="speed" />
+                <SparklesText className="!text-5xl xl:!text-5xl lg:ml-3" text="speed" />
               </h1>
               <p className="text-muted-foreground mt-3">
               Zen is engineered for speed, consistently outperforming competitors with every release, ensuring a faster browsing experience.
@@ -292,7 +292,7 @@ export default function Features() {
           <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 1 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
             <div className="flex flex-col max-w-xl text-center md:text-start">
               <h1 className="text-5xl xl:text-5xl font-bold flex flex-col lg:flex-row">Privacy is
-                <SparklesText className="!text-5xl xl:!text-5xl" text="key" />
+                <SparklesText className="!text-5xl xl:!text-5xl lg:ml-3" text="key" />
               </h1>
               <p className="text-muted-foreground mt-3">
               Zen strikes the perfect balance between privacy and usability, allowing you to browse without compromising your data.
@@ -303,7 +303,7 @@ export default function Features() {
           <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 2 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
             <div className="flex flex-col text-center md:text-start max-w-xl">
               <h1 className="text-5xl xl:text-5xl font-bold flex flex-col lg:flex-row">Security is
-                <SparklesText className="text-5xl xl:!text-5xl" text="important" />
+                <SparklesText className="text-5xl xl:!text-5xl lg:ml-3" text="important" />
               </h1>
               <p className="text-muted-foreground mt-3">
               Zen incorporates advanced security technologies that outshine other Firefox-based browsers, keeping you safe online.
