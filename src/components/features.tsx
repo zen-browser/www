@@ -320,7 +320,7 @@ export default function Features() {
           alt=""
         />
       </div>
-      <div className="w-full xl:w-1/2 mx-auto p-5 xl:p-0 mx-auto grid mt-52 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
+      <div className="w-full xl:w-1/2 mx-auto p-5 xl:p-0 mx-auto grid mt-24 lg:mt-52 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
         <div className="flex flex-col xl:p-20">
           <h1 className="text-3xl font-bold">Introducing</h1>
           <SparklesText className="!text-3xl" text="Compact Mode" />
