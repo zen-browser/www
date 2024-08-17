@@ -280,8 +280,8 @@ export default function Features() {
         <div className="relative w-full flex items-center">
           <div className={ny("flex flex-col lg:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 0 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
             <div className="flex flex-col max-w-lg text-center md:text-start">
-              <h1 className="text-5xl lg:text-8xl font-bold">Built for</h1>
-              <SparklesText className="!text-5xl lg:!text-8xl" text="speed" />
+              <h1 className="text-5xl lg:text-5xl font-bold">Built for</h1>
+              <SparklesText className="!text-5xl lg:!text-5xl" text="speed" />
               <p className="text-muted-foreground mt-3">
               Zen is engineered for speed, consistently outperforming competitors with every release, ensuring a faster browsing experience.
               </p>
@@ -290,8 +290,8 @@ export default function Features() {
           </div>
           <div className={ny("flex flex-col lg:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 1 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
             <div className="flex flex-col max-w-lg text-center md:text-start">
-              <h1 className="text-5xl lg:text-8xl font-bold">Privacy is</h1>
-              <SparklesText className="!text-5xl lg:!text-8xl" text="key" />
+              <h1 className="text-5xl lg:text-5xl font-bold">Privacy is</h1>
+              <SparklesText className="!text-5xl lg:!text-5xl" text="key" />
               <p className="text-muted-foreground mt-3">
               Zen strikes the perfect balance between privacy and usability, allowing you to browse without compromising your data.
               </p>
@@ -300,8 +300,8 @@ export default function Features() {
           </div>
           <div className={ny("flex flex-col lg:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 2 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
             <div className="flex flex-col text-center md:text-start max-w-lg">
-              <h1 className="text-5xl lg:text-8xl font-bold">Security is</h1>
-              <SparklesText className="text-5xl lg:!text-8xl" text="important" />
+              <h1 className="text-5xl lg:text-5xl font-bold">Security is</h1>
+              <SparklesText className="text-5xl lg:!text-5xl" text="important" />
               <p className="text-muted-foreground mt-3">
               Zen incorporates advanced security technologies that outshine other Firefox-based browsers, keeping you safe online.
               </p>
@@ -313,7 +313,7 @@ export default function Features() {
           height={1000}
           width={800}
           src="/color-preview.png"
-          className="rounded-xl mt-64 lg:mt-0 lg:ml-52 border-2 border-blue-500 shadow-lg lg:scale-[1.4] hover:scale-105 lg:hover:scale-[1.5] transition-all duration-200"
+          className="rounded-xl mt-64 lg:mt-0 lg:ml-52 border-2 border-blue-500 shadow-lg lg:scale-[1.3] hover:scale-105 lg:hover:scale-[1.4] transition-all duration-200"
           alt=""
         />
       </div>
