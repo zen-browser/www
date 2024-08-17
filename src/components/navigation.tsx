@@ -41,7 +41,7 @@ export function Navigation() {
     <div className="bg-background z-40 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
       <MobileNav />
       <NavigationMenu>
-        <NavigationMenuList className="w-full hidden sm:flex">
+        <NavigationMenuList className="w-full hidden py-3 sm:flex">
           <NavigationMenuItem className="cursor-pointer mr-20">
             <NavigationMenuLink href="/">
               <Logo withText />

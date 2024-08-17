@@ -52,7 +52,7 @@ export default function Header() {
         </Link>
         <div
           ref={ref}
-          className="animate-fade-up relative mt-32 opacity-0 [--animation-delay:400ms] [perspective:2000px] after:absolute after:inset-0 after:z-50 after:[background:linear-gradient(to_top,hsl(var(--background))_30%,transparent)]"
+          className="animate-fade-up relative mt-32 opacity-0 [--animation-delay:400ms] [perspective:2000px] after:absolute after:inset-0 after:z-50 after:[background:linear-gradient(to_top,hsl(var(--background))_10%,transparent)]"
         >
           <div
             className={`rounded-xl border border-white/10 bg-white bg-opacity-[0.01] before:absolute before:bottom-1/2 before:left-0 before:top-0 before:size-full before:opacity-0 before:[background-image:linear-gradient(to_bottom,var(--color-one),var(--color-one),transparent_40%)] before:[filter:blur(180px)] ${
@@ -68,15 +68,15 @@ export default function Header() {
             />
 
             <Image
-              width={1600}
-              height={800}
+              width={1500}
+              height={700}
               src="/browser-dark.png"
               alt="browser Image"
               className="relative hidden rounded-[inherit] border object-contain dark:block"
             />
             <Image
-              width={1600}
-              height={800}
+              width={1500}
+              height={700}
               src="/browser-light.png"
               alt="browser Image"
               className="relative block rounded-[inherit]  border object-contain dark:hidden"

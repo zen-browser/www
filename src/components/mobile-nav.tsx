@@ -18,13 +18,16 @@ export function MobileNav() {
    return (
       <Sheet open={open} onOpenChange={setOpen}>
          <SheetTrigger asChild>
-            <Button
-               variant="ghost"
-               className="mr-2 px-0 ml-auto text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 sm:hidden"
-            >
-               <SidebarOpen className="size-6" />
-               <span className="sr-only">Toggle Menu</span>
-            </Button>
+            <>
+               <Logo className="size-6 sm:hidden" />
+               <Button
+                  variant="ghost"
+                  className="mr-2 px-0 ml-auto text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 sm:hidden"
+               >
+                  <SidebarOpen className="size-6" />
+                  <span className="sr-only">Toggle Menu</span>
+               </Button>
+            </>
          </SheetTrigger>
          <SheetContent side="left" className="pr-0">
             <MobileLink
