@@ -188,7 +188,7 @@ export default function Features() {
                     height={32}
                     width={32}
                     src="/favicon.ico"
-                    className="bg-black dark:bg-white rounded-md mx-auto mb-2 w-8 h-8"
+                    className="border-2 rounded-lg mx-auto mb-2 w-8 h-8"
                     alt="zen"
                   />
                   Zen
