@@ -34,7 +34,7 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
           zen-theme-id={theme.id}
         >Install Theme 🎉</Button>
         <Button
-          className="mt-4"
+          className="mt-4 hidden"
           id="install-theme-uninstall"
           zen-theme-id={theme.id}
         >Uninstall Theme</Button>
