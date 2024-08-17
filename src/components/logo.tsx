@@ -1,11 +1,8 @@
 "use client";
+import { LOGO_COLORS } from "@/lib/logos";
 import { ny } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
-
-export const LOGO_COLORS = [
-  "black", "blue", "brown", "buff", "indigo", "mantis", "orchid", "pink", "tangerine", "turquise", "white", "yellow"
-]
 
 export default function Logo({ withText, ...props }: any) {
   const [randomColor, setRandomColor] = React.useState(LOGO_COLORS[Math.floor(Math.random() * LOGO_COLORS.length)]);

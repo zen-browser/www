@@ -14,7 +14,7 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
   return (
     <div className="mt-24 lg:mt-56 flex-col lg:flex-row relative flex mx-auto items-start relative">
       <div className="flex flex-col relative lg:fixed w-md h-full p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm">
-        <img src={theme.image} alt={theme.name} className="w-full object-cover rounded-lg border shadow" />
+        <img src={theme.image} alt={theme.name} className="w-full object-cover rounded-lg border-2 shadow" />
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
         <p className="text-sm text-muted-foreground mt-2">{theme.description}</p>
         {theme.homepage && (

@@ -34,6 +34,11 @@ export const components: { title: string; href: string; description: string }[] 
     href: "https://github.com/zen-browser",
     description: "Check out our source code on GitHub and leave a star!"
   },
+  {
+    title: "Branding Assets",
+    href: "/branding-assets",
+    description: "Download Zen Browser branding assets for your website or project."
+  },
 ]
  
 export function Navigation() {
