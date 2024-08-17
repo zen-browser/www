@@ -55,7 +55,7 @@ export default function Features() {
   useEffect(() => {
     setInterval(() => {
       setFeature((feature) => (feature + 1) % 3);
-    }, 10000);
+    }, 9000);
   }, []);
   return (
     <div className="relative w-full mb-52 p-5 xl:p-0">
