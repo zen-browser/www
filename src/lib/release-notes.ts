@@ -463,9 +463,63 @@ export const releaseNotes: ReleaseNote[] = [
       },
     ],
   },
+  {
+    version: "1.0.0-a.23",
+    date: "18/08/2024",
+    extra: "This release is the twenty-third alpha release of the 1.0.0-alpha series.\n\nWe have made a lot of improvements and bug fixes since the last release note. I will go over the most important changes since version 1.0.0-a.17.\n\nThanks to everyone for the feedback and support!!",
+    features: [
+        "Added support for the latest stable version of Firefox (129.0.1)",
+        "Added security warning when changing the language",
+        "Locked preferences for Mozilla Telemetry and Experiments",
+        "Refactored parts of the Zen interface theme",
+        "Disabled Reader Mode's parse-on-load function",
+        "Updated network and buffer preferences",
+        "Introduced support for WebAssembly SIMD",
+        "Optimized macOS version for Nehalem architecture",
+        "Added Branding Assets page",
+        "Released Theme Store",
+        "Added documentation for submitting themes",
+        "Added confirm theme removal button",
+        "Released Floating URL Bar feature as an official theme",
+        "Released an official theme to remove browser padding",
+    ],
+    fixes: [
+        {
+          description: "No option to disable dimming inactive tabs",
+          issue: 225,
+        },
+        {
+          description: "Closed tabs reappear if restore previous tabs on startup is enabled ",
+          issue: 230,
+        },
+        {
+          description: "Can't move tabs between workspaces",
+          issue: 237,
+        },
+        {
+          description: "Zen Browser is damaged and can't be opened on macOS",
+          issue: 53,
+        },
+        {
+          description: "Floating URL Bar does not close",
+          issue: 252
+        },
+        {
+          description: "Web panel can go out of bounds if it is not pinned",
+          issue: 267
+        },
+        {
+          description: "Bookmarks bar does not match the selected theme",
+          issue: 264
+        },
+        {
+          description: "Tab backgrounds overlap on hover",
+          issue: 303
+        }
+      ],
+  },
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
   return note.version.includes("-a.");
 }
-
