@@ -1,4 +1,5 @@
 import { SearchIcon } from "lucide-react";
+import { Button } from "./ui/button";
 
 export default function ThemesSearch({
   input, setInput
@@ -7,7 +8,7 @@ export default function ThemesSearch({
   setInput: (input: string) => void;
 }) {
   return (
-    <div className="flex w-full p-2 bg-muted/50 rounded-full mt-10 items-center border border-muted">
+    <div className="flex w-full p-2 bg-muted/50 rounded-lg mt-10 items-center border border-muted">
       <SearchIcon className="w-6 h-6 mx-4 text-muted" />
       <input
         type="text"

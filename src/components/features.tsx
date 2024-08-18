@@ -64,7 +64,7 @@ export default function Features() {
           <h1 className="text-3xl font-bold">The only limit is your</h1>
           <SparklesText className="!text-3xl" text="Imagination" />
           <p className="text-muted-foreground mt-3">
-            Zen's theme marketplace offers a wide range of themes to customize your browsing experience. Try them out today!
+            Zen's theme store offers a wide range of themes to customize your browsing experience. Try them out today!
           </p>
           <Button className="mt-8" onClick={() => window.location.href = "/themes"}>Try it now</Button>
         </div>

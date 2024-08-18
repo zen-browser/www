@@ -39,6 +39,11 @@ export const components: { title: string; href: string; description: string }[] 
     href: "/branding-assets",
     description: "Download Zen Browser branding assets for your website or project."
   },
+  {
+    title: "Documentation",
+    href: "https://docs.zen-browser.app/",
+    description: "Learn how to use Zen Browser and build your own themes."
+  }
 ]
  
 export function Navigation() {
@@ -76,7 +81,7 @@ export function Navigation() {
                 <ListItem href="/download" title="Download">
                   Start using Zen Browser today with just a few clicks.
                 </ListItem>
-                <ListItem href="/themes" title="Themes Marketplace">
+                <ListItem href="/themes" title="Themes Store">
                   Customize your browser with a variety of themes!
                 </ListItem>
                 <ListItem href="/release-notes" title="Release Notes">
