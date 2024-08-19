@@ -139,8 +139,8 @@ export default function Features() {
             />
           </div>
         </div>
-        <div className="w-full xl:mr-4 flex flex-col">
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 mt-8 xl:mt-0 flex-col flex max-w-xl justify-center rounded-xl md:border-2 pt-24 xl:p-20 md:shadow-xl hover:scale-105">
+        <div className="w-full flex flex-col">
+          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl md:border-2 xl:p-20 md:shadow-xl hover:scale-105">
             <h1 className="text-5xl font-bold">Profile switching</h1>
             <p className="text-muted-foreground mt-3">
             Seamlessly switch between work and personal profiles for a focused browsing experience.
@@ -153,7 +153,7 @@ export default function Features() {
               alt=""
             />
           </div>
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 mt-8 flex-col flex max-w-xl justify-center rounded-xl md:border-2 pt-24 xl:p-20 md:shadow-xl hover:scale-105">
+          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl md:border-2 xl:p-20 md:shadow-xl hover:scale-105 mt-8">
             <h1 className="text-5xl font-bold">Side web panels</h1>
             <p className="text-muted-foreground mt-3">
             Access favorite sites and services instantly, without leaving your current page.

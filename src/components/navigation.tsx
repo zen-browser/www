@@ -91,12 +91,26 @@ export function Navigation() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link target="_blank" href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink" legacyBehavior passHref className="opacity-70 cursor-not-allowed">
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                <HeartIcon size={16} />
-                <span className="ml-2">Donate</span>
-              </NavigationMenuLink>
-            </Link>
+            <NavigationMenuTrigger>
+              <HeartIcon size={16} />
+              <span className="ml-2">Donate</span>
+            </NavigationMenuTrigger>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                <ListItem
+                  title="Patreon"
+                  href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
+                >
+                  Support us on Patreon and get exclusive rewards and keep the project alive.
+                </ListItem>
+                <ListItem
+                  title="Ko-fi"
+                  href="https://ko-fi.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
+                >
+                  Ko-fi is a way to support us with a one-time donation and help us keep the project alive.
+                </ListItem>
+              </ul>
+            </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Useful Links</NavigationMenuTrigger>
