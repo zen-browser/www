@@ -474,6 +474,7 @@ export const releaseNotes: ReleaseNote[] = [
         "Refactored parts of the Zen interface theme",
         "Disabled Reader Mode's parse-on-load function",
         "Updated network and buffer preferences",
+        "Improved font rendering",
         "Introduced support for WebAssembly SIMD",
         "Optimized macOS version for Nehalem architecture",
         "Added Branding Assets page",
@@ -518,6 +519,36 @@ export const releaseNotes: ReleaseNote[] = [
         }
       ],
   },
+  {
+    version: "1.0.0-a.24",
+    date: "20/08/2024",
+    extra: "This release is the twenty-fourth alpha release of the 1.0.0-alpha series.\n\nThis release brings the long-awaited expand on hover feature, as well as some bug fixes and improvements to the theme store and documentation.",
+    features: [
+        "Added a frequently asked questions page to the documentation",
+        "Added platform specific preferences to Zen themes",
+        "Added expand-on-hover feature for the tab sidebar",
+        "Improved scrollbar appearance on Windows",
+        "Improved URL bar background color"
+    ],
+    fixes: [
+        {
+            description: "Mute button is shown on inactive collapsed tabs",
+            issue: 322
+        },
+        {
+            description: "Visual bug on bottom sidebar buttons",
+            issue: 304
+        },
+        {
+            description: "Closing tabs makes other tabs briefly smaller",
+            issue: 337
+        },
+        {
+            description: "Checkboxes are hard to see",
+            issue: 103
+        }
+    ]
+  }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
