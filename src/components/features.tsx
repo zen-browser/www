@@ -59,16 +59,19 @@ export default function Features() {
   }, []);
   return (
     <div className="relative w-full mb-52 p-5 xl:p-0">
-      <div className="w-full md:w-2/3 2xl:w-1/2 p-5 xl:p-0 mx-auto grid mt-52 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
+      <div className="w-full md:w-2/3 p-7 md:p-10 xl:p-0 mx-auto grid mt-52 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow-lg hover:border-blue-500 transition-all duration-200 hover:scale-105">
         <div className="flex flex-col xl:p-20 justify-center">
-          <h1 className="text-3xl font-bold">The only limit is your</h1>
-          <SparklesText className="!text-3xl" text="Imagination" />
-          <p className="text-muted-foreground mt-3">
+          <h1 className="text-3xl md:text-4xl font-bold">The only limit is your</h1>
+          <SparklesText className="!text-3xl md:!text-4xl" text="Imagination" />
+          <p className="text-muted-foreground mt-6 lg:mt-8">
             Zen's theme store offers a wide range of themes to customize your browsing experience. Try them out today!
           </p>
-          <Button className="mt-8" onClick={() => window.location.href = "/themes"}>Try it now</Button>
+          <p className="text-muted-foreground mt-3">
+            We also offer a wide range of themes and color schemes to customize your browsing experience.
+          </p>
+          <Button className="mt-auto" onClick={() => window.location.href = "/themes"}>Try it now</Button>
         </div>
-        <div className="relative hidden xl:flex h-[500px] w-full max-w-xl items-center justify-center overflow-hidden">
+        <div className="relative hidden ml-auto xl:flex h-[500px] w-full max-w-xl items-center justify-center overflow-hidden">
          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
             <Image src="/logos/zen-black.png" width={100} height={100} alt="Zen Logo" />
          </span>
