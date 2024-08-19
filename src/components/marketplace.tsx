@@ -14,9 +14,9 @@ export default function MarketplacePage() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full mx-auto p-5 lg:w-1/2 lg:p-0 items-center justify-center h-full mt-36">
+    <div className="flex flex-col w-full mx-auto p-5 lg:w-2/3 items-center justify-center h-full mt-36">
       <div className="mx-auto w-full text-center">
-        <h1 className="text-4xl lg:text-7xl font-bold">Themes Shop</h1>
+        <h1 className="text-4xl lg:text-7xl font-bold">Themes Store</h1>
         <ThemesSearch input={searchInput} setInput={setSearchInput} />
         <div className="w-full mt-4 flex items-start">
           <Button
