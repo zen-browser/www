@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
   return (
     <div className="flex flex-col mt-52 mb-24">
-      <div className="mx-auto w-full px-10 md:px-0 md:w-1/2">
+      <div className="mx-auto w-full px-10 md:px-0 lg:w-2/3">
         <h1 className="text-4xl font-bold">
           Release notes for {data.version} 🎉
         </h1>

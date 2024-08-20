@@ -73,7 +73,7 @@ export default function Features() {
         </div>
         <div className="relative hidden ml-auto xl:flex h-[500px] w-full max-w-xl items-center justify-center overflow-hidden">
          <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-            <Image src="/logos/zen-black.png" width={100} height={100} alt="Zen Logo" />
+            <Image src="/logos/zen-black.svg" width={100} height={100} alt="Zen Logo" />
          </span>
  
          {/* Inner Circles */}
@@ -83,7 +83,7 @@ export default function Features() {
             delay={20}
             radius={80}
          >
-            <Image src="/logos/zen-indigo.png" width={30} height={30} alt="Zen Logo" />
+            <Image src="/logos/zen-indigo.svg" width={30} height={30} alt="Zen Logo" />
          </OrbitingCircles>
          <OrbitingCircles
             className="size-[30px] border-none bg-transparent"
@@ -91,7 +91,7 @@ export default function Features() {
             delay={10}
             radius={80}
          >
-            <Image src="/logos/zen-yellow.png" width={30} height={30} alt="Zen Logo" />
+            <Image src="/logos/zen-alpha-yellow.svg" width={30} height={30} alt="Zen Logo" />
          </OrbitingCircles>
  
          {/* Outer Circles (reverse) */}
@@ -101,7 +101,7 @@ export default function Features() {
             duration={20}
             reverse
          >
-            <Image src="/logos/zen-blue.png" width={50} height={50} alt="Zen Logo" />
+            <Image src="/logos/zen-alpha-blue.svg" width={50} height={50} alt="Zen Logo" />
          </OrbitingCircles>
          <OrbitingCircles
             className="size-[50px] border-none bg-transparent"
@@ -110,7 +110,7 @@ export default function Features() {
             delay={20}
             reverse
          >
-            <Image src="/logos/zen-pink.png" width={50} height={50} alt="Zen Logo" />
+            <Image src="/logos/zen-pink.svg" width={50} height={50} alt="Zen Logo" />
          </OrbitingCircles>
       </div>
       </div>
