@@ -216,7 +216,7 @@ export default function DownloadPage() {
           {(hasDownloaded && (
             <div className="flex items-center justify-center flex-col">
               <h1 className="text-6xl font-bold">Downloaded! ❤️</h1>
-              <p className="text-muted-foreground mt-3">
+              <p className="text-muted-foreground mt-3 text-center">
                 Zen Browser has been downloaded successfully. Enjoy browsing the
                 web with Zen!
               </p>
