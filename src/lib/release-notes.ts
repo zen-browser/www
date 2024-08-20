@@ -558,11 +558,16 @@ export const releaseNotes: ReleaseNote[] = [
         "Updated CSS to improve compact mode and vertical tabs styling",
         "Updated the browser logo for Windows to a higher resolution",
         "Fixed severe issue with platform specific preference handling",
+        "Added feature to set a default workspace"
     ],
     fixes: [
         {
             description: "Issue with edge detection for expand-on-hover sidebar feature",
             issue: 355
+        },
+        {
+            description: "Can't switch workspaces",
+            issue: 359
         }
     ]
   }
