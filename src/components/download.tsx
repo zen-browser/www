@@ -256,12 +256,12 @@ export default function DownloadPage() {
           )) || (
             <>
               <h1 className="text-6xl font-bold flex flex-col lg:flex-row">Download <SparklesText className="mx-2" text="Zen" /></h1>
-              <p className="text-muted-foreground mt-3">
+              <p className="text-muted-foreground mt-3 text-xl">
                 We're thrilled for you to experience Zen Browser. First, let us know which device you're using. This will only take a moment, we promise.
               </p>
             </>
           )}
-          <div className="relative w-full">
+          <div className="relative w-full text-xl">
             {platform === null && (
               <FormField enter={platform === null} out={platform !== null}>
                 <FieldTitle>Platform</FieldTitle>

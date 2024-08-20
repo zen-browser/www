@@ -40,7 +40,7 @@ export function FeatureCard({
       <div className="text-md font-medium mb-5">
         {title}
       </div>
-      <div className="text-muted-foreground text-sm font-medium">
+      <div className="text-muted-foreground text-sm text-xl">
         {description}
       </div>
       {todo && (
