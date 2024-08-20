@@ -548,6 +548,23 @@ export const releaseNotes: ReleaseNote[] = [
             issue: 103
         }
     ]
+  },
+  {
+    version: "1.0.0-a.25",
+    date: "20/08/2024",
+    extra: "This release is the twenty-fifth alpha release of the 1.0.0-alpha series.\n\nThis is a short release that addresses some important bugs.",
+    features: [
+        "Updated to the latest stable version of Firefox (129.0.2)",
+        "Updated CSS to improve compact mode and vertical tabs styling",
+        "Updated the browser logo for Windows to a higher resolution",
+        "Fixed severe issue with platform specific preference handling",
+    ],
+    fixes: [
+        {
+            description: "Issue with edge detection for expand-on-hover sidebar feature",
+            issue: 355
+        }
+    ]
   }
 ].reverse();
 
