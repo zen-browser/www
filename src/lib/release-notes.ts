@@ -564,10 +564,6 @@ export const releaseNotes: ReleaseNote[] = [
         {
             description: "Issue with edge detection for expand-on-hover sidebar feature",
             issue: 355
-        },
-        {
-            description: "Can't switch workspaces",
-            issue: 359
         }
     ]
   }
