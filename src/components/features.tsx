@@ -58,8 +58,8 @@ export default function Features() {
     }, 9000);
   }, []);
   return (
-    <div className="relative w-full mb-20 p-5 xl:p-0">
-      <div className="w-full md:w-2/3 p-7 md:p-10 xl:p-0 mx-auto grid xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow-lg hover:border-blue-500 transition-all duration-200 hover:scale-105">
+    <div className="relative w-full my-32 p-5 xl:p-0">
+      <div className="w-full md:w-2/3 p-7 md:p-10 xl:p-0 mx-auto grid xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow-lg hover:border-blue-500 transition-all duration-200 hover:scale-105 mt-10">
         <div className="flex flex-col xl:p-20 justify-center">
           <h1 className="text-3xl md:text-4xl font-bold">The only limit is your</h1>
           <SparklesText className="!text-3xl md:!text-4xl" text="Imagination" />
@@ -115,7 +115,7 @@ export default function Features() {
       </div>
       </div>
       {/*<TextReveal text="Zen will change the way you browse the web. 🌟" />*/}
-      <h1 className="text-5xl font-bold mt-20 text-center p-5 md:p-0 flex flex-col md:flex-row justify-center items-center mb-2">What does Zen offer to <SparklesText className="mx-2" text="YOU" />?</h1>
+      <h1 className="text-5xl font-bold mt-48 text-center p-5 md:p-0 flex flex-col md:flex-row justify-center items-center mb-2">What does Zen offer to <SparklesText className="mx-2" text="YOU" />?</h1>
       <p className="text-muted-foreground text-center mx-auto w-3/4 md:w-full p-5 xl:p-0 mb-12">
       Discover how Zen Browser can transform your web experience with powerful features that keep you ahead.
       Here are<br className="hidden md:block"/> some of the features that Zen offers.</p>
@@ -175,7 +175,7 @@ export default function Features() {
         borderWidth={2}
         borderRadius={12}
         color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-        className="w-full md:w-2/3 2xl:w-1/2 mx-auto mt-20 flex relative flex-col items-start justify-start w-full bg-background xl:p-12 rounded-xl md:shadow-xl"
+        className="w-full md:w-2/3 2xl:w-1/2 mx-auto mt-32 flex relative flex-col items-start justify-start w-full bg-background xl:p-12 rounded-xl md:shadow-xl"
       >
         <div className="w-full xl:p-16">
           <Table>
@@ -279,7 +279,7 @@ export default function Features() {
           </Table>
         </div>
       </ShineBorder>
-      <div className="grid grid-cols-1 xl:grid-cols-2 mx-auto justify-center w-full xl:w-2/3 my-40">
+      <div className="grid grid-cols-1 xl:grid-cols-2 mx-auto justify-center w-full xl:w-2/3 my-48">
         <div className="relative w-full flex items-center">
           <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 0 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
             <div className="flex flex-col max-w-xl text-center md:text-start">
@@ -340,7 +340,7 @@ export default function Features() {
           alt=""
         />
       </div>
-      <div className="mt-20 w-full flex items-center justify-center flex-col">
+      <div className="mt-28 w-full flex items-center justify-center flex-col">
         <h1 className="text-5xl text-center font-bold w-1/2">Want more?</h1>
         <p className="text-muted-foreground text-center mt-3 w-1/2">
         Zen Browser is packed with features designed to revolutionize your browsing.
