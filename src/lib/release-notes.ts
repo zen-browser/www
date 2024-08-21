@@ -552,7 +552,7 @@ export const releaseNotes: ReleaseNote[] = [
   {
     version: "1.0.0-a.26",
     date: "20/08/2024",
-    extra: "This release is the twenty-fifth alpha release of the 1.0.0-alpha series.\n\nThis is a short release that addresses some important bugs.",
+    extra: "This release is the twenty-sixth alpha release of the 1.0.0-alpha series.\n\nThis is a short release that addresses some important bugs.",
     features: [
         "Updated to the latest stable version of Firefox (129.0.2)",
         "Updated CSS to improve compact mode and vertical tabs styling",
