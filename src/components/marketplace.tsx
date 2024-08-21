@@ -14,19 +14,14 @@ export default function MarketplacePage() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full mx-auto p-5 lg:w-2/3 2xl:w-1/2 items-center justify-center h-full mt-36">
-      <div className="mx-auto w-full text-center">
-        <h1 className="text-4xl lg:text-7xl font-bold">Themes Store</h1>
-        <ThemesSearch input={searchInput} setInput={setSearchInput} />
-        <div className="w-full mt-4 flex items-start">
-          <Button
-            onClick={() => window.open("https://docs.zen-browser.app/themes-store/themes-marketplace-submission-guidelines#themes-store-submission-guidelines", "_blank")}
-            className="text-muted"
-          >Submit a theme</Button>
+    <div className="flex flex-col w-full mx-auto items-center justify-center h-full">
+      <div className="mx-auto w-full text-center border-b pt-48 pb-24 mb-12 bg-gradient-to-r from-[#f6cfbe] to-[#b9dcf2] dark:from-[#0d1117] dark:to-[#0d1117]">
+        <div className="w-full lg:w-1/2 xl:w-1/2 mx-auto px-2 lg:px-none">
+          <h1 className="text-4xl lg:text-7xl font-bold">Themes Store</h1>
+          <ThemesSearch input={searchInput} setInput={setSearchInput} />
         </div>
-        <hr className="w-full border-muted mt-4" />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-10 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 mt-10 w-full lg:w-1/2 xl:w-2/3 2xl:w-3/4">
         {getThemesFromSearch(themes, searchInput).map((theme) => (
           <ThemeCard key={theme.name} theme={theme} />
         ))}
