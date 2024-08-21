@@ -175,7 +175,7 @@ export default function CreateThemePage() {
                     Copy to clipboard
                   </Button>
                   <Button onClick={() => {
-                    
+                    window.open("https://github.com/zen-browser/theme-store/issues/new?assignees=&labels=new-theme&projects=&template=create-theme.yml&title=%5Bcreate-theme%5D%3A+", "_blank");
                   }} >
                     Submit theme
                   </Button>
