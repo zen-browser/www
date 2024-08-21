@@ -6,6 +6,7 @@ import React from "react";
 import styled from "styled-components";
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@radix-ui/react-dialog";
 import { DialogFooter, DialogHeader } from "./ui/dialog";
+import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 
 const COLORS = [
   "#ffaa40",
@@ -81,12 +82,23 @@ export default function CreateThemePage() {
   }, [isDarkMode]);
 
   const generateThemeData = () => {
-    return JSON.stringify({
-      primaryColor,
-      secondaryColor,
-      tertiaryColor,
-      colorsBorder,
-    }, null, 4);
+    let theme: any = {
+      isDarkMode,
+    };
+    // Dont add the default values
+    if (primaryColor !== (isDarkMode ? defaultStyles.primaryColor.dark : defaultStyles.primaryColor.light)) {
+      theme["primaryColor"] = primaryColor;
+    }
+    if (secondaryColor !== (isDarkMode ? defaultStyles.secondaryColor.dark : defaultStyles.secondaryColor.light)) {
+      theme["secondaryColor"] = secondaryColor;
+    }
+    if (tertiaryColor !== (isDarkMode ? defaultStyles.tertiaryColor.dark : defaultStyles.tertiaryColor.light)) {
+      theme["tertiaryColor"] = tertiaryColor;
+    }
+    if (colorsBorder !== (isDarkMode ? defaultStyles.colorsBorder.dark : defaultStyles.colorsBorder.light)) {
+      theme["colorsBorder"] = colorsBorder
+    }
+    return JSON.stringify(theme, null, 4);
   }
 
   return (
@@ -96,7 +108,7 @@ export default function CreateThemePage() {
       secondaryColor={secondaryColor}
       tertiaryColor={tertiaryColor}
       colorsBorder={colorsBorder}
-      className="flex flex-col mt-52 items-center justify-center w-full min-h-screen">
+      className="flex flex-col mt-32 items-center justify-center w-full min-h-screen">
       <div className="w-full lg:w-1/2 xl:w-1/2 mx-auto px-2 lg:px-none">
         <h1 className="text-4xl lg:text-7xl font-bold">Create your theme</h1>
         <p className="text-lg opacity-40 mt-2">Create your own theme for Zen Browser and share it with the community.</p>
@@ -144,27 +156,32 @@ export default function CreateThemePage() {
               <input type="text" className="border text-gray-500 rounded-lg p-2 w-2/3" value={colorsBorder} onChange={(e) => setColorsBorder(e.target.value)} />
               <div className="w-11 h-11 ml-4 rounded-lg border bg-[var(--zen-colors-border)]"></div>
             </div>
-            <Dialog>
-              <DialogTrigger asChild>
+            <Sheet>
+              <SheetTrigger asChild>
                 <Button className="mt-8">Create theme</Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader className="text-xl font-bold">
-                  <DialogTitle>Theme data</DialogTitle>
-                  <DialogDescription>
+              </SheetTrigger>
+              <SheetContent className="!w-[600px] !max-w-lg">
+                <SheetHeader>
+                  <SheetTitle>Theme data</SheetTitle>
+                  <SheetDescription>
                     Copy the following JSON object and paste it into your Zen Browser theme format.
-                  </DialogDescription>
-                </DialogHeader>
-                <pre className="text-sm text-wrap font-mono p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">{generateThemeData()}</pre>
-                <DialogFooter className="mt-4">
+                  </SheetDescription>
+                </SheetHeader>
+                <pre className="text-sm mt-6 text-wrap font-mono p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">{generateThemeData()}</pre>
+                <SheetFooter className="mt-4">
                   <Button onClick={() => 
                     navigator.clipboard.writeText(generateThemeData())
-                  }>
+                  } variant="ghost">
                     Copy to clipboard
                   </Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
+                  <Button onClick={() => {
+                    
+                  }} >
+                    Submit theme
+                  </Button>
+                </SheetFooter>
+              </SheetContent>
+            </Sheet>
           </div>
           {/* Preview */}
           <div className="p-4 pr-0 pb-0 rounded-xl border-2 relative overflow-hidden w-72 h-48 border-[var(--zen-colors-border)] bg-[var(--zen-colors-tertiary)]">
