@@ -1,32 +1,31 @@
 "use server";
 
-import { sql } from '@vercel/postgres';
-import { releases } from './releases';
+import { createClient } from '@supabase/supabase-js'
 
-async function createDownloadsTable() {
-    await sql`
-        CREATE TABLE IF NOT EXISTS downloads (
-            platform TEXT NOT NULL PRIMARY KEY,
-            count INT NOT NULL DEFAULT 0
-        );
-    `;
-}
+const supabaseUrl = 'https://dmthyedfjzcysoekmyns.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY as string;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export async function addDownload(platform: string) {
-    await createDownloadsTable();
-    let hasPlatform: any = await sql`
-        SELECT COUNT(*) FROM downloads WHERE platform = ${platform};
-    `;
-    if (hasPlatform.rows[0].count > 0) {
-        await sql`
-            UPDATE downloads
-            SET count = count + 1
-            WHERE platform = ${platform};
-        `;
-        return;
+    // Check if the download count for the platform exists
+    const { data, error } = await supabase
+        .from('downloads')
+        .select('count')
+        .eq('platform', platform)
+    // If it doesn't exist, create it
+    console.log(data)
+    if (data?.length === 0 || data === null) {
+        const {data, error} = await supabase
+            .from('downloads')
+            .insert([{ platform, count: 1 }]);
+        if (error) {
+            console.error(error)
+        }
+    } else {
+        // If it exists, increment the count
+        await supabase
+            .from('downloads')
+            .update({ count: data![0].count + 1 })
+            .eq('platform', platform)
     }
-    await sql`
-        INSERT INTO downloads (platform, count)
-        VALUES (${platform}, 1);
-    `;
 }
