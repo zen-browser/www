@@ -155,7 +155,7 @@ export default function DownloadPage() {
       console.log("Downloading: ");
       console.log("platform: ", selectedPlatform);
       console.log("compat: ", arch);
-      //window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
+      window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
     }
     setHasDownloaded(true);
     addDownload(releaseTarget);
