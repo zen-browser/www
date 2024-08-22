@@ -7,9 +7,8 @@ export interface ZenTheme {
   id: string
   homepage?: string
   readme: string
-  preferences: {
-    [key: string]: string
-  },
+  preferences?: string
+  isColorTheme: boolean
   author: string
 }
 
@@ -28,8 +27,16 @@ export async function getAllThemes() {
   return themesArray;
 }
 
-export function getThemesFromSearch(themes: ZenTheme[], query: string): ZenTheme[] {
-  return themes.filter((theme) => theme.name.toLowerCase().includes(query.toLowerCase()));
+export function getThemesFromSearch(themes: ZenTheme[], query: string, tags: string[]): ZenTheme[] {
+  let filtered = themes.filter((theme) => theme.name.toLowerCase().includes(query.toLowerCase()));
+  if (tags.includes("all")) return filtered;
+  const isSearchingForColorScheme = tags.includes("color-scheme");
+  const isSearchingForUtility = !isSearchingForColorScheme && tags.includes("utility");
+  return filtered.filter((theme) => {
+    if (isSearchingForColorScheme && theme.isColorTheme) return true;
+    if (isSearchingForUtility && !theme.isColorTheme) return true;
+    return false;
+  });
 }
 
 export async function getThemeFromId(id: string) {
