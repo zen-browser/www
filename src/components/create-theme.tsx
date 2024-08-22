@@ -179,6 +179,13 @@ export default function CreateThemePage() {
             <div className="flex items-center mt-2">
               <input type="text" className="border text-gray-500 rounded-lg p-2 w-2/3" value={colorsBorder} onChange={(e) => setColorsBorder(e.target.value)} />
               <div className="w-11 h-11 ml-4 rounded-lg border bg-[var(--zen-colors-border)]"></div>
+            </div
+            <h2 className="text-lg mt-8 font-bold opacity-70">
+              Dialog background color
+            </h2>
+            <div className="flex items-center mt-2">
+              <input type="text" className="border text-gray-500 rounded-lg p-2 w-2/3" value={dialogBg} onChange={(e) => setDialogBg(e.target.value)} />
+              <div className="w-11 h-11 ml-4 rounded-lg border bg-[var(--zen-dialog-background)]"></div>
             </div>
             <Sheet>
               <SheetTrigger asChild>
