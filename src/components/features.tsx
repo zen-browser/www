@@ -73,7 +73,7 @@ export default function Features() {
               Goodbye bad performance
             </h2>
             <p className="text-center text-sm mt-2 text-muted-foreground">
-              We are constantly tweak firefox's engine and settings to make it
+              We are constantly tweaking Firefox's engine and settings to make it
               faster than ever. <a className="text-blue-500" href="https://github.com/zen-browser/desktop/blob/main/docs/performance.md" target='_blank'>Learn more</a>
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function Features() {
               Secure by default
             </h2>
             <p className="text-center text-sm mt-2 text-muted-foreground">
-              We are always using the latest security features from firefox to
+              We are always using the latest security features from Firefox to
               keep you safe. <a className="text-blue-500" href="https://docs.zen-browser.app/faq#how-do-i-know-zen-is-safe">Learn more</a>
             </p>
           </div>
