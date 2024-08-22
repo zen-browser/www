@@ -59,11 +59,11 @@ export default function Features() {
   }, []);
   return (
     <div className="relative w-full my-32 p-5 xl:p-0">
-      <div className="w-full md:w-2/3 p-7 md:p-10 xl:p-0 mx-auto grid xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow-lg hover:border-blue-500 transition-all duration-200 hover:scale-105 mt-10">
+      <div className="w-full lg:w-2/3 p-7 lg:p-10 xl:p-0 mx-auto grid xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow-lg hover:border-blue-500 transition-all duration-200 hover:scale-105 mt-10">
         <div className="flex flex-col xl:p-20 justify-center">
-          <h1 className="text-3xl md:text-4xl font-bold">The only limit is your</h1>
-          <SparklesText className="!text-3xl md:!text-4xl" text="Imagination" />
-          <p className="text-muted-foreground mt-6 lg:mt-8">
+          <h1 className="text-3xl lg:text-4xl font-bold">The only limit is your</h1>
+          <SparklesText className="!text-3xl lg:!text-4xl" text="Imagination" />
+          <p className="text-muted-foreground mt-6 xl:mt-8">
             Zen's theme store offers a wide range of themes to customize your browsing experience. Try them out today!
           </p>
           <p className="text-muted-foreground mt-3">
@@ -115,20 +115,20 @@ export default function Features() {
       </div>
       </div>
       {/*<TextReveal text="Zen will change the way you browse the web. 🌟" />*/}
-      <h1 className="text-5xl font-bold mt-48 text-center p-5 md:p-0 flex flex-col md:flex-row justify-center items-center mb-2">What does Zen offer to <SparklesText className="mx-2" text="YOU" />?</h1>
-      <p className="text-muted-foreground text-center mx-auto w-3/4 md:w-full p-5 xl:p-0 mb-12">
+      <h1 className="text-5xl font-bold mt-48 text-center p-5 lg:p-0 flex flex-col lg:flex-row justify-center items-center mb-2">What does Zen offer to <SparklesText className="mx-2" text="YOU" />?</h1>
+      <p className="text-muted-foreground text-center mx-auto w-3/4 lg:w-full p-5 xl:p-0 mb-12">
       Discover how Zen Browser can transform your web experience with powerful features that keep you ahead.
-      Here are<br className="hidden md:block"/> some of the features that Zen offers.</p>
-      <div className="w-full md:w-2/3 2xl:w-1/2 mx-auto flex flex-col xl:flex-row w-full p-5 xl:p-0">
+      Here are<br className="hidden lg:block"/> some of the features that Zen offers.</p>
+      <div className="w-full lg:w-2/3 2xl:w-1/2 mx-auto flex flex-col xl:flex-row w-full p-5 xl:p-0">
         <div className="w-full flex mx-auto xl:mr-8 flex-col xl:mb-24 xl:ml-4 xl:mt-10">
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl md:border-2 xl:p-20 md:shadow-xl hover:scale-105"> 
+          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl xl:border-2 xl:p-20 lg:shadow-xl hover:scale-105"> 
             <h1 className="text-5xl font-bold">Split views</h1>
             <p className="text-muted-foreground mt-3">
             Multitask effortlessly by splitting your browser into multiple views, so you can browse several sites at once.
             </p>
             <img src="/split-view.png" className="mt-8 w-full h-full h-auto" />
           </div>
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background mx-auto xl:mx-0 relative flex flex-col mt-8 max-w-xl justify-center rounded-xl md:border-2 pt-24 xl:p-20 md:shadow-xl hover:scale-105">
+          <div className="hover:border-blue-500 transition-all duration-100 bg-background mx-auto xl:mx-0 relative flex flex-col mt-8 max-w-xl justify-center rounded-xl xl:border-2 pt-24 xl:p-20 lg:shadow-xl hover:scale-105">
             <h1 className="text-5xl font-bold">Workspaces</h1>
             <p className="text-muted-foreground mt-3">
             Stay organized and clutter-free by creating workspaces tailored to your browsing needs.
@@ -143,7 +143,7 @@ export default function Features() {
           </div>
         </div>
         <div className="w-full flex flex-col">
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl md:border-2 xl:p-20 md:shadow-xl hover:scale-105">
+          <div className="mt-24 ml-0 w-full hover:border-blue-500 transition-all duration-100 bg-background relative lg:mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl xl:border-2 md:p-20 xl:p-20 lg:shadow-xl hover:scale-105">
             <h1 className="text-5xl font-bold">Profile switching</h1>
             <p className="text-muted-foreground mt-3">
             Seamlessly switch between work and personal profiles for a focused browsing experience.
@@ -152,11 +152,11 @@ export default function Features() {
               height={500}
               width={300}
               src="/profiles.png"
-              className="mt-8 w-full h-full"
+              className="mt-8 w-full h-full mx-auto"
               alt=""
             />
           </div>
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl md:border-2 xl:p-20 md:shadow-xl hover:scale-105 mt-8">
+          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl xl:border-2 xl:p-20 lg:shadow-xl hover:scale-105 mt-8">
             <h1 className="text-5xl font-bold">Side web panels</h1>
             <p className="text-muted-foreground mt-3">
             Access favorite sites and services instantly, without leaving your current page.
@@ -175,7 +175,7 @@ export default function Features() {
         borderWidth={2}
         borderRadius={12}
         color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-        className="w-full md:w-2/3 2xl:w-1/2 mx-auto mt-32 flex relative flex-col items-start justify-start w-full bg-background xl:p-12 rounded-xl md:shadow-xl"
+        className="w-full lg:w-2/3 2xl:w-1/2 mx-auto mt-32 flex relative flex-col items-start justify-start w-full bg-background xl:p-12 rounded-xl lg:shadow-xl"
       >
         <div className="w-full xl:p-16">
           <Table>
@@ -196,7 +196,7 @@ export default function Features() {
                   />
                   Zen
                 </TableHead>
-                <TableHead className="py-2 pl-4 md:pr-0 pr-2 font-bold text-center opacity-60">
+                <TableHead className="py-2 pl-4 lg:pr-0 pr-2 font-bold text-center opacity-60">
                   <Image
                     height={32}
                     width={32}
@@ -280,11 +280,11 @@ export default function Features() {
         </div>
       </ShineBorder>
       <div className="grid grid-cols-1 xl:grid-cols-2 mx-auto justify-center w-full xl:w-2/3 my-48">
-        <div className="relative w-full flex items-center">
+        <div className="relative w-full flex items-center justify-center xl:justify-between">
           <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 0 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
-            <div className="flex flex-col max-w-xl text-center md:text-start">
-              <h1 className="text-5xl xl:text-5xl font-bold flex flex-col lg:flex-row">Built for
-                <SparklesText className="!text-5xl xl:!text-5xl lg:ml-3" text="speed" />
+            <div className="flex flex-col max-w-xl text-center xl:text-start">
+              <h1 className="text-5xl xl:text-5xl font-bold flex flex-col xl:flex-row">Built for
+                <SparklesText className="!text-5xl xl:!text-5xl xl:ml-3" text="speed" />
               </h1>
               <p className="text-muted-foreground mt-3">
               Zen is engineered for speed, consistently outperforming competitors with every release, ensuring a faster browsing experience.
@@ -293,9 +293,9 @@ export default function Features() {
             </div>
           </div>
           <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 1 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
-            <div className="flex flex-col max-w-xl text-center md:text-start">
-              <h1 className="text-5xl xl:text-5xl font-bold flex flex-col lg:flex-row">Privacy is
-                <SparklesText className="!text-5xl xl:!text-5xl lg:ml-3" text="key" />
+            <div className="flex flex-col max-w-xl text-center lg:text-start">
+              <h1 className="text-5xl xl:text-5xl font-bold flex flex-col xl:flex-row">Privacy is
+                <SparklesText className="!text-5xl xl:!text-5xl xl:ml-3" text="key" />
               </h1>
               <p className="text-muted-foreground mt-3">
               Zen strikes the perfect balance between privacy and usability, allowing you to browse without compromising your data.
@@ -304,9 +304,9 @@ export default function Features() {
             </div>
           </div>
           <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 2 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
-            <div className="flex flex-col text-center md:text-start max-w-xl">
-              <h1 className="text-5xl xl:text-5xl font-bold flex flex-col lg:flex-row">Security is
-                <SparklesText className="text-5xl xl:!text-5xl lg:ml-3" text="important" />
+            <div className="flex flex-col text-center lg:text-start max-w-xl">
+              <h1 className="text-5xl xl:text-5xl font-bold flex flex-col">Security is
+                <SparklesText className="text-5xl xl:!text-5xl xl:ml-3" text="important" />
               </h1>
               <p className="text-muted-foreground mt-3">
               Zen incorporates advanced security technologies that outshine other Firefox-based browsers, keeping you safe online.
@@ -319,11 +319,11 @@ export default function Features() {
           height={1000}
           width={800}
           src="/color-preview.png"
-          className="rounded-xl mt-64 xl:mt-0 xl:ml-52 border-2 border-blue-500 shadow-xl xl:scale-[1.3] hover:scale-105 xl:hover:scale-[1.4] transition-all duration-200"
+          className="rounded-xl mt-64 mx-auto xl:mx-0 xl:mt-0 xl:ml-52 border-2 border-blue-500 shadow-xl xl:scale-[1.3] hover:scale-105 xl:hover:scale-[1.4] transition-all duration-200"
           alt=""
         />
       </div>
-      <div className="w-full overflow-hidden md:w-2/3 2xl:w-1/2 mx-auto p-5 xl:p-0 mx-auto grid mt-24 sm:mt-20 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
+      <div className="w-full overflow-hidden lg:w-2/3 2xl:w-1/2 mx-auto p-5 xl:p-0 mx-auto grid mt-24 sm:mt-20 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
         <div className="flex flex-col xl:p-20">
           <h1 className="text-3xl font-bold">Introducing</h1>
           <SparklesText className="!text-3xl" text="Compact Mode" />
@@ -346,7 +346,7 @@ export default function Features() {
         Zen Browser is packed with features designed to revolutionize your browsing.
           Download it today and experience a new way to explore the web.
         </p>
-        <div className="grid gap-5 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-10">
+        <div className="grid gap-5 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-10">
           <FeatureCard title="Beautifully designed"
               description="Zen offers an intuitive, aesthetically pleasing interface that’s easy to navigate." />
           <FeatureCard title="Customizable"
