@@ -136,7 +136,7 @@ export default function Features() {
                 <div key={color} className="w-5 h-5 rounded-full mx-3 " style={{ backgroundColor: color }} />
               ))}
             </div>
-            <div className="border w-1/2 rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex w-fit transform translate-x-[calc(50%-1.5rem)]">
+            <div className="border w-fit rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex transform translate-x-[calc(50%-1.5rem)]">
               <Slider defaultValue={[80]} max={100} />
             </div>
             <a href='/themes' className="border-2 md:w-1/2 flex items-center justify-center rounded-xl shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black border-blue-500 flex w-fit text-muted-foreground">
