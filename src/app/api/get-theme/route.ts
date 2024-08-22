@@ -11,6 +11,12 @@ function getQSParamFromURL(
   return urlParams.get(key);
 }
 
+function removeUneccessaryKeys(theme: any) {
+  delete theme["isDarkMode"];
+  delete theme["isColorTheme"];
+  return theme;
+}
+
 export async function GET(request: Request, response: Response) {
   const id = getQSParamFromURL("id", request.url);
   if (!id) {
@@ -20,5 +26,5 @@ export async function GET(request: Request, response: Response) {
   if (!theme) {
     return Response.json({ error: "theme not found" });
   }
-  return Response.json( theme );
+  return Response.json(removeUneccessaryKeys(theme));
 }

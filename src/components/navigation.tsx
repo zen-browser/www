@@ -93,7 +93,7 @@ export function Navigation() {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>
-              <HeartFilledIcon size={16} className="text-red-500" />
+              <HeartFilledIcon className="text-red-500" />
               <span className="ml-2">Donate</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
