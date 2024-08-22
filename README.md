@@ -1,6 +1,6 @@
 <p align="center">
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://www.zen-browser.app/logos/zen-alpha-white.svgg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://www.zen-browser.app/logos/zen-alpha-white.svg">
     <img src="https://www.zen-browser.app/logos/zen-alpha-black.svg" width="64px">
 </picture>
 </p>
