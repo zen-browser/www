@@ -566,7 +566,41 @@ export const releaseNotes: ReleaseNote[] = [
             issue: 355
         }
     ]
-  }
+  },
+  {
+    version: "1.0.0-a.28",
+    date: "22/08/2024",
+    extra: "This release is the twenty-eighth alpha release of the 1.0.0-alpha series.",
+    features: [
+        "Enabled JPEG XL",
+        "Changed Zen Core Components license to CC BY-SA",
+        "Added support for color themes in theme creation",
+        "Fixed sidebar shortcuts",
+        "Started work on browser translations"
+    ],
+    fixes: [
+        {
+            description: "No way to restore native theming to toolbar",
+            issue: 426
+        },
+        {
+            description: "Address bar icons are hidden",
+            issue: 430
+        },
+        {
+            description: "Tabs don't appear in vertical tab bar",
+            issue: 429
+        },
+        {
+            description: "Location bar is not focused when opening new window",
+            issue: 414
+        },
+        {
+            description: "The treshhold for the expanded tab sidebar in compact mode is too high",
+            issue: 389
+        }
+    ]
+  },
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
