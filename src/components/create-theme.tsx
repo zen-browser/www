@@ -111,6 +111,9 @@ export default function CreateThemePage() {
     if (dialogBg !== (isDarkMode ? defaultStyles.dialogBg.dark : defaultStyles.dialogBg.light)) {
       theme["dialogBg"] = dialogBg
     }
+    if (COLORS.indexOf(selectedColor) !== 0) {
+      theme["accentColor"] = selectedColor;
+    }
     return JSON.stringify(theme, null, 4);
   }
 
@@ -135,6 +138,10 @@ export default function CreateThemePage() {
               style={{ backgroundColor: color }}
             ></div>
           ))}
+          <div className="mx-4">
+            or
+          </div>
+          <input type="color" value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)} className="w-9 h-7 rounded cursor-pointer outline-none" />
         </div>
         <div className="flex flex-col lg:flex-row">
           <div className="w-full">
