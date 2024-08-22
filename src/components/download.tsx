@@ -245,7 +245,7 @@ export default function DownloadPage() {
                     className="mt-5"
                     onClick={() =>
                       (window.location.href =
-                        "https://github.com/zen-browser/desktop/issues/53")
+                        "https://docs.zen-browser.app/guides/install-macos")
                     }
                   >
                     Download Zen for MacOS
