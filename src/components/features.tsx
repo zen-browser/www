@@ -1,39 +1,31 @@
 "use client";
-import Sticky from 'react-sticky-el';
+import { Button } from '@/components/ui/button';
+import { Slider } from '@/components/ui/slider';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { COLORS } from '@/lib/colors';
+import { ny } from '@/lib/utils';
 import {
-  CheckIcon,
-  ChevronLeft,
-  ChevronRight,
-  EyeIcon,
-  EyeOffIcon,
-  Github,
-  HomeIcon,
-  RabbitIcon,
-  ShieldAlertIcon,
-  ShieldCheck,
-  SidebarCloseIcon,
-  SidebarIcon,
-  SpaceIcon,
-  SplitSquareHorizontal,
-  SplitSquareVertical,
-  XIcon,
-} from "lucide-react";
-import {
-  Cross1Icon,
   EyeClosedIcon,
   HeartFilledIcon,
   LockClosedIcon,
   QuestionMarkIcon,
   ReloadIcon,
-  UpdateIcon,
+  UpdateIcon
 } from "@radix-ui/react-icons";
+import {
+  CheckIcon,
+  ChevronRight,
+  Github,
+  HomeIcon,
+  RabbitIcon,
+  ShieldCheck,
+  SidebarIcon,
+  SplitSquareHorizontal,
+  XIcon
+} from "lucide-react";
 import Image from "next/image";
-import { Button } from './ui/button';
-import { COLORS } from './create-theme';
-import { Slider } from './ui/slider';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
-import React, { useState } from 'react';
-import { ny } from '@/lib/utils';
+import { useEffect, useState } from 'react';
+import Sticky from 'react-sticky-el';
 
 function Checkmark() {
   return (
@@ -55,7 +47,7 @@ function Question() {
 
 export default function Features() {
   const [feature, setFeature] = useState(0);
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setFeature((feature) => (feature + 1) % 3);
     }, 3000);
