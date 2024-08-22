@@ -22,6 +22,7 @@ const ThemeFormWrapper = styled.div<{
   secondaryColor: string,
   tertiaryColor: string,
   colorsBorder: string,
+  dialogBg: string,
 }>`
   ${({
     primaryColor,
@@ -29,12 +30,14 @@ const ThemeFormWrapper = styled.div<{
     secondaryColor,
     tertiaryColor,
     colorsBorder,
+    dialogBg,
   }: {
     primaryColor: string;
     accentColor: string;
     secondaryColor: string;
     tertiaryColor: string;
     colorsBorder: string;
+    dialogBg: string;
   }) => `
     --zen-primary-color: ${accentColor};
 
@@ -43,6 +46,7 @@ const ThemeFormWrapper = styled.div<{
     --zen-colors-tertiary: ${tertiaryColor};
 
     --zen-colors-border: ${colorsBorder};
+    --zen-dialog-background: ${dialogBg};
   `}
 `;
 
@@ -63,6 +67,10 @@ const defaultStyles = {
     light: "color-mix(in srgb, var(--zen-colors-secondary) 90%, black 10%)",
     dark: "color-mix(in srgb, var(--zen-colors-secondary) 80%, black 20%)",
   },
+  dialogBg: {
+    light: "var(--zen-colors-tertiary)",
+    dark: "color-mix(in srgb, var(--zen-primary-color) 10%, black 90%)",
+  },
 }
 
 export default function CreateThemePage() {
@@ -73,12 +81,14 @@ export default function CreateThemePage() {
   const [secondaryColor, setSecondaryColor] = React.useState(defaultStyles.secondaryColor.dark);
   const [tertiaryColor, setTertiaryColor] = React.useState(defaultStyles.tertiaryColor.dark);
   const [colorsBorder, setColorsBorder] = React.useState(defaultStyles.colorsBorder.dark);
-  
+  const [dialogBg, setDialogBg] = React.useState(defaultStyles.dialogBg.dark);
+
   React.useEffect(() => {
     setPrimaryColor(isDarkMode ? defaultStyles.primaryColor.dark : defaultStyles.primaryColor.light);
     setSecondaryColor(isDarkMode ? defaultStyles.secondaryColor.dark : defaultStyles.secondaryColor.light);
     setTertiaryColor(isDarkMode ? defaultStyles.tertiaryColor.dark : defaultStyles.tertiaryColor.light);
     setColorsBorder(isDarkMode ? defaultStyles.colorsBorder.dark : defaultStyles.colorsBorder.light);
+    setDialogBg(isDarkMode ? defaultStyles.dialogBg.dark : defaultStyles.dialogBg.light);
   }, [isDarkMode]);
 
   const generateThemeData = () => {
@@ -98,6 +108,9 @@ export default function CreateThemePage() {
     if (colorsBorder !== (isDarkMode ? defaultStyles.colorsBorder.dark : defaultStyles.colorsBorder.light)) {
       theme["colorsBorder"] = colorsBorder
     }
+    if (dialogBg !== (isDarkMode ? defaultStyles.dialogBg.dark : defaultStyles.dialogBg.light)) {
+      theme["dialogBg"] = dialogBg
+    }
     return JSON.stringify(theme, null, 4);
   }
 
@@ -108,6 +121,7 @@ export default function CreateThemePage() {
       secondaryColor={secondaryColor}
       tertiaryColor={tertiaryColor}
       colorsBorder={colorsBorder}
+      dialogBg={dialogBg}
       className="flex flex-col mt-32 items-center justify-center w-full min-h-screen">
       <div className="w-full lg:w-1/2 xl:w-1/2 mx-auto px-2 lg:px-none">
         <h1 className="text-4xl lg:text-7xl font-bold">Create your theme</h1>
@@ -185,7 +199,7 @@ export default function CreateThemePage() {
           </div>
           {/* Preview */}
           <div className="p-4 pr-0 pb-0 rounded-xl border-2 relative overflow-hidden w-72 h-48 border-[var(--zen-colors-border)] bg-[var(--zen-colors-tertiary)]">
-            <div className="border-2 flex items-center justify-center border-[var(--zen-colors-border)] h-full w-full bg-[var(--zen-colors-tertiary)] rounded-tl-xl p-4 border-b-0 border-r-0">
+            <div className="border-2 flex items-center justify-center border-[var(--zen-colors-border)] h-full w-full bg-[var(--zen-dialog-background)] rounded-tl-xl p-4 border-b-0 border-r-0">
               <Button className={ny("bg-[var(--zen-colors-secondary)]", isDarkMode ? "text-white" : "text-black")}>Button</Button>
             </div>
           </div>
