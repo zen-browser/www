@@ -129,10 +129,10 @@ export default function CreateThemePage() {
       <div className="w-full lg:w-1/2 xl:w-1/2 mx-auto px-2 lg:px-none">
         <h1 className="text-4xl lg:text-7xl font-bold">Create your theme</h1>
         <p className="text-lg opacity-40 mt-2">Create your own theme for Zen Browser and share it with the community.</p>
-        <div className="flex items-center mt-8">
-          <div className="text-sm text-muted-foreground">
+        <div className="text-xs text-muted-foreground mt-8">
             If the color is chosen from the palette, the accent color will be set to the user's selection in the preferences. However, if the color is chosen from the color picker, the accent color will be the color selected.
           </div>
+        <div className="flex items-center mt-2">
           {COLORS.map((color) => (
             <div
               key={color}
