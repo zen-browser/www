@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getThemeAuthorLink, getThemeMarkdown, ZenTheme } from "@/lib/themes";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
@@ -9,12 +10,12 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
   const [readme, setReadme] = useState<string | null>(null);
   useEffect(() => {
     getThemeMarkdown(theme).then(setReadme);
-  }, []);
+  }, [theme]);
 
   return (
-    <div className="mt-24 lg:mt-56 flex-col lg:flex-row relative flex mx-auto items-start relative">
+    <div className="mt-24 lg:mt-56 flex-col lg:flex-row flex mx-auto items-start relative">
       <div className="flex flex-col relative lg:fixed w-md h-full p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm">
-        <img src={theme.image} alt={theme.name} className="w-full object-cover rounded-lg border-2 shadow" />
+        <Image src={theme.image} alt={theme.name} width={500} height={500} className="w-full object-cover rounded-lg border-2 shadow" />
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
         <p className="text-sm text-muted-foreground mt-2">{theme.description}</p>
         {theme.homepage && (
