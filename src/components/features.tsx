@@ -1,36 +1,39 @@
-import { useEffect, useState } from "react";
-import Feature, { FeatureCard } from "./feature";
-import { Button } from "./ui/button";
-import TextReveal from "./ui/text-reveal";
-import styled, { css, keyframes } from "styled-components";
-import Link from "next/link";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "./ui/table";
+"use client";
+import Sticky from 'react-sticky-el';
 import {
   CheckIcon,
+  ChevronLeft,
+  ChevronRight,
   EyeIcon,
   EyeOffIcon,
+  Github,
+  HomeIcon,
   RabbitIcon,
+  ShieldAlertIcon,
+  ShieldCheck,
+  SidebarCloseIcon,
+  SidebarIcon,
+  SpaceIcon,
+  SplitSquareHorizontal,
+  SplitSquareVertical,
   XIcon,
 } from "lucide-react";
 import {
+  Cross1Icon,
   EyeClosedIcon,
+  HeartFilledIcon,
   LockClosedIcon,
   QuestionMarkIcon,
+  ReloadIcon,
+  UpdateIcon,
 } from "@radix-ui/react-icons";
-import ShineBorder from "./ui/shine-border";
-import SparklesText from "./ui/sparkles-text";
 import Image from "next/image";
-import OrbitingCircles from "./ui/orbiting-circles";
-import { ny } from "@/lib/utils";
+import { Button } from './ui/button';
+import { COLORS } from './create-theme';
+import { Slider } from './ui/slider';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
+import React, { useState } from 'react';
+import { ny } from '@/lib/utils';
 
 function Checkmark() {
   return (
@@ -52,318 +55,345 @@ function Question() {
 
 export default function Features() {
   const [feature, setFeature] = useState(0);
-  useEffect(() => {
-    setInterval(() => {
+  React.useEffect(() => {
+    const interval = setInterval(() => {
       setFeature((feature) => (feature + 1) % 3);
-    }, 9000);
-  }, []);
+    }, 3000);
+    return () => clearInterval(interval);
+  });
   return (
-    <div className="relative w-full my-32 p-5 xl:p-0">
-      <div className="w-full lg:w-2/3 p-7 lg:p-10 xl:p-0 mx-auto grid xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow-lg hover:border-blue-500 transition-all duration-200 hover:scale-105 mt-10">
-        <div className="flex flex-col xl:p-20 justify-center">
-          <h1 className="text-3xl lg:text-4xl font-bold">The only limit is your</h1>
-          <SparklesText className="!text-3xl lg:!text-4xl" text="Imagination" />
-          <p className="text-muted-foreground mt-6 xl:mt-8">
-            Zen's theme store offers a wide range of themes to customize your browsing experience. Try them out today!
-          </p>
-          <p className="text-muted-foreground mt-3">
-            We also offer a wide range of themes and color schemes to customize your browsing experience.
-          </p>
-          <Button className="mt-auto" onClick={() => window.location.href = "/themes"}>Try it now</Button>
-        </div>
-        <div className="relative hidden ml-auto xl:flex h-[500px] w-full max-w-xl items-center justify-center overflow-hidden">
-         <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-            <Image src="/logos/zen-black.svg" width={100} height={100} alt="Zen Logo" />
-         </span>
- 
-         {/* Inner Circles */}
-         <OrbitingCircles
-            className="size-[30px] border-none bg-transparent"
-            duration={20}
-            delay={20}
-            radius={80}
-         >
-            <Image src="/logos/zen-indigo.svg" width={30} height={30} alt="Zen Logo" />
-         </OrbitingCircles>
-         <OrbitingCircles
-            className="size-[30px] border-none bg-transparent"
-            duration={20}
-            delay={10}
-            radius={80}
-         >
-            <Image src="/logos/zen-alpha-yellow.svg" width={30} height={30} alt="Zen Logo" />
-         </OrbitingCircles>
- 
-         {/* Outer Circles (reverse) */}
-         <OrbitingCircles
-            className="size-[50px] border-none bg-transparent"
-            radius={190}
-            duration={20}
-            reverse
-         >
-            <Image src="/logos/zen-alpha-blue.svg" width={50} height={50} alt="Zen Logo" />
-         </OrbitingCircles>
-         <OrbitingCircles
-            className="size-[50px] border-none bg-transparent"
-            radius={190}
-            duration={20}
-            delay={20}
-            reverse
-         >
-            <Image src="/logos/zen-pink.svg" width={50} height={50} alt="Zen Logo" />
-         </OrbitingCircles>
-      </div>
-      </div>
-      {/*<TextReveal text="Zen will change the way you browse the web. 🌟" />*/}
-      <h1 className="text-5xl font-bold mt-48 text-center p-5 lg:p-0 flex flex-col lg:flex-row justify-center items-center mb-2">What does Zen offer to <SparklesText className="mx-2" text="YOU" />?</h1>
-      <p className="text-muted-foreground text-center mx-auto w-3/4 lg:w-full p-5 xl:p-0 mb-12">
-      Discover how Zen Browser can transform your web experience with powerful features that keep you ahead.
-      Here are<br className="hidden lg:block"/> some of the features that Zen offers.</p>
-      <div className="w-full lg:w-2/3 2xl:w-1/2 mx-auto flex flex-col xl:flex-row w-full p-5 xl:p-0">
-        <div className="w-full flex mx-auto xl:mr-8 flex-col xl:mb-24 xl:ml-4 xl:mt-10">
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl xl:border-2 xl:p-20 lg:shadow-xl hover:scale-105"> 
-            <h1 className="text-5xl font-bold">Split views</h1>
-            <p className="text-muted-foreground mt-3">
-            Multitask effortlessly by splitting your browser into multiple views, so you can browse several sites at once.
-            </p>
-            <img src="/split-view.png" className="mt-8 w-full h-full h-auto" />
+    <div className="relative my-32 mx-auto md:border-2 rounded-md md:w-full xl:w-4/5 2xl:w-3/5">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-10 w-full">
+        <div className="items-center justify-center flex flex-col p-16">
+          <div className="rounded-full px-8 py-3 shadow border-2 flex items-center justify-center">
+            <RabbitIcon className="mx-auto w-7 h-7" />
           </div>
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background mx-auto xl:mx-0 relative flex flex-col mt-8 max-w-xl justify-center rounded-xl xl:border-2 pt-24 xl:p-20 lg:shadow-xl hover:scale-105">
-            <h1 className="text-5xl font-bold">Workspaces</h1>
-            <p className="text-muted-foreground mt-3">
-            Stay organized and clutter-free by creating workspaces tailored to your browsing needs.
+          <div className="mt-10">
+            <h2 className="text-lg font-bold text-center">
+              Goodbye bad performance
+            </h2>
+            <p className="text-center text-sm mt-2 text-muted-foreground">
+              We are constantly tweak firefox's engine and settings to make it
+              faster than ever. <a className="text-blue-500" href="https://github.com/zen-browser/desktop/blob/main/docs/performance.md" target='_blank'>Learn more</a>
             </p>
-            <Image
-              height={500}
-              width={300}
-              src="/workspaces.png"
-              className="mt-8 w-full h-full"
-              alt=""
-            />
           </div>
         </div>
-        <div className="w-full flex flex-col">
-          <div className="mt-24 ml-0 w-full hover:border-blue-500 transition-all duration-100 bg-background relative lg:mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl xl:border-2 md:p-20 xl:p-20 lg:shadow-xl hover:scale-105">
-            <h1 className="text-5xl font-bold">Profile switching</h1>
-            <p className="text-muted-foreground mt-3">
-            Seamlessly switch between work and personal profiles for a focused browsing experience.
-            </p>
-            <Image
-              height={500}
-              width={300}
-              src="/profiles.png"
-              className="mt-8 w-full h-full mx-auto"
-              alt=""
-            />
+        <div className="items-center justify-center md:border-l-2 flex flex-col p-16">
+          <div className="rounded-full px-8 py-3 shadow border-2 flex items-center justify-center">
+            <LockClosedIcon className="mx-auto w-7 h-7" />
           </div>
-          <div className="hover:border-blue-500 transition-all duration-100 bg-background relative mx-auto xl:mx-0 flex flex-col max-w-xl justify-center rounded-xl xl:border-2 xl:p-20 lg:shadow-xl hover:scale-105 mt-8">
-            <h1 className="text-5xl font-bold">Side web panels</h1>
-            <p className="text-muted-foreground mt-3">
-            Access favorite sites and services instantly, without leaving your current page.
+          <div className="mt-10">
+            <h2 className="text-lg font-bold text-center">
+              Privacy first
+            </h2>
+            <p className="text-center text-sm mt-2 text-muted-foreground">
+              We don't track you. We don't sell your data. We don't even know
+              who you are. <a className="text-blue-500" href="/privacy-policy">Learn more</a>
             </p>
-            <Image
-              height={500}
-              width={300}
-              src="/sidebar.png"
-              className="mt-8 w-full h-full"
-              alt=""
-            />
           </div>
         </div>
-      </div>
-      <ShineBorder
-        borderWidth={2}
-        borderRadius={12}
-        color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-        className="w-full lg:w-2/3 2xl:w-1/2 mx-auto mt-32 flex relative flex-col items-start justify-start w-full bg-background xl:p-12 rounded-xl lg:shadow-xl"
-      >
-        <div className="w-full xl:p-16">
-          <Table>
-            <TableHeader>
-              <TableRow className="!border-none" style={{ pointerEvents: 'none'}}>
-                <TableHead className="py-2 text-2xl font-bold text-black dark:text-white">
-                  <span className="">
-                  How Zen compares to other browsers
-                  </span>
-                </TableHead>
-                <TableHead className="py-2 font-bold text-center">
-                  <Image
-                    height={32}
-                    width={32}
-                    src="/favicon.ico"
-                    className="border-2 rounded-lg mx-auto mb-2 w-8 h-8"
-                    alt="zen"
-                  />
-                  Zen
-                </TableHead>
-                <TableHead className="py-2 pl-4 lg:pr-0 pr-2 font-bold text-center opacity-60">
-                  <Image
-                    height={32}
-                    width={32}
-                    src="/floorp.png"
-                    className="bg-black dark:bg-white rounded-md p-1 mx-auto mb-2 w-7 h-7"
-                    alt="floorp"
-                  />
-                  Floorp
-                </TableHead>
-                <TableHead className="py-2 pl-0 font-bold text-center opacity-60">
-                  <Image
-                    height={32}
-                    width={32}
-                    src="/librewolf.png"
-                    className="bg-black dark:bg-white rounded-md mx-auto p-1 mb-2 w-7 h-7"
-                    alt="librewolf"
-                  />
-                  LibreWolf
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              <TableRow>
-                <TableCell className="py-3 font-medium">
-                Fine-grained security like sandboxing			
-                </TableCell>
-                <TableCell className="py-3">
-                  <Checkmark />
-                </TableCell>
-                <TableCell className="py-3 pl-4 pr-0">
-                  <Cross />
-                </TableCell>
-                <TableCell className="py-3">
-                  <Checkmark />
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="py-3 font-medium">
-                  Optimized for peak performance
-                </TableCell>
-                <TableCell className="py-3">
-                  <Checkmark />
-                </TableCell>
-                <TableCell className="py-3 pl-4 pr-0">
-                  <Cross />
-                </TableCell>
-                <TableCell className="py-3">
-                  <Cross />
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="py-3 font-medium">
-                Based on the latest Firefox			
-                </TableCell>
-                <TableCell className="py-3">
-                  <Checkmark />
-                </TableCell>
-                <TableCell className="py-3 pl-4 pr-0">
-                  <Cross />
-                </TableCell>
-                <TableCell className="py-3">
-                  <Checkmark />
-                </TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell className="py-3 font-medium">
-                  Customizable with cutting-edge features
-                </TableCell>
-                <TableCell className="py-3">
-                  <Checkmark />
-                </TableCell>
-                <TableCell className="py-3 pl-4 pr-0">
-                  <Checkmark />
-                </TableCell>
-                <TableCell className="py-3">
-                  <Cross />
-                </TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
+        <div className="items-center justify-center md:border-l-2 flex flex-col p-16">
+          <div className="rounded-full px-8 py-3 shadow border-2 flex items-center justify-center">
+            <ShieldCheck className="mx-auto w-7 h-7" />
+          </div>
+          <div className="mt-10">
+            <h2 className="text-lg font-bold text-center">
+              Secure by default
+            </h2>
+            <p className="text-center text-sm mt-2 text-muted-foreground">
+              We are always using the latest security features from firefox to
+              keep you safe. <a className="text-blue-500" href="https://docs.zen-browser.app/faq#how-do-i-know-zen-is-safe">Learn more</a>
+            </p>
+          </div>
         </div>
-      </ShineBorder>
-      <div className="grid grid-cols-1 xl:grid-cols-2 mx-auto justify-center w-full xl:w-2/3 my-48">
-        <div className="relative w-full flex items-center justify-center xl:justify-between">
-          <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 0 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
-            <div className="flex flex-col max-w-xl text-center xl:text-start">
-              <h1 className="text-5xl xl:text-5xl font-bold flex flex-col xl:flex-row">Built for
-                <SparklesText className="!text-5xl xl:!text-5xl xl:ml-3" text="speed" />
-              </h1>
-              <p className="text-muted-foreground mt-3">
-              Zen is engineered for speed, consistently outperforming competitors with every release, ensuring a faster browsing experience.
-              </p>
-              <Button className="mt-8 w-fit mx-auto xl:mx-0" onClick={() => window.location.href = "/download"}>Download Zen Browser</Button>
+        <div className="relative md:border-t-2 hidden md:block flex-col p-16 row-span-4 scrollarea">
+          <Sticky stickyClassName="mx-auto py-32" hideOnBoundaryHit={false} boundaryElement=".scrollarea" topOffset={-130}>
+            <h2 className="text-3xl font-bold">
+              User experience comes first
+            </h2>
+            <p className="text-sm mt-2 text-muted-foreground">
+              We are always looking for ways to make your experience better. Always looking for feedback and suggestions!
+            </p>
+          </Sticky>
+        </div>
+        <div className="relative md:grid border-t-2 md:border-l-2 md:col-span-2 md:grid-cols-2 row-span-2">
+          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
+          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
+          <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
+            <div className="">
+              <div>
+                <h2 className="text-3xl font-bold">
+                  Customization is key
+                </h2>
+                <p className="text-sm mt-2 text-muted-foreground">
+                  We are always looking for ways to make your experience better. With stackable themes that can be mixed and matched, you can create a browser that is truly yours. <a className="text-blue-500" href="https://docs.zen-browser.app/themes-store/themes-marketplace">Learn more</a>
+                </p>
+              </div>
+              <Button className="mt-4 rounded-full p-5 ml-auto">Download zen now!</Button>
+            </div>
+            <div className="border rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex w-fit transform -translate-x-1/3">
+              {COLORS.map((color) => (
+                <div key={color} className="w-5 h-5 rounded-full mx-3 " style={{ backgroundColor: color }} />
+              ))}
+            </div>
+            <div className="border w-1/2 rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex w-fit transform translate-x-[calc(50%-1.5rem)]">
+              <Slider defaultValue={[80]} max={100} />
+            </div>
+            <a href='/themes' className="border-2 md:w-1/2 flex items-center justify-center rounded-xl shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black border-blue-500 flex w-fit text-muted-foreground">
+              <span>
+                Checkout our themes store
+              </span>
+              <ChevronRight className="w-5 h-5 ml-2" />
+            </a>
+          </div>
+        </div>
+        <div className="relative md:grid md:border-l-2 border-t-2 md:col-span-2 grid-cols-2 row-span-2">
+          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
+          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
+          <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
+            <div className="flex flex-col md:flex-row">
+              <div className='relative'>
+                <h2 className="text-3xl font-bold">
+                  Compact mode is here!
+                </h2>
+                <p className="text-sm mt-2 text-muted-foreground">
+                  With a new compact mode, you can save space and focus on what matters.
+                </p>
+                <div className="bg-blue-600 p-1 px-2 text-white rounded-md text-xs transform rotate-[10deg] absolute right-0 top-[-10px]">
+                  Killer feature
+                </div>
+              </div>
+              <Button className="mt-4 rounded-full p-5 ml-4">Download zen now!</Button>
+            </div>
+            <img src="/compact-mode.png" className="scale-105 hover:scale-110 transform rotate-[-2deg] transition-all duration-100 rounded-md w-full shadow-md dark:shadow-none dark:border-2 mt-16 border-blue-600" />
+          </div>
+        </div>
+        <div className='flex flex-col p-5 md:p-16 md:col-span-2 border-t-2 row-span-2'>
+          <div className="rounded-full px-8 py-3 shadow border-2 flex items-center">
+            <div className="font-bold text-md">
+              What makes Zen Browser different?
+            </div>
+            <img src="/favicon.ico" className="ml-auto w-7 h-7" />
+          </div>
+          <div className="h-full w-full flex items-center justify-center">
+            <Table className='w-full'>
+              <TableHeader>
+                <TableRow className="!border-none" style={{ pointerEvents: 'none'}}>
+                  <TableHead className="py-2 text-2xl font-bold text-black dark:text-white">
+                    <span className="">
+                    How Zen compares to other browsers
+                    </span>
+                  </TableHead>
+                  <TableHead className="py-2 font-bold text-center">
+                    <Image
+                      height={32}
+                      width={32}
+                      src="/favicon.ico"
+                      className="border-2 rounded-lg mx-auto mb-2 w-8 h-8"
+                      alt="zen"
+                    />
+                    Zen
+                  </TableHead>
+                  <TableHead className="py-2 pl-4 lg:pr-0 pr-2 font-bold text-center opacity-60">
+                    <Image
+                      height={32}
+                      width={32}
+                      src="/floorp.png"
+                      className="bg-black dark:bg-white rounded-md p-1 mx-auto mb-2 w-7 h-7"
+                      alt="floorp"
+                    />
+                    Floorp
+                  </TableHead>
+                  <TableHead className="py-2 pl-0 font-bold text-center opacity-60">
+                    <Image
+                      height={32}
+                      width={32}
+                      src="/librewolf.png"
+                      className="bg-black dark:bg-white rounded-md mx-auto p-1 mb-2 w-7 h-7"
+                      alt="librewolf"
+                    />
+                    LibreWolf
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                <TableRow className='border-none'>
+                  <TableCell className="py-3 font-medium">
+                  Fine-grained security like sandboxing			
+                  </TableCell>
+                  <TableCell className="py-3">
+                    <Checkmark />
+                  </TableCell>
+                  <TableCell className="py-3 pl-4 pr-0">
+                    <Cross />
+                  </TableCell>
+                  <TableCell className="py-3">
+                    <Checkmark />
+                  </TableCell>
+                </TableRow>
+                <TableRow className='border-none'>
+                  <TableCell className="py-3 font-medium">
+                    Optimized for peak performance
+                  </TableCell>
+                  <TableCell className="py-3">
+                    <Checkmark />
+                  </TableCell>
+                  <TableCell className="py-3 pl-4 pr-0">
+                    <Cross />
+                  </TableCell>
+                  <TableCell className="py-3">
+                    <Cross />
+                  </TableCell>
+                </TableRow>
+                <TableRow className='border-none'>
+                  <TableCell className="py-3 font-medium">
+                  Based on the latest Firefox			
+                  </TableCell>
+                  <TableCell className="py-3">
+                    <Checkmark />
+                  </TableCell>
+                  <TableCell className="py-3 pl-4 pr-0">
+                    <Cross />
+                  </TableCell>
+                  <TableCell className="py-3">
+                    <Checkmark />
+                  </TableCell>
+                </TableRow>
+                <TableRow className='border-none'>
+                  <TableCell className="py-3 font-medium">
+                    Customizable with cutting-edge features
+                  </TableCell>
+                  <TableCell className="py-3">
+                    <Checkmark />
+                  </TableCell>
+                  <TableCell className="py-3 pl-4 pr-0">
+                    <Checkmark />
+                  </TableCell>
+                  <TableCell className="py-3">
+                    <Cross />
+                  </TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </div>
+        </div>
+        <div className='border-t-2 md:border-l-2 row-span-3 grid grid-rows-3'>
+          <div className="flex items-center flex-col justify-center p-16">
+            <div className="border-2 shadow-md rounded-full p-8 py-3 flex items-center justify-center">
+              <Github className="w-8 h-8" />
+              <h2 className="text-lg font-bold ml-4">
+                Open source
+              </h2>
+            </div>
+            <p className="text-sm mt-8 text-muted-foreground text-center">
+              Zen Browser is open source and always will be. You can check out
+              the source code on our <a className="text-blue-500" href="https://github.com/zen-browser">Github</a>!
+            </p>
+          </div>
+          <div className="flex flex-col items-center justify-center p-16 md:border-t-2">
+            <div className="border-2 shadow-md rounded-full p-8 py-3 flex items-center justify-center">
+              <ReloadIcon className="w-8 h-8" />
+              <h2 className="text-lg font-bold ml-4">
+                Updated
+              </h2>
+            </div>
+            <p className="text-sm mt-8 text-muted-foreground text-center">
+              We are always working on new features and improvements. You can
+              expect regular updates to keep your browser up to date.
+            </p>
+          </div>
+          <div className="flex flex-col p-16 md:border-t-2">
+            <div className="border-2 shadow-md rounded-full p-8 py-3 flex items-center justify-center">
+              <HeartFilledIcon className="w-8 h-8" />
+              <h2 className="text-lg font-bold ml-4">
+                Community
+              </h2>
+            </div>
+            <p className="text-sm mt-8 text-muted-foreground text-center">
+              Zen Browser is built by a community of passionate developers and
+              designers. You can join us on our <a className="text-blue-500" href="https://discord.gg/nnShMQzR4b">Discord</a>!
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col md:border-t-2 md:col-span-2 grid grid-cols-1 md:grid-cols-2">
+          <div className="p-16 border-r-2 flex flex-col items-center justify-center">
+            <div className="border-2 shadow-md rounded-full p-8 py-3 flex items-center justify-center">
+              <EyeClosedIcon className="w-8 h-8" />
+              <h2 className="text-lg font-bold ml-4">
+                Your Data
+              </h2>
+            </div>
+            <p className="text-sm mt-8 text-muted-foreground text-center">
+              We are always looking for ways to improve your privacy. Zen Browser
+              comes with built-in privacy features to keep you safe.
+            </p>
+          </div>
+          <div className="p-16 flex flex-col items-center justify-center">
+            <div className="border-2 shadow-md rounded-full p-8 py-3 flex items-center justify-center">
+              <UpdateIcon className="w-8 h-8" />
+              <h2 className="text-lg font-bold ml-4">
+                Improvements
+              </h2>
+            </div>
+            <p className="text-sm mt-8 text-muted-foreground text-center">
+              We are always looking for ways to make Zen Browser better. You can
+              expect regular updates with new features and improvements.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col border-t-2 md:col-span-3 grid grid-cols-1 md:grid-cols-3 grid-rows-2 row-span-2">
+          <div className="relative p-16 border-r-2 flex flex-col items-center justify-center row-span-2 col-span-2">
+            <div className="relative w-full h-full flex items-center justify-center">
+              <img
+                src="/split-view.png"
+                className={ny("absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300",
+                  feature === 0 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'
+                )}
+              />
+              <img
+                src="/workspaces.png"
+                className={ny("absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300",
+                  feature === 1 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'
+                )}
+              />
+              <img
+                src="/sidebar.png"
+                className={ny("absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300",
+                  feature === 2 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'
+                )}
+              />
             </div>
           </div>
-          <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 1 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
-            <div className="flex flex-col max-w-xl text-center lg:text-start">
-              <h1 className="text-5xl xl:text-5xl font-bold flex flex-col xl:flex-row">Privacy is
-                <SparklesText className="!text-5xl xl:!text-5xl xl:ml-3" text="key" />
-              </h1>
-              <p className="text-muted-foreground mt-3">
-              Zen strikes the perfect balance between privacy and usability, allowing you to browse without compromising your data.
+          <div className="p-16 flex flex-col items-center justify-around row-span-2">
+            <div className={ny(feature === 0 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onClick={() => setFeature(0)}>
+              <h2 className="text-lg font-bold ml-4 flex items-center">
+                <SplitSquareHorizontal className="w-4 h-4 mr-2" />
+                Split view
+              </h2>
+              <p className="text-sm mt-2 text-muted-foreground ml-5">
+                Split your browser into two windows to work more efficiently.
               </p>
-              <Button className="mt-8 w-fit mx-auto xl:mx-0" onClick={() => window.location.href = "/download"}>Download Zen Browser</Button>
+            </div>
+            <div className={ny(feature === 1 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onClick={() => setFeature(1)}>
+              <h2 className="text-lg font-bold ml-4 flex items-center">
+                <HomeIcon className="w-4 h-4 mr-2" />
+                Workspaces
+              </h2>
+              <p className="text-sm mt-2 text-muted-foreground ml-5">
+                Organize your tabs into workspaces to keep things tidy.
+              </p>
+            </div>
+            <div className={ny(feature === 2 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onClick={() => setFeature(2)}>
+              <h2 className="text-lg font-bold ml-4 flex items-center">
+                <SidebarIcon className="w-4 h-4 mr-2" />
+                Sidebar
+              </h2>
+              <p className="text-sm mt-2 text-muted-foreground ml-5">
+                Keep your favorite websites at your fingertips with the sidebar.
+              </p>
             </div>
           </div>
-          <div className={ny("flex flex-col xl:flex-row w-full mt-4 p-5 justify-between items-center w-fit transition-all duration-500 absolute", feature === 2 ? "translate-x-0 opacity-100" : "translate-x-[-100%] opacity-0")}>
-            <div className="flex flex-col text-center lg:text-start max-w-xl">
-              <h1 className="text-5xl xl:text-5xl font-bold flex flex-col">Security is
-                <SparklesText className="text-5xl xl:!text-5xl xl:ml-3" text="important" />
-              </h1>
-              <p className="text-muted-foreground mt-3">
-              Zen incorporates advanced security technologies that outshine other Firefox-based browsers, keeping you safe online.
-              </p>
-              <Button className="mt-8 mx-auto xl:mx-0 w-fit" onClick={() => window.location.href = "/download"}>Download Zen Browser</Button>
-            </div>
-          </div>
         </div>
-        <Image
-          height={1000}
-          width={800}
-          src="/color-preview.png"
-          className="rounded-xl mt-64 mx-auto xl:mx-0 xl:mt-0 xl:ml-52 border-2 border-blue-500 shadow-xl xl:scale-[1.3] hover:scale-105 xl:hover:scale-[1.4] transition-all duration-200"
-          alt=""
-        />
-      </div>
-      <div className="w-full overflow-hidden lg:w-2/3 2xl:w-1/2 mx-auto p-5 xl:p-0 mx-auto grid mt-24 sm:mt-20 xl:grid-cols-2 relative xl:border-2 xl:rounded-xl xl:shadow hover:border-blue-500 transition-all duration-200 hover:scale-105">
-        <div className="flex flex-col xl:p-20">
-          <h1 className="text-3xl font-bold">Introducing</h1>
-          <SparklesText className="!text-3xl" text="Compact Mode" />
-          <p className="text-muted-foreground mt-3">
-            Zen{'’'}s Compact Mode offers a streamlined browsing experience that maximizes your screen space, perfect for smaller screens.
-          </p>
-          <Button className="mt-8" onClick={() => window.location.href = "/download"}>Try it now</Button>
-        </div>
-        <Image
-          height={500}
-          width={300}
-          src="/compact-mode.png"
-          className="hidden xl:block absolute right-0 bottom-0 rounded-tl-xl border-t-2 border-l-2"
-          alt=""
-        />
-      </div>
-      <div className="mt-28 w-full flex items-center justify-center flex-col">
-        <h1 className="text-5xl text-center font-bold w-1/2">Want more?</h1>
-        <p className="text-muted-foreground text-center mt-3 w-1/2">
-        Zen Browser is packed with features designed to revolutionize your browsing.
-          Download it today and experience a new way to explore the web.
-        </p>
-        <div className="grid gap-5 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-10">
-          <FeatureCard title="Beautifully designed"
-              description="Zen offers an intuitive, aesthetically pleasing interface that’s easy to navigate." />
-          <FeatureCard title="Customizable"
-              description="Personalize Zen to match your preferences with themes, layouts, and more." />
-          <FeatureCard title="Keyboard shortcuts"
-              description="Boost your productivity with keyboard shortcuts tailored for efficiency." />
-          <FeatureCard title="Your browser, your way"
-              description="Zen adapts to your needs, offering a browsing experience as unique as you." />
-          <FeatureCard title="Tab groups"
-              description="Keep your browsing organized with tab groups that streamline your workflow."
-              todo />
-          <FeatureCard title="Vertical tabs"
-              description="Maximize space and order with vertical tabs, designed for easy access." />
-        </div>
-        <Link href="/download">
-        <Button className="mt-8">Download Zen Browser</Button>
-        </Link>
       </div>
     </div>
   );

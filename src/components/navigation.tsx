@@ -17,6 +17,7 @@ import Logo from "./logo"
 import { ModeToggle } from "./mode-toggle"
 import { MobileNav } from "./mobile-nav"
 import { HeartIcon } from "lucide-react"
+import { HeartFilledIcon } from "@radix-ui/react-icons"
  
 export const components: { title: string; href: string; description: string }[] = [
   {
@@ -92,7 +93,7 @@ export function Navigation() {
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>
-              <HeartIcon size={16} />
+              <HeartFilledIcon size={16} className="text-red-500" />
               <span className="ml-2">Donate</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>

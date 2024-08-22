@@ -8,7 +8,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } 
 import { DialogFooter, DialogHeader } from "./ui/dialog";
 import { Sheet, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet";
 
-const COLORS = [
+export const COLORS = [
   "#ffaa40",
   "#9c40ff",
   "#ff40aa",
