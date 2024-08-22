@@ -1,40 +1,32 @@
 "use client";
-import Sticky from 'react-sticky-el';
+import { Button } from '@/components/ui/button';
+import { Slider } from '@/components/ui/slider';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { COLORS } from '@/lib/colors';
+import { ny } from '@/lib/utils';
 import {
-  CheckIcon,
-  ChevronLeft,
-  ChevronRight,
-  EyeIcon,
-  EyeOffIcon,
-  Github,
-  HomeIcon,
-  RabbitIcon,
-  ShieldAlertIcon,
-  ShieldCheck,
-  SidebarCloseIcon,
-  SidebarIcon,
-  SpaceIcon,
-  SplitSquareHorizontal,
-  SplitSquareVertical,
-  XIcon,
-} from "lucide-react";
-import {
-  Cross1Icon,
   EyeClosedIcon,
   HeartFilledIcon,
   LockClosedIcon,
   QuestionMarkIcon,
   ReloadIcon,
-  UpdateIcon,
+  UpdateIcon
 } from "@radix-ui/react-icons";
+import {
+  CheckIcon,
+  ChevronRight,
+  Github,
+  HomeIcon,
+  RabbitIcon,
+  ShieldCheck,
+  SidebarIcon,
+  SplitSquareHorizontal,
+  XIcon
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from './ui/button';
-import { COLORS } from './create-theme';
-import { Slider } from './ui/slider';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
-import React, { useState } from 'react';
-import { ny } from '@/lib/utils';
+import { useEffect, useState } from 'react';
+import Sticky from 'react-sticky-el';
 
 function Checkmark() {
   return (
@@ -56,7 +48,7 @@ function Question() {
 
 export default function Features() {
   const [feature, setFeature] = useState(0);
-  React.useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
       setFeature((feature) => (feature + 1) % 3);
     }, 3000);
@@ -179,10 +171,10 @@ export default function Features() {
           <div className="h-full w-full flex items-center justify-center">
             <Table className='w-full'>
               <TableHeader>
-                <TableRow className="!border-none" style={{ pointerEvents: 'none'}}>
+                <TableRow className="!border-none" style={{ pointerEvents: 'none' }}>
                   <TableHead className="py-2 text-2xl font-bold text-black dark:text-white">
                     <span className="">
-                    How Zen compares to other browsers
+                      How Zen compares to other browsers
                     </span>
                   </TableHead>
                   <TableHead className="py-2 font-bold text-center">
@@ -220,7 +212,7 @@ export default function Features() {
               <TableBody>
                 <TableRow className='border-none'>
                   <TableCell className="py-3 font-medium">
-                  Fine-grained security like sandboxing			
+                    Fine-grained security like sandboxing
                   </TableCell>
                   <TableCell className="py-3">
                     <Checkmark />
@@ -248,7 +240,7 @@ export default function Features() {
                 </TableRow>
                 <TableRow className='border-none'>
                   <TableCell className="py-3 font-medium">
-                  Based on the latest Firefox			
+                    Based on the latest Firefox
                   </TableCell>
                   <TableCell className="py-3">
                     <Checkmark />
