@@ -1,7 +1,5 @@
 "use client";
 
-import Footer from "@/components/footer";
-import { Navigation } from "@/components/navigation";
 import ReleaseNote from "@/components/release-note";
 import { Button } from "@/components/ui/button";
 import { releaseNotes } from "@/lib/release-notes";
@@ -17,6 +15,7 @@ export default function ReleaseNotePage() {
   }
 
   const releaseNote = releaseNotes.find((note) => note.version === version);
+
   if (!releaseNote) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center">
@@ -28,16 +27,13 @@ export default function ReleaseNotePage() {
             </Button>
           </Link>
         </div>
-        <Footer />
-        <Navigation /> {/* At the bottom of the page */}
       </main>
     );
   }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <ReleaseNote data={releaseNote} />
-      <Footer />
-      <Navigation /> {/* At the bottom of the page */}
     </main>
   );
 }

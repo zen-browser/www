@@ -1,8 +1,4 @@
-import Footer from "@/components/footer";
-import { Navigation } from "@/components/navigation";
-import { releaseNoteIsAlpha, releaseNotes } from "@/lib/release-notes";
-import Link from "next/link";
-import Markdown from 'react-markdown'
+import Markdown from 'react-markdown';
 import './markdown.css';
 
 export default function PrivacyPolicy() {
@@ -90,8 +86,6 @@ If you have any questions or concerns about this Privacy Policy or Zen Browser, 
 By using Zen Browser, you agree to this Privacy Policy. Remember, with Zen, your privacy is in your hands.`}
         </Markdown>
       </div>
-      <Footer />  
-      <Navigation /> {/* At the bottom of the page */}
     </main>
   )
 }
