@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import '../app/privacy-policy/markdown.css';
 import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function ThemePage({ theme }: { theme: ZenTheme }) {
   const [readme, setReadme] = useState<string | null>(null);
@@ -23,14 +24,15 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
         <p className="text-sm text-muted-foreground mt-2">{theme.description}</p>
         {theme.homepage && (
-          <a
+          <Link
             href={theme.homepage}
             className="text-blue-500 text-md mt-4"
             target="_blank"
             rel="noopener noreferrer"
+            prefetch={false}
           >
             Visit Homepage
-          </a>
+          </Link>
         )}
         <hr className="mt-4" />
         <Button
@@ -43,7 +45,7 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
           id="install-theme-uninstall"
           zen-theme-id={theme.id}
         >Uninstall Theme</Button>
-        <p id="install-theme-error" className="text-muted-foreground text-sm mt-2">You need to have Zen Browser installed to install this theme. <a href="/download" className="text-blue-500">Download now!</a></p>
+        <p id="install-theme-error" className="text-muted-foreground text-sm mt-2">You need to have Zen Browser installed to install this theme. <Link href="/download" className="text-blue-500">Download now!</Link></p>
       </div>
       <hr className="block my-4 lg:hidden" />
       <div className="flex flex-col lg:border-l lg:min-h-96 px-5 lg:pl-10 max-w-xl lg:min-w-96 w-full">
@@ -57,9 +59,9 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
         <hr className="my-5" />
         <p className="text-muted-foreground text-sm">
           Theme by{" "}
-          <a href={getThemeAuthorLink(theme)} className="text-blue-500 text-md mt-4" target="_blank" rel="noopener noreferrer">
+          <Link href={getThemeAuthorLink(theme)} prefetch={false} className="text-blue-500 text-md mt-4" target="_blank" rel="noopener noreferrer">
             {theme.author}
-          </a>
+          </Link>
         </p>
       </div>
     </div>

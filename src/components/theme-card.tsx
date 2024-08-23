@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getThemeAuthorLink, ZenTheme } from "@/lib/themes";
 import styled from "styled-components";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";import { Button } from "./ui/button";
+import Link from "next/link";
 
 const ThemeCardWrapepr = styled.div`
 `;
@@ -22,17 +22,17 @@ export default function ThemeCard({
       <div className="flex mt-2">
         {theme.homepage && (
           <>
-            <a href={theme.homepage} className="text-blue-500 text-md" target="_blank" rel="noopener noreferrer">
+            <Link href={theme.homepage} className="text-blue-500 text-md" target="_blank" rel="noopener noreferrer" prefetch={false}>
               Homepage
-            </a>
+            </Link>
             <span className="text-muted-foreground text-md mx-2">
               {"·"}
             </span>
           </>
         )}
-        <a href={getThemeAuthorLink(theme)} className="text-blue-500 text-md" target="_blank" rel="noopener noreferrer">
+        <Link href={getThemeAuthorLink(theme)} className="text-blue-500 text-md" target="_blank" rel="noopener noreferrer" prefetch={false}>
           Author
-        </a>
+        </Link>
       </div>
       <p className="text-md mt-2 overflow-ellipsis text-muted-foreground text-start">{theme.description}</p>
     </ThemeCardWrapepr>
