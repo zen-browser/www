@@ -554,7 +554,7 @@ export default function DownloadPage() {
                 <p className="text-muted-foreground">
                   Confused about which build to choose?{" "}
                   <Link
-                    href="https://github.com/zen-browser/desktop/blob/main/docs/requirements.md#supported-cpus-for-optimized-builds-windows-and-linux"
+                    href="https://docs.zen-browser.app/guides/generic-optimized"
                     target="_blank"
                     className="text-blue-400"
                   >
