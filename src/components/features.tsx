@@ -366,7 +366,7 @@ export default function Features() {
             </div>
           </div>
           <div className="p-16 flex flex-col items-center justify-around row-span-2">
-            <div className={ny(feature === 0 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onClick={() => setFeature(0)}>
+            <div className={ny(feature === 0 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onMouseOver={() => setFeature(0)}>
               <h2 className="text-lg font-bold ml-4 flex items-center">
                 <SplitSquareHorizontal className="w-4 h-4 mr-2" />
                 Split view
@@ -375,7 +375,7 @@ export default function Features() {
                 Split your browser into two windows to work more efficiently.
               </p>
             </div>
-            <div className={ny(feature === 1 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onClick={() => setFeature(1)}>
+            <div className={ny(feature === 1 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onMouseOver={() => setFeature(1)}>
               <h2 className="text-lg font-bold ml-4 flex items-center">
                 <HomeIcon className="w-4 h-4 mr-2" />
                 Workspaces
@@ -384,7 +384,7 @@ export default function Features() {
                 Organize your tabs into workspaces to keep things tidy.
               </p>
             </div>
-            <div className={ny(feature === 2 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onClick={() => setFeature(2)}>
+            <div className={ny(feature === 2 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onMouseOver={() => setFeature(2)}>
               <h2 className="text-lg font-bold ml-4 flex items-center">
                 <SidebarIcon className="w-4 h-4 mr-2" />
                 Sidebar
