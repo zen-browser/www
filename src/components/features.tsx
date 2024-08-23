@@ -28,6 +28,7 @@ import {
   UpdateIcon,
 } from "@radix-ui/react-icons";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from './ui/button';
 import { COLORS } from './create-theme';
 import { Slider } from './ui/slider';
@@ -129,7 +130,7 @@ export default function Features() {
                   We are always looking for ways to make your experience better. With stackable themes that can be mixed and matched, you can create a browser that is truly yours. <a className="text-blue-500" href="https://docs.zen-browser.app/themes-store/themes-marketplace">Learn more</a>
                 </p>
               </div>
-              <Button className="mt-4 rounded-full p-5 ml-auto">Download zen now!</Button>
+              <Link href="/download"><Button className="mt-4 rounded-full p-5 ml-auto">Download Zen now!</Button></Link>
             </div>
             <div className="border rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex w-fit transform -translate-x-1/3">
               {COLORS.map((color) => (
@@ -163,7 +164,7 @@ export default function Features() {
                   Killer feature
                 </div>
               </div>
-              <Button className="mt-4 rounded-full p-5 ml-4">Download zen now!</Button>
+              <Link href="/download"><Button className="mt-4 rounded-full p-5 ml-4">Download Zen now!</Button></Link>
             </div>
             <img src="/compact-mode.png" className="scale-105 hover:scale-110 transform rotate-[-2deg] transition-all duration-100 rounded-md w-full shadow-md dark:shadow-none dark:border-2 mt-16 border-blue-600" />
           </div>
