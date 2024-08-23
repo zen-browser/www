@@ -16,7 +16,7 @@ export default function Header() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
   return (
     <>
-      <section
+      <header
         id="hero"
         className="relative mx-auto mt-40 max-w-7xl px-6 text-center md:px-8"
       >
@@ -43,12 +43,10 @@ export default function Header() {
           your data.
         </p>
         <Link href="/download">
-        <Button
-          className="animate-fade-in -translate-y-4 gap-1 rounded-lg text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black"
-        >
-          <span>Download Zen Now </span>
-          <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
-        </Button>
+          <Button className="animate-fade-in -translate-y-4 gap-1 rounded-lg text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black">
+            <span>Download Zen Now </span>
+            <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+          </Button>
         </Link>
         <div
           ref={ref}
@@ -83,7 +81,7 @@ export default function Header() {
             />
           </div>
         </div>
-      </section>
+      </header>
       <Particles
         className="absolute inset-0 -z-10 hidden dark:block"
         quantity={50}
