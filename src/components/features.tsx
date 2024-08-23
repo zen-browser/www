@@ -73,7 +73,7 @@ export default function Features() {
               Goodbye bad performance
             </h2>
             <p className="text-center text-sm mt-2 text-muted-foreground">
-              We are constantly tweak firefox's engine and settings to make it
+              We are constantly tweaking firefox's engine and settings to make it
               faster than ever. <a className="text-blue-500" href="https://github.com/zen-browser/desktop/blob/main/docs/performance.md" target='_blank'>Learn more</a>
             </p>
           </div>
