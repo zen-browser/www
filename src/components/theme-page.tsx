@@ -9,6 +9,7 @@ import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
 import { useParams } from "next/navigation";
 
 export default async function ThemePage() {
+  const [readme, setReadme] = useState<string | null>(null);
   const params = useParams<{ theme: string }>();
   const { theme: themeID } = params;
 
@@ -17,7 +18,6 @@ export default async function ThemePage() {
     return <div>Theme not found</div>;
   }
 
-  const [readme, setReadme] = useState<string | null>(null);
   useEffect(() => {
     getThemeMarkdown(theme).then(setReadme);
   }, [theme]);
