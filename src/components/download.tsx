@@ -248,7 +248,7 @@ export default function DownloadPage() {
                         "https://docs.zen-browser.app/guides/install-macos")
                     }
                   >
-                    Download Zen for MacOS
+                    Installation Instructions for MacOS
                   </Button>
                 </div>
               )}
