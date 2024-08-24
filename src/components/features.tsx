@@ -66,7 +66,7 @@ export default function Features() {
               Goodbye bad performance
             </h2>
             <p className="text-center text-sm mt-2 text-muted-foreground">
-              We are constantly tweak firefox's engine and settings to make it
+              We constantly tweak Firefox's engine and settings to make it
               faster than ever. <a className="text-blue-500" href="https://github.com/zen-browser/desktop/blob/main/docs/performance.md" target='_blank'>Learn more</a>
             </p>
           </div>
@@ -94,7 +94,7 @@ export default function Features() {
               Secure by default
             </h2>
             <p className="text-center text-sm mt-2 text-muted-foreground">
-              We are always using the latest security features from firefox to
+              We are always using the latest security features from Firefox to
               keep you safe. <a className="text-blue-500" href="https://docs.zen-browser.app/faq#how-do-i-know-zen-is-safe">Learn more</a>
             </p>
           </div>
@@ -110,8 +110,6 @@ export default function Features() {
           </Sticky>
         </div>
         <div className="relative md:grid border-t-2 md:border-l-2 md:col-span-2 md:grid-cols-2 row-span-2">
-          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
-          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
           <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
             <div className="">
               <div>
@@ -141,8 +139,6 @@ export default function Features() {
           </div>
         </div>
         <div className="relative md:grid md:border-l-2 border-t-2 md:col-span-2 grid-cols-2 row-span-2">
-          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
-          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
           <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
             <div className="flex flex-col md:flex-row">
               <div className='relative'>

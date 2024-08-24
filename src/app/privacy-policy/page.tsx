@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
   # 4. Data Security
   Although Zen Browser does not collect your data, we are committed to protecting the information that is stored locally on your device and, if you use the Sync feature, the encrypted data stored on Mozilla's servers. We recommend that you use secure passwords, enable device encryption, and regularly update your software to ensure your data remains safe. 
 
-  * Note that most of the security measures are taken care by mozilla firefox.
+* Note that most of the security measures are taken care by Mozilla Firefox.
 
   # 5. Your Control
   ## 5.1. Data Deletion
