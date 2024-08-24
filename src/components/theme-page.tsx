@@ -1,12 +1,21 @@
 import Image from "next/image";
-import { getThemeAuthorLink, getThemeMarkdown, ZenTheme } from "@/lib/themes";
+import { getThemeAuthorLink, getThemeFromId, getThemeMarkdown, ZenTheme } from "@/lib/themes";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import '../app/privacy-policy/markdown.css';
 import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
+import { useParams } from "next/navigation";
 
-export default function ThemePage({ theme }: { theme: ZenTheme }) {
+export default async function ThemePage() {
+  const params = useParams<{ theme: string }>();
+  const { theme: themeID } = params;
+
+  const theme = await getThemeFromId(themeID);
+  if (!theme) {
+    return <div>Theme not found</div>;
+  }
+
   const [readme, setReadme] = useState<string | null>(null);
   useEffect(() => {
     getThemeMarkdown(theme).then(setReadme);
