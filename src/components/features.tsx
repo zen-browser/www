@@ -118,8 +118,6 @@ export default function Features() {
           </Sticky>
         </div>
         <div className="relative md:grid border-t-2 md:border-l-2 md:col-span-2 md:grid-cols-2 row-span-2">
-          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
-          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
           <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
             <div className="">
               <div>
@@ -149,8 +147,6 @@ export default function Features() {
           </div>
         </div>
         <div className="relative md:grid md:border-l-2 border-t-2 md:col-span-2 grid-cols-2 row-span-2">
-          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
-          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
           <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
             <div className="flex flex-col md:flex-row">
               <div className='relative'>
