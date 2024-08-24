@@ -275,7 +275,7 @@ export default function DownloadPage() {
                     selectedPlatform === "Windows" ? "border-blue-400" : ""
                   )}
                 >
-                  <Checkbox checked={selectedPlatform === "Windows"} />
+                  <Checkbox checked={selectedPlatform === "Windows"} className="rounded-full"/>
                   <i className="devicon-windows8-original ml-3 p-2 border border-blue-400 rounded-lg"></i>
                   <div className="ml-2">Windows</div>
                 </div>
@@ -286,7 +286,7 @@ export default function DownloadPage() {
                     selectedPlatform === "Linux" ? "border-yellow-400" : ""
                   )}
                 >
-                  <Checkbox checked={selectedPlatform === "Linux"} />
+                  <Checkbox checked={selectedPlatform === "Linux"} className="rounded-full"/>
                   <i className="devicon-linux-plain ml-3 p-2 border border-yellow-400 rounded-lg"></i>
                   <div className="ml-2">Linux</div>
                 </div>
@@ -297,7 +297,7 @@ export default function DownloadPage() {
                     selectedPlatform === "MacOS" ? "border-purple-400" : ""
                   )}
                 >
-                  <Checkbox checked={selectedPlatform === "MacOS"} />
+                  <Checkbox checked={selectedPlatform === "MacOS"} className="rounded-full"/>
                   <i className="devicon-apple-original p-2 border border-purple-400 ml-3 rounded-lg"></i>
                   <div className="ml-2 font-bold">MacOS</div>
                 </div>
