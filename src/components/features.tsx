@@ -28,6 +28,7 @@ import {
   UpdateIcon,
 } from "@radix-ui/react-icons";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from './ui/button';
 import { COLORS } from './create-theme';
 import { Slider } from './ui/slider';
@@ -73,7 +74,7 @@ export default function Features() {
               Goodbye bad performance
             </h2>
             <p className="text-center text-sm mt-2 text-muted-foreground">
-              We are constantly tweaking Firefox's engine and settings to make it
+              We constantly tweak Firefox's engine and settings to make it
               faster than ever. <a className="text-blue-500" href="https://github.com/zen-browser/desktop/blob/main/docs/performance.md" target='_blank'>Learn more</a>
             </p>
           </div>
@@ -117,8 +118,6 @@ export default function Features() {
           </Sticky>
         </div>
         <div className="relative md:grid border-t-2 md:border-l-2 md:col-span-2 md:grid-cols-2 row-span-2">
-          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
-          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
           <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
             <div className="">
               <div>
@@ -129,17 +128,17 @@ export default function Features() {
                   We are always looking for ways to make your experience better. With stackable themes that can be mixed and matched, you can create a browser that is truly yours. <a className="text-blue-500" href="https://docs.zen-browser.app/themes-store/themes-marketplace">Learn more</a>
                 </p>
               </div>
-              <Button className="mt-4 rounded-full p-5 ml-auto">Download zen now!</Button>
+              <Link href="/download"><Button className="mt-4 rounded-full p-5 ml-auto">Download Zen now!</Button></Link>
             </div>
             <div className="border rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex w-fit transform -translate-x-1/3">
               {COLORS.map((color) => (
                 <div key={color} className="w-5 h-5 rounded-full mx-3 " style={{ backgroundColor: color }} />
               ))}
             </div>
-            <div className="border w-1/2 rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex w-fit transform translate-x-[calc(50%-1.5rem)]">
+            <div className="border w-1/2 rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex transform translate-x-[calc(50%-1.5rem)]">
               <Slider defaultValue={[80]} max={100} />
             </div>
-            <a href='/themes' className="border-2 md:w-1/2 flex items-center justify-center rounded-xl shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black border-blue-500 flex w-fit text-muted-foreground">
+            <a href='/themes' className="border-2 w-fit md:w-1/2 lg:w-fit flex items-center justify-center rounded-xl shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black border-blue-500 flex text-muted-foreground">
               <span>
                 Checkout our themes store
               </span>
@@ -148,8 +147,6 @@ export default function Features() {
           </div>
         </div>
         <div className="relative md:grid md:border-l-2 border-t-2 md:col-span-2 grid-cols-2 row-span-2">
-          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
-          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
           <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
             <div className="flex flex-col md:flex-row">
               <div className='relative'>
@@ -163,7 +160,7 @@ export default function Features() {
                   Killer feature
                 </div>
               </div>
-              <Button className="mt-4 rounded-full p-5 ml-4">Download zen now!</Button>
+              <Link href="/download"><Button className="mt-4 rounded-full p-5 ml-4">Download Zen now!</Button></Link>
             </div>
             <img src="/compact-mode.png" className="scale-105 hover:scale-110 transform rotate-[-2deg] transition-all duration-100 rounded-md w-full shadow-md dark:shadow-none dark:border-2 mt-16 border-blue-600" />
           </div>

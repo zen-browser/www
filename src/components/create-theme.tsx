@@ -180,9 +180,19 @@ export default function CreateThemePage() {
               <input type="text" className="border text-gray-500 rounded-lg p-2 w-2/3" value={colorsBorder} onChange={(e) => setColorsBorder(e.target.value)} />
               <div className="w-11 h-11 ml-4 rounded-lg border bg-[var(--zen-colors-border)]"></div>
             </div>
+            <h2 className="text-lg mt-8 font-bold opacity-70">
+              Dialog background color
+            </h2>
+            <div className="flex items-center mt-2">
+              <input type="text" className="border text-gray-500 rounded-lg p-2 w-2/3" value={dialogBg} onChange={(e) => setDialogBg(e.target.value)} />
+              <div className="w-11 h-11 ml-4 rounded-lg border bg-[var(--zen-dialog-background)]"></div>
+            </div>
+            <div className="text-md font-bold text-muted-foreground mt-8">
+              Right now, we aren't taking more color themes for the browser, until we find a way to make it more accessible for everyone. However, you can still create your own theme and share it with the community.
+            </div>
             <Sheet>
               <SheetTrigger asChild>
-                <Button className="mt-8">Create theme</Button>
+                <Button disabled className="mt-8">Create theme</Button>
               </SheetTrigger>
               <SheetContent className="!w-[600px] !max-w-lg">
                 <SheetHeader>
