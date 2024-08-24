@@ -1,49 +1,31 @@
 "use server";
 
-import { createClient } from "@supabase/supabase-js";
-import { releases } from "./releases";
+import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = "https://dmthyedfjzcysoekmyns.supabase.co";
+const supabaseUrl = 'https://dmthyedfjzcysoekmyns.supabase.co'
 const supabaseKey = process.env.SUPABASE_KEY as string;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const DOWNLOADS_TABLE = "downloads";
-const PLATFORM_COLUMN = "platform";
-const COUNT_COLUMN = "count";
-
-export async function incrementDownloadCount(platform: keyof typeof releases) {
-  try {
-    //? Check if the download count for the platform exists
+export async function addDownload(platform: string) {
+    // Check if the download count for the platform exists
     const { data, error } = await supabase
-      .from(DOWNLOADS_TABLE)
-      .select(COUNT_COLUMN)
-      .eq(PLATFORM_COLUMN, platform);
-
-    if (error) throw new Error("Error fetching download count");
-
-    if (!data || data.length === 0) {
-      //? If it doesn't exist, create it
-      const { data: insertData, error: insertError } = await supabase
-        .from(DOWNLOADS_TABLE)
-        .insert([{ platform, count: 1 }]);
-
-      if (insertError) throw new Error("Error inserting download count");
-
-      return insertData;
+        .from('downloads')
+        .select('count')
+        .eq('platform', platform)
+    // If it doesn't exist, create it
+    console.log(data)
+    if (data?.length === 0 || data === null) {
+        const {data, error} = await supabase
+            .from('downloads')
+            .insert([{ platform, count: 1 }]);
+        if (error) {
+            console.error(error)
+        }
     } else {
-      //? If it exists, increment the count
-      const newCount = data![0][COUNT_COLUMN] + 1;
-      const { data: updateData, error: updateError } = await supabase
-        .from(DOWNLOADS_TABLE)
-        .update({ count: newCount })
-        .eq(PLATFORM_COLUMN, platform);
-
-      if (updateError) throw new Error("Error updating download count");
-
-      return updateData;
+        // If it exists, increment the count
+        await supabase
+            .from('downloads')
+            .update({ count: data![0].count + 1 })
+            .eq('platform', platform)
     }
-  } catch (err) {
-    console.error("Unexpected error in addDownload:", err);
-    throw err;
-  }
 }
