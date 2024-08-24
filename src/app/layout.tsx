@@ -1,6 +1,6 @@
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "next-themes"
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
