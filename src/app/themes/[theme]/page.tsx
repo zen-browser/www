@@ -1,14 +1,13 @@
-"use client";
+
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import ThemePage from "@/components/theme-page";
 import { getThemeFromId } from "@/lib/themes";
 import { Metadata, ResolvingMetadata } from "next";
 import { useParams } from "next/navigation";
-import { Props } from "next/script";
 
 export async function generateMetadata(
-  { params, searchParams }: Props,
+  { params, searchParams }: any,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const theme = params.theme
