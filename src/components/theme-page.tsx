@@ -9,7 +9,6 @@ import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
 import { useParams } from "next/navigation";
 
 export default async function ThemePage() {
-  const [readme, setReadme] = useState<string | null>(null);
   const params = useParams<{ theme: string }>();
   const { theme: themeID } = params;
 
@@ -18,9 +17,7 @@ export default async function ThemePage() {
     return <div>Theme not found</div>;
   }
 
-  useEffect(() => {
-    getThemeMarkdown(theme).then(setReadme);
-  }, []);
+  const readme = await getThemeMarkdown(theme);
 
   return (
     <div className="mt-24 lg:mt-56 flex-col lg:flex-row flex mx-auto items-start relative">
