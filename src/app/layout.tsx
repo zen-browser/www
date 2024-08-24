@@ -18,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="me" href="https://fosstodon.org/@zenbrowser"></link>
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
