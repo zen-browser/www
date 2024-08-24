@@ -3,7 +3,40 @@ import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import ThemePage from "@/components/theme-page";
 import { getThemeFromId } from "@/lib/themes";
+import { Metadata, ResolvingMetadata } from "next";
 import { useParams } from "next/navigation";
+import { Props } from "next/script";
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const theme = params.theme
+  const themeData = await getThemeFromId(theme);
+  if (!themeData) {
+    return {
+      title: "Theme not found",
+      description: "Theme not found",
+    };
+  }
+  return {
+    title: themeData.name,
+    description: themeData.description,
+    keywords: [themeData.name, themeData.description],
+    openGraph: {
+      title: themeData.name,
+      description: themeData.description,
+      images: [
+        {
+          url: themeData.image,
+          width: 500,
+          height: 500,
+          alt: themeData.name,
+        },
+      ],
+    },
+  };
+}
 
 export default async function ThemeInfoPage() {
   const params = useParams<{ theme: string }>();
