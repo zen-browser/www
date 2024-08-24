@@ -20,7 +20,7 @@ export default async function ThemePage() {
 
   useEffect(() => {
     getThemeMarkdown(theme).then(setReadme);
-  }, [theme]);
+  }, []);
 
   return (
     <div className="mt-24 lg:mt-56 flex-col lg:flex-row flex mx-auto items-start relative">
