@@ -10,6 +10,8 @@ import Particles from "./ui/particles";
 import confetti from "canvas-confetti";
 import { releases, releaseTree } from "@/lib/releases";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { RadioGroup, RadioGroupItem } from "./ui/radio-group"
+
 import Link from "next/link";
 const BASE_URL =
   "https://github.com/zen-browser/desktop/releases/latest/download";
@@ -268,39 +270,44 @@ export default function DownloadPage() {
                 <FieldDescription>
                   Choose the platform you want to download Zen for.
                 </FieldDescription>
-                <div
-                  onClick={() => setSelectedPlatform("Windows")}
-                  className={ny(
-                    "select-none mb-2 px-4 py-3 flex items-center rounded-lg bg-background cursor-pointer border",
-                    selectedPlatform === "Windows" ? "border-blue-400" : ""
-                  )}
-                >
-                  <Checkbox checked={selectedPlatform === "Windows"} />
-                  <i className="devicon-windows8-original ml-3 p-2 border border-blue-400 rounded-lg"></i>
-                  <div className="ml-2">Windows</div>
-                </div>
-                <div
-                  onClick={() => setSelectedPlatform("Linux")}
-                  className={ny(
-                    "select-none mb-2 px-4 py-3 flex items-center rounded-lg bg-background cursor-pointer border",
-                    selectedPlatform === "Linux" ? "border-yellow-400" : ""
-                  )}
-                >
-                  <Checkbox checked={selectedPlatform === "Linux"} />
-                  <i className="devicon-linux-plain ml-3 p-2 border border-yellow-400 rounded-lg"></i>
-                  <div className="ml-2">Linux</div>
-                </div>
-                <div
-                  onClick={() => setSelectedPlatform("MacOS")}
-                  className={ny(
-                    "select-none mb-2 px-4 py-3 flex items-center rounded-lg bg-background cursor-pointer border",
-                    selectedPlatform === "MacOS" ? "border-purple-400" : ""
-                  )}
-                >
-                  <Checkbox checked={selectedPlatform === "MacOS"} />
-                  <i className="devicon-apple-original p-2 border border-purple-400 ml-3 rounded-lg"></i>
-                  <div className="ml-2 font-bold">MacOS</div>
-                </div>
+                <RadioGroup value={selectedPlatform} onValueChange={setSelectedPlatform}>
+                  <div
+                    onClick={() => setSelectedPlatform("Windows")}
+                    className={ny(
+                      "select-none mb-2 px-4 py-3 flex items-center rounded-lg bg-background cursor-pointer border",
+                      selectedPlatform === "Windows" ? "border-blue-400" : ""
+                    )}
+                  >
+                    <RadioGroupItem value="Windows" id="Windows" />
+                    <i className="devicon-windows8-original ml-3 p-2 border border-blue-400 rounded-lg"></i>
+                    <div className="ml-2">Windows</div>
+                  </div>
+
+                  <div
+                    onClick={() => setSelectedPlatform("Linux")}
+                    className={ny(
+                      "select-none mb-2 px-4 py-3 flex items-center rounded-lg bg-background cursor-pointer border",
+                      selectedPlatform === "Linux" ? "border-yellow-400" : ""
+                    )}
+                  >
+                    <RadioGroupItem value="Linux" id="Linux"/>
+                    <i className="devicon-linux-plain ml-3 p-2 border border-yellow-400 rounded-lg"></i>
+                    <div className="ml-2">Linux</div>
+                  </div>
+
+                  <div
+                    onClick={() => setSelectedPlatform("MacOS")}
+                    className={ny(
+                      "select-none mb-2 px-4 py-3 flex items-center rounded-lg bg-background cursor-pointer border",
+                      selectedPlatform === "MacOS" ? "border-purple-400" : ""
+                    )}
+                  >
+                    <RadioGroupItem value="MacOS" id="MacOS" />
+                    <i className="devicon-apple-original p-2 border border-purple-400 ml-3 rounded-lg"></i>
+                    <div className="ml-2 font-bold">MacOS</div>
+                  </div>
+                </RadioGroup>
+
               </FormField>
             )}
             {/* Architecture */}
