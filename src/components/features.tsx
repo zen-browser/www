@@ -339,11 +339,11 @@ export default function Features() {
           </div>
         </div>
         <div className="flex flex-col border-t-2 md:col-span-3 grid grid-cols-1 md:grid-cols-3 grid-rows-2 row-span-2">
-          <div className="relative p-16 border-r-2 flex flex-col items-center justify-center row-span-2 col-span-2">
+          <div className="relative px-16 pt-16 md:pb-16 border-r-2 flex flex-col items-center justify-center row-span-2 col-span-2">
             <div className="relative w-full h-full flex items-center justify-center">
               <img
                 src="/split-view.png"
-                className={ny("absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300",
+                className={ny("hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300",
                   feature === 0 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'
                 )}
               />
@@ -361,7 +361,7 @@ export default function Features() {
               />
             </div>
           </div>
-          <div className="p-16 flex flex-col items-center justify-around row-span-2">
+          <div className="px-16 pt-16 md:pb-16 flex flex-col items-start justify-around row-span-2">
             <div className={ny(feature === 0 ? 'opacity-100' : 'opacity-50', "mt-10 md:mt-0 transform transition-all duration-200 cursor-pointer")} onClick={() => setFeature(0)}>
               <h2 className="text-lg font-bold ml-4 flex items-center">
                 <SplitSquareHorizontal className="w-4 h-4 mr-2" />
