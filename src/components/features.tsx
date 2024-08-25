@@ -338,7 +338,7 @@ export default function Features() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col border-t-2 md:col-span-3 grid grid-cols-1 md:grid-cols-3 grid-rows-2 row-span-2">
+        <div className="flex flex-col border-t-2 md:col-span-3 grid grid-cols-1 md:grid-cols-3 grid-rows-2 row-span-2 overflow-hidden">
           <div className="relative p-16 border-r-2 flex flex-col items-center justify-center row-span-2 col-span-2">
             <div className="relative w-full h-full flex items-center justify-center">
               <Image
