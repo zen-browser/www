@@ -299,7 +299,7 @@ export default function Features() {
               expect regular updates to keep your browser up to date.
             </p>
           </div>
-          <div className="flex flex-col p-16 md:border-t-2">
+          <div className="flex flex-col p-16 md:border-t-2 items-center justify-center">
             <div className="border-2 shadow-md rounded-full p-8 py-3 flex items-center justify-center">
               <HeartFilledIcon className="w-8 h-8" />
               <h2 className="text-lg font-bold ml-4">
