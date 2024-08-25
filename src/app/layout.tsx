@@ -21,6 +21,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="me" href="https://fosstodon.org/@zenbrowser"></link>
+        <link rel="alternate" type="application/rss+xml" title="Zen Browser Release Notes" href="https://www.zen-browser.app/feed.xml" />
       </head>
       <body className={inter.className}>
         <ThemeProvider
