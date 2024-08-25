@@ -162,7 +162,7 @@ export default function Features() {
               </div>
               <Link href="/download"><Button className="mt-4 rounded-full p-5 ml-4">Download Zen now!</Button></Link>
             </div>
-            <img src="/compact-mode.png" className="scale-105 hover:scale-110 transform rotate-[-2deg] transition-all duration-100 rounded-md w-full shadow-md dark:shadow-none dark:border-2 mt-16 border-blue-600" />
+            <Image src="/compact-mode.png" alt="Screenshot showing a browser with a more narrow menu on the left-hand side for compact-mode" className="scale-105 hover:scale-110 transform rotate-[-2deg] transition-all duration-100 rounded-md w-full shadow-md dark:shadow-none dark:border-2 mt-16 border-blue-600" width={1368} height={768} />
           </div>
         </div>
         <div className='flex flex-col p-5 md:p-16 md:col-span-2 border-t-2 row-span-2'>
@@ -170,7 +170,7 @@ export default function Features() {
             <div className="font-bold text-md">
               What makes Zen Browser different?
             </div>
-            <img src="/favicon.ico" className="ml-auto w-7 h-7" />
+            <Image alt="Zen Browser logo" src="/favicon.ico" className="ml-auto w-7 h-7" width={256} height={256} />
           </div>
           <div className="h-full w-full flex items-center justify-center">
             <Table className='w-full'>
@@ -341,20 +341,29 @@ export default function Features() {
         <div className="flex flex-col border-t-2 md:col-span-3 grid grid-cols-1 md:grid-cols-3 grid-rows-2 row-span-2">
           <div className="relative p-16 border-r-2 flex flex-col items-center justify-center row-span-2 col-span-2">
             <div className="relative w-full h-full flex items-center justify-center">
-              <img
+              <Image
                 src="/split-view.png"
+                alt="Screenshot showing a browser with a split-view layout. The left side displays Google, while the right side displays GitHub."
+                width={1368}
+                height={768}
                 className={ny("absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300",
                   feature === 0 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'
                 )}
               />
-              <img
+              <Image
                 src="/workspaces.png"
+                alt={"Screenshot showing browser with a menu for navigating a list of workspaces, such as workspaces for 'School', 'Work' and 'Social'"}
+                width={1368}
+                height={768}
                 className={ny("absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300",
                   feature === 1 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'
                 )}
               />
-              <img
+              <Image
                 src="/sidebar.png"
+                alt={"Screenshot showing a browser with a sidebar. Sidebar contains YouTube home page and the larger window contains Google search page"}
+                width={1368}
+                height={768}
                 className={ny("absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300",
                   feature === 2 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'
                 )}
