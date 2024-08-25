@@ -63,7 +63,7 @@ export default function Features() {
     return () => clearInterval(interval);
   });
   return (
-    <div className="relative my-32 mx-auto md:border-2 rounded-md md:w-full xl:w-4/5 2xl:w-3/5">
+    <div className="max-w-[1300px] relative my-32 mx-auto md:border-2 rounded-md md:w-full xl:w-4/5 2xl:w-3/5">
       <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-10 w-full">
         <div className="items-center justify-center flex flex-col p-16">
           <div className="rounded-full px-8 py-3 shadow border-2 flex items-center justify-center">
@@ -102,7 +102,7 @@ export default function Features() {
               Secure by default
             </h2>
             <p className="text-center text-sm mt-2 text-muted-foreground">
-              We are always using the latest security features from firefox to
+              We are always using the latest security features from Firefox to
               keep you safe. <a className="text-blue-500" href="https://docs.zen-browser.app/faq#how-do-i-know-zen-is-safe">Learn more</a>
             </p>
           </div>
@@ -118,8 +118,6 @@ export default function Features() {
           </Sticky>
         </div>
         <div className="relative md:grid border-t-2 md:border-l-2 md:col-span-2 md:grid-cols-2 row-span-2">
-          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
-          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
           <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
             <div className="">
               <div>
@@ -149,8 +147,6 @@ export default function Features() {
           </div>
         </div>
         <div className="relative md:grid md:border-l-2 border-t-2 md:col-span-2 grid-cols-2 row-span-2">
-          <div className="w-1/2 absolute md:relative z-[-1] opacity-50 md:opacity-1 md:w-full h-full border-r-2 md:border-r"></div>
-          <div className="w-1/2 absolute md:relative z-[-1] hidden md:block md:w-full h-full border-l"></div>
           <div className="p-16 md:px-32 h-full md:absolute top-0 left-0 flex flex-col">
             <div className="flex flex-col md:flex-row">
               <div className='relative'>

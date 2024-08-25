@@ -382,7 +382,7 @@ export default function DownloadPage() {
                     <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">
                       🍏
                     </h1>
-                    <h1 className="text-2xl font-semibold my-2">aarch64</h1>
+                    <h1 className="text-2xl font-semibold my-2">AArch64</h1>
                     <p className="text-muted-foreground mx-auto text-center">64-bit ARM architecture, for Apple's M Series Chips</p>
                   </div>
                   <div
