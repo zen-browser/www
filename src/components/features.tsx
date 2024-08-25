@@ -213,7 +213,7 @@ export default function Features() {
             />
           </div>
         </div>
-        <div className="flex flex-col p-5 md:p-16 md:col-span-2 border-t-2 row-span-2">
+        <div className="flex flex-col p-5 space-y-4 md:space-y-4 md:p-16 md:col-span-2 border-t-2 row-span-2">
           <div className="rounded-full px-8 py-3 shadow border-2 flex items-center">
             <div className="font-bold text-md">
               What makes Zen Browser different?
@@ -230,7 +230,7 @@ export default function Features() {
                   <TableHead className="py-2 text-2xl font-bold text-black dark:text-white">
                     <span className="">How Zen compares to other browsers</span>
                   </TableHead>
-                  <TableHead className="py-2 font-bold text-center">
+                  <TableHead className="font-bold text-center w-8 px-0 min-w-[60px] mx-auto">
                     <Image
                       height={32}
                       width={32}
@@ -238,9 +238,9 @@ export default function Features() {
                       className="border-2 rounded-lg mx-auto mb-2 w-8 h-8"
                       alt="zen"
                     />
-                    Zen
+                    <span className="text-center">Zen</span>
                   </TableHead>
-                  <TableHead className="py-2 pl-4 lg:pr-0 pr-2 font-bold text-center opacity-60">
+                  <TableHead className="py-2 font-bold text-center w-8 px-0 min-w-[60px] mx-auto">
                     <Image
                       height={32}
                       width={32}
@@ -248,9 +248,9 @@ export default function Features() {
                       className="bg-black dark:bg-white rounded-md p-1 mx-auto mb-2 w-7 h-7"
                       alt="floorp"
                     />
-                    Floorp
+                    <span className="text-center">Floorp</span>
                   </TableHead>
-                  <TableHead className="py-2 pl-2 font-bold text-center opacity-60">
+                  <TableHead className="py-2 font-bold text-center w-8 px-0 min-w-[75px] mx-auto">
                     <Image
                       height={32}
                       width={32}
@@ -258,64 +258,64 @@ export default function Features() {
                       className="bg-black dark:bg-white rounded-md mx-auto p-1 mb-2 w-7 h-7"
                       alt="librewolf"
                     />
-                    LibreWolf
+                    <span className="text-center">LibreWolf</span>
                   </TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
                 <TableRow className="border-none">
-                  <TableCell className="py-3 font-medium">
+                  <TableCell className="font-medium">
                     Fine-grained security like sandboxing
                   </TableCell>
-                  <TableCell className="py-3">
+                  <TableCell>
                     <Checkmark />
                   </TableCell>
-                  <TableCell className="py-3 pl-4 pr-0">
+                  <TableCell>
                     <Cross />
                   </TableCell>
-                  <TableCell className="py-3">
+                  <TableCell>
                     <Checkmark />
                   </TableCell>
                 </TableRow>
                 <TableRow className="border-none">
-                  <TableCell className="py-3 font-medium">
+                  <TableCell className="font-medium">
                     Optimized for peak performance
                   </TableCell>
-                  <TableCell className="py-3">
+                  <TableCell>
                     <Checkmark />
                   </TableCell>
-                  <TableCell className="py-3 pl-4 pr-0">
+                  <TableCell>
                     <Cross />
                   </TableCell>
-                  <TableCell className="py-3">
+                  <TableCell>
                     <Cross />
                   </TableCell>
                 </TableRow>
                 <TableRow className="border-none">
-                  <TableCell className="py-3 font-medium">
+                  <TableCell className="font-medium">
                     Based on the latest Firefox
                   </TableCell>
-                  <TableCell className="py-3">
+                  <TableCell>
                     <Checkmark />
                   </TableCell>
-                  <TableCell className="py-3 pl-4 pr-0">
+                  <TableCell>
                     <Cross />
                   </TableCell>
-                  <TableCell className="py-3">
+                  <TableCell>
                     <Checkmark />
                   </TableCell>
                 </TableRow>
                 <TableRow className="border-none">
-                  <TableCell className="py-3 font-medium">
+                  <TableCell className="font-medium">
                     Customizable with cutting-edge features
                   </TableCell>
-                  <TableCell className="py-3">
+                  <TableCell>
                     <Checkmark />
                   </TableCell>
-                  <TableCell className="py-3 pl-4 pr-0">
+                  <TableCell>
                     <Checkmark />
                   </TableCell>
-                  <TableCell className="py-3">
+                  <TableCell>
                     <Cross />
                   </TableCell>
                 </TableRow>
