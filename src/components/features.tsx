@@ -138,7 +138,7 @@ export default function Features() {
             <div className="border w-1/2 rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex transform translate-x-[calc(50%-1.5rem)]">
               <Slider defaultValue={[80]} max={100} />
             </div>
-            <a href='/themes' className="border-2 w-fit md:w-1/2 lg:w-fit flex items-center justify-center rounded-xl shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black border-blue-500 flex text-muted-foreground">
+            <a href='/themes' className="border-2 w-fit md:w-1/2 lg:w-fit items-center justify-center rounded-xl shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black border-blue-500 flex text-muted-foreground">
               <span>
                 Checkout our themes store
               </span>
@@ -312,7 +312,7 @@ export default function Features() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col md:border-t-2 md:col-span-2 grid grid-cols-1 md:grid-cols-2">
+        <div className="flex-col md:border-t-2 md:col-span-2 grid grid-cols-1 md:grid-cols-2">
           <div className="p-16 border-r-2 flex flex-col items-center justify-center">
             <div className="border-2 shadow-md rounded-full p-8 py-3 flex items-center justify-center">
               <EyeClosedIcon className="w-8 h-8" />
@@ -338,7 +338,7 @@ export default function Features() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col border-t-2 md:col-span-3 grid grid-cols-1 md:grid-cols-3 grid-rows-2 row-span-2">
+        <div className="flex-col border-t-2 md:col-span-3 grid grid-cols-1 md:grid-cols-3 grid-rows-2 row-span-2">
           <div className="relative p-16 border-r-2 flex flex-col items-center justify-center row-span-2 col-span-2">
             <div className="relative w-full h-full flex items-center justify-center">
               <img
