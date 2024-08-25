@@ -63,7 +63,7 @@ export default function Features() {
     return () => clearInterval(interval);
   });
   return (
-    <div className="relative my-32 mx-auto md:border-2 rounded-md md:w-full xl:w-4/5 2xl:w-3/5">
+    <div className="max-w-[1300px] relative my-32 mx-auto md:border-2 rounded-md md:w-full xl:w-4/5 2xl:w-3/5">
       <div className="grid grid-cols-1 md:grid-cols-3 md:grid-rows-10 w-full">
         <div className="items-center justify-center flex flex-col p-16">
           <div className="rounded-full px-8 py-3 shadow border-2 flex items-center justify-center">
