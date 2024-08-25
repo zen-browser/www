@@ -601,6 +601,31 @@ export const releaseNotes: ReleaseNote[] = [
         }
     ]
   },
+  {
+    version: "1.0.0-a.29",
+    date: "24/08/2024",
+    extra: "This release is the twenty-ninth alpha release of the 1.0.0-alpha series.",
+    features: [
+        "Added Spanish translations",
+        "Added documentation for contributing",
+        "Added support for multi-tab splitting with shortcuts",
+        "Fixed sidebar shortcuts"
+    ],
+    fixes: [
+        {
+            description: "Text on websites is blurry",
+            issue: 383
+        },
+        {
+            description: "Expanded compact mode triggers too early",
+            issue: 520
+        },
+        {
+            description: "Ampersand in workspace name breaks workspace menu",
+            issue: 439
+        }
+    ]
+    }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
