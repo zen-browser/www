@@ -1,52 +1,57 @@
-"use client"
- 
-import * as React from "react"
-import Link from "next/link"
- 
-import { ny } from "@/lib/utils"
+"use client";
+
+import * as React from "react";
+import Link from "next/link";
+
+import { ny } from "@/lib/utils";
 import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import Logo from "./logo"
-import { ModeToggle } from "./mode-toggle"
-import { MobileNav } from "./mobile-nav"
-import { HeartIcon } from "lucide-react"
-import { HeartFilledIcon } from "@radix-ui/react-icons"
- 
-export const components: { title: string; href: string; description: string }[] = [
+} from "@/components/ui/navigation-menu";
+import Logo from "./logo";
+import { ModeToggle } from "./mode-toggle";
+import { MobileNav } from "./mobile-nav";
+import { HeartIcon } from "lucide-react";
+import { HeartFilledIcon } from "@radix-ui/react-icons";
+import NavigationMenuTrigger from "./ui/navigation-menu-trigger";
+
+export const components: {
+  title: string;
+  href: string;
+  description: string;
+}[] = [
   {
     title: "Privacy Policy",
     href: "/privacy-policy",
-    description: "Learn how we handle your data. Don't worry, we don't collect anything!",
+    description:
+      "Learn how we handle your data. Don't worry, we don't collect anything!",
   },
   {
     title: "Discord",
     href: "https://discord.gg/nnShMQzR4b",
-    description: "Join our Discord server to chat with the community."
+    description: "Join our Discord server to chat with the community.",
   },
   {
     title: "Source Code",
     href: "https://github.com/zen-browser",
-    description: "Check out our source code on GitHub and leave a star!"
+    description: "Check out our source code on GitHub and leave a star!",
   },
   {
     title: "Branding Assets",
     href: "/branding-assets",
-    description: "Download Zen Browser branding assets for your website or project."
+    description:
+      "Download Zen Browser branding assets for your website or project.",
   },
   {
     title: "Documentation",
     href: "https://docs.zen-browser.app/",
-    description: "Learn how to use Zen Browser and build your own themes."
-  }
-]
- 
+    description: "Learn how to use Zen Browser and build your own themes.",
+  },
+];
+
 export function Navigation() {
   return (
     <div className="bg-background z-40 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
@@ -102,13 +107,15 @@ export function Navigation() {
                   title="Patreon"
                   href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                 >
-                  Support us on Patreon and get exclusive rewards and keep the project alive.
+                  Support us on Patreon and get exclusive rewards and keep the
+                  project alive.
                 </ListItem>
                 <ListItem
                   title="Ko-fi"
                   href="https://ko-fi.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                 >
-                  Ko-fi is a way to support us with a one-time donation and help us keep the project alive.
+                  Ko-fi is a way to support us with a one-time donation and help
+                  us keep the project alive.
                 </ListItem>
               </ul>
             </NavigationMenuContent>
@@ -133,9 +140,9 @@ export function Navigation() {
         </NavigationMenuList>
       </NavigationMenu>
     </div>
-  )
+  );
 }
- 
+
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
@@ -158,6 +165,6 @@ const ListItem = React.forwardRef<
         </a>
       </NavigationMenuLink>
     </li>
-  )
-})
-ListItem.displayName = "ListItem"
+  );
+});
+ListItem.displayName = "ListItem";
