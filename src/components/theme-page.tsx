@@ -1,34 +1,62 @@
-"use client";
-import Image from "next/image";
-import { getThemeAuthorLink, getThemeFromId, getThemeMarkdown, ZenTheme } from "@/lib/themes";
-import { Button } from "./ui/button";
-import { useEffect, useState } from "react";
-import Markdown from "react-markdown";
+'use client';
+import Image from 'next/image';
+import {
+  getThemeAuthorLink,
+  getThemeFromId,
+  getThemeMarkdown,
+  ZenTheme,
+} from '@/lib/themes';
+import { Button } from './ui/button';
+import { useEffect, useState } from 'react';
+import Markdown from 'react-markdown';
 import '../app/privacy-policy/markdown.css';
-import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
-import { useParams } from "next/navigation";
-
-export default async function ThemePage() {
-  const params = useParams<{ theme: string }>();
-  const { theme: themeID } = params;
-
-  const theme = await getThemeFromId(themeID);
+import { ChevronLeft, Home, LoaderCircleIcon } from 'lucide-react';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
+interface ThemePageProps {
+  theme: ZenTheme | null;
+  readme: string | null;
+}
+export default function ThemePage({ theme, readme }: ThemePageProps) {
   if (!theme) {
-    return <div>Theme not found</div>;
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
+        <h1 className="text-4xl font-bold mb-4">Oops! Theme Not Found</h1>
+        <p className="text-xl text-muted-foreground mb-8">
+          We couldn't find the theme you're looking for. It might have been
+          removed or doesn't exist.
+        </p>
+        <Link href="/themes">
+          <Button className="flex items-center">
+            <Home className="mr-2 h-4 w-4" />
+            Browse All Themes
+          </Button>
+        </Link>
+      </div>
+    );
   }
-
-  const readme = await getThemeMarkdown(theme);
 
   return (
     <div className="mt-24 lg:mt-56 flex-col lg:flex-row flex mx-auto items-start relative">
       <div className="flex flex-col relative lg:sticky lg:top-0 w-md h-full p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm">
-        <div className="flex mt-2 mb-9 items-center cursor-pointer opacity-70" onClick={() => window.history.back()}>
+        <div
+          className="flex mt-2 mb-9 items-center cursor-pointer opacity-70"
+          onClick={() => window.history.back()}
+        >
           <ChevronLeft className="w-4 h-4 mr-1" />
           <h3 className="text-md">Go back</h3>
         </div>
-        <Image src={theme.image} alt={theme.name} width={500} height={500} className="w-full object-cover rounded-lg border-2 shadow" />
+        <Image
+          src={theme.image}
+          alt={theme.name}
+          width={500}
+          height={500}
+          className="w-full object-cover rounded-lg border-2 shadow"
+        />
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
-        <p className="text-sm text-muted-foreground mt-2">{theme.description}</p>
+        <p className="text-sm text-muted-foreground mt-2">
+          {theme.description}
+        </p>
         {theme.homepage && (
           <a
             href={theme.homepage}
@@ -44,13 +72,25 @@ export default async function ThemePage() {
           className="mt-4 hidden"
           id="install-theme"
           zen-theme-id={theme.id}
-        >Install Theme 🎉</Button>
+        >
+          Install Theme 🎉
+        </Button>
         <Button
           className="mt-4 hidden"
           id="install-theme-uninstall"
           zen-theme-id={theme.id}
-        >Uninstall Theme</Button>
-        <p id="install-theme-error" className="text-muted-foreground text-sm mt-2">You need to have Zen Browser installed to install this theme. <a href="/download" className="text-blue-500">Download now!</a></p>
+        >
+          Uninstall Theme
+        </Button>
+        <p
+          id="install-theme-error"
+          className="text-muted-foreground text-sm mt-2"
+        >
+          You need to have Zen Browser installed to install this theme.{' '}
+          <a href="/download" className="text-blue-500">
+            Download now!
+          </a>
+        </p>
       </div>
       <hr className="block my-4 lg:hidden" />
       <div className="flex flex-col lg:border-l lg:min-h-96 px-5 lg:pl-10 max-w-xl lg:min-w-96 w-full">
@@ -63,8 +103,13 @@ export default async function ThemePage() {
         </div>
         <hr className="my-5" />
         <p className="text-muted-foreground text-sm">
-          Theme by{" "}
-          <a href={getThemeAuthorLink(theme)} className="text-blue-500 text-md mt-4" target="_blank" rel="noopener noreferrer">
+          Theme by{' '}
+          <a
+            href={getThemeAuthorLink(theme)}
+            className="text-blue-500 text-md mt-4"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {theme.author}
           </a>
         </p>
