@@ -199,6 +199,8 @@ export default function Features() {
             <Image
               src="/compact-mode.png"
               alt="Screenshot showing a browser with a more narrow menu on the left-hand side for compact-mode"
+              width={1368}
+              height={768}
               className="scale-105 hover:scale-110 transform rotate-[-2deg] transition-all duration-100 rounded-md w-full shadow-md dark:shadow-none dark:border-2 mt-16 border-blue-600"
             />
           </div>
