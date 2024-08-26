@@ -625,6 +625,37 @@ export const releaseNotes: ReleaseNote[] = [
             issue: 439
         }
     ]
+    },
+    {
+    version: "1.0.0-a.30",
+    date: "24/08/2024",
+    extra: "This release is the thirtieth alpha release of the 1.0.0-alpha series.",
+    features: [
+        "Added support for 24 more languages!",
+        "Better wordmark and icons for Private Browsing mode",
+    ],
+    fixes: [
+        {
+            description: "Letterboxing option is missing",
+            issue: 475
+        },
+        {
+            description: "Collapsed tabs move when audio is playing",
+            issue: 608
+        },
+        {
+            description: "Screensaver starts while a video is running in fullscreen",
+            issue: 619
+        },
+        {
+            description: "Can't scroll through list of workspaces",
+            issue: 603
+        },
+        {
+            description: "Can't rename created workspace",
+            issue: 604
+        }
+    ]
     }
 ].reverse();
 
