@@ -633,6 +633,7 @@ export const releaseNotes: ReleaseNote[] = [
     features: [
         "Added support for 24 more languages!",
         "Better wordmark and icons for Private Browsing mode",
+        "Update installed themes from the browser settings"
     ],
     fixes: [
         {
