@@ -1,3 +1,4 @@
+
 import { LOGO_COLORS } from "@/lib/logos";
 
 export function BrandingAssets() {
@@ -19,6 +20,7 @@ export function BrandingAssets() {
               <div className="flex items-center my-2">
                 <a
                   href={`/logos/zen-${color}.svg`}
+                  download={`zen-${color}.svg`}
                   className="text-blue-500 text-md ml-2"
                 >
                   {color}
@@ -40,7 +42,7 @@ export function BrandingAssets() {
               <div className="flex items-center my-2">
                 <a
                   href={`/logos/zen-alpha-${color}.svg`}
-                  download={`zen-alpha-${color}.png`}
+                  download={`zen-alpha-${color}.svg`}
                   className="text-blue-500 text-md ml-2"
                 >
                   {color}

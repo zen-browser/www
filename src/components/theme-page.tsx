@@ -1,20 +1,31 @@
+"use client";
 import Image from "next/image";
-import { getThemeAuthorLink, getThemeMarkdown, ZenTheme } from "@/lib/themes";
+import { getThemeAuthorLink, getThemeFromId, getThemeMarkdown, ZenTheme } from "@/lib/themes";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import '../app/privacy-policy/markdown.css';
-import { ChevronLeft, LoaderCircleIcon, LoaderIcon, LoaderPinwheelIcon, MoveLeftIcon } from "lucide-react";
+import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
+import { useParams } from "next/navigation";
 
-export default function ThemePage({ theme }: { theme: ZenTheme }) {
-  const [readme, setReadme] = useState<string | null>(null);
-  useEffect(() => {
-    getThemeMarkdown(theme).then(setReadme);
-  }, [theme]);
+export default async function ThemePage() {
+  const params = useParams<{ theme: string }>();
+  const { theme: themeID } = params;
+
+  const theme = await getThemeFromId(themeID);
+  if (!theme) {
+    return <div>Theme not found</div>;
+  }
+
+  const readme = await getThemeMarkdown(theme);
 
   return (
     <div className="mt-24 lg:mt-56 flex-col lg:flex-row flex mx-auto items-start relative">
-      <div className="flex flex-col relative lg:fixed w-md h-full p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm">
+      <div className="flex flex-col relative lg:sticky lg:top-0 w-md h-full p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm">
+        <div className="flex mt-2 mb-9 items-center cursor-pointer opacity-70" onClick={() => window.history.back()}>
+          <ChevronLeft className="w-4 h-4 mr-1" />
+          <h3 className="text-md">Go back</h3>
+        </div>
         <Image src={theme.image} alt={theme.name} width={500} height={500} className="w-full object-cover rounded-lg border-2 shadow" />
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
         <p className="text-sm text-muted-foreground mt-2">{theme.description}</p>
@@ -42,14 +53,10 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
         <p id="install-theme-error" className="text-muted-foreground text-sm mt-2">You need to have Zen Browser installed to install this theme. <a href="/download" className="text-blue-500">Download now!</a></p>
       </div>
       <hr className="block my-4 lg:hidden" />
-      <div className="flex flex-col lg:border-l lg:min-h-96 pl-10 lg:ml-[25rem] max-w-xl lg:min-w-96 w-full">
-        <div className="flex my-2 items-center cursor-pointer opacity-70" onClick={() => window.history.back()}>
-          <ChevronLeft className="w-4 h-4 mr-1" />
-          <h3 className="text-md">Go back</h3>
-        </div>
+      <div className="flex flex-col lg:border-l lg:min-h-96 px-5 lg:pl-10 max-w-xl lg:min-w-96 w-full">
         <div id="policy" className="w-full">
           {readme === null ? (
-              <LoaderCircleIcon className="animate-spin w-12 h-12 mx-auto" />
+            <LoaderCircleIcon className="animate-spin w-12 h-12 mx-auto" />
           ) : (
             <Markdown>{`${readme}`}</Markdown>
           )}
@@ -60,6 +67,7 @@ export default function ThemePage({ theme }: { theme: ZenTheme }) {
           <a href={getThemeAuthorLink(theme)} className="text-blue-500 text-md mt-4" target="_blank" rel="noopener noreferrer">
             {theme.author}
           </a>
+          {` • v${theme.version}`}
         </p>
       </div>
     </div>

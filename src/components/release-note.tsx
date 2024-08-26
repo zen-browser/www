@@ -97,7 +97,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
       </div>
       <div className="flex flex-wrap items-center justify-center">
         <Link href="/download">
-          <Button className="mt-12 w-fit mx-auto">Download zen now!</Button>
+          <Button className="mt-12 w-fit mx-auto">Download Zen now!</Button>
         </Link>
       </div>
     </div>
