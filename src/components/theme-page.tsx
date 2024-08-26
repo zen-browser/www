@@ -67,6 +67,7 @@ export default async function ThemePage() {
           <a href={getThemeAuthorLink(theme)} className="text-blue-500 text-md mt-4" target="_blank" rel="noopener noreferrer">
             {theme.author}
           </a>
+          {` • v${theme.version}`}
         </p>
       </div>
     </div>
