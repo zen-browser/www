@@ -382,7 +382,7 @@ export default function DownloadPage() {
                     <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">
                       🍏
                     </h1>
-                    <h1 className="text-2xl font-semibold my-2">aarch64</h1>
+                    <h1 className="text-2xl font-semibold my-2">AArch64</h1>
                     <p className="text-muted-foreground mx-auto text-center">64-bit ARM architecture, for Apple's M Series Chips</p>
                   </div>
                   <div
@@ -554,7 +554,7 @@ export default function DownloadPage() {
                 <p className="text-muted-foreground">
                   Confused about which build to choose?{" "}
                   <Link
-                    href="https://github.com/zen-browser/desktop/blob/main/docs/requirements.md#supported-cpus-for-optimized-builds-windows-and-linux"
+                    href="https://docs.zen-browser.app/guides/generic-optimized"
                     target="_blank"
                     className="text-blue-400"
                   >
