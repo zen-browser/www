@@ -42,6 +42,6 @@ export default function ThemeCard({
         {theme.description.substring(0, maxDescLen).trim() +
           (theme.description.length > maxDescLen ? "..." : "")}
       </p>
-    </ThemeCardWrapepr>
+    </ThemeCardWrapper>
   );
 }
