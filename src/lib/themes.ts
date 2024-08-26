@@ -10,6 +10,7 @@ export interface ZenTheme {
   preferences?: string
   isColorTheme: boolean
   author: string
+  version: string
 }
 
 const THEME_API = "https://zen-browser.github.io/theme-store/themes.json";
