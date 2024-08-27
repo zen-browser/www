@@ -95,7 +95,7 @@ function MobileLink({
    const router = useRouter()
    return (
       <a
-         href={href}
+         href={href.toString()}
          onClick={() => {
             router.push(href.toString())
             onOpenChange?.(false)
