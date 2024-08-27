@@ -229,7 +229,7 @@ export default function Features() {
                     />
                     Zen
                   </TableHead>
-                  <TableHead className="py-2 pl-4 lg:pr-0 pr-2 font-bold text-center opacity-60">
+                  <TableHead className="py-2 lg:pr-2 font-bold text-center opacity-60 mr-4">
                     <Image
                       height={32}
                       width={32}
