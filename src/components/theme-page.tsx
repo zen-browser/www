@@ -23,7 +23,7 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
           <ChevronLeft className="w-4 h-4 mr-1" />
           <h3 className="text-md">Go back</h3>
         </a>
-        <Image src={theme.image} alt={theme.name} width={500} height={500} className="w-full object-cover rounded-lg border-2 shadow" />
+        <img src={theme.image} alt={theme.name} width={500} height={500} className="w-full object-cover rounded-lg border-2 shadow" />
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
         <p className="text-sm text-muted-foreground mt-2">{theme.description}</p>
         {theme.homepage && (
