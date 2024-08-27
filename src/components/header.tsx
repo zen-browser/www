@@ -20,7 +20,7 @@ export default function Header() {
         id="hero"
         className="relative mx-auto mt-40 max-w-7xl px-6 text-center md:px-8"
       >
-        <Link href="/download">
+        <a href="/download">
           <AnimatedGradientText>
             🎉 <hr className="mx-2 h-4 w-[1px] shrink-0 bg-gray-300" />{" "}
             <span
@@ -32,7 +32,7 @@ export default function Header() {
             </span>
             <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
           </AnimatedGradientText>
-        </Link>
+        </a>
         <h1 className="animate-fade-in -translate-y-4 text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-semibold leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] sm:text-6xl md:text-7xl lg:text-8xl dark:from-white dark:to-white/40">
           Zen is the best way
           <br className="hidden md:block" /> to browse the web.
@@ -42,14 +42,14 @@ export default function Header() {
           <br className="hidden md:block" /> We care about your experience, not
           your data.
         </p>
-        <Link href="/download">
+        <a href="/download">
         <Button
           className="animate-fade-in -translate-y-4 gap-1 rounded-lg text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black"
         >
           <span>Download Zen Now </span>
           <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
         </Button>
-        </Link>
+        </a>
         <div
           ref={ref}
           className="animate-fade-up relative mt-32 opacity-0 [--animation-delay:400ms] [perspective:2000px] after:absolute after:inset-0 after:z-50 after:[background:linear-gradient(to_top,hsl(var(--background))_10%,transparent)]"

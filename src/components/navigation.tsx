@@ -76,7 +76,7 @@ export function Navigation() {
                         Firefox based browser with a focus on privacy and
                         customization.
                       </p>
-                    </Link>
+                    </a>
                   </NavigationMenuLink>
                 </li>
                 <ListItem href="/download" title="Download">

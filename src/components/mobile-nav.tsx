@@ -104,6 +104,6 @@ function MobileLink({
          {...props}
       >
          {children}
-      </Link>
+      </a>
    )
 }

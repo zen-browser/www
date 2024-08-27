@@ -20,7 +20,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
             className="text-underline text-blue-500"
           >
             the issues page
-          </Link>
+          </a>
           . Thanks everyone for your feedback! ❤️
         </p>
         {data.extra && (
@@ -87,7 +87,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
                       className="ml-1 text-blue-500"
                     >
                       issue #{fix.issue}
-                    </Link>
+                    </a>
                   )}
                 </li>
               ))}
@@ -96,9 +96,9 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
         )}
       </div>
       <div className="flex flex-wrap items-center justify-center">
-        <Link href="/download">
+        <a href="/download">
           <Button className="mt-12 w-fit mx-auto">Download Zen now!</Button>
-        </Link>
+        </a>
       </div>
     </div>
   );

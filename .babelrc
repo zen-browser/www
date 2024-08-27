@@ -1,4 +1,0 @@
-{
-    "presets": ["next/babel"],
-    "plugins": ["./babel/disable-nextjs-link-prefetching"]
-}

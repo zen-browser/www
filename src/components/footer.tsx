@@ -12,7 +12,7 @@ export default function Footer() {
         className="mt-5 md:mt-0 md:ml-2 font-bold"
       >
         Source Code
-      </Link>
+      </a>
     </div>
   );
 }

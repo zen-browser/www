@@ -219,16 +219,16 @@ export default function DownloadPage() {
                 web with Zen!
               </p>
               <div className="flex font-bold mt-5 items-center justify-between mx-auto">
-                <Link href="https://github.com/zen-browser">Source Code</Link>
+                <a href="https://github.com/zen-browser">Source Code</a>
                 <Link
                   className="ml-5"
                   href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                 >
                   Donate
-                </Link>
-                <Link className="ml-5" href="/release-notes/latest">
+                </a>
+                <a className="ml-5" href="/release-notes/latest">
                   Release Notes
-                </Link>
+                </a>
               </div>
               {selectedPlatform === "MacOS" && (
                 <div className="mt-12 flex flex-col items-start border justify-between rounded-md bg-background p-5">
@@ -557,7 +557,7 @@ export default function DownloadPage() {
                     className="text-blue-400"
                   >
                     System requirements
-                  </Link>
+                  </a>
                   .
                 </p>
               </div>

@@ -150,11 +150,11 @@ export default function Features() {
                   </a>
                 </p>
               </div>
-              <Link href="/download">
+              <a href="/download">
                 <Button className="mt-4 rounded-full p-5 ml-auto">
                   Download Zen now!
                 </Button>
-              </Link>
+              </a>
             </div>
             <div className="border rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex w-fit transform -translate-x-1/3">
               {COLORS.map((color) => (
@@ -190,11 +190,11 @@ export default function Features() {
                   Killer feature
                 </div>
               </div>
-              <Link href="/download">
+              <a href="/download">
                 <Button className="mt-4 rounded-full p-5 ml-4">
                   Download Zen now!
                 </Button>
-              </Link>
+              </a>
             </div>
             <img
               src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/compact-mode.png"
