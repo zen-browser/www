@@ -12,6 +12,7 @@ const nextConfig = {
         hostname: "cdn.jsdelivr.net",
       }
     ],
+    domains: ['cdn.jsdelivr.net'],  // Allow images from jsDelivr
   },
   experimental: {
     serverActions: {
