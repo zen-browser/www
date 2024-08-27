@@ -10,9 +10,16 @@ export async function generateStaticParams() {
   }));
 }
 
+
+function removeUneccessaryKeys(theme: any) {
+  delete theme["isDarkMode"];
+  delete theme["isColorTheme"];
+  return theme;
+}
+
 export async function GET(request: any, { params }: { params: { id: string } }) {
   const themes = await getAllThemes();
   const theme = themes.find((theme) => theme.id === params.id);
   console.log(theme);
-  return NextResponse.json(theme);
+  return NextResponse.json(removeUneccessaryKeys(theme));
 }
