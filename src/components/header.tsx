@@ -70,14 +70,14 @@ export default function Header() {
             <Image
               width={1500}
               height={700}
-              src="/browser-dark.png"
+              src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-dark.png"
               alt="browser Image"
               className="relative hidden rounded-[inherit] border object-contain dark:block"
             />
             <Image
               width={1500}
               height={700}
-              src="/browser-light.png"
+              src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-light.png"
               alt="browser Image"
               className="relative block rounded-[inherit]  border object-contain dark:hidden"
             />
