@@ -6,11 +6,8 @@ import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import '../app/privacy-policy/markdown.css';
 import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
-import { useParams } from "next/navigation";
 
-export default async function ThemePage() {
-  const params = useParams<{ theme: string }>();
-  const { theme: themeID } = params;
+export default async function ThemePage({ themeID }: { themeID: string }) {
 
   const theme = await getThemeFromId(themeID);
   if (!theme) {
