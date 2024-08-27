@@ -22,7 +22,7 @@ export default function MarketplacePage() {
           <ThemesSearch input={searchInput} setInput={setSearchInput} tags={tags} setTags={setTags} />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8 mt-10 w-full lg:w-1/2 xl:w-2/3 2xl:w-3/4">
+      <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 sm:grid-cols-2 gap-8 mt-10 w-5/6 md:!w-5/6 lg:w-1/2 xl:w-2/3 2xl:w-3/4">
         {getThemesFromSearch(themes, searchInput, tags).map((theme) => (
           <ThemeCard key={theme.name} theme={theme} />
         ))}
