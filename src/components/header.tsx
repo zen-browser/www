@@ -67,14 +67,14 @@ export default function Header() {
               colorTo="var(--color-two)"
             />
 
-            <Image
+            <img
               width={1500}
               height={700}
               src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-dark.png"
               alt="browser Image"
               className="relative hidden rounded-[inherit] border object-contain dark:block"
             />
-            <Image
+            <img
               width={1500}
               height={700}
               src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-light.png"

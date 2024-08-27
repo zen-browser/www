@@ -628,11 +628,10 @@ export const releaseNotes: ReleaseNote[] = [
     },
     {
     version: "1.0.0-a.30",
-    date: "24/08/2024",
+    date: "26/08/2024",
     extra: "This release is the thirtieth alpha release of the 1.0.0-alpha series.",
     features: [
         "Added support for 24 more languages!",
-        "Better wordmark and icons for Private Browsing mode",
         "Update installed themes from the browser settings"
     ],
     fixes: [
@@ -655,11 +654,38 @@ export const releaseNotes: ReleaseNote[] = [
         {
             description: "Can't rename created workspace",
             issue: 604
+        },
+        {
+            description: "JavaScript won't execute in the browser console",
+            issue: 913
+        }
+    ]
+    },
+    {
+    version: "1.0.0-a.31",
+    date: "27/08/2024",
+    extra: "This release is the thirty-first alpha release of the 1.0.0-alpha series.",
+    features: [
+        "Better wordmark and icons for Private Browsing mode",
+        "Patched security issue with remote debugging",
+        "Fixed incorrect position of right-side tabs in compact mode",
+        "Optimized image loading on website",
+        "Refactored website to be static"
+    ],
+    fixes: [
+        {
+            description: "Horizontal and vertical split don't work with shortcuts",
+            issue: 915
+        },
+        {
+            description: "Buttons dissapear if there are too many tabs",
+            issue: 934
         }
     ]
     }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
+  "use client";
   return note.version.includes("-a.");
 }

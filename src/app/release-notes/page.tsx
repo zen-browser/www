@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { releaseNoteIsAlpha, releaseNotes } from "@/lib/release-notes";

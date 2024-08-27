@@ -220,7 +220,7 @@ export default function Features() {
                     <span className="">How Zen compares to other browsers</span>
                   </TableHead>
                   <TableHead className="py-2 font-bold text-center">
-                    <Image
+                    <img
                       height={32}
                       width={32}
                       src="/favicon.ico"
@@ -230,7 +230,7 @@ export default function Features() {
                     Zen
                   </TableHead>
                   <TableHead className="py-2 pl-4 lg:pr-0 pr-2 font-bold text-center opacity-60">
-                    <Image
+                    <img
                       height={32}
                       width={32}
                       src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/floorp.png"
@@ -240,7 +240,7 @@ export default function Features() {
                     Floorp
                   </TableHead>
                   <TableHead className="py-2 pl-0 font-bold text-center opacity-60">
-                    <Image
+                    <img
                       height={32}
                       width={32}
                       src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/librewolf.png"
