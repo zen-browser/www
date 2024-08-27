@@ -24,7 +24,7 @@ export default function Logo({ withText, ...props }: any) {
       {LOGO_COLORS.map((color, index) => (
         <Image
           key={color}
-          src={`/logos/zen-${color}.svg`}
+          src={`https://cdn.jsdelivr.net/gh/zen-browser/www/public/logos/zen-${color}.svg`}
           width={40}
           height={40}
           alt={`Zen Logo ${color}`}
