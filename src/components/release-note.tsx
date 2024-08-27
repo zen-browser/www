@@ -15,7 +15,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
         </p>
         <p className="text-md mt-4 text-muted-foreground">
           If you encounter any issues, please report them on{" "}
-          <Link
+          <a
             href="https://github.com/zen-browser/desktop/issues/"
             className="text-underline text-blue-500"
           >
@@ -81,7 +81,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
                 <li key={index} className="mt-1 text-muted-foreground">
                   {fix.description}
                   {fix.issue && (
-                    <Link
+                    <a
                       href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
                       target="_blank"
                       className="ml-1 text-blue-500"

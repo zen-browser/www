@@ -94,7 +94,7 @@ function MobileLink({
 }: MobileLinkProps) {
    const router = useRouter()
    return (
-      <Link
+      <a
          href={href}
          onClick={() => {
             router.push(href.toString())

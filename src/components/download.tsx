@@ -220,7 +220,7 @@ export default function DownloadPage() {
               </p>
               <div className="flex font-bold mt-5 items-center justify-between mx-auto">
                 <a href="https://github.com/zen-browser">Source Code</a>
-                <Link
+                <a
                   className="ml-5"
                   href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                 >
@@ -551,7 +551,7 @@ export default function DownloadPage() {
                 <InfoCircledIcon className="size-4 mr-2" />
                 <p className="text-muted-foreground">
                   Confused about which build to choose?{" "}
-                  <Link
+                  <a
                     href="https://docs.zen-browser.app/guides/generic-optimized"
                     target="_blank"
                     className="text-blue-400"
