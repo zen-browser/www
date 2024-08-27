@@ -1,4 +1,3 @@
-"use client";
 
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
@@ -6,10 +5,13 @@ import ReleaseNote from "@/components/release-note";
 import { Button } from "@/components/ui/button";
 import { releaseNotes } from "@/lib/release-notes";
 import Link from "next/link";
-import { redirect, useParams } from "next/navigation";
+import { redirect } from "next/navigation";
 
-export default function ReleaseNotePage() {
-  const params = useParams<{ version: string }>();
+export async function generateStaticParams() {
+  return [{version: "latest"}, ...releaseNotes.map((note) => ({ version: note.version }))];
+}
+
+export default function ReleaseNotePage({ params }: { params: { version: string } }) {
   const { version } = params;
 
   if (version === "latest") {

@@ -1,5 +1,4 @@
 "use client";
-import { addDownload } from "@/lib/db";
 import { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { ny } from "@/lib/utils";
@@ -158,7 +157,6 @@ export default function DownloadPage() {
       window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
     }
     setHasDownloaded(true);
-    addDownload(releaseTarget);
     throwConfetti();
   };
 

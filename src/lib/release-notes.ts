@@ -661,5 +661,6 @@ export const releaseNotes: ReleaseNote[] = [
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
+  "use client";
   return note.version.includes("-a.");
 }
