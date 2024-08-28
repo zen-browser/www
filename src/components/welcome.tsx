@@ -17,7 +17,7 @@ function Welcome() {
 
       {/* The Zen Sidebar */}
 
-      <div className="p-10 lg:p-20 border border-gray-700 flex items-center justify-center flex-col lg:flex-row">
+      <div className="p-10 lg:p-20 border-2 border-gray-500/30 rounded-t-md flex items-center justify-center flex-col lg:flex-row">
         <GradientImage
           imgSrc="/sidebar-demo-screencap.png"
           imgW={480}
@@ -50,7 +50,7 @@ function Welcome() {
 
       {/* Compact Mode */}
 
-      <div className="p-10 lg:p-20 border border-gray-700 flex items-center justify-center lg:flex-row-reverse flex-col">
+      <div className="p-10 lg:p-20 border-2 border-gray-500/30 border-t-0 flex items-center justify-center lg:flex-row-reverse flex-col">
         <GradientImage
           imgSrc="/compact-mode-demo-screencap.png"
           imgW={480}
@@ -78,7 +78,7 @@ function Welcome() {
 
       {/* Workspaces */}
 
-      <div className="p-10 lg:p-20 border border-gray-700 flex items-center justify-center flex-col lg:flex-row">
+      <div className="p-10 lg:p-20 border-2 border-gray-500/30 border-t-0 flex items-center justify-center flex-col lg:flex-row">
         <GradientImage
           imgSrc="/workspaces-demo-screencap.png"
           imgW={480}
@@ -108,7 +108,7 @@ function Welcome() {
 
       {/* Firefox Compatibility */}
 
-      <div className="p-10 lg:p-20 border border-gray-700 flex items-center justify-center lg:flex-row-reverse flex-col">
+      <div className="p-10 lg:p-20 border-2 border-gray-500/30 border-t-0 rounded-b-md flex items-center justify-center lg:flex-row-reverse flex-col">
         <GradientImage
           imgSrc="/firefox-extensions-screencap.png"
           imgW={480}
