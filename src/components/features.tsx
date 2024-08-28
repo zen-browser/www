@@ -226,7 +226,7 @@ export default function Features() {
                   <TableHead className="py-2 text-2xl font-bold text-black dark:text-white">
                     <span className="">How Zen compares to other browsers</span>
                   </TableHead>
-                  <TableHead className="font-bold text-center w-8 px-0 min-w-[60px] mx-auto">
+                  <TableHead className="font-bold text-center  px-0 w-16 mx-auto">
                     <Image
                       height={32}
                       width={32}
@@ -236,7 +236,7 @@ export default function Features() {
                     />
                     <span className="text-center">Zen</span>
                   </TableHead>
-                  <TableHead className="py-2 font-bold text-center w-8 px-0 min-w-[60px] mx-auto">
+                  <TableHead className="py-2 font-bold text-center  px-0 w-16 mx-auto">
                     <Image
                       height={32}
                       width={32}
@@ -246,7 +246,7 @@ export default function Features() {
                     />
                     <span className="text-center">Floorp</span>
                   </TableHead>
-                  <TableHead className="py-2 font-bold text-center w-8 px-0 min-w-[75px] mx-auto">
+                  <TableHead className="py-2 font-bold text-center w-16 px-0 mx-auto">
                     <Image
                       height={32}
                       width={32}
