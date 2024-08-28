@@ -94,8 +94,8 @@ function MobileLink({
 }: MobileLinkProps) {
    const router = useRouter()
    return (
-      <Link
-         href={href}
+      <a
+         href={href.toString()}
          onClick={() => {
             router.push(href.toString())
             onOpenChange?.(false)
@@ -104,6 +104,6 @@ function MobileLink({
          {...props}
       >
          {children}
-      </Link>
+      </a>
    )
 }

@@ -150,11 +150,11 @@ export default function Features() {
                   </a>
                 </p>
               </div>
-              <Link href="/download">
+              <a href="/download">
                 <Button className="mt-4 rounded-full p-5 ml-auto">
                   Download Zen now!
                 </Button>
-              </Link>
+              </a>
             </div>
             <div className="border rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex w-fit transform -translate-x-1/3">
               {COLORS.map((color) => (
@@ -190,14 +190,14 @@ export default function Features() {
                   Killer feature
                 </div>
               </div>
-              <Link href="/download">
+              <a href="/download">
                 <Button className="mt-4 rounded-full p-5 ml-4">
                   Download Zen now!
                 </Button>
-              </Link>
+              </a>
             </div>
             <Image
-              src="/compact-mode.png"
+              src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/compact-mode.png"
               alt="Screenshot showing a browser with a more narrow menu on the left-hand side for compact-mode"
               width={1368}
               height={768}
@@ -210,7 +210,11 @@ export default function Features() {
             <div className="font-bold text-md">
               What makes Zen Browser different?
             </div>
-            <Image alt="Zen Browser logo" src="/favicon.ico" className="ml-auto w-7 h-7" width={256} height={256} />
+            <Image 
+              alt="Zen Browser logo" 
+              src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/favicon.ico" 
+              className="ml-auto w-7 h-7" width={256} height={256} 
+              />
           </div>
           <div className="h-full w-full flex items-center justify-center">
             <Table className="w-full">
@@ -223,7 +227,7 @@ export default function Features() {
                     <span className="">How Zen compares to other browsers</span>
                   </TableHead>
                   <TableHead className="py-2 font-bold text-center">
-                    <Image
+                    <img
                       height={32}
                       width={32}
                       src="/favicon.ico"
@@ -233,20 +237,20 @@ export default function Features() {
                     Zen
                   </TableHead>
                   <TableHead className="py-2 pl-4 lg:pr-0 pr-2 font-bold text-center opacity-60">
-                    <Image
+                    <img
                       height={32}
                       width={32}
-                      src="/floorp.png"
+                      src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/floorp.png"
                       className="bg-black dark:bg-white rounded-md p-1 mx-auto mb-2 w-7 h-7"
                       alt="floorp"
                     />
                     Floorp
                   </TableHead>
                   <TableHead className="py-2 pl-0 font-bold text-center opacity-60">
-                    <Image
+                    <img
                       height={32}
                       width={32}
-                      src="/librewolf.png"
+                      src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/librewolf.png"
                       className="bg-black dark:bg-white rounded-md mx-auto p-1 mb-2 w-7 h-7"
                       alt="librewolf"
                     />
@@ -385,7 +389,7 @@ export default function Features() {
           <div className="relative p-16 border-r-2 flex flex-col items-center justify-center row-span-2 col-span-2">
             <div className="relative w-full h-full flex items-center justify-center">
               <Image
-                src="/split-view.png"
+                src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/split-view.png"
                 alt="Screenshot showing a browser with a split-view layout. The left side displays Google, while the right side displays GitHub."
                 width={1368}
                 height={768}
@@ -395,7 +399,7 @@ export default function Features() {
                 )}
               />
               <Image
-                src="/workspaces.png"
+                src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/workspaces.png"
                 alt={"Screenshot showing browser with a menu for navigating a list of workspaces, such as workspaces for 'School', 'Work' and 'Social'"}
                 width={1368}
                 height={768}
@@ -405,7 +409,7 @@ export default function Features() {
                 )}
               />
               <Image
-                src="/sidebar.png"
+                src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/sidebar.png"
                 alt={"Screenshot showing a browser with a sidebar. Sidebar contains YouTube home page and the larger window contains Google search page"}
                 width={1368}
                 height={768}
