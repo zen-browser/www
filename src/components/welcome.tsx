@@ -147,7 +147,7 @@ function HeroSection() {
   return (
     <div className="w-full h-[80vh] max-h-[800px] relative flex flex-col items-center justify-center">
       <BlurIn
-        className="px-5 text-3xl md:text-6xl text-center mb-4"
+        className="px-5 text-3xl md:text-6xl text-center mb-4 text-transparent bg-clip-text bg-gradient-to-b from-black from-30% to-black/40 dark:from-white dark:to-white/40 "
         word="Welcome to Zen Browser!"
       />
       <p className="animate-fade-in px-5 mb-12 text-balance text-lg text-center tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-xl">
