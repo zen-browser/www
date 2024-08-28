@@ -15,12 +15,12 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
         </p>
         <p className="text-md mt-4 text-muted-foreground">
           If you encounter any issues, please report them on{" "}
-          <Link
+          <a
             href="https://github.com/zen-browser/desktop/issues/"
             className="text-underline text-blue-500"
           >
             the issues page
-          </Link>
+          </a>
           . Thanks everyone for your feedback! ❤️
         </p>
         {data.extra && (
@@ -81,13 +81,13 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
                 <li key={index} className="mt-1 text-muted-foreground">
                   {fix.description}
                   {fix.issue && (
-                    <Link
+                    <a
                       href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
                       target="_blank"
                       className="ml-1 text-blue-500"
                     >
                       issue #{fix.issue}
-                    </Link>
+                    </a>
                   )}
                 </li>
               ))}
@@ -96,9 +96,9 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
         )}
       </div>
       <div className="flex flex-wrap items-center justify-center">
-        <Link href="/download">
+        <a href="/download">
           <Button className="mt-12 w-fit mx-auto">Download Zen now!</Button>
-        </Link>
+        </a>
       </div>
     </div>
   );

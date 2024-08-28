@@ -150,11 +150,11 @@ export default function Features() {
                   </a>
                 </p>
               </div>
-              <Link href="/download">
+              <a href="/download">
                 <Button className="mt-4 rounded-full p-5 ml-auto">
                   Download Zen now!
                 </Button>
-              </Link>
+              </a>
             </div>
             <div className="border rounded-lg shadow-md mt-16 mx-auto p-4 bg-white dark:bg-black flex w-fit transform -translate-x-1/3">
               {COLORS.map((color) => (
@@ -190,14 +190,14 @@ export default function Features() {
                   Killer feature
                 </div>
               </div>
-              <Link href="/download">
+              <a href="/download">
                 <Button className="mt-4 rounded-full p-5 ml-4">
                   Download Zen now!
                 </Button>
-              </Link>
+              </a>
             </div>
             <img
-              src="/compact-mode.png"
+              src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/compact-mode.png"
               className="scale-105 hover:scale-110 transform rotate-[-2deg] transition-all duration-100 rounded-md w-full shadow-md dark:shadow-none dark:border-2 mt-16 border-blue-600"
             />
           </div>
@@ -207,7 +207,7 @@ export default function Features() {
             <div className="font-bold text-md">
               What makes Zen Browser different?
             </div>
-            <img src="/favicon.ico" className="ml-auto w-7 h-7" />
+            <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/favicon.ico" className="ml-auto w-7 h-7" />
           </div>
           <div className="h-full w-full flex items-center justify-center">
             <Table className="w-full">
@@ -220,7 +220,7 @@ export default function Features() {
                     <span className="">How Zen compares to other browsers</span>
                   </TableHead>
                   <TableHead className="py-2 font-bold text-center">
-                    <Image
+                    <img
                       height={32}
                       width={32}
                       src="/favicon.ico"
@@ -230,20 +230,20 @@ export default function Features() {
                     Zen
                   </TableHead>
                   <TableHead className="py-2 pl-4 lg:pr-0 pr-2 font-bold text-center opacity-60">
-                    <Image
+                    <img
                       height={32}
                       width={32}
-                      src="/floorp.png"
+                      src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/floorp.png"
                       className="bg-black dark:bg-white rounded-md p-1 mx-auto mb-2 w-7 h-7"
                       alt="floorp"
                     />
                     Floorp
                   </TableHead>
                   <TableHead className="py-2 pl-0 font-bold text-center opacity-60">
-                    <Image
+                    <img
                       height={32}
                       width={32}
-                      src="/librewolf.png"
+                      src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/librewolf.png"
                       className="bg-black dark:bg-white rounded-md mx-auto p-1 mb-2 w-7 h-7"
                       alt="librewolf"
                     />
@@ -382,21 +382,21 @@ export default function Features() {
           <div className="relative p-16 border-r-2 flex flex-col items-center justify-center row-span-2 col-span-2">
             <div className="relative w-full h-full flex items-center justify-center">
               <img
-                src="/split-view.png"
+                src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/split-view.png"
                 className={ny(
                   'absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300',
                   feature === 0 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'
                 )}
               />
               <img
-                src="/workspaces.png"
+                src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/workspaces.png"
                 className={ny(
                   'absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300',
                   feature === 1 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'
                 )}
               />
               <img
-                src="/sidebar.png"
+                src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/sidebar.png"
                 className={ny(
                   'absolute hover:scale-105 rounded-md w-full shadow-md dark:shadow-none dark:border-2 border-blue-500 transform transition-all duration-300',
                   feature === 2 ? 'translate-x-0' : '-translate-x-1/4 opacity-0'

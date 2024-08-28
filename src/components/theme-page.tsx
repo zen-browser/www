@@ -1,4 +1,4 @@
-"use client";
+
 import Image from "next/image";
 import { getThemeAuthorLink, getThemeFromId, getThemeMarkdown, ZenTheme } from "@/lib/themes";
 import { Button } from "./ui/button";
@@ -6,11 +6,8 @@ import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import '../app/privacy-policy/markdown.css';
 import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
-import { useParams } from "next/navigation";
 
-export default async function ThemePage() {
-  const params = useParams<{ theme: string }>();
-  const { theme: themeID } = params;
+export default async function ThemePage({ themeID }: { themeID: string }) {
 
   const theme = await getThemeFromId(themeID);
   if (!theme) {
@@ -22,11 +19,11 @@ export default async function ThemePage() {
   return (
     <div className="mt-24 lg:mt-56 flex-col lg:flex-row flex mx-auto items-start relative">
       <div className="flex flex-col relative lg:sticky lg:top-0 w-md h-full p-5 lg:p-0 lg:pr-5 mr-5 w-full md:max-w-sm">
-        <div className="flex mt-2 mb-9 items-center cursor-pointer opacity-70" onClick={() => window.history.back()}>
+        <a className="flex mt-2 mb-9 items-center cursor-pointer opacity-70" href="/themes">
           <ChevronLeft className="w-4 h-4 mr-1" />
           <h3 className="text-md">Go back</h3>
-        </div>
-        <Image src={theme.image} alt={theme.name} width={500} height={500} className="w-full object-cover rounded-lg border-2 shadow" />
+        </a>
+        <img src={theme.image} alt={theme.name} width={500} height={500} className="w-full object-cover rounded-lg border-2 shadow" />
         <h1 className="text-2xl mt-5 font-bold">{theme.name}</h1>
         <p className="text-sm text-muted-foreground mt-2">{theme.description}</p>
         {theme.homepage && (

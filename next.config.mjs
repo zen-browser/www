@@ -1,12 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
     remotePatterns: [
       {
         protocol: "https",
         hostname: "raw.githubusercontent.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.jsdelivr.net",
+      }
     ],
+    domains: ['cdn.jsdelivr.net', "raw.githubusercontent.com"],  // Allow images from jsDelivr
   },
   experimental: {
     serverActions: {
