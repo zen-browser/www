@@ -41,6 +41,8 @@
       --color-two: #fe8bbb;
       --color-three: #9e7aff;
 
+      --surface: rgb(235, 235, 235);
+
       /*
     --color-one: #37ecba;
     --color-two: #72afd3;
@@ -51,6 +53,8 @@
    .dark {
       --background: 0 0% 0%;
       --foreground: 0 0% 98%;
+
+      --surface: rgb(23, 23, 23);
 
       --card: 0 0% 3.9%;
       --card-foreground: 0 0% 98%;
@@ -86,5 +90,7 @@
    }
    body {
       @apply bg-background text-foreground;
+
+      scroll-behavior: smooth;
    }
 }
