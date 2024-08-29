@@ -662,25 +662,18 @@ export const releaseNotes: ReleaseNote[] = [
     ]
     },
     {
-    version: "1.0.0-a.31",
-    date: "27/08/2024",
-    extra: "This release is the thirty-first alpha release of the 1.0.0-alpha series.",
+    version: "1.0.0-a.33",
+    date: "30/08/2024",
+    extra: "This release is the thirty-third alpha release of the 1.0.0-alpha series.",
     features: [
-        "Better wordmark and icons for Private Browsing mode",
-        "Patched security issue with remote debugging",
-        "Fixed incorrect position of right-side tabs in compact mode",
-        "Optimized image loading on website",
-        "Refactored website to be static"
+        "Fixed policies for updates",
+        "Enforce HTTPS-Only Mode",
+        "Url Bsar improvements",
+        "Fixed issue with opening links from external apps",
+        "Compact mode now takes element separation into account",
+        "Added labels to buttons during expand-on-hover"
     ],
     fixes: [
-        {
-            description: "Horizontal and vertical split don't work with shortcuts",
-            issue: 915
-        },
-        {
-            description: "Buttons dissapear if there are too many tabs",
-            issue: 934
-        }
     ]
     }
 ].reverse();
