@@ -42,17 +42,17 @@ export default function Header() {
           <br className="hidden md:block" /> We care about your experience, not
           your data.
         </p>
-        <div className="flex justify-center w-full">
+        <div className="flex flex-col md:flex-row justify-center w-full">
           <a href="/download">
           <Button
-            className="animate-fade-in -translate-y-4 gap-1 rounded-lg text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black"
+            className="animate-fade-in -translate-y-4 gap-1 text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black"
           >
             <span>Download Zen Now </span>
             <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
           </Button>
           </a>
           <a href="#features" className="animate-fade-up -translate-y-4 opacity-0 [--animation-delay:800ms]">
-            <Button variant="ghost" className="ml-4">
+            <Button variant="ghost" className="mt-4 md:mt-0 md:ml-4">
               Start Exploring <ChevronDown className="ml-1 size-4" />
             </Button>
           </a>
