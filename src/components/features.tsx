@@ -87,9 +87,12 @@ export default function Features() {
             <div className="relative">
               <Button className='mt-8' onClick={() => window.open('/themes', '_self')}>View Theme Store</Button>
             </div>
-            <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/themes.webp" alt="Zen Browser" className="rounded-md mt-12" />
+          </div>
+          <div className='flex justify-center lg:mx-0 mx-10'>
+            <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/themes.webp" alt="Zen Browser" className="rounded-md" />
           </div>
         </div>
+
         <div className="border-t lg:border-t-0 lg:border-l h-[1px] lg:h-[unset] lg:w-[1px] mx-2"></div>
         <div className="p-5 lg:p-12 flex-1">
           <div className="flex p-12 flex-col justify-center">
@@ -142,10 +145,10 @@ export default function Features() {
             </div>
           </div>
         </div>
-        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-1.png" alt="Zen Browser" className="rounded-md lg:w-1/2" />
+        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-1.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-right" />
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
-        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-2.png" alt="Zen Browser" className="rounded-md lg:w-1/2" />
+        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-2.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
         <div className='p-16 lg:w-1/2 flex flex-col justify-center'>
           <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Split Views</h1>
           <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser allows you to split your view into multiple panes, so you can work on multiple things at once. It's perfect for multitasking.</p>
@@ -185,7 +188,7 @@ export default function Features() {
           </p>
           <div className="relative">
             <Button className='mt-8' variant="ghost" onClick={() => window.open('/download', '_blank')}>Security in Zen <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>
-            <Button className='mt-8' variant="ghost" onClick={() => window.open('/privacy-policy', '_blank')}>Your Privacy <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>        
+            <Button className='mt-8' variant="ghost" onClick={() => window.open('/privacy-policy', '_blank')}>Your Privacy <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>
           </div>
         </div>
       </div>
@@ -208,10 +211,10 @@ export default function Features() {
             </div>
           </div>
         </div>
-        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-3.png" alt="Zen Browser" className="rounded-md lg:w-1/2" />
+        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-3.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-right" />
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
-        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-4.jpg" alt="Zen Browser" className="rounded-md lg:w-1/2" />
+        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-4.jpg" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
         <div className='p-16 lg:w-1/2 flex flex-col justify-center'>
           <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Introducing Compact Mode</h1>
           <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser's compact mode gives you more screen real estate by hiding the title bar and tabs. It's perfect for when you need to focus on your work.</p>
