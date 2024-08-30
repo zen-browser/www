@@ -18,6 +18,7 @@ import { ModeToggle } from "./mode-toggle"
 import { MobileNav } from "./mobile-nav"
 import { HeartIcon } from "lucide-react"
 import { HeartFilledIcon } from "@radix-ui/react-icons"
+import { useTranslations } from "next-intl";
  
 export const components: { title: string; href: string; description: string }[] = [
   {
@@ -48,6 +49,9 @@ export const components: { title: string; href: string; description: string }[] 
 ]
  
 export function Navigation() {
+
+  const t = useTranslations('navigation');
+
   return (
     <div className="bg-background z-40 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
       <MobileNav />
@@ -59,7 +63,7 @@ export function Navigation() {
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+            <NavigationMenuTrigger>{t('getting-started')}</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
@@ -94,7 +98,7 @@ export function Navigation() {
           <NavigationMenuItem>
             <NavigationMenuTrigger>
               <HeartFilledIcon className="text-red-500" />
-              <span className="ml-2">Donate</span>
+              <span className="ml-2">{t('donate')}</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -114,7 +118,7 @@ export function Navigation() {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Useful Links</NavigationMenuTrigger>
+            <NavigationMenuTrigger>{t('useful-links')}</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {components.map((component) => (

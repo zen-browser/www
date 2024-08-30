@@ -1,7 +1,7 @@
 <p align="center">
 <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://www.zen-browser.app/logos/zen-alpha-white.svg">
-    <img src="https://www.zen-browser.app/logos/zen-alpha-black.svg" width="64px">
+    <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/favicon.ico" width="64px">
 </picture>
 </p>
 <h1 align="center">
