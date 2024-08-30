@@ -50,6 +50,7 @@ import React, { useState } from 'react';
 import { ny } from '@/lib/utils';
 import ThemeCard from './theme-card';
 import { getAllThemes, ZenTheme } from '@/lib/themes';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 
 function Checkmark() {
   return (
@@ -70,13 +71,7 @@ function Question() {
 }
 
 export default function Features() {
-  const [feature, setFeature] = useState(0);
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setFeature((feature) => (feature + 1) % 3);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const [feature, setFeature] = useState("item-1");
   return (
     <section className="flex-col w-full" id="features">
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-16 shadow'>
@@ -218,6 +213,19 @@ export default function Features() {
           <div className="relative">
             <Button className='mt-8' onClick={() => window.open('/download', '_self')}>What are you waiting for?</Button>
           </div>
+        </div>
+      </div>
+      <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
+        <img src={`https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-${feature}.png`} alt="Zen Browser" className="rounded-md lg:w-1/2" />
+        <div className="relative w-full lg:w-1/2 p-5 lg:p-12">
+          <Accordion type="single" collapsible value={feature} onValueChange={setFeature} defaultValue="item-1">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionContent>
+                Yes. It adheres to the WAI-ARIA design pattern.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </div>
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 p-5 lg:p-12 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
