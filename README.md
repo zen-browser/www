@@ -5,7 +5,7 @@
 </picture>
 </p>
 <h1 align="center">
-Zen Browser Website
+Zen Browser Website 
 </h1>
 
 This repository contains the source code for the Zen Browser Website. We are thrilled to welcome you to our community. Before you start, please read this document to understand how you can contribute to this project.
