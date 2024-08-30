@@ -11,43 +11,31 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
-import Logo from "./logo"
-import { ModeToggle } from "./mode-toggle"
-import { MobileNav } from "./mobile-nav"
+} from "@/components/ui/navigation-menu";
+import Logo from "./logo";
+import Socials from "./socials";
+import { MobileNav } from "./mobile-nav";
 import { HeartIcon } from "lucide-react"
-import { HeartFilledIcon } from "@radix-ui/react-icons"
+import { HeartFilledIcon } from "@radix-ui/react-icons";
 import { useTranslations } from "next-intl";
- 
-export const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Privacy Policy",
-    href: "/privacy-policy",
-    description: "Learn how we handle your data. Don't worry, we don't collect anything!",
-  },
-  {
-    title: "Discord",
-    href: "https://discord.gg/nnShMQzR4b",
-    description: "Join our Discord server to chat with the community."
-  },
-  {
-    title: "Source Code",
-    href: "https://github.com/zen-browser",
-    description: "Check out our source code on GitHub and leave a star!"
-  },
-  {
-    title: "Branding Assets",
-    href: "/branding-assets",
-    description: "Download Zen Browser branding assets for your website or project."
-  },
-  {
-    title: "Documentation",
-    href: "https://docs.zen-browser.app/",
-    description: "Learn how to use Zen Browser and build your own themes."
-  }
-]
- 
+
+export const jsonData = {
+  mainLinks: [
+    { title: "Download", href: "/download", description: "Start using Zen Browser today with just a few clicks." },
+    { title: "Themes Store", href: "/themes", description: "Customize your browser with a variety of themes!" },
+    { title: "Release Notes", href: "/release-notes", description: "Stay up to date with the latest changes." }
+  ],
+  donationLinks: [
+    { title: "Patreon", href: "https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink", description: "Support us on Patreon and get exclusive rewards and keep the project alive." },
+    { title: "Ko-fi", href: "https://ko-fi.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink", description: "Ko-fi is a way to support us with a one-time donation and help us keep the project alive." }
+  ],
+  usefulLinks: [
+    { title: "Privacy Policy", href: "/privacy-policy", description: "Learn how we handle your data. Don't worry, we don't collect anything!" },
+    { title: "Branding Assets", href: "/branding-assets", description: "Download Zen Browser branding assets for your website or project." },
+    { title: "Documentation", href: "https://docs.zen-browser.app/", description: "Learn how to use Zen Browser and build your own themes." }
+  ]
+}
+
 export function Navigation() {
 
   const t = useTranslations('navigation');
@@ -56,8 +44,8 @@ export function Navigation() {
     <div className="bg-background z-40 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
       <MobileNav />
       <NavigationMenu>
-        <NavigationMenuList className="w-full hidden py-3 sm:flex">
-          <NavigationMenuItem className="cursor-pointer mr-20">
+        <NavigationMenuList className="w-ful space-x-8 hidden py-3 sm:flex">
+          <NavigationMenuItem className="cursor-pointer">
             <NavigationMenuLink href="/">
               <Logo withText />
             </NavigationMenuLink>
@@ -83,15 +71,11 @@ export function Navigation() {
                     </a>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/download" title="Download">
-                  Start using Zen Browser today with just a few clicks.
-                </ListItem>
-                <ListItem href="/themes" title="Themes Store">
-                  Customize your browser with a variety of themes!
-                </ListItem>
-                <ListItem href="/release-notes" title="Release Notes">
-                  Stay up to date with the latest changes.
-                </ListItem>
+                {jsonData.mainLinks.map((link) => (
+                  <ListItem key={link.title} href={link.href} title={link.title}>
+                    {link.description}
+                  </ListItem>
+                ))}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -101,45 +85,34 @@ export function Navigation() {
               <span className="ml-2">{t('donate')}</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                <ListItem
-                  title="Patreon"
-                  href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
-                >
-                  Support us on Patreon and get exclusive rewards and keep the project alive.
-                </ListItem>
-                <ListItem
-                  title="Ko-fi"
-                  href="https://ko-fi.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
-                >
-                  Ko-fi is a way to support us with a one-time donation and help us keep the project alive.
-                </ListItem>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                {jsonData.donationLinks.map((link) => (
+                  <ListItem key={link.title} href={link.href} title={link.title}>
+                    {link.description}
+                  </ListItem>
+                ))}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>{t('useful-links')}</NavigationMenuTrigger>
+            <NavigationMenuTrigger>{t('resources')}</NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {components.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
-                  >
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                {jsonData.usefulLinks.map((component) => (
+                  <ListItem key={component.title} title={component.title} href={component.href}>
                     {component.description}
                   </ListItem>
                 ))}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <ModeToggle />
+            <Socials />
         </NavigationMenuList>
       </NavigationMenu>
     </div>
   )
 }
- 
+
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">

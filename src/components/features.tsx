@@ -263,9 +263,9 @@ export default function Features() {
         <div className="flex p-16 lg:w-1/2 flex-col justify-center">
           <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Even more convinced? <HeartHandshake className='inline text-red-500 h-10 w-10' /></h3>
           <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Help support the development of Zen Browser by donating to our cause.</p>
-          <div className="relative mt-8 flex">
-            <Button variant="ghost" onClick={() => window.open('https://patreon.com/zen_browser', '_blank')}>Patreon <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>
-            <Button className="ml-8" variant="ghost" onClick={() => window.open('https://ko-fi.com/zen_browser', '_blank')}>Ko-fi <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>
+          <div className="md:grid md:grid-cols-2 mt-8">
+            <Button variant="ghost" className="inline-flex" onClick={() => window.open('https://patreon.com/zen_browser', '_blank')}>Patreon <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>
+            <Button variant="ghost" className="inline-flex" onClick={() => window.open('https://ko-fi.com/zen_browser', '_blank')}>Ko-fi <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>
           </div>
         </div>
       </div>

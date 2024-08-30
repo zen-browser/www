@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { SidebarOpen } from 'lucide-react'
 import type { LinkProps } from 'next/link'
@@ -10,69 +10,90 @@ import { Button } from './ui/button'
 import { ScrollArea } from './ui/scroll-area'
 import Logo from './logo'
 import { ny } from '@/lib/utils'
-import { components } from './navigation'
+import { jsonData } from './navigation'
+import { HeartFilledIcon } from "@radix-ui/react-icons"
+import Socials from './socials'
+import { buttonVariants } from "@/components/ui/button"
+import { useTranslations } from "next-intl";
 
 export function MobileNav() {
-   const [open, setOpen] = React.useState(false)
+
+   const t = useTranslations('navigation');
 
    return (
-      <Sheet open={open} onOpenChange={setOpen}>
-         <SheetTrigger asChild>
-            <div className="z-40 flex w-full items-center space-between sm:hidden">
-               <Logo className="size-6 ml-4" />
-               <Button
-                  variant="ghost"
-                  className="mr-2 px-0 ml-auto text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
-               >
-                  <SidebarOpen className="size-6" />
-                  <span className="sr-only">Toggle Menu</span>
-               </Button>
-            </div>
-         </SheetTrigger>
+      <Sheet>
+         <div className="z-40 flex w-full items-center justify-between sm:hidden">
+            <SheetTrigger>
+                  <div className="grid gap-4 grid-cols-2 items-center">
+                     <div
+                        className={ny(
+                           buttonVariants({
+                           variant: "ghost",
+                           }),
+                           "h-8 w-8 px-0 ml-2 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
+                        )}
+                     >
+                        <SidebarOpen className="size-6" />
+                        <span className="sr-only">Toggle Menu</span>
+                     </div>
+                     <Logo className="size-6" />
+                  </div>
+            </SheetTrigger>
+            <Socials />
+         </div>
          <SheetContent side="left" className="pr-0">
             <MobileLink
                href="/"
                className="flex items-center"
-               onOpenChange={setOpen}
             >
                <Logo withText />
             </MobileLink>
             <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
-               <div className="flex flex-col space-y-3">
-                  <MobileLink
-                     href="/download"
-                    onOpenChange={setOpen}
-                  >
-                    Download
-                  </MobileLink>
-                  <MobileLink
-                     href="/themes"
-                    onOpenChange={setOpen}
-                  >
-                    Theme Store
-                  </MobileLink>
-                  <MobileLink
-                     href="/release-notes"
-                    onOpenChange={setOpen}
-                  >
-                    Release Notes
-                  </MobileLink>
-                  <MobileLink
-                     href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
-                     onOpenChange={setOpen}
-                  >
-                     Donate {"<"}3
-                  </MobileLink>
-                  {components.map(({title, href, description}) => (
+               <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-3 pt-6">
+                     <h4 className="font-medium">{t('getting-started')}</h4>
+                  </div>
+                  {jsonData.mainLinks.map(({title, href}) => (
                      <MobileLink
                         href={href}
                         key={href}
-                        onOpenChange={setOpen}
+                        className="text-muted-foreground"
                      >
                         {title}
                      </MobileLink>
                   ))}
-                </div>
+               </div>
+               <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-3 pt-6">
+                     <h4 className="inline-flex items-center font-medium">              
+                        {t('donate')}
+                        <HeartFilledIcon className="ml-2 text-red-500" />
+                     </h4>
+                  </div>
+                  {jsonData.donationLinks.map(({title, href}) => (
+                     <MobileLink
+                        href={href}
+                        key={href}
+                        className="text-muted-foreground"
+                     >
+                        {title}
+                     </MobileLink>
+                  ))}
+               </div>
+               <div className="flex flex-col space-y-2">
+               <div className="flex flex-col space-y-3 pt-6">
+                  <h4 className="font-medium">{t('resources')}</h4>
+               </div>
+               {jsonData.usefulLinks.map(({title, href}) => (
+                  <MobileLink
+                     href={href}
+                     key={href}
+                     className="text-muted-foreground"
+                  >
+                     {title}
+                  </MobileLink>
+               ))}
+               </div>
             </ScrollArea>
          </SheetContent>
       </Sheet>
@@ -98,7 +119,6 @@ function MobileLink({
          href={href.toString()}
          onClick={() => {
             router.push(href.toString())
-            onOpenChange?.(false)
          }}
          className={ny(className)}
          {...props}
