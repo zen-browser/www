@@ -668,7 +668,7 @@ export const releaseNotes: ReleaseNote[] = [
     features: [
         "Fixed policies for updates",
         "Enforce HTTPS-Only Mode",
-        "Url Bsar improvements",
+        "URL bar improvements",
         "Fixed issue with opening links from external apps",
         "Compact mode now takes element separation into account",
         "Added labels to buttons during expand-on-hover"
