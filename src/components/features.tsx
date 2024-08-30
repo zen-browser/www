@@ -51,6 +51,7 @@ import { ny } from '@/lib/utils';
 import ThemeCard from './theme-card';
 import { getAllThemes, ZenTheme } from '@/lib/themes';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
+import Logo from './logo';
 
 function Checkmark() {
   return (
@@ -216,13 +217,32 @@ export default function Features() {
         </div>
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
-        <img src={`https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-${feature}.png`} alt="Zen Browser" className="rounded-md lg:w-1/2" />
+        <div className="lg:w-1/2 rounded-md relative overflow-hidden">
+          <img src={`https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-${feature}.png`} alt="Zen Browser" className="rounded-md lg:w-1/2" />
+          {feature == "item-1" && (
+            <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 bg-background p-4 flex rounded-full">
+              <Logo /> <HeartFilledIcon /> <PaintBucket />
+            </div>
+          )}
+        </div>
         <div className="relative w-full lg:w-1/2 p-5 lg:p-12">
           <Accordion type="single" collapsible value={feature} onValueChange={setFeature} defaultValue="item-1">
             <AccordionItem value="item-1">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+              <AccordionTrigger>is it firefox based?</AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Yes, Zen Browser is focused on being always at the latest version of Firefox, ensuring that you have the latest security updates and features.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Does it track me?</AccordionTrigger>
+              <AccordionContent>
+                <strong>No!</strong> Zen Browser is built with privacy in mind. We don't track you, we don't collect your data, and we don't sell your data to third parties.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>How secure is Zen Browser?</AccordionTrigger>
+              <AccordionContent>
+                Zen Browser is built on top of Firefox, which is known for its security features. We also have additional security features like https only built into Zen Browser to help keep you safe online.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
