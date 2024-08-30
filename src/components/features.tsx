@@ -50,6 +50,8 @@ import React, { useState } from 'react';
 import { ny } from '@/lib/utils';
 import ThemeCard from './theme-card';
 import { getAllThemes, ZenTheme } from '@/lib/themes';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
+import Logo from './logo';
 
 function Checkmark() {
   return (
@@ -70,13 +72,7 @@ function Question() {
 }
 
 export default function Features() {
-  const [feature, setFeature] = useState(0);
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setFeature((feature) => (feature + 1) % 3);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const [feature, setFeature] = useState("item-1");
   return (
     <section className="flex-col w-full" id="features">
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-16 shadow'>
@@ -223,6 +219,38 @@ export default function Features() {
           </div>
         </div>
       </div>
+      {/*<div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
+        <div className="lg:w-1/2 rounded-md relative overflow-hidden">
+          <img src={`https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-${feature}.png`} alt="Zen Browser" className="rounded-md lg:w-1/2" />
+          {feature == "item-1" && (
+            <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 bg-background p-4 flex rounded-full">
+              <Logo /> <HeartFilledIcon /> <PaintBucket />
+            </div>
+          )}
+        </div>
+        <div className="relative w-full lg:w-1/2 p-5 lg:p-12">
+          <Accordion type="single" collapsible value={feature} onValueChange={setFeature} defaultValue="item-1">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>is it firefox based?</AccordionTrigger>
+              <AccordionContent>
+                Yes, Zen Browser is focused on being always at the latest version of Firefox, ensuring that you have the latest security updates and features.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Does it track me?</AccordionTrigger>
+              <AccordionContent>
+                <strong>No!</strong> Zen Browser is built with privacy in mind. We don't track you, we don't collect your data, and we don't sell your data to third parties.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>How secure is Zen Browser?</AccordionTrigger>
+              <AccordionContent>
+                Zen Browser is built on top of Firefox, which is known for its security features. We also have additional security features like https only built into Zen Browser to help keep you safe online.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </div>
+      </div>*/}
       <div className='w-full md:w-5/6 lg:w-3/4 p-5 lg:p-12 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
         <div className="flex p-16 lg:w-1/2 flex-col justify-center">
           <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Convinced?</h3>
