@@ -144,7 +144,7 @@ export default function Features() {
         </div>
         <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-1.png" alt="Zen Browser" className="rounded-md lg:w-1/2" />
       </div>
-      <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md lg:mx-auto bg-surface mt-36 shadow'>
+      <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
         <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-2.png" alt="Zen Browser" className="rounded-md lg:w-1/2" />
         <div className='p-16 lg:w-1/2 flex flex-col justify-center'>
           <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Split Views</h1>
