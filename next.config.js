@@ -1,7 +1,10 @@
+const createNextIntlPlugin = require('next-intl/plugin');
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
-
+ 
+const withNextIntl = createNextIntlPlugin();
+ 
 /** @type {import('next').NextConfig} */
-module.exports = (phase, { defaultConfig }) => {
+const nextConfig = (phase, { defaultConfig }) => {
   const defaultConfigWWW = {
     images: {
       remotePatterns: [
@@ -38,4 +41,5 @@ module.exports = (phase, { defaultConfig }) => {
     output: 'export',
   };
 };
-
+ 
+module.exports = withNextIntl(nextConfig);
