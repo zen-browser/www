@@ -183,7 +183,7 @@ export default function Features() {
             Zen is based on Firefox, ensuring that your browsing experience prioritizes security and privacy. With advanced tracking protection and minimal data collection, Zen keeps your online activity safe and secure, giving you peace of mind as you explore the web.
           </p>
           <div className="relative">
-            <Button className='mt-8' variant="ghost" onClick={() => window.open('/download', '_blank')}>Security in Zen <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>
+            <Button className='mt-8' variant="ghost" onClick={() => window.open('https://docs.zen-browser.app/security', '_blank')}>Security in Zen <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>
             <Button className='mt-8' variant="ghost" onClick={() => window.open('/privacy-policy', '_blank')}>Your Privacy <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' /></Button>
           </div>
         </div>
