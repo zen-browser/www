@@ -53,7 +53,7 @@ import { getAllThemes, ZenTheme } from '@/lib/themes';
 
 function Checkmark() {
   return (
-    <CheckIcon className="text-black rounded-full bg-green-500 dark:bg-green-400 p-1 w-7 h-7" />
+    <CheckIcon className="text-black rounded-full bg-green-500 dark:bg-green-400 p-1 w-7 h-7 flex-none" />
   );
 }
 
