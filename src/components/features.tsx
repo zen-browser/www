@@ -53,7 +53,7 @@ import { getAllThemes, ZenTheme } from '@/lib/themes';
 
 function Checkmark() {
   return (
-    <CheckIcon className="text-black rounded-full bg-green-500 dark:bg-green-400 p-1 w-7 h-7" />
+    <CheckIcon className="text-black rounded-full bg-green-500 dark:bg-green-400 p-1 w-7 h-7 flex-none" />
   );
 }
 
@@ -80,7 +80,7 @@ export default function Features() {
   return (
     <section className="flex-col w-full" id="features">
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-16 shadow'>
-        <div className="md:w-1/2 p-5 lg:p-12">
+        <div className="p-5 lg:p-12 flex-1">
           <div className="flex p-12 flex-col justify-center">
             <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Your Browser, your way <PaintBucket className='inline w-10 h-10'></PaintBucket></h3>
             <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>With Zen's Theme Store, you can customize your browsing experience to reflect your unique style and preferences. Choose from a wide array of themes, colors, and layouts to make Zen truly your own, transforming your browser into a personalized digital space.</p>
@@ -91,7 +91,7 @@ export default function Features() {
           </div>
         </div>
         <div className="border-t lg:border-t-0 lg:border-l h-[1px] lg:h-[unset] lg:w-[1px] mx-2"></div>
-        <div className="md:w-1/2 p-5 lg:p-12">
+        <div className="p-5 lg:p-12 flex-1">
           <div className="flex p-12 flex-col justify-center">
             <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Community driven and Open Source <Link1Icon className='inline w-10 h-10'></Link1Icon></h3>
             <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen thrives on the contributions of its vibrant community. As an open-source project, Zen encourages collaboration and innovation, allowing users and developers alike to shape the future of the browser.</p>
