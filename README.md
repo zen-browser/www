@@ -1,8 +1,8 @@
-<p align="center">
+<div align="center">
 <picture>
     <img src="./public/logos/zen-alpha-white.svg" width="128px">
 </picture>
-</p>
+</div>
 <h1 align="center">
 Zen Browser Website 
 </h1>
