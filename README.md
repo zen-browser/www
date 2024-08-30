@@ -1,6 +1,6 @@
 <p align="center">
 <picture>
-    <img src="https://cdn.jsdelivr.net/gh/zen-browser/www@master/public/logos/zen-alpha-white.svg" width="128px">
+    <img src="./public/logos/zen-alpha-white.svg" width="128px">
 </picture>
 </p>
 <h1 align="center">
