@@ -481,12 +481,11 @@ export default function DownloadPage() {
                 <FieldDescription>
                   Choose the type of download you want for Zen for Linux.
                 </FieldDescription>
-                <div>
-                <div className="flex items-center justify-center">
+                <div className="grid grid-cols-2 grid-rows-2 gap-4 mb-2">
                   <div
                     onClick={() => setSelectedLinuxDownloadType("appimage")}
                     className={ny(
-                      "select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+                      "select-none w-full h-full p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
                       selectedLinuxDownloadType === "appimage"
                         ? "border-blue-400"
                         : ""
@@ -503,7 +502,7 @@ export default function DownloadPage() {
                   <div
                     onClick={() => setSelectedLinuxDownloadType("portable")}
                     className={ny(
-                      "select-none w-full h-full mb-2 ml-5 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+                      "select-none w-full h-full p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
                       selectedLinuxDownloadType === "portable"
                         ? "border-blue-400"
                         : ""
@@ -517,12 +516,10 @@ export default function DownloadPage() {
                       Download Zen as a ZIP file
                     </p>
                   </div>
-                  </div>
-                  <div className="flex items-center justify-center mt-2">
                   <div
                     onClick={() => changeToFlatpak()}
                     className={ny(
-                      "select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+                      "select-none w-full h-full p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
                       selectedLinuxDownloadType === "flatpak"
                         ? "border-blue-400"
                         : "",
@@ -542,7 +539,7 @@ export default function DownloadPage() {
                   <div
                     onClick={() => changeToAur()}
                     className={ny(
-                      "select-none w-full h-full mb-2 ml-5 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+                      "select-none w-full h-full p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
                       selectedLinuxDownloadType === "aur"
                         ? "border-blue-400"
                         : "",
@@ -559,7 +556,6 @@ export default function DownloadPage() {
                       Install Zen from the Arch Linux user repository.
                     </p>
                   </div>
-                </div>
                 </div>
               </FormField>
             )}
