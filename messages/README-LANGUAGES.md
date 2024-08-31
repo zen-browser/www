@@ -10,6 +10,31 @@ Syntax: `"key": "value",`
 
 If you do not see a JSON for your language then may add the language by following the instructions below. 
 
+## Dev Environment
+Ensure you have Node.js and Git installed
+
+1) Fork the project repository by clicking the 'Fork' button then 'Create Fork'
+
+2) Clone your fork of the repo using the web url (or any other methods)
+``` bash copy
+git clone https://github.com/YOUR-GITHUB-USERNAME/www.git
+```
+3) Change your current directory to the project directory
+``` bash copy
+cd www
+```
+4) Install the project dependancies using npm
+``` bash copy
+npm install
+```
+5) Start the development server using npm
+``` bash copy
+npm run dev
+
+6) Open a browser and go to http://localhost:3000/ 
+
+7) Test translations by changing your browsers default language setting
+
 ## Adding a language 
 
 1.  Add the language to the `const SUPPORTED_LANGUAGES = ['en', 'de'];` variable in the `./src/i18n.ts` file.
