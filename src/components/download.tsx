@@ -133,32 +133,44 @@ export default function DownloadPage() {
 
   const startDownload = () => {
     let releaseTarget: string;
-    if (selectedLinuxDownloadType === "flatpak") {
-      window.open(
-        "https://dl.flathub.org/repo/appstream/io.github.zen_browser.zen.flatpakref"
-      );
-      releaseTarget = "flatpak";
-    } else {
-      const platform = releaseTree[selectedPlatform.toLowerCase()];
-      let arch: string = selectedArchitecture;
-      if (selectedPlatform === "MacOS") {
-        releaseTarget = platform[arch];
-      } else {
-        releaseTarget =
-          platform[arch][
+  
+    switch (selectedLinuxDownloadType) {
+      case "flatpak":
+        window.open("https://dl.flathub.org/repo/appstream/io.github.zen_browser.zen.flatpakref");
+        releaseTarget = "flatpak";
+        break;
+  
+      case "aur":
+        window.open("https://aur.archlinux.org/packages/zen-browser-bin");
+        releaseTarget = "aur";
+        break;
+  
+      default:
+        // if itsnot 'aur' or 'flatpak'
+        const platform = releaseTree[selectedPlatform.toLowerCase()];
+        let arch: string = selectedArchitecture;
+  
+        if (selectedPlatform === "MacOS") {
+          releaseTarget = platform[arch];
+        } else {
+          releaseTarget = platform[arch][
             selectedPlatform === "Windows"
               ? (selectedWindowsDownloadType as string)
               : (selectedLinuxDownloadType as string)
           ];
-      }
-      console.log("Downloading: ");
-      console.log("platform: ", selectedPlatform);
-      console.log("compat: ", arch);
-      window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
+        }
+  
+        console.log("Downloading: ");
+        console.log("platform: ", selectedPlatform);
+        console.log("compat: ", arch);
+        window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
+        break;
     }
+
     setHasDownloaded(true);
     throwConfetti();
-  };
+  
+  }
 
   const continueFlow = () => {
     if (flowIndex === 0) setPlatform(selectedPlatform);
@@ -191,6 +203,12 @@ export default function DownloadPage() {
     }
   };
 
+  const changeToAur = () => {
+    if (selectedArchitecture === "specific") {
+      setSelectedLinuxDownloadType("aur");
+    }
+  };
+
   return (
     <>
       <link
@@ -209,7 +227,7 @@ export default function DownloadPage() {
         href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
       />
 
-      <div className="w-full overflow-hidden relative h-screen flex items-center justify-center flex-col lg:flex-row">
+      <div className="w-full overflow-hidden relative min-h-screen flex items-center justify-center flex-col lg:flex-row py-28">
         <div className="flex flex-col justify-center w-full p-10 md:p-20 lg:p-0 lg:w-1/2 2xl:w-1/3 mx-auto">
           {(hasDownloaded && (
             <div className="flex items-center justify-center flex-col">
@@ -463,6 +481,7 @@ export default function DownloadPage() {
                 <FieldDescription>
                   Choose the type of download you want for Zen for Linux.
                 </FieldDescription>
+                <div>
                 <div className="flex items-center justify-center">
                   <div
                     onClick={() => setSelectedLinuxDownloadType("appimage")}
@@ -498,10 +517,12 @@ export default function DownloadPage() {
                       Download Zen as a ZIP file
                     </p>
                   </div>
+                  </div>
+                  <div className="flex items-center justify-center mt-2">
                   <div
                     onClick={() => changeToFlatpak()}
                     className={ny(
-                      "select-none w-full h-full mb-2 ml-5 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+                      "select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
                       selectedLinuxDownloadType === "flatpak"
                         ? "border-blue-400"
                         : "",
@@ -518,6 +539,27 @@ export default function DownloadPage() {
                       Install Zen from the Flatpak repository.
                     </p>
                   </div>
+                  <div
+                    onClick={() => changeToAur()}
+                    className={ny(
+                      "select-none w-full h-full mb-2 ml-5 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+                      selectedLinuxDownloadType === "aur"
+                        ? "border-blue-400"
+                        : "",
+                      selectedArchitecture === "generic"
+                        ? "opacity-50 cursor-not-allowed"
+                        : ""
+                    )}
+                  >
+                    <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">
+                      🧑‍💻
+                    </h1>
+                    <h1 className="text-2xl font-semibold my-2">AUR</h1>
+                    <p className="text-muted-foreground mx-auto text-center">
+                      Install Zen from the Arch Linux user repository.
+                    </p>
+                  </div>
+                </div>
                 </div>
               </FormField>
             )}
