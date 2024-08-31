@@ -1,7 +1,7 @@
 "use client";
 
 import {useEffect, useState} from "react";
-import { MoonIcon, SunIcon, GlobeIcon } from "@radix-ui/react-icons";
+import { MoonIcon, SunIcon, Half2Icon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 import {
@@ -39,7 +39,7 @@ export function ModeToggle() {
   console.log(theme);
   return (
     <Button variant="ghost" size="icon" onClick={toggleTheme}>
-      <GlobeIcon className={`${ (theme === 'system') ? 'visible' : 'hidden'} h-[1.2rem] w-[1.2rem]`} />
+      <Half2Icon className={`${ (theme === 'system') ? 'visible' : 'hidden'} h-[1.2rem] w-[1.2rem]`} />
       <SunIcon className={`${ (theme === 'light') ? 'visible' : 'hidden'} h-[1.2rem] w-[1.2rem]`} />
       <MoonIcon className={`${ (theme === 'dark') ? 'visible' : 'hidden'} h-[1.2rem] w-[1.2rem]`} />
       <span className="sr-only">Toggle theme</span>
