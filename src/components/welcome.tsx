@@ -206,6 +206,8 @@ function GradientImage(props: GradientImageTypes) {
     <div className={`relative w-[${imgW}px]`}>
       <img
         src={imgSrc}
+        width={imgW}
+        height={imgH}
         alt={imgAlt}
         className={`max-h-[${imgH}px] max-w-[${imgW}px]`}
       />
