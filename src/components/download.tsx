@@ -141,7 +141,7 @@ export default function DownloadPage() {
         break;
   
       case "aur":
-        window.open("https://aur.archlinux.org/packages/zen-browser-bin");
+        window.open((selectedArchitecture=="specific") ? "https://aur.archlinux.org/packages/zen-browser-avx2-bin" : "https://aur.archlinux.org/packages/zen-browser-bin");
         releaseTarget = "aur";
         break;
   
@@ -204,9 +204,7 @@ export default function DownloadPage() {
   };
 
   const changeToAur = () => {
-    if (selectedArchitecture === "specific") {
-      setSelectedLinuxDownloadType("aur");
-    }
+    setSelectedLinuxDownloadType("aur");
   };
 
   return (
@@ -542,9 +540,6 @@ export default function DownloadPage() {
                       "select-none w-full h-full p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
                       selectedLinuxDownloadType === "aur"
                         ? "border-blue-400"
-                        : "",
-                      selectedArchitecture === "generic"
-                        ? "opacity-50 cursor-not-allowed"
                         : ""
                     )}
                   >
