@@ -481,7 +481,7 @@ export default function DownloadPage() {
                 <FieldDescription>
                   Choose the type of download you want for Zen for Linux.
                 </FieldDescription>
-                <div className="grid grid-cols-2 grid-rows-2 gap-4 mb-2">
+                <div className="grid grid-cols-2 grid-rows-2 gap-6 mb-2">
                   <div
                     onClick={() => setSelectedLinuxDownloadType("appimage")}
                     className={ny(
