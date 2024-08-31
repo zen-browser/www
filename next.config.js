@@ -1,6 +1,10 @@
+
 const createNextIntlPlugin = require('next-intl/plugin');
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
- 
+const {setupDevPlatform} = require('@cloudflare/next-on-pages/next-dev')
+
+
+
 const withNextIntl = createNextIntlPlugin();
  
 /** @type {import('next').NextConfig} */
