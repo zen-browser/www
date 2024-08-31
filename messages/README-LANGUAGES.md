@@ -30,7 +30,7 @@ npm install
 5) Start the development server using npm
 ``` bash copy
 npm run dev
-
+```
 6) Open a browser and go to http://localhost:3000/ 
 
 7) Test translations by changing your browsers default language setting
