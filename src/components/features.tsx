@@ -207,7 +207,7 @@ export default function Features() {
             </div>
           </div>
         </div>
-        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-3.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-right" />
+        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-3.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
         <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-4.jpg" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
