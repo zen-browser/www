@@ -100,7 +100,7 @@ Translated:
 
 The JSON is organized by the file names in the `/components` directory. Find the `.tsx` file that generates the untranslated text and modify it to use the translated value. 
 
-## Wrong Language Code
+### Wrong Language Code
 
 It is common to mix up the 'es' language code with the 'es-ES' language code, for example.
 
