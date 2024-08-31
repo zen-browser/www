@@ -20,8 +20,6 @@ function Welcome() {
       <div className="p-10 lg:p-20 border-y-2 border-x-0 md:border-x-2 border-gray-500/30 md:rounded-t-md flex items-center justify-center flex-col lg:flex-row">
         <GradientImage
           imgSrc="/sidebar-demo-screencap.png"
-          imgW={480}
-          imgH={400}
           imgAlt="An image of a browser"
         />
         <div className="flex-1 max-w-[300px] mt-10 lg:mt-10 lg:ml-14">
@@ -53,8 +51,6 @@ function Welcome() {
       <div className="p-10 lg:p-20 border-y-2 border-x-0 md:border-x-2 border-gray-500/30 border-t-0 flex items-center justify-center lg:flex-row-reverse flex-col">
         <GradientImage
           imgSrc="/compact-mode-demo-screencap.png"
-          imgW={480}
-          imgH={400}
           imgAlt="An image of a browser"
         />
         <div className="flex-1 max-w-[300px] mt-10 lg:mt-10 lg:mr-14">
@@ -81,8 +77,6 @@ function Welcome() {
       <div className="p-10 lg:p-20 border-y-2 border-x-0 md:border-x-2 border-gray-500/30 border-t-0 flex items-center justify-center flex-col lg:flex-row">
         <GradientImage
           imgSrc="/workspaces-demo-screencap.png"
-          imgW={480}
-          imgH={400}
           imgAlt="An image of a browser"
         />
         <div className="flex-1 max-w-[300px] mt-10 lg:mt-10 lg:ml-14">
@@ -111,8 +105,6 @@ function Welcome() {
       <div className="p-10 lg:p-20 border-y-2 border-x-0 md:border-x-2 border-gray-500/30 border-t-0 md:rounded-b-md flex items-center justify-center lg:flex-row-reverse flex-col">
         <GradientImage
           imgSrc="/firefox-extensions-screencap.png"
-          imgW={480}
-          imgH={400}
           imgAlt="An image of a browser"
         />
         <div className="flex-1 max-w-[300px] mt-10 lg:mt-10 lg:mr-14">
@@ -194,22 +186,18 @@ function HeroSection() {
 
 type GradientImageTypes = {
   imgSrc: string;
-  imgW: number;
-  imgH: number;
   imgAlt: string;
 };
 
 function GradientImage(props: GradientImageTypes) {
-  const { imgSrc, imgW, imgH, imgAlt } = props;
+  const { imgSrc, imgAlt } = props;
 
   return (
-    <div className={`relative w-[${imgW}px]`}>
+    <div className={`relative w-350px]`}>
       <img
         src={imgSrc}
-        width={imgW}
-        height={imgH}
         alt={imgAlt}
-        className={`max-h-[${imgH}px] max-w-[${imgW}px]`}
+        className={`max-h-[500px] max-w-[350px]`}
       />
       <div className="absolute inset-0 bg-gradient-to-l from-white dark:from-black to-transparent"></div>
     </div>
