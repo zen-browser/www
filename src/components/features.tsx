@@ -1,6 +1,7 @@
 'use client';
 import Sticky from 'react-sticky-el';
 import {
+  BookmarkCheckIcon,
   CheckIcon,
   ChevronLeft,
   ChevronRight,
@@ -18,9 +19,12 @@ import {
   ShieldCheck,
   SidebarCloseIcon,
   SidebarIcon,
+  SidebarOpenIcon,
   SpaceIcon,
   SplitSquareHorizontal,
   SplitSquareVertical,
+  SplitSquareVerticalIcon,
+  TableIcon,
   XIcon,
 } from 'lucide-react';
 import {
@@ -29,11 +33,13 @@ import {
   HeartFilledIcon,
   Link1Icon,
   LockClosedIcon,
+  QuestionMarkCircledIcon,
   QuestionMarkIcon,
   ReloadIcon,
+  SpaceBetweenHorizontallyIcon,
   UpdateIcon,
 } from '@radix-ui/react-icons';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { Button } from './ui/button';
 import { COLORS } from './create-theme';
@@ -52,6 +58,8 @@ import ThemeCard from './theme-card';
 import { getAllThemes, ZenTheme } from '@/lib/themes';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion';
 import Logo from './logo';
+import CachedImage from './CachedImage';
+import { transform } from 'next/dist/build/swc';
 
 function Checkmark() {
   return (
@@ -84,8 +92,13 @@ export default function Features() {
               <Button className='mt-8' onClick={() => window.open('/themes', '_self')}>View Theme Store</Button>
             </div>
           </div>
-          <div className='flex justify-center lg:mx-0 mx-10'>
-            <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/themes.webp" alt="Zen Browser" className="rounded-md" />
+          <hr/>
+          <div className="flex p-12 flex-col justify-center">
+            <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Always up to date <UpdateIcon className='inline w-10 h-10'></UpdateIcon></h3>
+            <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser is always up to date, ensuring that you have the latest features and security updates. With automatic updates, you can rest easy knowing that your browser is secure and up to date.</p>
+            <div className="relative">
+              <Button className='mt-8' onClick={() => window.open('/download', '_self')}>Download Now</Button>
+            </div>
           </div>
         </div>
 
@@ -124,7 +137,7 @@ export default function Features() {
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
         <div className='p-16 lg:w-1/2 flex flex-col justify-center'>
-          <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Built for simplicity</h1>
+          <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Built for simplicity <EyeIcon className='inline w-8 h-8'></EyeIcon></h1>
           <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser is designed to be simple and easy to use. It's built with the user in mind, so you can focus on what matters most.</p>
           <div className='w-full mt-8'>
             <div className='flex items-center'>
@@ -141,12 +154,12 @@ export default function Features() {
             </div>
           </div>
         </div>
-        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-1.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-right" />
+        <CachedImage width={1350} height={900} src="www/public/browser-1.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-right" />
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
-        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-2.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
+        <CachedImage width={1350} height={900} src="www/public/browser-2.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
         <div className='p-16 lg:w-1/2 flex flex-col justify-center'>
-          <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Split Views</h1>
+          <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Split Views <SplitSquareHorizontal className='inline w-8 h-8'></SplitSquareHorizontal></h1>
           <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser allows you to split your view into multiple panes, so you can work on multiple things at once. It's perfect for multitasking.</p>
           <div className="relative">
             <Button className='mt-8' onClick={() => window.open('/download', '_self')}>Download Now</Button>
@@ -155,7 +168,7 @@ export default function Features() {
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 p-5 lg:p-12 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
         <div className="flex p-16 lg:w-1/2 flex-col justify-center">
-          <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Better tab management</h3>
+          <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Better tab management <BookmarkCheckIcon className='inline w-8 h-8'></BookmarkCheckIcon></h3>
           <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Better tab management helps you stay organized and focused, reducing clutter and enhancing productivity</p>
           <div className='w-full mt-8'>
             <div className='flex items-center'>
@@ -178,7 +191,7 @@ export default function Features() {
         </div>
         <div className="border-t lg:border-t-0 lg:border-l h-[1px] lg:h-[unset] lg:w-[1px] mx-2"></div>
         <div className="flex p-16 lg:w-1/2 flex-col">
-          <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Security and Privacy is <span className='text-purple-500 font-bold'>important</span> to us</h3>
+          <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Security and Privacy is <span className='text-purple-500 font-bold'>important</span> to us <LockClosedIcon className='inline w-8 h-8'></LockClosedIcon></h3>
           <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>
             Zen is based on Firefox, ensuring that your browsing experience prioritizes security and privacy. With advanced tracking protection and minimal data collection, Zen keeps your online activity safe and secure, giving you peace of mind as you explore the web.
           </p>
@@ -190,7 +203,7 @@ export default function Features() {
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
         <div className='p-16 lg:w-1/2 flex flex-col justify-center'>
-          <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Sidebar</h1>
+          <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Sidebar <SidebarIcon className='inline w-8 h-8 ml-1'></SidebarIcon></h1>
           <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser has a built-in sidebar that lets you quickly access your favorite websites, bookmarks, and more. It's the perfect way to stay organized.</p>
           <div className='w-full mt-8'>
             <div className='flex items-center'>
@@ -207,12 +220,12 @@ export default function Features() {
             </div>
           </div>
         </div>
-        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-3.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-right" />
+        <CachedImage width={1350} height={900} src="www/public/browser-3.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-right" />
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
-        <img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/browser-4.jpg" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
+        <CachedImage width={1350} height={900} src="www/public/browser-4.jpg" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
         <div className='p-16 lg:w-1/2 flex flex-col justify-center'>
-          <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Introducing Compact Mode</h1>
+          <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Introducing Compact Mode <SidebarCloseIcon className='inline w-8 h-8'></SidebarCloseIcon></h1>
           <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser's compact mode gives you more screen real estate by hiding the title bar and tabs. It's perfect for when you need to focus on your work.</p>
           <div className="relative">
             <Button className='mt-8' onClick={() => window.open('/download', '_self')}>What are you waiting for?</Button>
@@ -220,18 +233,9 @@ export default function Features() {
         </div>
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
-        <div className="lg:w-1/2 rounded-md relative overflow-hidden">
-        <Image width={1350} height={900} objectFit="cover" src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-item-1.png" alt="Zen Browser" className={ny("rounded-md lg:w-1/2", feature === "item-1" ? "" : "hidden")} />
-        <Image width={1350} height={900} objectFit="cover" src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-item-2.png" alt="Zen Browser" className={ny("rounded-md lg:w-1/2", feature === "item-2" ? "" : "hidden")} />
-        <Image width={1350} height={900} objectFit="cover" src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-item-3.png" alt="Zen Browser" className={ny("rounded-md lg:w-1/2", feature === "item-3" ? "" : "hidden")} />
-        {feature == "item-1" && (
-            <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 bg-background p-4 flex rounded-full">
-              <Logo /> <HeartFilledIcon /> <PaintBucket />
-            </div>
-          )}
-        </div>
-        <div className="relative w-full lg:w-1/2 p-5 lg:p-12">
-          <Accordion type="single" collapsible value={feature} onValueChange={setFeature} defaultValue="item-1">
+        <div className="relative w-full lg:w-1/2 p-5 lg:p-12 flex flex-col justify-center">
+          <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Frequently Asked Questions <QuestionMarkCircledIcon className='inline w-8 h-8'></QuestionMarkCircledIcon></h1>
+          <Accordion type="single" value={feature} onValueChange={setFeature} defaultValue="item-1" className='mt-8'>
             <AccordionItem value="item-1">
               <AccordionTrigger>is it firefox based?</AccordionTrigger>
               <AccordionContent>
@@ -251,6 +255,42 @@ export default function Features() {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
+        </div>
+        <div className="lg:w-1/2 h-auto rounded-md relative overflow-hidden">
+          <CachedImage width={1350} height={900} src="www/public/feature-item-1.png" alt="Zen Browser" className="object-cover h-full w-full robject-right ounded-md" />
+          {feature == "item-1" && (
+            <div className='w-full h-full absolute top-0 left-0 grid grid-rows-3'>
+              <div></div>
+              <div className="w-fit h-fit m-auto tems-center bg-background p-4 border-2 border-white shadow flex rounded-full animate-fade-in">
+                <Logo className='w-10 h-10' /> <span className='text-4xl mx-4'>+</span> <svg className='w-10 h-10 relative' xmlns="http://www.w3.org/2000/svg" fill="white" fill-opacity="context-fill-opacity"><path style={{transform: "scale(2) translate(5%, 5%)"}} d="M10.39 0C8.948.788 7.987 2.025 7.767 3.66c-1.017.162-1.768.781-1.768.781s.72-.44 1.736-.511a4.04 4.04 0 0 1 3.789 2.034s-.758-.62-1.928-.468c1.315.68 1.872 2.002 1.701 3.369-.17 1.367-1.183 2.435-2.354 2.723-1.171.287-2.333.099-3.229-.61-.896-.708-1.251-1.533-1.305-2.254.213-.533.541-.812 1.1-1.092.558-.279 1.422-.283 1.572-.283s.8-.507.95-.894c-.726-.363-1.292-.65-1.696-.934-.404-.283-.492-.534-1.012-.898-.307-1.006-.021-1.955-.021-1.955s-1.043.437-1.93 1.49c0 0-.342-.338-.28-2.006-.427.155-1.366 1.004-1.947 1.92a7.277 7.277 0 0 0-.798 1.723A8.296 8.296 0 0 0-.003 8a8 8 0 0 0 16 0c0-2.256-.93-4.252-2.188-5.002 0 0 .542.932.813 2.43-.4-1.04-1.235-2.166-1.877-2.844-.643-.678-2.068-1.88-2.357-2.584z"/></svg>
+              </div>
+              <a href='https://github.com/zen-browser/desktop?tab=readme-ov-file#compatibility' target='_blank' className="w-fit h-fit m-auto items-center w-fit border-2 border-white shadow tems-center bg-background p-4 flex rounded-full opacity-0 animate-fade-in [--animation-delay:300ms]">
+                See what version of Firefox Zen uses <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' />
+              </a>
+            </div>
+          )}
+          {feature == "item-2" && (
+            <div className='w-full h-full absolute top-0 left-0 grid grid-rows-3'>
+              <div></div>
+              <div className="w-fit h-fit m-auto tems-center bg-background p-4 border-2 border-white shadow flex rounded-full animate-fade-in">
+                <LockClosedIcon className='w-10 h-10' /> <span className='text-4xl mx-4'>+</span> <EyeClosedIcon className='w-10 h-10' />  
+              </div>
+              <a href='/privacy-policy' target='_blank' className="w-fit h-fit m-auto items-center w-fit border-2 border-white shadow tems-center bg-background p-4 flex rounded-full opacity-0 animate-fade-in [--animation-delay:300ms]">
+                Learn about Zen's privacy policy <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' />
+              </a>
+            </div>
+          )}
+          {feature == "item-3" && (
+            <div className='w-full h-full absolute top-0 left-0 grid grid-rows-3'>
+              <div></div>
+              <div className="w-fit h-fit m-auto tems-center bg-background p-4 border-2 border-white shadow flex rounded-full animate-fade-in">
+                <ShieldCheck className='w-10 h-10' /> <span className='text-4xl mx-4'>+</span> <ShieldAlertIcon className='w-10 h-10' />
+              </div>
+              <a href='https://docs.zen-browser.app/security' target='_blank' className="w-fit h-fit m-auto items-center w-fit border-2 border-white shadow tems-center bg-background p-4 flex rounded-full opacity-0 animate-fade-in [--animation-delay:300ms]">
+                See how Zen keeps you safe <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' />
+              </a>
+            </div>
+          )}
         </div>
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 p-5 lg:p-12 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>

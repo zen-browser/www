@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { getThemeAuthorLink, ZenTheme } from "@/lib/themes";
 import styled from "styled-components";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";import { Button } from "./ui/button";

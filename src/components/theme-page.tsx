@@ -1,5 +1,5 @@
 
-import Image from "next/image";
+
 import { getThemeAuthorLink, getThemeFromId, getThemeMarkdown, ZenTheme } from "@/lib/themes";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
