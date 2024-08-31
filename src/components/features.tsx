@@ -219,10 +219,12 @@ export default function Features() {
           </div>
         </div>
       </div>
-      {/*<div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
+      <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
         <div className="lg:w-1/2 rounded-md relative overflow-hidden">
-          <img src={`https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-${feature}.png`} alt="Zen Browser" className="rounded-md lg:w-1/2" />
-          {feature == "item-1" && (
+        <Image width={1350} height={900} objectFit="cover" src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-item-1.png" alt="Zen Browser" className={ny("rounded-md lg:w-1/2", feature === "item-1" ? "" : "hidden")} />
+        <Image width={1350} height={900} objectFit="cover" src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-item-2.png" alt="Zen Browser" className={ny("rounded-md lg:w-1/2", feature === "item-2" ? "" : "hidden")} />
+        <Image width={1350} height={900} objectFit="cover" src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/feature-item-3.png" alt="Zen Browser" className={ny("rounded-md lg:w-1/2", feature === "item-3" ? "" : "hidden")} />
+        {feature == "item-1" && (
             <div className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 bg-background p-4 flex rounded-full">
               <Logo /> <HeartFilledIcon /> <PaintBucket />
             </div>
@@ -250,7 +252,7 @@ export default function Features() {
             </AccordionItem>
           </Accordion>
         </div>
-      </div>*/}
+      </div>
       <div className='w-full md:w-5/6 lg:w-3/4 p-5 lg:p-12 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
         <div className="flex p-16 lg:w-1/2 flex-col justify-center">
           <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Convinced?</h3>
