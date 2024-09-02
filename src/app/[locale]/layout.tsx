@@ -8,6 +8,7 @@ import {unstable_setRequestLocale} from 'next-intl/server';
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { notFound } from "next/navigation";
+import {routing} from '@/i18n/routing';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,7 @@ async function getMessages(locale: string) {
 }
 
 export function generateStaticParams() {
-  return SUPPORTED_LANGUAGES.map((locale) => ({locale}));
+  return routing.locales.map((locale) => ({locale}));
 }
 
 export default async function RootLayout({
