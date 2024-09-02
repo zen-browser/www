@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 export default function Footer() {
   return (
     <div className="font-medium px-10 md:px-0 border-t w-full border-grey py-10 mt-10 flex align-center flex-col">
-      <div className="flex mx-auto border-b pb-10 justify-between pt-10 w-full lg:!w-2/3">
+      <div className="flex mx-auto p-10 lg:p-0 border-b pb-10 justify-between pt-10 w-full lg:!w-2/3">
         <div className="flex flex-col">
           <Logo />
           <div className="mt-auto">
@@ -28,7 +28,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col lg:flex-row">
+        <div className="flex flex-col md:flex-row">
           <div>
             <h2 className="text-md font-bold opacity-80">Get Started</h2>
             <ul className="mt-4 opacity-70 font-normal">
@@ -49,7 +49,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="lg:ml-24">
+          <div className="mt-10 md:mt-0 md:ml-12 lg:ml-24">
             <h2 className="text-md font-bold opacity-80">Get Help</h2>
             <ul className="mt-4 opacity-70 font-normal">
               <li>
@@ -75,7 +75,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="lg:ml-24">
+          <div className="mt-10 md:mt-0 md:ml-12 lg:ml-24">
             <h2 className="text-md font-bold opacity-80">Resources</h2>
             <ul className="mt-4 opacity-70 font-normal">
               <li>
