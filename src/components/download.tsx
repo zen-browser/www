@@ -383,46 +383,45 @@ export default function DownloadPage() {
                   </div>
                 </FormField>
               )}
-            {platform === "MacOS" && flowIndex === 1 && (
-              <FormField
-                enter={platform === "MacOS"}
-                out={platform !== "MacOS"}
-              >
-                <FieldTitle>Download Zen for MacOS</FieldTitle>
-                <FieldDescription>
-                  Click the button below to download Zen for MacOS.
-                </FieldDescription>
-								{/*Fixed the issue where the box height of AArch64 and Intel were not consistent like in the windows and linux*/}
-                <div className="flex items-center justify-center">
-									<div
-										onClick={() => setSelectedArchitecture("specific")}
-										className={ny(
-											"select-none w-full h-64 mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
-											selectedArchitecture === "specific" ? "border-blue-400" : ""
-										)}
-									>
-										<h1 className="text-5xl my-2 opacity-40 dark:opacity-20">🍏</h1>
-										<h1 className="text-2xl font-semibold my-2">AArch64</h1>
-										<p className="text-muted-foreground mx-auto text-center">
-											64-bit ARM architecture, for Apple's M Series Chips
-										</p>
+							{platform === "MacOS" && flowIndex === 1 && (
+								<FormField
+									enter={platform === "MacOS"}
+									out={platform !== "MacOS"}
+								>
+									<FieldTitle>Download Zen for MacOS</FieldTitle>
+									<FieldDescription>
+										Click the button below to download Zen for MacOS.
+									</FieldDescription>
+									<div className="flex items-center justify-center">
+										<div
+											onClick={() => setSelectedArchitecture("specific")}
+											className={ny(
+												"select-none w-full h-64 mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+												selectedArchitecture === "specific" ? "border-blue-400" : ""
+											)}
+										>
+											<h1 className="text-5xl my-2 opacity-40 dark:opacity-20">🍏</h1>
+											<h1 className="text-2xl font-semibold my-2">AArch64</h1>
+											<p className="text-muted-foreground mx-auto text-center">
+												64-bit ARM architecture, for Apple's M Series Chips
+											</p>
+										</div>
+										<div
+											onClick={() => setSelectedArchitecture("generic")}
+											className={ny(
+												"select-none w-full h-64 mb-2 ml-10 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+												selectedArchitecture === "generic" ? "border-blue-400" : ""
+											)}
+										>
+											<h1 className="text-5xl font-bold my-2 opacity-40 dark:opacity-20">x64</h1>
+											<h1 className="text-2xl font-semibold my-2">Intel</h1>
+											<p className="text-muted-foreground mx-auto text-center">
+												64-bit Intel architecture, for older Macs
+											</p>
+										</div>
 									</div>
-									<div
-										onClick={() => setSelectedArchitecture("generic")}
-										className={ny(
-											"select-none w-full h-64 mb-2 ml-10 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
-											selectedArchitecture === "generic" ? "border-blue-400" : ""
-										)}
-									>
-										<h1 className="text-5xl font-bold my-2 opacity-40 dark:opacity-20">x64</h1>
-										<h1 className="text-2xl font-semibold my-2">Intel</h1>
-										<p className="text-muted-foreground mx-auto text-center">
-											64-bit Intel architecture, for older Macs
-										</p>
-									</div>
-								</div>
-              </FormField>
-            )}
+								</FormField>
+							)}
             {flowIndex === 2 && platform === "Windows" && (
               <FormField
                 enter={platform === "Windows" && flowIndex === 2}
