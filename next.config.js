@@ -1,7 +1,9 @@
 
 const createNextIntlPlugin = require('next-intl/plugin');
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
- 
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = (phase, { defaultConfig }) => {
   const defaultConfigWWW = {
@@ -29,18 +31,6 @@ const nextConfig = (phase, { defaultConfig }) => {
     compiler: {
       styledComponents: true,
     },
-    webpack: (
-      config,
-      { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
-    ) => {
-      // Important: return the modified config
-      return {
-        output: {
-          // ...
-          globalObject: 'this',
-        },        
-      }
-    },
   };
   if (phase === PHASE_DEVELOPMENT_SERVER) {
     return {
@@ -55,4 +45,4 @@ const nextConfig = (phase, { defaultConfig }) => {
   };
 };
  
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

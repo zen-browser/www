@@ -11,8 +11,6 @@ import { notFound } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const runtime = 'edge';
-
 export const metadata: Metadata = {
   title: "Zen Browser",
   description: "Download now and experience the Zen Browser",
