@@ -708,6 +708,14 @@ export const releaseNotes: ReleaseNote[] = [
         {
             description: "Theme Store settings page doesn't display installed themes",
             issue: 1125
+        },
+        {
+            description: "No Homebrew support",
+            issue: 273
+        },
+        {
+            description: "Remember last active workspaces on startup",
+            issue: 240
         }
     ]
     }
