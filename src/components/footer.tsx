@@ -20,7 +20,7 @@ export default function Footer() {
               <a href="https://github.com/zen-browser">
                 <GitHubLogoIcon className="w-5 h-5" />
               </a>
-              <a href="discord.com/servers/mauro-s-little-sweatshop-1088172780480114748" className="ml-5">
+              <a href="https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748" className="ml-5">
                 <DiscordLogoIcon className="w-5 h-5" />
               </a>
               <a href="https://fosstodon.org/@zenbrowser" className="ml-5">
