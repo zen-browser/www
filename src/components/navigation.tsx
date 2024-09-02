@@ -28,7 +28,7 @@ export const components: { titleKey: string; href: string; descriptionKey: strin
   },
   {
     titleKey: "nav-components-discord",
-    href: "https://discord.gg/nnShMQzR4b",
+    href: "https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748",
     descriptionKey: "nav-components-discord-text"
   },
   {

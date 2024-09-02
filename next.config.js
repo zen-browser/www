@@ -1,6 +1,7 @@
+
 const createNextIntlPlugin = require('next-intl/plugin');
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
- 
+
 const withNextIntl = createNextIntlPlugin();
  
 /** @type {import('next').NextConfig} */
@@ -15,9 +16,12 @@ const nextConfig = (phase, { defaultConfig }) => {
         {
           protocol: "https",
           hostname: "cdn.jsdelivr.net",
+          port: '',
+          pathname: '/gh/zen-browser/**',
         }
       ],
-      domains: ['cdn.jsdelivr.net', "raw.githubusercontent.com"],  // Allow images from jsDelivr
+      formats: ["image/png", "image/jpeg", "image/svg+xml", "image/webp"],
+      domains: ['localhost', 'cdn.jsdelivr.net', "raw.githubusercontent.com"],  // Allow images from jsDelivr
     },
     experimental: {
       serverActions: {
