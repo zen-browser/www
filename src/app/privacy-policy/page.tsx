@@ -83,7 +83,7 @@ You can also optionally enable telemetry data collection and other Mozilla Resea
 # 9. Contact Us
 If you have any questions or concerns about this Privacy Policy or Zen Browser, please contact us at:
 
-* Discord: [Zen Browser's Discord](https://discord.gg/nnShMQzR4b)
+* Discord: [Zen Browser's Discord](https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748)
 * GitHub: [Organization](https://github.com/zen-browser)
 
 ---

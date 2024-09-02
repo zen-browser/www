@@ -8,6 +8,8 @@ import {getLocale, getMessages} from 'next-intl/server';
 
 const inter = Inter({ subsets: ["latin"] });
 
+export const runtime = 'edge';
+
 export const metadata: Metadata = {
   title: "Zen Browser",
   description: "Download now and experience the Zen Browser",
