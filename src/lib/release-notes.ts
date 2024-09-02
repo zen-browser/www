@@ -704,6 +704,10 @@ export const releaseNotes: ReleaseNote[] = [
         {
             description: "Can't reorganize tabs in compact mode",
             issue: 1168
+        },
+        {
+            description: "Theme Store settings page doesn't display installed themes",
+            issue: 1125
         }
     ]
     }
