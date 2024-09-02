@@ -92,7 +92,7 @@ export default function Features() {
               <Button className='mt-8' onClick={() => window.open('/themes', '_self')}>View Theme Store</Button>
             </div>
           </div>
-          <hr/>
+          <hr />
           <div className="flex p-12 flex-col justify-center">
             <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Always up to date <UpdateIcon className='inline w-10 h-10'></UpdateIcon></h3>
             <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser is always up to date, ensuring that you have the latest features and security updates. With automatic updates, you can rest easy knowing that your browser is secure and up to date.</p>
@@ -262,9 +262,9 @@ export default function Features() {
             <div className='w-full h-full absolute top-0 left-0 grid grid-rows-3'>
               <div></div>
               <div className="w-fit h-fit m-auto tems-center bg-background p-4 border-2 border-white shadow flex rounded-full animate-fade-in">
-                <Logo className='w-10 h-10' /> <span className='text-4xl mx-4'>+</span> <svg className='w-10 h-10 relative' xmlns="http://www.w3.org/2000/svg" fill="white" fill-opacity="context-fill-opacity"><path style={{transform: "scale(2) translate(5%, 5%)"}} d="M10.39 0C8.948.788 7.987 2.025 7.767 3.66c-1.017.162-1.768.781-1.768.781s.72-.44 1.736-.511a4.04 4.04 0 0 1 3.789 2.034s-.758-.62-1.928-.468c1.315.68 1.872 2.002 1.701 3.369-.17 1.367-1.183 2.435-2.354 2.723-1.171.287-2.333.099-3.229-.61-.896-.708-1.251-1.533-1.305-2.254.213-.533.541-.812 1.1-1.092.558-.279 1.422-.283 1.572-.283s.8-.507.95-.894c-.726-.363-1.292-.65-1.696-.934-.404-.283-.492-.534-1.012-.898-.307-1.006-.021-1.955-.021-1.955s-1.043.437-1.93 1.49c0 0-.342-.338-.28-2.006-.427.155-1.366 1.004-1.947 1.92a7.277 7.277 0 0 0-.798 1.723A8.296 8.296 0 0 0-.003 8a8 8 0 0 0 16 0c0-2.256-.93-4.252-2.188-5.002 0 0 .542.932.813 2.43-.4-1.04-1.235-2.166-1.877-2.844-.643-.678-2.068-1.88-2.357-2.584z"/></svg>
+                <Logo className='w-10 h-10' /> <span className='text-4xl mx-4'>+</span> <svg className='w-10 h-10 relative' xmlns="http://www.w3.org/2000/svg" fill="white" fill-opacity="context-fill-opacity"><path style={{ transform: "scale(2) translate(5%, 5%)" }} d="M10.39 0C8.948.788 7.987 2.025 7.767 3.66c-1.017.162-1.768.781-1.768.781s.72-.44 1.736-.511a4.04 4.04 0 0 1 3.789 2.034s-.758-.62-1.928-.468c1.315.68 1.872 2.002 1.701 3.369-.17 1.367-1.183 2.435-2.354 2.723-1.171.287-2.333.099-3.229-.61-.896-.708-1.251-1.533-1.305-2.254.213-.533.541-.812 1.1-1.092.558-.279 1.422-.283 1.572-.283s.8-.507.95-.894c-.726-.363-1.292-.65-1.696-.934-.404-.283-.492-.534-1.012-.898-.307-1.006-.021-1.955-.021-1.955s-1.043.437-1.93 1.49c0 0-.342-.338-.28-2.006-.427.155-1.366 1.004-1.947 1.92a7.277 7.277 0 0 0-.798 1.723A8.296 8.296 0 0 0-.003 8a8 8 0 0 0 16 0c0-2.256-.93-4.252-2.188-5.002 0 0 .542.932.813 2.43-.4-1.04-1.235-2.166-1.877-2.844-.643-.678-2.068-1.88-2.357-2.584z" /></svg>
               </div>
-              <a href='https://github.com/zen-browser/desktop?tab=readme-ov-file#compatibility' target='_blank' className="w-fit h-fit m-auto items-center w-fit border-2 border-white shadow tems-center bg-background p-4 flex rounded-full opacity-0 animate-fade-in [--animation-delay:300ms]">
+              <a href='https://github.com/zen-browser/desktop?tab=readme-ov-file#compatibility' target='_blank' className="w-fit h-fit m-auto items-center border-2 border-white shadow tems-center bg-background p-4 flex rounded-full opacity-0 animate-fade-in [--animation-delay:300ms]">
                 See what version of Firefox Zen uses <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' />
               </a>
             </div>
@@ -273,9 +273,9 @@ export default function Features() {
             <div className='w-full h-full absolute top-0 left-0 grid grid-rows-3'>
               <div></div>
               <div className="w-fit h-fit m-auto tems-center bg-background p-4 border-2 border-white shadow flex rounded-full animate-fade-in">
-                <LockClosedIcon className='w-10 h-10' /> <span className='text-4xl mx-4'>+</span> <EyeClosedIcon className='w-10 h-10' />  
+                <LockClosedIcon className='w-10 h-10' /> <span className='text-4xl mx-4'>+</span> <EyeClosedIcon className='w-10 h-10' />
               </div>
-              <a href='/privacy-policy' target='_blank' className="w-fit h-fit m-auto items-center w-fit border-2 border-white shadow tems-center bg-background p-4 flex rounded-full opacity-0 animate-fade-in [--animation-delay:300ms]">
+              <a href='/privacy-policy' target='_blank' className="w-fit h-fit m-auto items-center border-2 border-white shadow tems-center bg-background p-4 flex rounded-full opacity-0 animate-fade-in [--animation-delay:300ms]">
                 Learn about Zen's privacy policy <ExternalLinkIcon className='opacity-50 h-4 w-4 ml-4' />
               </a>
             </div>
