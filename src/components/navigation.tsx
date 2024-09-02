@@ -57,8 +57,6 @@ export function Navigation() {
     description: t(component.descriptionKey),
   }));
 
-  console.log(translatedComponents);
-
   return (
     <div className="bg-background z-40 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
       <MobileNav />
