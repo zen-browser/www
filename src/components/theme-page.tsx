@@ -1,8 +1,7 @@
 
-import Image from "next/image";
+
 import { getThemeAuthorLink, getThemeFromId, getThemeMarkdown, ZenTheme } from "@/lib/themes";
 import { Button } from "./ui/button";
-import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
 import '../app/privacy-policy/markdown.css';
 import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
@@ -50,7 +49,7 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
         <p id="install-theme-error" className="text-muted-foreground text-sm mt-2">You need to have Zen Browser installed to install this theme. <a href="/download" className="text-blue-500">Download now!</a></p>
       </div>
       <hr className="block my-4 lg:hidden" />
-      <div className="flex flex-col lg:border-l lg:min-h-96 px-5 lg:pl-10 max-w-xl lg:min-w-96 w-full">
+      <div className="flex lg:border-l flex-col lg:min-h-[calc(100vh/2-2rem)] px-5 lg:pl-10 max-w-xl lg:min-w-96 w-full">
         <div id="policy" className="w-full">
           {readme === null ? (
             <LoaderCircleIcon className="animate-spin w-12 h-12 mx-auto" />

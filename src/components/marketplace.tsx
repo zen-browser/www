@@ -5,14 +5,9 @@ import { getAllThemes, getThemesFromSearch, ZenTheme } from "@/lib/themes";
 import ThemeCard from "./theme-card";
 import { Button } from "./ui/button";
 
-export default function MarketplacePage() {
+export default function MarketplacePage({ themes }: {themes:ZenTheme[]}) {
   const [searchInput, setSearchInput] = React.useState("");
   const [tags, setTags] = React.useState<string[]>(["all"]);
-  const [themes, setThemes] = React.useState<ZenTheme[]>([]);
-
-  React.useEffect(() => {
-    getAllThemes().then(setThemes);
-  }, []);
 
   return (
     <div className="flex flex-col w-full mx-auto items-center justify-center h-full">
