@@ -1,4 +1,3 @@
-
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import ReleaseNote from "@/components/release-note";
@@ -8,38 +7,45 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export async function generateStaticParams() {
-  return [{version: "latest"}, ...releaseNotes.map((note) => ({ version: note.version }))];
+	return [
+		{ version: "latest" },
+		...releaseNotes.map((note) => ({ version: note.version })),
+	];
 }
 
-export default function ReleaseNotePage({ params }: { params: { version: string } }) {
-  const { version } = params;
+export default function ReleaseNotePage({
+	params,
+}: {
+	params: { version: string };
+}) {
+	const { version } = params;
 
-  if (version === "latest") {
-    return redirect(`/release-notes/${releaseNotes[0].version}`);
-  }
+	if (version === "latest") {
+		return redirect(`/release-notes/${releaseNotes[0].version}`);
+	}
 
-  const releaseNote = releaseNotes.find((note) => note.version === version);
-  if (!releaseNote) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center">
-        <div className="h-screen flex flex-wrap items-center justify-center">
-          <h1 className="text-4xl font-bold mt-12">Release note not found</h1>
-          <a href="/release-notes">
-            <Button className="mt-4 items-center justify-center">
-              Back to release notes
-            </Button>
-          </a>
-        </div>
-        <Footer />
-        <Navigation /> {/* At the bottom of the page */}
-      </main>
-    );
-  }
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center">
-      <ReleaseNote data={releaseNote} />
-      <Footer />
-      <Navigation /> {/* At the bottom of the page */}
-    </main>
-  );
+	const releaseNote = releaseNotes.find((note) => note.version === version);
+	if (!releaseNote) {
+		return (
+			<main className="flex min-h-screen flex-col items-center justify-center">
+				<div className="flex h-screen flex-wrap items-center justify-center">
+					<h1 className="mt-12 text-4xl font-bold">Release note not found</h1>
+					<Link href="/release-notes">
+						<Button className="mt-4 items-center justify-center">
+							Back to release notes
+						</Button>
+					</Link>
+				</div>
+				<Footer />
+				<Navigation /> {/* At the bottom of the page */}
+			</main>
+		);
+	}
+	return (
+		<main className="flex min-h-screen flex-col items-center justify-center">
+			<ReleaseNote data={releaseNote} />
+			<Footer />
+			<Navigation /> {/* At the bottom of the page */}
+		</main>
+	);
 }
