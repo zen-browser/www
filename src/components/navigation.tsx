@@ -1,5 +1,4 @@
-"use client"
- 
+
 import * as React from "react"
 import Link from "next/link"
  
@@ -19,6 +18,7 @@ import { MobileNav } from "./mobile-nav"
 import { HeartIcon } from "lucide-react"
 import { HeartFilledIcon } from "@radix-ui/react-icons"
 import { useTranslations } from "next-intl";
+import { unstable_setRequestLocale } from "next-intl/server"
  
 export const components: { titleKey: string; href: string; descriptionKey: string }[] = [
   {
@@ -49,7 +49,6 @@ export const components: { titleKey: string; href: string; descriptionKey: strin
 ]
  
 export function Navigation() {
-
   const t = useTranslations('navigation');
 
   const translatedComponents = components.map(component => ({

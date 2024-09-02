@@ -28,8 +28,6 @@ export default function ReleaseNotes() {
           ))}
         </div>
       </div>
-      <Footer />  
-      <Navigation /> {/* At the bottom of the page */}
     </main>
   )
 }

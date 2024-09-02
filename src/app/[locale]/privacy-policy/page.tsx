@@ -91,8 +91,6 @@ If you have any questions or concerns about this Privacy Policy or Zen Browser, 
 By using Zen Browser, you agree to this Privacy Policy. Remember, with Zen, your privacy is in your hands.`}
         </Markdown>
       </div>
-      <Footer />  
-      <Navigation /> {/* At the bottom of the page */}
     </main>
   )
 }

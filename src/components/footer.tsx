@@ -105,7 +105,9 @@ export default function Footer() {
       </div>
       <div className="flex w-full pt-10 pr-5 pl-3 mx-auto lg:!w-2/3 items-center">
         <p className="text-xs font-normal opacity-30">Crafted with ❤️ by the community - Copyright © {new Date().getFullYear()} Zen Browser</p>
-        <Button onClick={() => window.open("/download")} className="ml-auto">Download</Button>
+        <a href="/download" className="ml-auto">
+          <Button className="ml-auto">Download</Button>
+        </a>
       </div>
     </div>
   );

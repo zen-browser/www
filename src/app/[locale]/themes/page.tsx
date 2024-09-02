@@ -9,8 +9,6 @@ export default async function ThemesMarketplace() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-start">
       <MarketplacePage themes={await getAllThemes()} />
-      <Footer />  
-      <Navigation /> {/* At the bottom of the page */}
     </main>   
   );
 }

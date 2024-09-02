@@ -1,8 +1,6 @@
 
 const createNextIntlPlugin = require('next-intl/plugin');
 const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
-
-const withNextIntl = createNextIntlPlugin();
  
 /** @type {import('next').NextConfig} */
 const nextConfig = (phase, { defaultConfig }) => {
@@ -20,7 +18,6 @@ const nextConfig = (phase, { defaultConfig }) => {
           pathname: '/gh/zen-browser/**',
         }
       ],
-      formats: ["image/png", "image/jpeg", "image/svg+xml", "image/webp"],
       domains: ['localhost', 'cdn.jsdelivr.net', "raw.githubusercontent.com"],  // Allow images from jsDelivr
     },
     experimental: {
@@ -31,6 +28,18 @@ const nextConfig = (phase, { defaultConfig }) => {
     },
     compiler: {
       styledComponents: true,
+    },
+    webpack: (
+      config,
+      { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
+    ) => {
+      // Important: return the modified config
+      return {
+        output: {
+          // ...
+          globalObject: 'this',
+        },        
+      }
     },
   };
   if (phase === PHASE_DEVELOPMENT_SERVER) {
@@ -46,4 +55,4 @@ const nextConfig = (phase, { defaultConfig }) => {
   };
 };
  
-module.exports = withNextIntl(nextConfig);
+module.exports = nextConfig;

@@ -3,7 +3,7 @@
 import { getThemeAuthorLink, getThemeFromId, getThemeMarkdown, ZenTheme } from "@/lib/themes";
 import { Button } from "./ui/button";
 import Markdown from "react-markdown";
-import '../app/privacy-policy/markdown.css';
+import '../app/[locale]/privacy-policy/markdown.css';
 import { ChevronLeft, LoaderCircleIcon } from "lucide-react";
 
 export default async function ThemePage({ themeID }: { themeID: string }) {

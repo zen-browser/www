@@ -30,16 +30,12 @@ export default function ReleaseNotePage({ params }: { params: { version: string 
             </Button>
           </a>
         </div>
-        <Footer />
-        <Navigation /> {/* At the bottom of the page */}
       </main>
     );
   }
   return (
     <main className="flex min-h-screen flex-col items-center justify-center">
       <ReleaseNote data={releaseNote} />
-      <Footer />
-      <Navigation /> {/* At the bottom of the page */}
     </main>
   );
 }
