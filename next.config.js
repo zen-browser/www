@@ -45,4 +45,4 @@ const nextConfig = (phase, { defaultConfig }) => {
   };
 };
  
-module.exports = withNextIntl(nextConfig);
+module.exports = {...withNextIntl(nextConfig), output: 'export'};
