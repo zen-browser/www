@@ -1,9 +1,12 @@
-import { getRequestConfig } from "next-intl/server";
-
-export const SUPPORTED_LANGUAGES = ['en', 'de']; 
-
+import {notFound} from 'next/navigation';
+import {getRequestConfig} from 'next-intl/server';
+import {routing} from './i18n/routing';
+ 
 export default getRequestConfig(async ({locale}) => {
-  const lang = SUPPORTED_LANGUAGES.includes(locale) ? locale : 'en';
-  const messages = await import(`../messages/${lang}.json`);
-  return {messages};
+  // Validate that the incoming `locale` parameter is valid
+  if (!routing.locales.includes(locale as any)) notFound();
+ 
+  return {
+    messages: (await import(`../messages/${locale}.json`)).default
+  };
 });

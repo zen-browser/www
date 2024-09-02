@@ -1,7 +1,6 @@
 "use client";
-import { usePathname, useRouter } from '@/i18n/routing';
+import { SUPPORTED_LANGUAGES, usePathname, useRouter } from '@/i18n/routing';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { SUPPORTED_LANGUAGES } from '@/i18n';
 
 export default function LocaleSwitcher() {
     const router = useRouter();

@@ -1,8 +1,3 @@
-import { BrandingAssets } from "@/components/branding-assets";
-import Footer from "@/components/footer";
-import { Navigation } from "@/components/navigation";
-
-export const runtime = 'edge'
 
 export default function NotFoundPage() {
   return (
