@@ -17,46 +17,36 @@ import { ModeToggle } from "./mode-toggle"
 import { MobileNav } from "./mobile-nav"
 import { HeartIcon } from "lucide-react"
 import { HeartFilledIcon } from "@radix-ui/react-icons"
-import { useTranslations } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server"
  
-export const components: { titleKey: string; href: string; descriptionKey: string }[] = [
+export const components: { title: string; href: string; description: string }[] = [
   {
-    titleKey: "nav-components-privacy-policy",
+    title: "nav-components-privacy-policy",
     href: "/privacy-policy",
-    descriptionKey: "nav-components-privacy-policy-text",
+    description: "nav-components-privacy-policy-text",
   },
   {
-    titleKey: "nav-components-discord",
+    title: "nav-components-discord",
     href: "https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748",
-    descriptionKey: "nav-components-discord-text"
+    description: "nav-components-discord-text"
   },
   {
-    titleKey: "nav-components-source-code",
+    title: "nav-components-source-code",
     href: "https://github.com/zen-browser",
-    descriptionKey: "nav-components-source-code-text"
+    description: "nav-components-source-code-text"
   },
   {
-    titleKey: "nav-components-branding-assets",
+    title: "nav-components-branding-assets",
     href: "/branding-assets",
-    descriptionKey: "nav-components-branding-assets-text"
+    description: "nav-components-branding-assets-text"
   },
   {
-    titleKey: "nav-components-documentation",
+    title: "nav-components-documentation",
     href: "https://docs.zen-browser.app/",
-    descriptionKey: "nav-components-documentation-text"
+    description: "nav-components-documentation-text"
   }
 ]
  
 export function Navigation() {
-  const t = useTranslations('navigation');
-
-  const translatedComponents = components.map(component => ({
-    title: t(component.titleKey),
-    href: component.href,
-    description: t(component.descriptionKey),
-  }));
-
   return (
     <div className="bg-background z-40 top-0 left-0 w-full flex fixed border-b border-grey p-2 items-center justify-center">
       <MobileNav />
@@ -68,7 +58,7 @@ export function Navigation() {
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>{t('nav-getting-started')}</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Getting Started</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
@@ -79,22 +69,23 @@ export function Navigation() {
                     >
                       <Logo />
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        {t('nav-gs-zen-heading')}
+                      Zen Browser
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
-                        {t('nav-gs-zen-text')}
+                        Firefox based browser with a focus on privacy and
+                        customization.
                       </p>
                     </a>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/download" title={t('nav-gs-download-li')}>
-                  {t('nav-gs-download-li-text')}
+                <ListItem href="/download" title="Download">
+                Start using Zen Browser today with just a few clicks.
                 </ListItem>
-                <ListItem href="/themes" title={t('nav-gs-themes-li')}>
-                  {t('nav-gs-themes-li-text')}
+                <ListItem href="/themes" title="Themes Store">
+                Customize your browser with a variety of themes!
                 </ListItem>
-                <ListItem href="/release-notes" title={t('nav-gs-release-li')}>
-                  {t('nav-gs-release-text')}
+                <ListItem href="/release-notes" title="Release Notes">
+                Stay up to date with the latest changes.
                 </ListItem>
               </ul>
             </NavigationMenuContent>
@@ -102,30 +93,30 @@ export function Navigation() {
           <NavigationMenuItem>
             <NavigationMenuTrigger>
               <HeartFilledIcon className="text-red-500" />
-              <span className="ml-2">{t('nav-donate')}</span>
+              <span className="ml-2">Donate</span>
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 <ListItem
-                  title={t('nav-donate-patreon-li')}
+                  title="Patreon"
                   href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                 >
-                  {t('nav-donate-patreon-li-text')}
+                  Support us on Patreon and get exclusive rewards and keep the project alive.
                 </ListItem>
                 <ListItem
-                  title={t('nav-donate-ko-fi-li')}
+                  title="Ko-Fi"
                   href="https://ko-fi.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                 >
-                  {t('nav-donate-ko-fi-li-text')}
+                  Ko-fi is a way to support us with a one-time donation and help us keep the project alive.
                 </ListItem>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>{t('nav-useful-links')}</NavigationMenuTrigger>
+            <NavigationMenuTrigger>{"Useful Links"}</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {translatedComponents.map((component) => (
+                {components.map((component) => (
                   <ListItem
                     key={component.title}
                     title={component.title}

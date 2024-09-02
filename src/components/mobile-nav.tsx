@@ -11,18 +11,9 @@ import { ScrollArea } from './ui/scroll-area'
 import Logo from './logo'
 import { ny } from '@/lib/utils'
 import { components } from './navigation'
-import { useTranslations } from 'next-intl'
 
 export function MobileNav() {
    const [open, setOpen] = React.useState(false);
-   const t = useTranslations('mobile-nav');
-   const t2 = useTranslations('navigation');
-
-   const translatedComponents = components.map(component => ({
-      title: t2(component.titleKey),
-      href: component.href,
-      description: t2(component.descriptionKey),
-    }));
 
    return (
       <Sheet open={open} onOpenChange={setOpen}>
@@ -34,7 +25,7 @@ export function MobileNav() {
                   className="mr-2 px-0 ml-auto text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0"
                >
                   <SidebarOpen className="size-6" />
-                  <span className="sr-only">{t('mobile-menu-button')}</span>
+                  <span className="sr-only">Toggle Menu</span>
                </Button>
             </div>
          </SheetTrigger>
@@ -52,27 +43,27 @@ export function MobileNav() {
                      href="/download"
                     onOpenChange={setOpen}
                   >
-                    {t('mobile-download-link')}
+                    Download
                   </MobileLink>
                   <MobileLink
                      href="/themes"
                     onOpenChange={setOpen}
                   >
-                    {t('mobile-theme-store-link')}
+                    Theme Store
                   </MobileLink>
                   <MobileLink
                      href="/release-notes"
                     onOpenChange={setOpen}
                   >
-                    {t('mobile-release-notes-link')}
+                    Release Notes
                   </MobileLink>
                   <MobileLink
                      href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                      onOpenChange={setOpen}
                   >
-                     {t('mobile-donate-link')} {"<"}3
+                     Donate {"<"}3
                   </MobileLink>
-                  {translatedComponents.map(({title, href, description}) => (
+                  {components.map(({title, href, description}) => (
                      <MobileLink
                         href={href}
                         key={href}
