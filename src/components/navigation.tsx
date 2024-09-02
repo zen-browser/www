@@ -58,7 +58,7 @@ export function Navigation() {
 	const t = useTranslations("navigation");
 
 	return (
-		<div className="border-grey fixed left-0 top-0 z-40 flex w-full items-center justify-center border-b bg-background p-2">
+		<div className="border-grey fixed left-0 top-0 flex w-full items-center justify-center border-b bg-background p-2">
 			<MobileNav />
 			<NavigationMenu>
 				<NavigationMenuList className="hidden w-full py-3 sm:flex">
