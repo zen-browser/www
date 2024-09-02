@@ -683,7 +683,7 @@ export const releaseNotes: ReleaseNote[] = [
     {
     version: "1.0.0-a.35",
     date: "02/09/2024",
-    extra: "This release is the thirty-fifth alpha release of the 1.0.0-alpha series.",
+    extra: "This release is the thirty-fifth alpha release of the 1.0.0-alpha series. Things are getting stable!",
     features: [
         "Added option to restore legacy toolbar interface",
         "Added profile-guided optimization (Windows)",
