@@ -20,29 +20,29 @@ import { HeartFilledIcon } from "@radix-ui/react-icons"
  
 export const components: { title: string; href: string; description: string }[] = [
   {
-    title: "nav-components-privacy-policy",
+    title: "Privacy Policy",
     href: "/privacy-policy",
-    description: "nav-components-privacy-policy-text",
+    description: "Read our privacy policy to learn more about how we handle your data."
   },
   {
-    title: "nav-components-discord",
+    title: "Discord",
     href: "https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748",
-    description: "nav-components-discord-text"
+    description: "Join our Discord server to chat with the community and get support."
   },
   {
-    title: "nav-components-source-code",
+    title: "Source Code",
     href: "https://github.com/zen-browser",
-    description: "nav-components-source-code-text"
+    description: "View the source code on GitHub and contribute to the project."
   },
   {
-    title: "nav-components-branding-assets",
+    title: "Branding Assets",
     href: "/branding-assets",
-    description: "nav-components-branding-assets-text"
+    description: "Download our branding assets to use in your projects."
   },
   {
-    title: "nav-components-documentation",
+    title: "Documentation",
     href: "https://docs.zen-browser.app/",
-    description: "nav-components-documentation-text"
+    description: "Read the documentation to learn more about Zen Browser."
   }
 ]
  
