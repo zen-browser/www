@@ -5,6 +5,7 @@ import TextReveal from "./ui/text-reveal";
 import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
 import { MastodonLogo } from "./icons/mastodon";
 import { Button } from "./ui/button";
+import LocaleSwitcher from "./locale-switcher";
 
 export default function Footer() {
   return (
@@ -19,13 +20,15 @@ export default function Footer() {
               <a href="https://github.com/zen-browser">
                 <GitHubLogoIcon className="w-5 h-5" />
               </a>
-              <a href="discord.com/servers/mauro-s-little-sweatshop-1088172780480114748" className="ml-5">
+              <a href="https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748" className="ml-5">
                 <DiscordLogoIcon className="w-5 h-5" />
               </a>
               <a href="https://fosstodon.org/@zenbrowser" className="ml-5">
                 <MastodonLogo className="w-5 h-5" />
               </a>
             </div>
+            <h2 className="text-md font-bold opacity-80 mt-6">Change Language</h2>
+            <LocaleSwitcher />
           </div>
         </div>
         <div className="flex flex-col md:flex-row">
