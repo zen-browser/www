@@ -1,7 +1,7 @@
 import { getRequestConfig } from "next-intl/server";
 import { headers } from "next/headers";
 
-const SUPPORTED_LANGUAGES = ['en', 'de']; 
+const SUPPORTED_LANGUAGES = ['en', 'de', 'ro']; 
 
 export default getRequestConfig(async () => {
   const headersList = headers();
