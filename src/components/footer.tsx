@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 export default function Footer() {
   return (
     <div className="font-medium px-10 md:px-0 border-t w-full border-grey py-10 mt-10 flex align-center flex-col">
-      <div className="flex mx-auto p-10 lg:p-0 border-b pb-10 justify-between pt-10 w-full lg:!w-2/3">
+      <div className="flex mx-auto px-10 lg:px-0 border-b pb-10 justify-between pt-10 w-full lg:!w-2/3">
         <div className="flex flex-col">
           <Logo />
           <div className="mt-auto">
