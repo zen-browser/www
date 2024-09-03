@@ -679,45 +679,6 @@ export const releaseNotes: ReleaseNote[] = [
             issue: 1115
         }
     ]
-    },
-    {
-    version: "1.0.0-a.35",
-    date: "02/09/2024",
-    extra: "This release is the thirty-fifth alpha release of the 1.0.0-alpha series. Things are getting stable!",
-    features: [
-        "Added option to restore legacy toolbar interface",
-        "Added profile-guided optimization (Windows)",
-        "Added Apple developer certificate (macOS)",
-        "Added experimental Zen Labs settings",
-        "Changed interface colors",
-        "Disabled efficiency-mode by default (Windows)",
-        "Enabled GPU-accelerated web rendering by default",
-        "Enabled Video Acceleration API for media decoding",
-        "Improved support for translations",
-        "Added Identical Code Folding compiler optimization",
-    ],
-    fixes: [
-        {
-            description: "Zen Browser is damaged and can't be opened on macOS",
-            issue: 53
-        },
-        {
-            description: "Can't reorganize tabs in compact mode",
-            issue: 1168
-        },
-        {
-            description: "Theme Store settings page doesn't display installed themes",
-            issue: 1125
-        },
-        {
-            description: "No Homebrew support",
-            issue: 273
-        },
-        {
-            description: "Remember last active workspaces on startup",
-            issue: 240
-        }
-    ]
     }
 ].reverse();
 
