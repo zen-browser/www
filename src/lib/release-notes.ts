@@ -718,7 +718,7 @@ export const releaseNotes: ReleaseNote[] = [
             issue: 240
         }
     ]
-    }
+  }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
