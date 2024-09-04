@@ -4,7 +4,7 @@ import { Navigation } from "@/components/navigation";
 import { releaseNoteIsAlpha, releaseNotes } from "@/lib/release-notes";
 import Link from "next/link";
 import Markdown from 'react-markdown'
-import './markdown.css';
+import '../privacy-policy/markdown.css';
 
 export default function PrivacyPolicy() {
   return (
