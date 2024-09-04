@@ -14,12 +14,12 @@ export default function PrivacyPolicy() {
           {`
 # Main Developer Team
 
-* [**Mauro B.**](https://github.com/mauro-balades): Creator, Main Developer, and a funny guy.
+* [**Mauro Baladés**](https://github.com/mauro-balades): Creator, Main Developer, and a funny guy.
+* **Oscar Gonzalez**: Site Reliability Engineer (SRE) and code signing.
 * [**Onno**](https://www.onnno.nl/index.html): logo designer.
-* [**Jafeth G.**](https://iamjafeth.com/): Documentation writer.
-* **Peter J.**: general contributor and AUR maintainer.
+* [**Jafeth Garro**](https://iamjafeth.com/): Documentation writer.
+* **Peter Jung**: general contributor and AUR maintainer.
 * [**Gunir**](https://github.com/gunir): Active contributor.
-* **Oscar G.**: Site Reliability Engineer (SRE).
 * [**n7itro**](https://github.com/n7itro): Active contributor.
 * [**Canoa**](https://thatcanoa.org/) Active contributor.
 
