@@ -40,6 +40,11 @@ export const components: { title: string; href: string; description: string }[] 
     description: "Download our branding assets to use in your projects."
   },
   {
+    title: "About",
+    href: "/about",
+    description: "Learn more about the Zen Browser project and the team behind it."
+  },
+  {
     title: "Documentation",
     href: "https://docs.zen-browser.app/",
     description: "Read the documentation to learn more about Zen Browser."
