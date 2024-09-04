@@ -25,6 +25,10 @@ export default function PrivacyPolicy() {
 
 # Many more contributors
 
+![Contributors](https://contributors-img.web.app/image?repo=zen-browser/desktop)
+
+---
+
 ![Contributors](https://contributors-img.web.app/image?repo=zen-browser/www)
 `}
 </Markdown>
