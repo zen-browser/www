@@ -17,9 +17,9 @@ export default function PrivacyPolicy() {
 * [**Mauro B.**](https://github.com/mauro-balades): Creator, Main Developer, and a funny guy.
 * [**Onno**](https://www.onnno.nl/index.html): logo designer.
 * [**Jafeth G.**](https://iamjafeth.com/): Documentation writer.
-* [**Peter J.**]: AUR maintainer.
+* **Peter J.**: general contributor and AUR maintainer.
 * [**Gunir**](https://github.com/gunir): Active contributor.
-* [Oscar G.]: Site Reliability Engineer (SRE).
+* **Oscar G.**: Site Reliability Engineer (SRE).
 * [**n7itro**](https://github.com/n7itro): Active contributor.
 * [**Canoa**](https://thatcanoa.org/) Active contributor.
 
