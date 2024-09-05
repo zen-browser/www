@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
 * **Peter Jung**: general contributor and AUR maintainer.
 * [**Gunir**](https://github.com/gunir): Active contributor.
 * [**n7itro**](https://github.com/n7itro): Active contributor.
-* [**Canoa**](https://thatcanoa.org/) Active contributor.
+* [**Canoa**](https://thatcanoa.org/): Active contributor.
 
 # Many more contributors
 
