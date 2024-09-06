@@ -24,6 +24,7 @@ export default async function RootLayout({
     <html suppressHydrationWarning>
       <head>
         <link rel="me" href="https://fosstodon.org/@zenbrowser"></link>
+        <script defer data-domain="zen-browser.app" src="https://plausible.io/js/script.js"></script>
         <link rel="alternate" type="application/rss+xml" title="Zen Browser Release Notes" href="https://www.zen-browser.app/feed.xml" />
       </head>
       <body className={inter.className}>
