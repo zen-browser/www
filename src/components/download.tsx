@@ -215,7 +215,7 @@ export default function DownloadPage() {
             <div className="flex items-center justify-center flex-col">
               <h1 className="text-6xl font-bold">Downloaded! ❤️</h1>
               <p className="text-muted-foreground mt-3 text-center">
-                Zen Browser has been downloaded successfully. Enjoy browsing the
+                Your download of Zen Browser will begin shortly. Enjoy browsing the
                 web with Zen!
               </p>
               <div className="flex font-bold mt-5 items-center justify-between mx-auto">
