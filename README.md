@@ -9,6 +9,8 @@ Zen Browser Website
 
 [![](https://data.jsdelivr.com/v1/package/gh/zen-browser/www/badge)](https://www.jsdelivr.com/package/gh/zen-browser/www)
 
+[Analytics](https://plausible.io/zen-browser.app/)
+
 This repository contains the source code for the Zen Browser Website. We are thrilled to welcome you to our community. Before you start, please read this document to understand how you can contribute to this project.
 
 Zen Browser's website is built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/).
