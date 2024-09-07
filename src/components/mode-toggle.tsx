@@ -39,7 +39,7 @@ export function ModeToggle() {
   console.log(theme);
   return (
     <Button variant="ghost" size="icon" onClick={toggleTheme}>
-      <Half2Icon className={`${ (theme === 'system') ? 'visible' : 'hidden'} h-[1.2rem] w-[1.2rem]`} />
+      <MoonIcon className={`${ (theme === 'system') ? 'visible' : 'hidden'} h-[1.2rem] w-[1.2rem]`} />
       <SunIcon className={`${ (theme === 'light') ? 'visible' : 'hidden'} h-[1.2rem] w-[1.2rem]`} />
       <MoonIcon className={`${ (theme === 'dark') ? 'visible' : 'hidden'} h-[1.2rem] w-[1.2rem]`} />
       <span className="sr-only">Toggle theme</span>
