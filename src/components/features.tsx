@@ -220,7 +220,7 @@ export default function Features() {
             </div>
           </div>
         </div>
-        <CachedImage width={1350} height={900} src="www/public/browser-3.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-right" />
+        <CachedImage width={1350} height={900} src="www/public/browser-3.png" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
       </div>
       <div className='w-full md:w-5/6 lg:w-3/4 flex flex-col lg:flex-row md:rounded-md mx-auto bg-surface mt-36 shadow'>
         <CachedImage width={1350} height={900} src="www/public/browser-4.jpg" alt="Zen Browser" className="rounded-md lg:w-1/2 object-cover object-left" />
