@@ -21,7 +21,8 @@ export default function PrivacyPolicy() {
 * **Peter Jung**: general contributor and AUR maintainer.
 * [**Gunir**](https://github.com/gunir): Active contributor.
 * [**n7itro**](https://github.com/n7itro): Active contributor.
-* [**Canoa**](https://thatcanoa.org/) Active contributor.
+* [**Canoa**](https://thatcanoa.org/) Active contributor, and very active in issue handling
+* [**Jan Heres**](https://janheres.eu/): Active contributor and helps with MacOS builds.
 
 # Many more contributors
 
