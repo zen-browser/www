@@ -4,10 +4,12 @@
 </picture>
 </div>
 <h1 align="center">
-Zen Browser Website 
+Zen Browser Website
 </h1>
 
 [![](https://data.jsdelivr.com/v1/package/gh/zen-browser/www/badge)](https://www.jsdelivr.com/package/gh/zen-browser/www)
+
+[Analytics](https://plausible.io/zen-browser.app/) | [Uptime-Phare](https://uptime.zen-browser.app)
 
 This repository contains the source code for the Zen Browser Website. We are thrilled to welcome you to our community. Before you start, please read this document to understand how you can contribute to this project.
 

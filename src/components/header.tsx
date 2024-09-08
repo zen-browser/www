@@ -9,7 +9,7 @@ import { BorderBeam } from "./ui/border-beam";
 import { ny } from "@/lib/utils";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import Particles from "./ui/particles";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 export default function Header() {
   const ref = useRef(null);

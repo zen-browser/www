@@ -13,7 +13,7 @@ import { ny } from '@/lib/utils'
 import { components } from './navigation'
 
 export function MobileNav() {
-   const [open, setOpen] = React.useState(false)
+   const [open, setOpen] = React.useState(false);
 
    return (
       <Sheet open={open} onOpenChange={setOpen}>
@@ -37,31 +37,41 @@ export function MobileNav() {
             >
                <Logo withText />
             </MobileLink>
-            <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+            <ScrollArea className="mt-4 h-[calc(100vh-8rem)] pl-6">
                <div className="flex flex-col space-y-3">
                   <MobileLink
                      href="/download"
                     onOpenChange={setOpen}
                   >
-                    Download
+                    <div>Download</div>
+                     <p className="opacity-60 text-xs">
+                        Get the latest version of Zen Browser.
+                     </p>
                   </MobileLink>
                   <MobileLink
                      href="/themes"
                     onOpenChange={setOpen}
                   >
-                    Theme Store
+                    <div>Theme Store</div>
+                     <p className="opacity-60 text-xs">
+                        Customize your browsing experience.
+                     </p>
                   </MobileLink>
                   <MobileLink
                      href="/release-notes"
                     onOpenChange={setOpen}
                   >
-                    Release Notes
+                    <div>Release Notes</div>
+                     <p className="opacity-60 text-xs">
+                        Stay up to date with the latest changes.
+                     </p>
                   </MobileLink>
                   <MobileLink
                      href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                      onOpenChange={setOpen}
                   >
-                     Donate {"<"}3
+                     <div>Donate {"<"}3</div>
+                     <p className="opacity-60 text-xs">Support the project</p>
                   </MobileLink>
                   {components.map(({title, href, description}) => (
                      <MobileLink
@@ -69,7 +79,8 @@ export function MobileNav() {
                         key={href}
                         onOpenChange={setOpen}
                      >
-                        {title}
+                        <div>{title}</div>
+                        <p className='opacity-60 text-xs'>{description}</p>
                      </MobileLink>
                   ))}
                 </div>
@@ -100,7 +111,7 @@ function MobileLink({
             router.push(href.toString())
             onOpenChange?.(false)
          }}
-         className={ny(className)}
+         className={ny(className, "my-4")}
          {...props}
       >
          {children}
