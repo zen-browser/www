@@ -22,7 +22,7 @@ export default function ThemeCard({
     <ThemeCardWrapper onClick={(event) => {
       if (event.target instanceof HTMLAnchorElement) return;
       window.open(`/themes/${theme.id}`, "_self");
-    }} className={ny("flex flex-col justify-start p-5 rounded-lg shadow-sm bg-muted dark:bg-muted/50 border border-grey-900 dark:border-muted w-full hover:shadow-lg transition duration-300 ease-in-out hover:bg-muted/100 hover:border-blue-500 cursor-pointer select-none ", className)}>
+    }} className={ny("flex flex-col justify-start p-5 rounded-lg shadow-sm bg-muted dark:bg-muted/50 border border-grey-900 dark:border-muted w-full hover:shadow-lg transition duration-300 ease-in-out hover:bg-surface hover:border-blue-500 cursor-pointer select-none ", className)}>
       <img src={theme.image} alt={theme.name} width={500} height={500}
       className="w-full h-32 object-cover rounded-lg border shadow" />
       <h2 className="text-xl font-bold mt-4 overflow-ellipsis text-start">{theme.name.substring(0, maxNameLen).trim() + (theme.name.length > maxNameLen ? "..." : "")}</h2>
