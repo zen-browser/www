@@ -8,7 +8,6 @@ import { releaseNotes } from "@/lib/release-notes";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
-import { VersionList } from '@/components/version-list';
 
 export async function generateStaticParams() {
   return [{version: "latest"}, ...releaseNotes.map((note) => ({ version: note.version }))];
@@ -43,34 +42,31 @@ export default function ReleaseNotePage({ params }: { params: { version: string 
   const nextNote = releaseNotes[currentIndex - 1];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <VersionList currentVersion={version} />
-      
-      <div className="w-full max-w-4xl px-4 py-2">
+    <main className="flex min-h-screen flex-col items-center">    
+      <div className='w-full lg:w-1/2 px-5 md:px-10 lg:px-0'>
         <ReleaseNote data={releaseNote} />
+        <div className="flex flex-col md:flex-row items-center justify-between h-fit px-4 lg:px-0 pb-4 mt-8">
+          {prevNote && (
+            <a href={`/release-notes/${prevNote.version}`} className='mx-auto md:mx-0'>
+              <Button variant="outline" className="flex items-center">
+                <ChevronLeft className="mr-2 h-4 w-4" />
+                Previous ({prevNote.version})
+              </Button>
+            </a>
+          )}
+          <a href="/download" className='mx-auto md:mx-4'>
+            <Button className="mt-4 md:mt-0 w-fit">Download Zen now!</Button>
+          </a>
+          {nextNote && (
+            <a href={`/release-notes/${nextNote.version}`} className="mt-4 mx-auto md:mx-0 md:mt-0">
+              <Button variant="outline" className="flex items-center ">
+                Next ({nextNote.version})
+                <ChevronRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
+          )}
+        </div>
       </div>
-      
-      <div className="flex justify-between w-full max-w-4xl px-4 py-4">
-        {prevNote && (
-          <Link href={`/release-notes/${prevNote.version}`}>
-            <Button variant="outline" className="flex items-center">
-              <ChevronLeft className="mr-2 h-4 w-4" />
-              Previous ({prevNote.version})
-            </Button>
-          </Link>
-        )}
-        {nextNote && (
-          <Link href={`/release-notes/${nextNote.version}`} className="ml-auto">
-            <Button variant="outline" className="flex items-center">
-              Next ({nextNote.version})
-              <ChevronRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
-        )}
-      </div>
-      
-      <Footer />
-      <Navigation /> {/* At the bottom of the page */}
     </main>
   );
 }

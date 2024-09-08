@@ -13,7 +13,7 @@ export const VersionList = React.memo(({ currentVersion }: { currentVersion: str
   }, []);
 
   return (
-    <div className="fixed right-0 lg:right-0 top-20 z-10 pr-2">
+    <div className="z-10 mb-10 lg:mb-0 pr-2">
       <div className="relative">
         <Button
           variant="outline"

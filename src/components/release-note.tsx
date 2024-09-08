@@ -3,13 +3,17 @@ import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { CheckCheckIcon, StarIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { VersionList } from "./version-list";
 export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
   return (
-    <div className="flex flex-col mt-52 mb-24">
-      <div className="mx-auto w-full px-10 md:px-0 lg:w-2/3">
-        <h1 className="text-4xl font-bold">
-          Release notes for {data.version} 🎉
-        </h1>
+    <div className="flex flex-col mt-52">
+      <div className="w-full px-10 md:px-0">
+        <div className="flex flex-col lg:flex-row-reverse items-center justify-between">
+          <VersionList currentVersion={data.version} />
+          <h1 className="text-4xl font-bold">
+            Release notes for {data.version} 🎉
+          </h1>
+        </div>
         <p className="text-sm mt-1 font-bold text-muted-foreground">
           {data.date}
         </p>
@@ -94,11 +98,6 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
             </ul>
           </>
         )}
-      </div>
-      <div className="flex flex-wrap items-center justify-center">
-        <a href="/download">
-          <Button className="mt-12 w-fit mx-auto">Download Zen now!</Button>
-        </a>
       </div>
     </div>
   );
