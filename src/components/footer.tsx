@@ -53,7 +53,7 @@ export default function Footer() {
             <h2 className="text-md font-bold opacity-80">Get Help</h2>
             <ul className="mt-4 opacity-70 font-normal">
               <li>
-                <a href="https://discord.com/invite/mauro-s-little-sweatshop">
+                <a href="https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748">
                   Discord
                 </a>
               </li>
