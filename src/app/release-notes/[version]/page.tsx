@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import ReleaseNote from "@/components/release-note";
@@ -8,6 +8,7 @@ import { releaseNotes } from "@/lib/release-notes";
 import Link from "next/link";
 import { redirect, useParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
+import { VersionList } from '@/components/version-list';
 
 export async function generateStaticParams() {
   return [{version: "latest"}, ...releaseNotes.map((note) => ({ version: note.version }))];

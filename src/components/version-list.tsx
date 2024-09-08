@@ -5,8 +5,6 @@ import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
 import { releaseNotes } from "@/lib/release-notes";
 
-
-
 export const VersionList = React.memo(({ currentVersion }: { currentVersion: string }) => {
   const [isOpen, setIsOpen] = useState(false);
 
