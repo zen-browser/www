@@ -6,7 +6,7 @@ import ReleaseNote from "@/components/release-note";
 import { Button } from "@/components/ui/button";
 import { releaseNotes } from "@/lib/release-notes";
 import Link from "next/link";
-import { redirect, useParams } from "next/navigation";
+import { redirect } from "next/navigation";
 import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { VersionList } from '@/components/version-list';
 
