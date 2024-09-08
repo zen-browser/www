@@ -19,7 +19,7 @@ export default function ThemesSearch({
   return (
     <>
       <div className="flex w-full p-2 bg-black/10 dark:bg-muted/50 rounded-full overflow-hidden mt-10 items-center border border-black dark:border-muted">
-        <SearchIcon className="w-6 h-6 mx-4 text-black dark:text-white" />
+        <SearchIcon className="size-6 mx-4 text-black dark:text-white" />
         <input
           type="text"
           value={input}
