@@ -1,4 +1,3 @@
-"use client";
 
 import React, { useState, useCallback } from 'react';
 import Footer from "@/components/footer";
@@ -53,8 +52,11 @@ const VersionList = React.memo(({ currentVersion }: { currentVersion: string }) 
 
 VersionList.displayName = 'VersionList';
 
-export default function ReleaseNotePage() {
-  const params = useParams<{ version: string }>();
+export async function generateStaticParams() {
+  return [{version: "latest"}, ...releaseNotes.map((note) => ({ version: note.version }))];
+}
+
+export default function ReleaseNotePage({ params }: { params: { version: string } }) {
   const { version } = params;
 
   if (version === "latest") {
@@ -69,14 +71,12 @@ export default function ReleaseNotePage() {
       <main className="flex min-h-screen flex-col items-center justify-center">
         <div className="h-screen flex flex-wrap items-center justify-center">
           <h1 className="text-4xl font-bold mt-12">Release note not found</h1>
-          <Link href="/release-notes">
+          <a href="/release-notes">
             <Button className="mt-4 items-center justify-center">
               Back to release notes
             </Button>
-          </Link>
+          </a>
         </div>
-        <Footer />
-        <Navigation /> {/* At the bottom of the page */}
       </main>
     );
   }

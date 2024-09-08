@@ -10,8 +10,6 @@ export default function Home() {
     <main className="flex min-h-screen overflow-x-hidden flex-col items-center justify-start">
       <Header />
       <Features />
-      <Footer />  
-      <Navigation /> {/* At the bottom of the page */}
     </main>   
   );
 }

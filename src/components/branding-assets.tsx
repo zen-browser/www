@@ -1,3 +1,4 @@
+
 import { LOGO_COLORS } from "@/lib/logos";
 
 export function BrandingAssets() {
@@ -15,10 +16,11 @@ export function BrandingAssets() {
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-10 w-full">
           {LOGO_COLORS.map((color) => (
             <div key={color} className="flex flex-col items-center">
-              <img src={`/logos/zen-${color}.svg`} alt={`Zen Browser ${color} logo`} className="w-24 h-24 mt-4" />
+              <img src={`https://cdn.jsdelivr.net/gh/zen-browser/www/public/logos/zen-${color}.svg`} alt={`Zen Browser ${color} logo`} className="w-24 h-24 mt-4" />
               <div className="flex items-center my-2">
                 <a
                   href={`/logos/zen-${color}.svg`}
+                  download={`zen-${color}.svg`}
                   className="text-blue-500 text-md ml-2"
                 >
                   {color}
@@ -36,11 +38,11 @@ export function BrandingAssets() {
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mt-10 w-full">
           {LOGO_COLORS.map((color) => (
             <div key={color} className="flex flex-col items-center">
-              <img src={`/logos/zen-alpha-${color}.svg`} alt={`Zen Browser ${color} logo`} className="w-24 h-24 mt-4" />
+              <img src={`https://cdn.jsdelivr.net/gh/zen-browser/www/public/logos/zen-alpha-${color}.svg`} alt={`Zen Browser ${color} logo`} className="w-24 h-24 mt-4" />
               <div className="flex items-center my-2">
                 <a
                   href={`/logos/zen-alpha-${color}.svg`}
-                  download={`zen-alpha-${color}.png`}
+                  download={`zen-alpha-${color}.svg`}
                   className="text-blue-500 text-md ml-2"
                 >
                   {color}

@@ -10,10 +10,13 @@ export interface ZenTheme {
   preferences?: string
   isColorTheme: boolean
   author: string
+  version: string
 }
 
 const THEME_API = "https://zen-browser.github.io/theme-store/themes.json";
-const CACHE_OPTIONS = { cache: "no-cache" } as RequestInit;
+const CACHE_OPTIONS = { next: {
+  revalidate: 60,
+} } as RequestInit;
 
 export async function getAllThemes() {
   // Fetch from the API
