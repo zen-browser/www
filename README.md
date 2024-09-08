@@ -1,12 +1,15 @@
-<p align="center">
+<div align="center">
 <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://www.zen-browser.app/logos/zen-alpha-white.svg">
-    <img src="https://www.zen-browser.app/logos/zen-alpha-black.svg" width="64px">
+    <img src="./public/logos/zen-alpha-white.svg" width="128px">
 </picture>
-</p>
+</div>
 <h1 align="center">
 Zen Browser Website
 </h1>
+
+[![](https://data.jsdelivr.com/v1/package/gh/zen-browser/www/badge)](https://www.jsdelivr.com/package/gh/zen-browser/www)
+
+[Analytics](https://plausible.io/zen-browser.app/) | [Uptime-Phare](https://uptime.zen-browser.app)
 
 This repository contains the source code for the Zen Browser Website. We are thrilled to welcome you to our community. Before you start, please read this document to understand how you can contribute to this project.
 
