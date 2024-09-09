@@ -1,5 +1,4 @@
 "use client";
-import { addDownload } from "@/lib/db";
 import { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { ny } from "@/lib/utils";
@@ -158,7 +157,6 @@ export default function DownloadPage() {
       window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
     }
     setHasDownloaded(true);
-    addDownload(releaseTarget);
     throwConfetti();
   };
 
@@ -217,20 +215,20 @@ export default function DownloadPage() {
             <div className="flex items-center justify-center flex-col">
               <h1 className="text-6xl font-bold">Downloaded! ❤️</h1>
               <p className="text-muted-foreground mt-3 text-center">
-                Zen Browser has been downloaded successfully. Enjoy browsing the
+                Your download of Zen Browser will begin shortly. Enjoy browsing the
                 web with Zen!
               </p>
               <div className="flex font-bold mt-5 items-center justify-between mx-auto">
-                <Link href="https://github.com/zen-browser">Source Code</Link>
-                <Link
+                <a href="https://github.com/zen-browser">Source Code</a>
+                <a
                   className="ml-5"
                   href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
                 >
                   Donate
-                </Link>
-                <Link className="ml-5" href="/release-notes/latest">
+                </a>
+                <a className="ml-5" href="/release-notes/latest">
                   Release Notes
-                </Link>
+                </a>
               </div>
             </div>
           )) || (
@@ -241,6 +239,7 @@ export default function DownloadPage() {
               </p>
             </>
           )}
+          {/*Changes for the Choose your platform as checkbox looks old*/}
           <div className="relative w-full">
             {platform === null && (
               <FormField enter={platform === null} out={platform !== null}>
@@ -248,39 +247,61 @@ export default function DownloadPage() {
                 <FieldDescription>
                   Choose the platform you want to download Zen for.
                 </FieldDescription>
-                <div
-                  onClick={() => setSelectedPlatform("Windows")}
-                  className={ny(
-                    "select-none mb-2 px-4 py-3 flex items-center rounded-lg bg-background cursor-pointer border",
-                    selectedPlatform === "Windows" ? "border-blue-400" : ""
-                  )}
-                >
-                  <Checkbox checked={selectedPlatform === "Windows"} />
-                  <i className="devicon-windows8-original ml-3 p-2 border border-blue-400 rounded-lg"></i>
-                  <div className="ml-2">Windows</div>
-                </div>
-                <div
-                  onClick={() => setSelectedPlatform("Linux")}
-                  className={ny(
-                    "select-none mb-2 px-4 py-3 flex items-center rounded-lg bg-background cursor-pointer border",
-                    selectedPlatform === "Linux" ? "border-yellow-400" : ""
-                  )}
-                >
-                  <Checkbox checked={selectedPlatform === "Linux"} />
-                  <i className="devicon-linux-plain ml-3 p-2 border border-yellow-400 rounded-lg"></i>
-                  <div className="ml-2">Linux</div>
-                </div>
-                <div
-                  onClick={() => setSelectedPlatform("MacOS")}
-                  className={ny(
-                    "select-none mb-2 px-4 py-3 flex items-center rounded-lg bg-background cursor-pointer border",
-                    selectedPlatform === "MacOS" ? "border-purple-400" : ""
-                  )}
-                >
-                  <Checkbox checked={selectedPlatform === "MacOS"} />
-                  <i className="devicon-apple-original p-2 border border-purple-400 ml-3 rounded-lg"></i>
-                  <div className="ml-2 font-bold">MacOS</div>
-                </div>
+                <div className="flex">
+									<div
+										onClick={() => setSelectedPlatform("Windows")}
+										className={ny(
+											"select-none mr-2 flex flex-col items-center justify-center rounded-lg bg-background cursor-pointer border",
+											selectedPlatform === "Windows" ? "border-blue-400" : ""
+										)}
+										style={{
+											height: "11.25rem", 
+											width: "18.75rem",  
+										}}
+									>
+										<i
+											className="devicon-windows8-original p-2 border border-blue-400 rounded-lg"
+											style={{ marginBottom: "10px" }} 
+										></i>
+										<div className="font-bold">Windows</div>
+									</div>
+
+									<div
+										onClick={() => setSelectedPlatform("Linux")}
+										className={ny(
+											"select-none mr-2 flex flex-col items-center justify-center rounded-lg bg-background cursor-pointer border",
+											selectedPlatform === "Linux" ? "border-yellow-400" : ""
+										)}
+										style={{
+											height: "11.25rem", 
+											width: "18.75rem",  
+										}}
+									>
+										<i
+											className="devicon-linux-plain p-2 border border-yellow-400 rounded-lg"
+											style={{ marginBottom: "10px" }} 
+										></i>
+										<div className="font-bold">Linux</div>
+									</div>
+
+									<div
+										onClick={() => setSelectedPlatform("MacOS")}
+										className={ny(
+											"select-none flex flex-col items-center justify-center rounded-lg bg-background cursor-pointer border",
+											selectedPlatform === "MacOS" ? "border-purple-400" : ""
+										)}
+										style={{
+											height: "11.25rem", 
+											width: "18.75rem", 
+										}}
+									>
+										<i
+											className="devicon-apple-original p-2 border border-purple-400 rounded-lg"
+											style={{ marginBottom: "10px" }} 
+										></i>
+										<div className="font-bold">MacOS</div>
+									</div>
+								</div>
               </FormField>
             )}
             {/* Architecture */}
@@ -340,51 +361,45 @@ export default function DownloadPage() {
                   </div>
                 </FormField>
               )}
-            {platform === "MacOS" && flowIndex === 1 && (
-              <FormField
-                enter={platform === "MacOS"}
-                out={platform !== "MacOS"}
-              >
-                <FieldTitle>Download Zen for MacOS</FieldTitle>
-                <FieldDescription>
-                  Click the button below to download Zen for MacOS.
-                </FieldDescription>
-                <div className="flex items-center justify-center">
-                  <div
-                    onClick={() => setSelectedArchitecture("specific")}
-                    className={ny(
-                      "select-none w-full h-full mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
-                      selectedArchitecture === "specific"
-                        ? "border-blue-400"
-                        : ""
-                    )}
-                  >
-                    <h1 className="text-5xl my-2 opacity-40 dark:opacity-20">
-                      🍏
-                    </h1>
-                    <h1 className="text-2xl font-semibold my-2">AArch64</h1>
-                    <p className="text-muted-foreground mx-auto text-center">64-bit ARM architecture, for Apple's M Series Chips</p>
-                  </div>
-                  <div
-                    onClick={() => setSelectedArchitecture("generic")}
-                    className={ny(
-                      "select-none w-full h-full mb-2 ml-10 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
-                      selectedArchitecture === "generic"
-                        ? "border-blue-400"
-                        : ""
-                    )}
-                  >
-                    <h1 className="text-5xl font-bold my-2 opacity-40 dark:opacity-20">
-                      x64
-                    </h1>
-                    <h1 className="text-2xl font-semibold my-2">Intel</h1>
-                    <p className="text-muted-foreground mx-auto text-center">
-                      64-bit Intel architecture, for older Macs
-                    </p>
-                  </div>
-                </div>
-              </FormField>
-            )}
+							{platform === "MacOS" && flowIndex === 1 && (
+								<FormField
+									enter={platform === "MacOS"}
+									out={platform !== "MacOS"}
+								>
+									<FieldTitle>Download Zen for MacOS</FieldTitle>
+									<FieldDescription>
+										Click the button below to download Zen for MacOS.
+									</FieldDescription>
+									<div className="flex items-center justify-center">
+										<div
+											onClick={() => setSelectedArchitecture("specific")}
+											className={ny(
+												"select-none w-full h-64 mb-2 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+												selectedArchitecture === "specific" ? "border-blue-400" : ""
+											)}
+										>
+											<h1 className="text-5xl my-2 opacity-40 dark:opacity-20">🍏</h1>
+											<h1 className="text-2xl font-semibold my-2">AArch64</h1>
+											<p className="text-muted-foreground mx-auto text-center">
+												64-bit ARM architecture, for Apple's M Series Chips
+											</p>
+										</div>
+										<div
+											onClick={() => setSelectedArchitecture("generic")}
+											className={ny(
+												"select-none w-full h-64 mb-2 ml-10 p-5 flex flex-col items-center rounded-lg bg-background cursor-pointer border",
+												selectedArchitecture === "generic" ? "border-blue-400" : ""
+											)}
+										>
+											<h1 className="text-5xl font-bold my-2 opacity-40 dark:opacity-20">x64</h1>
+											<h1 className="text-2xl font-semibold my-2">Intel</h1>
+											<p className="text-muted-foreground mx-auto text-center">
+												64-bit Intel architecture, for older Macs
+											</p>
+										</div>
+									</div>
+								</FormField>
+							)}
             {flowIndex === 2 && platform === "Windows" && (
               <FormField
                 enter={platform === "Windows" && flowIndex === 2}
@@ -533,13 +548,13 @@ export default function DownloadPage() {
                 <InfoCircledIcon className="size-4 mr-2" />
                 <p className="text-muted-foreground">
                   Confused about which build to choose?{" "}
-                  <Link
+                  <a
                     href="https://docs.zen-browser.app/guides/generic-optimized"
                     target="_blank"
                     className="text-blue-400"
                   >
                     System requirements
-                  </Link>
+                  </a>
                   .
                 </p>
               </div>
