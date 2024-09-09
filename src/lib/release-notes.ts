@@ -687,7 +687,6 @@ export const releaseNotes: ReleaseNote[] = [
     features: [
         "Added option to restore legacy toolbar interface",
         "Added profile-guided optimization (Windows)",
-        "Added Apple developer certificate (macOS)",
         "Added experimental Zen Labs settings",
         "Changed interface colors",
         "Disabled efficiency-mode by default (Windows)",
@@ -716,6 +715,44 @@ export const releaseNotes: ReleaseNote[] = [
         {
             description: "Remember last active workspaces on startup",
             issue: 240
+        }
+    ]
+  },
+  {
+    version: "1.0.0-a.38",
+    date: "09/09/2024",
+    extra: "This release is the thirty-eighth alpha release of the 1.0.0-alpha series.",
+    features: [
+        "Successfully added Apple developer certificate (macOS)",
+        "Fixed issue with ffmpeg VA-API decoding",
+        "Ensure tab becomes visible when selected",
+        "Ensure top toolbar remains visible when dragging the window",
+        "Briefly show tab sidebar when switching tabs in compact mode",
+        "Enabled JPEG XL support by default",
+        "Enabled moving pages in the Web View Sidebar",
+        "Improved responsiveness of the top toolbar",
+        "Enabled fused multiply-add instructions (optimization)",
+    ],
+    fixes: [
+        {
+            description: "Scrolling between tabs is buggy/slow",
+            issue: 1340
+        },
+        {
+            description: "Broken hover effect with NewTab button with compact density interface",
+            issue: 1224
+        },
+        {
+            description: "Issue on Google Meet regarding WebRTC",
+            issue: 972
+        },
+        {
+            description: "Zen Browser.app is damaged and can’t be opened on macOS",
+            issue: 1245
+        },
+        {
+            description: "Fixed issue with ⌘ keyboard shortcuts on macOS",
+            issue: 376
         }
     ]
   }
