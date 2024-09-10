@@ -51,7 +51,7 @@
    }
 
    [data-theme='dark'], .dark {
-      --background: 0 0% 0%;
+      --background: 5 5 5;
       --foreground: 0 0% 98%;
 
       --surface: rgb(23, 23, 23); 
