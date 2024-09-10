@@ -719,7 +719,7 @@ export const releaseNotes: ReleaseNote[] = [
     ]
   },
   {
-    version: "1.0.0-a.38",
+    version: "1.0.0-a.39",
     date: "09/09/2024",
     extra: "This release is the thirty-eighth alpha release of the 1.0.0-alpha series.",
     features: [
