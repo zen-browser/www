@@ -230,26 +230,6 @@ export default function DownloadPage() {
                   Release Notes
                 </a>
               </div>
-              {selectedPlatform === "MacOS" && (
-                <div className="mt-12 flex flex-col items-start border justify-between rounded-md bg-background p-5">
-                  <h3 className="text-xl font-semibold">
-                    Installation Instructions
-                  </h3>
-                  <p className="text-muted-foreground text-sm ">
-                    To install Zen on MacOS, the process is a bit different.
-                    Please follow the instructions below:
-                  </p>
-                  <Button
-                    className="mt-5"
-                    onClick={() =>
-                      (window.location.href =
-                        "https://docs.zen-browser.app/guides/install-macos")
-                    }
-                  >
-                    Installation Instructions for MacOS
-                  </Button>
-                </div>
-              )}
             </div>
           )) || (
             <>
