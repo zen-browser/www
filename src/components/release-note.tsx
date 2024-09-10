@@ -1,3 +1,4 @@
+"use client";
 import { ReleaseNote, releaseNotes } from "@/lib/release-notes";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { CheckCheckIcon, StarIcon } from "lucide-react";
