@@ -45,7 +45,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
         <Accordion type="single" collapsible className="mt-8">
           {data.breakingChanges && (
             <AccordionItem value="breaking-changes" title="Breaking Changes">
-              <AccordionTrigger>
+              <AccordionTrigger className="border-b">
                 <div className="flex items-center">
                   <ExclamationTriangleIcon className="text-red-500 mr-2 mt-1 size-5 opacity-50" />
                   <span className="ml-2">Breaking Changes</span>
@@ -67,7 +67,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
           }
           {data.fixes && (
             <AccordionItem value="fixes" title="Fixes">
-              <AccordionTrigger>
+              <AccordionTrigger className="border-b">
                 <div className="flex items-center">
                   <CheckCheckIcon className="mr-2 mt-1 size-5 opacity-50" />
                   <span className="ml-2">Fixes</span>
