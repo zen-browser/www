@@ -1,22 +1,18 @@
 import { ReleaseNote } from "@/lib/release-notes";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
 import { CheckCheckIcon, StarIcon } from "lucide-react";
-import { Button } from "./ui/button";
-import Link from "next/link";
-import { VersionList } from "./version-list";
+import StickyBox from "react-sticky-box";
+
 export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
   return (
-    <div className="flex flex-col mt-52">
-      <div className="w-full px-10 md:px-0">
-        <div className="flex flex-col lg:flex-row-reverse items-center justify-between">
-          <VersionList currentVersion={data.version} />
-          <h1 className="text-4xl font-bold">
-            Release notes for {data.version} 🎉
-          </h1>
-        </div>
-        <p className="text-sm mt-1 font-bold text-muted-foreground">
-          {data.date}
-        </p>
+    <div className="flex border-t relative pt-36 mt-36">
+      <StickyBox className="mt-1 mx-12 text-muted-foreground text-sm h-fit" offsetTop={120}>
+        {data.date}
+      </StickyBox>
+      <div className="px-10 md:px-0">
+        <h1 className="text-4xl font-bold">
+          Release notes for {data.version} 🎉
+        </h1>
         <p className="text-md mt-4 text-muted-foreground">
           If you encounter any issues, please report them on{" "}
           <a
