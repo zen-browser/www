@@ -502,7 +502,7 @@ export default function DownloadPage() {
                       selectedLinuxDownloadType === "flatpak"
                         ? "border-blue-400"
                         : "",
-                      selectedArchitecture === "generic"
+                      selectedArchitecture === "specific"
                         ? "opacity-50 cursor-not-allowed"
                         : ""
                     )}
