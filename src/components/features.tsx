@@ -237,7 +237,7 @@ export default function Features() {
           <h1 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Frequently Asked Questions <QuestionMarkCircledIcon className='inline w-8 h-8'></QuestionMarkCircledIcon></h1>
           <Accordion type="single" value={feature} onValueChange={setFeature} defaultValue="item-1" className='mt-8'>
             <AccordionItem value="item-1">
-              <AccordionTrigger>is it firefox based?</AccordionTrigger>
+              <AccordionTrigger>Is it Firefox based?</AccordionTrigger>
               <AccordionContent>
                 Yes, Zen Browser is focused on being always at the latest version of Firefox, ensuring that you have the latest security updates and features.
               </AccordionContent>
