@@ -26,7 +26,7 @@ export const components: { title: string; href: string; description: string }[] 
   },
   {
     title: "Discord",
-    href: "https://discord.gg/zen-browser",
+    href: "https://discord.gg/mauro-s-little-sweatshop-1088172780480114748",
     description: "Join our Discord server to chat with the community and get support."
   },
   {
