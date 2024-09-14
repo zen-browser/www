@@ -759,7 +759,7 @@ export const releaseNotes: ReleaseNote[] = [
 {
     version: "1.0.1-a",
     date: "15/09/2024",
-    extra: "",
+    extra: "This version marks a more stable alpha release.\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!",
     features: [
         "Added verified digital signnature to Windows builds",
         "Added Zen to Homebrew Cask repository",
