@@ -757,7 +757,7 @@ export const releaseNotes: ReleaseNote[] = [
     ]
   },
 {
-    version: "1.0.1-a.0",
+    version: "1.0.1-a",
     date: "15/09/2024",
     extra: "",
     features: [
