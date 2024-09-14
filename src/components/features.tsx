@@ -95,7 +95,7 @@ export default function Features() {
           <hr />
           <div className="flex p-12 flex-col justify-center">
             <h3 className='text-4xl font-medium text-gray-800 dark:text-gray-100'>Always up to date <UpdateIcon className='inline w-10 h-10'></UpdateIcon></h3>
-            <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser is always up to date, ensuring that you have the latest features and security updates. With automatic updates, you can rest easy knowing that your browser is secure and up to date.</p>
+            <p className='text-lg mt-4 text-gray-600 dark:text-gray-300'>Zen Browser is built on top of Firefox, ensuring it always stays up to date with the latest features, security patches, and performance improvements.</p>
             <div className="relative">
               <Button className='mt-8' onClick={() => window.open('/download', '_self')}>Download Now</Button>
             </div>
