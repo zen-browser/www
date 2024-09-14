@@ -755,6 +755,42 @@ export const releaseNotes: ReleaseNote[] = [
             issue: 376
         }
     ]
+  },
+{
+    version: "1.0.1-a.0",
+    date: "15/09/2024",
+    extra: "",
+    features: [
+        "Added verified digital signnature to Windows builds",
+        "Added Zen to Homebrew Cask repository",
+        "Enabled private search suggestions by default",
+        "Improved Theme Store settings page",
+        "Added Night and Colorful themes",
+        "Restore browsing session on startup by default",
+        "Added preference for custom workspace icons",
+        "Redesigned url bar and workspaces",
+        "Added preference for separate pinned tabs per workspace",
+        "Fixed padding on right side tabs and expand-on-hover",
+        "Repositioned List All Tabs button",
+        "Allow binding tab containers to workspaces",
+        "Added new AppImage installer",
+        "Improved bookmarks sidebar interface",
+        "Added compatibility for legacy Zen Theme preferences"
+    ],
+    fixes: [
+        {
+            description: "Window borders show in full-screen mode",
+            issue: 1404
+        },
+        {
+            description: "Collapsed sidebar widens on warning",
+            issue: 1325
+        },
+        {
+            description: "Blurry font when using 2x pixel density (macOS)",
+            issue: 440
+        }
+    ]
   }
 ].reverse();
 
