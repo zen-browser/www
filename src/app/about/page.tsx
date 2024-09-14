@@ -19,6 +19,7 @@ export default function PrivacyPolicy() {
 * [**Onno**](https://www.onnno.nl/index.html): logo designer.
 * [**Jafeth Garro**](https://iamjafeth.com/): Documentation writer.
 * **Peter Jung**: general contributor and AUR maintainer.
+* [**Bryan Galdámez**](https://superrare.com/tonybabel): Huge contributor on theme functionalities
 * [**Gunir**](https://github.com/gunir): Active contributor.
 * [**n7itro**](https://github.com/n7itro): Active contributor.
 * [**Canoa**](https://thatcanoa.org/) Active contributor, and very active in issue handling
