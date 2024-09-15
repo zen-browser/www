@@ -242,7 +242,7 @@ export default function DownloadPage() {
                     If you're using an AppImage, you can use the automatic installer, check it out{" "}
                   </p>
                   <pre className="text-muted-foreground bg-background p-2 rounded-md mt-2">
-bash <(curl https://updates.zen-browser.app/appimage.sh)
+bash {"<"}(curl https://updates.zen-browser.app/appimage.sh)
                   </pre>
                 </div>
               )}
