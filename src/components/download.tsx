@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { ny } from "@/lib/utils";
 import { Checkbox } from "./ui/checkbox";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, InfoIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import Particles from "./ui/particles";
 import confetti from "canvas-confetti";
@@ -212,13 +212,13 @@ export default function DownloadPage() {
       <div className="w-full overflow-hidden relative h-screen flex items-center justify-center flex-col lg:flex-row">
         <div className="flex flex-col justify-center w-full p-10 md:p-20 lg:p-0 lg:w-1/2 2xl:w-1/3 mx-auto">
           {(hasDownloaded && (
-            <div className="flex items-center justify-center flex-col">
+            <div className="flex items-start mt-20 flex-col">
               <h1 className="text-6xl font-bold">Downloaded! ❤️</h1>
-              <p className="text-muted-foreground mt-3 text-center">
+              <p className="text-muted-foreground mt-3">
                 Your download of Zen Browser will begin shortly. Enjoy browsing the
                 web with Zen!
               </p>
-              <div className="flex font-bold mt-5 items-center justify-between mx-auto">
+              <div className="flex font-bold mt-5 items-center">
                 <a href="https://github.com/zen-browser">Source Code</a>
                 <a
                   className="ml-5"
@@ -230,6 +230,22 @@ export default function DownloadPage() {
                   Release Notes
                 </a>
               </div>
+              {selectedLinuxDownloadType === "appimage" && (
+                <div className="border rounded-md shadow bg-surface mt-10 p-5">
+                  <div className="flex">
+                    <InfoIcon className="size-4" />
+                    <p className="ml-3 font-bold">
+                      AppImage users?
+                    </p>
+                  </div>
+                  <p className="text-muted-foreground mt-2">
+                    If you're using an AppImage, you can use the automatic installer, check it out{" "}
+                  </p>
+                  <pre className="text-muted-foreground bg-background p-2 rounded-md mt-2">
+bash <(curl https://updates.zen-browser.app/appimage.sh)
+                  </pre>
+                </div>
+              )}
             </div>
           )) || (
             <>
