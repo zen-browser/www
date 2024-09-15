@@ -3,15 +3,18 @@ import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { releaseNoteIsAlpha, releaseNotes } from "@/lib/release-notes";
 import Link from "next/link";
-import Markdown from 'react-markdown'
-import './markdown.css';
+import Markdown from "react-markdown";
+import "./markdown.css";
 
 export default function PrivacyPolicy() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-start">
-      <div id="policy" className="min-h-screen py-42 flex mx-auto my-52 p-10 lg:p-0 w-full lg:w-1/3 flex-col">
-        <Markdown>
-          {`
+	return (
+		<main className="flex min-h-screen flex-col items-center justify-start">
+			<div
+				id="policy"
+				className="py-42 mx-auto my-52 flex min-h-screen w-full flex-col p-10 lg:w-1/3 lg:p-0"
+			>
+				<Markdown>
+					{`
 # Privacy Policy
 * Last updated: 2024-08-12
 
@@ -89,8 +92,8 @@ If you have any questions or concerns about this Privacy Policy or Zen Browser, 
 ---
 
 By using Zen Browser, you agree to this Privacy Policy. Remember, with Zen, your privacy is in your hands.`}
-        </Markdown>
-      </div>
-    </main>
-  )
+				</Markdown>
+			</div>
+		</main>
+	);
 }

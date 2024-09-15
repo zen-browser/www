@@ -1,58 +1,57 @@
 #policy h1 {
-  font-size: 2.5em; 
-  margin: 0.67em 0;
-  font-weight: bold;
+	font-size: 2.5em;
+	margin: 0.67em 0;
+	font-weight: bold;
 }
 
 #policy {
-  padding-top: 2.5em; 
-  margin-top: 4em;
+	padding-top: 2.5em;
+	margin-top: 4em;
 }
 
-
 #policy h1:first-child {
-  margin-top: 0 !important;
+	margin-top: 0 !important;
 }
 
 #policy h2 {
-  font-size: 2em; 
-  margin: 0.83em 0;
-  font-weight: bold;
+	font-size: 2em;
+	margin: 0.83em 0;
+	font-weight: bold;
 }
 
 #policy h3 {
-  font-size: 1.5em; 
-  margin: 1em 0;
-  font-weight: semi-bold;
+	font-size: 1.5em;
+	margin: 1em 0;
+	font-weight: semi-bold;
 }
 
 #policy ul {
-  margin: 1em 0; 
+	margin: 1em 0;
 }
 
 #policy li {
-  list-style: circle;
-  margin-left: 1.1em; 
-  font-size: 1.1em; 
+	list-style: circle;
+	margin-left: 1.1em;
+	font-size: 1.1em;
 }
 
 /* Link styles */
 #policy a {
-  color: #007bff;
-  transition: color 0.2s ease-in-out;
+	color: #007bff;
+	transition: color 0.2s ease-in-out;
 }
 
 #policy a:hover {
-  text-decoration: underline; 
-  color: #0056b3; 
+	text-decoration: underline;
+	color: #0056b3;
 }
 
 #policy hr {
-  margin: 2em 0; 
-  border: 1px solid #ddd; 
+	margin: 2em 0;
+	border: 1px solid #ddd;
 }
 
 #policy p {
-  margin: 1em 0;
-  line-height: 1.6;
+	margin: 1em 0;
+	line-height: 1.6;
 }
