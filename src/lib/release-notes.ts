@@ -789,6 +789,10 @@ export const releaseNotes: ReleaseNote[] = [
         {
             description: "Blurry font when using 2x pixel density (macOS)",
             issue: 440
+        },
+        {
+            description: "Firefox Add-ons won't update",
+            issue: 1173
         }
     ]
   }
