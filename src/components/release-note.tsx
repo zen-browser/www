@@ -43,6 +43,13 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 					</a>
 					. Thanks everyone for your feedback! ❤️
 				</p>
+				{data.image && (
+					<img
+						src={`https://cdn.jsdelivr.net/gh/zen-browser/www/public/images/releases/${data.version}.png`}
+						alt="Release Image"
+						className="mt-8 w-full rounded-lg"
+					/>
+				)}
 				{data.extra && (
 					<p
 						className="text-md mt-8 text-muted-foreground"
