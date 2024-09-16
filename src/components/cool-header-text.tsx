@@ -17,12 +17,13 @@ const TextTitle = styled.h1`
 	background-image: linear-gradient(90deg, #0077e7, #01d8d1);
 	filter: hue-rotate(0deg);
 	animation: ${hueShift} 10s infinite linear 1s;
+    padding-bottom: 5px;
 `;
 
 export default function CoolHeaderText() {
 	return (
         <>
-            <div className="relative font-extrabold mt-5 mb-5 -translate-y-4 animate-fade-in text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-semibold leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] dark:from-white dark:to-white/40 sm:text-6xl md:text-7xl lg:text-8xl">
+            <div className="relative font-extrabold mt-5 mb-3 -translate-y-4 animate-fade-in text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-semibold leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] dark:from-white dark:to-white/40 sm:text-6xl md:text-7xl lg:text-8xl">
                 <TextTitle>
                     Beautiful. Fast. Private.<br />Your Browser, Your Way.
                 </TextTitle>
