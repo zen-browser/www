@@ -27,7 +27,7 @@ export default function CoolHeaderText() {
                     Beautiful. Fast. Private.<br />Your Browser, Your Way.
                 </TextTitle>
             </div>
-            <div className="absolute top-[-5px] right-[-20px] transform shadow rotate-[15deg] rounded-full mt-12 pointer-events-none hidden md:block bg-blue-500 px-3 py-1 w-fit h-fit">
+            <div className="text-white absolute animate-fade-in top-[-5px] right-[-20px] transform shadow !rotate-[15deg] rounded-full mt-12 pointer-events-none hidden md:block bg-blue-500 px-3 py-1 w-fit h-fit opacity-0 [--animation-delay:400ms]">
                 Alpha Version
             </div>
         </>
