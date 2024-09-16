@@ -800,7 +800,7 @@ export const releaseNotes: ReleaseNote[] = [
         version: "1.0.1-a",
         date: "15/09/2024",
 				image: true,
-        extra: "This version marks a more stable alpha release.\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!",
+        extra: "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for themes, improved overal UX and added an a better theme support (Now called Zen Mods)!",
         features: [
             "Added verified digital signnature to Windows builds",
             "Added Zen to Homebrew Cask repository",
