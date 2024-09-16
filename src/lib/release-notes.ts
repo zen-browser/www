@@ -795,6 +795,46 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 		],
 	},
+    {
+        version: "1.0.1-a",
+        date: "15/09/2024",
+        extra: "This version marks a more stable alpha release.\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!",
+        features: [
+            "Added verified digital signnature to Windows builds",
+            "Added Zen to Homebrew Cask repository",
+            "Enabled private search suggestions by default",
+            "Improved Theme Store settings page",
+            "Added Night and Colorful themes",
+            "Restore browsing session on startup by default",
+            "Added preference for custom workspace icons",
+            "Redesigned url bar and workspaces",
+            "Added preference for separate pinned tabs per workspace",
+            "Fixed padding on right side tabs and expand-on-hover",
+            "Repositioned List All Tabs button",
+            "Allow binding tab containers to workspaces",
+            "Added new AppImage installer",
+            "Improved bookmarks sidebar interface",
+            "Added compatibility for legacy Zen Theme preferences"
+        ],
+        fixes: [
+            {
+                description: "Window borders show in full-screen mode",
+                issue: 1404
+            },
+            {
+                description: "Collapsed sidebar widens on warning",
+                issue: 1325
+            },
+            {
+                description: "Blurry font when using 2x pixel density (macOS)",
+                issue: 440
+            },
+            {
+                description: "Firefox Add-ons won't update",
+                issue: 1173
+            }
+        ]
+    }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
