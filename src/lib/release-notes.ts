@@ -887,6 +887,9 @@ export const releaseNotes: ReleaseNote[] = [
 			{
 				description: "Sidebar wont interfere with the toolbar anymore in compact mode",
 			},
+			{
+				description: "Fixed release notes pointing to a 404 page",
+			}
 		],
 	},
 ].reverse();
