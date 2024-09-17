@@ -796,47 +796,99 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 		],
 	},
-    {
-        version: "1.0.1-a",
-        date: "15/09/2024",
-				image: true,
-        extra: "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for themes, improved overal UX and added an a better theme support (Now called Zen Mods)!",
-        features: [
-            "Added verified digital signnature to Windows builds",
-            "Added Zen to Homebrew Cask repository",
-            "Enabled private search suggestions by default",
-            "Improved Theme Store settings page",
-            "Added Night and Colorful themes",
-            "Restore browsing session on startup by default",
-            "Added preference for custom workspace icons",
-            "Redesigned url bar and workspaces",
-            "Added preference for separate pinned tabs per workspace",
-            "Fixed padding on right side tabs and expand-on-hover",
-            "Repositioned List All Tabs button",
-            "Allow binding tab containers to workspaces",
-            "Added new AppImage installer",
-            "Improved bookmarks sidebar interface",
-            "Added compatibility for legacy Zen Theme preferences"
-        ],
-        fixes: [
-            {
-                description: "Window borders show in full-screen mode",
-                issue: 1404
-            },
-            {
-                description: "Collapsed sidebar widens on warning",
-                issue: 1325
-            },
-            {
-                description: "Blurry font when using 2x pixel density (macOS)",
-                issue: 440
-            },
-            {
-                description: "Firefox Add-ons won't update",
-                issue: 1173
-            }
-        ]
-    }
+	{
+			version: "1.0.1-a",
+			date: "15/09/2024",
+			image: true,
+			extra: "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for themes, improved overal UX and added an a better theme support (Now called Zen Mods)!",
+			features: [
+					"Added verified digital signnature to Windows builds",
+					"Added Zen to Homebrew Cask repository",
+					"Enabled private search suggestions by default",
+					"Improved Theme Store settings page",
+					"Added Night and Colorful themes",
+					"Restore browsing session on startup by default",
+					"Added preference for custom workspace icons",
+					"Redesigned url bar and workspaces",
+					"Added preference for separate pinned tabs per workspace",
+					"Fixed padding on right side tabs and expand-on-hover",
+					"Repositioned List All Tabs button",
+					"Allow binding tab containers to workspaces",
+					"Added new AppImage installer",
+					"Improved bookmarks sidebar interface",
+					"Added compatibility for legacy Zen Theme preferences"
+			],
+			fixes: [
+					{
+							description: "Window borders show in full-screen mode",
+							issue: 1404
+					},
+					{
+							description: "Collapsed sidebar widens on warning",
+							issue: 1325
+					},
+					{
+							description: "Blurry font when using 2x pixel density (macOS)",
+							issue: 440
+					},
+					{
+							description: "Firefox Add-ons won't update",
+							issue: 1173
+					}
+			]
+	},
+	{
+		version: "1.0.1-a.2",
+		date: "17/09/2024",
+		image: true,
+		extra: "This release could be considered a hotfix release for the previous version.\n\nSince we've started doing pretty big UI changes in order to gain more stability, it's normal that we may encounter some bugs... But not that many!\n\nThis release fixes some of the most important bugs that were introduced in the previous version and adds some small improvements.",
+		features: [
+			"Added entering animation when creating a new tab",
+			"Added support for other tab icons such as audio and microphone",
+			"Added more customization towards rounded borders and padding",
+			"Newtab button is now colored when expanded",
+			"MacOS users will have the legacy toolbar location by default",
+			"Workspaces are disabled on private browsing",
+		],
+		fixes: [
+			{
+				description: "Fixed padding of buttons when expanding the sidebar",
+			},
+			{
+				description: "Fixed favicon not centered when collapsed",
+			},
+			{
+				description: "Fixed compact mode overlapping the tab bar",
+			},
+			{
+				description: "Fixed fullscreen when entering compact mode",
+			},
+			{
+				description: "Fixed close icon showing on pinned tabs",
+			},
+			{
+				description: "Fixed websites moving when hovering over tabs",
+			},
+			{
+				description: "Removed 'private browsing' text from the toolbar",
+			},
+			{
+				description: "Fixed avatars not being rounded",
+			},
+			{
+				description: "Fixed paddings for personal toolbar",
+			},
+			{
+				description: "Fixed width of the tab not being correct",
+			},
+			{
+				description: "Fixed the tab bar not being visible in fullscreen",
+			},
+			{
+				description: "Sidebar wont interfere with the toolbar anymore in compact mode",
+			},
+		],
+	},
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
