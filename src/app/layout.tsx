@@ -38,7 +38,7 @@ export default async function RootLayout({
 			<body className={inter.className}>
 				<ThemeProvider attribute="class" enableSystem defaultTheme="dark" storageKey="zen.theme">
 					<StyledComponentsRegistry>
-						<div>
+						<div className="mt-5">
 							{children}
 							<Footer />
 							<Navigation /> {/* At the bottom of the page */}
