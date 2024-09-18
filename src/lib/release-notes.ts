@@ -889,7 +889,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description: "Fixed release notes pointing to a 404 page",
-			}
+			},
 		],
 	},
 ].reverse();
