@@ -36,7 +36,7 @@ export default async function RootLayout({
 				/>
 			</head>
 			<body className={inter.className}>
-				<ThemeProvider attribute="class" enableSystem defaultTheme="dark" storageKey="zen.theme">
+				<ThemeProvider attribute="class" defaultTheme="dark">
 					<StyledComponentsRegistry>
 						<div className="mt-5">
 							{children}
