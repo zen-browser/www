@@ -19,14 +19,13 @@ export default function PrivacyPolicy() {
 
 * [**Mauro Baladés**](https://github.com/mauro-balades): Creator, Main Developer, and a funny guy.
 * **Oscar Gonzalez**: Site Reliability Engineer (SRE) and code signing.
-* [**Onno**](https://www.onnno.nl/index.html): logo designer.
 * [**Jafeth Garro**](https://iamjafeth.com/): Documentation writer.
-* **Peter Jung**: general contributor and AUR maintainer.
+* [**Jan Heres**](https://janheres.eu/): Active contributor and helps with MacOS builds.
 * [**Bryan Galdámez**](https://josuegalre.netlify.app/): Huge contributor on theme functionalities
-* [**Gunir**](https://github.com/gunir): Active contributor.
 * [**n7itro**](https://github.com/n7itro): Active contributor.
 * [**Canoa**](https://thatcanoa.org/) Active contributor, and very active in issue handling
-* [**Jan Heres**](https://janheres.eu/): Active contributor and helps with MacOS builds.
+* [**Gunir**](https://github.com/gunir): Active contributor.
+* [**Larvey**](https://github.com/LarveyOfficial/): AUR maintainer.
 
 # Many more contributors
 
