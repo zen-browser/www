@@ -17,7 +17,7 @@ const TextTitle = styled.h1`
 	background-image: linear-gradient(90deg, #0077e7, #01d8d1);
 	filter: hue-rotate(0deg);
 	animation: ${hueShift} 10s infinite linear 1s;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 `;
 
 export default function CoolHeaderText() {
