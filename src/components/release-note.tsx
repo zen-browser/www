@@ -1,7 +1,7 @@
 "use client";
 import { ReleaseNote, releaseNotes } from "@/lib/release-notes";
 import { ExclamationTriangleIcon } from "@radix-ui/react-icons";
-import { CheckCheckIcon, StarIcon } from "lucide-react";
+import { BrushIcon, CheckCheckIcon, StarIcon } from "lucide-react";
 import StickyBox from "react-sticky-box";
 
 import moment from "moment";
@@ -85,7 +85,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 						<AccordionItem value="fixes" title="Fixes">
 							<AccordionTrigger className="border-b">
 								<div className="flex items-center">
-									<CheckCheckIcon className="mr-2 mt-1 size-5 opacity-50" />
+									<CheckCheckIcon className="mr-2 mt-1 size-5 opacity-50 text-green-500" />
 									<span className="ml-2">Fixes</span>
 								</div>
 							</AccordionTrigger>
@@ -105,6 +105,28 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 													#{fix.issue}
 												</a>
 											)}
+										</li>
+									))}
+								</ul>
+							</AccordionContent>
+						</AccordionItem>
+					)}
+					{data.themeChanges && (
+						<AccordionItem value="theme-changes" title="Theme Changes">
+							<AccordionTrigger className="border-b">
+								<div className="flex items-center">
+									<BrushIcon className="mr-2 mt-1 size-5 opacity-50 text-blue-500" />
+									<span className="ml-2">Theme Changes</span>
+								</div>
+							</AccordionTrigger>
+							<AccordionContent>
+								<ul className="ml-6" style={{ listStyleType: "initial" }}>
+									{data.themeChanges.map((change) => (
+										<li
+											key={change}
+											className="text-md mt-4 text-muted-foreground"
+										>
+											<span className="ml-1">{change}</span>
 										</li>
 									))}
 								</ul>
