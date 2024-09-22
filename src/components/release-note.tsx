@@ -28,6 +28,30 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 					month: parseInt(splitDate[1]) - 1,
 					day: parseInt(splitDate[0]),
 				}).format("MMMM Do, YYYY")}
+				<div className="flex items-center opacity-60 text-blue-500 mt-2">
+					<a href={`https://github.com/zen-browser/desktop/releases/tag/${data.version}`}>
+						GitHub Release
+					</a>
+					{data.workflowId && (
+						<>
+							<span className="mx-1 text-muted-foreground">•</span>
+							<a
+								href={`https://github.com/zen-browser/desktop/actions/runs/${data.workflowId}`}
+							>
+								Workflow Run
+							</a>
+						</>
+					)}
+				</div>
+				{data.inProgress && (
+					<div className="mt-5 flex">
+						<ExclamationTriangleIcon className="size-6 mr-3 text-yellow-500 opacity-60" />
+						<div>
+							<p>This release is still in progress, stay tuned!</p>
+							<p className="mt-2">Consider joining our <a href="https://discord.gg/zen-browser" className="text-blue-500">Discord</a> for update pings!</p >	
+						</div>
+					</div>
+				)}	
 			</StickyBox>
 			<div className="px-5 md:px-0 md:px-10 md:pr-32">
 				<h1 className="text-3xl font-bold">
