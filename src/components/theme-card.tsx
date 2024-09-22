@@ -31,16 +31,14 @@ export default function ThemeCard({
 				window.open(`/themes/${theme.id}`, "_self");
 			}}
 			className={ny(
-				"border-grey-900 flex w-full cursor-pointer select-none flex-col justify-start rounded-lg border bg-muted p-5 shadow-sm transition duration-300 ease-in-out hover:border-blue-500 hover:bg-surface hover:shadow-lg dark:border-muted dark:bg-muted/50",
+				"flex w-full cursor-pointer select-none flex-col justify-start p-5",
 				className,
 			)}
 		>
 			<img
 				src={theme.image}
 				alt={theme.name}
-				width={500}
-				height={500}
-				className="h-32 w-full rounded-lg border object-cover shadow"
+				className="h-48 rounded-xl border-2 object-cover shadow overflow-hidden border-[rgba(0,0,0,.5)] dark:border-[#333]"
 			/>
 			<h2 className="mt-4 overflow-ellipsis text-start text-xl font-bold">
 				{theme.name.substring(0, maxNameLen).trim() +

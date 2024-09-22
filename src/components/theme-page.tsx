@@ -30,9 +30,7 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
 				<img
 					src={theme.image}
 					alt={theme.name}
-					width={500}
-					height={500}
-					className="w-full rounded-lg border-2 object-cover shadow"
+					className="f-full rounded-lg border-2 object-cover shadow"
 				/>
 				<h1 className="mt-5 text-2xl font-bold">{theme.name}</h1>
 				<p className="mt-2 text-sm text-muted-foreground">

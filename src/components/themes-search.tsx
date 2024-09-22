@@ -26,6 +26,7 @@ export default function ThemesSearch({
 					placeholder="Search themes"
 					className="w-full border-none bg-transparent text-black focus:border-none focus:outline-none focus:ring-0 dark:text-white"
 				/>
+				{/*
 				<Button
 					onClick={() =>
 						window.open(
@@ -42,7 +43,7 @@ export default function ThemesSearch({
 					className="hidden rounded-full rounded-l-none border-l border-black text-muted dark:border-none md:block"
 				>
 					Create your theme
-				</Button>
+				</Button>*/}
 			</div>
 			<div className="mt-4 flex flex-wrap gap-2">
 				{TAGS.map((tag) => (
@@ -51,10 +52,10 @@ export default function ThemesSearch({
 						key={tag}
 						onClick={() => setTags([tag])}
 						className={ny(
-							`!rounded-full px-5 ${tags.includes(tag) ? "bg-black text-white dark:bg-white dark:text-black" : ""}`,
+							`!rounded-full px-5 !min-w-24 !py-2 !h-fit ${tags.includes(tag) ? "bg-black text-white dark:bg-white dark:text-black" : ""}`,
 						)}
 					>
-						{tag}
+						{tag.replace(/-/g, " ")}
 					</Button>
 				))}
 			</div>
