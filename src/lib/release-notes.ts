@@ -903,7 +903,6 @@ export const releaseNotes: ReleaseNote[] = [
 		version: "1.0.1-a.3",
 		date: "21/09/2024",
 		image: true,
-		inProgress: true,
 		workflowId: 10984599633,
 		extra: "We are thrilled to announce that this release marks a significant leap forward for Zen Browser.\n\nSince the last version (1.0.1-a.2), we've implemented numerous improvements and addressed key bug fixes, all aimed at enhancing your browsing experience.\n\nWe've made significant changes to the UI, including a new compact mode design, improved tab management, and a more intuitive user interface. We've also added new features, such as the ability to customize the tab bar and a new compact mode design.\n\nWe hope you enjoy this release and look forward to your feedback!",
 		features: [
