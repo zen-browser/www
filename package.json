@@ -9,6 +9,7 @@
 		"dev": "next dev --turbo",
 		"build": "next build",
 		"start": "next start",
+		"format": "prettier --write .",
 		"lint": "next lint",
 		"pages:build": "npx @cloudflare/next-on-pages",
 		"preview": "npm run pages:build && wrangler pages dev",
