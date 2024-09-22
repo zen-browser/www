@@ -1,3 +1,4 @@
+
 interface Fix {
 	description: string;
 	issue?: number;
@@ -11,6 +12,9 @@ export interface ReleaseNote {
 	fixes?: Fix[];
 	features?: string[];
 	breakingChanges?: string[];
+	themeChanges?: string[];
+	inProgress?: boolean;
+	workflowId?: number;
 }
 
 export const releaseNotes: ReleaseNote[] = [
@@ -759,6 +763,7 @@ export const releaseNotes: ReleaseNote[] = [
 	{
 		version: "1.0.0-a.39",
 		date: "09/09/2024",
+		workflowId: 29912810500,
 		extra:
 			"This release is the thirty-eighth alpha release of the 1.0.0-alpha series.",
 		features: [
@@ -799,6 +804,7 @@ export const releaseNotes: ReleaseNote[] = [
 	{
 			version: "1.0.1-a",
 			date: "15/09/2024",
+			workflowId: 10911842349,
 			image: true,
 			extra: "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for themes, improved overal UX and added an a better theme support (Now called Zen Mods)!",
 			features: [
@@ -841,6 +847,7 @@ export const releaseNotes: ReleaseNote[] = [
 		version: "1.0.1-a.2",
 		date: "17/09/2024",
 		image: true,
+		workflowId: 10966772761,
 		extra: "This release could be considered a hotfix release for the previous version.\n\nSince we've started doing pretty big UI changes in order to gain more stability, it's normal that we may encounter some bugs... But not that many!\n\nThis release fixes some of the most important bugs that were introduced in the previous version and adds some small improvements.",
 		features: [
 			"Added entering animation when creating a new tab",
@@ -890,6 +897,82 @@ export const releaseNotes: ReleaseNote[] = [
 			{
 				description: "Fixed release notes pointing to a 404 page",
 			},
+		],
+	},
+	{
+		version: "1.0.1-a.3",
+		date: "21/09/2024",
+		image: true,
+		inProgress: true,
+		workflowId: 10984599633,
+		extra: "We are thrilled to announce that this release marks a significant leap forward for Zen Browser.\n\nSince the last version (1.0.1-a.2), we've implemented numerous improvements and addressed key bug fixes, all aimed at enhancing your browsing experience.\n\nWe've made significant changes to the UI, including a new compact mode design, improved tab management, and a more intuitive user interface. We've also added new features, such as the ability to customize the tab bar and a new compact mode design.\n\nWe hope you enjoy this release and look forward to your feedback!",
+		features: [
+			"Compact mode now allows to only hide the toolbar",
+			"Added support for customizing the tab bar",
+			"Added a new layout that saves vertical space",
+			"Added support for workspaces icon strip (Quick workspace switching)",
+			"Increased the font size on tabs",		
+			"Added support for customizing all the buttons that where before at the bottom left",
+			"Added support for context menu clicks on the tab bar (compact mode and on hover)",
+			"Added support for a new compact mode design",
+			"Allowed text fragments for the DOM by default",
+			"Added support for resizing split views",
+			"Added a keyboard shortcut to cycle through workspaces backwards",
+			"Compact mode now stays open for a longer time if the mouse exits the app",
+			"MacOS buttons will now be at the left side of the toolbar",
+			"Updated to the latest version of Firefox (130.0.1)",
+			"Added a way to modify compact mode behavior from right clickin the tab bar",
+			"Added support for a new compact mode design",
+			"Applied a more consistent design for the tab bar",
+			"Correctly signed the Windows updater",
+		],
+		fixes: [
+			{
+				description: "Can't split tab, if one of the tabs has been previously split",
+				isse: 1592
+			},
+			{
+				description: "Exit button padding is not correct",
+				issue: 1583
+			},
+			{
+				description: "Font size is too small on tabs",
+				issue: 1580
+			},
+			{
+				description: "Misaligned Padding across window",
+				isue: 1542
+			},
+			{
+				description: "Fixed exiting from split view with more than 6 tabs",
+				issue: 1539
+			},
+			{
+				description: "Fixed the sidebar ignoring the mobile user agent checkbox on creation",
+				isue: 1536
+			},
+			{
+				description: "\"Hide the default container indicator in the tab bar\" doesn't work when opening container with shortcut or via link",
+				issue: 1472
+			},
+			{
+				description: "Left, Bottom, and Right borders visible when in full screen mode",
+				issue: 1513
+			},
+			{
+				description: "Fixed checkboxes on context menu not being aligned",
+			},
+			{
+				description: "Fixed Mods not being applied to every single window opened",
+			}
+		],
+		breakingChanges: [
+			"Removed Galaxy and Dream themes",
+			"Removed the 'legacy-toolbar' preference",
+		],
+		themeChanges: [
+			"Themes will now be able to have string and number values",
+			"The configuration schema for themes has been updated. All current themes have been updated automatically.",
 		],
 	},
 ].reverse();
