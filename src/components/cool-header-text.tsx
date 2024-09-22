@@ -17,20 +17,22 @@ const TextTitle = styled.h1`
 	background-image: linear-gradient(90deg, #0077e7, #01d8d1);
 	filter: hue-rotate(0deg);
 	animation: ${hueShift} 10s infinite linear 1s;
-    padding-bottom: 8px;
+	padding-bottom: 8px;
 `;
 
 export default function CoolHeaderText() {
 	return (
-        <>
-            <div className="relative font-extrabold mt-5 mb-3 -translate-y-4 animate-fade-in text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-semibold leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] dark:from-white dark:to-white/40 sm:text-6xl md:text-7xl lg:text-8xl">
-                <TextTitle>
-                    Beautiful. Fast. Private.<br />Your Browser, Your Way.
-                </TextTitle>
-            </div>
-            <div className="text-white absolute animate-fade-in top-[-5px] right-[-20px] transform shadow !rotate-[15deg] rounded-full mt-12 pointer-events-none hidden md:block bg-blue-500 px-3 py-1 w-fit h-fit opacity-0 [--animation-delay:400ms]">
-                Alpha Version
-            </div>
-        </>
+		<>
+			<div className="relative mb-3 mt-5 -translate-y-4 animate-fade-in text-balance bg-gradient-to-br from-black from-30% to-black/40 bg-clip-text py-6 text-5xl font-extrabold font-semibold leading-none tracking-tighter text-transparent opacity-0 [--animation-delay:200ms] dark:from-white dark:to-white/40 sm:text-6xl md:text-7xl lg:text-8xl">
+				<TextTitle>
+					Beautiful. Fast. Private.
+					<br />
+					Your Browser, Your Way.
+				</TextTitle>
+			</div>
+			<div className="pointer-events-none absolute right-[-20px] top-[-5px] mt-12 hidden h-fit w-fit !rotate-[15deg] transform animate-fade-in rounded-full bg-blue-500 px-3 py-1 text-white opacity-0 shadow [--animation-delay:400ms] md:block">
+				Alpha Version
+			</div>
+		</>
 	);
 }
