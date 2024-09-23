@@ -903,7 +903,7 @@ export const releaseNotes: ReleaseNote[] = [
 	},
 	{
 		version: "1.0.1-a.3",
-		date: "21/09/2024",
+		date: "22/09/2024",
 		image: true,
 		workflowId: 10984599633,
 		extra:
@@ -980,6 +980,37 @@ export const releaseNotes: ReleaseNote[] = [
 		themeChanges: [
 			"Themes will now be able to have string and number values",
 			"The configuration schema for themes has been updated. All current themes have been updated automatically.",
+		],
+	},
+	{
+		version: "1.0.1-a.4",
+		date: "23/09/2024",
+        image: true,
+		workflowId: 10000000000,
+		extra: "This update addresses some significant issues with the previous release.\n\We appreciate your patience and support!",
+		features: [],
+		fixes: [
+			{
+				description: "The New Tab button is not visible",
+				isse: 1640,
+			},
+			{
+				description: "The Unified Extensions button is not visible",
+				issue: 1643,
+			},
+			{
+				description: "The workspace element can't be moved on the toolbar",
+				issue: 1636,
+			},
+			{
+				description: "Expand-on-hover doesn't work properly when compact mode is enabled",
+			},
+            {
+                description: "Fixed an issue with reordering tabs",
+            },
+            {
+				description: "Fixed an issue with ⌘ keyboard shortcuts on macOS",
+			},
 		],
 	},
 ].reverse();
