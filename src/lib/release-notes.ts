@@ -988,7 +988,9 @@ export const releaseNotes: ReleaseNote[] = [
         image: true,
 		workflowId: 11000317603,
 		extra: "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-		features: [],
+		features: [
+            "Added a new system for handling keyboard shortcuts",
+        ],
 		fixes: [
 			{
 				description: "The New Tab button is not visible",
