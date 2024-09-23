@@ -28,8 +28,10 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 					month: parseInt(splitDate[1]) - 1,
 					day: parseInt(splitDate[0]),
 				}).format("MMMM Do, YYYY")}
-				<div className="flex items-center opacity-60 text-blue-500 mt-2">
-					<a href={`https://github.com/zen-browser/desktop/releases/tag/${data.version}`}>
+				<div className="mt-2 flex items-center text-blue-500 opacity-60">
+					<a
+						href={`https://github.com/zen-browser/desktop/releases/tag/${data.version}`}
+					>
 						GitHub Release
 					</a>
 					{data.workflowId && (
@@ -45,13 +47,22 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 				</div>
 				{data.inProgress && (
 					<div className="mt-5 flex">
-						<ExclamationTriangleIcon className="size-6 mr-3 text-yellow-500 opacity-60" />
+						<ExclamationTriangleIcon className="mr-3 size-6 text-yellow-500 opacity-60" />
 						<div>
 							<p>This release is still in progress, stay tuned!</p>
-							<p className="mt-2">Consider joining our <a href="https://discord.gg/zen-browser" className="text-blue-500">Discord</a> for update pings!</p >	
+							<p className="mt-2">
+								Consider joining our{" "}
+								<a
+									href="https://discord.gg/zen-browser"
+									className="text-blue-500"
+								>
+									Discord
+								</a>{" "}
+								for update pings!
+							</p>
 						</div>
 					</div>
-				)}	
+				)}
 			</StickyBox>
 			<div className="px-5 md:px-0 md:px-10 md:pr-32">
 				<h1 className="text-3xl font-bold">
@@ -109,7 +120,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 						<AccordionItem value="fixes" title="Fixes">
 							<AccordionTrigger className="border-b">
 								<div className="flex items-center">
-									<CheckCheckIcon className="mr-2 mt-1 size-5 opacity-50 text-green-500" />
+									<CheckCheckIcon className="mr-2 mt-1 size-5 text-green-500 opacity-50" />
 									<span className="ml-2">Fixes</span>
 								</div>
 							</AccordionTrigger>
@@ -139,7 +150,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 						<AccordionItem value="theme-changes" title="Theme Changes">
 							<AccordionTrigger className="border-b">
 								<div className="flex items-center">
-									<BrushIcon className="mr-2 mt-1 size-5 opacity-50 text-blue-500" />
+									<BrushIcon className="mr-2 mt-1 size-5 text-blue-500 opacity-50" />
 									<span className="ml-2">Theme Changes</span>
 								</div>
 							</AccordionTrigger>

@@ -1,4 +1,3 @@
-
 interface Fix {
 	description: string;
 	issue?: number;
@@ -802,53 +801,55 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 	},
 	{
-			version: "1.0.1-a",
-			date: "15/09/2024",
-			workflowId: 10911842349,
-			image: true,
-			extra: "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for themes, improved overal UX and added an a better theme support (Now called Zen Mods)!",
-			features: [
-					"Added verified digital signnature to Windows builds",
-					"Added Zen to Homebrew Cask repository",
-					"Enabled private search suggestions by default",
-					"Improved Theme Store settings page",
-					"Added Night and Colorful themes",
-					"Restore browsing session on startup by default",
-					"Added preference for custom workspace icons",
-					"Redesigned url bar and workspaces",
-					"Added preference for separate pinned tabs per workspace",
-					"Fixed padding on right side tabs and expand-on-hover",
-					"Repositioned List All Tabs button",
-					"Allow binding tab containers to workspaces",
-					"Added new AppImage installer",
-					"Improved bookmarks sidebar interface",
-					"Added compatibility for legacy Zen Theme preferences"
-			],
-			fixes: [
-					{
-							description: "Window borders show in full-screen mode",
-							issue: 1404
-					},
-					{
-							description: "Collapsed sidebar widens on warning",
-							issue: 1325
-					},
-					{
-							description: "Blurry font when using 2x pixel density (macOS)",
-							issue: 440
-					},
-					{
-							description: "Firefox Add-ons won't update",
-							issue: 1173
-					}
-			]
+		version: "1.0.1-a",
+		date: "15/09/2024",
+		workflowId: 10911842349,
+		image: true,
+		extra:
+			"This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for themes, improved overal UX and added an a better theme support (Now called Zen Mods)!",
+		features: [
+			"Added verified digital signnature to Windows builds",
+			"Added Zen to Homebrew Cask repository",
+			"Enabled private search suggestions by default",
+			"Improved Theme Store settings page",
+			"Added Night and Colorful themes",
+			"Restore browsing session on startup by default",
+			"Added preference for custom workspace icons",
+			"Redesigned url bar and workspaces",
+			"Added preference for separate pinned tabs per workspace",
+			"Fixed padding on right side tabs and expand-on-hover",
+			"Repositioned List All Tabs button",
+			"Allow binding tab containers to workspaces",
+			"Added new AppImage installer",
+			"Improved bookmarks sidebar interface",
+			"Added compatibility for legacy Zen Theme preferences",
+		],
+		fixes: [
+			{
+				description: "Window borders show in full-screen mode",
+				issue: 1404,
+			},
+			{
+				description: "Collapsed sidebar widens on warning",
+				issue: 1325,
+			},
+			{
+				description: "Blurry font when using 2x pixel density (macOS)",
+				issue: 440,
+			},
+			{
+				description: "Firefox Add-ons won't update",
+				issue: 1173,
+			},
+		],
 	},
 	{
 		version: "1.0.1-a.2",
 		date: "17/09/2024",
 		image: true,
 		workflowId: 10966772761,
-		extra: "This release could be considered a hotfix release for the previous version.\n\nSince we've started doing pretty big UI changes in order to gain more stability, it's normal that we may encounter some bugs... But not that many!\n\nThis release fixes some of the most important bugs that were introduced in the previous version and adds some small improvements.",
+		extra:
+			"This release could be considered a hotfix release for the previous version.\n\nSince we've started doing pretty big UI changes in order to gain more stability, it's normal that we may encounter some bugs... But not that many!\n\nThis release fixes some of the most important bugs that were introduced in the previous version and adds some small improvements.",
 		features: [
 			"Added entering animation when creating a new tab",
 			"Added support for other tab icons such as audio and microphone",
@@ -892,7 +893,8 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed the tab bar not being visible in fullscreen",
 			},
 			{
-				description: "Sidebar wont interfere with the toolbar anymore in compact mode",
+				description:
+					"Sidebar wont interfere with the toolbar anymore in compact mode",
 			},
 			{
 				description: "Fixed release notes pointing to a 404 page",
@@ -904,13 +906,14 @@ export const releaseNotes: ReleaseNote[] = [
 		date: "21/09/2024",
 		image: true,
 		workflowId: 10984599633,
-		extra: "We are thrilled to announce that this release marks a significant leap forward for Zen Browser.\n\nSince the last version (1.0.1-a.2), we've implemented numerous improvements and addressed key bug fixes, all aimed at enhancing your browsing experience.\n\nWe've made significant changes to the UI, including a new compact mode design, improved tab management, and a more intuitive user interface. We've also added new features, such as the ability to customize the tab bar and a new compact mode design.\n\nWe hope you enjoy this release and look forward to your feedback!",
+		extra:
+			"We are thrilled to announce that this release marks a significant leap forward for Zen Browser.\n\nSince the last version (1.0.1-a.2), we've implemented numerous improvements and addressed key bug fixes, all aimed at enhancing your browsing experience.\n\nWe've made significant changes to the UI, including a new compact mode design, improved tab management, and a more intuitive user interface. We've also added new features, such as the ability to customize the tab bar and a new compact mode design.\n\nWe hope you enjoy this release and look forward to your feedback!",
 		features: [
 			"Compact mode now allows to only hide the toolbar",
 			"Added support for customizing the tab bar",
 			"Added a new layout that saves vertical space",
 			"Added support for workspaces icon strip (Quick workspace switching)",
-			"Increased the font size on tabs",		
+			"Increased the font size on tabs",
 			"Added support for customizing all the buttons that where before at the bottom left",
 			"Added support for context menu clicks on the tab bar (compact mode and on hover)",
 			"Added support for a new compact mode design",
@@ -927,43 +930,48 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 		fixes: [
 			{
-				description: "Can't split tab, if one of the tabs has been previously split",
-				isse: 1592
+				description:
+					"Can't split tab, if one of the tabs has been previously split",
+				isse: 1592,
 			},
 			{
 				description: "Exit button padding is not correct",
-				issue: 1583
+				issue: 1583,
 			},
 			{
 				description: "Font size is too small on tabs",
-				issue: 1580
+				issue: 1580,
 			},
 			{
 				description: "Misaligned Padding across window",
-				isue: 1542
+				isue: 1542,
 			},
 			{
 				description: "Fixed exiting from split view with more than 6 tabs",
-				issue: 1539
+				issue: 1539,
 			},
 			{
-				description: "Fixed the sidebar ignoring the mobile user agent checkbox on creation",
-				isue: 1536
+				description:
+					"Fixed the sidebar ignoring the mobile user agent checkbox on creation",
+				isue: 1536,
 			},
 			{
-				description: "\"Hide the default container indicator in the tab bar\" doesn't work when opening container with shortcut or via link",
-				issue: 1472
+				description:
+					'"Hide the default container indicator in the tab bar" doesn\'t work when opening container with shortcut or via link',
+				issue: 1472,
 			},
 			{
-				description: "Left, Bottom, and Right borders visible when in full screen mode",
-				issue: 1513
+				description:
+					"Left, Bottom, and Right borders visible when in full screen mode",
+				issue: 1513,
 			},
 			{
 				description: "Fixed checkboxes on context menu not being aligned",
 			},
 			{
-				description: "Fixed Mods not being applied to every single window opened",
-			}
+				description:
+					"Fixed Mods not being applied to every single window opened",
+			},
 		],
 		breakingChanges: [
 			"Removed Galaxy and Dream themes",
