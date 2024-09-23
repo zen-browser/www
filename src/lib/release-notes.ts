@@ -987,7 +987,7 @@ export const releaseNotes: ReleaseNote[] = [
 		date: "23/09/2024",
         image: true,
 		workflowId: 10000000000,
-		extra: "This update addresses some significant issues with the previous release.\n\We appreciate your patience and support!",
+		extra: "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
 		features: [],
 		fixes: [
 			{
