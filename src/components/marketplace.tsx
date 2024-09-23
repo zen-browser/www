@@ -11,7 +11,7 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	const [tags, setTags] = React.useState<string[]>(["all"]);
 
 	return (
-		<div className="mx-auto flex flex-col md:flex-row h-full w-full relative">
+		<div className="mx-auto flex flex-col lg:flex-row h-full w-full relative">
 			<div className="relative shadow bg-surface w-full lg:w-fit lg:rounded-br-lg lg:rounded-tr-lg lg:mt-24 py-48 lg:py-32 px-10 dark:bg-[#121212] w-full lg:w-1/2 xl:w-1/3 2xl:w-1/4">
 				<StickyBox
 					className="h-fit min-w-52 text-xs text-muted-foreground lg:mb-0"
