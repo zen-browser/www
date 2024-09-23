@@ -921,7 +921,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"MacOS buttons will now be at the left side of the toolbar",
 			"Updated to the latest version of Firefox (130.0.1)",
 			"Added a way to modify compact mode behavior from right clickin the tab bar",
-			"Added support for a new compact mode design",
+			"No paddings or borders will be shown when in fullscreen no more",
 			"Applied a more consistent design for the tab bar",
 			"Correctly signed the Windows updater",
 		],
