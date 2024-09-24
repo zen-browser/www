@@ -21,8 +21,9 @@ export default function PrivacyPolicy() {
 * [**Bryan Galdámez**](https://josuegalre.netlify.app/): Huge contributor on theme functionalities
 * [**n7itro**](https://github.com/n7itro): Active contributor.
 * [**Canoa**](https://thatcanoa.org/) Active contributor, and very active in issue handling
-* [**Gunir**](https://github.com/gunir): Active contributor.
+* [**BrhmDev**](https://github.com/BrhmDev): Active contributor with great ideas.
 * [**Larvey**](https://github.com/LarveyOfficial/): AUR maintainer.
+* [**Gunir**](https://github.com/gunir): Active contributor.
 
 # Many more contributors
 
