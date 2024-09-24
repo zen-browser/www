@@ -396,8 +396,6 @@ export default function Features() {
 				</div>
 			</div>
 
-			{/* ------------------------------------------------------------------------- */}
-
 			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
   				<div className="relative flex w-full flex-col justify-center p-5 lg:w-1/2 lg:p-12">
     			<h1 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
@@ -464,7 +462,6 @@ export default function Features() {
 
 					)}
 
-						{/* Show individual image when respective feature is selected */}
 					<CachedImage
 						width={1350}
 						height={900}
