@@ -36,7 +36,7 @@ export default async function RootLayout({
 					href="https://www.zen-browser.app/feed.xml"
 				/>
 			</head>
-			<body className={ny(inter.className, 'dark')}>
+			<body className={inter.className}>
 				<ThemeProvider attribute="class" defaultTheme="dark">
 					<StyledComponentsRegistry>
 						<div className="mt-5">
