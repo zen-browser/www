@@ -13,6 +13,14 @@ export default function Footer() {
 					<Logo />
 					<div className="mt-auto">
 						<h1 className="text-2xl font-bold opacity-80">Zen Browser</h1>
+						<a href="https://uptime.zen-browser.app/" className="py-2 px-3 w-fit mt-2 cursor-pointer rounded-md shadow bg-surface flex items-center">
+							<div className="rounded-full size-3 bg-green-500 relative shadow">
+								<div className="rounded-full size-3 bg-green-500 animate-ping absolute top-[-0.2%] z-0" style={{ animationDuration: "1.7s" }}></div>
+							</div>
+							<p className="ml-3 !text-sm font-bold opacity-40">
+								System Status
+							</p>
+						</a>
 						<h2 className="text-md mt-6 font-bold opacity-80">Follow Us</h2>
 						<div className="mt-4 flex opacity-70">
 							<a href="https://github.com/zen-browser">
