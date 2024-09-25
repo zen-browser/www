@@ -566,6 +566,7 @@ export default function Features() {
 					</p>
 					<div className="relative mt-8 flex">
 						<Button
+							data-umami-event="patreon-feature"
 							variant="ghost"
 							onClick={() =>
 								window.open("https://patreon.com/zen_browser", "_blank")
@@ -574,6 +575,7 @@ export default function Features() {
 							Patreon <ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
 						</Button>
 						<Button
+						 	data-umami-event="ko-fi-feature"
 							className="ml-8"
 							variant="ghost"
 							onClick={() =>

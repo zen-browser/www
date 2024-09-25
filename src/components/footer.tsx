@@ -93,10 +93,10 @@ export default function Footer() {
 						<h2 className="text-md mt-8 font-bold opacity-80">Support Us</h2>
 						<ul className="mt-4 font-normal opacity-70">
 							<li>
-								<a href="https://patreon.com/zen_browser">Patreon</a>
+								<a data-umami-event="patreon-fotter" href="https://patreon.com/zen_browser">Patreon</a>
 							</li>
 							<li className="mt-2">
-								<a href="https://ko-fi.com/zen_browser">Ko-fi</a>
+								<a data-umami-event="ko-fi-fotter" href="https://ko-fi.com/zen_browser">Ko-fi</a>
 							</li>
 						</ul>
 					</div>
