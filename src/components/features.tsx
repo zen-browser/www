@@ -102,7 +102,7 @@ export default function Features() {
 							transforming your browser into a personalized digital space.
 						</p>
 						<div className="relative">
-							<Link href="/themes">
+							<Link href="/themes" prefetch={false}>
 								<Button className="mt-8">Browse Themes</Button>
 							</Link>
 						</div>
@@ -119,7 +119,7 @@ export default function Features() {
 							performance improvements.
 						</p>
 						<div className="relative">
-							<Link href="/download">
+							<Link href="/download" prefetch={false}>
 								<Button className="mt-8">Download Now</Button>
 							</Link>
 						</div>
@@ -236,7 +236,7 @@ export default function Features() {
 						multitasking.
 					</p>
 					<div className="relative">
-						<Link href="/download">
+						<Link href="/download" prefetch={false}>
 							<Button className="mt-8">Download Now</Button>
 						</Link>
 					</div>
@@ -299,7 +299,7 @@ export default function Features() {
 								<ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
 							</Button>
 						</a>
-						<Link href="/privacy-policy" target="_blank">
+						<Link href="/privacy-policy" prefetch={false} target="_blank">
 							<Button className="mt-8" variant="ghost">
 								Your Privacy{" "}
 								<ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
@@ -366,7 +366,7 @@ export default function Features() {
 						focus on your work.
 					</p>
 					<div className="relative">
-						<Link href="/download">
+						<Link href="/download" prefetch={false}>
 							<Button className="mt-8">What are you waiting for?</Button>
 						</Link>
 					</div>
@@ -531,7 +531,7 @@ export default function Features() {
 						Download Zen Browser now and experience the future of browsing.
 					</p>
 					<div className="relative">
-						<Link href="/download">
+						<Link href="/download" prefetch={false}>
 							<Button className="mt-8">Download Now</Button>
 						</Link>
 					</div>
