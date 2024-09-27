@@ -529,9 +529,6 @@ export default function DownloadPage() {
 											selectedLinuxDownloadType === "flatpak"
 												? "border-blue-400"
 												: "",
-											selectedArchitecture === "specific"
-												? "cursor-not-allowed opacity-50"
-												: "",
 										)}
 									>
 										<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">
