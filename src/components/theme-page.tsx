@@ -50,7 +50,7 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
 				<Button
 					className="mt-4 hidden !rounded-lg"
 					id="install-theme"
-					data-umami-event={`theme-${theme.id}-Install`}
+					data-umami-event={`theme-${theme.id}-install`}
 					zen-theme-id={theme.id}
 				>
 					Install Theme 🎉
@@ -58,7 +58,7 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
 				<Button
 					className="mt-4 hidden !rounded-lg"
 					id="install-theme-uninstall"
-					data-umami-event={`theme-${theme.id}-Uninstall`}
+					data-umami-event={`theme-${theme.id}-uninstall`}
 					zen-theme-id={theme.id}
 				>
 					Uninstall Theme
