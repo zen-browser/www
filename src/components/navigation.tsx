@@ -93,8 +93,8 @@ export function Navigation() {
 								<ListItem href="/download" title="Download">
 									Start using Zen Browser today with just a few clicks.
 								</ListItem>
-								<ListItem href="/themes" title="Themes Store">
-									Customize your browser with a variety of themes!
+								<ListItem href="/themes" title="Mods Store">
+									Customize your browser with a variety of Mods!
 								</ListItem>
 								<ListItem href="/release-notes" title="Release Notes">
 									Stay up to date with the latest changes.
