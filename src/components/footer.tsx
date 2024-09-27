@@ -54,7 +54,7 @@ export default function Footer() {
 						<h2 className="text-md font-bold opacity-80">Get Help</h2>
 						<ul className="mt-4 font-normal opacity-70">
 							<li>
-								<a href="https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748">
+								<a data-umami-event="footer-discord" href="https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748">
 									Discord
 								</a>
 							</li>
@@ -70,7 +70,7 @@ export default function Footer() {
 								<a href="/about">About Us</a>
 							</li>
 							<li className="mt-2">
-								<a href="/privacy-policy">Privacy Policy</a>
+								<a data-umami-event="footer-privacy-policy" href="/privacy-policy">Privacy Policy</a>
 							</li>
 						</ul>
 					</div>
