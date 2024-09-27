@@ -23,7 +23,7 @@ export default function ThemesSearch({
 					type="text"
 					value={input}
 					onChange={(e) => setInput(e.target.value)}
-					placeholder="Search themes"
+					placeholder="Search Mods"
 					className="w-full border-none bg-transparent text-black focus:border-none focus:outline-none focus:ring-0 dark:text-white"
 				/>
 				{/*
