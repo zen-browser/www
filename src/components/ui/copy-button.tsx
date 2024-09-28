@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "./button";
 import { CopyIcon } from "@radix-ui/react-icons";
 
 import { useClipboard } from "@/lib/hooks";

@@ -4,6 +4,7 @@ import styled, { keyframes } from "styled-components";
 import { ny } from "@/lib/utils";
 import { ChevronLeft, InfoIcon } from "lucide-react";
 import { Button } from "./ui/button";
+import { CopyButton } from "./ui/copy-button";
 import Particles from "./ui/particles";
 import confetti from "canvas-confetti";
 import { releases, releaseTree } from "@/lib/releases";
@@ -13,7 +14,6 @@ const BASE_URL =
 	"https://github.com/zen-browser/desktop/releases/latest/download";
 
 import SparklesText from "./ui/sparkles-text";
-import { CopyButton } from "@/components/ui/copy-button";
 const field_enter = keyframes`
   0% {
     opacity: 0;
