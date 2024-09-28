@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { ny } from "@/lib/utils";
-import { Checkbox } from "./ui/checkbox";
 import { ChevronLeft, InfoIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import Particles from "./ui/particles";
@@ -14,6 +13,7 @@ const BASE_URL =
 	"https://github.com/zen-browser/desktop/releases/latest/download";
 
 import SparklesText from "./ui/sparkles-text";
+import { CopyButton } from "@/components/ui/copy-button";
 const field_enter = keyframes`
   0% {
     opacity: 0;
@@ -191,6 +191,9 @@ export default function DownloadPage() {
 		}
 	};
 
+	const linuxAppimageBashScript =
+		'bash {"<"}(curl https://updates.zen-browser.app/appimage.sh)';
+
 	return (
 		<>
 			<link
@@ -240,8 +243,12 @@ export default function DownloadPage() {
 										If you're using an AppImage, you can use the automatic
 										installer, check it out{" "}
 									</p>
-									<pre className="mt-2 rounded-md bg-background p-2 text-muted-foreground">
-										bash {"<"}(curl https://updates.zen-browser.app/appimage.sh)
+									<pre className="mt-2 flex items-center rounded-md bg-background p-2 text-muted-foreground">
+										{linuxAppimageBashScript}
+										<CopyButton
+											className="ml-3"
+											valueToCopy={linuxAppimageBashScript}
+										/>
 									</pre>
 								</div>
 							)}
