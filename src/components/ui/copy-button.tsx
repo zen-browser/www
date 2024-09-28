@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { Button } from "./button";
-import { CopyIcon } from "@radix-ui/react-icons";
+import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
 
 import { useClipboard } from "@/lib/hooks";
 
@@ -15,6 +15,29 @@ const CopyButton = React.forwardRef<
 >(({ className, valueToCopy, ...props }, ref) => {
 	const copyToClipboard = useClipboard(valueToCopy);
 
+	const [showSuccessIcon, setShowSuccessIcon] = React.useState(false);
+
+	const handleCopy = () => {
+		copyToClipboard();
+		setShowSuccessIcon(true);
+	};
+
+	React.useEffect(() => {
+		let timeout: ReturnType<typeof setTimeout> | null = null;
+
+		if (showSuccessIcon) {
+			timeout = setTimeout(() => {
+				setShowSuccessIcon(false);
+			}, 5000);
+		}
+
+		return () => {
+			if (timeout) {
+				clearTimeout(timeout);
+			}
+		};
+	}, [showSuccessIcon]);
+
 	return (
 		<>
 			<Button
@@ -22,10 +45,14 @@ const CopyButton = React.forwardRef<
 				variant={"ghost"}
 				size={"icon"}
 				className={className}
-				onClick={copyToClipboard}
+				onClick={handleCopy}
 				{...props}
 			>
-				<CopyIcon className="size-4" />
+				{showSuccessIcon ? (
+					<CheckIcon className="size-5 text-green-500" />
+				) : (
+					<CopyIcon className="size-4" />
+				)}
 			</Button>
 		</>
 	);
