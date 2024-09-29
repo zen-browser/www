@@ -1037,7 +1037,7 @@ export const releaseNotes: ReleaseNote[] = [
     {
         version: "1.0.1-a.6",
         date: "29/09/2024",
-        image: false,
+        image: true,
 		workflowId: 11095257662,
 		extra: "This release fixes a few critical bugs and introduces Tab Unloading! Unused tabs will free up memory with this new feature",
 		features: [
