@@ -85,7 +85,7 @@ function Question() {
 }
 
 export default function Features() {
-	const [feature, setFeature] = useState("item-1");
+	const [feature, setFeature] = useState("");
 	return (
 		<section className="w-full flex-col" id="features">
 			<div className="mx-auto mt-16 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
@@ -98,16 +98,13 @@ export default function Features() {
 						<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
 							With Zen's Theme Store, you can customize your browsing experience
 							to reflect your unique style and preferences. Choose from a wide
-							array of themes, colors, and layouts to make Zen truly your own,
+							array of Mods, colors, and layouts to make Zen truly your own,
 							transforming your browser into a personalized digital space.
 						</p>
 						<div className="relative">
-							<Button
-								className="mt-8"
-								onClick={() => window.open("/themes", "_self")}
-							>
-								View Theme Store
-							</Button>
+							<Link href="/themes" prefetch={false}>
+								<Button className="mt-8">Browse Themes</Button>
+							</Link>
 						</div>
 					</div>
 					<hr />
@@ -122,12 +119,9 @@ export default function Features() {
 							performance improvements.
 						</p>
 						<div className="relative">
-							<Button
-								className="mt-8"
-								onClick={() => window.open("/download", "_self")}
-							>
-								Download Now
-							</Button>
+							<Link href="/download" prefetch={false}>
+								<Button className="mt-8">Download Now</Button>
+							</Link>
 						</div>
 					</div>
 				</div>
@@ -146,14 +140,9 @@ export default function Features() {
 							browser.
 						</p>
 						<div className="relative">
-							<Button
-								className="mt-8"
-								onClick={() =>
-									window.open("https://github.com/zen-browser", "_blank")
-								}
-							>
-								GitHub Page
-							</Button>
+							<a href="https://github.com/zen-browser" target="_blank">
+								<Button className="mt-8">GitHub</Button>
+							</a>
 						</div>
 						<div className="mt-14 w-full">
 							<div className="flex items-center">
@@ -247,12 +236,9 @@ export default function Features() {
 						multitasking.
 					</p>
 					<div className="relative">
-						<Button
-							className="mt-8"
-							onClick={() => window.open("/download", "_self")}
-						>
-							Download Now
-						</Button>
+						<Link href="/download" prefetch={false}>
+							<Button className="mt-8">Download Now</Button>
+						</Link>
 					</div>
 				</div>
 			</div>
@@ -307,24 +293,18 @@ export default function Features() {
 						secure, giving you peace of mind as you explore the web.
 					</p>
 					<div className="relative">
-						<Button
-							className="mt-8"
-							variant="ghost"
-							onClick={() =>
-								window.open("https://docs.zen-browser.app/security", "_blank")
-							}
-						>
-							Security in Zen{" "}
-							<ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
-						</Button>
-						<Button
-							className="mt-8"
-							variant="ghost"
-							onClick={() => window.open("/privacy-policy", "_blank")}
-						>
-							Your Privacy{" "}
-							<ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
-						</Button>
+						<a href="https://docs.zen-browser.app/security" target="_blank">
+							<Button className="mt-8" variant="ghost">
+								Security in Zen{" "}
+								<ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
+							</Button>
+						</a>
+						<Link href="/privacy-policy" prefetch={false} target="_blank">
+							<Button className="mt-8" variant="ghost">
+								Your Privacy{" "}
+								<ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
+							</Button>
+						</Link>
 					</div>
 				</div>
 			</div>
@@ -386,15 +366,13 @@ export default function Features() {
 						focus on your work.
 					</p>
 					<div className="relative">
-						<Button
-							className="mt-8"
-							onClick={() => window.open("/download", "_self")}
-						>
-							What are you waiting for?
-						</Button>
+						<Link href="/download" prefetch={false}>
+							<Button className="mt-8">What are you waiting for?</Button>
+						</Link>
 					</div>
 				</div>
 			</div>
+
 			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
 				<div className="relative flex w-full flex-col justify-center p-5 lg:w-1/2 lg:p-12">
 					<h1 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
@@ -404,8 +382,9 @@ export default function Features() {
 					<Accordion
 						type="single"
 						value={feature}
-						onValueChange={setFeature}
-						defaultValue="item-1"
+						onValueChange={(value) =>
+							setFeature(value === feature ? "" : value)
+						}
 						className="mt-8"
 					>
 						<AccordionItem value="item-1">
@@ -429,13 +408,45 @@ export default function Features() {
 							<AccordionContent>
 								Zen Browser is built on top of Firefox, which is known for its
 								security features. We also have additional security features
-								like https only built into Zen Browser to help keep you safe
+								like HTTPS only built into Zen Browser to help keep you safe
 								online.
 							</AccordionContent>
 						</AccordionItem>
 					</Accordion>
 				</div>
+
 				<div className="relative h-auto overflow-hidden rounded-md lg:w-1/2">
+					{feature === "" && (
+						<div className="absolute flex h-full w-full items-center justify-center">
+							<div className="flex w-full flex-col items-center justify-center space-y-6">
+								<div className="flex h-fit w-full max-w-sm animate-fade-in items-center justify-center rounded-full border-2 border-white bg-surface p-4 shadow">
+									<Logo className="h-10 w-10" />
+									<span className="mx-4 text-4xl">+</span>
+									<svg
+										className="relative h-10 w-10 dark:fill-white"
+										xmlns="http://www.w3.org/2000/svg"
+										fillOpacity="context-fill-opacity"
+									>
+										<path
+											style={{ transform: "scale(2) translate(5%, 5%)" }}
+											d="M10.39 0C8.948.788 7.987 2.025 7.767 3.66c-1.017.162-1.768.781-1.768.781s.72-.44 1.736-.511a4.04 4.04 0 0 1 3.789 2.034s-.758-.62-1.928-.468c1.315.68 1.872 2.002 1.701 3.369-.17 1.367-1.183 2.435-2.354 2.723-1.171.287-2.333.099-3.229-.61-.896-.708-1.251-1.533-1.305-2.254.213-.533.541-.812 1.1-1.092.558-.279 1.422-.283 1.572-.283s.8-.507.95-.894c-.726-.363-1.292-.65-1.696-.934-.404-.283-.492-.534-1.012-.898-.307-1.006-.021-1.955-.021-1.955s-1.043.437-1.93 1.49c0 0-.342-.338-.28-2.006-.427.155-1.366 1.004-1.947 1.92a7.277 7.277 0 0 0-.798 1.723A8.296 8.296 0 0 0-.003 8a8 8 0 0 0 16 0c0-2.256-.93-4.252-2.188-5.002 0 0 .542.932.813 2.43-.4-1.04-1.235-2.166-1.877-2.844-.643-.678-2.068-1.88-2.357-2.584z"
+										/>
+									</svg>
+								</div>
+								<div className="flex h-fit w-full max-w-sm animate-fade-in items-center justify-center rounded-full border-2 border-white bg-surface p-4 shadow">
+									<LockClosedIcon className="h-10 w-10" />
+									<span className="mx-4 text-4xl">+</span>
+									<EyeClosedIcon className="h-10 w-10" />
+								</div>
+								<div className="flex h-fit w-full max-w-sm animate-fade-in items-center justify-center rounded-full border-2 border-white bg-surface p-4 shadow">
+									<ShieldCheck className="h-10 w-10" />
+									<span className="mx-4 text-4xl">+</span>
+									<ShieldAlertIcon className="h-10 w-10" />
+								</div>
+							</div>
+						</div>
+					)}
+
 					<CachedImage
 						width={1350}
 						height={900}
@@ -443,7 +454,7 @@ export default function Features() {
 						alt="Zen Browser"
 						className="robject-right ounded-md h-full w-full object-cover"
 					/>
-					{feature == "item-1" && (
+					{feature === "item-1" && (
 						<div className="absolute left-0 top-0 grid h-full w-full grid-rows-3">
 							<div></div>
 							<div className="tems-center m-auto flex h-fit w-fit animate-fade-in rounded-full border-2 border-white bg-surface p-4 shadow">
@@ -470,7 +481,8 @@ export default function Features() {
 							</a>
 						</div>
 					)}
-					{feature == "item-2" && (
+
+					{feature === "item-2" && (
 						<div className="absolute left-0 top-0 grid h-full w-full grid-rows-3">
 							<div></div>
 							<div className="tems-center m-auto flex h-fit w-fit animate-fade-in rounded-full border-2 border-white bg-surface p-4 shadow">
@@ -488,7 +500,8 @@ export default function Features() {
 							</a>
 						</div>
 					)}
-					{feature == "item-3" && (
+
+					{feature === "item-3" && (
 						<div className="absolute left-0 top-0 grid h-full w-full grid-rows-3">
 							<div></div>
 							<div className="tems-center m-auto flex h-fit w-fit animate-fade-in rounded-full border-2 border-white bg-surface p-4 shadow">
@@ -508,6 +521,7 @@ export default function Features() {
 					)}
 				</div>
 			</div>
+
 			<div className="mx-auto mt-36 flex w-full flex-col bg-surface p-5 shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row lg:p-12">
 				<div className="flex flex-col justify-center p-16 lg:w-1/2">
 					<h3 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
@@ -517,12 +531,9 @@ export default function Features() {
 						Download Zen Browser now and experience the future of browsing.
 					</p>
 					<div className="relative">
-						<Button
-							className="mt-8"
-							onClick={() => window.open("/download", "_self")}
-						>
-							Download Now
-						</Button>
+						<Link href="/download" prefetch={false}>
+							<Button className="mt-8">Download Now</Button>
+						</Link>
 					</div>
 				</div>
 				<div className="mx-2 h-[1px] border-t lg:h-[unset] lg:w-[1px] lg:border-l lg:border-t-0"></div>
@@ -536,23 +547,20 @@ export default function Features() {
 						cause.
 					</p>
 					<div className="relative mt-8 flex">
-						<Button
-							variant="ghost"
-							onClick={() =>
-								window.open("https://patreon.com/zen_browser", "_blank")
-							}
-						>
-							Patreon <ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
-						</Button>
-						<Button
-							className="ml-8"
-							variant="ghost"
-							onClick={() =>
-								window.open("https://ko-fi.com/zen_browser", "_blank")
-							}
-						>
-							Ko-fi <ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
-						</Button>
+						<a href="https://patreon.com/zen_browser" target="_blank">
+							<Button data-umami-event="patreon-feature" variant="ghost">
+								Patreon <ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
+							</Button>
+						</a>
+						<a href="https://ko-fi.com/zen_browser" target="_blank">
+							<Button
+								data-umami-event="ko-fi-feature"
+								className="ml-8"
+								variant="ghost"
+							>
+								Ko-fi <ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
+							</Button>
+						</a>
 					</div>
 				</div>
 			</div>

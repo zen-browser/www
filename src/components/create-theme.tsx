@@ -291,7 +291,7 @@ export default function CreateThemePage() {
 							<div className="ml-4 h-11 w-11 rounded-lg border bg-[var(--zen-dialog-background)]"></div>
 						</div>
 						<div className="text-md mt-8 font-bold text-muted-foreground">
-							Right now, we aren't taking more color themes for the browser,
+							Right now, we aren't taking more color Mods for the browser,
 							until we find a way to make it more accessible for everyone.
 							However, you can still create your own theme and share it with the
 							community.

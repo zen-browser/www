@@ -994,7 +994,7 @@ export const releaseNotes: ReleaseNote[] = [
 		fixes: [
 			{
 				description: "The New Tab button is not visible",
-				isse: 1640,
+				issue: 1640,
 			},
 			{
 				description: "The Unified Extensions button is not visible",
@@ -1009,12 +1009,31 @@ export const releaseNotes: ReleaseNote[] = [
 			},
             {
                 description: "Fixed an issue with reordering tabs",
-            },
-            {
-				description: "Fixed an issue with ⌘ keyboard shortcuts on macOS",
-			},
+            }
 		],
 	},
+    {
+        version: "1.0.1-a.5",
+        date: "24/09/2024",
+        image: false,
+		workflowId: 11020784612,
+		extra: "This update is a small patch to fix some issues that weren't addressed in the previous release!",
+		features: [
+            "Moved application menu button to the right",
+            "Added new shortcuts",
+            "Collapsed tab sidebar is now smaller"
+        ],  
+        fixes: [
+            {
+                description: "Fixed issue with hovering over window control buttons (macOS)",
+            },
+            {
+                description: "(Hopefully) resolved all issues with keyboard shortcuts",
+                issue: 1629
+            },
+
+        ],
+    }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {

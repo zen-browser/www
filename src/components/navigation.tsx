@@ -93,8 +93,8 @@ export function Navigation() {
 								<ListItem href="/download" title="Download">
 									Start using Zen Browser today with just a few clicks.
 								</ListItem>
-								<ListItem href="/themes" title="Themes Store">
-									Customize your browser with a variety of themes!
+								<ListItem href="/themes" title="Mods Store">
+									Customize your browser with a variety of Mods!
 								</ListItem>
 								<ListItem href="/release-notes" title="Release Notes">
 									Stay up to date with the latest changes.
@@ -109,20 +109,20 @@ export function Navigation() {
 						</NavigationMenuTrigger>
 						<NavigationMenuContent>
 							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-								<ListItem
+								<ListItem2
 									title="Patreon"
 									href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
 								>
 									Support us on Patreon and get exclusive rewards and keep the
 									project alive.
-								</ListItem>
-								<ListItem
+								</ListItem2>
+								<ListItem2
 									title="Ko-Fi"
 									href="https://ko-fi.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
 								>
 									Ko-fi is a way to support us with a one-time donation and help
 									us keep the project alive.
-								</ListItem>
+								</ListItem2>
 							</ul>
 						</NavigationMenuContent>
 					</NavigationMenuItem>
@@ -173,4 +173,30 @@ const ListItem = React.forwardRef<
 		</li>
 	);
 });
+const ListItem2 = React.forwardRef<
+	React.ElementRef<"a">,
+	React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+	return (
+		<li>
+			<NavigationMenuLink asChild>
+				<a
+					data-umami-event={title}
+					ref={ref}
+					className={ny(
+						"block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+						className,
+					)}
+					{...props}
+				>
+					<div className="text-sm font-medium leading-none">{title}</div>
+					<p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+						{children}
+					</p>
+				</a>
+			</NavigationMenuLink>
+		</li>
+	);
+});
 ListItem.displayName = "ListItem";
+ListItem.displayName = "ListItem2";
