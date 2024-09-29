@@ -1043,6 +1043,10 @@ export const releaseNotes: ReleaseNote[] = [
 		features: [
             "Added Paste and Go button",
             "Added Tab Unloading",
+            "Sidebar Web Panel can now be moved freely",
+            "Added warning when shortcut setting changes are unsaved",
+            "Enabled container tabs by default",
+            "Improved Expand Tabs on Hover layout"
         ],  
         fixes: [
             {
@@ -1067,6 +1071,13 @@ export const releaseNotes: ReleaseNote[] = [
             {
                 description: "Fixed keyboard shortcuts not saving",
                 issue: 1715
+            },
+            {
+                description: "Fixed workspace names that start with an emoji",
+                issue: 1732
+            },
+            {
+                description: "Fixed shortcut keys incorrectly displayed on macOS"
             }
         ]
     }
