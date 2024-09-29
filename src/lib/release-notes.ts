@@ -1033,6 +1033,42 @@ export const releaseNotes: ReleaseNote[] = [
             },
 
         ],
+    },
+    {
+        version: "1.0.1-a.6",
+        date: "29/09/2024",
+        image: false,
+		workflowId: 11095257662,
+		extra: "This release fixes a few critical bugs and introduces Tab Unloading! Unused tabs will free up memory with this new feature",
+		features: [
+            "Added Paste and Go button",
+            "Added Tab Unloading",
+        ],  
+        fixes: [
+            {
+                description: "Fixed Firefox add-ons not updating",
+                issue: 1173
+            },
+            {
+                description: "Fixed expand-on-hover shifting web page",
+                issue: 1718
+            },
+            {
+                description: "Fixed cycling between workspaces with shortcuts",
+            },
+            {
+                description: "Removed duplicate shortcut options in the settings",
+                issue: 1784
+            },
+            {
+                description: "Restored missing keyboard shortcuts",
+                issue: 1706
+            },
+            {
+                description: "Fixed keyboard shortcuts not saving",
+                issue: 1715
+            }
+        ]
     }
 ].reverse();
 
