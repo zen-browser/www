@@ -192,7 +192,7 @@ export default function DownloadPage() {
 	};
 
 	const linuxAppimageBashScript =
-		'bash {"<"}(curl https://updates.zen-browser.app/appimage.sh)';
+		'bash <(curl https://updates.zen-browser.app/appimage.sh)';
 
 	return (
 		<>
