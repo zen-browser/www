@@ -1047,7 +1047,13 @@ export const releaseNotes: ReleaseNote[] = [
             "Added warning when shortcut setting changes are unsaved",
             "Enabled container tabs by default",
             "Improved Expand Tabs on Hover layout"
-        ],  
+        ],
+	    themeChanges: [
+		    "Toggle inputs will not use the themed tertiary color",
+		    ],
+	    breakingChanges: [
+		"The keyboard shortcuts will be overriden by the defaults ones in this update.",    
+	    ],
         fixes: [
             {
                 description: "Fixed Firefox add-ons not updating",
