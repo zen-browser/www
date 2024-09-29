@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { ny } from "@/lib/utils";
-import { Checkbox } from "./ui/checkbox";
 import { ChevronLeft, InfoIcon } from "lucide-react";
 import { Button } from "./ui/button";
+import { CopyButton } from "./ui/copy-button";
 import Particles from "./ui/particles";
 import confetti from "canvas-confetti";
 import { releases, releaseTree } from "@/lib/releases";
@@ -189,6 +189,9 @@ export default function DownloadPage() {
 		setSelectedLinuxDownloadType("flatpak");
 	};
 
+	const linuxAppimageBashScript =
+		'bash <(curl https://updates.zen-browser.app/appimage.sh)';
+
 	return (
 		<>
 			<link
@@ -238,8 +241,12 @@ export default function DownloadPage() {
 										If you're using an AppImage, you can use the automatic
 										installer, check it out{" "}
 									</p>
-									<pre className="mt-2 rounded-md bg-background p-2 text-muted-foreground">
-										bash {"<"}(curl https://updates.zen-browser.app/appimage.sh)
+									<pre className="mt-2 flex items-center rounded-md bg-background p-2 text-muted-foreground">
+										{linuxAppimageBashScript}
+										<CopyButton
+											className="ml-3"
+											valueToCopy={linuxAppimageBashScript}
+										/>
 									</pre>
 								</div>
 							)}
