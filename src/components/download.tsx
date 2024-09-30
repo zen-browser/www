@@ -190,7 +190,10 @@ export default function DownloadPage() {
 	};
 
 	const linuxAppimageBashScript =
-		'bash <(curl https://updates.zen-browser.app/appimage.sh)';
+		"bash <(curl https://updates.zen-browser.app/appimage.sh)";
+
+	const linuxFlatpakScript =
+		"flatpak install flathub io.github.zen_browser.zen";
 
 	return (
 		<>
@@ -241,11 +244,28 @@ export default function DownloadPage() {
 										If you're using an AppImage, you can use the automatic
 										installer, check it out{" "}
 									</p>
-									<pre className="mt-2 flex items-center rounded-md bg-background p-2 text-muted-foreground">
+									<pre className="mt-2 flex items-center justify-between rounded-md bg-background p-2 text-muted-foreground">
 										{linuxAppimageBashScript}
 										<CopyButton
-											className="ml-3"
 											valueToCopy={linuxAppimageBashScript}
+										/>
+									</pre>
+								</div>
+							)}
+							{selectedLinuxDownloadType === "flatpak" && (
+								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
+									<div className="flex">
+										<InfoIcon className="size-4" />
+										<p className="ml-3 font-bold">Flatpak users?</p>
+									</div>
+									<p className="mt-2 text-muted-foreground">
+										If you're using Flatpak, you can install Zen Browser with
+										the following command
+									</p>
+									<pre className="mt-2 flex items-center justify-between rounded-md bg-background p-2 text-muted-foreground">
+										{linuxFlatpakScript}
+										<CopyButton
+											valueToCopy={linuxFlatpakScript}
 										/>
 									</pre>
 								</div>
@@ -533,7 +553,7 @@ export default function DownloadPage() {
 											"mb-2 ml-5 flex h-full w-full cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
 											selectedLinuxDownloadType === "flatpak"
 												? "border-blue-400"
-												: ""
+												: "",
 										)}
 									>
 										<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">
