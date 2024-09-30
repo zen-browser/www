@@ -9,8 +9,58 @@ import { Accordion, AccordionItem } from "@radix-ui/react-accordion";
 import { AccordionContent, AccordionTrigger } from "./ui/accordion";
 import { ny } from "@/lib/utils";
 
-export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
+function DateContainer({ data }: { data: ReleaseNote }) {
 	const splitDate = data.date.split("/");
+	return (
+		<>
+			{moment({
+				year: parseInt(splitDate[2]),
+				month: parseInt(splitDate[1]) - 1,
+				day: parseInt(splitDate[0]),
+			}).format("MMMM Do, YYYY")}
+			<div className="mt-2 flex items-center text-blue-500 opacity-60">
+				<a
+					href={`https://github.com/zen-browser/desktop/releases/tag/${data.version}`}
+				>
+					GitHub Release
+				</a>
+				{data.workflowId && (
+					<>
+						<span className="mx-1 text-muted-foreground">•</span>
+						<a
+							href={`https://github.com/zen-browser/desktop/actions/runs/${data.workflowId}`}
+						>
+							Workflow Run
+						</a>
+					</>
+				)}
+			</div>
+			{data.inProgress && (
+				<div className="mt-5 flex">
+					<ExclamationTriangleIcon className="mr-3 size-6 text-yellow-500 opacity-60" />
+					<div>
+						<p>This release is still in progress, stay tuned!</p>
+						<p className="mt-2">
+							Consider joining our{" "}
+							<a
+								href="https://discord.gg/zen-browser"
+								className="text-blue-500"
+							>
+								Discord
+							</a>{" "}
+							for update pings!
+						</p>
+					</div>
+				</div>
+			)}
+		</>
+	);
+}
+
+const dateContainerStyles =
+	"ml-10 mr-24 mt-1 h-fit min-w-52 text-xs text-muted-foreground";
+
+export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 	return (
 		<section
 			className={ny(
@@ -20,51 +70,15 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 			id={data.version}
 		>
 			<StickyBox
-				className="mb-6 ml-10 mr-24 mt-1 h-fit min-w-52 text-xs text-muted-foreground lg:mb-0"
+				className={ny("mb-0 hidden lg:block", dateContainerStyles)}
 				offsetTop={120}
 			>
-				{moment({
-					year: parseInt(splitDate[2]),
-					month: parseInt(splitDate[1]) - 1,
-					day: parseInt(splitDate[0]),
-				}).format("MMMM Do, YYYY")}
-				<div className="mt-2 flex items-center text-blue-500 opacity-60">
-					<a
-						href={`https://github.com/zen-browser/desktop/releases/tag/${data.version}`}
-					>
-						GitHub Release
-					</a>
-					{data.workflowId && (
-						<>
-							<span className="mx-1 text-muted-foreground">•</span>
-							<a
-								href={`https://github.com/zen-browser/desktop/actions/runs/${data.workflowId}`}
-							>
-								Workflow Run
-							</a>
-						</>
-					)}
-				</div>
-				{data.inProgress && (
-					<div className="mt-5 flex">
-						<ExclamationTriangleIcon className="mr-3 size-6 text-yellow-500 opacity-60" />
-						<div>
-							<p>This release is still in progress, stay tuned!</p>
-							<p className="mt-2">
-								Consider joining our{" "}
-								<a
-									href="https://discord.gg/zen-browser"
-									className="text-blue-500"
-								>
-									Discord
-								</a>{" "}
-								for update pings!
-							</p>
-						</div>
-					</div>
-				)}
+				<DateContainer data={data} />
 			</StickyBox>
-			<div className="px-5 md:px-0 md:px-10 md:pr-32">
+			<div className={ny("mb-6 block lg:hidden", dateContainerStyles)}>
+				<DateContainer data={data} />
+			</div>
+			<div className="px-5 md:px-10 md:pr-32">
 				<h1 className="text-3xl font-bold">
 					Release notes for {data.version} 🎉
 				</h1>
