@@ -985,12 +985,11 @@ export const releaseNotes: ReleaseNote[] = [
 	{
 		version: "1.0.1-a.4",
 		date: "23/09/2024",
-        image: true,
+		image: true,
 		workflowId: 11000317603,
-		extra: "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-		features: [
-            "Added a new system for handling keyboard shortcuts",
-        ],
+		extra:
+			"This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
+		features: ["Added a new system for handling keyboard shortcuts"],
 		fixes: [
 			{
 				description: "The New Tab button is not visible",
@@ -1005,88 +1004,106 @@ export const releaseNotes: ReleaseNote[] = [
 				issue: 1636,
 			},
 			{
-				description: "Expand-on-hover doesn't work properly when compact mode is enabled",
+				description:
+					"Expand-on-hover doesn't work properly when compact mode is enabled",
 			},
-            {
-                description: "Fixed an issue with reordering tabs",
-            }
+			{
+				description: "Fixed an issue with reordering tabs",
+			},
 		],
 	},
-    {
-        version: "1.0.1-a.5",
-        date: "24/09/2024",
-        image: false,
+	{
+		version: "1.0.1-a.5",
+		date: "24/09/2024",
+		image: false,
 		workflowId: 11020784612,
-		extra: "This update is a small patch to fix some issues that weren't addressed in the previous release!",
+		extra:
+			"This update is a small patch to fix some issues that weren't addressed in the previous release!",
 		features: [
-            "Moved application menu button to the right",
-            "Added new shortcuts",
-            "Collapsed tab sidebar is now smaller"
-        ],  
-        fixes: [
-            {
-                description: "Fixed issue with hovering over window control buttons (macOS)",
-            },
-            {
-                description: "(Hopefully) resolved all issues with keyboard shortcuts",
-                issue: 1629
-            },
-
-        ],
-    },
-    {
-        version: "1.0.1-a.6",
-        date: "29/09/2024",
-        image: true,
+			"Moved application menu button to the right",
+			"Added new shortcuts",
+			"Collapsed tab sidebar is now smaller",
+		],
+		fixes: [
+			{
+				description:
+					"Fixed issue with hovering over window control buttons (macOS)",
+			},
+			{
+				description: "(Hopefully) resolved all issues with keyboard shortcuts",
+				issue: 1629,
+			},
+		],
+	},
+	{
+		version: "1.0.1-a.6",
+		date: "29/09/2024",
+		image: true,
 		workflowId: 11095257662,
-		extra: "This release fixes a few critical bugs and introduces Tab Unloading! Unused tabs will free up memory with this new feature",
+		extra:
+			"This release fixes a few critical bugs and introduces Tab Unloading! Unused tabs will free up memory with this new feature",
 		features: [
-            "Added Paste and Go button",
-            "Added Tab Unloading",
-            "Sidebar Web Panel can now be moved freely",
-            "Added warning when shortcut setting changes are unsaved",
-            "Enabled container tabs by default",
-            "Improved Expand Tabs on Hover layout"
-        ],
-	    themeChanges: [
-		    "Toggle inputs will not use the themed tertiary color",
-		    ],
-	    breakingChanges: [
-		"The keyboard shortcuts will be overriden by the defaults ones in this update.",    
-	    ],
-        fixes: [
-            {
-                description: "Fixed Firefox add-ons not updating",
-                issue: 1173
-            },
-            {
-                description: "Fixed expand-on-hover shifting web page",
-                issue: 1718
-            },
-            {
-                description: "Fixed cycling between workspaces with shortcuts",
-            },
-            {
-                description: "Removed duplicate shortcut options in the settings",
-                issue: 1784
-            },
-            {
-                description: "Restored missing keyboard shortcuts",
-                issue: 1706
-            },
-            {
-                description: "Fixed keyboard shortcuts not saving",
-                issue: 1715
-            },
-            {
-                description: "Fixed workspace names that start with an emoji",
-                issue: 1732
-            },
-            {
-                description: "Fixed shortcut keys incorrectly displayed on macOS"
-            }
-        ]
-    }
+			"Added Paste and Go button",
+			"Added Tab Unloading",
+			"Sidebar Web Panel can now be moved freely",
+			"Added warning when shortcut setting changes are unsaved",
+			"Enabled container tabs by default",
+			"Improved Expand Tabs on Hover layout",
+		],
+		themeChanges: ["Toggle inputs will not use the themed tertiary color"],
+		breakingChanges: [
+			"The keyboard shortcuts will be overriden by the defaults ones in this update.",
+		],
+		fixes: [
+			{
+				description: "Fixed Firefox add-ons not updating",
+				issue: 1173,
+			},
+			{
+				description: "Fixed expand-on-hover shifting web page",
+				issue: 1718,
+			},
+			{
+				description: "Fixed cycling between workspaces with shortcuts",
+			},
+			{
+				description: "Removed duplicate shortcut options in the settings",
+				issue: 1784,
+			},
+			{
+				description: "Restored missing keyboard shortcuts",
+				issue: 1706,
+			},
+			{
+				description: "Fixed keyboard shortcuts not saving",
+				issue: 1715,
+			},
+			{
+				description: "Fixed workspace names that start with an emoji",
+				issue: 1732,
+			},
+			{
+				description: "Fixed shortcut keys incorrectly displayed on macOS",
+			},
+		],
+	},
+	{
+		version: "1.0.1-a.7",
+		date: "01/10/2024",
+		image: false,
+		workflowId: 11108707060,
+		extra:
+			"This release is a really small release to fix a very important bug that was introduced in the previous release.",
+		fixes: [
+			{
+				description:
+					"Fixed a critical issue with the sidebar being 1 pixel small",
+			},
+			{
+				description: "Fixed tabs separation always showing",
+			},
+		],
+	},
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {

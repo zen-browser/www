@@ -13,9 +13,16 @@ export default function Footer() {
 					<Logo />
 					<div className="mt-auto">
 						<h1 className="text-2xl font-bold opacity-80">Zen Browser</h1>
-						<a data-umami-event="footer-status" href="https://uptime.zen-browser.app/" className="py-2 px-3 w-fit mt-2 cursor-pointer rounded-md shadow bg-surface flex items-center">
-							<div className="rounded-full size-3 bg-green-500 relative shadow">
-								<div className="rounded-full size-3 bg-green-500 animate-ping absolute top-[-0.2%] z-0" style={{ animationDuration: "1.7s" }}></div>
+						<a
+							data-umami-event="footer-status"
+							href="https://uptime.zen-browser.app/"
+							className="mt-2 flex w-fit cursor-pointer items-center rounded-md bg-surface px-3 py-2 shadow"
+						>
+							<div className="relative size-3 rounded-full bg-green-500 shadow">
+								<div
+									className="absolute top-[-0.2%] z-0 size-3 animate-ping rounded-full bg-green-500"
+									style={{ animationDuration: "1.7s" }}
+								></div>
 							</div>
 							<p className="ml-3 !text-sm font-bold opacity-40">
 								System Status
@@ -54,7 +61,10 @@ export default function Footer() {
 						<h2 className="text-md font-bold opacity-80">Get Help</h2>
 						<ul className="mt-4 font-normal opacity-70">
 							<li>
-								<a data-umami-event="footer-discord" href="https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748">
+								<a
+									data-umami-event="footer-discord"
+									href="https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748"
+								>
 									Discord
 								</a>
 							</li>
@@ -70,7 +80,12 @@ export default function Footer() {
 								<a href="/about">About Us</a>
 							</li>
 							<li className="mt-2">
-								<a data-umami-event="footer-privacy-policy" href="/privacy-policy">Privacy Policy</a>
+								<a
+									data-umami-event="footer-privacy-policy"
+									href="/privacy-policy"
+								>
+									Privacy Policy
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -93,10 +108,20 @@ export default function Footer() {
 						<h2 className="text-md mt-8 font-bold opacity-80">Support Us</h2>
 						<ul className="mt-4 font-normal opacity-70">
 							<li>
-								<a data-umami-event="patreon-fotter" href="https://patreon.com/zen_browser">Patreon</a>
+								<a
+									data-umami-event="patreon-fotter"
+									href="https://patreon.com/zen_browser"
+								>
+									Patreon
+								</a>
 							</li>
 							<li className="mt-2">
-								<a data-umami-event="ko-fi-fotter" href="https://ko-fi.com/zen_browser">Ko-fi</a>
+								<a
+									data-umami-event="ko-fi-fotter"
+									href="https://ko-fi.com/zen_browser"
+								>
+									Ko-fi
+								</a>
 							</li>
 						</ul>
 					</div>
