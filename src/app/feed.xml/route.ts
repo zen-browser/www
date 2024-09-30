@@ -80,7 +80,7 @@ function formatReleaseNote(releaseNote: ReleaseNote) {
     if (releaseNote.image) {
         content += `<img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/releases/${releaseNote.version}.png" 
                          alt="Release Image for version ${releaseNote.version}" 
-                         style="max-width: 100%; border-radius: 0.5rem;" 
+                         style="max-width: 30em; width: 100%; border-radius: 0.5rem;" 
                     />`;
     }
 
