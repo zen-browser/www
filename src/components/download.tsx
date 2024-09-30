@@ -459,11 +459,11 @@ export default function DownloadPage() {
 								<FieldDescription>
 									Choose the type of download you want for Zen for Windows.
 								</FieldDescription>
-								<div className="flex items-center justify-center">
+								<div className="flex items-stretch justify-center">
 									<div
 										onClick={() => setSelectedWindowsDownloadType("installer")}
 										className={ny(
-											"mb-2 flex h-full w-full cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
+											"mb-2 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
 											selectedWindowsDownloadType === "installer"
 												? "border-blue-400"
 												: "",
@@ -480,7 +480,7 @@ export default function DownloadPage() {
 									<div
 										onClick={() => setSelectedWindowsDownloadType("portable")}
 										className={ny(
-											"mb-2 ml-10 flex h-full w-full cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
+											"mb-2 ml-10 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
 											selectedWindowsDownloadType === "portable"
 												? "border-blue-400"
 												: "",
