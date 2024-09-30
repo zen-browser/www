@@ -72,8 +72,17 @@ function formatRssDate(dateStr: string) {
  * @returns The formatted release note as a HTML string.
  */
 function formatReleaseNote(releaseNote: ReleaseNote) {
-	let content =
-		'<p>If you encounter any issues, please report them on <a href="https://github.com/zen-browser/desktop/issues/">the issues page</a>. Thanks everyone for your feedback! ❤️</p>';
+	let content = `<p>
+        If you encounter any issues, please report them on <a href="https://github.com/zen-browser/desktop/issues/">the issues page</a>. 
+        Thanks everyone for your feedback! ❤️
+    </p>`;
+
+    if (releaseNote.image) {
+        content += `<img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/releases/${releaseNote.version}.png" 
+                         alt="Release Image for version ${releaseNote.version}" 
+                         style="max-width: 100%; border-radius: 0.5rem;" 
+                    />`;
+    }
 
 	if (releaseNote.extra) {
 		content += `<p>${releaseNote.extra.replace(/(\n)/g, "<br />")}</p>`;
@@ -110,7 +119,7 @@ function fixToReleaseNote(fix?: Exclude<ReleaseNote['fixes'], undefined>[number]
 
     let note = fix.description;
     if (fix.issue) {
-        note += ` (<a href="https://github.com/zen-browser/desktop/issues/${fix.issue}">#${fix.issue}</a>)`;
+        note += ` (<a href="https://github.com/zen-browser/desktop/issues/${fix.issue}" target="_blank">#${fix.issue}</a>)`;
     }
     return note;
 }
