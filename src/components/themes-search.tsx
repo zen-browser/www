@@ -52,7 +52,7 @@ export default function ThemesSearch({
 						key={tag}
 						onClick={() => setTags([tag])}
 						className={ny(
-							`!rounded-full px-5 !min-w-24 !py-2 !h-fit ${tags.includes(tag) ? "bg-black text-white dark:bg-white dark:text-black" : ""}`,
+							`!h-fit !min-w-24 !rounded-full !py-2 px-5 ${tags.includes(tag) ? "bg-black text-white dark:bg-white dark:text-black" : ""}`,
 						)}
 					>
 						{tag.replace(/-/g, " ")}

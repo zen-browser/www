@@ -190,7 +190,7 @@ export default function DownloadPage() {
 	};
 
 	const linuxAppimageBashScript =
-		'bash <(curl https://updates.zen-browser.app/appimage.sh)';
+		"bash <(curl https://updates.zen-browser.app/appimage.sh)";
 
 	return (
 		<>
@@ -533,7 +533,7 @@ export default function DownloadPage() {
 											"mb-2 ml-5 flex h-full w-full cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
 											selectedLinuxDownloadType === "flatpak"
 												? "border-blue-400"
-												: ""
+												: "",
 										)}
 									>
 										<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">
