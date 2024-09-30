@@ -79,32 +79,38 @@ function formatReleaseNote(releaseNote: ReleaseNote) {
 		content += `<p>${releaseNote.extra.replace(/(\n)/g, "<br />")}</p>`;
 	}
 
-	if (releaseNote.breakingChanges) {
-		content += `<h2>⚠️ Breaking changes</h2>`;
-		content += `<ul>`;
-		for (const breakingChange of releaseNote.breakingChanges) {
-			content += `<li>${breakingChange}</li>`;
-		}
-		content += `</ul>`;
-	}
-
-	if (releaseNote.features) {
-		content += `<h2>⭐ Features</h2>`;
-		content += `<ul>`;
-		for (const feature of releaseNote.features) {
-			content += `<li>${feature}</li>`;
-		}
-		content += `</ul>`;
-	}
-
-	if (releaseNote.fixes) {
-		content += `<h2>✓ Fixes</h2>`;
-		content += `<ul>`;
-		for (const fix of releaseNote.fixes) {
-			content += `<li>${fix.description}</li>`;
-		}
-		content += `</ul>`;
-	}
+    content += addReleaseNoteSection("⚠️ Breaking changes", releaseNote.breakingChanges);
+    content += addReleaseNoteSection("✓ Fixes", releaseNote.fixes?.map(fixToReleaseNote));
+    content += addReleaseNoteSection("🖌 Theme Changes", releaseNote.themeChanges)
+    content += addReleaseNoteSection("⭐ Features", releaseNote.features);
 
 	return content;
+}
+
+function addReleaseNoteSection(title: string, items?: string[]): string {
+    if (!items) {
+        return "";
+    }
+
+    let content = `<h2>${title}</h2>`;
+    content += `<ul>`;
+    for (const item of items) {
+        if (item && item.length > 0) {
+            content += `<li>${item}</li>`;
+        }
+    }
+    content += `</ul>`;
+    return content;
+}
+
+function fixToReleaseNote(fix?: Exclude<ReleaseNote['fixes'], undefined>[number]) {
+    if (!fix || !fix.description || fix.description.length === 0) {
+        return "";
+    }
+
+    let note = fix.description;
+    if (fix.issue) {
+        note += ` (<a href="https://github.com/zen-browser/desktop/issues/${fix.issue}">#${fix.issue}</a>)`;
+    }
+    return note;
 }
