@@ -236,7 +236,7 @@ export default function DownloadPage() {
 							</div>
 							{selectedLinuxDownloadType === "appimage" && (
 								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
-									<div className="flex">
+									<div className="flex items-center">
 										<InfoIcon className="size-4" />
 										<p className="ml-3 font-bold">AppImage users?</p>
 									</div>
@@ -254,7 +254,7 @@ export default function DownloadPage() {
 							)}
 							{selectedLinuxDownloadType === "flatpak" && (
 								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
-									<div className="flex">
+									<div className="flex items-center">
 										<InfoIcon className="size-4" />
 										<p className="ml-3 font-bold">Flatpak users?</p>
 									</div>
