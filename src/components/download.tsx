@@ -363,11 +363,11 @@ export default function DownloadPage() {
 										Choose the architecture of your device, either optimized or
 										generic.
 									</FieldDescription>
-									<div className="flex items-center justify-center">
+									<div className="flex items-stretch justify-center">
 										<div
 											onClick={() => setSelectedArchitecture("specific")}
 											className={ny(
-												"mb-2 flex h-full w-full cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
+												"mb-2 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
 												selectedArchitecture === "specific"
 													? "border-blue-400"
 													: "",
@@ -384,7 +384,7 @@ export default function DownloadPage() {
 										<div
 											onClick={() => setSelectedArchitecture("generic")}
 											className={ny(
-												"mb-2 ml-10 flex h-full w-full cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
+												"mb-2 ml-10 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
 												selectedArchitecture === "generic"
 													? "border-blue-400"
 													: "",
