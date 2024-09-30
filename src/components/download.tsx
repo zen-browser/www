@@ -246,9 +246,7 @@ export default function DownloadPage() {
 									</p>
 									<pre className="mt-2 flex items-center justify-between rounded-md bg-background p-2 text-muted-foreground">
 										{linuxAppimageBashScript}
-										<CopyButton
-											valueToCopy={linuxAppimageBashScript}
-										/>
+										<CopyButton valueToCopy={linuxAppimageBashScript} />
 									</pre>
 								</div>
 							)}
@@ -264,9 +262,7 @@ export default function DownloadPage() {
 									</p>
 									<pre className="mt-2 flex items-center justify-between rounded-md bg-background p-2 text-muted-foreground">
 										{linuxFlatpakScript}
-										<CopyButton
-											valueToCopy={linuxFlatpakScript}
-										/>
+										<CopyButton valueToCopy={linuxFlatpakScript} />
 									</pre>
 								</div>
 							)}
@@ -512,11 +508,11 @@ export default function DownloadPage() {
 								<FieldDescription>
 									Choose the type of download you want for Zen for Linux.
 								</FieldDescription>
-								<div className="flex items-center justify-center">
+								<div className="flex items-stretch justify-center">
 									<div
 										onClick={() => setSelectedLinuxDownloadType("appimage")}
 										className={ny(
-											"mb-2 flex h-full w-full cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
+											"mb-2 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
 											selectedLinuxDownloadType === "appimage"
 												? "border-blue-400"
 												: "",
@@ -533,7 +529,7 @@ export default function DownloadPage() {
 									<div
 										onClick={() => setSelectedLinuxDownloadType("portable")}
 										className={ny(
-											"mb-2 ml-5 flex h-full w-full cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
+											"mb-2 ml-5 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
 											selectedLinuxDownloadType === "portable"
 												? "border-blue-400"
 												: "",
@@ -550,7 +546,7 @@ export default function DownloadPage() {
 									<div
 										onClick={() => changeToFlatpak()}
 										className={ny(
-											"mb-2 ml-5 flex h-full w-full cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
+											"mb-2 ml-5 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
 											selectedLinuxDownloadType === "flatpak"
 												? "border-blue-400"
 												: "",
