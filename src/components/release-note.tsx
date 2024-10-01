@@ -58,7 +58,7 @@ function DateContainer({ data }: { data: ReleaseNote }) {
 }
 
 const dateContainerStyles =
-	"ml-10 mr-24 mt-1 h-fit min-w-52 text-xs text-muted-foreground";
+	"ml-5 md:ml-10 mr-24 mt-1 h-fit min-w-52 text-xs text-muted-foreground";
 
 export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 	return (
