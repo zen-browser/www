@@ -72,39 +72,54 @@ function formatRssDate(dateStr: string) {
  * @returns The formatted release note as a HTML string.
  */
 function formatReleaseNote(releaseNote: ReleaseNote) {
-	let content =
-		'<p>If you encounter any issues, please report them on <a href="https://github.com/zen-browser/desktop/issues/">the issues page</a>. Thanks everyone for your feedback! ❤️</p>';
+	let content = `<p>
+        If you encounter any issues, please report them on <a href="https://github.com/zen-browser/desktop/issues/">the issues page</a>. 
+        Thanks everyone for your feedback! ❤️
+    </p>`;
+
+    if (releaseNote.image) {
+        content += `<img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/releases/${releaseNote.version}.png" 
+                         alt="Release Image for version ${releaseNote.version}" 
+                         style="max-width: 30em; width: 100%; border-radius: 0.5rem;" 
+                    />`;
+    }
 
 	if (releaseNote.extra) {
 		content += `<p>${releaseNote.extra.replace(/(\n)/g, "<br />")}</p>`;
 	}
 
-	if (releaseNote.breakingChanges) {
-		content += `<h2>⚠️ Breaking changes</h2>`;
-		content += `<ul>`;
-		for (const breakingChange of releaseNote.breakingChanges) {
-			content += `<li>${breakingChange}</li>`;
-		}
-		content += `</ul>`;
-	}
-
-	if (releaseNote.features) {
-		content += `<h2>⭐ Features</h2>`;
-		content += `<ul>`;
-		for (const feature of releaseNote.features) {
-			content += `<li>${feature}</li>`;
-		}
-		content += `</ul>`;
-	}
-
-	if (releaseNote.fixes) {
-		content += `<h2>✓ Fixes</h2>`;
-		content += `<ul>`;
-		for (const fix of releaseNote.fixes) {
-			content += `<li>${fix.description}</li>`;
-		}
-		content += `</ul>`;
-	}
+    content += addReleaseNoteSection("⚠️ Breaking changes", releaseNote.breakingChanges);
+    content += addReleaseNoteSection("✓ Fixes", releaseNote.fixes?.map(fixToReleaseNote));
+    content += addReleaseNoteSection("🖌 Theme Changes", releaseNote.themeChanges)
+    content += addReleaseNoteSection("⭐ Features", releaseNote.features);
 
 	return content;
+}
+
+function addReleaseNoteSection(title: string, items?: string[]): string {
+    if (!items) {
+        return "";
+    }
+
+    let content = `<h2>${title}</h2>`;
+    content += `<ul>`;
+    for (const item of items) {
+        if (item && item.length > 0) {
+            content += `<li>${item}</li>`;
+        }
+    }
+    content += `</ul>`;
+    return content;
+}
+
+function fixToReleaseNote(fix?: Exclude<ReleaseNote['fixes'], undefined>[number]) {
+    if (!fix || !fix.description || fix.description.length === 0) {
+        return "";
+    }
+
+    let note = fix.description;
+    if (fix.issue) {
+        note += ` (<a href="https://github.com/zen-browser/desktop/issues/${fix.issue}" target="_blank">#${fix.issue}</a>)`;
+    }
+    return note;
 }
