@@ -74,9 +74,7 @@ const FieldDescription = styled.div`
 
 export default function DownloadPage() {
 	const [platform, setPlatform] = useState<string | null>(null);
-	if (typeof window === "undefined") return null;
-	const searchParams = new URLSearchParams(window.location.search);
-	const [isTwilight, setIsTwilight] = useState(searchParams.has("twilight"));
+	const [isTwilight, setIsTwilight] = useState(false);
 	const [architecture, setArchitecture] = useState<string | null>(null);
 
 	const [selectedPlatform, setSelectedPlatform] = useState("");
@@ -103,6 +101,8 @@ export default function DownloadPage() {
 		if (userAgent.includes("Linux")) {
 			setSelectedPlatform("Linux");
 		}
+		const searchParams = new URLSearchParams(window.location.search);
+		setIsTwilight(searchParams.has("twilight"));
 	}, []);
 	const throwConfetti = () => {
 		const end = Date.now() + 3 * 1000; // 3 seconds
