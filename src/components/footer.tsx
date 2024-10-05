@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Logo from "./logo";
 import TextReveal from "./ui/text-reveal";
-import { DiscordLogoIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { DiscordLogoIcon, GitHubLogoIcon, TwitterLogoIcon } from "@radix-ui/react-icons";
 import { MastodonLogo } from "./icons/mastodon";
 import { Button } from "./ui/button";
 
@@ -38,6 +38,9 @@ export default function Footer() {
 							</a>
 							<a href="https://fosstodon.org/@zenbrowser" className="ml-5">
 								<MastodonLogo className="h-5 w-5" />
+							</a>
+							<a href="https://twitter.com/zen_browser" className="ml-5">
+								<TwitterLogoIcon className="h-5 w-5" />
 							</a>
 						</div>
 					</div>
