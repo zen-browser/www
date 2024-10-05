@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { ny } from "@/lib/utils";
-import { ChevronLeft, InfoIcon } from "lucide-react";
+import { BicepsFlexedIcon, ChevronLeft, InfoIcon, TestTubeDiagonalIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { CopyButton } from "./ui/copy-button";
 import Particles from "./ui/particles";
@@ -12,8 +12,11 @@ import { InfoCircledIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 const BASE_URL =
 	"https://github.com/zen-browser/desktop/releases/latest/download";
+const TWILIGHT_BASE_URL =
+	"https://github.com/zen-browser/desktop/releases/twilight/download";
 
 import SparklesText from "./ui/sparkles-text";
+import { RainbowButton } from "./ui/rainbow-button";
 const field_enter = keyframes`
   0% {
     opacity: 0;
@@ -50,7 +53,7 @@ const field_exit = keyframes`
 const FormField = styled.div<{ enter: boolean; out: boolean }>`
 	max-height: 0;
 	flex-direction: column;
-	margin-top: 3rem;
+	margin-top: 2rem;
 	opacity: 0;
 	width: 100%;
 	animation: 0.2s ease-in-out forwards
@@ -71,13 +74,10 @@ const FieldDescription = styled.div`
 
 export default function DownloadPage() {
 	const [platform, setPlatform] = useState<string | null>(null);
+	if (typeof window === "undefined") return null;
+	const searchParams = new URLSearchParams(window.location.search);
+	const [isTwilight, setIsTwilight] = useState(searchParams.has("twilight"));
 	const [architecture, setArchitecture] = useState<string | null>(null);
-	const [windowsDownloadType, setWindowsDownloadType] = useState<string | null>(
-		null,
-	);
-	const [linuxDownloadType, setLinuxDownloadType] = useState<string | null>(
-		null,
-	);
 
 	const [selectedPlatform, setSelectedPlatform] = useState("");
 	const [selectedArchitecture, setSelectedArchitecture] = useState("specific");
@@ -154,7 +154,8 @@ export default function DownloadPage() {
 			console.log("Downloading: ");
 			console.log("platform: ", selectedPlatform);
 			console.log("compat: ", arch);
-			window.location.replace(`${BASE_URL}/${releases[releaseTarget]}`);
+			const baseUrl = isTwilight ? TWILIGHT_BASE_URL : BASE_URL;
+			window.location.replace(`${baseUrl}/${releases[releaseTarget]}`);
 		}
 		setHasDownloaded(true);
 		throwConfetti();
@@ -164,8 +165,6 @@ export default function DownloadPage() {
 		if (flowIndex === 0) setPlatform(selectedPlatform);
 		if (flowIndex === 1) setArchitecture(selectedArchitecture);
 		if (flowIndex === 2 || (flowIndex === 1 && platform === "MacOS")) {
-			setWindowsDownloadType(selectedWindowsDownloadType);
-			setLinuxDownloadType(selectedLinuxDownloadType);
 			startDownload();
 		}
 		setFlowIndex(flowIndex + 1);
@@ -177,9 +176,7 @@ export default function DownloadPage() {
 		} else if (flowIndex === 2) {
 			setArchitecture(null);
 		} else if (flowIndex === 3) {
-			setWindowsDownloadType(null);
 			setSelectedWindowsDownloadType("installer");
-			setLinuxDownloadType(null);
 			setSelectedLinuxDownloadType("portable");
 		}
 		if (flowIndex > 0) setFlowIndex(flowIndex - 1);
@@ -269,14 +266,24 @@ export default function DownloadPage() {
 						</div>
 					)) || (
 						<>
-							<h1 className="flex flex-col text-6xl font-bold lg:flex-row">
-								Download <SparklesText className="mx-2" text="Zen" />
+							<h1 className="flex flex-col items-center text-6xl font-bold lg:flex-row">
+								Download <SparklesText className="mx-2" text={isTwilight ? "Twilight" : "Zen"} />
 							</h1>
 							<p className="mt-3 text-muted-foreground">
 								We're thrilled for you to experience Zen Browser. First, let us
 								know which device you're using. This will only take a moment, we
 								promise.
 							</p>
+							{isTwilight && (
+								<div className="mt-5 flex items-center text-yellow-500">
+									<InfoCircledIcon className="mr-4 ml-2 size-4" />
+									<p className="text-muted-foreground text-xs opacity-80">
+										You're about to download Zen Browser Twilight, our
+										experimental build. This build is not stable and may contain
+										bugs.
+									</p>
+								</div>
+							)}
 						</>
 					)}
 					{/*Changes for the Choose your platform as checkbox looks old*/}
@@ -543,23 +550,25 @@ export default function DownloadPage() {
 											Download Zen as a ZIP file
 										</p>
 									</div>
-									<div
-										onClick={() => changeToFlatpak()}
-										className={ny(
-											"mb-2 ml-5 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
-											selectedLinuxDownloadType === "flatpak"
-												? "border-blue-400"
-												: "",
-										)}
-									>
-										<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">
-											🧑‍💻
-										</h1>
-										<h1 className="my-2 text-2xl font-semibold">Flatpak</h1>
-										<p className="mx-auto text-center text-muted-foreground">
-											Install Zen from the Flatpak repository.
-										</p>
-									</div>
+									{!isTwilight && (
+										<div
+											onClick={() => changeToFlatpak()}
+											className={ny(
+												"mb-2 ml-5 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
+												selectedLinuxDownloadType === "flatpak"
+													? "border-blue-400"
+													: "",
+											)}
+										>
+											<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">
+												🧑‍💻
+											</h1>
+											<h1 className="my-2 text-2xl font-semibold">Flatpak</h1>
+											<p className="mx-auto text-center text-muted-foreground">
+												Install Zen from the Flatpak repository.
+											</p>
+										</div>
+									)}
 								</div>
 							</FormField>
 						)}
@@ -615,6 +624,15 @@ export default function DownloadPage() {
 						)}
 				</div>
 			</div>
+			{/* We'll hide the button for now since "mr. benchmarks" thinks people act like apes and just "click on buttons without reading" */}
+			{isTwilight && (
+				<div className="absolute bottom-10 right-10">
+					<RainbowButton onClick={() => setIsTwilight(!isTwilight)}>
+						{!isTwilight ? <TestTubeDiagonalIcon className="size-5 mr-4" /> : <BicepsFlexedIcon className="size-5 mr-4" />}
+						{!isTwilight ? "Download Twilight" : "Switch to Stable"}
+					</RainbowButton>
+				</div>
+			)}
 			<Particles
 				className="absolute inset-0 -z-10 hidden dark:block"
 				quantity={50}
