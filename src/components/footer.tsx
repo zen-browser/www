@@ -58,6 +58,9 @@ export default function Footer() {
 							<li className="mt-2">
 								<a href="/create-theme">Create a Theme</a>
 							</li>
+							<li className="mt-2">
+								<a href="/download?twilight">Download Twilight</a>
+							</li>
 						</ul>
 					</div>
 					<div className="mt-10 md:ml-12 md:mt-0 lg:ml-24">
