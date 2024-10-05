@@ -579,12 +579,21 @@ export default function DownloadPage() {
 							</Button>
 							<Button
 								onClick={() => continueFlow()}
-								disabled={selectedPlatform === null}
+								disabled={selectedPlatform === ""}
 							>
 								{(flowIndex === 1 && platform === "MacOS") || flowIndex === 2
 									? "Download 🥳"
 									: "Continue"}
 							</Button>
+						</div>
+					)}
+					{selectedPlatform === "" && (
+						<div className="mt-5 flex items-center">
+							<InfoCircledIcon className="mr-2 size-4" />
+							<p className="text-muted-foreground">
+								Unfortunately, Zen Browser is not available for your platform at
+								this time.
+							</p>
 						</div>
 					)}
 					{(platform === "Linux" || platform === "Windows") &&
