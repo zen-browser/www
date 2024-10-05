@@ -579,7 +579,7 @@ export default function DownloadPage() {
 							</Button>
 							<Button
 								onClick={() => continueFlow()}
-								disabled={selectedPlatform === null}
+								disabled={selectedPlatform === ""}
 							>
 								{(flowIndex === 1 && platform === "MacOS") || flowIndex === 2
 									? "Download 🥳"
