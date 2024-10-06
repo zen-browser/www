@@ -72,12 +72,14 @@ const FieldDescription = styled.div`
 	margin-bottom: 1rem;
 `;
 
+type Platform = "Windows" | "MacOS" | "Linux" | "Unsupported";
+
 export default function DownloadPage() {
 	const [platform, setPlatform] = useState<string | null>(null);
 	const [isTwilight, setIsTwilight] = useState(false);
 	const [architecture, setArchitecture] = useState<string | null>(null);
 
-	const [selectedPlatform, setSelectedPlatform] = useState("");
+	const [selectedPlatform, setSelectedPlatform] = useState<Platform | "">("");
 	const [selectedArchitecture, setSelectedArchitecture] = useState("specific");
 	const [selectedWindowsDownloadType, setSelectedWindowsDownloadType] =
 		useState("installer");
@@ -92,14 +94,19 @@ export default function DownloadPage() {
 		if (typeof window !== "undefined") {
 			userAgent = window.navigator.userAgent;
 		}
-		if (userAgent.includes("Win")) {
-			setSelectedPlatform("Windows");
-		}
-		if (userAgent.includes("Mac")) {
-			setSelectedPlatform("MacOS");
-		}
-		if (userAgent.includes("Linux")) {
-			setSelectedPlatform("Linux");
+		switch (true) {
+			case userAgent.includes("Win"):
+				setSelectedPlatform("Windows");
+				break;
+			case userAgent.includes("Mac"):
+				setSelectedPlatform("MacOS");
+				break;
+			case userAgent.includes("Linux"):
+				setSelectedPlatform("Linux");
+				break;
+			default:
+				setSelectedPlatform("Unsupported");
+				break;
 		}
 		const searchParams = new URLSearchParams(window.location.search);
 		setIsTwilight(searchParams.has("twilight"));
@@ -588,7 +595,7 @@ export default function DownloadPage() {
 							</Button>
 							<Button
 								onClick={() => continueFlow()}
-								disabled={selectedPlatform === ""}
+								disabled={selectedPlatform === "Unsupported" || !selectedPlatform}
 							>
 								{(flowIndex === 1 && platform === "MacOS") || flowIndex === 2
 									? "Download 🥳"
@@ -596,7 +603,7 @@ export default function DownloadPage() {
 							</Button>
 						</div>
 					)}
-					{selectedPlatform === "" && (
+					{selectedPlatform === "Unsupported" && (
 						<div className="mt-5 flex items-center">
 							<InfoCircledIcon className="mr-2 size-4" />
 							<p className="text-muted-foreground">
