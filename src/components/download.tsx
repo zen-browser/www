@@ -13,7 +13,7 @@ import Link from "next/link";
 const BASE_URL =
 	"https://github.com/zen-browser/desktop/releases/latest/download";
 const TWILIGHT_BASE_URL =
-	"https://github.com/zen-browser/desktop/releases/twilight/download";
+	"https://github.com/zen-browser/desktop/releases/download/twilight";
 
 import SparklesText from "./ui/sparkles-text";
 import { RainbowButton } from "./ui/rainbow-button";
