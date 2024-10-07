@@ -92,7 +92,7 @@ export default function Features() {
 				<div className="flex-1 p-5 lg:p-12">
 					<div className="flex flex-col justify-center p-12">
 						<h3 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
-							Your Browser, your way{" "}
+							Customizeable, down to the last pixel{" "}
 							<PaintBucket className="inline h-10 w-10"></PaintBucket>
 						</h3>
 						<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
