@@ -227,8 +227,9 @@ export default function DownloadPage() {
 								the web with Zen!
 							</p>
 							<div className="mt-5 flex items-center font-bold">
-								<a href="https://github.com/zen-browser">Source Code</a>
+								<a target="_blank" href="https://github.com/zen-browser">Source Code</a>
 								<a
+									target="_blank"
 									className="ml-5"
 									href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
 								>

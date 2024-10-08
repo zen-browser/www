@@ -18,6 +18,7 @@ export default function Footer() {
 					<div className="mt-auto">
 						<h1 className="text-2xl font-bold opacity-80">Zen Browser</h1>
 						<a
+							target="_blank"
 							data-umami-event="footer-status"
 							href="https://uptime.zen-browser.app/"
 							className="mt-2 flex w-fit cursor-pointer items-center rounded-md bg-surface px-3 py-2 shadow"
@@ -34,16 +35,16 @@ export default function Footer() {
 						</a>
 						<h2 className="text-md mt-6 font-bold opacity-80">Follow Us</h2>
 						<div className="mt-4 flex opacity-70">
-							<a href="https://github.com/zen-browser">
+							<a target="_blank" href="https://github.com/zen-browser">
 								<GitHubLogoIcon className="h-5 w-5" />
 							</a>
-							<a href="https://discord.gg/zen-browser" className="ml-5">
+							<a target="_blank" href="https://discord.gg/zen-browser" className="ml-5">
 								<DiscordLogoIcon className="h-5 w-5" />
 							</a>
-							<a href="https://fosstodon.org/@zenbrowser" className="ml-5">
+							<a target="_blank" href="https://fosstodon.org/@zenbrowser" className="ml-5">
 								<MastodonLogo className="h-5 w-5" />
 							</a>
-							<a href="https://twitter.com/zen_browser" className="ml-5">
+							<a target="_blank" href="https://twitter.com/zen_browser" className="ml-5">
 								<TwitterLogoIcon className="h-5 w-5" />
 							</a>
 						</div>
@@ -72,6 +73,7 @@ export default function Footer() {
 						<ul className="mt-4 font-normal opacity-70">
 							<li>
 								<a
+									target="_blank"
 									data-umami-event="footer-discord"
 									href="https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748"
 								>
@@ -79,7 +81,7 @@ export default function Footer() {
 								</a>
 							</li>
 							<li className="mt-2 font-normal">
-								<a href="https://github.com/zen-browser/desktop/issues">
+								<a target="_blank" href="https://github.com/zen-browser/desktop/issues">
 									Report an Issue
 								</a>
 							</li>
@@ -106,10 +108,10 @@ export default function Footer() {
 								<a href="/branding-assets">Branding Assets</a>
 							</li>
 							<li className="mt-2">
-								<a href="https://github.com/zen-browser/desktop">Source Code</a>
+								<a target="_blank" href="https://github.com/zen-browser/desktop">Source Code</a>
 							</li>
 							<li className="mt-2">
-								<a href="https://docs.zen-browser.app">Documentation</a>
+								<a target="_blank" href="https://docs.zen-browser.app">Documentation</a>
 							</li>
 							<li className="mt-2">
 								<a href="/release-notes">Release Notes</a>
@@ -119,6 +121,7 @@ export default function Footer() {
 						<ul className="mt-4 font-normal opacity-70">
 							<li>
 								<a
+									target="_blank"
 									data-umami-event="patreon-fotter"
 									href="https://patreon.com/zen_browser"
 								>
@@ -127,6 +130,7 @@ export default function Footer() {
 							</li>
 							<li className="mt-2">
 								<a
+									target="_blank"
 									data-umami-event="ko-fi-fotter"
 									href="https://ko-fi.com/zen_browser"
 								>
