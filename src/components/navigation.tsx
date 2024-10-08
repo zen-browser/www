@@ -21,6 +21,7 @@ export const components: {
 	title: string;
 	href: string;
 	description: string;
+	isTargetBlank?: boolean;
 }[] = [
 	{
 		title: "Privacy Policy",
@@ -33,12 +34,14 @@ export const components: {
 		href: "https://discord.gg/zen-browser",
 		description:
 			"Join our Discord server to chat with the community and get support.",
+		isTargetBlank: true,
 	},
 	{
 		title: "Source Code",
 		href: "https://github.com/zen-browser",
 		description:
 			"View the source code on GitHub and contribute to the project.",
+		isTargetBlank: true,
 	},
 	{
 		title: "Branding Assets",
@@ -55,6 +58,7 @@ export const components: {
 		title: "Documentation",
 		href: "https://docs.zen-browser.app/",
 		description: "Read the documentation to learn more about Zen Browser.",
+		isTargetBlank: true,
 	},
 ];
 

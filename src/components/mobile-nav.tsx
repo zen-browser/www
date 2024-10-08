@@ -12,6 +12,37 @@ import Logo from "./logo";
 import { ny } from "@/lib/utils";
 import { components } from "./navigation";
 
+interface MobileLinkProps
+	extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+	onOpenChange?: (open: boolean) => void;
+	children: React.ReactNode;
+	className?: string;
+	href: string;
+}
+
+function MobileLink({
+	href,
+	onOpenChange,
+	className,
+	children,
+	...props
+}: MobileLinkProps) {
+	const router = useRouter();
+	return (
+		<a
+			href={href}
+			onClick={() => {
+				router.push(href);
+				onOpenChange?.(false);
+			}}
+			className={ny(className, "my-4")}
+			{...props}
+		>
+			{children}
+		</a>
+	);
+}
+
 export function MobileNav() {
 	const [open, setOpen] = React.useState(false);
 
@@ -60,12 +91,18 @@ export function MobileNav() {
 						<MobileLink
 							href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
 							onOpenChange={setOpen}
+							target="_blank"
 						>
 							<div>Donate {"<"}3</div>
 							<p className="text-xs opacity-60">Support the project</p>
 						</MobileLink>
-						{components.map(({ title, href, description }) => (
-							<MobileLink href={href} key={href} onOpenChange={setOpen}>
+						{components.map(({ title, href, description, isTargetBlank }) => (
+							<MobileLink
+								href={href}
+								key={href}
+								target={isTargetBlank ? "_blank" : "_self"}
+								onOpenChange={setOpen}
+							>
 								<div>{title}</div>
 								<p className="text-xs opacity-60">{description}</p>
 							</MobileLink>
@@ -74,34 +111,5 @@ export function MobileNav() {
 				</ScrollArea>
 			</SheetContent>
 		</Sheet>
-	);
-}
-
-interface MobileLinkProps extends LinkProps {
-	onOpenChange?: (open: boolean) => void;
-	children: React.ReactNode;
-	className?: string;
-}
-
-function MobileLink({
-	href,
-	onOpenChange,
-	className,
-	children,
-	...props
-}: MobileLinkProps) {
-	const router = useRouter();
-	return (
-		<a
-			href={href.toString()}
-			onClick={() => {
-				router.push(href.toString());
-				onOpenChange?.(false);
-			}}
-			className={ny(className, "my-4")}
-			{...props}
-		>
-			{children}
-		</a>
 	);
 }
