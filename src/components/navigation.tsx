@@ -22,13 +22,14 @@ export const components: {
 	href: string;
 	description: string;
 	isTargetBlank?: boolean;
-	rel?: "noopener noreferrer" 
+	rel?: "noopener noreferrer";
 }[] = [
 	{
 		title: "Privacy Policy",
 		href: "/privacy-policy",
 		description:
 			"Read our privacy policy to learn more about how we handle your data.",
+		isTargetBlank: true,
 	},
 	{
 		title: "Discord",
@@ -36,7 +37,7 @@ export const components: {
 		description:
 			"Join our Discord server to chat with the community and get support.",
 		isTargetBlank: true,
-		rel: "noopener noreferrer"
+		rel: "noopener noreferrer",
 	},
 	{
 		title: "Source Code",
@@ -44,7 +45,7 @@ export const components: {
 		description:
 			"View the source code on GitHub and contribute to the project.",
 		isTargetBlank: true,
-		rel: "noopener noreferrer"
+		rel: "noopener noreferrer",
 	},
 	{
 		title: "Branding Assets",

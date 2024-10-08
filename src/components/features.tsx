@@ -140,7 +140,11 @@ export default function Features() {
 							browser.
 						</p>
 						<div className="relative">
-							<a href="https://github.com/zen-browser" rel="noopener noreferrer" target="_blank">
+							<a
+								href="https://github.com/zen-browser"
+								rel="noopener noreferrer"
+								target="_blank"
+							>
 								<Button className="mt-8">GitHub</Button>
 							</a>
 						</div>
@@ -491,14 +495,14 @@ export default function Features() {
 								<span className="mx-4 text-4xl">+</span>{" "}
 								<EyeClosedIcon className="h-10 w-10" />
 							</div>
-							<a
+							<Link
 								href="/privacy-policy"
 								target="_blank"
 								className="tems-center m-auto flex h-fit w-fit animate-fade-in items-center rounded-full border-2 border-white bg-surface p-4 opacity-0 shadow [--animation-delay:300ms]"
 							>
 								Learn about Zen's privacy policy{" "}
 								<ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
-							</a>
+							</Link>
 						</div>
 					)}
 
@@ -548,12 +552,20 @@ export default function Features() {
 						cause.
 					</p>
 					<div className="relative mt-8 flex">
-						<a href="https://patreon.com/zen_browser" rel="noopener noreferrer" target="_blank">
+						<a
+							href="https://patreon.com/zen_browser"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
 							<Button data-umami-event="patreon-feature" variant="ghost">
 								Patreon <ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
 							</Button>
 						</a>
-						<a href="https://ko-fi.com/zen_browser" rel="noopener noreferrer" target="_blank">
+						<a
+							href="https://ko-fi.com/zen_browser"
+							rel="noopener noreferrer"
+							target="_blank"
+						>
 							<Button
 								data-umami-event="ko-fi-feature"
 								className="ml-8"
