@@ -67,7 +67,7 @@ export function MobileNav() {
 				>
 					<Logo withText />
 				</MobileLink>
-				<ScrollArea className="mt-4 h-[calc(100vh-8rem)] pl-6">
+				<ScrollArea className="mt-4 h-[calc(100dvh-8rem)] pl-6">
 					<div className="flex flex-col space-y-3">
 						<MobileLink href="/download" onOpenChange={setOpen}>
 							<div>Download</div>
@@ -110,11 +110,11 @@ export function MobileNav() {
 								</MobileLink>
 							),
 						)}
+						<span className="-mt-4 flex w-full justify-end pr-4">
+							<ModeToggle />
+						</span>
 					</div>
 				</ScrollArea>
-				<span className="w-full flex justify-end pr-4 -mt-4">
-					<ModeToggle />
-				</span>
 			</SheetContent>
 		</Sheet>
 	);
