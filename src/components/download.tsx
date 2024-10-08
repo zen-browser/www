@@ -268,11 +268,10 @@ export default function DownloadPage() {
 							)}
 							{selectedLinuxDownloadType === "flatpak" && (
 								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
-									<div className="flex items-center">
-										<InfoIcon className="size-4" />
+									<div className="flex">
+										<InfoIcon className="size-4 mt-1" />
 										<p className="ml-3 font-bold">
-											The Flatpak version is not optimized. It is a generic
-											installation option, provided for convenience. For
+											The Flatpak version is not optimized. For
 											optimized versions, please select other formats.
 										</p>
 									</div>
