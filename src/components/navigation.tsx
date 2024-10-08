@@ -22,6 +22,7 @@ export const components: {
 	href: string;
 	description: string;
 	isTargetBlank?: boolean;
+	rel?: "noopener noreferrer" 
 }[] = [
 	{
 		title: "Privacy Policy",
@@ -35,6 +36,7 @@ export const components: {
 		description:
 			"Join our Discord server to chat with the community and get support.",
 		isTargetBlank: true,
+		rel: "noopener noreferrer"
 	},
 	{
 		title: "Source Code",
@@ -42,6 +44,7 @@ export const components: {
 		description:
 			"View the source code on GitHub and contribute to the project.",
 		isTargetBlank: true,
+		rel: "noopener noreferrer"
 	},
 	{
 		title: "Branding Assets",
@@ -169,6 +172,7 @@ export function Navigation() {
 									title="Patreon"
 									href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
 									target="_blank"
+									rel="noopener noreferrer"
 								>
 									Support us on Patreon and get exclusive rewards and keep the
 									project alive.
@@ -177,6 +181,7 @@ export function Navigation() {
 									title="Ko-Fi"
 									href="https://ko-fi.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
 									target="_blank"
+									rel="noopener noreferrer"
 								>
 									Ko-fi is a way to support us with a one-time donation and help
 									us keep the project alive.
@@ -189,12 +194,13 @@ export function Navigation() {
 						<NavigationMenuContent>
 							<ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
 								{components.map(
-									({ description, href, title, isTargetBlank }) => (
+									({ description, href, title, isTargetBlank, rel }) => (
 										<ListItem
 											key={title}
 											title={title}
 											href={href}
 											target={isTargetBlank ? "_blank" : "_self"}
+											rel={rel}
 										>
 											{description}
 										</ListItem>

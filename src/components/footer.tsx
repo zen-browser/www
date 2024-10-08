@@ -20,6 +20,7 @@ export default function Footer() {
 						<a
 							target="_blank"
 							data-umami-event="footer-status"
+							rel="noopener noreferrer"
 							href="https://uptime.zen-browser.app/"
 							className="mt-2 flex w-fit cursor-pointer items-center rounded-md bg-surface px-3 py-2 shadow"
 						>
@@ -35,16 +36,35 @@ export default function Footer() {
 						</a>
 						<h2 className="text-md mt-6 font-bold opacity-80">Follow Us</h2>
 						<div className="mt-4 flex opacity-70">
-							<a target="_blank" href="https://github.com/zen-browser">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://github.com/zen-browser"
+							>
 								<GitHubLogoIcon className="h-5 w-5" />
 							</a>
-							<a target="_blank" href="https://discord.gg/zen-browser" className="ml-5">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://discord.gg/zen-browser"
+								className="ml-5"
+							>
 								<DiscordLogoIcon className="h-5 w-5" />
 							</a>
-							<a target="_blank" href="https://fosstodon.org/@zenbrowser" className="ml-5">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://fosstodon.org/@zenbrowser"
+								className="ml-5"
+							>
 								<MastodonLogo className="h-5 w-5" />
 							</a>
-							<a target="_blank" href="https://twitter.com/zen_browser" className="ml-5">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="https://twitter.com/zen_browser"
+								className="ml-5"
+							>
 								<TwitterLogoIcon className="h-5 w-5" />
 							</a>
 						</div>
@@ -81,7 +101,10 @@ export default function Footer() {
 								</a>
 							</li>
 							<li className="mt-2 font-normal">
-								<a target="_blank" href="https://github.com/zen-browser/desktop/issues">
+								<a
+									target="_blank"
+									href="https://github.com/zen-browser/desktop/issues"
+								>
 									Report an Issue
 								</a>
 							</li>
@@ -108,10 +131,17 @@ export default function Footer() {
 								<a href="/branding-assets">Branding Assets</a>
 							</li>
 							<li className="mt-2">
-								<a target="_blank" href="https://github.com/zen-browser/desktop">Source Code</a>
+								<a
+									target="_blank"
+									href="https://github.com/zen-browser/desktop"
+								>
+									Source Code
+								</a>
 							</li>
 							<li className="mt-2">
-								<a target="_blank" href="https://docs.zen-browser.app">Documentation</a>
+								<a target="_blank" href="https://docs.zen-browser.app">
+									Documentation
+								</a>
 							</li>
 							<li className="mt-2">
 								<a href="/release-notes">Release Notes</a>

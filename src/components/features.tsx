@@ -140,7 +140,7 @@ export default function Features() {
 							browser.
 						</p>
 						<div className="relative">
-							<a href="https://github.com/zen-browser" target="_blank">
+							<a href="https://github.com/zen-browser" rel="noopener noreferrer" target="_blank">
 								<Button className="mt-8">GitHub</Button>
 							</a>
 						</div>
@@ -474,6 +474,7 @@ export default function Features() {
 							<a
 								href="https://github.com/zen-browser/desktop?tab=readme-ov-file#compatibility"
 								target="_blank"
+								rel="noopener noreferrer"
 								className="tems-center m-auto flex h-fit w-fit animate-fade-in items-center rounded-full border-2 border-white bg-surface p-4 opacity-0 shadow [--animation-delay:300ms]"
 							>
 								See what version of Firefox Zen uses{" "}
@@ -547,12 +548,12 @@ export default function Features() {
 						cause.
 					</p>
 					<div className="relative mt-8 flex">
-						<a href="https://patreon.com/zen_browser" target="_blank">
+						<a href="https://patreon.com/zen_browser" rel="noopener noreferrer" target="_blank">
 							<Button data-umami-event="patreon-feature" variant="ghost">
 								Patreon <ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
 							</Button>
 						</a>
-						<a href="https://ko-fi.com/zen_browser" target="_blank">
+						<a href="https://ko-fi.com/zen_browser" rel="noopener noreferrer" target="_blank">
 							<Button
 								data-umami-event="ko-fi-feature"
 								className="ml-8"

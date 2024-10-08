@@ -20,6 +20,8 @@ function DateContainer({ data }: { data: ReleaseNote }) {
 			}).format("MMMM Do, YYYY")}
 			<div className="mt-2 flex items-center text-blue-500 opacity-60">
 				<a
+					rel="noopener noreferrer"
+					target="_blank"
 					href={`https://github.com/zen-browser/desktop/releases/tag/${data.version}`}
 				>
 					GitHub Release
@@ -28,6 +30,8 @@ function DateContainer({ data }: { data: ReleaseNote }) {
 					<>
 						<span className="mx-1 text-muted-foreground">•</span>
 						<a
+							rel="noopener noreferrer"
+							target="_blank"
 							href={`https://github.com/zen-browser/desktop/actions/runs/${data.workflowId}`}
 						>
 							Workflow Run
@@ -43,6 +47,8 @@ function DateContainer({ data }: { data: ReleaseNote }) {
 						<p className="mt-2">
 							Consider joining our{" "}
 							<a
+								rel="noopener noreferrer"
+								target="_blank"
 								href="https://discord.gg/zen-browser"
 								className="text-blue-500"
 							>
@@ -85,6 +91,8 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 				<p className="text-md mt-4 text-muted-foreground">
 					If you encounter any issues, please report them on{" "}
 					<a
+						rel="noopener noreferrer"
+						target="_blank"
 						href="https://github.com/zen-browser/desktop/issues/"
 						className="text-underline text-blue-500"
 					>
@@ -148,6 +156,8 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 											<span className="ml-1">{fix.description}</span>
 											{fix.issue && (
 												<a
+													rel="noopener noreferrer"
+													target="_blank"
 													href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
 													className="text-underline ml-1 text-blue-500"
 												>

@@ -90,18 +90,20 @@ export function MobileNav() {
 						</MobileLink>
 						<MobileLink
 							href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
+							rel="noopener noreferrer"
 							onOpenChange={setOpen}
 							target="_blank"
 						>
 							<div>Donate {"<"}3</div>
 							<p className="text-xs opacity-60">Support the project</p>
 						</MobileLink>
-						{components.map(({ title, href, description, isTargetBlank }) => (
+						{components.map(({ title, href, description, isTargetBlank, rel }) => (
 							<MobileLink
 								href={href}
 								key={href}
 								target={isTargetBlank ? "_blank" : "_self"}
 								onOpenChange={setOpen}
+								rel={rel}
 							>
 								<div>{title}</div>
 								<p className="text-xs opacity-60">{description}</p>
