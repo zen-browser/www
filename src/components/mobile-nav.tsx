@@ -9,6 +9,7 @@ import { ScrollArea } from "./ui/scroll-area";
 import Logo from "./logo";
 import { ny } from "@/lib/utils";
 import { components } from "./navigation";
+import { ModeToggle } from "@/components/mode-toggle";
 
 interface MobileLinkProps
 	extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -95,20 +96,25 @@ export function MobileNav() {
 							<div>Donate {"<"}3</div>
 							<p className="text-xs opacity-60">Support the project</p>
 						</MobileLink>
-						{components.map(({ title, href, description, isTargetBlank, rel }) => (
-							<MobileLink
-								href={href}
-								key={href}
-								target={isTargetBlank ? "_blank" : "_self"}
-								onOpenChange={setOpen}
-								rel={rel}
-							>
-								<div>{title}</div>
-								<p className="text-xs opacity-60">{description}</p>
-							</MobileLink>
-						))}
+						{components.map(
+							({ title, href, description, isTargetBlank, rel }) => (
+								<MobileLink
+									href={href}
+									key={href}
+									target={isTargetBlank ? "_blank" : "_self"}
+									onOpenChange={setOpen}
+									rel={rel}
+								>
+									<div>{title}</div>
+									<p className="text-xs opacity-60">{description}</p>
+								</MobileLink>
+							),
+						)}
 					</div>
 				</ScrollArea>
+				<span className="w-full flex justify-end pr-4 -mt-4">
+					<ModeToggle />
+				</span>
 			</SheetContent>
 		</Sheet>
 	);
