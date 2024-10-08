@@ -499,6 +499,7 @@ export default function Features() {
 								href="/privacy-policy"
 								target="_blank"
 								className="tems-center m-auto flex h-fit w-fit animate-fade-in items-center rounded-full border-2 border-white bg-surface p-4 opacity-0 shadow [--animation-delay:300ms]"
+								prefetch={false}
 							>
 								Learn about Zen's privacy policy{" "}
 								<ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
