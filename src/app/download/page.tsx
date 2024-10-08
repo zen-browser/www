@@ -1,6 +1,4 @@
 import DownloadPage from "@/components/download";
-import Footer from "@/components/footer";
-import { Navigation } from "@/components/navigation";
 
 export default function Download() {
 	return (

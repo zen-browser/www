@@ -1,6 +1,4 @@
 import WelcomePage from "@/components/welcome";
-import Footer from "@/components/footer";
-import { Navigation } from "@/components/navigation";
 
 export default function Download() {
 	return (

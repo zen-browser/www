@@ -1,7 +1,5 @@
 "use client";
-import { LOGO_COLORS } from "@/lib/logos";
 import { ny } from "@/lib/utils";
-import Image from "next/legacy/image";
 import React from "react";
 import CachedImage from "./CachedImage";
 

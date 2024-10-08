@@ -3,14 +3,8 @@
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import AnimatedGradientText from "./ui/animated-gradient-text";
 import { Button } from "./ui/button";
-import { BorderBeam } from "./ui/border-beam";
-import { ny } from "@/lib/utils";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import Particles from "./ui/particles";
-import Image from "next/legacy/image";
-import Link from "next/link";
+import { ChevronDown } from "lucide-react";
 import CoolHeaderText from "./cool-header-text";
 export default function Header() {
 	const ref = useRef(null);

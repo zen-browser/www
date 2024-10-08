@@ -1,12 +1,7 @@
 import React from "react";
-import Footer from "@/components/footer";
-import { Navigation } from "@/components/navigation";
-import ReleaseNote from "@/components/release-note";
 import { Button } from "@/components/ui/button";
 import { releaseNotes } from "@/lib/release-notes";
-import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 
 export async function generateStaticParams() {
 	return [

@@ -1,8 +1,5 @@
-import Footer from "@/components/footer";
 import MarketplacePage from "@/components/marketplace";
-import { Navigation } from "@/components/navigation";
-import { getAllThemes, ZenTheme } from "@/lib/themes";
-import { GetStaticProps } from "next";
+import { getAllThemes } from "@/lib/themes";
 
 export default async function ThemesMarketplace() {
 	return (

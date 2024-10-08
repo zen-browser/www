@@ -9,7 +9,6 @@ import Particles from "./ui/particles";
 import confetti from "canvas-confetti";
 import { releases, releaseTree } from "@/lib/releases";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
 const BASE_URL =
 	"https://github.com/zen-browser/desktop/releases/latest/download";
 const TWILIGHT_BASE_URL =

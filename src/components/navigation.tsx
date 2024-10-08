@@ -1,5 +1,4 @@
 import * as React from "react";
-import Link from "next/link";
 
 import { ny } from "@/lib/utils";
 import {
@@ -9,12 +8,10 @@ import {
 	NavigationMenuLink,
 	NavigationMenuList,
 	NavigationMenuTrigger,
-	navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Logo from "./logo";
 import { ModeToggle } from "./mode-toggle";
 import { MobileNav } from "./mobile-nav";
-import { HeartIcon } from "lucide-react";
 import { HeartFilledIcon } from "@radix-ui/react-icons";
 
 export const components: {

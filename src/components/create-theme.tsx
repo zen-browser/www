@@ -4,14 +4,8 @@ import { ny } from "@/lib/utils";
 import { Button } from "./ui/button";
 import React from "react";
 import styled from "styled-components";
-import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogTitle,
-	DialogTrigger,
-} from "@radix-ui/react-dialog";
-import { DialogFooter, DialogHeader } from "./ui/dialog";
+
+
 import {
 	Sheet,
 	SheetContent,
