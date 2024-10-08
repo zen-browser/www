@@ -2,7 +2,12 @@
 import { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
 import { ny } from "@/lib/utils";
-import { BicepsFlexedIcon, ChevronLeft, InfoIcon, TestTubeDiagonalIcon } from "lucide-react";
+import {
+	BicepsFlexedIcon,
+	ChevronLeft,
+	InfoIcon,
+	TestTubeDiagonalIcon,
+} from "lucide-react";
 import { Button } from "./ui/button";
 import { CopyButton } from "./ui/copy-button";
 import Particles from "./ui/particles";
@@ -226,7 +231,13 @@ export default function DownloadPage() {
 								the web with Zen!
 							</p>
 							<div className="mt-5 flex items-center font-bold">
-								<a target="_blank" rel="noopener noreferrer" href="https://github.com/zen-browser">Source Code</a>
+								<a
+									target="_blank"
+									rel="noopener noreferrer"
+									href="https://github.com/zen-browser"
+								>
+									Source Code
+								</a>
 								<a
 									target="_blank"
 									className="ml-5"
@@ -259,7 +270,11 @@ export default function DownloadPage() {
 								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
 									<div className="flex items-center">
 										<InfoIcon className="size-4" />
-										<p className="ml-3 font-bold">Flatpak users?</p>
+										<p className="ml-3 font-bold">
+											The Flatpak version is not optimized. It is a generic
+											installation option, provided for convenience. For
+											optimized versions, please select other formats.
+										</p>
 									</div>
 									<p className="mt-2 text-muted-foreground">
 										If you're using Flatpak, you can install Zen Browser with
@@ -275,7 +290,11 @@ export default function DownloadPage() {
 					)) || (
 						<>
 							<h1 className="flex flex-col items-center text-6xl font-bold lg:flex-row">
-								Download <SparklesText className="mx-2" text={isTwilight ? "Twilight" : "Zen"} />
+								Download{" "}
+								<SparklesText
+									className="mx-2"
+									text={isTwilight ? "Twilight" : "Zen"}
+								/>
 							</h1>
 							<p className="mt-3 text-muted-foreground">
 								We're thrilled for you to experience Zen Browser. First, let us
@@ -284,8 +303,8 @@ export default function DownloadPage() {
 							</p>
 							{isTwilight && (
 								<div className="mt-5 flex items-center text-yellow-500">
-									<InfoCircledIcon className="mr-4 ml-2 size-4" />
-									<p className="text-muted-foreground text-xs opacity-80">
+									<InfoCircledIcon className="ml-2 mr-4 size-4" />
+									<p className="text-xs text-muted-foreground opacity-80">
 										You're about to download Zen Browser Twilight, our
 										experimental build. This build is not stable and may contain
 										bugs.
@@ -596,7 +615,9 @@ export default function DownloadPage() {
 							</Button>
 							<Button
 								onClick={() => continueFlow()}
-								disabled={selectedPlatform === "Unsupported" || !selectedPlatform}
+								disabled={
+									selectedPlatform === "Unsupported" || !selectedPlatform
+								}
 							>
 								{(flowIndex === 1 && platform === "MacOS") || flowIndex === 2
 									? "Download 🥳"
@@ -636,7 +657,11 @@ export default function DownloadPage() {
 			{isTwilight && (
 				<div className="absolute bottom-10 right-10">
 					<RainbowButton onClick={() => setIsTwilight(!isTwilight)}>
-						{!isTwilight ? <TestTubeDiagonalIcon className="size-5 mr-4" /> : <BicepsFlexedIcon className="size-5 mr-4" />}
+						{!isTwilight ? (
+							<TestTubeDiagonalIcon className="mr-4 size-5" />
+						) : (
+							<BicepsFlexedIcon className="mr-4 size-5" />
+						)}
 						{!isTwilight ? "Download Twilight" : "Switch to Stable"}
 					</RainbowButton>
 				</div>
