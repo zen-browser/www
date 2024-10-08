@@ -1,61 +1,31 @@
 "use client";
-import Sticky from "react-sticky-el";
 import {
 	BookmarkCheckIcon,
 	CheckIcon,
-	ChevronLeft,
-	ChevronRight,
 	ExternalLinkIcon,
 	EyeIcon,
-	EyeOffIcon,
-	Github,
 	HeartHandshake,
-	HeartPulseIcon,
-	HomeIcon,
 	PaintBucket,
-	PersonStanding,
-	RabbitIcon,
 	ShieldAlertIcon,
 	ShieldCheck,
 	SidebarCloseIcon,
 	SidebarIcon,
-	SidebarOpenIcon,
-	SpaceIcon,
 	SplitSquareHorizontal,
-	SplitSquareVertical,
-	SplitSquareVerticalIcon,
-	TableIcon,
 	XIcon,
 } from "lucide-react";
 import {
-	Cross1Icon,
 	EyeClosedIcon,
-	HeartFilledIcon,
 	Link1Icon,
 	LockClosedIcon,
 	QuestionMarkCircledIcon,
 	QuestionMarkIcon,
-	ReloadIcon,
-	SpaceBetweenHorizontallyIcon,
 	UpdateIcon,
 } from "@radix-ui/react-icons";
-import Image from "next/legacy/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { COLORS } from "./create-theme";
-import { Slider } from "./ui/slider";
-import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableHeader,
-	TableRow,
-} from "./ui/table";
+
+
 import React, { useState } from "react";
-import { ny } from "@/lib/utils";
-import ThemeCard from "./theme-card";
-import { getAllThemes, ZenTheme } from "@/lib/themes";
 import {
 	Accordion,
 	AccordionContent,
@@ -64,7 +34,6 @@ import {
 } from "./ui/accordion";
 import Logo from "./logo";
 import CachedImage from "./CachedImage";
-import { transform } from "next/dist/build/swc";
 
 function Checkmark() {
 	return (

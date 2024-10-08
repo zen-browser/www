@@ -2,7 +2,6 @@
 
 import { SidebarOpen } from "lucide-react";
 import type { LinkProps } from "next/link";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import * as React from "react";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";

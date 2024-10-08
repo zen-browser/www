@@ -1,6 +1,4 @@
-import Link from "next/link";
 import Logo from "./logo";
-import TextReveal from "./ui/text-reveal";
 import {
 	DiscordLogoIcon,
 	GitHubLogoIcon,

@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
 import ThemesSearch from "./themes-search";
-import { getAllThemes, getThemesFromSearch, ZenTheme } from "@/lib/themes";
+import { getThemesFromSearch, ZenTheme } from "@/lib/themes";
 import ThemeCard from "./theme-card";
-import { Button } from "./ui/button";
 import StickyBox from "react-sticky-box";
 
 export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {

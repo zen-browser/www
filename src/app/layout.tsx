@@ -5,7 +5,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
-import { ny } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 

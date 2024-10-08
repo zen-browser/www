@@ -2,7 +2,6 @@ import {
 	getThemeAuthorLink,
 	getThemeFromId,
 	getThemeMarkdown,
-	ZenTheme,
 } from "@/lib/themes";
 import { Button } from "./ui/button";
 import Markdown from "react-markdown";
