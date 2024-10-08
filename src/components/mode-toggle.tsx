@@ -5,20 +5,22 @@ import { useTheme } from "next-themes";
 import { Button } from "./ui/button";
 
 export function ModeToggle() {
-	const { setTheme } = useTheme();
-	const [currentTheme, setCurrentTheme] = useState("light");
+	const { setTheme, theme } = useTheme();
 	const [mounted, setMounted] = useState(false);
 
 	useEffect(() => {
 		setMounted(true);
-		const savedTheme = localStorage.getItem("theme") || "light";
-		setCurrentTheme(savedTheme);
-		setTheme(savedTheme);
-	}, [setTheme]);
+		const savedTheme = localStorage.getItem("theme");
+		if (savedTheme) {
+		  setTheme(savedTheme);
+		} else {
+		  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		  setTheme(prefersDark ? "dark" : "light");
+		}
+	  }, [setTheme]);
 
 	const toggleTheme = () => {
-		const newTheme = currentTheme === "light" ? "dark" : "light";
-		setCurrentTheme(newTheme);
+		const newTheme = theme === "light" ? "dark" : "light";
 		setTheme(newTheme);
 		localStorage.setItem("theme", newTheme);
 	};
@@ -29,7 +31,7 @@ export function ModeToggle() {
 
 	return (
 		<Button variant="ghost" size="icon" onClick={toggleTheme}>
-			{currentTheme === "light" ? (
+			{theme === "light" ? (
 				<SunIcon className="h-[1.2rem] w-[1.2rem]" />
 			) : (
 				<MoonIcon className="h-[1.2rem] w-[1.2rem]" />
