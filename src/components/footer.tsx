@@ -12,8 +12,8 @@ import { Button } from "./ui/button";
 export default function Footer() {
 	return (
 		<div className="border-grey align-center mt-10 flex w-full flex-col border-t px-10 py-10 font-medium md:px-0">
-			<div className="mx-auto flex w-full justify-between border-b px-10 pb-10 pt-10 lg:!w-2/3 lg:px-0">
-				<div className="mr-4 flex flex-col">
+			<div className="mx-auto flex w-full justify-between gap-[20px] border-b px-10 pb-10 pt-10 lg:!w-2/3 lg:px-0">
+				<div className="flex flex-col">
 					<Logo />
 					<div className="mt-auto">
 						<h1 className="text-2xl font-bold opacity-80">Zen Browser</h1>
