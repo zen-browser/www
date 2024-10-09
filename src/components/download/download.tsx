@@ -1,6 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
 import { ny } from "@/lib/utils";
 import {
 	BicepsFlexedIcon,
@@ -21,61 +20,12 @@ const TWILIGHT_BASE_URL =
 import SparklesText from "../ui/sparkles-text";
 import { RainbowButton } from "../ui/rainbow-button";
 import { throwConfetti } from "@/components/download/tools/throw-confetti";
-import { PlatformCard } from "@/components/download/platform-card";
-const field_enter = keyframes`
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-    filter: blur(10px);
-  }
-  1% {
-    max-height: 100%;
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-  }
-`;
-
-const field_exit = keyframes`
-  from {
-    display: flex;
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0);
-  }
-  99% {
-    opacity: 0;
-    transform: scale(0.9);
-    filter: blur(10px);
-  }
-  100% {
-    display: none;
-  }
-`;
-
-const FormField = styled.div<{ enter: boolean; out: boolean }>`
-	max-height: 0;
-	flex-direction: column;
-	margin-top: 2rem;
-	opacity: 0;
-	width: 100%;
-	animation: 0.2s ease-in-out forwards
-		${({ enter, out }) => (enter ? field_enter : out ? field_exit : "")} !important;
-	animation-delay: ${({ enter }) => (enter ? "0.4s" : "0s")};
-`;
-
-const FieldTitle = styled.div`
-	font-size: 1.35rem;
-	font-weight: 500;
-`;
-
-const FieldDescription = styled.div`
-	font-size: 1rem;
-	color: #666;
-	margin-bottom: 1rem;
-`;
+import {
+	FieldDescription,
+	FieldTitle,
+	FormField,
+} from "@/components/download/form";
+import { PlatformSelect } from "@/components/download/platform-select";
 
 type Platform = "Windows" | "MacOS" | "Linux" | "Unsupported";
 
@@ -290,33 +240,11 @@ export default function DownloadPage() {
 					{/*Changes for the Choose your platform as checkbox looks old*/}
 					<div className="relative w-full">
 						{platform === null && (
-							<FormField enter={platform === null} out={platform !== null}>
-								<FieldTitle>Platform</FieldTitle>
-								<FieldDescription>
-									Choose the platform you want to download Zen for.
-								</FieldDescription>
-								<div className="flex">
-									<PlatformCard
-										onClick={setSelectedPlatform}
-										platform="Windows"
-										selected={selectedPlatform === "Windows"}
-									/>
-
-									<PlatformCard
-										onClick={setSelectedPlatform}
-										platform="Linux"
-										selected={selectedPlatform === "Linux"}
-									/>
-
-									<PlatformCard
-										onClick={setSelectedPlatform}
-										platform="MacOS"
-										selected={selectedPlatform === "MacOS"}
-									/>
-
-									
-								</div>
-							</FormField>
+							<PlatformSelect
+								platform={platform}
+								selectedPlatform={selectedPlatform}
+								onPlatformChange={setSelectedPlatform}
+							/>
 						)}
 						{/* Architecture */}
 						{(platform === "Windows" || platform === "Linux") &&

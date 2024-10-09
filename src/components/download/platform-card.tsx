@@ -4,13 +4,13 @@ import { Platforms } from "@/components/download/types";
 import { ny } from "@/lib/utils";
 
 interface PlatformCardProps {
-	onClick: (platform: Platforms) => void;
-	platform: Platforms;
+	onClick: (platform: Exclude<Platforms, "Unsupported">) => void;
+	platform: Exclude<Platforms, "Unsupported">;
 	selected: boolean;
 }
 
 const PLATFORMS_DATA: Record<
-	Platforms,
+	Exclude<Platforms, 'Unsupported'>,
 	{ label: string; icon: string; borderColor: string }
 > = {
 	Windows: {

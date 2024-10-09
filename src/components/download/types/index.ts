@@ -1,1 +1,1 @@
-export type Platforms = "Windows" | "MacOS" | "Linux";
+export type Platforms = "Windows" | "MacOS" | "Linux" | "Unsupported";
