@@ -13,7 +13,7 @@ import { CopyButton } from "./ui/copy-button";
 import Particles from "./ui/particles";
 import confetti from "canvas-confetti";
 import { releases, releaseTree } from "@/lib/releases";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { InfoCircledIcon, ExclamationTriangleIcon } from "@radix-ui/react-icons";
 const BASE_URL =
 	"https://github.com/zen-browser/desktop/releases/latest/download";
 const TWILIGHT_BASE_URL =
@@ -269,8 +269,8 @@ export default function DownloadPage() {
 							{selectedLinuxDownloadType === "flatpak" && (
 								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
 									<div className="flex">
-										<InfoIcon className="size-4 mt-1" />
-										<p className="ml-3 font-bold">
+										<ExclamationTriangleIcon className="size-4 mt-1 text-yellow-500" />
+										<p className="ml-3 font-bold text-yellow-500">
 											The Flatpak version is not optimized. For
 											optimized versions, please select other formats.
 										</p>
