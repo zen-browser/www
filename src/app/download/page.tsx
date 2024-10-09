@@ -1,4 +1,4 @@
-import DownloadPage from "@/components/download";
+import DownloadPage from "@/components/download/download";
 
 export default function Download() {
 	return (

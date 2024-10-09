@@ -8,10 +8,9 @@ import {
 	InfoIcon,
 	TestTubeDiagonalIcon,
 } from "lucide-react";
-import { Button } from "./ui/button";
-import { CopyButton } from "./ui/copy-button";
-import Particles from "./ui/particles";
-import confetti from "canvas-confetti";
+import { Button } from "../ui/button";
+import { CopyButton } from "../ui/copy-button";
+import Particles from "../ui/particles";
 import { releases, releaseTree } from "@/lib/releases";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 const BASE_URL =
@@ -19,8 +18,9 @@ const BASE_URL =
 const TWILIGHT_BASE_URL =
 	"https://github.com/zen-browser/desktop/releases/download/twilight";
 
-import SparklesText from "./ui/sparkles-text";
-import { RainbowButton } from "./ui/rainbow-button";
+import SparklesText from "../ui/sparkles-text";
+import { RainbowButton } from "../ui/rainbow-button";
+import { throwConfetti } from "@/components/download/tools/throw-confetti";
 const field_enter = keyframes`
   0% {
     opacity: 0;
@@ -115,32 +115,6 @@ export default function DownloadPage() {
 		const searchParams = new URLSearchParams(window.location.search);
 		setIsTwilight(searchParams.has("twilight"));
 	}, []);
-	const throwConfetti = () => {
-		const end = Date.now() + 3 * 1000; // 3 seconds
-		const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
-		const frame = () => {
-			if (Date.now() > end) return;
-
-			confetti({
-				particleCount: 2,
-				angle: 60,
-				spread: 55,
-				startVelocity: 60,
-				origin: { x: 0, y: 0.5 },
-				colors,
-			});
-			confetti({
-				particleCount: 2,
-				angle: 120,
-				spread: 55,
-				startVelocity: 60,
-				origin: { x: 1, y: 0.5 },
-				colors,
-			});
-			requestAnimationFrame(frame);
-		};
-		frame();
-	};
 
 	const startDownload = () => {
 		let releaseTarget: string;
