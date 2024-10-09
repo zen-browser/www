@@ -35,8 +35,8 @@ export const AlertModal = ({
 						<AlertDialog.Cancel className="flex-1" asChild>
 							<Button variant={"outline"} className="bg-transparent">Cancel</Button>
 						</AlertDialog.Cancel>
-						<AlertDialog.Action onClick={onConfirm} asChild>
-							<Button variant={"default"} className="">
+						<AlertDialog.Action className="flex-1" onClick={onConfirm} asChild>
+							<Button variant={"default"}>
 								Download anyway
 							</Button>
 						</AlertDialog.Action>
