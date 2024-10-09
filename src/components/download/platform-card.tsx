@@ -47,7 +47,7 @@ export const PlatformCard = ({
 		<div
 			onClick={handlePlatformChange}
 			className={ny(
-				"mr-2 flex cursor-pointer select-none flex-col items-center justify-center rounded-lg border bg-background",
+				"flex cursor-pointer select-none flex-col items-center justify-center rounded-lg border bg-background",
 				selected ? borderColor : "",
 			)}
 			style={{

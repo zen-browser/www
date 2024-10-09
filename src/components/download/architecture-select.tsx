@@ -1,3 +1,6 @@
+'use client';
+
+import { ArchitectureCard } from "@/components/download/architecture-card";
 import {
 	FieldDescription,
 	FieldTitle,
@@ -32,33 +35,17 @@ export const ArchitectureSelect = ({
 					<FieldDescription>
 						Choose the architecture of your device, either optimized or generic.
 					</FieldDescription>
-					<div className="flex items-stretch justify-center">
-						<div
-							onClick={() => setSelectedArchitecture("specific")}
-							className={ny(
-								"mb-2 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
-								selectedArchitecture === "specific" ? "border-blue-400" : "",
-							)}
-						>
-							<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">🚀</h1>
-							<h1 className="my-2 text-2xl font-semibold">Optimized</h1>
-							<p className="mx-auto text-center text-muted-foreground">
-								Blazing fast and compatible with modern devices
-							</p>
-						</div>
-						<div
-							onClick={() => setSelectedArchitecture("generic")}
-							className={ny(
-								"mb-2 ml-10 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
-								selectedArchitecture === "generic" ? "border-blue-400" : "",
-							)}
-						>
-							<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">👴</h1>
-							<h1 className="my-2 text-2xl font-semibold">Generic</h1>
-							<p className="mx-auto text-center text-muted-foreground">
-								Slow but compatible with older devices.
-							</p>
-						</div>
+					<div className="flex items-stretch justify-center gap-4">
+						<ArchitectureCard
+							architecture="specific"
+							selected={selectedArchitecture === "specific"}
+							onClick={setSelectedArchitecture}
+						/>
+						<ArchitectureCard
+							architecture="generic"
+							selected={selectedArchitecture === "generic"}
+							onClick={setSelectedArchitecture}
+						/>
 					</div>
 				</FormField>
 			)}

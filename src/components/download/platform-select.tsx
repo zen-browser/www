@@ -23,7 +23,7 @@ export const PlatformSelect = ({
 			<FieldDescription>
 				Choose the platform you want to download Zen for.
 			</FieldDescription>
-			<div className="flex">
+			<div className="flex w-full gap-4">
 				<PlatformCard
 					onClick={onPlatformChange}
 					platform="Windows"
