@@ -9,6 +9,7 @@ import { ScrollArea } from "./ui/scroll-area";
 import Logo from "./logo";
 import { ny } from "@/lib/utils";
 import { components } from "./navigation";
+import { ModeToggle } from "@/components/mode-toggle";
 
 interface MobileLinkProps
 	extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -66,7 +67,7 @@ export function MobileNav() {
 				>
 					<Logo withText />
 				</MobileLink>
-				<ScrollArea className="mt-4 h-[calc(100vh-8rem)] pl-6">
+				<ScrollArea className="mt-4 h-[calc(100dvh-8rem)] pl-6">
 					<div className="flex flex-col space-y-3">
 						<MobileLink href="/download" onOpenChange={setOpen}>
 							<div>Download</div>
@@ -95,18 +96,23 @@ export function MobileNav() {
 							<div>Donate {"<"}3</div>
 							<p className="text-xs opacity-60">Support the project</p>
 						</MobileLink>
-						{components.map(({ title, href, description, isTargetBlank, rel }) => (
-							<MobileLink
-								href={href}
-								key={href}
-								target={isTargetBlank ? "_blank" : "_self"}
-								onOpenChange={setOpen}
-								rel={rel}
-							>
-								<div>{title}</div>
-								<p className="text-xs opacity-60">{description}</p>
-							</MobileLink>
-						))}
+						{components.map(
+							({ title, href, description, isTargetBlank, rel }) => (
+								<MobileLink
+									href={href}
+									key={href}
+									target={isTargetBlank ? "_blank" : "_self"}
+									onOpenChange={setOpen}
+									rel={rel}
+								>
+									<div>{title}</div>
+									<p className="text-xs opacity-60">{description}</p>
+								</MobileLink>
+							),
+						)}
+						<span className="-mt-4 flex w-full justify-end pr-4">
+							<ModeToggle />
+						</span>
 					</div>
 				</ScrollArea>
 			</SheetContent>
