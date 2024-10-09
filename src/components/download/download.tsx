@@ -21,11 +21,11 @@ import SparklesText from "../ui/sparkles-text";
 import { RainbowButton } from "../ui/rainbow-button";
 import { throwConfetti } from "@/components/download/tools/throw-confetti";
 
-
 import { PlatformSelect } from "@/components/download/platform-select";
 import { ArchitectureSelect } from "@/components/download/architecture-select";
 import { LinuxInstaller } from "@/components/download/linux-installer";
 import { WindowsInstaller } from "@/components/download/windows-installer";
+import { DownloadedHeader } from "@/components/download/downloaded-header";
 
 type Platform = "Windows" | "MacOS" | "Linux" | "Unsupported";
 
@@ -150,31 +150,7 @@ export default function DownloadPage() {
 				<div className="mx-auto flex w-full flex-col justify-center p-10 md:p-20 lg:w-1/2 lg:p-0 2xl:w-1/3">
 					{(hasDownloaded && (
 						<div className="mt-20 flex flex-col items-start">
-							<h1 className="text-6xl font-bold">Downloaded! ❤️</h1>
-							<p className="mt-3 text-muted-foreground">
-								Your download of Zen Browser will begin shortly. Enjoy browsing
-								the web with Zen!
-							</p>
-							<div className="mt-5 flex items-center font-bold">
-								<a
-									target="_blank"
-									rel="noopener noreferrer"
-									href="https://github.com/zen-browser"
-								>
-									Source Code
-								</a>
-								<a
-									target="_blank"
-									className="ml-5"
-									rel="noopener noreferrer"
-									href="https://patreon.com/zen_browser?utm_medium=unknown&utm_source=join_link&utm_campaign=creatorshare_creator&utm_content=copyLink"
-								>
-									Donate
-								</a>
-								<a className="ml-5" href="/release-notes/latest">
-									Release Notes
-								</a>
-							</div>
+							<DownloadedHeader />
 							{selectedLinuxDownloadType === "appimage" && (
 								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
 									<div className="flex items-center">
