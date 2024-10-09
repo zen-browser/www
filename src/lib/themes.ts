@@ -36,17 +36,17 @@ export function getThemesFromSearch(
 	query: string,
 	tags: string[],
 ): ZenTheme[] {
-	let filtered = themes.filter((theme) =>
-		theme.name.toLowerCase().includes(query.toLowerCase()),
-	);
-	if (tags.includes("all")) return filtered;
-	const isSearchingForColorScheme = tags.includes("color-scheme");
-	const isSearchingForUtility =
-		!isSearchingForColorScheme && tags.includes("utility");
-	return filtered.filter((theme) => {
-		if (isSearchingForColorScheme && theme.isColorTheme) return true;
-		if (isSearchingForUtility && !theme.isColorTheme) return true;
-		return false;
+	const normalizedQuery = query.toLowerCase();
+	const isColorScheme = tags.includes("color-scheme");
+	const isUtility = tags.includes("utility") && !isColorScheme;
+
+	return themes.filter((theme) => {
+		const matchesQuery = theme.name.toLowerCase().includes(normalizedQuery);
+		const matchesTag =
+			tags.includes("all") ||
+			(isColorScheme && theme.isColorTheme) ||
+			(isUtility && !theme.isColorTheme);
+		return matchesQuery && matchesTag;
 	});
 }
 
