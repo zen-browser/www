@@ -1,0 +1,1 @@
+export type Platforms = "Windows" | "MacOS" | "Linux";

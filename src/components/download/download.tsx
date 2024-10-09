@@ -21,6 +21,7 @@ const TWILIGHT_BASE_URL =
 import SparklesText from "../ui/sparkles-text";
 import { RainbowButton } from "../ui/rainbow-button";
 import { throwConfetti } from "@/components/download/tools/throw-confetti";
+import { PlatformCard } from "@/components/download/platform-card";
 const field_enter = keyframes`
   0% {
     opacity: 0;
@@ -243,10 +244,10 @@ export default function DownloadPage() {
 							{selectedLinuxDownloadType === "flatpak" && (
 								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
 									<div className="flex">
-										<InfoIcon className="size-4 mt-1" />
+										<InfoIcon className="mt-1 size-4" />
 										<p className="ml-3 font-bold">
-											The Flatpak version is not optimized. For
-											optimized versions, please select other formats.
+											The Flatpak version is not optimized. For optimized
+											versions, please select other formats.
 										</p>
 									</div>
 									<p className="mt-2 text-muted-foreground">
@@ -295,59 +296,25 @@ export default function DownloadPage() {
 									Choose the platform you want to download Zen for.
 								</FieldDescription>
 								<div className="flex">
-									<div
-										onClick={() => setSelectedPlatform("Windows")}
-										className={ny(
-											"mr-2 flex cursor-pointer select-none flex-col items-center justify-center rounded-lg border bg-background",
-											selectedPlatform === "Windows" ? "border-blue-400" : "",
-										)}
-										style={{
-											height: "11.25rem",
-											width: "18.75rem",
-										}}
-									>
-										<i
-											className="devicon-windows8-original rounded-lg border border-blue-400 p-2"
-											style={{ marginBottom: "10px" }}
-										></i>
-										<div className="font-bold">Windows</div>
-									</div>
+									<PlatformCard
+										onClick={setSelectedPlatform}
+										platform="Windows"
+										selected={selectedPlatform === "Windows"}
+									/>
 
-									<div
-										onClick={() => setSelectedPlatform("Linux")}
-										className={ny(
-											"mr-2 flex cursor-pointer select-none flex-col items-center justify-center rounded-lg border bg-background",
-											selectedPlatform === "Linux" ? "border-yellow-400" : "",
-										)}
-										style={{
-											height: "11.25rem",
-											width: "18.75rem",
-										}}
-									>
-										<i
-											className="devicon-linux-plain rounded-lg border border-yellow-400 p-2"
-											style={{ marginBottom: "10px" }}
-										></i>
-										<div className="font-bold">Linux</div>
-									</div>
+									<PlatformCard
+										onClick={setSelectedPlatform}
+										platform="Linux"
+										selected={selectedPlatform === "Linux"}
+									/>
 
-									<div
-										onClick={() => setSelectedPlatform("MacOS")}
-										className={ny(
-											"flex cursor-pointer select-none flex-col items-center justify-center rounded-lg border bg-background",
-											selectedPlatform === "MacOS" ? "border-purple-400" : "",
-										)}
-										style={{
-											height: "11.25rem",
-											width: "18.75rem",
-										}}
-									>
-										<i
-											className="devicon-apple-original rounded-lg border border-purple-400 p-2"
-											style={{ marginBottom: "10px" }}
-										></i>
-										<div className="font-bold">MacOS</div>
-									</div>
+									<PlatformCard
+										onClick={setSelectedPlatform}
+										platform="MacOS"
+										selected={selectedPlatform === "MacOS"}
+									/>
+
+									
 								</div>
 							</FormField>
 						)}
