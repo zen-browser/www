@@ -42,7 +42,7 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
 				<p className="mt-2 text-sm text-muted-foreground">
 					{theme.description}
 				</p>
-				<hr className="mt-4" />
+				<hr className="mt-4 mb-2" />
 				<Button
 					className="mt-4 hidden !rounded-lg"
 					id="install-theme"
