@@ -20,14 +20,12 @@ const TWILIGHT_BASE_URL =
 import SparklesText from "../ui/sparkles-text";
 import { RainbowButton } from "../ui/rainbow-button";
 import { throwConfetti } from "@/components/download/tools/throw-confetti";
-import {
-	FieldDescription,
-	FieldTitle,
-	FormField,
-} from "@/components/download/form";
+
+
 import { PlatformSelect } from "@/components/download/platform-select";
 import { ArchitectureSelect } from "@/components/download/architecture-select";
 import { LinuxInstaller } from "@/components/download/linux-installer";
+import { WindowsInstaller } from "@/components/download/windows-installer";
 
 type Platform = "Windows" | "MacOS" | "Linux" | "Unsupported";
 
@@ -256,53 +254,13 @@ export default function DownloadPage() {
 							setSelectedArchitecture={setSelectedArchitecture}
 						/>
 						{flowIndex === 2 && platform === "Windows" && (
-							<FormField
-								enter={platform === "Windows" && flowIndex === 2}
-								out={platform !== "Windows" && flowIndex >= 2}
-							>
-								<FieldTitle className="text-2xl">
-									Download Zen for Windows {selectedArchitecture}
-								</FieldTitle>
-								<FieldDescription>
-									Choose the type of download you want for Zen for Windows.
-								</FieldDescription>
-								<div className="flex items-stretch justify-center">
-									<div
-										onClick={() => setSelectedWindowsDownloadType("installer")}
-										className={ny(
-											"mb-2 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
-											selectedWindowsDownloadType === "installer"
-												? "border-blue-400"
-												: "",
-										)}
-									>
-										<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">
-											🚀
-										</h1>
-										<h1 className="my-2 text-2xl font-semibold">Installer</h1>
-										<p className="mx-auto text-center text-muted-foreground">
-											Install Zen with a setup wizard
-										</p>
-									</div>
-									<div
-										onClick={() => setSelectedWindowsDownloadType("portable")}
-										className={ny(
-											"mb-2 ml-10 flex flex-1 cursor-pointer select-none flex-col items-center rounded-lg border bg-background p-5",
-											selectedWindowsDownloadType === "portable"
-												? "border-blue-400"
-												: "",
-										)}
-									>
-										<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">
-											📦
-										</h1>
-										<h1 className="my-2 text-2xl font-semibold">Portable</h1>
-										<p className="mx-auto text-center text-muted-foreground">
-											Download Zen as a ZIP file
-										</p>
-									</div>
-								</div>
-							</FormField>
+							<WindowsInstaller
+								platform={platform}
+								flowIndex={flowIndex}
+								selectedArchitecture={selectedArchitecture}
+								setSelectedWindowsDownloadType={setSelectedWindowsDownloadType}
+								selectedWindowsDownloadType={selectedWindowsDownloadType}
+							/>
 						)}
 						{flowIndex === 2 && platform === "Linux" && (
 							<LinuxInstaller
