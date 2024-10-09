@@ -4,11 +4,9 @@ import { ny } from "@/lib/utils";
 import {
 	BicepsFlexedIcon,
 	ChevronLeft,
-	InfoIcon,
 	TestTubeDiagonalIcon,
 } from "lucide-react";
 import { Button } from "../ui/button";
-import { CopyButton } from "../ui/copy-button";
 import Particles from "../ui/particles";
 import { releases, releaseTree } from "@/lib/releases";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
@@ -27,6 +25,7 @@ import { LinuxInstaller } from "@/components/download/linux-installer";
 import { WindowsInstaller } from "@/components/download/windows-installer";
 import { DownloadedHeader } from "@/components/download/downloaded-header";
 import { AppImageInstaller } from "@/components/download/appimage-installer";
+import { FlatPakInstaller } from "@/components/download/flatpak-installer";
 
 type Platform = "Windows" | "MacOS" | "Linux" | "Unsupported";
 
@@ -123,9 +122,6 @@ export default function DownloadPage() {
 		setSelectedLinuxDownloadType("flatpak");
 	};
 
-	const linuxFlatpakScript =
-		"flatpak install flathub io.github.zen_browser.zen";
-
 	return (
 		<>
 			<link
@@ -152,25 +148,7 @@ export default function DownloadPage() {
 							{selectedLinuxDownloadType === "appimage" && (
 								<AppImageInstaller />
 							)}
-							{selectedLinuxDownloadType === "flatpak" && (
-								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
-									<div className="flex">
-										<InfoIcon className="mt-1 size-4" />
-										<p className="ml-3 font-bold">
-											The Flatpak version is not optimized. For optimized
-											versions, please select other formats.
-										</p>
-									</div>
-									<p className="mt-2 text-muted-foreground">
-										If you're using Flatpak, you can install Zen Browser with
-										the following command
-									</p>
-									<pre className="mt-2 flex items-center justify-between rounded-md bg-background p-2 text-muted-foreground">
-										{linuxFlatpakScript}
-										<CopyButton valueToCopy={linuxFlatpakScript} />
-									</pre>
-								</div>
-							)}
+							{selectedLinuxDownloadType === "flatpak" && <FlatPakInstaller />}
 						</div>
 					)) || (
 						<>
