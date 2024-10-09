@@ -26,6 +26,7 @@ import { ArchitectureSelect } from "@/components/download/architecture-select";
 import { LinuxInstaller } from "@/components/download/linux-installer";
 import { WindowsInstaller } from "@/components/download/windows-installer";
 import { DownloadedHeader } from "@/components/download/downloaded-header";
+import { AppImageInstaller } from "@/components/download/appimage-installer";
 
 type Platform = "Windows" | "MacOS" | "Linux" | "Unsupported";
 
@@ -122,9 +123,6 @@ export default function DownloadPage() {
 		setSelectedLinuxDownloadType("flatpak");
 	};
 
-	const linuxAppimageBashScript =
-		"bash <(curl https://updates.zen-browser.app/appimage.sh)";
-
 	const linuxFlatpakScript =
 		"flatpak install flathub io.github.zen_browser.zen";
 
@@ -152,20 +150,7 @@ export default function DownloadPage() {
 						<div className="mt-20 flex flex-col items-start">
 							<DownloadedHeader />
 							{selectedLinuxDownloadType === "appimage" && (
-								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
-									<div className="flex items-center">
-										<InfoIcon className="size-4" />
-										<p className="ml-3 font-bold">AppImage users?</p>
-									</div>
-									<p className="mt-2 text-muted-foreground">
-										If you're using an AppImage, you can use the automatic
-										installer, check it out{" "}
-									</p>
-									<pre className="mt-2 flex items-center justify-between rounded-md bg-background p-2 text-muted-foreground">
-										{linuxAppimageBashScript}
-										<CopyButton valueToCopy={linuxAppimageBashScript} />
-									</pre>
-								</div>
+								<AppImageInstaller />
 							)}
 							{selectedLinuxDownloadType === "flatpak" && (
 								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
