@@ -13,7 +13,9 @@ import { CopyButton } from "./ui/copy-button";
 import Particles from "./ui/particles";
 import confetti from "canvas-confetti";
 import { releases, releaseTree } from "@/lib/releases";
-import { InfoCircledIcon, ExclamationTriangleIcon } from "@radix-ui/react-icons";
+import {
+	InfoCircledIcon,
+} from "@radix-ui/react-icons";
 const BASE_URL =
 	"https://github.com/zen-browser/desktop/releases/latest/download";
 const TWILIGHT_BASE_URL =
@@ -21,6 +23,7 @@ const TWILIGHT_BASE_URL =
 
 import SparklesText from "./ui/sparkles-text";
 import { RainbowButton } from "./ui/rainbow-button";
+import { AlertModal } from "@/components/alert-modal";
 const field_enter = keyframes`
   0% {
     opacity: 0;
@@ -203,6 +206,20 @@ export default function DownloadPage() {
 	const linuxFlatpakScript =
 		"flatpak install flathub io.github.zen_browser.zen";
 
+	const [alertOpen, setAlertOpen] = useState(false);
+
+	const handleContinue = () => {
+		if (
+			flowIndex === 2 &&
+			selectedLinuxDownloadType === "flatpak" &&
+			selectedArchitecture === "specific"
+		) {
+			setAlertOpen(true);
+		} else {
+			continueFlow();
+		}
+	};
+
 	return (
 		<>
 			<link
@@ -223,6 +240,11 @@ export default function DownloadPage() {
 
 			<div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden lg:flex-row">
 				<div className="mx-auto flex w-full flex-col justify-center p-10 md:p-20 lg:w-1/2 lg:p-0 2xl:w-1/3">
+					<AlertModal
+						open={alertOpen}
+						onOpenChange={setAlertOpen}
+						onConfirm={continueFlow}
+					/>
 					{(hasDownloaded && (
 						<div className="mt-20 flex flex-col items-start">
 							<h1 className="text-6xl font-bold">Downloaded! ❤️</h1>
@@ -269,10 +291,9 @@ export default function DownloadPage() {
 							{selectedLinuxDownloadType === "flatpak" && (
 								<div className="mt-10 rounded-md border bg-surface p-5 shadow">
 									<div className="flex">
-										<ExclamationTriangleIcon className="size-4 mt-1 text-yellow-500" />
-										<p className="ml-3 font-bold text-yellow-500">
-											The Flatpak version is not optimized. For
-											optimized versions, please select other formats.
+										<InfoIcon className="mt-1 size-4" />
+										<p className="ml-3 font-bold">
+											FlatPak users?
 										</p>
 									</div>
 									<p className="mt-2 text-muted-foreground">
@@ -613,7 +634,7 @@ export default function DownloadPage() {
 								Back
 							</Button>
 							<Button
-								onClick={() => continueFlow()}
+								onClick={handleContinue}
 								disabled={
 									selectedPlatform === "Unsupported" || !selectedPlatform
 								}
