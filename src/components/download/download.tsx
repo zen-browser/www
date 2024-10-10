@@ -166,7 +166,7 @@ export default function DownloadPage() {
 						<div className="mt-20 flex flex-col items-start">
 							<DownloadedHeader />
 							{selectedLinuxDownloadType === "appimage" && (
-								<AppImageInstaller />
+								<AppImageInstaller isTwilight={isTwilight} />
 							)}
 							{selectedLinuxDownloadType === "flatpak" && <FlatPakInstaller />}
 						</div>
