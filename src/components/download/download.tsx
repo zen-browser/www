@@ -26,6 +26,7 @@ import { WindowsInstaller } from "@/components/download/windows-installer";
 import { DownloadedHeader } from "@/components/download/downloaded-header";
 import { AppImageInstaller } from "@/components/download/appimage-installer";
 import { FlatPakInstaller } from "@/components/download/flatpak-installer";
+import { AlertModal } from "@/components/alert-modal";
 
 type Platform = "Windows" | "MacOS" | "Linux" | "Unsupported";
 
@@ -122,6 +123,20 @@ export default function DownloadPage() {
 		setSelectedLinuxDownloadType("flatpak");
 	};
 
+	const [alertOpen, setAlertOpen] = useState(false);
+
+	const handleContinue = () => {
+		if (
+			flowIndex === 2 &&
+			selectedLinuxDownloadType === "flatpak" &&
+			selectedArchitecture === "specific"
+		) {
+			setAlertOpen(true);
+		} else {
+			continueFlow();
+		}
+	};
+
 	return (
 		<>
 			<link
@@ -142,6 +157,11 @@ export default function DownloadPage() {
 
 			<div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden lg:flex-row">
 				<div className="mx-auto flex w-full flex-col justify-center p-10 md:p-20 lg:w-1/2 lg:p-0 2xl:w-1/3">
+					<AlertModal
+						open={alertOpen}
+						onOpenChange={setAlertOpen}
+						onConfirm={continueFlow}
+					/>
 					{(hasDownloaded && (
 						<div className="mt-20 flex flex-col items-start">
 							<DownloadedHeader />
@@ -227,7 +247,7 @@ export default function DownloadPage() {
 								Back
 							</Button>
 							<Button
-								onClick={() => continueFlow()}
+								onClick={handleContinue}
 								disabled={
 									selectedPlatform === "Unsupported" || !selectedPlatform
 								}
