@@ -1104,6 +1104,50 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 		],
 	},
+    {
+		version: "1.0.1-a.8",
+		date: "10/10/2024",
+		image: false,
+		workflowId: 11279059812,
+		extra: "This release brings Zen to Firefox v131.0.2, which patches a significant security vulnerability.\n\nThis update improves the split view and pinned tabs features.\nWe have also released Zen Twilight; automated unstable builds where you can test out the latest features!",
+        features: [
+            "Updated to the latest stable version of Firefox (131.0.2)",
+            "Added floating compact mode",
+            "Allow moving split view tabs with drag and drop functionality",
+            "Addede option to reset pinned tabs to original state on close",
+            "Added support for syncing workspaces",
+            "Allow opening tabs by middle clicking the tab sidebar",
+        ],
+        fixes: [
+            {
+                description: "Fixed tab sidebar flickering when on the right",
+            },
+            {
+                description: "Fixed performance issue when scrolling",
+            },
+            {   
+                description: "Fixed buffering issues on YouTube"
+            },
+            {
+                description: "Fixed aligment issues with split view overlay and collapsed tabs"
+            },
+            {
+                description: "Fixed Zen Mod settings page crashing when a mod ceases to exist"
+            },
+            {
+                description: "Fixed extension menu breaking compact mode when held open",
+                issue: 1925
+            },
+            {
+                description: "Fixed internal keyboard shortcuts for macOS",
+                issue: 1629
+            },
+            {
+                description: "Fixed display issues with certain keyboard layouts",
+                issue: 1930
+            }
+        ]
+    }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
