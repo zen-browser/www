@@ -1,10 +1,16 @@
 import { CopyButton } from "@/components/ui/copy-button";
 import { InfoIcon } from "lucide-react";
 
-export const AppImageInstaller = () => {
-	const linuxAppimageBashScript =
-		"bash <(curl https://updates.zen-browser.app/appimage.sh)";
+const linuxAppimageBashScript =
+	"bash <(curl https://updates.zen-browser.app/appimage.sh)";
 
+const linuxAppimageTwilightBashScript =
+	"bash <(curl https://updates.zen-browser.app/appimage.sh) twilight";
+
+export const AppImageInstaller = ({ isTwilight }: { isTwilight: boolean }) => {
+	const script = isTwilight
+		? linuxAppimageTwilightBashScript
+		: linuxAppimageBashScript;
 	return (
 		<div className="mt-10 rounded-md border bg-surface p-5 shadow">
 			<div className="flex items-center">
@@ -16,8 +22,8 @@ export const AppImageInstaller = () => {
 				it out{" "}
 			</p>
 			<pre className="mt-2 flex items-center justify-between rounded-md bg-background p-2 text-muted-foreground">
-				{linuxAppimageBashScript}
-				<CopyButton valueToCopy={linuxAppimageBashScript} />
+				{script}
+				<CopyButton valueToCopy={script} />
 			</pre>
 		</div>
 	);
