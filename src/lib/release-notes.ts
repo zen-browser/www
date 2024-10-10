@@ -1107,7 +1107,7 @@ export const releaseNotes: ReleaseNote[] = [
     {
 		version: "1.0.1-a.8",
 		date: "10/10/2024",
-		image: false,
+		image: true,
 		workflowId: 11279059812,
 		extra: "This release brings Zen to Firefox v131.0.2, which patches a significant security vulnerability.\n\nThis update improves the split view and pinned tabs features.\nWe have also released Zen Twilight; automated unstable builds where you can test out the latest features!",
         features: [
@@ -1145,7 +1145,11 @@ export const releaseNotes: ReleaseNote[] = [
             {
                 description: "Fixed display issues with certain keyboard layouts",
                 issue: 1930
-            }
+            },
+		{
+			description: "Applied patches to fix CVE-2024-9680",
+			issue: 1993
+		},
         ]
     }
 ].reverse();
