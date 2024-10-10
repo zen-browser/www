@@ -16,7 +16,7 @@ export default function Logo({ withText, ...props }: any) {
 					withText && "mr-2",
 				)}
 			/>
-			{withText && <span className="ml-2 text-2xl font-bold">zen</span>}
+			{withText && <span className="ml-2 text-2xl font-bold">Zen</span>}
 		</div>
 	);
 }
