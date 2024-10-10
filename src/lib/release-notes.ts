@@ -1114,7 +1114,7 @@ export const releaseNotes: ReleaseNote[] = [
             "Updated to the latest stable version of Firefox (131.0.2)",
             "Added floating compact mode",
             "Allow moving split view tabs with drag and drop functionality",
-            "Addede option to reset pinned tabs to original state on close",
+            "Added option to reset pinned tabs to original state on close",
             "Added support for syncing workspaces",
             "Allow opening tabs by middle clicking the tab sidebar",
         ],
@@ -1127,9 +1127,6 @@ export const releaseNotes: ReleaseNote[] = [
             },
             {   
                 description: "Fixed buffering issues on YouTube"
-            },
-            {
-                description: "Fixed aligment issues with split view overlay and collapsed tabs"
             },
             {
                 description: "Fixed Zen Mod settings page crashing when a mod ceases to exist"
