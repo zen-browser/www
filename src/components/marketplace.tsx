@@ -14,11 +14,11 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 		return getThemesFromSearch(themes, searchTerm, selectedTags, sortBy);
 	}, [themes, searchTerm, selectedTags, sortBy]);
 
-  const toggleTag = (tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
-    )
-  }
+	const toggleTag = (tag: string) => {
+		setSelectedTags((prev) =>
+			prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
+		);
+	};
 
 	return (
 		<div className="relative mx-auto flex h-full w-full flex-col lg:flex-row">
@@ -35,9 +35,9 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 						input={searchTerm}
 						setInput={setSearchTerm}
 						tags={selectedTags}
-            toggleTag={toggleTag}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
+						toggleTag={toggleTag}
+						sortBy={sortBy}
+						setSortBy={setSortBy}
 					/>
 				</StickyBox>
 			</div>
