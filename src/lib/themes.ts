@@ -10,9 +10,12 @@ export interface ZenTheme {
 	isColorTheme: boolean;
 	author: string;
 	version: string;
+  tags: string[];
+  createdAt: Date;
+  updatedAt: Date;
 }
 
-const THEME_API = "https://zen-browser.github.io/theme-store/themes.json";
+const THEME_API = "https://therealmg.github.io/themes.json";
 const CACHE_OPTIONS = {
 	next: {
 		revalidate: 60,
@@ -35,19 +38,34 @@ export function getThemesFromSearch(
 	themes: ZenTheme[],
 	query: string,
 	tags: string[],
+  sortBy: string,
 ): ZenTheme[] {
 	const normalizedQuery = query.toLowerCase();
-	const isColorScheme = tags.includes("color-scheme");
-	const isUtility = tags.includes("utility") && !isColorScheme;
 
-	return themes.filter((theme) => {
-		const matchesQuery = theme.name.toLowerCase().includes(normalizedQuery);
-		const matchesTag =
-			tags.includes("all") ||
-			(isColorScheme && theme.isColorTheme) ||
-			(isUtility && !theme.isColorTheme);
-		return matchesQuery && matchesTag;
-	});
+  return themes.filter((theme) => {
+    const matchesQuery = theme.name.toLowerCase().includes(normalizedQuery);
+    const matchesTag = tags.length === 0 || (theme.tags && tags.some(tag => theme.tags.includes(tag)));
+
+    return matchesQuery && matchesTag;
+  }).sort((a, b) => {
+    // Sort by number of matching tags first
+    const aMatchCount = tags.filter(tag => a.tags.includes(tag)).length
+    const bMatchCount = tags.filter(tag => b.tags.includes(tag)).length
+    if (aMatchCount !== bMatchCount) {
+      return bMatchCount - aMatchCount
+    }
+
+    // If match counts are equal, use the selected sort method
+    if (sortBy === "name") {
+      return a.name.localeCompare(b.name)
+    } else if (sortBy === "createdAt") {
+      console.log(a.name)
+      return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    } else if (sortBy === "updatedAt") {
+      return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+    }
+    return 0
+  })
 }
 
 export async function getThemeFromId(id: string) {

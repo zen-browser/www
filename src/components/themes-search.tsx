@@ -1,19 +1,24 @@
-import { SearchIcon } from "lucide-react";
+import { SearchIcon, TagIcon } from "lucide-react";
 import { Button } from "./ui/button";
-import { ny } from "@/lib/utils";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
+import React from "react";
 
-const TAGS = ["all", "color-scheme", "utility"];
+const TAGS = ["color scheme", "dark", "tabs"];
 
 export default function ThemesSearch({
 	input,
 	setInput,
 	tags,
-	setTags,
+  toggleTag,
+  sortBy,
+  setSortBy,
 }: {
 	input: string;
 	setInput: (input: string) => void;
 	tags: string[];
-	setTags: (tags: string[]) => void;
+  toggleTag: (tag: string) => void;
+  sortBy: string;
+  setSortBy: (method: string) => void;
 }) {
 	return (
 		<>
@@ -26,38 +31,32 @@ export default function ThemesSearch({
 					placeholder="Search Mods"
 					className="w-full border-none bg-transparent text-black focus:border-none focus:outline-none focus:ring-0 dark:text-white"
 				/>
-				{/*
-				<Button
-					onClick={() =>
-						window.open(
-							"https://docs.zen-browser.app/themes-store/themes-marketplace-submission-guidelines#themes-store-submission-guidelines",
-							"_blank",
-						)
-					}
-					className="hidden rounded-full rounded-r-none text-muted md:block"
-				>
-					Submit a theme
-				</Button>
-				<Button
-					onClick={() => window.open("/create-theme", "_self")}
-					className="hidden rounded-full rounded-l-none border-l border-black text-muted dark:border-none md:block"
-				>
-					Create your theme
-				</Button>*/}
 			</div>
+      <Select value={sortBy} onValueChange={setSortBy}>
+          <SelectTrigger className="w-full sm:w-[180px] mt-4">
+            <SelectValue placeholder="Sort by" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="name">Alphabetical</SelectItem>
+            <SelectItem value="createdAt">Created Date</SelectItem>
+            <SelectItem value="updatedAt">Updated Date</SelectItem>
+          </SelectContent>
+        </Select>
 			<div className="mt-4 flex flex-wrap gap-2">
-				{TAGS.map((tag) => (
-					<Button
-						variant="ghost"
-						key={tag}
-						onClick={() => setTags([tag])}
-						className={ny(
-							`!h-fit !min-w-24 !rounded-full !py-2 px-5 ${tags.includes(tag) ? "bg-black text-white dark:bg-white dark:text-black" : ""}`,
-						)}
-					>
-						{tag.replace(/-/g, " ")}
-					</Button>
-				))}
+        <div className="flex flex-wrap gap-2 mb-6">
+        {TAGS.map((tag) => (
+          <Button
+            key={tag}
+            variant={tags.includes(tag) ? "default" : "secondary"}
+            size="sm"
+            onClick={() => toggleTag(tag)}
+            className="flex items-center"
+          >
+            <TagIcon className="w-4 h-4 mr-1" />
+            {tag}
+          </Button>
+        ))}
+      </div>
 			</div>
 		</>
 	);
