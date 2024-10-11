@@ -28,7 +28,7 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 					/>
 				</StickyBox>
 			</div>
-			<div className="mt-12 grid w-full grid-cols-1 gap-8 px-5 pt-12 lg:w-1/2 lg:gap-y-16 lg:px-10 xl:w-2/3 lg:grid-cols-2 2xl:w-3/4 2xl:grid-cols-3">
+			<div className="mt-12 grid w-full grid-cols-1 gap-8 px-5 pt-12 lg:w-1/2 lg:px-10 xl:w-2/3 md:grid-cols-2 2xl:w-3/4 2xl:grid-cols-3 3xl:grid-cols-4">
 				{getThemesFromSearch(themes, searchInput, tags).map((theme) => (
 					<ThemeCard key={theme.name} theme={theme} />
 				))}
