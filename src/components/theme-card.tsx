@@ -54,6 +54,10 @@ export default function ThemeCard({
 					>
 						Author
 					</a>
+					<span className="text-md mx-2 text-muted-foreground">{"·"}</span>
+					<p className="text-muted-foreground">
+						{theme.isColorTheme ? "Color Scheme" : "Utility"}
+					</p>
 				</div>
 				<p className="text-md mt-2 overflow-ellipsis text-start text-muted-foreground">
 					{theme.description.substring(0, maxDescLen).trim() +
