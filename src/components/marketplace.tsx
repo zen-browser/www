@@ -27,7 +27,7 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 					className="h-fit min-w-52 text-xs text-muted-foreground lg:mb-0"
 					offsetTop={120}
 				>
-					<h1 className="text-4xl font-bold lg:text-7xl">Mods Store</h1>
+					<h1 className="text-4xl font-bold lg:text-7xl">Zen Mods</h1>
 					<p className="mt-4 text-lg text-muted-foreground">
 						Discover and install Mods for Zen Browser.
 					</p>

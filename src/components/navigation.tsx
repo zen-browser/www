@@ -150,7 +150,7 @@ export function Navigation() {
 								<ListItem href="/download" title="Download">
 									Start using Zen Browser today with just a few clicks.
 								</ListItem>
-								<ListItem href="/themes" title="Mods Store">
+								<ListItem href="/themes" title="Zen Mods">
 									Customize your browser with a variety of Mods!
 								</ListItem>
 								<ListItem href="/release-notes" title="Release Notes">

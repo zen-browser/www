@@ -1,5 +1,3 @@
-"use client";
-
 import Features from "@/components/features";
 import Header from "@/components/header";
 
