@@ -15,7 +15,7 @@ export interface ZenTheme {
   updatedAt: Date;
 }
 
-const THEME_API = "https://therealmg.github.io/themes.json";
+const THEME_API = "https://zen-browser.github.io/theme-store/themes.json";
 const CACHE_OPTIONS = {
 	next: {
 		revalidate: 60,
