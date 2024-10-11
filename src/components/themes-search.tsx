@@ -37,6 +37,24 @@ export default function ThemesSearch({
 					placeholder="Search Mods"
 					className="w-full border-none bg-transparent text-black focus:border-none focus:outline-none focus:ring-0 dark:text-white"
 				/>
+				{/*
+				<Button
+					onClick={() =>
+						window.open(
+							"https://docs.zen-browser.app/themes-store/themes-marketplace-submission-guidelines#themes-store-submission-guidelines",
+							"_blank",
+						)
+					}
+					className="hidden rounded-full rounded-r-none text-muted md:block"
+				>
+					Submit a theme
+				</Button>
+				<Button
+					onClick={() => window.open("/create-theme", "_self")}
+					className="hidden rounded-full rounded-l-none border-l border-black text-muted dark:border-none md:block"
+				>
+					Create your theme
+				</Button>*/}
 			</div>
 			<Select value={sortBy} onValueChange={setSortBy}>
 				<SelectTrigger className="mt-4 w-full sm:w-[180px]">
