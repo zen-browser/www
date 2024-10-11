@@ -26,13 +26,6 @@ export default function ThemeCard({
 				className,
 			)}
 		>
-			{/* <div className="relative h-48 overflow-hidden rounded-xl border-2 border-[rgba(0,0,0,.5)] object-cover shadow dark:border-[#333] lg:aspect-[1.85/1] lg:h-auto">
-				<img
-					src={theme.image}
-					alt={theme.name}
-					className="h-full w-full object-cover"
-				/>
-			</div> */}
 			<div className="w-full p-5">
 				<h2 className="mt-4 overflow-ellipsis text-start text-xl font-bold">
 					{theme.name.substring(0, maxNameLen).trim() +
