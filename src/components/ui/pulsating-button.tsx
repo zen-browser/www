@@ -29,7 +29,7 @@ export const PulsatingButton: React.FC<PulsatingButtonProps> = ({
 	return (
 		<div className="flex items-center justify-center">
 			<button
-				className="relative block flex cursor-pointer items-center justify-center text-center"
+				className="relative flex cursor-pointer items-center justify-center text-center"
 				style={{
 					color: textColor,
 					backgroundColor,

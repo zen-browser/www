@@ -23,7 +23,7 @@ export default function ThemeCard({
 				window.open(`/themes/${theme.id}`, "_self");
 			}}
 			className={ny(
-				"flex w-full cursor-pointer select-none flex-col justify-start bg-surface rounded-xl border-2 border-[transparent] hover:shadow-lg hover:border-[rgba(0,0,0,.5)] dark:bg-[#121212] dark:hover:border-[#333] dark:hover:border-[#333] transition-shadow transition-all duration-200",
+				"flex w-full cursor-pointer select-none flex-col justify-start bg-surface rounded-xl border-2 border-[transparent] hover:shadow-lg hover:border-[rgba(0,0,0,.5)] dark:bg-[#121212] dark:hover:border-[#333] transition-all duration-200",
 				className,
 			)}
 		>
