@@ -1,19 +1,30 @@
-import { SearchIcon } from "lucide-react";
+import { SearchIcon, TagIcon } from "lucide-react";
 import { Button } from "./ui/button";
-import { ny } from "@/lib/utils";
+import {
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "./ui/select";
+import React from "react";
 
-const TAGS = ["all", "color-scheme", "utility"];
+const TAGS = ["color scheme", "dark", "tabs"];
 
 export default function ThemesSearch({
 	input,
 	setInput,
 	tags,
-	setTags,
+	toggleTag,
+	sortBy,
+	setSortBy,
 }: {
 	input: string;
 	setInput: (input: string) => void;
 	tags: string[];
-	setTags: (tags: string[]) => void;
+	toggleTag: (tag: string) => void;
+	sortBy: string;
+	setSortBy: (method: string) => void;
 }) {
 	return (
 		<>
@@ -45,19 +56,31 @@ export default function ThemesSearch({
 					Create your theme
 				</Button>*/}
 			</div>
+			<Select value={sortBy} onValueChange={setSortBy}>
+				<SelectTrigger className="mt-4 w-full sm:w-[180px]">
+					<SelectValue placeholder="Sort by" />
+				</SelectTrigger>
+				<SelectContent>
+					<SelectItem value="name">Alphabetical</SelectItem>
+					<SelectItem value="createdAt">Created Date</SelectItem>
+					<SelectItem value="updatedAt">Updated Date</SelectItem>
+				</SelectContent>
+			</Select>
 			<div className="mt-4 flex flex-wrap gap-2">
-				{TAGS.map((tag) => (
-					<Button
-						variant="ghost"
-						key={tag}
-						onClick={() => setTags([tag])}
-						className={ny(
-							`!h-fit !min-w-24 !rounded-full !py-2 px-5 ${tags.includes(tag) ? "bg-black text-white dark:bg-white dark:text-black" : ""}`,
-						)}
-					>
-						{tag.replace(/-/g, " ")}
-					</Button>
-				))}
+				<div className="mb-6 flex flex-wrap gap-2">
+					{TAGS.map((tag) => (
+						<Button
+							key={tag}
+							variant={tags.includes(tag) ? "default" : "secondary"}
+							size="sm"
+							onClick={() => toggleTag(tag)}
+							className="flex items-center"
+						>
+							<TagIcon className="mr-1 h-4 w-4" />
+							{tag}
+						</Button>
+					))}
+				</div>
 			</div>
 		</>
 	);

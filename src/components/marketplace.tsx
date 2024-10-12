@@ -6,8 +6,19 @@ import ThemeCard from "./theme-card";
 import StickyBox from "react-sticky-box";
 
 export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
-	const [searchInput, setSearchInput] = React.useState("");
-	const [tags, setTags] = React.useState<string[]>(["all"]);
+	const [searchTerm, setSearchTerm] = React.useState("");
+	const [sortBy, setSortBy] = React.useState("name");
+	const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
+
+	const filteredAndSortedThemes = React.useMemo(() => {
+		return getThemesFromSearch(themes, searchTerm, selectedTags, sortBy);
+	}, [themes, searchTerm, selectedTags, sortBy]);
+
+	const toggleTag = (tag: string) => {
+		setSelectedTags((prev) =>
+			prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
+		);
+	};
 
 	return (
 		<div className="relative mx-auto flex h-full w-full flex-col lg:flex-row">
@@ -21,10 +32,12 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 						Discover and install Mods for Zen Browser.
 					</p>
 					<ThemesSearch
-						input={searchInput}
-						setInput={setSearchInput}
-						tags={tags}
-						setTags={setTags}
+						input={searchTerm}
+						setInput={setSearchTerm}
+						tags={selectedTags}
+						toggleTag={toggleTag}
+						sortBy={sortBy}
+						setSortBy={setSortBy}
 					/>
 				</StickyBox>
 			</div>
