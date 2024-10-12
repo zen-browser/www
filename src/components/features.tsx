@@ -22,6 +22,7 @@ import React from "react";
 
 import CachedImage from "./CachedImage";
 import { FAQ } from "@/components/faq/faq";
+import BrowserComplexityExample from "./browser-slider";
 
 function Checkmark() {
 	return (
@@ -38,6 +39,7 @@ function Question() {
 export default function Features() {
 	return (
 		<section className="w-full flex-col" id="features">
+			<BrowserComplexityExample />
 			<div className="mx-auto mt-16 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
 				<div className="flex-1 p-5 lg:p-12">
 					<div className="flex flex-col justify-center p-12">
@@ -46,7 +48,7 @@ export default function Features() {
 							<PaintBucket className="inline h-10 w-10"></PaintBucket>
 						</h3>
 						<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-							With Zen's Theme Store, you can customize your browsing experience
+							With Zen Mods, you can customize your browsing experience
 							to reflect your unique style and preferences. Choose from a wide
 							array of Mods, colors, and layouts to make Zen truly your own,
 							transforming your browser into a personalized digital space.
