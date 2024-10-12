@@ -55,3 +55,11 @@
 	margin: 1em 0;
 	line-height: 1.6;
 }
+
+code {
+	font-size: .8em;
+	background-color: var(--surface);
+	padding: 0.2em 0.4em;
+	border: 1px solid light-dark(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.2));
+	border-radius: 0.3em;
+}
