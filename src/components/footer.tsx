@@ -73,7 +73,7 @@ export default function Footer() {
 						<h2 className="text-md font-bold opacity-80">Get Started</h2>
 						<ul className="mt-4 font-normal opacity-70">
 							<li>
-								<a href="/themes">Mods</a>
+								<a href="/mods">Mods</a>
 							</li>
 							<li className="mt-2">
 								<a href="/download">Download</a>
