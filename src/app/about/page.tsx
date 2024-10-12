@@ -24,7 +24,7 @@ These are the most active developers in the project. Awesome people that make Ze
 * [**kristijanribaric**](https://github.com/kristijanribaric): Active contributor, known as \`mr. workspaces\`.
 * [**n7itro**](https://github.com/n7itro): Active contributor and release notes writer, known as \`mr. discord\`. (Also discord moderator, but who would want to be that?)
 * [**Bryan Galdámez**](https://josuegalre.netlify.app/): Huge contributor on theme functionalities, known as \`mr. themes\`.
-* [**Jafeth Garro**](https://iamjafeth.com/): Documentation writer.
+* [**Jafeth Garro**](https://iamjafeth.com/): Documentation writer, known as \`mr. docs\`.
 * [**Larvey**](https://github.com/LarveyOfficial/): AUR maintainer, known as \`mr. AUR manager\`.
 * [**Gunir**](https://github.com/gunir): Helps a lot with firefox's configuration and knowledge, known as \`mr. optimizations\`.
 
