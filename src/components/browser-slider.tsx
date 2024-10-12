@@ -4,7 +4,6 @@ import { ny } from "@/lib/utils";
 import CachedImage from "./CachedImage";
 import { Slider } from "./ui/slider";
 import React from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function BrowserComplexityExample() {
   const [selectedImage, setSelectedImage] = React.useState([1]);
