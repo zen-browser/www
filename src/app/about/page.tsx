@@ -28,12 +28,16 @@ These are the most active developers in the project. Awesome people that make Ze
 * [**Larvey**](https://github.com/LarveyOfficial/): AUR maintainer, known as \`mr. AUR manager\`.
 * [**Gunir**](https://github.com/gunir): Helps a lot with firefox's configuration and knowledge, known as \`mr. optimizations\`.
 
-# Many more contributors
+> These contributors have a "mr." nickname because it resembles their main contributions to the project, and it's a fun way to recognize them.
 
+# Many more contributors! 🎉
+
+* These are the desktop contributors: *
 ![Contributors](https://contributors-img.web.app/image?repo=zen-browser/desktop)
 
 ---
 
+* These are the site contributors: *
 ![Contributors](https://contributors-img.web.app/image?repo=zen-browser/www)
 `}
 				</Markdown>
