@@ -26,7 +26,7 @@ These are the most active developers in the project. Awesome people that make Ze
 * [**Bryan Galdámez**](https://josuegalre.netlify.app/): Huge contributor on theme functionalities, known as \`mr. themes\`.
 * [**Jafeth Garro**](https://iamjafeth.com/): Documentation writer.
 * [**Larvey**](https://github.com/LarveyOfficial/): AUR maintainer, known as \`mr. AUR manager\`.
-* [**Gunir**](https://github.com/gunir): Active contributor, known as \`mr. 🐷\`.
+* [**Gunir**](https://github.com/gunir): Helps a lot with firefox's configuration and knowledge, known as \`mr. optimizations\`.
 
 # Many more contributors
 
