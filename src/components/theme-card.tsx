@@ -1,7 +1,11 @@
 import { getThemeAuthorLink, ZenTheme } from "@/lib/themes";
 import styled from "styled-components";
 
+import { TagIcon } from "lucide-react";
+
+
 import { ny } from "@/lib/utils";
+import { Badge } from "./ui/badge";
 
 const ThemeCardWrapper = styled.div``;
 
@@ -27,10 +31,24 @@ export default function ThemeCard({
 			)}
 		>
 			<div className="w-full p-5">
-				<h2 className="mt-4 overflow-ellipsis text-start text-xl font-bold">
+				<h2 className="mb-1 overflow-ellipsis text-start text-xl font-bold">
 					{theme.name.substring(0, maxNameLen).trim() +
 						(theme.name.length > maxNameLen ? "..." : "")}
 				</h2>
+				<div className="flex flex-wrap gap-2">
+					{theme.tags?.length ? (
+						theme.tags.map((tag) => (
+							<Badge key={tag} variant="secondary">
+								<TagIcon className="mr-1 h-3 w-3" />
+								{tag}
+							</Badge>
+						))
+					) : (
+						<span className="text-xs italic text-gray-500">
+							No tags available
+						</span>
+					)}
+				</div>
 				<div className="mt-2 flex">
 					{theme.homepage && (
 						<>
