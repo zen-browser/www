@@ -32,12 +32,10 @@ These are the most active developers in the project. Awesome people that make Ze
 
 # Many more contributors! 🎉
 
-* These are the desktop contributors: *
+*These are the desktop contributors:*
 ![Contributors](https://contributors-img.web.app/image?repo=zen-browser/desktop)
 
----
-
-* These are the site contributors: *
+*These are the site contributors:*
 ![Contributors](https://contributors-img.web.app/image?repo=zen-browser/www)
 `}
 				</Markdown>
