@@ -6,8 +6,19 @@ import ThemeCard from "./theme-card";
 import StickyBox from "react-sticky-box";
 
 export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
-	const [searchInput, setSearchInput] = React.useState("");
-	const [tags, setTags] = React.useState<string[]>(["all"]);
+	const [searchTerm, setSearchTerm] = React.useState("");
+	const [sortBy, setSortBy] = React.useState("name");
+	const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
+
+	const filteredAndSortedThemes = React.useMemo(() => {
+		return getThemesFromSearch(themes, searchTerm, selectedTags, sortBy);
+	}, [themes, searchTerm, selectedTags, sortBy]);
+
+	const toggleTag = (tag: string) => {
+		setSelectedTags((prev) =>
+			prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag],
+		);
+	};
 
 	return (
 		<div className="relative mx-auto flex h-full w-full flex-col lg:flex-row">
@@ -21,15 +32,17 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 						Discover and install Mods for Zen Browser.
 					</p>
 					<ThemesSearch
-						input={searchInput}
-						setInput={setSearchInput}
-						tags={tags}
-						setTags={setTags}
+						input={searchTerm}
+						setInput={setSearchTerm}
+						tags={selectedTags}
+						toggleTag={toggleTag}
+						sortBy={sortBy}
+						setSortBy={setSortBy}
 					/>
 				</StickyBox>
 			</div>
-			<div className="mt-12 grid w-full grid-cols-1 gap-8 px-5 pt-12 lg:w-1/2 lg:gap-y-16 lg:px-10 xl:w-2/3 lg:grid-cols-2 2xl:w-3/4 2xl:grid-cols-3">
-				{getThemesFromSearch(themes, searchInput, tags).map((theme) => (
+			<div className="mt-10 grid w-full grid-cols-1 gap-8 px-5 pt-12 lg:w-1/2 lg:gap-y-16 lg:px-10 xl:w-2/3 xl:grid-cols-2 2xl:w-3/4 2xl:grid-cols-3">
+				{filteredAndSortedThemes.map((theme) => (
 					<ThemeCard key={theme.name} theme={theme} />
 				))}
 			</div>
