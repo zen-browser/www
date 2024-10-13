@@ -8,7 +8,7 @@ export default function CoolHeaderText() {
 					Stay focused, browse faster with Zen
 				</h1>
 			</div>
-			<div className="pointer-events-none absolute right-20 top-[-5px] mt-12 hidden h-fit w-fit !rotate-[15deg] transform animate-fade-in rounded-full bg-blue-500 px-3 py-1 text-white opacity-0 shadow [--animation-delay:400ms] md:block">
+			<div className="pointer-events-none absolute right-20 top-[-5px] mt-12 hidden h-fit w-fit !rotate-[15deg] transform animate-fade-in rounded-full bg-surface border-2 px-3 py-1 opacity-0 shadow [--animation-delay:400ms] md:block">
 				Alpha Version
 			</div>
 		</>

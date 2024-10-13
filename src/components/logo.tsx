@@ -1,4 +1,3 @@
-"use client";
 import { ny } from "@/lib/utils";
 import React from "react";
 import CachedImage from "./CachedImage";
