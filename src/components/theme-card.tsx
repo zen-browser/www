@@ -25,7 +25,7 @@ export default function ThemeCard({
 		<Link href={`/themes/${theme.id}`} prefetch={false} passHref legacyBehavior>
 			<ThemeCardWrapper
 			className={ny(
-				"flex w-full cursor-pointer select-none flex-col justify-start rounded-xl border-2 border-[transparent] bg-surface transition-all transition-shadow duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]",
+				"flex w-full cursor-pointer select-none flex-col justify-start bg-surface rounded-xl border-2 border-[transparent] hover:shadow-lg hover:border-[rgba(0,0,0,.5)] dark:bg-[#121212] dark:hover:border-[#333] transition-all duration-200",
 				className,
 			)}
 		>

@@ -22,7 +22,7 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 
 	return (
 		<div className="relative mx-auto flex h-full w-full flex-col lg:flex-row">
-			<div className="relative w-full bg-surface px-10 py-48 shadow dark:bg-[#121212] lg:mt-24 lg:w-1/2 lg:w-fit lg:rounded-br-lg lg:rounded-tr-lg lg:py-32 xl:w-1/3 2xl:w-1/4">
+			<div className="relative w-full bg-surface px-10 py-48 shadow dark:bg-[#121212] lg:mt-24 lg:w-fit lg:rounded-br-lg lg:rounded-tr-lg lg:py-32 xl:w-1/3 2xl:w-1/4 flex-shrink-0">
 				<StickyBox
 					className="h-fit min-w-52 text-xs text-muted-foreground lg:mb-0"
 					offsetTop={120}
@@ -41,7 +41,7 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 					/>
 				</StickyBox>
 			</div>
-			<div className="mt-12 grid w-full grid-cols-1 gap-8 px-5 pt-12 lg:w-1/2 lg:px-10 xl:w-2/3 md:grid-cols-2 2xl:w-3/4 2xl:grid-cols-3 3xl:grid-cols-4">
+			<div className="mt-12 grid w-full grid-cols-1 gap-8 px-5 pt-12 lg:w-1/2 lg:gap-y-16 lg:px-10 xl:w-2/3 lg:grid-cols-2 2xl:w-3/4 2xl:grid-cols-3 3xl:grid-cols-4 flex-grow">
 				{getThemesFromSearch(themes, searchInput, tags).map((theme) => (
 					<ThemeCard key={theme.name} theme={theme} />
 				))}
