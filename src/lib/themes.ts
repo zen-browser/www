@@ -16,38 +16,116 @@ export interface ZenTheme {
 }
 
 const THEME_API = "https://zen-browser.github.io/theme-store/themes.json";
-const CACHE_OPTIONS = {
+const CACHE_OPTIONS: RequestInit = {
 	next: {
-		revalidate: 60,
+		revalidate: 60, // Revalidate every 60 seconds
 	},
-} as RequestInit;
+};
 
-export async function getAllThemes() {
-	// Fetch from the API
-	const response = await fetch(THEME_API, CACHE_OPTIONS);
-	const themes = await response.json();
-	// transform in to a ZenTheme[] as it is currently an object
-	let themesArray: ZenTheme[] = [];
-	for (let key in themes) {
-		const theme = themes[key];
-		// remove repeated tags
-		const tags: string[] = [];
-		theme.tags?.forEach((tag: string) => {
-			if (!tags.includes(tag)) {
-				tags.push(tag);
-			}
-		});
-		theme.tags = tags;
-		themesArray.push(theme);
-	}
-	return themesArray;
+/**
+ * Type Guard to validate Date objects.
+ * @param date - The date to validate.
+ * @returns True if valid Date, else false.
+ */
+function isValidDate(date: any): date is Date {
+	return date instanceof Date && !isNaN(date.getTime());
 }
 
+/**
+ * Parses a date string into a Date object.
+ * Assigns a future date if `assignFutureDate` is true and date is invalid/missing.
+ * @param dateString - The date string to parse.
+ * @param assignFutureDate - Whether to assign a future date if parsing fails.
+ * @returns A valid Date object.
+ */
+function parseDate(dateString: string | undefined, assignFutureDate: boolean = false): Date {
+	const date = new Date(dateString || "");
+	if (isValidDate(date)) {
+		return date;
+	} else {
+		return assignFutureDate ? new Date(8640000000000000) : new Date(0); // Future date or Unix epoch
+	}
+}
+
+/**
+ * Fetches all themes from the API and transforms them into an array of ZenTheme objects.
+ * Assigns a future date to `createdAt` if it's missing to ensure proper sorting.
+ * @returns A promise that resolves to an array of ZenTheme objects.
+ */
+export async function getAllThemes(): Promise<ZenTheme[]> {
+	try {
+		const response = await fetch(THEME_API, CACHE_OPTIONS);
+
+		if (!response.ok) {
+			throw new Error(`Failed to fetch themes: ${response.statusText}`);
+		}
+
+		const themes = await response.json();
+		const themesArray: ZenTheme[] = [];
+
+		for (const key in themes) {
+			if (themes.hasOwnProperty(key)) {
+				const theme = themes[key];
+
+				// Remove duplicate tags
+				const uniqueTags: string[] = Array.from(new Set(theme.tags || []));
+
+				// Parse dates
+				const createdAt = parseDate(theme.createdAt, true); // Assign future date if missing
+				const updatedAt = parseDate(theme.updatedAt);
+
+				const zenTheme: ZenTheme = {
+					name: theme.name,
+					description: theme.description,
+					image: theme.image,
+					downloadUrl: theme.style, // Assuming 'style' is the download URL
+					id: theme.id,
+					homepage: theme.homepage,
+					readme: theme.readme,
+					preferences: theme.preferences,
+					isColorTheme: typeof theme.isColorTheme === 'boolean' ? theme.isColorTheme : false,
+					author: theme.author,
+					version: theme.version,
+					tags: uniqueTags,
+					createdAt,
+					updatedAt,
+				};
+
+				// Validate dates
+				if (!isValidDate(zenTheme.createdAt)) {
+					zenTheme.createdAt = new Date(8640000000000000); // Assign future date
+				}
+
+				if (!isValidDate(zenTheme.updatedAt)) {
+					zenTheme.updatedAt = new Date(0); // Assign Unix epoch
+				}
+
+				themesArray.push(zenTheme);
+			}
+		}
+
+		return themesArray;
+	} catch (error) {
+		console.error("Error fetching or parsing themes:", error);
+		return []; // Return an empty array in case of error
+	}
+}
+
+/**
+ * Searches and sorts themes based on query, tags, and sort criteria.
+ * @param themes - Array of ZenTheme objects.
+ * @param query - Search query string.
+ * @param tags - Array of tags to filter by.
+ * @param sortBy - Criterion to sort by ('name', 'createdAt', 'updatedAt').
+ * @param createdBefore - Optional Date to filter themes created before this date.
+ * @returns An array of filtered and sorted ZenTheme objects.
+ */
 export function getThemesFromSearch(
 	themes: ZenTheme[],
 	query: string,
 	tags: string[],
 	sortBy: string,
+	createdBefore?: Date
 ): ZenTheme[] {
 	const normalizedQuery = query.toLowerCase();
 
@@ -57,42 +135,131 @@ export function getThemesFromSearch(
 			const matchesTag =
 				tags.length === 0 ||
 				(theme.tags && tags.some((tag) => theme.tags.includes(tag)));
+			const matchesDate = !createdBefore || theme.createdAt < createdBefore;
 
-			return matchesQuery && matchesTag;
+			return matchesQuery && matchesTag && matchesDate;
 		})
 		.sort((a, b) => {
 			// Sort by number of matching tags first
 			const aMatchCount = tags.filter((tag) => a.tags.includes(tag)).length;
 			const bMatchCount = tags.filter((tag) => b.tags.includes(tag)).length;
+
 			if (aMatchCount !== bMatchCount) {
 				return bMatchCount - aMatchCount;
 			}
 
-			// If match counts are equal, use the selected sort method
+			// Sort by selected sort method
 			if (sortBy === "name") {
 				return a.name.localeCompare(b.name);
 			} else if (sortBy === "createdAt") {
-				console.log(a.name);
-				return (
-					new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-				);
+				return a.createdAt.getTime() - b.createdAt.getTime(); // Oldest first
 			} else if (sortBy === "updatedAt") {
-				return (
-					new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
-				);
+				return b.updatedAt.getTime() - a.updatedAt.getTime(); // Newest first
 			}
-			return 0;
+
+			return 0; // Default to no sorting if sortBy is unrecognized
 		});
 }
 
-export async function getThemeFromId(id: string) {
-	return (await getAllThemes()).find((theme) => theme.id === id);
+/**
+ * Finds the oldest theme based on the createdAt date.
+ * @param themes - Array of ZenTheme objects.
+ * @returns The oldest ZenTheme or undefined if the array is empty.
+ */
+export function getOldestTheme(themes: ZenTheme[]): ZenTheme | undefined {
+	if (themes.length === 0) return undefined;
+
+	return themes.reduce((oldest, current) => {
+		return current.createdAt < oldest.createdAt ? current : oldest;
+	}, themes[0]);
 }
 
-export async function getThemeMarkdown(theme: ZenTheme) {
-	return (await fetch(theme.readme, CACHE_OPTIONS)).text();
+/**
+ * Finds all themes with the latest updatedAt date.
+ * @param themes - Array of ZenTheme objects.
+ * @returns An array of ZenTheme objects with the latest updatedAt date.
+ */
+export function getLatestUpdatedThemes(themes: ZenTheme[]): ZenTheme[] {
+	if (themes.length === 0) return [];
+
+	const maxUpdatedAt = themes.reduce((max, theme) => {
+		return theme.updatedAt > max ? theme.updatedAt : max;
+	}, themes[0].updatedAt);
+
+	return themes.filter(theme => theme.updatedAt.getTime() === maxUpdatedAt.getTime());
 }
 
+/**
+ * Retrieves a theme by its ID.
+ * @param id - The ID of the theme to retrieve.
+ * @returns A promise that resolves to the ZenTheme object or undefined if not found.
+ */
+export async function getThemeFromId(id: string): Promise<ZenTheme | undefined> {
+	const allThemes = await getAllThemes();
+	return allThemes.find((theme) => theme.id === id);
+}
+
+/**
+ * Fetches the markdown content of a theme's readme.
+ * @param theme - The ZenTheme object.
+ * @returns A promise that resolves to the readme markdown string.
+ */
+export async function getThemeMarkdown(theme: ZenTheme): Promise<string> {
+	try {
+		const response = await fetch(theme.readme, CACHE_OPTIONS);
+		if (!response.ok) {
+			throw new Error(`Failed to fetch README: ${response.statusText}`);
+		}
+		return await response.text();
+	} catch (error) {
+		console.error("Error fetching README:", error);
+		return ""; // Return an empty string in case of error
+	}
+}
+
+/**
+ * Generates the GitHub link for a theme's author.
+ * @param theme - The ZenTheme object.
+ * @returns A string URL to the author's GitHub profile.
+ */
 export function getThemeAuthorLink(theme: ZenTheme): string {
 	return `https://github.com/${theme.author}`;
 }
+
+/**
+ * Displays the oldest theme in the console.
+ */
+export async function displayOldestTheme() {
+	const allThemes = await getAllThemes();
+	const oldestTheme = getOldestTheme(allThemes);
+
+	if (oldestTheme) {
+		console.log(`\nThe oldest theme is: "${oldestTheme.name}" created on ${oldestTheme.createdAt.toDateString()}`);
+		// Additional logic to display in UI can be added here
+	} else {
+		console.log("No themes available.");
+	}
+}
+
+/**
+ * Displays the latest updated themes in the console.
+ */
+export async function displayLatestUpdatedThemes() {
+	const allThemes = await getAllThemes();
+	const latestThemes = getLatestUpdatedThemes(allThemes);
+
+	if (latestThemes.length > 0) {
+		console.log("\nLatest Updated Theme(s):");
+		latestThemes.forEach(theme => {
+			console.log(`- ${theme.name} (Updated At: ${theme.updatedAt.toDateString()})`);
+		});
+	} else {
+		console.log("No themes available to determine the latest updated theme.");
+	}
+}
+
+// Example: Display Oldest and Latest Updated Themes
+(async () => {
+	await displayOldestTheme();
+	await displayLatestUpdatedThemes();
+})();
