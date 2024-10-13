@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 import { TagIcon } from "lucide-react";
 
-
 import { ny } from "@/lib/utils";
 
 import { Badge } from "./ui/badge";
@@ -28,7 +27,7 @@ export default function ThemeCard({
 				window.open(`/themes/${theme.id}`, e.button === 1 ? "_blank" : "_self");
 			}}
 			className={ny(
-				"flex w-full cursor-pointer select-none flex-col justify-start bg-surface rounded-xl border-2 border-[transparent] hover:shadow-lg hover:border-[rgba(0,0,0,.5)] dark:bg-[#121212] dark:hover:border-[#333] transition-all duration-200",
+				"flex w-full cursor-pointer select-none flex-col justify-start rounded-xl border-2 border-[transparent] bg-surface transition-all duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]",
 				className,
 			)}
 		>
@@ -44,7 +43,7 @@ export default function ThemeCard({
 					{theme.name.substring(0, maxNameLen).trim() +
 						(theme.name.length > maxNameLen ? "..." : "")}
 				</h2>
-				<div className="flex flex-wrap gap-2">
+				<div className="flex min-h-6 flex-wrap gap-2">
 					{theme.tags?.length ? (
 						theme.tags.map((tag) => (
 							<Badge key={tag} variant="secondary">
@@ -53,7 +52,7 @@ export default function ThemeCard({
 							</Badge>
 						))
 					) : (
-						<span className="text-xs italic text-gray-500">
+						<span className="self-center text-xs italic text-gray-500">
 							No tags available
 						</span>
 					)}
@@ -61,29 +60,29 @@ export default function ThemeCard({
 				<div className="mt-2 flex">
 					{theme.homepage && (
 						<>
-								<object>
-									<a
-								href={theme.homepage}
-								className="text-md text-blue-500"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Homepage
-									</a>
-								</object>
+							<object>
+								<a
+									href={theme.homepage}
+									className="text-md text-blue-500"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									Homepage
+								</a>
+							</object>
 							<span className="text-md mx-2 text-muted-foreground">{"·"}</span>
 						</>
 					)}
-						<object>
-							<a
-						href={getThemeAuthorLink(theme)}
-						className="text-md text-blue-500"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Author
-							</a>
-						</object>
+					<object>
+						<a
+							href={getThemeAuthorLink(theme)}
+							className="text-md text-blue-500"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Author
+						</a>
+					</object>
 				</div>
 				<p className="text-md mt-2 overflow-ellipsis text-start text-muted-foreground">
 					{theme.description.substring(0, maxDescLen).trim() +
