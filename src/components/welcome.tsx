@@ -1,8 +1,7 @@
 "use client";
 
-import { FileWarningIcon, MessageCircleWarningIcon, MessageSquareWarningIcon } from "lucide-react";
-import WordPullUp from "./ui/word-pull-up";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
+import WordPullUp from "./ui/word-pull-up";
 
 export default function WelcomePage() {
 	return (
