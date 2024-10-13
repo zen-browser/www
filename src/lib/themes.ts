@@ -29,7 +29,16 @@ export async function getAllThemes() {
 	// transform in to a ZenTheme[] as it is currently an object
 	let themesArray: ZenTheme[] = [];
 	for (let key in themes) {
-		themesArray.push(themes[key]);
+		const theme = themes[key];
+		// remove repeated tags
+		const tags: string[] = [];
+		theme.tags?.forEach((tag: string) => {
+			if (!tags.includes(tag)) {
+				tags.push(tag);
+			}
+		});
+		theme.tags = tags;
+		themesArray.push(theme);
 	}
 	return themesArray;
 }
