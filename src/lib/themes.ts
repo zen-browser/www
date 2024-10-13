@@ -162,34 +162,6 @@ export function getThemesFromSearch(
 }
 
 /**
- * Finds the oldest theme based on the createdAt date.
- * @param themes - Array of ZenTheme objects.
- * @returns The oldest ZenTheme or undefined if the array is empty.
- */
-export function getOldestTheme(themes: ZenTheme[]): ZenTheme | undefined {
-	if (themes.length === 0) return undefined;
-
-	return themes.reduce((oldest, current) => {
-		return current.createdAt < oldest.createdAt ? current : oldest;
-	}, themes[0]);
-}
-
-/**
- * Finds all themes with the latest updatedAt date.
- * @param themes - Array of ZenTheme objects.
- * @returns An array of ZenTheme objects with the latest updatedAt date.
- */
-export function getLatestUpdatedThemes(themes: ZenTheme[]): ZenTheme[] {
-	if (themes.length === 0) return [];
-
-	const maxUpdatedAt = themes.reduce((max, theme) => {
-		return theme.updatedAt > max ? theme.updatedAt : max;
-	}, themes[0].updatedAt);
-
-	return themes.filter(theme => theme.updatedAt.getTime() === maxUpdatedAt.getTime());
-}
-
-/**
  * Retrieves a theme by its ID.
  * @param id - The ID of the theme to retrieve.
  * @returns A promise that resolves to the ZenTheme object or undefined if not found.
