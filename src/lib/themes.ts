@@ -162,34 +162,6 @@ export function getThemesFromSearch(
 }
 
 /**
- * Finds the oldest theme based on the createdAt date.
- * @param themes - Array of ZenTheme objects.
- * @returns The oldest ZenTheme or undefined if the array is empty.
- */
-export function getOldestTheme(themes: ZenTheme[]): ZenTheme | undefined {
-	if (themes.length === 0) return undefined;
-
-	return themes.reduce((oldest, current) => {
-		return current.createdAt < oldest.createdAt ? current : oldest;
-	}, themes[0]);
-}
-
-/**
- * Finds all themes with the latest updatedAt date.
- * @param themes - Array of ZenTheme objects.
- * @returns An array of ZenTheme objects with the latest updatedAt date.
- */
-export function getLatestUpdatedThemes(themes: ZenTheme[]): ZenTheme[] {
-	if (themes.length === 0) return [];
-
-	const maxUpdatedAt = themes.reduce((max, theme) => {
-		return theme.updatedAt > max ? theme.updatedAt : max;
-	}, themes[0].updatedAt);
-
-	return themes.filter(theme => theme.updatedAt.getTime() === maxUpdatedAt.getTime());
-}
-
-/**
  * Retrieves a theme by its ID.
  * @param id - The ID of the theme to retrieve.
  * @returns A promise that resolves to the ZenTheme object or undefined if not found.
@@ -225,41 +197,3 @@ export async function getThemeMarkdown(theme: ZenTheme): Promise<string> {
 export function getThemeAuthorLink(theme: ZenTheme): string {
 	return `https://github.com/${theme.author}`;
 }
-
-/**
- * Displays the oldest theme in the console.
- */
-export async function displayOldestTheme() {
-	const allThemes = await getAllThemes();
-	const oldestTheme = getOldestTheme(allThemes);
-
-	if (oldestTheme) {
-		console.log(`\nThe oldest theme is: "${oldestTheme.name}" created on ${oldestTheme.createdAt.toDateString()}`);
-		// Additional logic to display in UI can be added here
-	} else {
-		console.log("No themes available.");
-	}
-}
-
-/**
- * Displays the latest updated themes in the console.
- */
-export async function displayLatestUpdatedThemes() {
-	const allThemes = await getAllThemes();
-	const latestThemes = getLatestUpdatedThemes(allThemes);
-
-	if (latestThemes.length > 0) {
-		console.log("\nLatest Updated Theme(s):");
-		latestThemes.forEach(theme => {
-			console.log(`- ${theme.name} (Updated At: ${theme.updatedAt.toDateString()})`);
-		});
-	} else {
-		console.log("No themes available to determine the latest updated theme.");
-	}
-}
-
-// Example: Display Oldest and Latest Updated Themes
-(async () => {
-	await displayOldestTheme();
-	await displayLatestUpdatedThemes();
-})();
