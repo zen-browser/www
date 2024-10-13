@@ -70,8 +70,14 @@ export default function ThemeCard({
 					)}
 				</div>
 				<div className="mt-2 flex">
+					{theme.version && (
+						<span className="text-md text-muted-foreground">
+							v{theme.version}
+						</span>
+					)}
 					{theme.homepage && (
 						<>
+							<span className="text-md mx-2 text-muted-foreground">{"·"}</span>
 							<a
 								href={theme.homepage}
 								className="text-md z-10 text-blue-500"
@@ -80,23 +86,19 @@ export default function ThemeCard({
 							>
 								Homepage
 							</a>
-							<span className="text-md mx-2 text-muted-foreground">{"·"}</span>
 						</>
 					)}
-					<a
-						href={getThemeAuthorLink(theme)}
-						className="text-md z-10 text-blue-500"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Author
-					</a>
-					{theme.version && (
+					{theme.author && (
 						<>
 							<span className="text-md mx-2 text-muted-foreground">{"·"}</span>
-							<span className="text-md text-muted-foreground">
-								v{theme.version}
-							</span>
+							<a
+								href={getThemeAuthorLink(theme)}
+								className="text-md z-10 text-blue-500"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Author
+							</a>
 						</>
 					)}
 				</div>
