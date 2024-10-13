@@ -22,6 +22,9 @@ const config = {
 			fontFamily: {
 				sans: ["var(--font-sans)", ...fontFamily.sans],
 			},
+      screens: {
+        "3xl": "2200px",
+      },
 			colors: {
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
