@@ -22,7 +22,7 @@ export default function ThemeCard({
 			onMouseDown={(event) => {
 				if (event.button !== 0 && event.button !== 1) return;
 				if (event.target instanceof HTMLAnchorElement) return;
-				window.open(`/mods/${theme.id}`, event.button === 1 ? "_blank" : "_self");
+				window.open(`/themes/${theme.id}`, event.button === 1 ? "_blank" : "_self");
 			}}
 			className={ny(
 				"flex w-full cursor-pointer select-none flex-col justify-start rounded-xl border-2 border-[transparent] bg-surface transition-all transition-shadow duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]",

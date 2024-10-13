@@ -75,7 +75,7 @@ export function MobileNav() {
 								Get the latest version of Zen Browser.
 							</p>
 						</MobileLink>
-						<MobileLink href="/mods" onOpenChange={setOpen}>
+						<MobileLink href="/themes" onOpenChange={setOpen}>
 							<div>Zen Mods</div>
 							<p className="text-xs opacity-60">
 								Customize your browsing experience.
