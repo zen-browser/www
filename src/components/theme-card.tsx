@@ -21,7 +21,7 @@ export default function ThemeCard({
 	return (
 		<ThemeCardWrapper
 			className={ny(
-				"relative flex w-full select-none flex-col justify-start rounded-xl border-2 bg-surface transition-colors duration-200 hover:shadow-lg dark:bg-[#121212]",
+				"relative flex w-full select-none flex-col justify-start rounded-xl border-2 border-[transparent] bg-surface transition-colors duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]",
 				className,
 			)}
 		>
