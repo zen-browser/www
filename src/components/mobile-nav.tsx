@@ -76,7 +76,7 @@ export function MobileNav() {
 							</p>
 						</MobileLink>
 						<MobileLink href="/themes" onOpenChange={setOpen}>
-							<div>Theme Store</div>
+							<div>Zen Mods</div>
 							<p className="text-xs opacity-60">
 								Customize your browsing experience.
 							</p>
