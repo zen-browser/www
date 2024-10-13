@@ -25,7 +25,7 @@ export default function ThemeCard({
 				className,
 			)}
 		>
-			<div className="relative m-2 mb-0 aspect-[1.85/1] h-48 overflow-hidden rounded-xl border-2 object-cover shadow dark:border-[#333] lg:h-auto">
+			<div className="relative m-2 mb-0 aspect-[1.85/1] h-48 overflow-hidden rounded-xl border-2 border-[rgba(0,0,0,.5)] object-cover shadow dark:border-[#333] lg:h-auto">
 				<img
 					src={theme.image}
 					alt={theme.name}
