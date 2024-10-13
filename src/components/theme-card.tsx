@@ -6,7 +6,6 @@ import { TagIcon } from "lucide-react";
 
 import { ny } from "@/lib/utils";
 
-import Link from "next/link";
 import { Badge } from "./ui/badge";
 
 const ThemeCardWrapper = styled.div``;
