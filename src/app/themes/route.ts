@@ -1,11 +1,14 @@
+// app/themes/route.ts
+
 import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-export async function GET(request: Request, { params }: { params: { theme: string } }) {
-    const { theme } = params;
+export function GET(request: NextRequest) {
+    const { origin } = request.nextUrl;
+    return NextResponse.redirect(`${origin}/mods`, 301);
+}
 
-    // Construct an absolute URL
-    const url = new URL(`/mods/${theme}`, request.url);
-
-    // Return a 301 permanent redirect
-    return NextResponse.redirect(url.toString(), 301);
+export function HEAD(request: NextRequest) {
+    const { origin } = request.nextUrl;
+    return NextResponse.redirect(`${origin}/mods`, 301);
 }
