@@ -42,3 +42,30 @@ const nextConfig = (phase, { defaultConfig }) => {
 };
 
 module.exports = nextConfig;
+
+module.exports = {
+	async redirects() {
+		return [
+			{
+				source: '/themes/:themeId',
+				destination: '/mods/:themeId',
+				permanent: true,
+			},
+			{
+				source: '/themes',
+				destination: '/mods',
+				permanent: true,
+			},
+			{
+				source: '/theme/:themeId',
+				destination: '/mods/:themeId',
+				permanent: true,
+			},
+			{
+				source: '/theme',
+				destination: '/mods',
+				permanent: true,
+			},
+		];
+	},
+};
