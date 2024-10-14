@@ -19,7 +19,7 @@ export default function ThemeCard({
 
 	return (
 		<Link
-      href={`/themes/${theme.id}`}
+      href={`/mods/${theme.id}`}
       className="rounded-xl"
 		>
 			<Card className="select-none h-full flex-col justify-between rounded-xl border-2 border-[transparent] bg-surface transition-all duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]">
