@@ -1,13 +1,11 @@
 import { getThemeAuthorLink, ZenTheme } from "@/lib/themes";
-import styled from "styled-components";
 
 import { TagIcon } from "lucide-react";
 
 import { ny } from "@/lib/utils";
 
 import { Badge } from "./ui/badge";
-
-const ThemeCardWrapper = styled.div``;
+import Link from "next/link";
 
 export default function ThemeCard({
 	theme,
@@ -20,12 +18,8 @@ export default function ThemeCard({
 	const maxDescLen = 100;
 
 	return (
-		<ThemeCardWrapper
-			onMouseDown={(e) => {
-				if (e.target instanceof HTMLAnchorElement) return;
-				if (e.button !== 0 && e.button !== 1) return;
-				window.open(`/themes/${theme.id}`, e.button === 1 ? "_blank" : "_self");
-			}}
+		<Link
+      href={`/themes/${theme.id}`}
 			className={ny(
 				"flex w-full cursor-pointer select-none flex-col justify-start rounded-xl border-2 border-[transparent] bg-surface transition-all duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]",
 				className,
@@ -89,6 +83,6 @@ export default function ThemeCard({
 						(theme.description.length > maxDescLen ? "..." : "")}
 				</p>
 			</div>
-		</ThemeCardWrapper>
+		</Link>
 	);
 }
