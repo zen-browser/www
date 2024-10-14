@@ -1150,6 +1150,68 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 		],
 	},
+	{
+		version: "1.0.1-a.9",
+		date: "14/10/2024",
+		image: true,
+		workflowId: 11333793682,
+		extra:
+			"This update brings further refinements to Zen Browser, focusing on stability improvements and new features for session management.\n\nWe've also enhanced pinned tab handling and workspaces to improve the user experience. Thanks everyone!",
+		features: [
+			"Updated to the latest stable version of Firefox (131.0.3)",
+			"Improved session storage of pinned tabs, now storing the triggering principal for more accurate state restoration.",
+			"Added a new feature to save the pinned state of tabs in the session store, allowing for better tab management across sessions.",
+			"Reduced the vertical tab toolbox width to 44px, providing a more compact layout and freeing up more screen space for content",
+			"Added support for containers in the sidebar websites",
+			"Changed amoled theme's base color",
+			"Worked on keyboard shortcuts",
+			"Improved light mode experience",
+			"Allow VAAPI/FMPEG APIs only for linux",
+			"Twilight will now display the proper name on .desktop files",
+			"Added a better icon selection for workspaces, enhancing more icons",
+			"Created a \"Force container workspace\" option. Basically, force each container to belong to acertain workspace.",
+			"Bookmarks are now opened in the workspace's default container",
+			"Allow tab unloader to ignore picture-in-picture tabs",
+			
+		],
+		fixes: [
+			{
+				description: "Disabled forcing hardware accelerating, causing issues for some unsupported GPUs",
+			},
+			{
+				description: "Fixed compact mode overlapping the tabs",
+			},
+			{
+				description: "Fixed browser bottom padding misaligns",
+				issue: 2007
+			},
+			{
+				description:
+					"sidebar is blank when there's a moving video/picture on other open tabs",
+				issue: 1900
+			},
+			{
+				description:
+					"Fixed extension menu breaking compact mode when held open",
+				issue: 1925,
+			},
+			{
+				description: "Fixed 'Sidebar is very thin making stuff not appear correctly'",
+				issue: 2015,
+			},
+			{
+				description: "Fixed 'Tabs sidebar Expand on Hover casuses jank with latest UI'",
+				issue: 2033,
+			},
+			{
+				description: "Applied patches to fix mfsa2024-53 security issue",
+			},
+			{
+				description: "Major issue with zen sidebar disapering and not re-appearing on restart",
+				issue: 1979
+			}
+		],
+	},
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
