@@ -27,9 +27,6 @@ const SelectTrigger = React.forwardRef<
 			"flex h-9 w-full items-center justify-between rounded-md border border-input bg-transparent px-3 py-2 text-left text-sm shadow-sm ring-offset-background focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-muted-foreground [&>span]:line-clamp-1 [&>span]:text-left",
 			className,
 		)}
-		onPointerDown={(e) => {
-			if (e.pointerType === "touch") e.preventDefault();
-		}}
 		{...props}
 	>
 		{children}
