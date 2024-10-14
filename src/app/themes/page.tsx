@@ -1,10 +1,14 @@
-import MarketplacePage from "@/components/marketplace";
-import { getAllThemes } from "@/lib/themes";
+'use client';
 
-export default async function ThemesMarketplace() {
-	return (
-		<main className="flex min-h-screen flex-col items-center justify-start">
-			<MarketplacePage themes={await getAllThemes()} />
-		</main>
-	);
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+
+export default function ThemesPage() {
+    const router = useRouter();
+
+    useEffect(() => {
+        router.replace('/mods');
+    }, [router]);
+
+    return null;
 }

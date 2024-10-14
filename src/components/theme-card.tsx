@@ -1,4 +1,4 @@
-import { getThemeAuthorLink, ZenTheme } from "@/lib/themes";
+import { getThemeAuthorLink, ZenTheme } from "@/lib/mods";
 
 import { TagIcon } from "lucide-react";
 
