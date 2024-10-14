@@ -21,7 +21,7 @@ export default function ThemeCard({
 		<Link
       href={`/mods/${theme.id}`}
       className="rounded-xl"
-		>
+	  prefetch={false} >
 			<Card className="select-none h-full flex-col justify-between rounded-xl border-2 border-[transparent] bg-surface transition-all duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]">
 			  <div className="relative m-2 mb-0 hidden aspect-[1.85/1] h-48 overflow-hidden rounded-xl border-2 border-[rgba(0,0,0,.5)] object-cover shadow dark:border-[#333] lg:block lg:h-auto">
   				<img
