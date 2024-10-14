@@ -58,7 +58,7 @@ export default function ThemesSearch({
 				</Button>*/}
 			</div>
 			<div className="flex items-center space-x-2">
-				<span className="mt-4 text-lg text-muted-foreground">Filter by:</span> {/* Use text-lg for larger size */}
+				<span className="mt-4 text-lg text-muted-foreground">Sort by:</span> {/* Use text-lg for larger size */}
 				<Select value={sortBy} onValueChange={setSortBy}>
 					<SelectTrigger className="mt-4 w-full sm:w-[180px]">
 						<SelectValue placeholder="Sort by"/>
