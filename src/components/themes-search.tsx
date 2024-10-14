@@ -18,6 +18,8 @@ export default function ThemesSearch({
 	toggleTag,
 	sortBy,
 	setSortBy,
+	showMods,
+	setShowMods,
 }: {
 	input: string;
 	setInput: (input: string) => void;
@@ -25,6 +27,8 @@ export default function ThemesSearch({
 	toggleTag: (tag: string) => void;
 	sortBy: string;
 	setSortBy: (method: string) => void;
+	showMods: string;
+	setShowMods: (method: string) => void;
 }) {
 	return (
 		<>
@@ -65,6 +69,17 @@ export default function ThemesSearch({
 					<SelectItem value="name">Alphabetical</SelectItem>
 					<SelectItem value="createdAt">Created Date</SelectItem>
 					<SelectItem value="updatedAt">Updated Date</SelectItem>
+				</SelectContent>
+			</Select>
+			<Select value={showMods} onValueChange={setShowMods}>
+				<SelectTrigger className="mt-4 w-full sm:w-[180px]">
+					<SelectValue placeholder="Sort by"/>
+				</SelectTrigger>
+				<SelectContent>
+					<SelectItem value="showAll">Show All Mods</SelectItem>
+					<SelectItem value="show12">Show 12 Mods</SelectItem>
+					<SelectItem value="show24">Show 24 Mods</SelectItem>
+					<SelectItem value="show36">Show 36 Mods</SelectItem>
 				</SelectContent>
 			</Select>
 			<div className="mt-4 flex flex-wrap gap-2">
