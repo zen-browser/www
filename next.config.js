@@ -42,3 +42,20 @@ const nextConfig = (phase, { defaultConfig }) => {
 };
 
 module.exports = nextConfig;
+
+module.exports = {
+	async redirects() {
+		return [
+			{
+				source: '/themes/:theme',  // dynamic route with :theme parameter
+				destination: '/mods/:theme',  // redirect to corresponding /mods path
+				permanent: true,  // 301 status code for permanent redirect
+			},
+			{
+				source: '/themes',  // base /themes path
+				destination: '/mods',  // redirect to /mods
+				permanent: true,  // 301 status code for permanent redirect
+			},
+		]
+	},
+}
