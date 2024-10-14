@@ -10,7 +10,7 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	const [sortBy, setSortBy] = React.useState("name");
 	const [selectedTags, setSelectedTags] = React.useState<string[]>([]);
 	const [currentPage, setCurrentPage] = React.useState(1);
-	const [showMods, setShowMods] = React.useState("showAll");
+	const [showMods, setShowMods] = React.useState("show36");
 
 	// Filter and sort themes based on search and selected tags
 	const filteredAndSortedThemes = React.useMemo(() => {
@@ -42,7 +42,7 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 
 	// Get the themes to display on the current page
 	const currentThemes = React.useMemo(() => {
-		if (showMods === 'show36') {
+		if (showMods === 'showAll') {
 			return filteredAndSortedThemes;
 		} else {
 			return filteredAndSortedThemes.slice(
