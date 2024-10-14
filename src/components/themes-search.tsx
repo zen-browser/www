@@ -57,19 +57,16 @@ export default function ThemesSearch({
 					Create your theme
 				</Button>*/}
 			</div>
-			<div className="flex items-center space-x-2">
-				<span className="mt-4 text-lg text-muted-foreground">Sort by:</span> {/* Use text-lg for larger size */}
-				<Select value={sortBy} onValueChange={setSortBy}>
-					<SelectTrigger className="mt-4 w-full sm:w-[180px]">
-						<SelectValue placeholder="Sort by"/>
-					</SelectTrigger>
-					<SelectContent>
-						<SelectItem value="name">Alphabetical</SelectItem>
-						<SelectItem value="createdAt">Created Date</SelectItem>
-						<SelectItem value="updatedAt">Updated Date</SelectItem>
-					</SelectContent>
-				</Select>
-			</div>
+			<Select value={sortBy} onValueChange={setSortBy}>
+				<SelectTrigger className="mt-4 w-full sm:w-[180px]">
+					<SelectValue placeholder="Sort by"/>
+				</SelectTrigger>
+				<SelectContent>
+					<SelectItem value="name">Alphabetical</SelectItem>
+					<SelectItem value="createdAt">Created Date</SelectItem>
+					<SelectItem value="updatedAt">Updated Date</SelectItem>
+				</SelectContent>
+			</Select>
 			<div className="mt-4 flex flex-wrap gap-2">
 				<div className="mb-6 flex flex-wrap gap-2">
 					{TAGS.map((tag) => (
