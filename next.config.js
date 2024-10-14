@@ -41,8 +41,6 @@ const nextConfig = (phase, { defaultConfig }) => {
 	};
 };
 
-module.exports = nextConfig;
-
 module.exports = {
 	async redirects() {
 		return [
@@ -59,3 +57,5 @@ module.exports = {
 		]
 	},
 }
+
+module.exports = nextConfig;
