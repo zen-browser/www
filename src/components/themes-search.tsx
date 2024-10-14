@@ -18,6 +18,8 @@ export default function ThemesSearch({
 	toggleTag,
 	sortBy,
 	setSortBy,
+	showMods,
+	setShowMods,
 }: {
 	input: string;
 	setInput: (input: string) => void;
@@ -25,11 +27,14 @@ export default function ThemesSearch({
 	toggleTag: (tag: string) => void;
 	sortBy: string;
 	setSortBy: (method: string) => void;
+	showMods: string;
+	setShowMods: (method: string) => void;
 }) {
 	return (
 		<>
-			<div className="mt-10 flex w-full items-center overflow-hidden rounded-full border border-black bg-black/10 p-2 dark:border-muted dark:bg-muted/50">
-				<SearchIcon className="mx-4 size-6 text-black dark:text-white" />
+			<div
+				className="mt-10 flex w-full items-center overflow-hidden rounded-full border border-black bg-black/10 p-2 dark:border-muted dark:bg-muted/50">
+				<SearchIcon className="mx-4 size-6 text-black dark:text-white"/>
 				<input
 					type="text"
 					value={input}
@@ -58,12 +63,23 @@ export default function ThemesSearch({
 			</div>
 			<Select value={sortBy} onValueChange={setSortBy}>
 				<SelectTrigger className="mt-4 w-full sm:w-[180px]">
-					<SelectValue placeholder="Sort by" />
+					<SelectValue placeholder="Sort by"/>
 				</SelectTrigger>
 				<SelectContent>
 					<SelectItem value="name">Alphabetical</SelectItem>
 					<SelectItem value="createdAt">Created Date</SelectItem>
 					<SelectItem value="updatedAt">Updated Date</SelectItem>
+				</SelectContent>
+			</Select>
+			<Select value={showMods} onValueChange={setShowMods}>
+				<SelectTrigger className="mt-4 w-full sm:w-[180px]">
+					<SelectValue placeholder="Sort by"/>
+				</SelectTrigger>
+				<SelectContent>
+					<SelectItem value="showAll">Show All Mods</SelectItem>
+					<SelectItem value="show12">Show 12 Mods</SelectItem>
+					<SelectItem value="show24">Show 24 Mods</SelectItem>
+					<SelectItem value="show36">Show 36 Mods</SelectItem>
 				</SelectContent>
 			</Select>
 			<div className="mt-4 flex flex-wrap gap-2">
@@ -76,7 +92,7 @@ export default function ThemesSearch({
 							onClick={() => toggleTag(tag)}
 							className="flex items-center"
 						>
-							<TagIcon className="mr-1 h-4 w-4" />
+							<TagIcon className="mr-1 h-4 w-4"/>
 							{tag}
 						</Button>
 					))}
