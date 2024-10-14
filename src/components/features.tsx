@@ -54,7 +54,7 @@ export default function Features() {
 							transforming your browser into a personalized digital space.
 						</p>
 						<div className="relative">
-							<Link href="/themes" prefetch={false}>
+							<Link href="/mods" prefetch={false}>
 								<Button className="mt-8">Browse Themes</Button>
 							</Link>
 						</div>

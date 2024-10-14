@@ -286,7 +286,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"Added more contrast to web context menus on light themes.",
+					"Added more contrast to web context menus on light mods.",
 				issue: 88,
 			},
 			{
@@ -295,7 +295,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"Created a small hotfix for themes and some broken extensions.",
+					"Created a small hotfix for mods and some broken extensions.",
 				issue: 89,
 			},
 		],
@@ -508,7 +508,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Optimized macOS version for Nehalem architecture",
 			"Added Branding Assets page",
 			"Released Theme Store",
-			"Added documentation for submitting themes",
+			"Added documentation for submitting mods",
 			"Added confirm theme removal button",
 			"Released Floating URL Bar feature as an official theme",
 			"Released an official theme to remove browser padding",
@@ -556,7 +556,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"This release is the twenty-fourth alpha release of the 1.0.0-alpha series.\n\nThis release brings the long-awaited expand on hover feature, as well as some bug fixes and improvements to the theme store and documentation.",
 		features: [
 			"Added a frequently asked questions page to the documentation",
-			"Added platform specific preferences to Zen themes",
+			"Added platform specific preferences to Zen mods",
 			"Added expand-on-hover feature for the tab sidebar",
 			"Improved scrollbar appearance on Windows",
 			"Improved URL bar background color",
@@ -608,7 +608,7 @@ export const releaseNotes: ReleaseNote[] = [
 		features: [
 			"Enabled JPEG XL",
 			"Changed Zen Core Components license to CC BY-SA",
-			"Added support for color themes in theme creation",
+			"Added support for color mods in theme creation",
 			"Fixed sidebar shortcuts",
 			"Started work on browser translations",
 		],
@@ -669,7 +669,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"This release is the thirtieth alpha release of the 1.0.0-alpha series.",
 		features: [
 			"Added support for 24 more languages!",
-			"Update installed themes from the browser settings",
+			"Update installed mods from the browser settings",
 		],
 		fixes: [
 			{
@@ -746,7 +746,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"Theme Store settings page doesn't display installed themes",
+					"Theme Store settings page doesn't display installed mods",
 				issue: 1125,
 			},
 			{
@@ -806,13 +806,13 @@ export const releaseNotes: ReleaseNote[] = [
 		workflowId: 10911842349,
 		image: true,
 		extra:
-			"This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for themes, improved overal UX and added an a better theme support (Now called Zen Mods)!",
+			"This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for mods, improved overal UX and added an a better theme support (Now called Zen Mods)!",
 		features: [
 			"Added verified digital signnature to Windows builds",
 			"Added Zen to Homebrew Cask repository",
 			"Enabled private search suggestions by default",
 			"Improved Theme Store settings page",
-			"Added Night and Colorful themes",
+			"Added Night and Colorful mods",
 			"Restore browsing session on startup by default",
 			"Added preference for custom workspace icons",
 			"Redesigned url bar and workspaces",
@@ -974,12 +974,12 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 		],
 		breakingChanges: [
-			"Removed Galaxy and Dream themes",
+			"Removed Galaxy and Dream mods",
 			"Removed the 'legacy-toolbar' preference",
 		],
 		themeChanges: [
 			"Themes will now be able to have string and number values",
-			"The configuration schema for themes has been updated. All current themes have been updated automatically.",
+			"The configuration schema for mods has been updated. All current mods have been updated automatically.",
 		],
 	},
 	{

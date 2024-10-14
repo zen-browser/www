@@ -48,7 +48,7 @@ function parseDate(dateString: string | undefined, assignFutureDate: boolean = f
 }
 
 /**
- * Fetches all themes from the API and transforms them into an array of ZenTheme objects.
+ * Fetches all mods from the API and transforms them into an array of ZenTheme objects.
  * Assigns a future date to `createdAt` if it's missing to ensure proper sorting.
  * @returns A promise that resolves to an array of ZenTheme objects.
  */
@@ -106,18 +106,18 @@ export async function getAllThemes(): Promise<ZenTheme[]> {
 
 		return themesArray;
 	} catch (error) {
-		console.error("Error fetching or parsing themes:", error);
+		console.error("Error fetching or parsing mods:", error);
 		return []; // Return an empty array in case of error
 	}
 }
 
 /**
- * Searches and sorts themes based on query, tags, and sort criteria.
+ * Searches and sorts mods based on query, tags, and sort criteria.
  * @param themes - Array of ZenTheme objects.
  * @param query - Search query string.
  * @param tags - Array of tags to filter by.
  * @param sortBy - Criterion to sort by ('name', 'createdAt', 'updatedAt').
- * @param createdBefore - Optional Date to filter themes created before this date.
+ * @param createdBefore - Optional Date to filter mods created before this date.
  * @returns An array of filtered and sorted ZenTheme objects.
  */
 export function getThemesFromSearch(

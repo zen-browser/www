@@ -2,7 +2,7 @@ import {
 	getThemeAuthorLink,
 	getThemeFromId,
 	getThemeMarkdown,
-} from "@/lib/themes";
+} from "@/lib/mods";
 import { Button } from "./ui/button";
 import Markdown from "react-markdown";
 import "../app/privacy-policy/markdown.css";
@@ -22,7 +22,7 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
 				<div className="flex justify-between w-full items-center mb-2">
 					<a
 						className="flex cursor-pointer items-center opacity-70"
-						href="/themes"
+						href="/mods"
 					>
 						<ChevronLeft className="mr-1 h-4 w-4" />
 						<h3 className="text-md">Go back</h3>

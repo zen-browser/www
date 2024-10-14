@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import ThemesSearch from "./themes-search";
-import { getThemesFromSearch, ZenTheme } from "@/lib/themes";
+import { getThemesFromSearch, ZenTheme } from "@/lib/mods";
 import ThemeCard from "./theme-card";
 import StickyBox from "react-sticky-box";
 
