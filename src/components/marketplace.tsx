@@ -42,7 +42,7 @@ export default function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 
 	// Get the themes to display on the current page
 	const currentThemes = React.useMemo(() => {
-		if (showMods === 'showAll') {
+		if (showMods === 'show36') {
 			return filteredAndSortedThemes;
 		} else {
 			return filteredAndSortedThemes.slice(
