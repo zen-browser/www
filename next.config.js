@@ -41,6 +41,7 @@ const nextConfig = (phase, { defaultConfig }) => {
 	};
 };
 
+// Test
 module.exports = {
 	async redirects() {
 		return [
