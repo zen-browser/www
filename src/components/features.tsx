@@ -48,8 +48,8 @@ export default function Features() {
 							<PaintBucket className="inline h-10 w-10"></PaintBucket>
 						</h3>
 						<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
-							With Zen Mods, you can customize your browsing experience
-							to reflect your unique style and preferences. Choose from a wide
+							With Zen Mods, you can customize your browsing experience to
+							reflect your unique style and preferences. Choose from a wide
 							array of Mods, colors, and layouts to make Zen truly your own,
 							transforming your browser into a personalized digital space.
 						</p>

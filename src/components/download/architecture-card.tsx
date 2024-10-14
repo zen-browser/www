@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Architecture } from "@/components/download/types";
 import { ny } from "@/lib/utils";

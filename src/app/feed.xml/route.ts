@@ -77,49 +77,60 @@ function formatReleaseNote(releaseNote: ReleaseNote) {
         Thanks everyone for your feedback! ❤️
     </p>`;
 
-    if (releaseNote.image) {
-        content += `<img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/releases/${releaseNote.version}.png" 
+	if (releaseNote.image) {
+		content += `<img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/releases/${releaseNote.version}.png" 
                          alt="Release Image for version ${releaseNote.version}" 
                          style="max-width: 30em; width: 100%; border-radius: 0.5rem;" 
                     />`;
-    }
+	}
 
 	if (releaseNote.extra) {
 		content += `<p>${releaseNote.extra.replace(/(\n)/g, "<br />")}</p>`;
 	}
 
-    content += addReleaseNoteSection("⚠️ Breaking changes", releaseNote.breakingChanges);
-    content += addReleaseNoteSection("✓ Fixes", releaseNote.fixes?.map(fixToReleaseNote));
-    content += addReleaseNoteSection("🖌 Theme Changes", releaseNote.themeChanges)
-    content += addReleaseNoteSection("⭐ Features", releaseNote.features);
+	content += addReleaseNoteSection(
+		"⚠️ Breaking changes",
+		releaseNote.breakingChanges,
+	);
+	content += addReleaseNoteSection(
+		"✓ Fixes",
+		releaseNote.fixes?.map(fixToReleaseNote),
+	);
+	content += addReleaseNoteSection(
+		"🖌 Theme Changes",
+		releaseNote.themeChanges,
+	);
+	content += addReleaseNoteSection("⭐ Features", releaseNote.features);
 
 	return content;
 }
 
 function addReleaseNoteSection(title: string, items?: string[]): string {
-    if (!items) {
-        return "";
-    }
+	if (!items) {
+		return "";
+	}
 
-    let content = `<h2>${title}</h2>`;
-    content += `<ul>`;
-    for (const item of items) {
-        if (item && item.length > 0) {
-            content += `<li>${item}</li>`;
-        }
-    }
-    content += `</ul>`;
-    return content;
+	let content = `<h2>${title}</h2>`;
+	content += `<ul>`;
+	for (const item of items) {
+		if (item && item.length > 0) {
+			content += `<li>${item}</li>`;
+		}
+	}
+	content += `</ul>`;
+	return content;
 }
 
-function fixToReleaseNote(fix?: Exclude<ReleaseNote['fixes'], undefined>[number]) {
-    if (!fix || !fix.description || fix.description.length === 0) {
-        return "";
-    }
+function fixToReleaseNote(
+	fix?: Exclude<ReleaseNote["fixes"], undefined>[number],
+) {
+	if (!fix || !fix.description || fix.description.length === 0) {
+		return "";
+	}
 
-    let note = fix.description;
-    if (fix.issue) {
-        note += ` (<a href="https://github.com/zen-browser/desktop/issues/${fix.issue}" target="_blank">#${fix.issue}</a>)`;
-    }
-    return note;
+	let note = fix.description;
+	if (fix.issue) {
+		note += ` (<a href="https://github.com/zen-browser/desktop/issues/${fix.issue}" target="_blank">#${fix.issue}</a>)`;
+	}
+	return note;
 }

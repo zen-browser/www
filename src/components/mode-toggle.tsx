@@ -12,12 +12,14 @@ export function ModeToggle() {
 		setMounted(true);
 		const savedTheme = localStorage.getItem("theme");
 		if (savedTheme) {
-		  setTheme(savedTheme);
+			setTheme(savedTheme);
 		} else {
-		  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-		  setTheme(prefersDark ? "dark" : "light");
+			const prefersDark = window.matchMedia(
+				"(prefers-color-scheme: dark)",
+			).matches;
+			setTheme(prefersDark ? "dark" : "light");
 		}
-	  }, [setTheme]);
+	}, [setTheme]);
 
 	const toggleTheme = () => {
 		const newTheme = theme === "light" ? "dark" : "light";

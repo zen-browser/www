@@ -46,9 +46,7 @@ export const MacArchitectureCard = ({
 		>
 			<h1 className="my-2 text-5xl opacity-40 dark:opacity-20">{icon}</h1>
 			<h1 className="my-2 text-2xl font-semibold">{label}</h1>
-			<p className="mx-auto text-center text-muted-foreground">
-				{description}
-			</p>
+			<p className="mx-auto text-center text-muted-foreground">{description}</p>
 		</div>
 	);
 };

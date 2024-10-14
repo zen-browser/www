@@ -75,7 +75,12 @@ export function BrandingAssets() {
 						CC BY-SA 4.0
 					</a>
 					. Thanks to{" "}
-					<a href="https://www.onnno.nl/" rel="noopener noreferrer" target="_blank" className="text-blue-500">
+					<a
+						href="https://www.onnno.nl/"
+						rel="noopener noreferrer"
+						target="_blank"
+						className="text-blue-500"
+					>
 						Donno (mr. Logos)
 					</a>{" "}
 					for the assets.

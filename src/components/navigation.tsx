@@ -122,9 +122,9 @@ export function Navigation() {
 		<div className="border-grey fixed left-0 top-0 z-40 flex w-full items-center justify-center border-b bg-background p-2">
 			<MobileNav />
 			<NavigationMenu>
-				<NavigationMenuList className="hidden w-full py-3 sm:flex items-center justify-between gap-32">
+				<NavigationMenuList className="hidden w-full items-center justify-between gap-32 py-3 sm:flex">
 					<div>
-						<NavigationMenuItem className="cursor-pointer flex items-center">
+						<NavigationMenuItem className="flex cursor-pointer items-center">
 							<NavigationMenuLink href="/">
 								<Logo withText />
 							</NavigationMenuLink>
@@ -186,8 +186,8 @@ export function Navigation() {
 										target="_blank"
 										rel="noopener noreferrer"
 									>
-										Ko-fi is a way to support us with a one-time donation and help
-										us keep the project alive.
+										Ko-fi is a way to support us with a one-time donation and
+										help us keep the project alive.
 									</ListItem2>
 								</ul>
 							</NavigationMenuContent>
@@ -215,7 +215,10 @@ export function Navigation() {
 						<ModeToggle />
 					</div>
 					<div>
-						<NavigationMenuLink href={`/release-notes/${latestRelease.version}`} className="text-[10px] bg-surface py-1 px-2 font-semibold rounded h-fit w-fit flex items-center hover:bg-accent hover:text-accent-foreground transition-colors">
+						<NavigationMenuLink
+							href={`/release-notes/${latestRelease.version}`}
+							className="flex h-fit w-fit items-center rounded bg-surface px-2 py-1 text-[10px] font-semibold transition-colors hover:bg-accent hover:text-accent-foreground"
+						>
 							v{latestRelease.version}
 						</NavigationMenuLink>
 					</div>

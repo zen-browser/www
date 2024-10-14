@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 
-
 const inDev = process.env.NODE_ENV === "development";
 function imageLoader({ src }: { src: string }) {
 	// Load locally if we are in development

@@ -1,24 +1,23 @@
 @keyframes hueShift {
-    0% {
-      filter: hue-rotate(0deg);
-    }
-    50% {
-      filter: hue-rotate(170deg);
-    }
-    100% {
-      filter: hue-rotate(0deg);
-    }
-  }
-  
-  .title {
-    background-clip: text;
-    background-image: linear-gradient(90deg, #0077e7, #01d8d1);
-    -webkit-background-clip: text;
-    color: transparent;
-    filter: hue-rotate(0deg);
-    animation: hueShift 10s infinite linear 1s;
-    padding-bottom: 8px;
-    user-select: none;
-    cursor: default;
-  }
-  
+	0% {
+		filter: hue-rotate(0deg);
+	}
+	50% {
+		filter: hue-rotate(170deg);
+	}
+	100% {
+		filter: hue-rotate(0deg);
+	}
+}
+
+.title {
+	background-clip: text;
+	background-image: linear-gradient(90deg, #0077e7, #01d8d1);
+	-webkit-background-clip: text;
+	color: transparent;
+	filter: hue-rotate(0deg);
+	animation: hueShift 10s infinite linear 1s;
+	padding-bottom: 8px;
+	user-select: none;
+	cursor: default;
+}

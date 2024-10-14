@@ -10,16 +10,16 @@ interface WindowsInstallerProps {
 	flowIndex: number;
 	platform: Platforms | null;
 	selectedArchitecture: string;
-    setSelectedWindowsDownloadType: (value: string) => void;
-    selectedWindowsDownloadType: string;
+	setSelectedWindowsDownloadType: (value: string) => void;
+	selectedWindowsDownloadType: string;
 }
 
 export const WindowsInstaller = ({
 	flowIndex,
 	platform,
 	selectedArchitecture,
-    setSelectedWindowsDownloadType,
-    selectedWindowsDownloadType,
+	setSelectedWindowsDownloadType,
+	selectedWindowsDownloadType,
 }: WindowsInstallerProps) => {
 	return (
 		<FormField

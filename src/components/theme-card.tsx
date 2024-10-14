@@ -3,8 +3,13 @@ import { getThemeAuthorLink, ZenTheme } from "@/lib/mods";
 import { TagIcon } from "lucide-react";
 
 import { Badge } from "./ui/badge";
-import Link from "next/link";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import {
+	Card,
+	CardContent,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "./ui/card";
 
 export default function ThemeCard({
 	theme,
@@ -15,10 +20,11 @@ export default function ThemeCard({
 }) {
 	const maxNameLen = 50;
 	const maxDescLen = 100;
-  const authorLink = getThemeAuthorLink(theme);
+	const authorLink = getThemeAuthorLink(theme);
 
 	return (
-		<Card className="select-none h-full flex-col justify-between rounded-xl border-2 border-[transparent] bg-surface transition-all duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]"
+		<Card
+			className="h-full select-none flex-col justify-between rounded-xl border-2 border-[transparent] bg-surface transition-all duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]"
 			onMouseDown={(e) => {
 				// IMPORTANT NOTE: We do NOT use a Link component here because of how zen manages site injection.
 				//   please for the love of god, dont change this to a Link component. Please.
@@ -28,7 +34,8 @@ export default function ThemeCard({
 				if (e.button !== 0 && e.button !== 1) return;
 				if (e.target instanceof HTMLAnchorElement) return;
 				window.open(`/mods/${theme.id}`, e.button === 1 ? "_blank" : "_self");
-			}}>
+			}}
+		>
 			<div className="relative m-2 mb-0 hidden aspect-[1.85/1] h-48 overflow-hidden rounded-xl border-2 border-[rgba(0,0,0,.5)] object-cover shadow dark:border-[#333] lg:block lg:h-auto">
 				<img
 					src={theme.image}
@@ -64,31 +71,31 @@ export default function ThemeCard({
 					</p>
 				</CardContent>
 				<CardFooter className="mt-2 flex">
-				{theme.homepage && (
-					<a
-						href={theme.homepage}
-						className="text-md text-blue-500"
-						target="_blank"
-						rel="noopener noreferrer"
-						onClick={(e) => e.stopPropagation()}
-					>
-						Homepage
-					</a>
-				)}
-				{theme.homepage && authorLink && (
-					<span className="text-md mx-2 text-muted-foreground">·</span>
-				)}
-				{authorLink && (
-					<a
-						href={authorLink}
-						className="text-md text-blue-500"
-						target="_blank"
-						rel="noopener noreferrer"
-						onClick={(e) => e.stopPropagation()}
-					>
-						Author
-					</a>
-				)}
+					{theme.homepage && (
+						<a
+							href={theme.homepage}
+							className="text-md text-blue-500"
+							target="_blank"
+							rel="noopener noreferrer"
+							onClick={(e) => e.stopPropagation()}
+						>
+							Homepage
+						</a>
+					)}
+					{theme.homepage && authorLink && (
+						<span className="text-md mx-2 text-muted-foreground">·</span>
+					)}
+					{authorLink && (
+						<a
+							href={authorLink}
+							className="text-md text-blue-500"
+							target="_blank"
+							rel="noopener noreferrer"
+							onClick={(e) => e.stopPropagation()}
+						>
+							Author
+						</a>
+					)}
 				</CardFooter>
 			</div>
 		</Card>

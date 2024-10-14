@@ -1,16 +1,26 @@
-'use client'
+"use client";
 
 import CachedImage from "@/components/CachedImage";
 import Logo from "@/components/logo";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ExternalLinkIcon, EyeClosedIcon, LockClosedIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+	ExternalLinkIcon,
+	EyeClosedIcon,
+	LockClosedIcon,
+	QuestionMarkCircledIcon,
+} from "@radix-ui/react-icons";
 import { ShieldCheck, ShieldAlertIcon } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
 export const FAQ = () => {
-    const [feature, setFeature] = useState("");
-    
+	const [feature, setFeature] = useState("");
+
 	return (
 		<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
 			<div className="relative flex w-full flex-col justify-center p-5 lg:w-1/2 lg:p-12">

@@ -38,7 +38,10 @@ function isValidDate(date: any): date is Date {
  * @param assignFutureDate - Whether to assign a future date if parsing fails.
  * @returns A valid Date object.
  */
-function parseDate(dateString: string | undefined, assignFutureDate: boolean = false): Date {
+function parseDate(
+	dateString: string | undefined,
+	assignFutureDate: boolean = false,
+): Date {
 	const date = new Date(dateString || "");
 	if (isValidDate(date)) {
 		return date;
@@ -83,7 +86,10 @@ export async function getAllThemes(): Promise<ZenTheme[]> {
 					homepage: theme.homepage,
 					readme: theme.readme,
 					preferences: theme.preferences,
-					isColorTheme: typeof theme.isColorTheme === 'boolean' ? theme.isColorTheme : false,
+					isColorTheme:
+						typeof theme.isColorTheme === "boolean"
+							? theme.isColorTheme
+							: false,
 					author: theme.author,
 					version: theme.version,
 					tags: uniqueTags,
@@ -125,7 +131,7 @@ export function getThemesFromSearch(
 	query: string,
 	tags: string[],
 	sortBy: string,
-	createdBefore?: Date
+	createdBefore?: Date,
 ): ZenTheme[] {
 	const normalizedQuery = query.toLowerCase();
 
@@ -166,7 +172,9 @@ export function getThemesFromSearch(
  * @param id - The ID of the theme to retrieve.
  * @returns A promise that resolves to the ZenTheme object or undefined if not found.
  */
-export async function getThemeFromId(id: string): Promise<ZenTheme | undefined> {
+export async function getThemeFromId(
+	id: string,
+): Promise<ZenTheme | undefined> {
 	const allThemes = await getAllThemes();
 	return allThemes.find((theme) => theme.id === id);
 }

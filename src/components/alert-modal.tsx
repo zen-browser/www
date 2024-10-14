@@ -31,7 +31,7 @@ export const AlertModal = ({
 						</div>
 					</AlertDialog.Title>
 					<AlertDialog.Description asChild>
-						<p className="text-center text-sm text-muted-foreground mb-6">
+						<p className="mb-6 text-center text-sm text-muted-foreground">
 							Please select other formats if you want to install the Optimized
 							version.
 						</p>

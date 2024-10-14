@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Platforms } from "@/components/download/types";
 import { ny } from "@/lib/utils";
@@ -10,7 +10,7 @@ interface PlatformCardProps {
 }
 
 const PLATFORMS_DATA: Record<
-	Exclude<Platforms, 'Unsupported'>,
+	Exclude<Platforms, "Unsupported">,
 	{ label: string; icon: string; borderColor: string }
 > = {
 	Windows: {
