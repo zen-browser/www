@@ -28,8 +28,9 @@ export default function ThemesSearch({
 }) {
 	return (
 		<>
-			<div className="mt-10 flex w-full items-center overflow-hidden rounded-full border border-black bg-black/10 p-2 dark:border-muted dark:bg-muted/50">
-				<SearchIcon className="mx-4 size-6 text-black dark:text-white" />
+			<div
+				className="mt-10 flex w-full items-center overflow-hidden rounded-full border border-black bg-black/10 p-2 dark:border-muted dark:bg-muted/50">
+				<SearchIcon className="mx-4 size-6 text-black dark:text-white"/>
 				<input
 					type="text"
 					value={input}
@@ -56,16 +57,19 @@ export default function ThemesSearch({
 					Create your theme
 				</Button>*/}
 			</div>
-			<Select value={sortBy} onValueChange={setSortBy}>
-				<SelectTrigger className="mt-4 w-full sm:w-[180px]">
-					<SelectValue placeholder="Sort by" />
-				</SelectTrigger>
-				<SelectContent>
-					<SelectItem value="name">Alphabetical</SelectItem>
-					<SelectItem value="createdAt">Created Date</SelectItem>
-					<SelectItem value="updatedAt">Updated Date</SelectItem>
-				</SelectContent>
-			</Select>
+			<div className="flex items-center space-x-2">
+				<span className="mt-4 text-lg text-muted-foreground">Filter by:</span> {/* Use text-lg for larger size */}
+				<Select value={sortBy} onValueChange={setSortBy}>
+					<SelectTrigger className="mt-4 w-full sm:w-[180px]">
+						<SelectValue placeholder="Sort by"/>
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value="name">Alphabetical</SelectItem>
+						<SelectItem value="createdAt">Created Date</SelectItem>
+						<SelectItem value="updatedAt">Updated Date</SelectItem>
+					</SelectContent>
+				</Select>
+			</div>
 			<div className="mt-4 flex flex-wrap gap-2">
 				<div className="mb-6 flex flex-wrap gap-2">
 					{TAGS.map((tag) => (
@@ -76,7 +80,7 @@ export default function ThemesSearch({
 							onClick={() => toggleTag(tag)}
 							className="flex items-center"
 						>
-							<TagIcon className="mr-1 h-4 w-4" />
+							<TagIcon className="mr-1 h-4 w-4"/>
 							{tag}
 						</Button>
 					))}
