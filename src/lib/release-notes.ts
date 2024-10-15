@@ -1223,6 +1223,21 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed keyboard shortcuts not working in macos",
 				issue: 1629,
 			},
+			{
+				description: "Fixed handling when having a corrupted mods file",
+			},
+			{
+				description: "Fixed reseting shortcuts not working",
+			},
+			{
+				description: "Fixed settings UI when night theme is enabled while having a light website displayed",
+			},
+			{
+				description: "Fixed about page linking 'global comunity' to a mozilla page",
+			}
+		],
+		features: [
+			"About page will now display the firefox version used",
 		],
 	},
 ].reverse();
