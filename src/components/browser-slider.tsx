@@ -9,9 +9,9 @@ export default function BrowserComplexityExample() {
 	const [selectedImage, setSelectedImage] = React.useState([1]);
 	return (
 		<div className="mx-auto mb-32 flex h-screen w-full flex-col items-center md:w-5/6 lg:w-3/4 xl:mb-64">
-			<h1 className="text-center text-4xl font-bold md:text-5xl">
+			<h2 className="text-center text-4xl font-bold md:text-5xl">
 				How much browser do you want?
-			</h1>
+			</h2>
 			<p className="text-md mx-auto mt-4 w-2/3 text-center text-muted-foreground">
 				Zen is designed to be simple and easy to use. We believe that the best
 				software is the one that you don't notice. However, we can assure you
