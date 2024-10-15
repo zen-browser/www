@@ -1237,7 +1237,7 @@ export const releaseNotes: ReleaseNote[] = [
 			}
 		],
 		features: [
-			//"About page will now display the firefox version used",
+			"About page will now display the firefox version used",
 			"Disabled forcing container grouping for workspaces",
 		],
 	},
