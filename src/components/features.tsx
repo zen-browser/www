@@ -137,9 +137,9 @@ export default function Features() {
 			</div>
 			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
 				<div className="flex flex-col justify-center p-16 lg:w-1/2">
-					<h1 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
+					<h2 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
 						Built for simplicity <EyeIcon className="inline h-8 w-8"></EyeIcon>
-					</h1>
+					</h2>
 					<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
 						Zen Browser is designed to be simple and easy to use. It's built
 						with the user in mind, so you can focus on what matters most.
@@ -182,10 +182,10 @@ export default function Features() {
 					className="rounded-md object-cover object-left lg:w-1/2"
 				/>
 				<div className="flex flex-col justify-center p-16 lg:w-1/2">
-					<h1 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
+					<h2 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
 						Split Views{" "}
 						<SplitSquareHorizontal className="inline h-8 w-8"></SplitSquareHorizontal>
-					</h1>
+					</h2>
 					<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
 						Zen Browser allows you to split your view into multiple panes, so
 						you can work on multiple things at once. It's perfect for
@@ -266,9 +266,9 @@ export default function Features() {
 			</div>
 			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
 				<div className="flex flex-col justify-center p-16 lg:w-1/2">
-					<h1 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
+					<h2 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
 						Sidebar <SidebarIcon className="ml-1 inline h-8 w-8"></SidebarIcon>
-					</h1>
+					</h2>
 					<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
 						Zen Browser has a built-in sidebar that lets you quickly access your
 						favorite websites, bookmarks, and more. It's the perfect way to stay
@@ -312,10 +312,10 @@ export default function Features() {
 					className="rounded-md object-cover object-left lg:w-1/2"
 				/>
 				<div className="flex flex-col justify-center p-16 lg:w-1/2">
-					<h1 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
+					<h2 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
 						Introducing Compact Mode{" "}
 						<SidebarCloseIcon className="inline h-8 w-8"></SidebarCloseIcon>
-					</h1>
+					</h2>
 					<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
 						Zen Browser's compact mode gives you more screen real estate by
 						hiding the title bar and tabs. It's perfect for when you need to

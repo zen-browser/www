@@ -9,9 +9,24 @@ import { Navigation } from "@/components/navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Zen Browser",
+	title: "Zen",
 	description: "Download now and experience the Zen Browser",
 	keywords: ["Zen", "Browser", "Zen Browser", "Web", "Internet", "Fast"],
+	applicationName: "Zen Browser",
+	generator: "Next.js",
+	creator: "Zen Team",
+	robots: "index, follow",
+	openGraph: {
+		title: "Zen",
+		description: "Download now and experience the Zen Browser",
+		locale: "en_US",
+		url: "https://zen-browser.app/",
+		siteName: "Zen Browser",
+	},
+	twitter: {
+		creator: "@zen_browser",
+		site: "@zen_browser",
+	},
 };
 
 export default async function RootLayout({
@@ -23,6 +38,7 @@ export default async function RootLayout({
 		<html suppressHydrationWarning>
 			<head>
 				<link rel="me" href="https://fosstodon.org/@zenbrowser"></link>
+				<link rel="canonical" href="https://zen-browser.app/"></link>
 				{/* Analitics */}
 				<script
 					defer
