@@ -5,16 +5,11 @@ import { redirect } from "next/navigation";
 export default function ReleaseNotePage() {
 	React.useEffect(() => {
 		const searchParams = new URLSearchParams(window.location.search);
-    const version = searchParams.get("v");
+	    	const version = searchParams.get("v");
 		if (version === "latest") {
-  		return redirect(`/release-notes/${releaseNotes[0].version}`);
-  	}
-
-  	const currentIndex = releaseNotes.findIndex(
-  		(note) => note.version === version,
-  	);
-  	const releaseNote = releaseNotes[currentIndex];
-  	return redirect(`/release-notes#${version}`);
+	  		return window.location.replace(`/release-notes/${releaseNotes[0].version}`);
+	  	}
+	  	window.location.replace(`/release-notes#${version}`);
 	}, []);
 
 	return null;
