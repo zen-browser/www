@@ -34,6 +34,7 @@ export default function BrowserComplexityExample() {
 						width={1620}
 						height={900}
 						priority
+						loading="lazy"
 						key={i}
 						src={`www/public/browsers/image${i + 1}.png`}
 						alt="Zen Browser"
