@@ -1,6 +1,5 @@
 import React from "react";
 import { releaseNotes } from "@/lib/release-notes";
-import { redirect } from "next/navigation";
 
 export default function ReleaseNotePage() {
 	React.useEffect(() => {
