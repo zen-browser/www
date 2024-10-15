@@ -27,6 +27,14 @@ export const metadata: Metadata = {
 		creator: "@zen_browser",
 		site: "@zen_browser",
 	},
+	appLinks: {
+		web: {
+			url: "https://zen-browser.app/download",
+		},
+		windows: {
+			url: "https://zen-browser.app/download",
+		},
+	}
 };
 
 export default async function RootLayout({
