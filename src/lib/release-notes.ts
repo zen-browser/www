@@ -1212,6 +1212,19 @@ export const releaseNotes: ReleaseNote[] = [
 			}
 		],
 	},
+	{
+		version: "1.0.1-a.10",
+		date: "15/10/2024",
+		image: false,
+		workflowId: 11349525400,
+		extra: "This release is a small patch to fix some issues on keyboard shortcuts that were introduced in the previous release.",
+		fixes: [
+			{
+				description: "Fixed keyboard shortcuts not working in macos",
+				issue: 1629,
+			},
+		],
+	},
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
