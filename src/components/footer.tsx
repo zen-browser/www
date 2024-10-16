@@ -17,7 +17,6 @@ export default function Footer() {
 						<h1 className="text-2xl font-bold opacity-80">Zen Browser</h1>
 						<a
 							target="_blank"
-							data-umami-event="footer-status"
 							rel="noopener noreferrer"
 							href="https://uptime.zen-browser.app/"
 							className="mt-2 flex w-fit cursor-pointer items-center rounded-md bg-surface px-3 py-2 shadow"
@@ -92,7 +91,6 @@ export default function Footer() {
 							<li>
 								<a
 									target="_blank"
-									data-umami-event="footer-discord"
 									href="https://discord.com/servers/mauro-s-little-sweatshop-1088172780480114748"
 								>
 									Discord
@@ -114,7 +112,6 @@ export default function Footer() {
 							</li>
 							<li className="mt-2">
 								<a
-									data-umami-event="footer-privacy-policy"
 									href="/privacy-policy"
 								>
 									Privacy Policy
@@ -150,7 +147,6 @@ export default function Footer() {
 							<li>
 								<a
 									target="_blank"
-									data-umami-event="patreon-fotter"
 									href="https://patreon.com/zen_browser"
 								>
 									Patreon
@@ -159,7 +155,6 @@ export default function Footer() {
 							<li className="mt-2">
 								<a
 									target="_blank"
-									data-umami-event="ko-fi-fotter"
 									href="https://ko-fi.com/zen_browser"
 								>
 									Ko-fi
