@@ -9,7 +9,7 @@ import { Navigation } from "@/components/navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Zen",
+	title: "Zen Browser",
 	description: "Download now and experience the Zen Browser",
 	keywords: ["Zen", "Browser", "Zen Browser", "Web", "Internet", "Fast"],
 	applicationName: "Zen Browser",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 	creator: "Zen Team",
 	robots: "index, follow",
 	openGraph: {
-		title: "Zen",
+		title: "Zen Browser",
 		description: "Download now and experience the Zen Browser",
 		locale: "en_US",
 		url: "https://zen-browser.app/",
