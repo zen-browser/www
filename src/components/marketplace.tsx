@@ -191,9 +191,30 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 								);
 							})}
 							{totalPages > 4 && currentPage < totalPages - 2 && (
-								<PaginationItem key={totalPages} className="hidden md:block">
-									<PaginationEllipsis />
-								</PaginationItem>
+								<>
+									<PaginationItem key={totalPages} className="hidden md:block">
+										<PaginationEllipsis />
+									</PaginationItem>
+									{totalPages > 4 && currentPage < totalPages && (
+										<PaginationItem
+											key={totalPages}
+											className="hidden md:block"
+										>
+											<PaginationLink
+												href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, totalPages)}`}
+												aria-current={currentPage === totalPages}
+												className={ny(
+													currentPage === totalPages
+														? "border-outline border"
+														: "",
+													"rounded-md",
+												)}
+											>
+												{totalPages}
+											</PaginationLink>
+										</PaginationItem>
+									)}
+								</>
 							)}
 							<div className="block px-2 md:hidden">
 								<span>
