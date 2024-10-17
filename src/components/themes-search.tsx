@@ -30,6 +30,8 @@ export default function ThemesSearch({
 	limit: number;
 	handleLimitChange: (value: string) => void;
 }) {
+	const sortOptions = ["name", "createdAt", "updatedAt"];
+	const limitOptions = [12, 24, 36];
 	return (
 		<>
 			<div className="mt-10 flex w-full items-center overflow-hidden rounded-full border border-black bg-black/10 p-2 dark:border-muted dark:bg-muted/50">
@@ -61,7 +63,10 @@ export default function ThemesSearch({
 				</Button>*/}
 			</div>
 			<div className="flex gap-2">
-				<Select value={sortBy} onValueChange={handleSortByChange}>
+				<Select
+					value={sortOptions.includes(sortBy) ? sortBy : undefined}
+					onValueChange={handleSortByChange}
+				>
 					<SelectTrigger className="mt-4 w-full sm:w-[180px]">
 						<SelectValue placeholder="Sort by" />
 					</SelectTrigger>
@@ -71,9 +76,12 @@ export default function ThemesSearch({
 						<SelectItem value="updatedAt">Updated Date</SelectItem>
 					</SelectContent>
 				</Select>
-				<Select value={limit.toString()} onValueChange={handleLimitChange}>
+				<Select
+					value={limitOptions.includes(limit) ? limit.toString() : undefined}
+					onValueChange={handleLimitChange}
+				>
 					<SelectTrigger className="mt-4 w-full sm:w-[180px]">
-						<SelectValue placeholder="Sort by" />
+						<SelectValue placeholder="Items per page" />
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="12">Show 12 Mods</SelectItem>
