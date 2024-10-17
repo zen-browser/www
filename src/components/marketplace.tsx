@@ -4,8 +4,17 @@ import ThemesSearch from "./themes-search";
 import { getThemesFromSearch, type ZenTheme } from "@/lib/mods";
 import ThemeCard from "./theme-card";
 import StickyBox from "react-sticky-box";
-import { Button } from "./ui/button";
 import { useRouter, useSearchParams } from "next/navigation";
+import {
+	Pagination,
+	PaginationContent,
+	PaginationEllipsis,
+	PaginationItem,
+	PaginationLink,
+	PaginationNext,
+	PaginationPrevious,
+} from "@/components/ui/pagination";
+import { ny } from "@/lib/utils";
 
 function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	const searchParams = useSearchParams();
@@ -14,10 +23,14 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	const [sortBy, setSortBy] = useState(searchParams.get("sort") || "name");
 	const tags = useRef<string[]>(searchParams.get("tags")?.split(",") || []);
 	const [selectedTags, setSelectedTags] = useState<string[]>(tags.current);
-	const [currentPage, setCurrentPage] = useState(1);
 	const [limit, setLimit] = useState(
 		Number.parseInt(searchParams.get("limit") || "12"),
 	);
+	const [currentPage, setCurrentPage] = useState(() => {
+		const page = Number.parseInt(searchParams.get("page") || "1");
+		const maxPage = Math.ceil(themes.length / limit);
+		return Math.min(page, maxPage);
+	});
 	const [loadedThemes, setLoadedThemes] = useState<ZenTheme[]>([]);
 
 	// Filter and sort themes based on search and selected tags
@@ -30,7 +43,10 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 
 	// Get the themes to display on the current page
 	const currentThemes = useMemo(() => {
-		return filteredAndSortedThemes.slice(0, limit * currentPage);
+		return filteredAndSortedThemes.slice(
+			(currentPage - 1) * limit,
+			currentPage * limit,
+		);
 	}, [currentPage, filteredAndSortedThemes, limit]);
 
 	const createSearchParams = (
@@ -38,19 +54,27 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 		tags: string[],
 		limit: number,
 		sortBy: string,
+		page: number,
 	) => {
 		const sp = new URLSearchParams();
 		if (searchTerm) sp.set("q", searchTerm);
 		if (sortBy !== "name") sp.set("sort", sortBy);
 		if (tags?.length > 0) sp.set("tags", tags.join(","));
 		if (limit !== 12) sp.set("limit", limit.toString());
+		if (page !== 1) sp.set("page", page.toString());
 		return sp.toString();
 	};
 
 	// Handle limit change
 	const handleLimitChange = (limit: string) => {
 		router.replace(
-			`/mods?${createSearchParams(searchTerm, selectedTags, Number.parseInt(limit), sortBy)}`,
+			`/mods?${createSearchParams(
+				searchTerm,
+				selectedTags,
+				Number.parseInt(limit),
+				sortBy,
+				currentPage,
+			)}`,
 		);
 		setLimit(Number.parseInt(limit));
 	};
@@ -58,21 +82,9 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	// Handle sort by change
 	const handleSortByChange = (sortBy: string) => {
 		router.replace(
-			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy)}`,
+			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, currentPage)}`,
 		);
 		setSortBy(sortBy);
-	};
-
-	// Handle page change
-	const handlePageChange = (page: number) => {
-		setCurrentPage(page);
-		setLoadedThemes((prev) => [
-			...prev,
-			...filteredAndSortedThemes.slice(
-				(prev.length / limit) * currentPage,
-				page * limit,
-			),
-		]);
 	};
 
 	// Toggle tag function
@@ -85,7 +97,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			return newTags;
 		});
 		router.replace(
-			`/mods?${createSearchParams(searchTerm, tags.current, limit, sortBy)}`,
+			`/mods?${createSearchParams(searchTerm, tags.current, limit, sortBy, currentPage)}`,
 		);
 	};
 
@@ -99,6 +111,9 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	useEffect(() => {
 		setLoadedThemes(currentThemes);
 	}, [currentThemes]);
+
+	const startPage = Math.max(1, currentPage - 2);
+	const endPage = Math.min(totalPages, currentPage + 2);
 
 	return (
 		<div className="relative mx-auto flex h-full w-full flex-col lg:flex-row">
@@ -134,18 +149,72 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 					))}
 				</div>
 
-				{/* Load More */}
-				{currentPage < totalPages && (
-					<div className="my-8 flex items-center justify-center">
-						<Button
-							variant="secondary"
-							onClick={() => handlePageChange(currentPage + 1)}
-							className="rounded-md"
-						>
-							View More
-						</Button>
-					</div>
-				)}
+				{/* Pagination */}
+				<div className="my-8 flex items-center justify-center">
+					<Pagination>
+						<PaginationContent>
+							<PaginationItem>
+								<PaginationPrevious
+									href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, currentPage - 1)}`}
+									aria-disabled={currentPage <= 1}
+									className={ny(
+										"px-4",
+										currentPage <= 1
+											? "cursor-not-allowed text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
+											: "",
+									)}
+								/>
+							</PaginationItem>
+							{totalPages > 4 && currentPage > 3 && (
+								<PaginationItem key={-1} className="hidden md:block">
+									<PaginationEllipsis />
+								</PaginationItem>
+							)}
+
+							{[...Array(endPage - startPage + 1)].map((_, index) => {
+								const pageIndex = startPage + index;
+								return (
+									<PaginationItem key={pageIndex} className="hidden md:block">
+										<PaginationLink
+											href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, pageIndex)}`}
+											aria-current={currentPage === pageIndex}
+											className={ny(
+												currentPage === pageIndex
+													? "border-outline border"
+													: "",
+												"rounded-md",
+											)}
+										>
+											{pageIndex}
+										</PaginationLink>
+									</PaginationItem>
+								);
+							})}
+							{totalPages > 4 && currentPage < totalPages - 2 && (
+								<PaginationItem key={totalPages} className="hidden md:block">
+									<PaginationEllipsis />
+								</PaginationItem>
+							)}
+							<div className="block px-2 md:hidden">
+								<span>
+									{currentPage} of {totalPages}
+								</span>
+							</div>
+							<PaginationItem>
+								<PaginationNext
+									href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, currentPage + 1)}`}
+									aria-disabled={currentPage >= totalPages}
+									className={ny(
+										"px-4",
+										currentPage >= totalPages
+											? "cursor-not-allowed text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
+											: "",
+									)}
+								/>
+							</PaginationItem>
+						</PaginationContent>
+					</Pagination>
+				</div>
 			</div>
 		</div>
 	);
