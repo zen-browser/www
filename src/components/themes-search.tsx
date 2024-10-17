@@ -7,7 +7,7 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "./ui/select";
-import React from "react";
+import type React from "react";
 
 const TAGS = ["color scheme", "dark", "tabs"];
 
@@ -17,24 +17,23 @@ export default function ThemesSearch({
 	tags,
 	toggleTag,
 	sortBy,
-	setSortBy,
-	showMods,
-	setShowMods,
+	handleSortByChange,
+	limit,
+	handleLimitChange,
 }: {
 	input: string;
 	setInput: (input: string) => void;
 	tags: string[];
 	toggleTag: (tag: string) => void;
 	sortBy: string;
-	setSortBy: (method: string) => void;
-	showMods: string;
-	setShowMods: (method: string) => void;
+	handleSortByChange: (method: string) => void;
+	limit: number;
+	handleLimitChange: (value: string) => void;
 }) {
 	return (
 		<>
-			<div
-				className="mt-10 flex w-full items-center overflow-hidden rounded-full border border-black bg-black/10 p-2 dark:border-muted dark:bg-muted/50">
-				<SearchIcon className="mx-4 size-6 text-black dark:text-white"/>
+			<div className="mt-10 flex w-full items-center overflow-hidden rounded-full border border-black bg-black/10 p-2 dark:border-muted dark:bg-muted/50">
+				<SearchIcon className="mx-4 size-6 text-black dark:text-white" />
 				<input
 					type="text"
 					value={input}
@@ -62,9 +61,9 @@ export default function ThemesSearch({
 				</Button>*/}
 			</div>
 			<div className="flex gap-2">
-				<Select value={sortBy} onValueChange={setSortBy}>
+				<Select value={sortBy} onValueChange={handleSortByChange}>
 					<SelectTrigger className="mt-4 w-full sm:w-[180px]">
-						<SelectValue placeholder="Sort by"/>
+						<SelectValue placeholder="Sort by" />
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="name">Alphabetical</SelectItem>
@@ -72,15 +71,14 @@ export default function ThemesSearch({
 						<SelectItem value="updatedAt">Updated Date</SelectItem>
 					</SelectContent>
 				</Select>
-				<Select value={showMods} onValueChange={setShowMods}>
+				<Select value={limit.toString()} onValueChange={handleLimitChange}>
 					<SelectTrigger className="mt-4 w-full sm:w-[180px]">
-						<SelectValue placeholder="Sort by"/>
+						<SelectValue placeholder="Sort by" />
 					</SelectTrigger>
 					<SelectContent>
-						<SelectItem value="showAll">Show All Mods</SelectItem>
-						<SelectItem value="show12">Show 12 Mods</SelectItem>
-						<SelectItem value="show24">Show 24 Mods</SelectItem>
-						<SelectItem value="show36">Show 36 Mods</SelectItem>
+						<SelectItem value="12">Show 12 Mods</SelectItem>
+						<SelectItem value="24">Show 24 Mods</SelectItem>
+						<SelectItem value="36">Show 36 Mods</SelectItem>
 					</SelectContent>
 				</Select>
 			</div>
@@ -94,7 +92,7 @@ export default function ThemesSearch({
 							onClick={() => toggleTag(tag)}
 							className="flex items-center"
 						>
-							<TagIcon className="mr-1 h-4 w-4"/>
+							<TagIcon className="mr-1 h-4 w-4" />
 							{tag}
 						</Button>
 					))}
