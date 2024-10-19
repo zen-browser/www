@@ -82,9 +82,10 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	// Handle sort by change
 	const handleSortByChange = (sortBy: string) => {
 		router.replace(
-			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, currentPage)}`,
+			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, 1)}`,
 		);
 		setSortBy(sortBy);
+		setCurrentPage(1);
 	};
 
 	// Toggle tag function
@@ -97,8 +98,9 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			return newTags;
 		});
 		router.replace(
-			`/mods?${createSearchParams(searchTerm, tags.current, limit, sortBy, currentPage)}`,
+			`/mods?${createSearchParams(searchTerm, tags.current, limit, sortBy, 1)}`,
 		);
+		setCurrentPage(1);
 	};
 
 	// Clamp currentPage to totalPages when totalPages changes
