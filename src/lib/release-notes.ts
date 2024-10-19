@@ -1241,6 +1241,57 @@ export const releaseNotes: ReleaseNote[] = [
 			"Disabled forcing container grouping for workspaces",
 		],
 	},
+    {
+		version: "1.0.1-a.11",
+		date: "19/10/2024",
+		image: false,
+		workflowId: 11412027026,
+        extra: "This release brings some quality of life improvements and new features to Workspaces.",
+        fixes: [
+            {
+                description: "Fixed right side tab bar not working (macOS)",
+                issue: 334
+            },
+            {
+                description: "Fixed compact mode moving titlebar buttons (macOS)",
+                issue: 1872
+            },
+            {
+                description: "Fixed expand on hover moving sites",
+                issue: 2033
+            },
+            {
+                description: "Fixed About Zen showing incorrect Firefox version",
+                issue: 2150
+            },
+            {
+                description: "Fixed workspace icon picker no longer showing (Windows)",
+                issue: 2121
+            },
+            {
+                description: "Fixed inconsistent padding on toolbar buttons",
+                issue: 2176
+            },
+            {
+                description: "Fixed workspace buttons lacking top and bottom padding when placed on the toolbar",
+                issue: 2184
+            },   
+            {
+                description: "Allow reserved keyboard shortcuts to be changed"
+            },
+            {
+                description: "Fixed display issue for shortcuts with certain keybinds (macOS)",
+                issue: 2189
+            }
+        ],
+        features: [
+            "Improved light theme",
+            "Changed split view button icon",
+            "Added reordering mode to workspaces",
+            "Added button to disable all active Zen Mods",
+            "Workspace icon picker now supports all emojis by default"
+        ]
+    }
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
