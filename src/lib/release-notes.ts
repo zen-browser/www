@@ -1304,7 +1304,7 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 		fixes: [
 			{
-				description: "Fixed keyboard shortcuts for Shift + [N] not working",
+				description: "Fixed keyboard shortcuts for 'Shift + [N]' not working",
 			},
 			{
 				description: "Fixed tab overlflow changing the height of the web view",
