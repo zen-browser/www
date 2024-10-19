@@ -1291,7 +1291,35 @@ export const releaseNotes: ReleaseNote[] = [
             "Added button to disable all active Zen Mods",
             "Workspace icon picker now supports all emojis by default"
         ]
-    }
+    },
+	{
+		version: "1.0.1-a.12",
+		date: "19/10/2024",
+		image: false,
+		workflowId: 31776443457,
+		extra: "This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
+		features: [
+			"FIxed always rendering the split view overlay, pottentially fixing huge speed issues",
+			"Disabled 'all' webrender options by default, performance increase for unsuported GPUs",
+		],
+		fixes: [
+			{
+				description: "Fixed keyboard shortcuts for Shift + [N] not working",
+			},
+			{
+				description: "Fixed tab overlflow changing the height of the web view",
+			},
+			{
+				description: "Fixed 'cancel' button for workspaces creation not working",
+			},
+			{
+				description: "Creating tabs wont flash-bang the user anymore",
+			},
+			{
+				description: "Fixed tabs moving not closing expand on hover sometimes",
+			},
+		],
+	},
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
