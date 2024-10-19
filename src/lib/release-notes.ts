@@ -1244,7 +1244,7 @@ export const releaseNotes: ReleaseNote[] = [
     {
 		version: "1.0.1-a.11",
 		date: "19/10/2024",
-		image: false,
+		image: true,
 		workflowId: 11412027026,
         extra: "This release brings some quality of life improvements and new features to Workspaces.",
         fixes: [
