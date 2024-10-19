@@ -82,9 +82,10 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	// Handle sort by change
 	const handleSortByChange = (sortBy: string) => {
 		router.replace(
-			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, currentPage)}`,
+			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, 1)}`,
 		);
 		setSortBy(sortBy);
+		setCurrentPage(1);
 	};
 
 	// Toggle tag function
@@ -97,8 +98,9 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			return newTags;
 		});
 		router.replace(
-			`/mods?${createSearchParams(searchTerm, tags.current, limit, sortBy, currentPage)}`,
+			`/mods?${createSearchParams(searchTerm, tags.current, limit, sortBy, 1)}`,
 		);
+		setCurrentPage(1);
 	};
 
 	// Clamp currentPage to totalPages when totalPages changes
@@ -114,6 +116,8 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 
 	const startPage = Math.max(1, currentPage - 2);
 	const endPage = Math.min(totalPages, currentPage + 2);
+	const isPrevNavigationDisabled = currentPage <= 1;
+	const isNextNavigationDisabled = currentPage >= totalPages;
 
 	return (
 		<div className="relative mx-auto flex h-full w-full flex-col lg:flex-row">
@@ -153,14 +157,16 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 				<div className="my-8 flex items-center justify-center">
 					<Pagination>
 						<PaginationContent>
-							<PaginationItem>
+							<PaginationItem
+								className={ny(isPrevNavigationDisabled && "cursor-not-allowed")}
+							>
 								<PaginationPrevious
 									href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, currentPage - 1)}`}
-									aria-disabled={currentPage <= 1}
+									aria-disabled={isPrevNavigationDisabled}
 									className={ny(
 										"px-4",
-										currentPage <= 1
-											? "cursor-not-allowed text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
+										isPrevNavigationDisabled
+											? "pointer-events-none text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
 											: "",
 									)}
 								/>
@@ -221,14 +227,16 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 									{currentPage} of {totalPages}
 								</span>
 							</div>
-							<PaginationItem>
+							<PaginationItem
+								className={ny(isNextNavigationDisabled && "cursor-not-allowed")}
+							>
 								<PaginationNext
 									href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, currentPage + 1)}`}
-									aria-disabled={currentPage >= totalPages}
+									aria-disabled={isNextNavigationDisabled}
 									className={ny(
 										"px-4",
-										currentPage >= totalPages
-											? "cursor-not-allowed text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
+										isNextNavigationDisabled
+											? "pointer-events-none text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
 											: "",
 									)}
 								/>
