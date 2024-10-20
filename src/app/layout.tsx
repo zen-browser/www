@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 		windows: {
 			url: "https://zen-browser.app/download",
 		},
-	}
+	},
 };
 
 export default async function RootLayout({
@@ -55,7 +55,12 @@ export default async function RootLayout({
 				/>
 			</head>
 			<body className={inter.className}>
-				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
 					<StyledComponentsRegistry>
 						<div className="mt-5">
 							{children}
