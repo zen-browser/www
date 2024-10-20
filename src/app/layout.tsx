@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
+import { ny } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -54,7 +55,7 @@ export default async function RootLayout({
 					href="https://www.zen-browser.app/feed.xml"
 				/>
 			</head>
-			<body className={inter.className}>
+			<body className={ny("bg-background", inter.className)}>
 				<ThemeProvider
 					attribute="class"
 					defaultTheme="system"
