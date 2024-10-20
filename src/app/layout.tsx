@@ -55,7 +55,7 @@ export default async function RootLayout({
 				/>
 			</head>
 			<body className={inter.className}>
-				<ThemeProvider attribute="class" defaultTheme="dark">
+				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 					<StyledComponentsRegistry>
 						<div className="mt-5">
 							{children}
