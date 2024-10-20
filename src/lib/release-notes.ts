@@ -1296,7 +1296,7 @@ export const releaseNotes: ReleaseNote[] = [
 		version: "1.0.1-a.12",
 		date: "19/10/2024",
 		image: false,
-		workflowId: 31776443457,
+		workflowId: 11419764479,
 		extra: "This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
 		features: [
 			"FIxed always rendering the split view overlay, pottentially fixing huge speed issues",
