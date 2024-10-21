@@ -184,7 +184,6 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 										<PaginationLink
 											href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, pageIndex)}`}
 											aria-current={currentPage === pageIndex}
-											aria-disabled={currentPage === pageIndex}
 											className={ny(
 												currentPage === pageIndex
 													? "border-outline border"
@@ -210,7 +209,6 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 											<PaginationLink
 												href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, totalPages)}`}
 												aria-current={currentPage === totalPages}
-												aria-disabled={currentPage === totalPages}
 												className={ny(
 													currentPage === totalPages
 														? "border-outline border"
