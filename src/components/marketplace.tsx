@@ -42,6 +42,11 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	// Calculate total pages based on modsPerPage
 	const totalPages = Math.ceil(filteredAndSortedThemes.length / limit) || 1;
 
+  const handlePageChange = (page: number) => {
+    const clampedPage = Math.min(page, totalPages);
+    setCurrentPage(clampedPage);
+  }
+
 	// Get the themes to display on the current page
 	const currentThemes = useMemo(() => {
 		return filteredAndSortedThemes.slice(
@@ -86,7 +91,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, 1)}`,
 		);
 		setSortBy(sortBy);
-		setCurrentPage(1);
+		handlePageChange(1);
 	};
 
 	// Toggle tag function
@@ -100,19 +105,14 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 		router.replace(
 			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, 1)}`,
 		);
-		setCurrentPage(1);
+		handlePageChange(1);
 	};
 
-	// Clamp currentPage to totalPages when totalPages changes
 	useEffect(() => {
-		if (currentPage > totalPages) {
-			setCurrentPage(totalPages);
-		}
-	}, [totalPages, currentPage]);
-
-	useEffect(() => {
-		setLoadedThemes(currentThemes);
-	}, [currentThemes]);
+		if (currentThemes !== loadedThemes) {
+      setLoadedThemes(currentThemes);
+    }
+	}, [currentThemes, loadedThemes]);
 
 	const startPage = Math.max(1, currentPage - 2);
 	const endPage = Math.min(totalPages, currentPage + 2);
