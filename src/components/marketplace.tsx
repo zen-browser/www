@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import ThemesSearch from "./themes-search";
 import { getThemesFromSearch, type ZenTheme } from "@/lib/mods";
 import ThemeCard from "./theme-card";
@@ -21,8 +21,9 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	const router = useRouter();
 	const [searchTerm, setSearchTerm] = useState(searchParams.get("q") || "");
 	const [sortBy, setSortBy] = useState(searchParams.get("sort") || "name");
-	const tags = useRef<string[]>(searchParams.get("tags")?.split(",") || []);
-	const [selectedTags, setSelectedTags] = useState<string[]>(tags.current);
+	const [selectedTags, setSelectedTags] = useState<string[]>(
+		searchParams.get("tags")?.split(",") || []
+	);
 	const [limit, setLimit] = useState(
 		Number.parseInt(searchParams.get("limit") || "12"),
 	);
@@ -94,11 +95,10 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			const newTags = prev.includes(tag)
 				? prev.filter((t) => t !== tag)
 				: [...prev, tag];
-			tags.current = newTags;
 			return newTags;
 		});
 		router.replace(
-			`/mods?${createSearchParams(searchTerm, tags.current, limit, sortBy, 1)}`,
+			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, 1)}`,
 		);
 		setCurrentPage(1);
 	};
