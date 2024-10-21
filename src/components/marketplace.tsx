@@ -100,12 +100,14 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			const newTags = prev.includes(tag)
 				? prev.filter((t) => t !== tag)
 				: [...prev, tag];
+
+        router.replace(
+          `/mods?${createSearchParams(searchTerm, newTags, limit, sortBy, 1)}`,
+        );
+        handlePageChange(1);
+
 			return newTags;
 		});
-		router.replace(
-			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, 1)}`,
-		);
-		handlePageChange(1);
 	};
 
 	useEffect(() => {
