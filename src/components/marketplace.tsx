@@ -1,5 +1,5 @@
 "use client";
-import React, { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import React, { Suspense, useEffect, useMemo, useState } from "react";
 import ThemesSearch from "./themes-search";
 import { getThemesFromSearch, type ZenTheme } from "@/lib/mods";
 import ThemeCard from "./theme-card";
@@ -21,8 +21,9 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	const router = useRouter();
 	const [searchTerm, setSearchTerm] = useState(searchParams.get("q") || "");
 	const [sortBy, setSortBy] = useState(searchParams.get("sort") || "name");
-	const tags = useRef<string[]>(searchParams.get("tags")?.split(",") || []);
-	const [selectedTags, setSelectedTags] = useState<string[]>(tags.current);
+	const [selectedTags, setSelectedTags] = useState<string[]>(
+		searchParams.get("tags")?.split(",") || []
+	);
 	const [limit, setLimit] = useState(
 		Number.parseInt(searchParams.get("limit") || "12"),
 	);
@@ -40,6 +41,11 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 
 	// Calculate total pages based on modsPerPage
 	const totalPages = Math.ceil(filteredAndSortedThemes.length / limit) || 1;
+
+  const handlePageChange = (page: number) => {
+    const clampedPage = Math.min(page, totalPages);
+    setCurrentPage(clampedPage);
+  }
 
 	// Get the themes to display on the current page
 	const currentThemes = useMemo(() => {
@@ -85,7 +91,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, 1)}`,
 		);
 		setSortBy(sortBy);
-		setCurrentPage(1);
+		handlePageChange(1);
 	};
 
 	// Toggle tag function
@@ -94,25 +100,19 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			const newTags = prev.includes(tag)
 				? prev.filter((t) => t !== tag)
 				: [...prev, tag];
-			tags.current = newTags;
 			return newTags;
 		});
 		router.replace(
-			`/mods?${createSearchParams(searchTerm, tags.current, limit, sortBy, 1)}`,
+			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, 1)}`,
 		);
-		setCurrentPage(1);
+		handlePageChange(1);
 	};
 
-	// Clamp currentPage to totalPages when totalPages changes
 	useEffect(() => {
-		if (currentPage > totalPages) {
-			setCurrentPage(totalPages);
-		}
-	}, [totalPages, currentPage]);
-
-	useEffect(() => {
-		setLoadedThemes(currentThemes);
-	}, [currentThemes]);
+		if (currentThemes !== loadedThemes) {
+      setLoadedThemes(currentThemes);
+    }
+	}, [currentThemes, loadedThemes]);
 
 	const startPage = Math.max(1, currentPage - 2);
 	const endPage = Math.min(totalPages, currentPage + 2);
