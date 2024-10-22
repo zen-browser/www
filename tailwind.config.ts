@@ -12,7 +12,7 @@ const config = {
 	prefix: "",
 	theme: {
 		container: {
-			center: true,
+			center: "true",
 			padding: "2rem",
 			screens: {
 				"2xl": "1400px",
@@ -73,8 +73,12 @@ const config = {
 			},
 			keyframes: {
 				rainbow: {
-					"0%": { "background-position": "0%" },
-					"100%": { "background-position": "200%" },
+					"0%": {
+						"background-position": "0%",
+					},
+					"100%": {
+						"background-position": "200%",
+					},
 				},
 				orbit: {
 					"0%": {
@@ -98,12 +102,20 @@ const config = {
 					},
 				},
 				"accordion-down": {
-					from: { height: "0" },
-					to: { height: "var(--radix-accordion-content-height)" },
+					from: {
+						height: "0",
+					},
+					to: {
+						height: "var(--radix-accordion-content-height)",
+					},
 				},
 				"accordion-up": {
-					from: { height: "var(--radix-accordion-content-height)" },
-					to: { height: "0" },
+					from: {
+						height: "var(--radix-accordion-content-height)",
+					},
+					to: {
+						height: "0",
+					},
 				},
 				"border-beam": {
 					"100%": {
@@ -124,12 +136,24 @@ const config = {
 					},
 				},
 				"fade-in": {
-					from: { opacity: "0", transform: "translateY(-10px)" },
-					to: { opacity: "1", transform: "none" },
+					from: {
+						opacity: "0",
+						transform: "translateY(-10px)",
+					},
+					to: {
+						opacity: "1",
+						transform: "none",
+					},
 				},
 				"fade-up": {
-					from: { opacity: "0", transform: "translateY(20px)" },
-					to: { opacity: "1", transform: "none" },
+					from: {
+						opacity: "0",
+						transform: "translateY(20px)",
+					},
+					to: {
+						opacity: "1",
+						transform: "none",
+					},
 				},
 				shimmer: {
 					"0%, 90%, 100%": {
@@ -140,12 +164,28 @@ const config = {
 					},
 				},
 				marquee: {
-					from: { transform: "translateX(0)" },
-					to: { transform: "translateX(calc(-100% - var(--gap)))" },
+					from: {
+						transform: "translateX(0)",
+					},
+					to: {
+						transform: "translateX(calc(-100% - var(--gap)))",
+					},
 				},
 				"marquee-vertical": {
-					from: { transform: "translateY(0)" },
-					to: { transform: "translateY(calc(-100% - var(--gap)))" },
+					from: {
+						transform: "translateY(0)",
+					},
+					to: {
+						transform: "translateY(calc(-100% - var(--gap)))",
+					},
+				},
+				"marquee-vertical": {
+					from: {
+						transform: "translateY(0)",
+					},
+					to: {
+						transform: "translateY(calc(-100% - var(--gap)))",
+					},
 				},
 			},
 			animation: {
@@ -159,6 +199,7 @@ const config = {
 				"fade-up": "fade-up 1000ms var(--animation-delay, 0ms) ease forwards",
 				shimmer: "shimmer 8s infinite",
 				marquee: "marquee var(--duration) infinite linear",
+				"marquee-vertical": "marquee-vertical var(--duration) linear infinite",
 				"marquee-vertical": "marquee-vertical var(--duration) linear infinite",
 			},
 		},

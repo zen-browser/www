@@ -3,19 +3,20 @@ import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
 import CoolHeaderText from "./cool-header-text/cool-header-text";
 import Link from "next/link";
+import HeaderMarquee from "./header-marquee";
 export default function Header() {
 	return (
 		<>
 			<section
 				id="hero"
-				className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 text-center md:px-8"
+				className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 text-center md:mt-[-50px] md:px-8"
 			>
 				<div className="relative">
 					<CoolHeaderText />
 				</div>
-				<p className="mb-12 -translate-y-4 animate-fade-in text-balance text-lg tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-xl">
+				<p className="mb-16 mt-2 -translate-y-4 animate-fade-in text-balance text-base tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-base">
 					Beautifully designed, privacy-focused, and packed with features.
-					<br className="hidden md:block" /> We care about your experience, not
+					We care about<br className="hidden md:block" />your experience, not
 					your data.
 				</p>
 				<div className="flex w-full flex-col justify-center md:flex-row">
@@ -35,6 +36,7 @@ export default function Header() {
 					</Link>
 				</div>
 			</section>
+			<HeaderMarquee />
 		</>
 	);
 }

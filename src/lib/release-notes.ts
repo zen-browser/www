@@ -1169,26 +1169,26 @@ export const releaseNotes: ReleaseNote[] = [
 			"Allow VAAPI/FMPEG APIs only for linux",
 			"Twilight will now display the proper name on .desktop files",
 			"Added a better icon selection for workspaces, enhancing more icons",
-			"Created a \"Force container workspace\" option. Basically, force each container to belong to acertain workspace.",
+			'Created a "Force container workspace" option. Basically, force each container to belong to acertain workspace.',
 			"Bookmarks are now opened in the workspace's default container",
 			"Allow tab unloader to ignore picture-in-picture tabs",
-			
 		],
 		fixes: [
 			{
-				description: "Disabled forcing hardware accelerating, causing issues for some unsupported GPUs",
+				description:
+					"Disabled forcing hardware accelerating, causing issues for some unsupported GPUs",
 			},
 			{
 				description: "Fixed compact mode overlapping the tabs",
 			},
 			{
 				description: "Fixed browser bottom padding misaligns",
-				issue: 2007
+				issue: 2007,
 			},
 			{
 				description:
 					"sidebar is blank when there's a moving video/picture on other open tabs",
-				issue: 1900
+				issue: 1900,
 			},
 			{
 				description:
@@ -1196,20 +1196,23 @@ export const releaseNotes: ReleaseNote[] = [
 				issue: 1925,
 			},
 			{
-				description: "Fixed 'Sidebar is very thin making stuff not appear correctly'",
+				description:
+					"Fixed 'Sidebar is very thin making stuff not appear correctly'",
 				issue: 2015,
 			},
 			{
-				description: "Fixed 'Tabs sidebar Expand on Hover casuses jank with latest UI'",
+				description:
+					"Fixed 'Tabs sidebar Expand on Hover casuses jank with latest UI'",
 				issue: 2033,
 			},
 			{
 				description: "Applied patches to fix mfsa2024-53 security issue",
 			},
 			{
-				description: "Major issue with zen sidebar disapering and not re-appearing on restart",
-				issue: 1979
-			}
+				description:
+					"Major issue with zen sidebar disapering and not re-appearing on restart",
+				issue: 1979,
+			},
 		],
 	},
 	{
@@ -1217,7 +1220,8 @@ export const releaseNotes: ReleaseNote[] = [
 		date: "15/10/2024",
 		image: false,
 		workflowId: 11349525400,
-		extra: "This release is a small patch to fix some issues on keyboard shortcuts that were introduced in the previous release.",
+		extra:
+			"This release is a small patch to fix some issues on keyboard shortcuts that were introduced in the previous release.",
 		fixes: [
 			{
 				description: "Fixed keyboard shortcuts not working in macos",
@@ -1230,74 +1234,80 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed reseting shortcuts not working",
 			},
 			{
-				description: "Fixed settings UI when night theme is enabled while having a light website displayed",
+				description:
+					"Fixed settings UI when night theme is enabled while having a light website displayed",
 			},
 			{
-				description: "Fixed about page linking 'global comunity' to a mozilla page",
-			}
+				description:
+					"Fixed about page linking 'global comunity' to a mozilla page",
+			},
 		],
 		features: [
 			"About page will now display the firefox version used",
 			"Disabled forcing container grouping for workspaces",
 		],
 	},
-    {
+	{
 		version: "1.0.1-a.11",
 		date: "19/10/2024",
 		image: true,
 		workflowId: 11412027026,
-        extra: "This release brings some quality of life improvements and new features to Workspaces.",
-        fixes: [
-            {
-                description: "Fixed right side tab bar not working (macOS)",
-                issue: 334
-            },
-            {
-                description: "Fixed compact mode moving titlebar buttons (macOS)",
-                issue: 1872
-            },
-            {
-                description: "Fixed expand on hover moving sites",
-                issue: 2033
-            },
-            {
-                description: "Fixed About Zen showing incorrect Firefox version",
-                issue: 2150
-            },
-            {
-                description: "Fixed workspace icon picker no longer showing (Windows)",
-                issue: 2121
-            },
-            {
-                description: "Fixed inconsistent padding on toolbar buttons",
-                issue: 2176
-            },
-            {
-                description: "Fixed workspace buttons lacking top and bottom padding when placed on the toolbar",
-                issue: 2184
-            },   
-            {
-                description: "Allow reserved keyboard shortcuts to be changed"
-            },
-            {
-                description: "Fixed display issue for shortcuts with certain keybinds (macOS)",
-                issue: 2189
-            }
-        ],
-        features: [
-            "Improved light theme",
-            "Changed split view button icon",
-            "Added reordering mode to workspaces",
-            "Added button to disable all active Zen Mods",
-            "Workspace icon picker now supports all emojis by default"
-        ]
-    },
+		extra:
+			"This release brings some quality of life improvements and new features to Workspaces.",
+		fixes: [
+			{
+				description: "Fixed right side tab bar not working (macOS)",
+				issue: 334,
+			},
+			{
+				description: "Fixed compact mode moving titlebar buttons (macOS)",
+				issue: 1872,
+			},
+			{
+				description: "Fixed expand on hover moving sites",
+				issue: 2033,
+			},
+			{
+				description: "Fixed About Zen showing incorrect Firefox version",
+				issue: 2150,
+			},
+			{
+				description: "Fixed workspace icon picker no longer showing (Windows)",
+				issue: 2121,
+			},
+			{
+				description: "Fixed inconsistent padding on toolbar buttons",
+				issue: 2176,
+			},
+			{
+				description:
+					"Fixed workspace buttons lacking top and bottom padding when placed on the toolbar",
+				issue: 2184,
+			},
+			{
+				description: "Allow reserved keyboard shortcuts to be changed",
+			},
+			{
+				description:
+					"Fixed display issue for shortcuts with certain keybinds (macOS)",
+				issue: 2189,
+			},
+		],
+		features: [
+			"Improved light theme",
+			"Changed split view button icon",
+			"Added reordering mode to workspaces",
+			"Added button to disable all active Zen Mods",
+			"Workspace icon picker now supports all emojis by default",
+		],
+	},
 	{
 		version: "1.0.1-a.12",
 		date: "19/10/2024",
 		image: false,
 		workflowId: 11419764479,
-		extra: "This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
+		extra:
+			"This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
 		features: [
 			"FIxed always rendering the split view overlay, pottentially fixing huge speed issues",
 			"Disabled 'all' webrender options by default, performance increase for unsuported GPUs",
@@ -1310,7 +1320,8 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed tab overlflow changing the height of the web view",
 			},
 			{
-				description: "Fixed 'cancel' button for workspaces creation not working",
+				description:
+					"Fixed 'cancel' button for workspaces creation not working",
 			},
 			{
 				description: "Creating tabs wont flash-bang the user anymore",

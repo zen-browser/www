@@ -368,10 +368,7 @@ export default function Features() {
 							rel="noopener noreferrer"
 							target="_blank"
 						>
-							<Button
-								className="ml-8"
-								variant="ghost"
-							>
+							<Button className="ml-8" variant="ghost">
 								Ko-fi <ExternalLinkIcon className="ml-4 h-4 w-4 opacity-50" />
 							</Button>
 						</a>

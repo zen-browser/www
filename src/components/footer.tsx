@@ -111,11 +111,7 @@ export default function Footer() {
 								<a href="/about">About Us</a>
 							</li>
 							<li className="mt-2">
-								<a
-									href="/privacy-policy"
-								>
-									Privacy Policy
-								</a>
+								<a href="/privacy-policy">Privacy Policy</a>
 							</li>
 						</ul>
 					</div>
@@ -145,18 +141,12 @@ export default function Footer() {
 						<h2 className="text-md mt-8 font-bold opacity-80">Support Us</h2>
 						<ul className="mt-4 font-normal opacity-70">
 							<li>
-								<a
-									target="_blank"
-									href="https://patreon.com/zen_browser"
-								>
+								<a target="_blank" href="https://patreon.com/zen_browser">
 									Patreon
 								</a>
 							</li>
 							<li className="mt-2">
-								<a
-									target="_blank"
-									href="https://ko-fi.com/zen_browser"
-								>
+								<a target="_blank" href="https://ko-fi.com/zen_browser">
 									Ko-fi
 								</a>
 							</li>
