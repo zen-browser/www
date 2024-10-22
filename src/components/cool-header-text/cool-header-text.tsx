@@ -6,11 +6,26 @@ export default function CoolHeaderText() {
 		<>
 			<div className="my-5">
 				<h1 className="text-6xl font-bold text-muted-foreground duration-200">
-					The browser<br className="hidden md:block"/> made for your 
-					<span style={{ transform: "translateY(5px)" }} className="inline-block ml-5 w-24">
-						<span className="bg-purple-100 bg-green-100 bg-blue-100 dark:border-2 dark:bg-transparent dark:border-purple-700 dark:border-green-700 dark:border-blue-700 hidden">{/* Forwards the color to the WordRotate component */}</span>
-						<WordRotate className="text-base w-full" words={["privacy", "experience", "speed"]} duration={2000} colors={["purple", "green", "blue"]} 
-							icons={[<LockKeyholeIcon key="ic1" className="w-5 h-5 mr-2" />, <Paintbrush2Icon key="ic2" className="w-5 h-5 mr-2" />, <RabbitIcon key="ic3" className="w-5 h-5 mr-2" />]} />
+					The browser
+					<br className="hidden md:block" /> made for your
+					<span
+						style={{ transform: "translateY(5px)" }}
+						className="ml-5 inline-block w-24"
+					>
+						<span className="hidden bg-blue-100 bg-green-100 bg-purple-100 dark:border-2 dark:border-blue-700 dark:border-green-700 dark:border-purple-700 dark:bg-transparent">
+							{/* Forwards the color to the WordRotate component */}
+						</span>
+						<WordRotate
+							className="w-full text-base"
+							words={["privacy", "experience", "speed"]}
+							duration={2000}
+							colors={["purple", "green", "blue"]}
+							icons={[
+								<LockKeyholeIcon key="ic1" className="mr-2 h-5 w-5" />,
+								<Paintbrush2Icon key="ic2" className="mr-2 h-5 w-5" />,
+								<RabbitIcon key="ic3" className="mr-2 h-5 w-5" />,
+							]}
+						/>
 					</span>
 				</h1>
 			</div>

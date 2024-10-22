@@ -1,4 +1,3 @@
-
 import Marquee from "./ui/marquee";
 import { ExternalLinkIcon } from "lucide-react";
 
