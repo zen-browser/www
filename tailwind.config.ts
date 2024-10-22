@@ -179,14 +179,6 @@ const config = {
 						transform: "translateY(calc(-100% - var(--gap)))",
 					},
 				},
-				"marquee-vertical": {
-					from: {
-						transform: "translateY(0)",
-					},
-					to: {
-						transform: "translateY(calc(-100% - var(--gap)))",
-					},
-				},
 			},
 			animation: {
 				rainbow: "rainbow var(--speed, 2s) infinite linear",
@@ -199,7 +191,6 @@ const config = {
 				"fade-up": "fade-up 1000ms var(--animation-delay, 0ms) ease forwards",
 				shimmer: "shimmer 8s infinite",
 				marquee: "marquee var(--duration) infinite linear",
-				"marquee-vertical": "marquee-vertical var(--duration) linear infinite",
 				"marquee-vertical": "marquee-vertical var(--duration) linear infinite",
 			},
 		},
