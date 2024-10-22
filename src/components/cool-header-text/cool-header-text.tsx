@@ -10,7 +10,7 @@ export default function CoolHeaderText() {
 					<span style={{ transform: "translateY(5px)" }} className="inline-block ml-5 w-24">
 						<span className="bg-purple-100 bg-green-100 bg-blue-100 dark:border-2 dark:bg-transparent dark:border-purple-700 dark:border-green-700 dark:border-blue-700 hidden">{/* Forwards the color to the WordRotate component */}</span>
 						<WordRotate className="text-base w-full" words={["privacy", "experience", "speed"]} duration={2000} colors={["purple", "green", "blue"]} 
-							icons={[<LockKeyholeIcon className="w-5 h-5 mr-2" />, <Paintbrush2Icon className="w-5 h-5 mr-2" />, <RabbitIcon className="w-5 h-5 mr-2" />]} />
+							icons={[<LockKeyholeIcon key="ic1" className="w-5 h-5 mr-2" />, <Paintbrush2Icon key="ic2" className="w-5 h-5 mr-2" />, <RabbitIcon key="ic3" className="w-5 h-5 mr-2" />]} />
 					</span>
 				</h1>
 			</div>

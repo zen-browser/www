@@ -1,4 +1,4 @@
-import { ny } from "@/lib/utils";
+
 import Marquee from "./ui/marquee";
 import { ExternalLinkIcon } from "lucide-react";
 
