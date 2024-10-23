@@ -29,7 +29,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 		page,
 		totalPages,
 		currentThemes,
-    updateSearchParams,
+		updateSearchParams,
 	} = useMarketplace(themes);
 
 	const startPage = Math.max(1, page - 2);
@@ -103,9 +103,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 											href={updateSearchParams({ page: pageIndex })}
 											aria-current={page === pageIndex}
 											className={ny(
-												page === pageIndex
-													? "border-outline border"
-													: "",
+												page === pageIndex ? "border-outline border" : "",
 												"rounded-md",
 											)}
 										>
@@ -128,9 +126,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 												href={updateSearchParams({ page: totalPages })}
 												aria-current={page === totalPages}
 												className={ny(
-													page === totalPages
-														? "border-outline border"
-														: "",
+													page === totalPages ? "border-outline border" : "",
 													"rounded-md",
 												)}
 											>

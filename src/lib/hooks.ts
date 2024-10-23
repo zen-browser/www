@@ -51,7 +51,7 @@ function useMarketplace(themes: ZenTheme[]) {
 			limit: mergedState.limit !== "12" ? mergedState.limit : undefined,
 			page: mergedState.page !== "1" ? mergedState.page : undefined,
 		};
-    
+
 		// Only add params that are defined and non-empty
 		Object.entries(searchParams).forEach(([key, value]) => {
 			if (value) {
