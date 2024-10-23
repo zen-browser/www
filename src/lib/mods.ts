@@ -135,36 +135,46 @@ export function getThemesFromSearch(
 ): ZenTheme[] {
 	const normalizedQuery = query.toLowerCase();
 
-	return themes
-		.filter((theme) => {
-			const matchesQuery = theme.name.toLowerCase().includes(normalizedQuery);
-			const matchesTag =
-				tags.length === 0 ||
-				(theme.tags && tags.some((tag) => theme.tags.includes(tag)));
-			const matchesDate = !createdBefore || theme.createdAt < createdBefore;
+	// If there's no query and no tags, return all themes (or handle no results case explicitly)
+	if (!normalizedQuery && tags.length === 0) {
+		return themes; // Or return an empty array [] if you want no results by default
+	}
 
-			return matchesQuery && matchesTag && matchesDate;
-		})
-		.sort((a, b) => {
-			// Sort by number of matching tags first
-			const aMatchCount = tags.filter((tag) => a.tags.includes(tag)).length;
-			const bMatchCount = tags.filter((tag) => b.tags.includes(tag)).length;
+	const filteredThemes = themes.filter((theme) => {
+		const matchesQuery = theme.name.toLowerCase().includes(normalizedQuery);
+		const matchesTag =
+			tags.length === 0 ||
+			(theme.tags && tags.some((tag) => theme.tags.includes(tag)));
+		const matchesDate = !createdBefore || theme.createdAt < createdBefore;
 
-			if (aMatchCount !== bMatchCount) {
-				return bMatchCount - aMatchCount;
-			}
+		return matchesQuery && matchesTag && matchesDate;
+	});
 
-			// Sort by selected sort method
-			if (sortBy === "name") {
-				return a.name.localeCompare(b.name);
-			} else if (sortBy === "createdAt") {
-				return a.createdAt.getTime() - b.createdAt.getTime(); // Oldest first
-			} else if (sortBy === "updatedAt") {
-				return b.updatedAt.getTime() - a.updatedAt.getTime(); // Newest first
-			}
+	// If no themes match, return an empty array (handle zero-results gracefully)
+	if (filteredThemes.length === 0) {
+		return [];
+	}
 
-			return 0; // Default to no sorting if sortBy is unrecognized
-		});
+	return filteredThemes.sort((a, b) => {
+		// Sort by number of matching tags first
+		const aMatchCount = tags.filter((tag) => a.tags.includes(tag)).length;
+		const bMatchCount = tags.filter((tag) => b.tags.includes(tag)).length;
+
+		if (aMatchCount !== bMatchCount) {
+			return bMatchCount - aMatchCount;
+		}
+
+		// Sort by selected sort method
+		if (sortBy === "name") {
+			return a.name.localeCompare(b.name);
+		} else if (sortBy === "createdAt") {
+			return a.createdAt.getTime() - b.createdAt.getTime(); // Oldest first
+		} else if (sortBy === "updatedAt") {
+			return b.updatedAt.getTime() - a.updatedAt.getTime(); // Newest first
+		}
+
+		return 0; // Default to no sorting if sortBy is unrecognized
+	});
 }
 
 /**
