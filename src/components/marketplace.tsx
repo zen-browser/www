@@ -21,21 +21,21 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 		searchTerm,
 		setSearchTerm,
 		sortBy,
-		handleSortByChange,
-		selectedTags,
+		setSortBy,
+		tags,
 		toggleTag,
 		limit,
-		handleLimitChange,
-		loadedThemes,
-		currentPage,
+		setLimit,
+		page,
 		totalPages,
-		createSearchParams,
+		currentThemes,
+    updateSearchParams,
 	} = useMarketplace(themes);
 
-	const startPage = Math.max(1, currentPage - 2);
-	const endPage = Math.min(totalPages, currentPage + 2);
-	const isPrevNavigationDisabled = currentPage <= 1;
-	const isNextNavigationDisabled = currentPage >= totalPages;
+	const startPage = Math.max(1, page - 2);
+	const endPage = Math.min(totalPages, page + 2);
+	const isPrevNavigationDisabled = page <= 1;
+	const isNextNavigationDisabled = page >= totalPages;
 
 	return (
 		<div className="relative mx-auto flex h-full w-full flex-col lg:flex-row">
@@ -52,12 +52,12 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 					<ThemesSearch
 						input={searchTerm}
 						setInput={setSearchTerm}
-						tags={selectedTags}
+						tags={tags}
 						toggleTag={toggleTag}
 						sortBy={sortBy}
-						handleSortByChange={handleSortByChange}
+						handleSortByChange={setSortBy}
 						limit={limit}
-						handleLimitChange={handleLimitChange}
+						handleLimitChange={setLimit}
 					/>
 				</StickyBox>
 			</div>
@@ -66,7 +66,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			<div className="flex w-full flex-col pt-16 lg:w-auto">
 				{/* Mods Grid */}
 				<div className="grid w-full grid-cols-1 gap-8 px-5 pt-6 lg:w-auto lg:gap-y-16 lg:px-10 xl:w-auto xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
-					{loadedThemes.map((theme) => (
+					{currentThemes.map((theme) => (
 						<ThemeCard key={theme.name} theme={theme} />
 					))}
 				</div>
@@ -79,7 +79,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 								className={ny(isPrevNavigationDisabled && "cursor-not-allowed")}
 							>
 								<PaginationPrevious
-									href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, currentPage - 1)}`}
+									href={updateSearchParams({ page: page - 1 })}
 									aria-disabled={isPrevNavigationDisabled}
 									className={ny(
 										"px-4",
@@ -89,7 +89,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 									)}
 								/>
 							</PaginationItem>
-							{totalPages > 4 && currentPage > 3 && (
+							{totalPages > 4 && page > 3 && (
 								<PaginationItem key={-1} className="hidden md:block">
 									<PaginationEllipsis />
 								</PaginationItem>
@@ -100,10 +100,10 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 								return (
 									<PaginationItem key={pageIndex} className="hidden md:block">
 										<PaginationLink
-											href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, pageIndex)}`}
-											aria-current={currentPage === pageIndex}
+											href={updateSearchParams({ page: pageIndex })}
+											aria-current={page === pageIndex}
 											className={ny(
-												currentPage === pageIndex
+												page === pageIndex
 													? "border-outline border"
 													: "",
 												"rounded-md",
@@ -114,21 +114,21 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 									</PaginationItem>
 								);
 							})}
-							{totalPages > 4 && currentPage < totalPages - 2 && (
+							{totalPages > 4 && page < totalPages - 2 && (
 								<>
 									<PaginationItem key={totalPages} className="hidden md:block">
 										<PaginationEllipsis />
 									</PaginationItem>
-									{totalPages > 4 && currentPage < totalPages && (
+									{totalPages > 4 && page < totalPages && (
 										<PaginationItem
 											key={totalPages}
 											className="hidden md:block"
 										>
 											<PaginationLink
-												href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, totalPages)}`}
-												aria-current={currentPage === totalPages}
+												href={updateSearchParams({ page: totalPages })}
+												aria-current={page === totalPages}
 												className={ny(
-													currentPage === totalPages
+													page === totalPages
 														? "border-outline border"
 														: "",
 													"rounded-md",
@@ -142,14 +142,14 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 							)}
 							<div className="block px-2 md:hidden">
 								<span>
-									{currentPage} of {totalPages}
+									{page} of {totalPages}
 								</span>
 							</div>
 							<PaginationItem
 								className={ny(isNextNavigationDisabled && "cursor-not-allowed")}
 							>
 								<PaginationNext
-									href={`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, currentPage + 1)}`}
+									href={updateSearchParams({ page: page + 1 })}
 									aria-disabled={isNextNavigationDisabled}
 									className={ny(
 										"px-4",

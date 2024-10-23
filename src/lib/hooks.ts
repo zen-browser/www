@@ -3,130 +3,121 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { getThemesFromSearch, type ZenTheme } from "@/lib/mods";
 
 function useMarketplace(themes: ZenTheme[]) {
-	const searchParams = useSearchParams();
 	const router = useRouter();
+	const searchParams = useSearchParams();
 
+	// Simple state management
 	const [searchTerm, setSearchTerm] = useState(searchParams.get("q") || "");
 	const [sortBy, setSortBy] = useState(searchParams.get("sort") || "name");
-	const [selectedTags, setSelectedTags] = useState<string[]>(
-		searchParams.get("tags")?.split(",") || []
-	);
-	const [limit, setLimit] = useState(
-		Number.parseInt(searchParams.get("limit") || "12"),
-	);
-	const [currentPage, setCurrentPage] = useState(() => {
-		const page = Number.parseInt(searchParams.get("page") || "1");
-		const maxPage = Math.ceil(themes.length / limit);
-		return Math.min(page, maxPage);
-	});
-	const [loadedThemes, setLoadedThemes] = useState<ZenTheme[]>([]);
+	const [tags, setTags] = useState(searchParams.get("tags")?.split(",") || []);
+	const [limit, setLimit] = useState(Number(searchParams.get("limit") || 12));
+	const [page, setPage] = useState(Number(searchParams.get("page") || 1));
 
-	// Filter and sort themes based on search and selected tags
-	const filteredAndSortedThemes = useMemo(() => {
-		return getThemesFromSearch(themes, searchTerm, selectedTags, sortBy);
-	}, [themes, searchTerm, selectedTags, sortBy]);
+	// Derived value: filtered and sorted themes
+	const filteredThemes = useMemo(() => {
+		return getThemesFromSearch(themes, searchTerm, tags, sortBy);
+	}, [themes, searchTerm, tags, sortBy]);
 
-	// Calculate total pages based on themes per page
-	const totalPages = Math.ceil(filteredAndSortedThemes.length / limit) || 1;
+	// Derived value: total number of pages
+	const totalPages = Math.ceil(filteredThemes.length / limit);
 
-	const handlePageChange = (page: number) => {
-		const clampedPage = Math.min(page, totalPages);
-		setCurrentPage(clampedPage);
-	};
-
-	// Get the themes to display on the current page
+	// Current page themes
 	const currentThemes = useMemo(() => {
-		return filteredAndSortedThemes.slice(
-			(currentPage - 1) * limit,
-			currentPage * limit,
-		);
-	}, [currentPage, filteredAndSortedThemes, limit]);
+		const start = (page - 1) * limit;
+		return filteredThemes.slice(start, start + limit);
+	}, [filteredThemes, page, limit]);
 
-	// Create search params for URL
-	const createSearchParams = (
-		searchTerm: string,
-		tags: string[],
-		limit: number,
-		sortBy: string,
-		page: number,
+	// Helper function to update URL search params
+	const updateSearchParams = (
+		overrides: Partial<Record<string, string | number>> = {},
 	) => {
-		const sp = new URLSearchParams();
-		if (searchTerm) sp.set("q", searchTerm);
-		if (sortBy !== "name") sp.set("sort", sortBy);
-		if (tags?.length > 0) sp.set("tags", tags.join(","));
-		if (limit !== 12) sp.set("limit", limit.toString());
-		if (page !== 1) sp.set("page", page.toString());
-		return sp.toString();
-	};
+		const params = new URLSearchParams();
 
-	// Handle limit change
-	const handleLimitChange = (limit: string) => {
-		router.replace(
-			`/mods?${createSearchParams(
-				searchTerm,
-				selectedTags,
-				Number.parseInt(limit),
-				sortBy,
-				currentPage,
-			)}`,
-		);
-		setLimit(Number.parseInt(limit));
-	};
+		// Merge current state with overrides first
+		const mergedState = {
+			q: searchTerm,
+			sort: sortBy,
+			tags: tags.join(","),
+			limit: limit.toString(),
+			page: page.toString(),
+			...overrides, // Apply any overrides dynamically (e.g., new page number)
+		};
 
-	// Handle sort by change
-	const handleSortByChange = (sortBy: string) => {
-		router.replace(
-			`/mods?${createSearchParams(searchTerm, selectedTags, limit, sortBy, 1)}`,
-		);
-		setSortBy(sortBy);
-		handlePageChange(1);
-	};
-
-	// Toggle tag function
-	const toggleTag = (tag: string) => {
-		setSelectedTags((prev) => {
-			const newTags = prev.includes(tag)
-				? prev.filter((t) => t !== tag)
-				: [...prev, tag];
-
-			router.replace(
-				`/mods?${createSearchParams(searchTerm, newTags, limit, sortBy, 1)}`,
-			);
-			handlePageChange(1);
-
-			return newTags;
+		// Now exclude default values after merging the overrides
+		const searchParams = {
+			q: mergedState.q || undefined,
+			sort: mergedState.sort !== "name" ? mergedState.sort : undefined,
+			tags: mergedState.tags ? mergedState.tags : undefined,
+			limit: mergedState.limit !== "12" ? mergedState.limit : undefined,
+			page: mergedState.page !== "1" ? mergedState.page : undefined,
+		};
+    
+		// Only add params that are defined and non-empty
+		Object.entries(searchParams).forEach(([key, value]) => {
+			if (value) {
+				params.set(key, value.toString());
+			}
 		});
+
+		return `/mods?${params.toString()}`;
 	};
 
+	// Handlers for various actions
+	const handleSearchChange = (term: string) => {
+		setSearchTerm(term);
+		setPage(1);
+		router.replace(updateSearchParams({ q: term, page: "1" }));
+	};
+
+	const handleSortChange = (sort: string) => {
+		setSortBy(sort);
+		setPage(1);
+		router.replace(updateSearchParams({ sort, page: "1" }));
+	};
+
+	const handleTagToggle = (tag: string) => {
+		const newTags = tags.includes(tag)
+			? tags.filter((t) => t !== tag)
+			: [...tags, tag];
+		setTags(newTags);
+		setPage(1);
+		router.replace(updateSearchParams({ tags: newTags.join(","), page: "1" }));
+	};
+
+	const handleLimitChange = (newLimit: string) => {
+		setLimit(Number(newLimit));
+		setPage(1);
+		router.replace(updateSearchParams({ limit: newLimit, page: "1" }));
+	};
+
+	const handlePageChange = (newPage: number) => {
+		setPage(newPage);
+		router.replace(updateSearchParams({ page: newPage.toString() }));
+	};
+
+	// Sync themes to state
 	useEffect(() => {
-		if (currentThemes !== loadedThemes) {
-			setLoadedThemes(currentThemes);
-		}
-	}, [currentThemes, loadedThemes]);
+		setPage((prev) => Math.min(prev, totalPages));
+	}, [totalPages]);
 
 	return {
 		searchTerm,
-		setSearchTerm,
+		setSearchTerm: handleSearchChange,
 		sortBy,
-		setSortBy,
-		selectedTags,
-		setSelectedTags,
+		setSortBy: handleSortChange,
+		tags,
+		toggleTag: handleTagToggle,
 		limit,
-		setLimit,
-		currentPage,
-		setCurrentPage,
-		loadedThemes,
-		handlePageChange,
-		handleLimitChange,
-		handleSortByChange,
-		toggleTag,
+		setLimit: handleLimitChange,
+		page,
+		setPage: handlePageChange,
 		totalPages,
-		createSearchParams,
+		currentThemes,
+		updateSearchParams,
 	};
 }
 
 export default useMarketplace;
-
 
 export function useClipboard(valueToCopy: string) {
 	const copyToClipboard = () => {
