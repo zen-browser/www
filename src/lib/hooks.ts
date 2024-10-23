@@ -19,12 +19,12 @@ function useMarketplace(themes: ZenTheme[]) {
 	}, [themes, searchTerm, tags, sortBy]);
 
 	// Derived value: total number of pages
-	const totalPages = Math.ceil(filteredThemes.length / limit);
+	const totalPages = Math.max(1, Math.ceil(filteredThemes.length / limit));
 
 	// Current page themes
 	const currentThemes = useMemo(() => {
 		const start = (page - 1) * limit;
-		return filteredThemes.slice(start, start + limit);
+		return filteredThemes.length > 0 ? filteredThemes.slice(start, start + limit) : [];
 	}, [filteredThemes, page, limit]);
 
 	// Helper function to update URL search params
