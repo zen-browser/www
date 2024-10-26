@@ -67,16 +67,22 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 
 	// Handle limit change
 	const handleLimitChange = (limit: string) => {
+		const newLimit = Number.parseInt(limit);
+		const newTotalPages =
+			Math.ceil(filteredAndSortedThemes.length / newLimit) || 1;
+		const newCurrentPage = Math.min(currentPage, newTotalPages);
+
 		router.replace(
 			`/mods?${createSearchParams(
 				searchTerm,
 				selectedTags,
-				Number.parseInt(limit),
+				newLimit,
 				sortBy,
 				currentPage,
 			)}`,
 		);
 		setLimit(Number.parseInt(limit));
+		setCurrentPage(newCurrentPage);
 	};
 
 	// Handle sort by change
