@@ -1309,7 +1309,7 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
 		features: [
-			"FIxed always rendering the split view overlay, pottentially fixing huge speed issues",
+			"Fixed always rendering the split view overlay, pottentially fixing huge speed issues",
 			"Disabled 'all' webrender options by default, performance increase for unsuported GPUs",
 		],
 		fixes: [
@@ -1329,6 +1329,33 @@ export const releaseNotes: ReleaseNote[] = [
 			{
 				description: "Fixed tabs moving not closing expand on hover sometimes",
 			},
+		],
+	},
+	{
+		version: "1.0.1-a.13",
+		date: "27/10/2024",
+		image: true,
+		workflowId: 11534817377,
+		extra:
+			"This update brings custom gradient themes to workspaces!",
+		features: [
+            "Added option to set New Tab button under the last open tab",
+			"Disabled support for Kyber KEM by default",
+            "Added color picker to generate gradient themes",
+            "Added option to give individual workspaces a gradient theme",
+		],
+		fixes: [
+			{
+				description: "Closing the last pinned tab causes a new tab to open",
+                issue: 2249
+			},
+			{
+				description: "Fixed moving workspace to end of list and auto disable workspace reordering mode",
+                issue: 2209
+			},
+		],
+		breakingChanges: [
+			"Removed Show Expand Button option from settings",
 		],
 	},
 ].reverse();
