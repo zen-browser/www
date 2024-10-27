@@ -324,7 +324,7 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 		fixes: [
 			{
-				description: "Fixed the browser crashing when updating on MacOS.",
+				description: "Fixed the browser crashing when updating on macOS.",
 				issue: 84,
 			},
 			{
@@ -929,7 +929,7 @@ export const releaseNotes: ReleaseNote[] = [
 		fixes: [
 			{
 				description:
-					"Can't split tab, if one of the tabs has been previously split",
+					"Can\'t split tab, if one of the tabs has been previously split",
 				isse: 1592,
 			},
 			{
@@ -941,7 +941,7 @@ export const releaseNotes: ReleaseNote[] = [
 				issue: 1580,
 			},
 			{
-				description: "Misaligned Padding across window",
+				description: "Misaligned padding across window",
 				isue: 1542,
 			},
 			{
@@ -1187,7 +1187,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"sidebar is blank when there's a moving video/picture on other open tabs",
+					"Sidebar is blank when there's a moving video/picture on other open tabs",
 				issue: 1900,
 			},
 			{
@@ -1210,7 +1210,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"Major issue with zen sidebar disapering and not re-appearing on restart",
+					"Major issue with zen sidebar disappearing and not re-appearing on restart",
 				issue: 1979,
 			},
 		],
@@ -1224,11 +1224,11 @@ export const releaseNotes: ReleaseNote[] = [
 			"This release is a small patch to fix some issues on keyboard shortcuts that were introduced in the previous release.",
 		fixes: [
 			{
-				description: "Fixed keyboard shortcuts not working in macos",
+				description: "Fixed keyboard shortcuts not working in macOS",
 				issue: 1629,
 			},
 			{
-				description: "Fixed handling when having a corrupted mods file",
+				description: "Fixed handling of corrupted mod files",
 			},
 			{
 				description: "Fixed reseting shortcuts not working",
@@ -1239,7 +1239,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"Fixed about page linking 'global comunity' to a mozilla page",
+					"Fixed about page linking 'global comunity' to a Mozilla page",
 			},
 		],
 		features: [
@@ -1321,7 +1321,7 @@ export const releaseNotes: ReleaseNote[] = [
 					"Fixed 'cancel' button for workspaces creation not working",
 			},
 			{
-				description: "Creating tabs wont flash-bang the user anymore",
+				description: "Creating tabs won\'t flash-bang the user anymore",
 			},
 			{
 				description: "Fixed tabs moving not closing expand on hover sometimes",
@@ -1372,7 +1372,7 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 		themeChanges: [
 			"The variable '--zen-main-browser-background' will now contain the generated gradient",
-			"Added the 'unread' attribute for background trabs that havent been accessed yet"
+			"Added the 'unread' attribute for background tabs that haven\'t been accessed yet"
 		]
 	},
 ].reverse();
