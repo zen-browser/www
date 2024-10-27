@@ -1314,9 +1314,6 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 		fixes: [
 			{
-				description: "Fixed keyboard shortcuts for 'Shift + [N]' not working",
-			},
-			{
 				description: "Fixed tab overlflow changing the height of the web view",
 			},
 			{
@@ -1335,7 +1332,7 @@ export const releaseNotes: ReleaseNote[] = [
 		version: "1.0.1-a.13",
 		date: "27/10/2024",
 		image: true,
-		workflowId: 11534817377,
+		workflowId: 11540529505,
 		extra:
 			"This update brings custom gradient themes to workspaces!",
 		features: [
@@ -1343,6 +1340,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Disabled support for Kyber KEM by default",
             "Added color picker to generate gradient themes",
             "Added option to give individual workspaces a gradient theme",
+			"The amount of maximum web panels is now a preference in about:config`
 		],
 		fixes: [
 			{
@@ -1353,10 +1351,29 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed moving workspace to end of list and auto disable workspace reordering mode",
                 issue: 2209
 			},
+			{
+				description: "Fixed split view sliders not showing unless reordering mode is enabled",
+				issue: 2269
+			},
+			{
+				description: "Fixed malformed XUL for some themes, not showing on the preferences page",
+			},
+			{
+				description: "Fixed keyboard shortcuts for 'Shift + [N]' not working",
+			},
+			{
+				description: 'Fixed Sidebar "Expands Tabs on Hover" option randomly resets to "Don\'t Expand Tabs by Default"',
+				issue: 2156,
+			},
+				
 		],
 		breakingChanges: [
 			"Removed Show Expand Button option from settings",
 		],
+		themeChanges: [
+			"The variable '--zen-main-browser-backgrond' will now contain the generated gradient`,
+			"Added the 'unread' attribute for background trabs that havent been accessed yet"
+		]
 	},
 ].reverse();
 
