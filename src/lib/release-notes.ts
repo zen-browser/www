@@ -1340,7 +1340,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Disabled support for Kyber KEM by default",
             "Added color picker to generate gradient themes",
             "Added option to give individual workspaces a gradient theme",
-			"The amount of maximum web panels is now a preference in about:config`
+			"The amount of maximum web panels is now a preference in about:config"
 		],
 		fixes: [
 			{
