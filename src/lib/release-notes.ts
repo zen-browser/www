@@ -1309,13 +1309,10 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
 		features: [
-			"FIxed always rendering the split view overlay, pottentially fixing huge speed issues",
+			"Fixed always rendering the split view overlay, pottentially fixing huge speed issues",
 			"Disabled 'all' webrender options by default, performance increase for unsuported GPUs",
 		],
 		fixes: [
-			{
-				description: "Fixed keyboard shortcuts for 'Shift + [N]' not working",
-			},
 			{
 				description: "Fixed tab overlflow changing the height of the web view",
 			},
@@ -1330,6 +1327,53 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed tabs moving not closing expand on hover sometimes",
 			},
 		],
+	},
+	{
+		version: "1.0.1-a.13",
+		date: "27/10/2024",
+		image: true,
+		workflowId: 11540529505,
+		extra:
+			"This update brings custom gradient themes to workspaces!",
+		features: [
+            "Added option to set New Tab button under the last open tab",
+			"Disabled support for Kyber KEM by default",
+            "Added color picker to generate gradient themes",
+            "Added option to give individual workspaces a gradient theme",
+			"The amount of maximum web panels is now a preference in about:config`
+		],
+		fixes: [
+			{
+				description: "Closing the last pinned tab causes a new tab to open",
+                issue: 2249
+			},
+			{
+				description: "Fixed moving workspace to end of list and auto disable workspace reordering mode",
+                issue: 2209
+			},
+			{
+				description: "Fixed split view sliders not showing unless reordering mode is enabled",
+				issue: 2269
+			},
+			{
+				description: "Fixed malformed XUL for some themes, not showing on the preferences page",
+			},
+			{
+				description: "Fixed keyboard shortcuts for 'Shift + [N]' not working",
+			},
+			{
+				description: 'Fixed Sidebar "Expands Tabs on Hover" option randomly resets to "Don\'t Expand Tabs by Default"',
+				issue: 2156,
+			},
+				
+		],
+		breakingChanges: [
+			"Removed Show Expand Button option from settings",
+		],
+		themeChanges: [
+			"The variable '--zen-main-browser-backgrond' will now contain the generated gradient`,
+			"Added the 'unread' attribute for background trabs that havent been accessed yet"
+		]
 	},
 ].reverse();
 
