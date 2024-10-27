@@ -1371,7 +1371,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Removed Show Expand Button option from settings",
 		],
 		themeChanges: [
-			"The variable '--zen-main-browser-backgrond' will now contain the generated gradient",
+			"The variable '--zen-main-browser-background' will now contain the generated gradient",
 			"Added the 'unread' attribute for background trabs that havent been accessed yet"
 		]
 	},
