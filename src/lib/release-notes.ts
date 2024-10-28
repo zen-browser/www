@@ -1372,7 +1372,7 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 		themeChanges: [
 			"The variable '--zen-main-browser-backgrond' will now contain the generated gradient",
-			"Added the 'unread' attribute for background trabs that havent been accessed yet"
+			"Added the 'unread' attribute for background tabs that haven't been accessed yet"
 		]
 	},
 	{
