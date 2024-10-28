@@ -1375,6 +1375,31 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added the 'unread' attribute for background tabs that haven\'t been accessed yet"
 		]
 	},
+	{
+		version: "1.0.1-a.14",
+		date: "27/10/2024",
+		image: false,
+		workflowId: 32129331813,
+		extra:
+			"This release is a small patch to fix some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
+		fixes: [
+			{
+				description: "Fixed gradient generator not allowing closing the last color",
+			},
+			{
+				description: "Fixed the gradient generator not saving the texture if it's 0"
+			},
+			{
+				description: "Fixed transparent colors when not having any color selected",
+			},
+			{
+				description: "Fixed sidebar webpanels being in a darker contrast",
+			}
+		],
+		features: [
+			"Added a confirmation dialog when the gradient generator has successfully saved the gradient",
+		],
+	},
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
