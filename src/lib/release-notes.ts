@@ -1453,6 +1453,8 @@ export const releaseNotes: ReleaseNote[] = [
 			"Updated to the latest stable version of Firefox (132.0)",
 			"Enabled Captive Portal Detection by default",
 			"Added polyhedral optimizations to macOS builds",
+			"Added preferences to allow having toolbar/sidebar colored with background color, independently",
+			"Added support for workspace-theme specific accent colors",
 		],
 	},
 ].reverse();
