@@ -8,7 +8,7 @@ function imageLoader({ src }: { src: string }) {
 	if (inDev) {
 		return src.replace(/^www\/public/, "");
 	}
-	return src.replace(/^www\/public/, "");
+	return `https://cdn.jsdelivr.net/gh/zen-browser/${src}`;
 }
 
 export default function CachedImage({ ...props }: any) {
