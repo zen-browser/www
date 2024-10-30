@@ -5,7 +5,6 @@ import {
 	EyeIcon,
 	HeartHandshake,
 	PaintBucket,
-	SidebarCloseIcon,
 	SidebarIcon,
 	SplitSquareHorizontal,
 } from "lucide-react";
