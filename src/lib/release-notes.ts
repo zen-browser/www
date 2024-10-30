@@ -1400,6 +1400,61 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added a confirmation dialog when the gradient generator has successfully saved the gradient",
 		],
 	},
+	{
+		version: "1.0.1-a.15",
+		date: "31/10/2024",
+		image: true,
+		workflowId: 11600705444,
+		extra:
+			"This release introduces Zen Glance, a new convenient way to preview links!",
+		fixes: [
+			{
+				description: "Fixed gradient theme not applying to sidebar using expand on hover",
+				issue: 2360,
+			},
+			{
+				description: "Fixed color picker not being responsive to cursor",
+				issue: 2350,
+			},
+			{
+				description: "Fixed toolbar not using gradient colors when in compact mode",
+			},
+			{
+				description: "Fixed display issue with titlebar buttons (macOS)",
+			},
+			{
+				description: "Allow installing unsigned Firefox addons",
+				issue: 2258
+			},
+			{
+				description: "Fixed glitch when quickly moving multiple tabs",
+			},
+			{
+				description: "Fixed website permission popups not displaying",
+				issue: 2093,
+			},
+			{
+				description: "Fixed connection errors when using OCSP"
+			},
+			{
+				description: "Possibly fixed blurry font",
+				issue: 2375,
+			},
+			{
+				description: "Fixed workspace button moving on hover if not shown as strip",
+				issue: 2413,
+			},
+		],
+	breakingChanges: [
+			"Changed the default layout of the customizable UI buttons",
+		],
+		features: [
+			"Added Zen Glance",
+			"Updated to the latest stable version of Firefox (132.0)",
+			"Enabled Captive Portal Detection by default",
+			"Added polyhedral optimizations to macOS builds,
+		],
+	},
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
