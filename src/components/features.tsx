@@ -134,7 +134,7 @@ export default function Features() {
 					</div>
 				</div>
 			</div>
-			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md xl:w-3/4 xl:flex-row">
+			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 xl:flex-row">
 				<div className="flex flex-col justify-center p-16 lg:w-1/2">
 					<h2 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
 						Built for simplicity <EyeIcon className="inline h-8 w-8"></EyeIcon>
@@ -169,16 +169,16 @@ export default function Features() {
 					height={900}
 					src="www/public/browser-1.png"
 					alt="Zen Browser"
-					className="rounded-md object-cover lg:w-1/2"
+					className="rounded-md object-cover xl:w-1/2"
 				/>
 			</div>
-			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md xl:w-3/4 xl:flex-row">
+			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 xl:flex-row">
 				<CachedImage
 					width={1350}
 					height={900}
 					src="www/public/browser-2.png"
 					alt="Zen Browser"
-					className="rounded-md object-cover object-left lg:w-1/2"
+					className="rounded-md object-cover object-left xl:w-1/2"
 				/>
 				<div className="flex flex-col justify-center p-16 lg:w-1/2">
 					<h2 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
@@ -197,7 +197,7 @@ export default function Features() {
 					</div>
 				</div>
 			</div>
-			<div className="mx-auto mt-36 flex w-full flex-col bg-surface p-5 shadow md:w-5/6 md:rounded-md xl:w-3/4 xl:flex-row xl:p-12">
+			<div className="mx-auto mt-36 flex w-full flex-col bg-surface p-5 shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row xl:p-12">
 				<div className="flex flex-col justify-center p-16 lg:w-1/2">
 					<h3 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
 						Better tab management{" "}
@@ -263,8 +263,8 @@ export default function Features() {
 					</div>
 				</div>
 			</div>
-			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md xl:w-3/4 xl:flex-row">
-				<div className="flex flex-col justify-center p-16 lg:w-1/2">
+			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 xl:flex-row">
+				<div className="flex flex-col justify-center p-16 xl:w-1/2">
 					<h2 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
 						Sidebar <SidebarIcon className="ml-1 inline h-8 w-8"></SidebarIcon>
 					</h2>
@@ -299,7 +299,7 @@ export default function Features() {
 					height={900}
 					src="www/public/browser-3.png"
 					alt="Zen Browser"
-					className="rounded-md object-cover lg:w-1/2"
+					className="rounded-md object-cover xl:w-1/2"
 				/>
 			</div>
 			<div className="mx-auto mt-36 flex w-full flex-col md:w-5/6 lg:w-3/4">
@@ -323,7 +323,7 @@ export default function Features() {
 				</video>
 			</div>
 			<FAQ />
-			<div className="mx-auto mt-36 flex w-full flex-col bg-surface p-5 shadow md:w-5/6 md:rounded-md xl:w-3/4 xl:flex-row xl:p-12">
+			<div className="mx-auto mt-36 flex w-full flex-col bg-surface p-5 shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row xl:p-12">
 				<div className="flex flex-col justify-center p-16 lg:w-1/2">
 					<h3 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
 						Convinced?
