@@ -1406,7 +1406,7 @@ export const releaseNotes: ReleaseNote[] = [
 		image: true,
 		workflowId: 11600705444,
 		extra:
-			"This release introduces Zen Glance, a new convenient way to preview links!",
+			"This release introduces Zen Glance, a new convenient way to preview links!\n\nZen Glance allows you to open a link preview in a small window, without leaving the current page. This feature is perfect for quickly checking links without losing your place.\n\nWe've also updated to the latest stable version of Firefox (what a mess, everything got broken!), and we can already start to see some early stages of tab groups!\n\nStart using Zen Glance today my 'ctrl+clic' or 'alt+click' on macos on any link and experience this new way of browsing!",
 		fixes: [
 			{
 				description: "Fixed gradient theme not applying to sidebar using expand on hover",
@@ -1445,11 +1445,11 @@ export const releaseNotes: ReleaseNote[] = [
 				issue: 2413,
 			},
 		],
-	breakingChanges: [
+		breakingChanges: [
 			"Changed the default layout of the customizable UI buttons",
 		],
 		features: [
-			"Added Zen Glance",
+			"Added Zen Glance!",
 			"Updated to the latest stable version of Firefox (132.0)",
 			"Enabled Captive Portal Detection by default",
 			"Added polyhedral optimizations to macOS builds",
