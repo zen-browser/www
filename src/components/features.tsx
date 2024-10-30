@@ -170,7 +170,7 @@ export default function Features() {
 					height={900}
 					src="www/public/browser-1.png"
 					alt="Zen Browser"
-					className="rounded-md object-cover object-right lg:w-1/2"
+					className="rounded-md object-cover lg:w-1/2"
 				/>
 			</div>
 			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
@@ -230,7 +230,7 @@ export default function Features() {
 						<div className="mt-4 flex items-center">
 							<Question />
 							<p className="ml-2 text-gray-600 dark:text-gray-300">
-								Tab Groups (Coming Soon)
+								Tab Folders (Coming Soon)
 							</p>
 						</div>
 					</div>
@@ -300,23 +300,15 @@ export default function Features() {
 					height={900}
 					src="www/public/browser-3.png"
 					alt="Zen Browser"
-					className="rounded-md object-cover object-left lg:w-1/2"
+					className="rounded-md object-cover lg:w-1/2"
 				/>
 			</div>
-			<div className="mx-auto mt-36 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
-				<CachedImage
-					width={1350}
-					height={900}
-					src="www/public/browser-4.jpg"
-					alt="Zen Browser"
-					className="rounded-md object-cover object-left lg:w-1/2"
-				/>
-				<div className="flex flex-col justify-center p-16 lg:w-1/2">
+			<div className="mx-auto mt-36 flex w-full flex-col md:w-5/6 lg:w-3/4">
+				<div className="flex flex-col justify-center items-center text-center p-16">
 					<h2 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
-						Introducing Compact Mode{" "}
-						<SidebarCloseIcon className="inline h-8 w-8"></SidebarCloseIcon>
+						Introducing Zen Glance{" 👀"}
 					</h2>
-					<p className="mt-4 text-lg text-gray-600 dark:text-gray-300">
+					<p className="mt-4 text-lg text-gray-600 dark:text-gray-300 xl:max-w-2xl">
 						Zen Browser's compact mode gives you more screen real estate by
 						hiding the title bar and tabs. It's perfect for when you need to
 						focus on your work.
@@ -327,6 +319,9 @@ export default function Features() {
 						</Link>
 					</div>
 				</div>
+				<video className="rounded-md object-cover w-full" loop autoPlay muted>
+					<source src="/vids/glance.webm" type="video/webm" />
+				</video>
 			</div>
 			<FAQ />
 			<div className="mx-auto mt-36 flex w-full flex-col bg-surface p-5 shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row lg:p-12">
