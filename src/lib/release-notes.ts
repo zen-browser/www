@@ -1452,7 +1452,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added Zen Glance",
 			"Updated to the latest stable version of Firefox (132.0)",
 			"Enabled Captive Portal Detection by default",
-			"Added polyhedral optimizations to macOS builds,
+			"Added polyhedral optimizations to macOS builds",
 		],
 	},
 ].reverse();
