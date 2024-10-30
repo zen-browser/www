@@ -23,26 +23,26 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release will be the first release considered as stable. It's still in alpha, but it's the first release that we consider to be stable enough for daily use. You can start using it as your main browser right now if you are reading this!",
 		features: [
-			"Stable support for split views.",
-			"Updated firefox to version 128.0",
-			"Vertical tabs are now supported.",
-			"Better profile management system.",
-			"Full support for sidebar web panels.",
-			"Other minor UI additions and improvements.",
-			"Added support for an automatic update system.",
+			"Stable support for split views",
+			"Updated Firefox to version 128.0",
+			"Vertical tabs are now supported",
+			"Better profile management system",
+			"Full support for sidebar web panels",
+			"Other minor UI additions and improvements",
+			"Added support for an automatic update system",
 		],
 		fixes: [
 			{
 				description:
-					"Fixed a bug where the browser would crash when opening any extension.",
+					"Fixed a bug where the browser would crash when opening any extension",
 				issue: 34,
 			},
 			{
-				description: "Fixed extension icon resolution on the toolbar.",
+				description: "Fixed extension icon resolution on the toolbar",
 				issue: 35,
 			},
 			{
-				description: "Applied a fix for that affected some linux users.",
+				description: "Applied a fix for that affected some Linux users",
 				issue: 36,
 			},
 		],
@@ -54,25 +54,25 @@ export const releaseNotes: ReleaseNote[] = [
 			"This release is the second alpha release of the 1.0.0-alpha series. It includes a lot of bug fixes and improvements given the feedback we received from the first alpha release. This release is still not considered stable, but it's a big step towards the first stable release.",
 		features: [
 			"Added support for macOS aaarch64!",
-			"Some performance improvements.",
+			"Some performance improvements",
 		],
 		fixes: [
 			{
 				description:
-					"Fixed rounded corners of browser views for some websites.",
+					"Fixed rounded corners of browser views for some websites",
 				issue: 48,
 			},
 			{
-				description: "Fixed audio icon overlapping with the tab container.",
+				description: "Fixed audio icon overlapping with the tab container",
 				issue: 41,
 			},
 			{
-				description: "Changed to the correct branding for Zen Home.",
+				description: "Changed to the correct branding for Zen Home",
 				issue: 50,
 			},
 		],
 		breakingChanges: [
-			"Removed support window's stub installer, it's under development.",
+			"Removed support window's stub installer. It's under development.",
 		],
 	},
 	{
@@ -81,25 +81,25 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is the third alpha release of the 1.0.0-alpha series. One big feature of this release is the new workspaces feature. This feature allows you to create different workspaces with different tabs and configurations. This release also includes a lot of bug fixes and improvements.",
 		features: [
-			"Added support for workspaces. (Experimental)",
-			"Better support for macOS aarch64.",
+			"Added support for workspaces (Experimental)",
+			"Better support for macOS aarch64",
 		],
 		fixes: [
 			{
-				description: "Fixed subwindows not being displayed correctly.",
+				description: "Fixed subwindows not being displayed correctly",
 				issue: 54,
 			},
 			{
-				description: "Fixed zen's compact view mode.",
+				description: "Fixed Zen's compact view mode",
 				issue: 45,
 			},
 			{
-				description: "Fixed displaying tab icons when they are pinned.",
+				description: "Fixed displaying tab icons when they are pinned",
 				issue: 52,
 			},
 		],
 		breakingChanges: [
-			"Changed the update URL meaning that since 1.0.0-a.2 (previous release) the browser will be able to update itself.",
+			"Changed the update URL meaning that since 1.0.0-a.2 (previous release) the browser will be able to update itself",
 		],
 	},
 	{
@@ -108,23 +108,23 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is the fourth alpha release of the 1.0.0-alpha series. This release includes a lot of bug fixes and improvements. The main focus of this release was to improve some small details and the compact view mode.\n\nThis release is very small but it includes some important fixes and I wont be able to work on the browser for the next few days so I decided to release it now.\n\nSorry!",
 		features: [
-			"Improved compact view mode.",
-			"Tabs with no icons will now display a default icon.",
-			"Improved workspaces feature (Experimental).",
-			"Added support for pinned tabs.",
+			"Improved compact view mode",
+			"Tabs with no icons will now display a default icon",
+			"Improved workspaces feature (Experimental)",
+			"Added support for pinned tabs",
 		],
 		fixes: [
 			{
 				description:
-					"Fixed the compact view mode not displaying correctly when it's not fullscreen.",
+					"Fixed the compact view mode not displaying correctly when it's not fullscreen",
 				issue: 58,
 			},
 			{
-				description: 'Fixed "Weird margins in popup windows".',
+				description: 'Fixed \"Weird margins in popup windows\"',
 				issue: 54,
 			},
 			{
-				description: "Fixed pinned tab icons not being displayed correctly.",
+				description: "Fixed pinned tab icons not being displayed correctly",
 				issue: 52,
 			},
 		],
@@ -135,27 +135,27 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is a very small release that includes some speed improvements and privacy improvements. This release is the fifth alpha release of the 1.0.0-alpha series.",
 		features: [
-			"Improved performance of the browser, specially for windows users.",
-			"Changed some of firefox's default privacy settings to improve privacy.",
-			"Allowed using GPU for rendering by default.",
-			"Set the default user agent to Firefox.",
+			"Improved performance of the browser, specially for Windows users",
+			"Changed some of Firefox's default privacy settings to improve privacy",
+			"Allowed using GPU for rendering by default",
+			"Set the default user agent to Firefox",
 		],
 		fixes: [
 			{
-				description: "Fixed license not being clear.",
+				description: "Fixed license not being clear",
 				issue: 62,
 			},
 			{
 				description:
-					"Fixed Zen not being able to execute on some linux distributions.",
+					"Fixed Zen not being able to execute on some Linux distributions",
 				issue: 36,
 			},
 			{
-				description: "Fixed sites like whatsapp web not working correctly.",
+				description: "Fixed sites like whatsapp web not working correctly",
 				issue: 59,
 			},
 			{
-				description: "Fixed some background overlapping the browser view.",
+				description: "Fixed some background overlapping the browser view",
 				issue: 48,
 			},
 		],
@@ -166,27 +166,27 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"Hello there! Sorry for not updating so frequently, i've been busy this week.\n\nWelcome to the sixth alpha release of the 1.0.0-alpha series, gettin' closer to the first stable release!\n\nThis release includes a lot of bug fixes and improvements. The main focus of this release was to improve some small details and performance.",
 		features: [
-			"Improved performance of the browser.",
-			"Added support for the latest version of Firefox (128.0.2).",
-			"Improved the compact view mode.",
-			"Started working on flatpak support.",
-			"Improved the workspaces feature. (Added icons and control buttons)",
-			"Implemented better branding for the Installer.",
-			"Created better better visual feedback for the user. (Animations and Split views)",
-			"Made an opt-out for the watermark.",
-			"Enabled further customization for buttons (Pill buttons and sizes).",
-			"Added performance focused user settings by default.",
-			"Added theme-related profile avatars.",
-			"Added a way to expand the sidebar tabs and to be able to customize the sidebar.",
-			"Started experimenting with PGO builds. (linux only currently)",
-			"Added scrollable tabs support.",
-			"Added context menu button for quick sidebar website addition.",
-			"Enabled smooth scrolling by default.",
-			"Added container identification to the tab bar.",
+			"Improved performance of the browser",
+			"Added support for the latest version of Firefox (128.0.2)",
+			"Improved the compact view mode",
+			"Started working on flatpak support",
+			"Improved the workspaces feature by adding icons and control buttons",
+			"Implemented better branding for the Installer",
+			"Created better better visual feedback for the user with Animations and Split views",
+			"Made an opt-out for the watermark",
+			"Enabled further customization by adding Pilled Buttons toggle",
+			"Added performance focused user settings by default",
+			"Added theme-related profile avatars",
+			"Added a way to expand the sidebar tabs and to be able to customize the sidebar",
+			"Started experimenting with PGO builds. Currently Linux only.",
+			"Added scrollable tabs support",
+			"Added context menu button for quick sidebar website addition",
+			"Enabled smooth scrolling by default",
+			"Added container identification to the tab bar",
 		],
 		fixes: [
 			{
-				description: "Fixed pinned tabs not being displayed correctly.",
+				description: "Fixed pinned tabs not being displayed correctly",
 			},
 			{
 				description:
@@ -194,11 +194,11 @@ export const releaseNotes: ReleaseNote[] = [
 				issue: 74,
 			},
 			{
-				description: "Fixed wrong colors for web-content popups.",
+				description: "Fixed wrong colors for web-content popups",
 				issue: 70,
 			},
 			{
-				description: "Fixed padding when DOM fullscreen is enabled.",
+				description: "Fixed padding when DOM fullscreen is enabled",
 				issue: 67,
 			},
 			{
@@ -207,26 +207,26 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"Disabled Zen Workspaces when private browsing is enabled.",
+					"Disabled Zen Workspaces when private browsing is enabled",
 			},
 			{
-				description: "Fixed web view padding when opening a hidden popup.",
+				description: "Fixed web view padding when opening a hidden popup",
 				issue: 54,
 			},
 			{
 				description:
-					'The Windows NSIS installer correctly installs the browser in the right path now instead of "Mozilla Developer Preview".',
+					'The Windows NSIS installer correctly installs the browser in the right path now instead of "Mozilla Developer Preview"',
 			},
 			{
-				description: "Fixed overall windows installer branding.",
+				description: "Fixed overall Windows installer branding",
 			},
 			{
-				description: "Fixed update URLs and support links.",
+				description: "Fixed update URLs and support links",
 			},
 		],
 		breakingChanges: [
 			"Updated CPU requirements for x86_64-v3",
-			"Changed the way profile avatars are stored, may not be any issues, please report them if you find any.",
+			"Changed the way profile avatars are stored, may not be any issues, please report them if you find any",
 		],
 	},
 	{
@@ -235,32 +235,32 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is the seventh alpha release of the 1.0.0-alpha series. This release includes some important bug fixes and improvements. The main focus of this release was to improve some small details and improve stability.",
 		features: [
-			"A grid system for pinned tabs.",
-			"Flatpak support.",
-			"More performance improvements.",
-			"Added newtab wallpapers (Version 2).",
-			"Enabled hiding floating sidebar web panels when clicking outside.",
-			"Branded more the installer.",
-			"Used more intuitive icons for the sidebar.",
-			"Improved animations.",
-			"More compact view stability improvements.",
+			"A grid system for pinned tabs",
+			"Flatpak support",
+			"More performance improvements",
+			"Added newtab wallpapers (Version 2)",
+			"Enabled hiding floating sidebar web panels when clicking outside",
+			"Branded more the installer",
+			"Used more intuitive icons for the sidebar",
+			"Improved animations",
+			"More compact view stability improvements",
 		],
 		fixes: [
 			{
-				description: "Fixed the browser crashing when updating on linux.",
+				description: "Fixed the browser crashing when updating on Linux",
 				issue: 76,
 			},
 			{
 				description:
-					"Fixed workspace deleting button, deleting the wrong workspace.",
+					"Fixed workspace deleting button, deleting the wrong workspace",
 				issue: 81,
 			},
 			{
-				description: "Fixed the expanded sidebar for the compact view.",
+				description: "Fixed the expanded sidebar for the compact view",
 				issue: 79,
 			},
 			{
-				description: "Fixed small margin on hidden windows.",
+				description: "Fixed small margin on hidden windows",
 			},
 		],
 	},
@@ -271,30 +271,30 @@ export const releaseNotes: ReleaseNote[] = [
 			"This release is the eighth alpha release of the 1.0.0-alpha series.\n\nThis release includes some small bug fixes and improvements. The main focus of this release was to improve some small details and improve stability.",
 		features: [
 			"Added support for the latest version of Firefox (128.0.3).",
-			"Improved the compact view mode.",
+			"Improved the compact view mode",
 			"New logo for the browser!",
-			"Imrpoved speed of the browser.",
+			"Imrpoved speed of the browser",
 		],
 		fixes: [
 			{
-				description: "Lowered the CPU requirements for Linux users.",
+				description: "Lowered the CPU requirements for Linux users",
 			},
 			{
 				description:
-					"Fixed browser updater crashing on some linux distributions.",
+					"Fixed browser updater crashing on some Linux distributions",
 				issue: 76,
 			},
 			{
-				description: "Added more contrast to web context menus on light mods.",
+				description: "Added more contrast to web context menus on light mods",
 				issue: 88,
 			},
 			{
-				description: "Fixed horizontal separator not showing on pinned tabs.",
+				description: "Fixed horizontal separator not showing on pinned tabs",
 				issue: 100,
 			},
 			{
 				description:
-					"Created a small hotfix for mods and some broken extensions.",
+					"Created a small hotfix for mods and some broken extensions",
 				issue: 89,
 			},
 		],
@@ -308,39 +308,39 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is the eleventh alpha release of the 1.0.0-alpha series.\n\nWe skipped some releases because we were working on some big features and improvements. This release includes some big performance improvements and support for other platforms.\n\nHopefuly things will get a bit more stable from now on.",
 		features: [
-			"Added support for Windows Generic CPUs.",
-			"Added support for Linux Generic CPUs.",
-			"Added support for macOS x86_64 CPUs.",
-			"Added support for macOS arm64 CPUs.",
-			"Allow the user to change the sidebar's max width.",
-			"Started to work on a new onboarding experience.",
+			"Added support for Windows Generic CPUs",
+			"Added support for Linux Generic CPUs",
+			"Added support for macOS x86_64 CPUs",
+			"Added support for macOS arm64 CPUs",
+			"Allow the user to change the sidebar's max width",
+			"Started to work on a new onboarding experience",
 			"Support for AppImage. Both specific and generic.",
-			"New icons for MacOS and Windows/Linux (Different icons for each OS).",
-			"Added a floating URL bar option.",
-			"Added option to hide the toolbar as well in compact view.",
-			"Move security button to the right of the URL bar.",
-			"Added introduction for side web panels.",
-			"Drastically improved the performance of the browser.",
+			"New icons for MacOS and Windows/Linux. Different icons for each OS.",
+			"Added a floating URL bar option",
+			"Added option to hide the toolbar as well in compact view",
+			"Move security button to the right of the URL bar",
+			"Added introduction for side web panels",
+			"Drastically improved the performance of the browser",
 		],
 		fixes: [
 			{
-				description: "Fixed the browser crashing when updating on MacOS.",
+				description: "Fixed the browser crashing when updating on macOS",
 				issue: 84,
 			},
 			{
 				description:
-					"Fixed 'Couldn't load XPCOM' error on some windows installations.",
+					"Fixed 'Couldn't load XPCOM' error on some Windows installations",
 				issue: 107,
 			},
 			{
-				description: "Fixed the browser crashing when updating on Linux.",
+				description: "Fixed the browser crashing when updating on Linux",
 			},
 			{
-				description: "Fixed pinned tabs not being properly aligned.",
+				description: "Fixed pinned tabs not being properly aligned",
 				issue: 110,
 			},
 			{
-				description: "Remove padding around close button on Windows.",
+				description: "Remove padding around close button on Windows",
 				issue: 134,
 			},
 			{
@@ -359,15 +359,15 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is the twelfth alpha release of the 1.0.0-alpha series.\n\nThis release includes some nice features and improvements. The main focus of this release was to improve some small details and improve stability.",
 		features: [
-			"Added support for the vertical tabs to remember their width.",
-			"Added support for disallowing the sidebar web panels to closed when clicked outside and floating (Settings).",
-			"Added support for the sidebar web panels to remember their width and if they are floating.",
-			"Allow installing unsigned extensions.",
-			"Imrpoved onboarding experience.",
-			"New compact mode design, it's much better now.",
-			"Reduced CPU requirements for MacOS Intel CPUs.",
-			"Reduced blur for floating URL bar.",
-			"Allow the sidebar to be wider, customisable in about:config.",
+			"Added support for the vertical tabs to remember their width",
+			"Added support for disallowing the sidebar web panels to closed when clicked outside and floating (Settings)",
+			"Added support for the sidebar web panels to remember their width and if they are floating",
+			"Allow installing unsigned extensions",
+			"Imrpoved onboarding experience",
+			"New compact mode design, it's much better now",
+			"Reduced CPU requirements for MacOS Intel CPUs",
+			"Reduced blur for floating URL bar",
+			"Allow the sidebar to be wider, customisable in about:config",
 		],
 		fixes: [
 			{
@@ -384,7 +384,7 @@ export const releaseNotes: ReleaseNote[] = [
 				issue: 144,
 			},
 			{
-				description: "Fixed pinned tabs not being properly aligned.",
+				description: "Fixed pinned tabs not being properly aligned",
 			},
 			{
 				description: '"Delete Web Panel" closes the sidebar',
@@ -423,7 +423,7 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed startup issue with AppImage",
 			},
 			{
-				description: "Fixed typos on the onboarding experience.",
+				description: "Fixed typos on the onboarding experience",
 			},
 		],
 	},
@@ -433,10 +433,10 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is the fifteenth alpha release of the 1.0.0-alpha series.\n\nI've skipped version 1.0.0-a.14 because of the quality of the release, it was not good enough to be released.\n\nThis release includes some bug fixes and improvements.\n\nThanks everyone for the feedback! It may look like a small release but it includes some important fixes and improvements.",
 		features: [
-			"Added support for the latest version of Firefox (129.0).",
-			"Reworked on split views.",
-			"Improved the performance of the browser.",
-			"Allow the sidebar to be at the right side of the browser.",
+			"Added support for the latest version of Firefox (129.0)",
+			"Reworked on split views",
+			"Improved the performance of the browser",
+			"Allow the sidebar to be at the right side of the browser",
 		],
 		fixes: [
 			{
@@ -455,20 +455,20 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is the seventeenth alpha release of the 1.0.0-alpha series.\n\nThis release includes some bug fixes and improvements.\n\nThanks everyone for the feedback! We've skipped version 1.0.0-a.16 because of the size of the releases. One more step closer to the first stable release!",
 		features: [
-			"Added support for default keyboard shortcuts.",
-			"Added JavaScript Bytecode Cache.",
-			"Added shortcuts for split views.",
-			"Updated UserAgent for website panels (Mobile UserAgent).",
-			"Added support for zsync in AppImages.",
-			"New tab button is now stuck to the last tab.",
-			"Any inactive tab will be dimmed.",
-			"Allowed prefetching for network requests.",
-			"Added security measures for the browser (Sandboxing).",
-			"Added more optimizations for Specific CPUs.",
-			"Added shortcuts for cycling through workspaces.",
-			"Fixed settings linguistics.",
-			"Promoted hardware acceleration for flatpaks.",
-			"Added shortcut for toggling the sidebar.",
+			"Added support for default keyboard shortcuts",
+			"Added JavaScript Bytecode Cache",
+			"Added shortcuts for split views",
+			"Updated UserAgent for website panels (Mobile UserAgent)",
+			"Added support for zsync in AppImages",
+			"New tab button is now stuck to the last tab",
+			"Any inactive tab will be dimmed",
+			"Allowed prefetching for network requests",
+			"Added security measures for the browser (Sandboxing)",
+			"Added more optimizations for Specific CPUs",
+			"Added shortcuts for cycling through workspaces",
+			"Fixed settings linguistics",
+			"Promoted hardware acceleration for flatpaks",
+			"Added shortcut for toggling the sidebar",
 			"Windows generic CPU support is now stable!",
 		],
 		fixes: [
@@ -498,7 +498,7 @@ export const releaseNotes: ReleaseNote[] = [
 		features: [
 			"Added support for the latest stable version of Firefox (129.0.1)",
 			"Added security warning when changing the language",
-			"Locked preferences for Mozilla Telemetry and Experiments",
+			"Locked preferences for Mozilla telemetry and experiments",
 			"Refactored parts of the Zen interface theme",
 			"Disabled Reader Mode's parse-on-load function",
 			"Updated network and buffer preferences",
@@ -929,7 +929,7 @@ export const releaseNotes: ReleaseNote[] = [
 		fixes: [
 			{
 				description:
-					"Can't split tab, if one of the tabs has been previously split",
+					"Can\'t split tab, if one of the tabs has been previously split",
 				isse: 1592,
 			},
 			{
@@ -941,7 +941,7 @@ export const releaseNotes: ReleaseNote[] = [
 				issue: 1580,
 			},
 			{
-				description: "Misaligned Padding across window",
+				description: "Misaligned padding across window",
 				isue: 1542,
 			},
 			{
@@ -1050,7 +1050,7 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 		themeChanges: ["Toggle inputs will not use the themed tertiary color"],
 		breakingChanges: [
-			"The keyboard shortcuts will be overriden by the defaults ones in this update.",
+			"The keyboard shortcuts will be overriden by the defaults ones in this update",
 		],
 		fixes: [
 			{
@@ -1159,14 +1159,14 @@ export const releaseNotes: ReleaseNote[] = [
 			"This update brings further refinements to Zen Browser, focusing on stability improvements and new features for session management.\n\nWe've also enhanced pinned tab handling and workspaces to improve the user experience. Thanks everyone!",
 		features: [
 			"Updated to the latest stable version of Firefox (131.0.3)",
-			"Improved session storage of pinned tabs, now storing the triggering principal for more accurate state restoration.",
-			"Added a new feature to save the pinned state of tabs in the session store, allowing for better tab management across sessions.",
+			"Improved session storage of pinned tabs, now storing the triggering principal for more accurate state restoration",
+			"Added a new feature to save the pinned state of tabs in the session store, allowing for better tab management across sessions",
 			"Reduced the vertical tab toolbox width to 44px, providing a more compact layout and freeing up more screen space for content",
 			"Added support for containers in the sidebar websites",
 			"Changed amoled theme's base color",
 			"Worked on keyboard shortcuts",
 			"Improved light mode experience",
-			"Allow VAAPI/FMPEG APIs only for linux",
+			"Allow VAAPI/FMPEG APIs only for Linux",
 			"Twilight will now display the proper name on .desktop files",
 			"Added a better icon selection for workspaces, enhancing more icons",
 			'Created a "Force container workspace" option. Basically, force each container to belong to acertain workspace.',
@@ -1187,7 +1187,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"sidebar is blank when there's a moving video/picture on other open tabs",
+					"Sidebar is blank when there's a moving video/picture on other open tabs",
 				issue: 1900,
 			},
 			{
@@ -1210,7 +1210,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"Major issue with zen sidebar disapering and not re-appearing on restart",
+					"Major issue with zen sidebar disappearing and not re-appearing on restart",
 				issue: 1979,
 			},
 		],
@@ -1224,11 +1224,11 @@ export const releaseNotes: ReleaseNote[] = [
 			"This release is a small patch to fix some issues on keyboard shortcuts that were introduced in the previous release.",
 		fixes: [
 			{
-				description: "Fixed keyboard shortcuts not working in macos",
+				description: "Fixed keyboard shortcuts not working in macOS",
 				issue: 1629,
 			},
 			{
-				description: "Fixed handling when having a corrupted mods file",
+				description: "Fixed handling of corrupted mod files",
 			},
 			{
 				description: "Fixed reseting shortcuts not working",
@@ -1239,11 +1239,11 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"Fixed about page linking 'global comunity' to a mozilla page",
+					"Fixed about page linking 'global comunity' to a Mozilla page",
 			},
 		],
 		features: [
-			"About page will now display the firefox version used",
+			"About page will now display the Firefox version used",
 			"Disabled forcing container grouping for workspaces",
 		],
 	},
@@ -1309,13 +1309,10 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
 		features: [
-			"FIxed always rendering the split view overlay, pottentially fixing huge speed issues",
+			"Fixed always rendering the split view overlay, pottentially fixing huge speed issues",
 			"Disabled 'all' webrender options by default, performance increase for unsuported GPUs",
 		],
 		fixes: [
-			{
-				description: "Fixed keyboard shortcuts for 'Shift + [N]' not working",
-			},
 			{
 				description: "Fixed tab overlflow changing the height of the web view",
 			},
@@ -1324,11 +1321,83 @@ export const releaseNotes: ReleaseNote[] = [
 					"Fixed 'cancel' button for workspaces creation not working",
 			},
 			{
-				description: "Creating tabs wont flash-bang the user anymore",
+				description: "Creating tabs won\'t flash-bang the user anymore",
 			},
 			{
 				description: "Fixed tabs moving not closing expand on hover sometimes",
 			},
+		],
+	},
+	{
+		version: "1.0.1-a.13",
+		date: "27/10/2024",
+		image: true,
+		workflowId: 11540529505,
+		extra:
+			"This update brings custom gradient themes to workspaces!",
+		features: [
+            "Added option to set New Tab button under the last open tab",
+			"Disabled support for Kyber KEM by default",
+            "Added color picker to generate gradient themes",
+            "Added option to give individual workspaces a gradient theme",
+			"The amount of maximum web panels is now a preference in about:config"
+		],
+		fixes: [
+			{
+				description: "Closing the last pinned tab causes a new tab to open",
+                issue: 2249
+			},
+			{
+				description: "Fixed moving workspace to end of list and auto disable workspace reordering mode",
+                issue: 2209
+			},
+			{
+				description: "Fixed split view sliders not showing unless reordering mode is enabled",
+				issue: 2269
+			},
+			{
+				description: "Fixed malformed XUL for some themes, not showing on the preferences page",
+			},
+			{
+				description: "Fixed keyboard shortcuts for 'Shift + [N]' not working",
+			},
+			{
+				description: 'Fixed Sidebar "Expands Tabs on Hover" option randomly resets to "Don\'t Expand Tabs by Default"',
+				issue: 2156,
+			},
+				
+		],
+		breakingChanges: [
+			"Removed Show Expand Button option from settings",
+		],
+		themeChanges: [
+			"The variable '--zen-main-browser-background' will now contain the generated gradient",
+			"Added the 'unread' attribute for background tabs that haven\'t been accessed yet"
+		]
+	},
+	{
+		version: "1.0.1-a.14",
+		date: "27/10/2024",
+		image: false,
+		workflowId: 32129331813,
+		extra:
+			"This release is a small patch to fix some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
+		fixes: [
+			{
+				description: "Fixed gradient generator not allowing closing the last color",
+			},
+			{
+				description: "Fixed the gradient generator not saving the texture if it's 0"
+			},
+			{
+				description: "Fixed transparent colors when not having any color selected",
+			},
+			{
+				description: "Fixed sidebar webpanels being in a darker contrast",
+			}
+		],
+		features: [
+			"Added a confirmation dialog when the gradient generator has successfully saved the gradient",
 		],
 	},
 ].reverse();
