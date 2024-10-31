@@ -1457,6 +1457,19 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added support for workspace-theme specific accent colors",
 		],
 	},
+	{
+		version: "1.0.1-a.16",
+		date: "31/10/2024",
+		image: false,
+		workflowId: 11603948220,
+		extra:
+			"This release is a small patch to fix some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
+		fixes: [
+			"Fixed infinite width toolbar when bookmarks bar was open",
+			"Fixed disabling 'show newtab button under last active tab' not hiding the button",
+			"Fixed wrong aligment on glance action buttons",
+		],
+	}
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
