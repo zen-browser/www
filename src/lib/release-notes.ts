@@ -1,3 +1,5 @@
+import { features } from "process";
+
 interface Fix {
 	description: string;
 	issue?: number;
@@ -1469,6 +1471,9 @@ export const releaseNotes: ReleaseNote[] = [
 			"Fixed disabling 'show newtab button under last active tab' not hiding the button",
 			"Fixed wrong aligment on glance action buttons",
 		],
+		features: [
+			"No new features, sorry"
+		]
 	}
 ].reverse();
 

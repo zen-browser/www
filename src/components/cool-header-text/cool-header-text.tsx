@@ -4,7 +4,7 @@ export default function CoolHeaderText() {
 		<>
 			<div className="my-5">
 				<h1 className="text-6xl font-bold text-muted-foreground duration-200">
-					The browser for <i className="text-blue-500">you</i>,<br />
+					The browser made for <i className="text-blue-500">you</i>,<br />
 					not your data.
 				</h1>
 			</div>
