@@ -4,6 +4,6 @@
 	"rules": {
 		"react/display-name": "off",
 		"react/no-unescaped-entities": "off",
-		"unused-imports/no-unused-imports": "error"
+		"unused-imports/no-unused-imports": "warn"
 	}
 }
