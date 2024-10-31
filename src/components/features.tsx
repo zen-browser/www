@@ -308,9 +308,9 @@ export default function Features() {
 						Introducing Zen Glance{" 👀"}
 					</h2>
 					<p className="mt-4 text-lg text-gray-600 dark:text-gray-300 xl:max-w-2xl">
-						Zen Browser's compact mode gives you more screen real estate by
-						hiding the title bar and tabs. It's perfect for when you need to
-						focus on your work.
+						Zen's glance feature allows you to quickly preview a website without
+						leaving your current page. It's perfect for checking out links
+						before you click on them, saving you time and hassle
 					</p>
 					<div className="relative">
 						<Link href="/download" prefetch={false}>
