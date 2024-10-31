@@ -1467,9 +1467,15 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release is a small patch to fix some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
 		fixes: [
-			"Fixed infinite width toolbar when bookmarks bar was open",
-			"Fixed disabling 'show newtab button under last active tab' not hiding the button",
-			"Fixed wrong aligment on glance action buttons",
+			{
+				description: "Fixed infinite width toolbar when bookmarks bar was open",
+			},
+			{
+				description: "Fixed disabling 'show newtab button under last active tab' not hiding the button",
+			},
+			{
+				description: "Fixed wrong aligment on glance action buttons",
+			}
 		],
 		features: [
 			"No new features, sorry"
