@@ -1480,6 +1480,44 @@ export const releaseNotes: ReleaseNote[] = [
 		features: [
 			"No new features, sorry"
 		]
+	},
+	{
+		version: "1.0.1-a.17",
+		date: "01/11/2024",
+		image: false,
+		workflowId: 11620213140,
+		extra:
+			"This was another release with the sole purpose of fixing some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
+		fixes: [
+			{
+				description: "Fixed compact mode sidebar breaking when open a link from the other subpanels",
+				isue: 2218
+			},
+			{
+				description: "Allow glance meta key only for macos",
+				issue: 2429
+			},
+			{
+				description: "Fixed changing activation method not applied to tabs",
+				issue: 2429
+			},
+			{
+				description: "Fixed bookmarks toolbar overflowing the top panel",
+				issue: 2434
+			},
+			{
+				description: "Fixed height changing when having too many tabs",
+			},
+			{
+				description: "Fixed Workspace icon jumping in sidebar if not in strip mode",
+				isue: 2413
+			}
+		],
+		features: [
+			"Glance will now be in a single tab, meaning transitioning from glance to full tab will be seamless",
+			"Added escape key for glance",
+			"Glance will now be displayed as a little icon next to the active tab",
+		]
 	}
 ].reverse();
 
