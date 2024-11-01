@@ -93,7 +93,7 @@ function ReviewCard({
 function HeaderMarquee() {
 	return (
 		<div
-			className="absolute relative mb-52 flex size-full w-full flex-col items-center justify-center overflow-hidden"
+			className="relative mb-52 flex size-full w-full flex-col items-center justify-center overflow-hidden"
 			style={{
 				transform: "translateY(-10%)",
 			}}

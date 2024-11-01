@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { ny } from "@/lib/utils";
 import {
 	BicepsFlexedIcon,
@@ -69,6 +70,8 @@ export default function DownloadPage() {
 	}, []);
 
 	const startDownload = () => {
+		const router = useRouter();
+		
 		let releaseTarget: string;
 		if (selectedLinuxDownloadType === "flatpak") {
 			window.open(
@@ -92,7 +95,7 @@ export default function DownloadPage() {
 			console.log("platform: ", selectedPlatform);
 			console.log("compat: ", arch);
 			const baseUrl = isTwilight ? TWILIGHT_BASE_URL : BASE_URL;
-			window.location.replace(`${baseUrl}/${releases[releaseTarget]}`);
+			router.replace(`${baseUrl}/${releases[releaseTarget]}`);
 		}
 		setHasDownloaded(true);
 		throwConfetti();

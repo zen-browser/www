@@ -35,7 +35,7 @@ export async function generateMetadata(
 
 export async function generateStaticParams() {
 	const themes = await getAllThemes();
-	console.log(themes);
+
 	return themes.map((theme) => ({
 		theme: theme.id,
 	}));

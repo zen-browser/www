@@ -1,3 +1,5 @@
+import { useRouter } from "next/navigation";
+
 import { getThemeAuthorLink, ZenTheme } from "@/lib/mods";
 
 import { TagIcon } from "lucide-react";
@@ -21,19 +23,20 @@ export default function ThemeCard({
 	const maxNameLen = 50;
 	const maxDescLen = 100;
 	const authorLink = getThemeAuthorLink(theme);
+	const router = useRouter();
 
 	return (
 		<Card
-			className="h-full select-none flex-col justify-between rounded-xl border-2 border-[transparent] bg-surface transition-all duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333]"
+			className="h-full select-none flex-col justify-between rounded-xl border-2 border-[transparent] bg-surface transition-all duration-200 hover:border-[rgba(0,0,0,.5)] hover:shadow-lg dark:bg-[#121212] dark:hover:border-[#333] cursor-pointer"
 			onMouseDown={(e) => {
 				// IMPORTANT NOTE: We do NOT use a Link component here because of how zen manages site injection.
 				//   please for the love of god, dont change this to a Link component. Please.
 				//
 				// If you had the tentation to change this to a Link component and saw this comment, please
-				//   increase this number: 1
+				//   increase this number: 2
 				if (e.button !== 0 && e.button !== 1) return;
 				if (e.target instanceof HTMLAnchorElement) return;
-				window.open(`/mods/${theme.id}`, e.button === 1 ? "_blank" : "_self");
+				router.push(`/mods/${theme.id}`);
 			}}
 		>
 			<div className="relative m-2 mb-0 hidden aspect-[1.85/1] h-48 overflow-hidden rounded-xl border-2 border-[rgba(0,0,0,.5)] object-cover shadow dark:border-[#333] lg:block lg:h-auto">
