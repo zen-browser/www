@@ -5,13 +5,12 @@ import "../privacy-policy/markdown.css";
 
 export default function PrivacyPolicy() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-start">
-			<div
-				id="policy"
-				className="py-42 mx-auto my-52 flex min-h-screen w-full flex-col p-10 lg:w-1/3 lg:p-0"
-			>
-				<Markdown>
-					{`
+		<div
+			id="policy"
+			className="py-42 mx-auto my-52 flex min-h-screen w-full flex-col p-10 lg:w-1/3 lg:p-0"
+		>
+			<Markdown>
+				{`
 # Main Developer Team
 
 These are the most active developers in the project. Awesome people that make Zen Browser possible, the order is not important, all of them are a big part of the project.
@@ -38,8 +37,7 @@ These are the most active developers in the project. Awesome people that make Ze
 *These are the site contributors:*
 ![Contributors](https://contributors-img.web.app/image?repo=zen-browser/www)
 `}
-				</Markdown>
-			</div>
-		</main>
+			</Markdown>
+		</div>
 	);
 }

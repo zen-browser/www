@@ -37,7 +37,7 @@ function Question() {
 
 export default function Features() {
 	return (
-		<section className="w-full flex-col" id="features">
+		<section className="w-full flex-col pt-28" id="features">
 			<BrowserComplexityExample />
 			<div className="mx-auto mt-16 flex w-full flex-col bg-surface shadow md:w-5/6 md:rounded-md lg:w-3/4 lg:flex-row">
 				<div className="flex-1 p-5 lg:p-12">
@@ -303,7 +303,7 @@ export default function Features() {
 				/>
 			</div>
 			<div className="mx-auto mt-36 flex w-full flex-col md:w-5/6 lg:w-3/4">
-				<div className="flex flex-col justify-center items-center text-center p-16">
+				<div className="flex flex-col items-center justify-center p-16 text-center">
 					<h2 className="text-4xl font-medium text-gray-800 dark:text-gray-100">
 						Introducing Zen Glance{" 👀"}
 					</h2>
@@ -318,7 +318,7 @@ export default function Features() {
 						</Link>
 					</div>
 				</div>
-				<video className="rounded-md object-cover w-full" loop autoPlay muted>
+				<video className="w-full rounded-md object-cover" loop autoPlay muted>
 					<source src="/vids/glance.webm" type="video/webm" />
 				</video>
 			</div>

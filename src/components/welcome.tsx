@@ -5,7 +5,7 @@ import WordPullUp from "./ui/word-pull-up";
 
 export default function WelcomePage() {
 	return (
-		<div className="relative flex min-h-screen w-full flex-col items-center justify-center">
+		<div className="relative flex w-full flex-col items-center justify-center">
 			<WordPullUp
 				className="text-center text-6xl"
 				words="Welcome to Zen Browser!"

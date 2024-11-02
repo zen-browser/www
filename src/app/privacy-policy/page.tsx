@@ -4,13 +4,12 @@ import "./markdown.css";
 
 export default function PrivacyPolicy() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-start">
-			<div
-				id="policy"
-				className="py-42 mx-auto my-52 flex min-h-screen w-full flex-col p-10 lg:w-1/3 lg:p-0"
-			>
-				<Markdown>
-					{`
+		<div
+			id="policy"
+			className="py-42 mx-auto my-52 flex w-full flex-col p-10 lg:w-1/3 lg:p-0"
+		>
+			<Markdown>
+				{`
 # Privacy Policy
 * Last updated: 2024-08-12
 
@@ -23,7 +22,7 @@ Zen Browser is designed with privacy in mind. We do not collect, store, or share
 * Crash reports can be sent to Mozilla Firefox. But, we do not collect any crash reports. Crash reports are sent securely to Mozilla Firefox to help improve the stability of the browser. They do not contain any personal information.
 
 ### **1.1. No Telemetry**
-We do not collect any telemetry data. 
+We do not collect any telemetry data.
 
 However, you can opt-in to share telemetry data to Mozilla for the improvement of FireFox (the base upon which the Zen Browser is built). It will be treated in accordance with their Privacy Policy which you can read about [here](https://www.mozilla.org/en-US/privacy/).
 
@@ -44,13 +43,13 @@ Zen Browser stores certain data locally on your device to enhance your browsing 
 Any customizations, settings, and preferences you make within Zen Browser are stored locally on your device. We do not have access to or control over this data.
 
 ## 3. Sync Feature
-Zen Browser offers a "Sync" feature, this is implemented using Mozilla Firefox's Sync feature. This feature allows you to synchronize your bookmarks, history, passwords, and other data across multiple devices. For this feature to work, your data is encrypted and stored on Mozilla’s servers and is treated in accordance with their Privacy Policy. We, at Zen, cannot view any of this data. 
+Zen Browser offers a "Sync" feature, this is implemented using Mozilla Firefox's Sync feature. This feature allows you to synchronize your bookmarks, history, passwords, and other data across multiple devices. For this feature to work, your data is encrypted and stored on Mozilla’s servers and is treated in accordance with their Privacy Policy. We, at Zen, cannot view any of this data.
 
 * [Mozilla Firefox Sync](https://www.mozilla.org/en-US/privacy/mozilla-accounts/)
 * [This is how we store your passwords](https://support.mozilla.org/en-US/kb/how-firefox-securely-saves-passwords#:~:text=Firefox%20Desktop%20encrypts%20your%20passwords,cryptography%20to%20obscure%20your%20passwords.)
 
 ## 4. Data Security
-Although Zen Browser does not collect your data, we are committed to protecting the information that is stored locally on your device and, if you use the Sync feature, the encrypted data stored on Mozilla's servers. We recommend that you use secure passwords, enable device encryption, and regularly update your software to ensure your data remains safe. 
+Although Zen Browser does not collect your data, we are committed to protecting the information that is stored locally on your device and, if you use the Sync feature, the encrypted data stored on Mozilla's servers. We recommend that you use secure passwords, enable device encryption, and regularly update your software to ensure your data remains safe.
 
 * Note that most of the security measures are taken care by Mozilla Firefox.
 
@@ -88,8 +87,7 @@ If you have any questions or concerns about this Privacy Policy or Zen Browser, 
 ---
 
 By using Zen Browser, you agree to this Privacy Policy. Remember, with Zen, your privacy is in your hands.`}
-				</Markdown>
-			</div>
-		</main>
+			</Markdown>
+		</div>
 	);
 }

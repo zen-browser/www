@@ -155,7 +155,7 @@ export default function DownloadPage() {
 				href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
 			/>
 
-			<div className="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden lg:flex-row">
+			<div className="relative flex w-full flex-col items-center justify-center overflow-hidden lg:flex-row">
 				<div className="mx-auto flex w-full flex-col justify-center p-10 md:p-20 lg:w-1/2 lg:p-0 2xl:w-1/3">
 					<AlertModal
 						open={alertOpen}

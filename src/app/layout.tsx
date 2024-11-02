@@ -63,10 +63,12 @@ export default async function RootLayout({
 					disableTransitionOnChange
 				>
 					<StyledComponentsRegistry>
-						<div className="mt-5">
-							{children}
+						<div className="flex min-h-screen flex-col">
+							<Navigation />
+							<main className="flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4">
+								{children}
+							</main>
 							<Footer />
-							<Navigation /> {/* At the bottom of the page */}
 						</div>
 					</StyledComponentsRegistry>
 				</ThemeProvider>
