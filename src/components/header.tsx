@@ -16,8 +16,7 @@ export default function Header() {
 				</div>
 				<p className="mb-16 mt-2 -translate-y-4 animate-fade-in text-balance text-base tracking-tight text-gray-400 opacity-0 [--animation-delay:400ms] md:text-base">
 					Beautifully designed, privacy-focused, and packed with features. We
-					care about
-					<br className="hidden md:block" />
+					care about <br className="hidden md:block" />
 					your experience, not your data.
 				</p>
 				<div className="flex w-full flex-col justify-center md:flex-row">
