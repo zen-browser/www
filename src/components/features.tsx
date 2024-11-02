@@ -54,7 +54,7 @@ export default function Features() {
 						</p>
 						<div className="relative">
 							<Link href="/mods" prefetch={false}>
-								<Button className="mt-8">Browse Themes</Button>
+								<Button className="mt-8">Browse Mods</Button>
 							</Link>
 						</div>
 					</div>
