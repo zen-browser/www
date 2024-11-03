@@ -20,6 +20,7 @@ export default function ThemesSearch({
 	handleSortByChange,
 	limit,
 	handleLimitChange,
+	allTags,
 }: {
 	input: string;
 	setInput: (input: string) => void;
@@ -29,6 +30,7 @@ export default function ThemesSearch({
 	handleSortByChange: (method: string) => void;
 	limit: number;
 	handleLimitChange: (value: string) => void;
+	allTags: string[];
 }) {
 	const sortOptions = ["name", "createdAt", "updatedAt"];
 	const limitOptions = [12, 24, 36];
@@ -62,12 +64,12 @@ export default function ThemesSearch({
 					Create your theme
 				</Button>*/}
 			</div>
-			<div className="flex gap-2">
+			<div className="my-4 flex gap-2">
 				<Select
 					value={sortOptions.includes(sortBy) ? sortBy : undefined}
 					onValueChange={handleSortByChange}
 				>
-					<SelectTrigger className="mt-4 w-full sm:w-[180px]">
+					<SelectTrigger className="w-full sm:w-[180px]">
 						<SelectValue placeholder="Sort by" />
 					</SelectTrigger>
 					<SelectContent>
@@ -80,7 +82,7 @@ export default function ThemesSearch({
 					value={limitOptions.includes(limit) ? limit.toString() : undefined}
 					onValueChange={handleLimitChange}
 				>
-					<SelectTrigger className="mt-4 w-full sm:w-[180px]">
+					<SelectTrigger className="w-full sm:w-[180px]">
 						<SelectValue placeholder="Items per page" />
 					</SelectTrigger>
 					<SelectContent>
@@ -90,9 +92,9 @@ export default function ThemesSearch({
 					</SelectContent>
 				</Select>
 			</div>
-			<div className="mt-4 flex flex-wrap gap-2">
+			<div className="flex flex-wrap gap-2">
 				<div className="mb-6 flex flex-wrap gap-2">
-					{TAGS.map((tag) => (
+					{allTags.map((tag) => (
 						<Button
 							key={tag}
 							variant={tags.includes(tag) ? "default" : "secondary"}
