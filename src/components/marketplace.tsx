@@ -38,11 +38,11 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	const isNextNavigationDisabled = page >= totalPages;
 
 	return (
-		<div className="relative mx-auto flex h-full w-full flex-grow flex-col lg:flex-row">
+		<div className="relative mx-auto flex h-full w-full flex-grow flex-col pt-16 lg:flex-row">
 			{/* Sidebar */}
-			<div className="relative w-full flex-1 bg-surface px-10 py-48 shadow dark:bg-[#121212] lg:mt-24 lg:w-fit lg:rounded-br-lg lg:rounded-tr-lg lg:py-32 xl:w-1/3 2xl:w-1/4">
+			<div className="relative w-full max-w-[28rem] flex-1 bg-surface px-10 py-48 shadow dark:bg-[#121212] lg:w-fit lg:rounded-br-lg lg:rounded-tr-lg lg:py-32 xl:w-1/3 2xl:w-1/4">
 				<StickyBox
-					className="h-fit min-w-52 text-xs text-muted-foreground lg:mb-0"
+					className="h-fit w-full text-xs text-muted-foreground lg:mb-0"
 					offsetTop={120}
 				>
 					<h1 className="text-4xl font-bold lg:text-7xl">Zen Mods</h1>
@@ -63,12 +63,20 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			</div>
 
 			{/* Main content */}
-			<div className="flex w-full flex-col justify-between pt-16 lg:w-auto">
+			<div className="flex w-full flex-col justify-between lg:w-auto">
 				{/* Mods Grid */}
-				<div className="grid w-full grid-cols-1 gap-8 px-5 pt-6 lg:w-auto lg:gap-y-16 lg:px-10 xl:w-auto xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
-					{currentThemes.map((theme) => (
-						<ThemeCard key={theme.name} theme={theme} />
-					))}
+				<div className="grid w-full grid-cols-1 gap-8 px-5 lg:w-auto lg:gap-y-16 lg:px-10 xl:w-auto xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
+					{currentThemes.length > 0 ? (
+						currentThemes.map((theme) => (
+							<ThemeCard key={theme.name} theme={theme} />
+						))
+					) : (
+						<div className="flex h-96 w-full items-start justify-start">
+							<p className="text-lg text-muted-foreground">
+								No themes found. Try adjusting your search filters.
+							</p>
+						</div>
+					)}
 				</div>
 
 				{/* Pagination */}
