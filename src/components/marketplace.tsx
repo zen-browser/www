@@ -31,6 +31,8 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 		currentThemes,
 		updateSearchParams,
 		allTags,
+		sortOrder,
+		setSortOrder,
 	} = useMarketplace(themes);
 
 	const startPage = Math.max(1, page - 2);
@@ -60,6 +62,9 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 						limit={limit}
 						handleLimitChange={setLimit}
 						allTags={allTags}
+						sortOrder={sortOrder}
+						setSortOrder={setSortOrder}
+						updateSearchParams={updateSearchParams}
 					/>
 				</StickyBox>
 			</div>
