@@ -65,107 +65,118 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 			{/* Main content */}
 			<div className="flex w-full flex-col justify-between lg:w-auto">
 				{/* Mods Grid */}
-				<div className="grid w-full grid-cols-1 gap-8 px-5 lg:w-auto lg:gap-y-16 lg:px-10 xl:w-auto xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
-					{currentThemes.length > 0 ? (
-						currentThemes.map((theme) => (
-							<ThemeCard key={theme.name} theme={theme} />
-						))
-					) : (
-						<div className="flex h-96 w-full items-start justify-start">
-							<p className="text-lg text-muted-foreground">
-								No themes found. Try adjusting your search filters.
-							</p>
+				{currentThemes.length > 0 ? (
+					<>
+						<div className="grid w-full grid-cols-1 gap-8 px-5 lg:w-auto lg:gap-y-16 lg:px-10 xl:w-auto xl:grid-cols-2 2xl:grid-cols-3 3xl:grid-cols-4">
+							{currentThemes.map((theme) => (
+								<ThemeCard key={theme.name} theme={theme} />
+							))}
 						</div>
-					)}
-				</div>
-
-				{/* Pagination */}
-				<div className="my-8 flex w-full items-center justify-center">
-					<Pagination>
-						<PaginationContent>
-							<PaginationItem
-								className={ny(isPrevNavigationDisabled && "cursor-not-allowed")}
-							>
-								<PaginationPrevious
-									href={updateSearchParams({ page: page - 1 })}
-									aria-disabled={isPrevNavigationDisabled}
-									className={ny(
-										"px-4",
-										isPrevNavigationDisabled
-											? "pointer-events-none text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
-											: "",
-									)}
-								/>
-							</PaginationItem>
-							{totalPages > 4 && page > 3 && (
-								<PaginationItem key={-1} className="hidden md:block">
-									<PaginationEllipsis />
-								</PaginationItem>
-							)}
-
-							{[...Array(endPage - startPage + 1)].map((_, index) => {
-								const pageIndex = startPage + index;
-								return (
-									<PaginationItem key={pageIndex} className="hidden md:block">
-										<PaginationLink
-											href={updateSearchParams({ page: pageIndex })}
-											aria-current={page === pageIndex}
+						{/* Pagination */}
+						<div className="my-8 flex w-full items-center justify-center">
+							<Pagination>
+								<PaginationContent>
+									<PaginationItem
+										className={ny(
+											isPrevNavigationDisabled && "cursor-not-allowed",
+										)}
+									>
+										<PaginationPrevious
+											href={updateSearchParams({ page: page - 1 })}
+											aria-disabled={isPrevNavigationDisabled}
 											className={ny(
-												page === pageIndex ? "border-outline border" : "",
-												"rounded-md",
+												"px-4",
+												isPrevNavigationDisabled
+													? "pointer-events-none text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
+													: "",
 											)}
-										>
-											{pageIndex}
-										</PaginationLink>
+										/>
 									</PaginationItem>
-								);
-							})}
-							{totalPages > 4 && page < totalPages - 2 && (
-								<>
-									<PaginationItem key={totalPages} className="hidden md:block">
-										<PaginationEllipsis />
-									</PaginationItem>
-									{totalPages > 4 && page < totalPages && (
-										<PaginationItem
-											key={totalPages}
-											className="hidden md:block"
-										>
-											<PaginationLink
-												href={updateSearchParams({ page: totalPages })}
-												aria-current={page === totalPages}
-												className={ny(
-													page === totalPages ? "border-outline border" : "",
-													"rounded-md",
-												)}
-											>
-												{totalPages}
-											</PaginationLink>
+									{totalPages > 4 && page > 3 && (
+										<PaginationItem key={-1} className="hidden md:block">
+											<PaginationEllipsis />
 										</PaginationItem>
 									)}
-								</>
-							)}
-							<div className="block px-2 md:hidden">
-								<span>
-									{page} of {totalPages}
-								</span>
-							</div>
-							<PaginationItem
-								className={ny(isNextNavigationDisabled && "cursor-not-allowed")}
-							>
-								<PaginationNext
-									href={updateSearchParams({ page: page + 1 })}
-									aria-disabled={isNextNavigationDisabled}
-									className={ny(
-										"px-4",
-										isNextNavigationDisabled
-											? "pointer-events-none text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
-											: "",
+
+									{[...Array(endPage - startPage + 1)].map((_, index) => {
+										const pageIndex = startPage + index;
+										return (
+											<PaginationItem
+												key={pageIndex}
+												className="hidden md:block"
+											>
+												<PaginationLink
+													href={updateSearchParams({ page: pageIndex })}
+													aria-current={page === pageIndex}
+													className={ny(
+														page === pageIndex ? "border-outline border" : "",
+														"rounded-md",
+													)}
+												>
+													{pageIndex}
+												</PaginationLink>
+											</PaginationItem>
+										);
+									})}
+									{totalPages > 4 && page < totalPages - 2 && (
+										<>
+											<PaginationItem
+												key={totalPages}
+												className="hidden md:block"
+											>
+												<PaginationEllipsis />
+											</PaginationItem>
+											{totalPages > 4 && page < totalPages && (
+												<PaginationItem
+													key={totalPages}
+													className="hidden md:block"
+												>
+													<PaginationLink
+														href={updateSearchParams({ page: totalPages })}
+														aria-current={page === totalPages}
+														className={ny(
+															page === totalPages
+																? "border-outline border"
+																: "",
+															"rounded-md",
+														)}
+													>
+														{totalPages}
+													</PaginationLink>
+												</PaginationItem>
+											)}
+										</>
 									)}
-								/>
-							</PaginationItem>
-						</PaginationContent>
-					</Pagination>
-				</div>
+									<div className="block px-2 md:hidden">
+										<span>
+											{page} of {totalPages}
+										</span>
+									</div>
+									<PaginationItem
+										className={ny(
+											isNextNavigationDisabled && "cursor-not-allowed",
+										)}
+									>
+										<PaginationNext
+											href={updateSearchParams({ page: page + 1 })}
+											aria-disabled={isNextNavigationDisabled}
+											className={ny(
+												"px-4",
+												isNextNavigationDisabled
+													? "pointer-events-none text-muted-foreground hover:bg-transparent hover:text-muted-foreground"
+													: "",
+											)}
+										/>
+									</PaginationItem>
+								</PaginationContent>
+							</Pagination>
+						</div>
+					</>
+				) : (
+					<p className="px-5 text-lg text-muted-foreground">
+						No mods found. Try adjusting your search filters.
+					</p>
+				)}
 			</div>
 		</div>
 	);
