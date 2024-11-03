@@ -135,11 +135,7 @@ export function getThemesFromSearch(
 ): ZenTheme[] {
 	const normalizedQuery = query.toLowerCase();
 
-	// If there's no query and no tags, return all themes (or handle no results case explicitly)
-	if (!normalizedQuery && tags.length === 0) {
-		return themes; // Or return an empty array [] if you want no results by default
-	}
-
+	// Filter themes based on query, tags, and date
 	const filteredThemes = themes.filter((theme) => {
 		const matchesQuery = theme.name.toLowerCase().includes(normalizedQuery);
 		const matchesTag =

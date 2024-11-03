@@ -24,8 +24,19 @@ function useMarketplace(themes: ZenTheme[]) {
 	// Current page themes
 	const currentThemes = useMemo(() => {
 		const start = (page - 1) * limit;
-		return filteredThemes.length > 0 ? filteredThemes.slice(start, start + limit) : [];
+		return filteredThemes.length > 0
+			? filteredThemes.slice(start, start + limit)
+			: [];
 	}, [filteredThemes, page, limit]);
+
+	// Derived value: all unique tags
+	const allTags = useMemo(() => {
+		const tagSet = new Set<string>();
+		themes.forEach((theme) => {
+			theme.tags.forEach((tag) => tagSet.add(tag));
+		});
+		return Array.from(tagSet);
+	}, [themes]);
 
 	// Helper function to update URL search params
 	const updateSearchParams = (
@@ -113,6 +124,7 @@ function useMarketplace(themes: ZenTheme[]) {
 		setPage: handlePageChange,
 		totalPages,
 		currentThemes,
+		allTags,
 		updateSearchParams,
 	};
 }
