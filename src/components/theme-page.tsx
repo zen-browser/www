@@ -18,9 +18,9 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
 	const readme = await getThemeMarkdown(theme);
 
 	return (
-		<div className="relative mx-auto flex flex-col items-start lg:mt-24 lg:flex-row">
-			<div className="w-md relative mx-auto mr-5 flex h-full w-full flex-col rounded-lg border bg-surface p-5 shadow md:mx-0 md:max-w-sm lg:sticky lg:top-24">
-				<div className="mb-2 flex w-full items-center justify-between">
+		<div className="relative mx-auto mt-24 flex flex-1 flex-col items-start gap-8 px-5 lg:flex-row">
+			<div className="relative flex h-full w-full flex-col rounded-lg border bg-surface p-5 px-4 shadow md:mx-0 lg:sticky lg:top-24 lg:max-w-sm">
+				<div className="flex w-full items-center justify-between">
 					<GoBack />
 					{theme.homepage && (
 						<a
@@ -77,7 +77,7 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
 					<div className="opacity-70">v{theme.version}</div>
 				</div>
 			</div>
-			<div className="flex w-full max-w-xl flex-col px-5 lg:min-h-[calc(100vh/2-2rem)] lg:min-w-96 lg:pl-10">
+			<div className="flex w-full max-w-xl flex-col lg:min-h-[calc(100vh/2-2rem)] lg:min-w-96 lg:pl-10">
 				<img
 					src={theme.image}
 					alt={theme.name}
