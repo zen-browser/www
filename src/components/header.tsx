@@ -9,7 +9,7 @@ export default function Header() {
 		<>
 			<section
 				id="hero"
-				className="relative mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 text-center md:mt-[-50px] md:px-8"
+				className="relative mx-auto flex min-h-svh max-w-7xl flex-col justify-center px-6 text-center md:mt-[-50px] md:px-8"
 			>
 				<div className="relative">
 					<CoolHeaderText />

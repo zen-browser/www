@@ -47,9 +47,5 @@ export default async function ThemeInfoPage({
 	params: { theme: string };
 }) {
 	const { theme } = params;
-	return (
-		<main className="flex min-h-screen flex-col items-center justify-start">
-			<ThemePage themeID={theme} />
-		</main>
-	);
+	return <ThemePage themeID={theme} />;
 }

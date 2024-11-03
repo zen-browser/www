@@ -70,7 +70,7 @@ export default function ReleaseNoteElement({ data }: { data: ReleaseNote }) {
 	return (
 		<section
 			className={ny(
-				"relative flex flex-col border-t lg:flex-row",
+				"relative flex flex-col border-t pt-28 lg:flex-row",
 				data.version == releaseNotes[0].version ? "mt-24 pt-24" : "mt-36 pt-36",
 			)}
 			id={data.version}
