@@ -18,8 +18,8 @@ export default async function ThemePage({ themeID }: { themeID: string }) {
 	const readme = await getThemeMarkdown(theme);
 
 	return (
-		<div className="relative mx-auto mt-24 flex flex-col items-start lg:mt-56 lg:flex-row">
-			<div className="w-md relative mx-auto mr-5 flex h-full w-full flex-col rounded-lg border bg-surface p-5 shadow md:mx-0 md:max-w-sm lg:sticky lg:top-0">
+		<div className="relative mx-auto flex flex-col items-start lg:mt-24 lg:flex-row">
+			<div className="w-md relative mx-auto mr-5 flex h-full w-full flex-col rounded-lg border bg-surface p-5 shadow md:mx-0 md:max-w-sm lg:sticky lg:top-24">
 				<div className="mb-2 flex w-full items-center justify-between">
 					<GoBack />
 					{theme.homepage && (
