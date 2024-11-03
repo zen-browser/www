@@ -32,7 +32,7 @@ export default function ThemesSearch({
 	handleLimitChange: (value: string) => void;
 	allTags: string[];
 }) {
-	const sortOptions = ["name", "createdAt", "updatedAt"];
+	const sortOptions = ["name", "newest", "oldest", "updatedAt"];
 	const limitOptions = [12, 24, 36];
 	return (
 		<>
@@ -74,8 +74,9 @@ export default function ThemesSearch({
 					</SelectTrigger>
 					<SelectContent>
 						<SelectItem value="name">Alphabetical</SelectItem>
-						<SelectItem value="createdAt">Created Date</SelectItem>
-						<SelectItem value="updatedAt">Updated Date</SelectItem>
+						<SelectItem value="newest">Newest</SelectItem>
+						<SelectItem value="oldest">Oldest</SelectItem>
+						<SelectItem value="updatedAt">Recently Updated</SelectItem>
 					</SelectContent>
 				</Select>
 				<Select

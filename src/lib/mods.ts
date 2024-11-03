@@ -163,10 +163,12 @@ export function getThemesFromSearch(
 		// Sort by selected sort method
 		if (sortBy === "name") {
 			return a.name.localeCompare(b.name);
-		} else if (sortBy === "createdAt") {
+		} else if (sortBy === "newest") {
+			return b.createdAt.getTime() - a.createdAt.getTime(); // Newest first
+		} else if (sortBy === "oldest") {
 			return a.createdAt.getTime() - b.createdAt.getTime(); // Oldest first
 		} else if (sortBy === "updatedAt") {
-			return b.updatedAt.getTime() - a.updatedAt.getTime(); // Newest first
+			return b.updatedAt.getTime() - a.updatedAt.getTime(); // Recently updated first
 		}
 
 		return 0; // Default to no sorting if sortBy is unrecognized
