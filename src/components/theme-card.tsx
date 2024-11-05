@@ -36,7 +36,7 @@ export default function ThemeCard({
 				//   increase this number: 2
 				if (e.button !== 0 && e.button !== 1) return;
 				if (e.target instanceof HTMLAnchorElement) return;
-				router.push(`/mods/${theme.id}`);
+				document.location.href = `/mods/${theme.id}`;
 			}}
 		>
 			<div className="relative m-2 mb-0 hidden aspect-[1.85/1] h-48 overflow-hidden rounded-xl border-2 border-[rgba(0,0,0,.5)] object-cover shadow dark:border-[#333] lg:block lg:h-auto">
