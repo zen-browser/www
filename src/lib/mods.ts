@@ -131,6 +131,7 @@ export function getThemesFromSearch(
 	query: string,
 	tags: string[],
 	sortBy: string,
+	sortOrder: string,
 	createdBefore?: Date,
 ): ZenTheme[] {
 	const normalizedQuery = query.toLowerCase();
@@ -162,11 +163,17 @@ export function getThemesFromSearch(
 
 		// Sort by selected sort method
 		if (sortBy === "name") {
-			return a.name.localeCompare(b.name);
+			return sortOrder === "asc"
+				? a.name.localeCompare(b.name)
+				: b.name.localeCompare(a.name);
 		} else if (sortBy === "createdAt") {
-			return a.createdAt.getTime() - b.createdAt.getTime(); // Oldest first
+			return sortOrder === "asc"
+				? b.createdAt.getTime() - a.createdAt.getTime()
+				: a.createdAt.getTime() - b.createdAt.getTime();
 		} else if (sortBy === "updatedAt") {
-			return b.updatedAt.getTime() - a.updatedAt.getTime(); // Newest first
+			return sortOrder === "asc"
+				? b.updatedAt.getTime() - a.updatedAt.getTime()
+				: a.updatedAt.getTime() - b.updatedAt.getTime();
 		}
 
 		return 0; // Default to no sorting if sortBy is unrecognized

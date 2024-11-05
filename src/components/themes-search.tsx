@@ -1,4 +1,11 @@
-import { SearchIcon, TagIcon } from "lucide-react";
+import {
+	ArrowDownAzIcon,
+	ArrowUpAzIcon,
+	SearchIcon,
+	CalendarArrowUpIcon,
+	CalendarArrowDownIcon,
+	TagIcon,
+} from "lucide-react";
 import { Button } from "./ui/button";
 import {
 	Select,
@@ -8,8 +15,9 @@ import {
 	SelectValue,
 } from "./ui/select";
 import type React from "react";
+import Link from "next/link";
 
-const TAGS = ["color scheme", "dark", "tabs"];
+// const TAGS = ["color scheme", "dark", "tabs"];
 
 export default function ThemesSearch({
 	input,
@@ -21,6 +29,9 @@ export default function ThemesSearch({
 	limit,
 	handleLimitChange,
 	allTags,
+	sortOrder,
+	setSortOrder,
+	updateSearchParams,
 }: {
 	input: string;
 	setInput: (input: string) => void;
@@ -31,11 +42,17 @@ export default function ThemesSearch({
 	limit: number;
 	handleLimitChange: (value: string) => void;
 	allTags: string[];
+	sortOrder: string;
+	setSortOrder: (value: string) => void;
+	updateSearchParams: (
+		overrides?: Partial<Record<string, string | number>>,
+	) => string;
 }) {
 	const sortOptions = ["name", "createdAt", "updatedAt"];
+	const sortOrderOptions = ["asc", "desc"];
 	const limitOptions = [12, 24, 36];
 	return (
-		<>
+		<div className="flex flex-col gap-4">
 			<div className="mt-10 flex w-full items-center overflow-hidden rounded-full border border-black bg-black/10 p-2 dark:border-muted dark:bg-muted/50">
 				<SearchIcon className="mx-4 size-6 text-black dark:text-white" />
 				<input
@@ -64,20 +81,7 @@ export default function ThemesSearch({
 					Create your theme
 				</Button>*/}
 			</div>
-			<div className="my-4 flex gap-2">
-				<Select
-					value={sortOptions.includes(sortBy) ? sortBy : undefined}
-					onValueChange={handleSortByChange}
-				>
-					<SelectTrigger className="w-full sm:w-[180px]">
-						<SelectValue placeholder="Sort by" />
-					</SelectTrigger>
-					<SelectContent>
-						<SelectItem value="name">Alphabetical</SelectItem>
-						<SelectItem value="createdAt">Created Date</SelectItem>
-						<SelectItem value="updatedAt">Updated Date</SelectItem>
-					</SelectContent>
-				</Select>
+			<div className="flex gap-2">
 				<Select
 					value={limitOptions.includes(limit) ? limit.toString() : undefined}
 					onValueChange={handleLimitChange}
@@ -91,6 +95,46 @@ export default function ThemesSearch({
 						<SelectItem value="36">Show 36 Mods</SelectItem>
 					</SelectContent>
 				</Select>
+				<Select
+					value={sortOptions.includes(sortBy) ? sortBy : undefined}
+					onValueChange={handleSortByChange}
+				>
+					<SelectTrigger className="w-full sm:w-[180px]">
+						<SelectValue placeholder="Sort by" />
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value="name">Alphabetical</SelectItem>
+						<SelectItem value="createdAt">Created Date</SelectItem>
+						<SelectItem value="updatedAt">Updated Date</SelectItem>
+					</SelectContent>
+				</Select>
+				<Button
+					asChild
+					className="bg-transparnt aspect-square rounded-md"
+					size="icon"
+					variant="outline"
+					onClick={() => setSortOrder(sortOrder === "asc" ? "desc" : "asc")}
+				>
+					<Link
+						aria-label="Change Sort Order"
+						href={updateSearchParams({
+							order: sortOrder === "asc" ? "desc" : "asc",
+						})}
+						className="text-sm font-normal"
+					>
+						{sortBy === "name" ? (
+							sortOrder === "asc" ? (
+								<ArrowDownAzIcon className="size-5" />
+							) : (
+								<ArrowUpAzIcon className="size-5" />
+							)
+						) : sortOrder === "asc" ? (
+							<CalendarArrowDownIcon className="size-5" />
+						) : (
+							<CalendarArrowUpIcon className="size-5" />
+						)}
+					</Link>
+				</Button>
 			</div>
 			<div className="flex flex-wrap gap-2">
 				<div className="mb-6 flex flex-wrap gap-2">
@@ -108,6 +152,6 @@ export default function ThemesSearch({
 					))}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 }

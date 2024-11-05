@@ -12,11 +12,18 @@ function useMarketplace(themes: ZenTheme[]) {
 	const [tags, setTags] = useState(searchParams.get("tags")?.split(",") || []);
 	const [limit, setLimit] = useState(Number(searchParams.get("limit") || 12));
 	const [page, setPage] = useState(Number(searchParams.get("page") || 1));
+	const [sortOrder, setSortOrder] = useState(() => {
+		const initialSortOrder = searchParams.get("order");
+		if (sortBy === "createdAt" && !initialSortOrder) {
+			return "desc";
+		}
+		return initialSortOrder || "asc";
+	});
 
 	// Derived value: filtered and sorted themes
 	const filteredThemes = useMemo(() => {
-		return getThemesFromSearch(themes, searchTerm, tags, sortBy);
-	}, [themes, searchTerm, tags, sortBy]);
+		return getThemesFromSearch(themes, searchTerm, tags, sortBy, sortOrder);
+	}, [themes, searchTerm, tags, sortBy, sortOrder]);
 
 	// Derived value: total number of pages
 	const totalPages = Math.max(1, Math.ceil(filteredThemes.length / limit));
@@ -51,6 +58,7 @@ function useMarketplace(themes: ZenTheme[]) {
 			tags: tags.join(","),
 			limit: limit.toString(),
 			page: page.toString(),
+			order: sortOrder,
 			...overrides, // Apply any overrides dynamically (e.g., new page number)
 		};
 
@@ -61,6 +69,7 @@ function useMarketplace(themes: ZenTheme[]) {
 			tags: mergedState.tags ? mergedState.tags : undefined,
 			limit: mergedState.limit !== "12" ? mergedState.limit : undefined,
 			page: mergedState.page !== "1" ? mergedState.page : undefined,
+			order: mergedState.order !== "asc" ? mergedState.order : undefined,
 		};
 
 		// Only add params that are defined and non-empty
@@ -106,6 +115,11 @@ function useMarketplace(themes: ZenTheme[]) {
 		router.replace(updateSearchParams({ page: newPage.toString() }));
 	};
 
+	const handleSortOrderChange = (newSortOrder: string) => {
+		setSortOrder(newSortOrder);
+		router.replace(updateSearchParams({ order: newSortOrder }));
+	};
+
 	// Sync themes to state
 	useEffect(() => {
 		setPage((prev) => Math.min(prev, totalPages));
@@ -126,6 +140,9 @@ function useMarketplace(themes: ZenTheme[]) {
 		currentThemes,
 		allTags,
 		updateSearchParams,
+		sortOrder,
+		setSortOrder,
+		handleSortOrderChange,
 	};
 }
 

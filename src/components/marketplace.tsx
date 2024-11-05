@@ -31,6 +31,8 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 		currentThemes,
 		updateSearchParams,
 		allTags,
+		sortOrder,
+		setSortOrder,
 	} = useMarketplace(themes);
 
 	const startPage = Math.max(1, page - 2);
@@ -41,7 +43,7 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 	return (
 		<div className="relative mx-auto flex h-full w-full flex-grow flex-col pt-16 lg:flex-row">
 			{/* Sidebar */}
-			<div className="relative w-full max-w-[28rem] flex-1 bg-surface px-10 py-48 shadow dark:bg-[#121212] lg:w-fit lg:rounded-br-lg lg:rounded-tr-lg lg:py-32 xl:w-1/3 2xl:w-1/4">
+			<div className="relative mx-5 mb-8 flex-1 rounded-xl bg-surface px-5 py-16 shadow dark:bg-[#121212] lg:mx-0 lg:mb-0 lg:max-w-[27rem] lg:rounded-l-none lg:rounded-br-lg lg:rounded-tr-lg lg:px-10 lg:py-32 xl:w-1/3 2xl:w-1/4">
 				<StickyBox
 					className="h-fit w-full text-xs text-muted-foreground lg:mb-0"
 					offsetTop={120}
@@ -60,6 +62,9 @@ function MarketplacePage({ themes }: { themes: ZenTheme[] }) {
 						limit={limit}
 						handleLimitChange={setLimit}
 						allTags={allTags}
+						sortOrder={sortOrder}
+						setSortOrder={setSortOrder}
+						updateSearchParams={updateSearchParams}
 					/>
 				</StickyBox>
 			</div>
