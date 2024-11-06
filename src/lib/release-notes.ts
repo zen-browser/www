@@ -1594,6 +1594,10 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed custom colours doubling and colour dots getting pulled from other spaces",
 			},
 			{
+				description: "Fixed glance changing to the next tab if the current tab isn't the last one",
+				issue: 2526
+			},
+			{
 				description: "Fixed compact mode background being possibly transparent if the custom colors allow it",
 			},
 			{
