@@ -1518,6 +1518,99 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added escape key for glance",
 			"Glance will now be displayed as a little icon next to the active tab",
 		]
+	},
+	{
+		version: "1.0.1-a.18",
+		date: "06/11/2024",
+		image: true,
+		workflowId: 11710639673,
+		extra:
+			"This release brings some quality of life improvements and new features to Zen Browser! First thing you would notice, pinned tabs look like normal tabs now. Why? Because we added 'essentials'.\n\nEssentials are a new way to manage your tabs, workspaces and pinned tabs. You can now have pinned tabs your workspace, and essentials will be the only tabs that are not workspace specific.\n\nWe've also started to experiment with new layouts and designs for the browser, and we've added a more native look to the browser!",
+		features: [
+			"Color picker colors will now appear where the mouse has been clicked",
+			"Added a workspace indicator that will show the workspace name and icon",
+			"Created the first version of Zen Essentials!",
+			"Pinned tabs and essentials will stay active in all windows",
+			"For macos, the browser will now have a transparency/blur factor, based on the theme's contrast. Giving a more native look to the browser",
+			"Improved UI theme colors generation and newtab aligment",
+			"Default border radius will be OS specific, giving a more native look to the browser",
+			"Added weather widget to the newtab",
+			"Updated to the latest stable version of Firefox (132.0.1)",
+			"Modified auto-detected colors to provide a more consistent experience",
+			"Changed glance looks slightly",
+			"Glance tabs will now appear as a small square next to the parent tab",
+		],
+		fixes: [
+			{
+				description: "Fixed release notes link being broken on some places",
+			},
+			{
+				description: "Fixed shadow offset, making the webview look weird on the left side",
+			},
+			{
+				description: "Fixed closing glance when there was only one tab left",
+			},
+			{
+				description: "Fixed custom color input accepting every possible value",
+			},
+			{
+				description: "Fixed glance buttons not having any background on hover",
+			},
+			{
+				description: "Fixed urlbar styling inconsistencies, some buttons had offset padding",
+			},
+			{
+				description: "Fixed having glance on pinned tabs",
+			},
+			{
+				description: "Fixed web panels being reloaded when unpining them",
+			},
+			{
+				description: "Fixed being able to unload splitted tabs",
+				isue: 2236
+			},
+			{
+				description: "Fixed having a duplicate new-tab button when creating new profiles",
+			},
+			{
+				description: "Fixed files being downloaded into a temp folder",
+			},
+			{
+				description: "Fixed opening glance inside a previous glance window, leaving the background transparent",
+			},
+			{
+				description: "Fixed issues causing intermittent video playback problems on some sites",
+			},
+			{
+				description: "Fixed an issue causing themes to reset to default after restarting",
+			},
+			{
+				description: "Fixed not updating workspace name in sidebar when saving",
+			},
+			{
+				description: "Fixed using the wrong macos window vibrancy material",
+			},
+			{
+				description: "Fixed custom colours doubling and colour dots getting pulled from other spaces",
+			},
+			{
+				description: "Fixed compact mode background being possibly transparent if the custom colors allow it",
+			},
+			{
+				description: "Fixed not having any background if the workspace hasnt gotten a color yet",
+			},
+			{
+				description: "Fixed some translations issues",
+			},
+		],
+		breakingChanges: [
+			"Changed default layout of the browser, you might want to reset your layout to default",
+			"Disabled experimental webview border radius for macos users until we fix the font display issues",
+		],
+		themeChanges: [
+			"Compact mode will now use '--zen-main-browser-background-toolbar' as the background color",
+			"Added a new variable for the translucency of the browser in macos",
+		]
 	}
 ].reverse();
 
