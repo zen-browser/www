@@ -1519,7 +1519,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Glance will now be displayed as a little icon next to the active tab",
 		]
 	},
-	{
+	/*{
 		version: "1.0.1-a.18",
 		date: "06/11/2024",
 		image: true,
@@ -1615,7 +1615,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Compact mode will now use '--zen-main-browser-background-toolbar' as the background color",
 			"Added a new variable for the translucency of the browser in macos",
 		]
-	}
+	}*/
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
