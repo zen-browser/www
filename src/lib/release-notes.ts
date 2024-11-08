@@ -1519,7 +1519,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Glance will now be displayed as a little icon next to the active tab",
 		]
 	},
-	/*{
+	{
 		version: "1.0.1-a.18",
 		date: "06/11/2024",
 		image: true,
@@ -1537,8 +1537,11 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added weather widget to the newtab",
 			"Updated to the latest stable version of Firefox (132.0.1)",
 			"Modified auto-detected colors to provide a more consistent experience",
+			"Hide the workspaces icons when there's only one workspace",
 			"Changed glance looks slightly",
 			"Glance tabs will now appear as a small square next to the parent tab",
+			"Added option to show newtab button at the top of normal tabs",
+			"Added option to add/remove newtab button separation border",
 		],
 		fixes: [
 			{
@@ -1563,7 +1566,13 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed having glance on pinned tabs",
 			},
 			{
+				description: "Fixed opening panel animation, making the popup view look weird while animating",
+			},
+			{
 				description: "Fixed web panels being reloaded when unpining them",
+			},
+			{
+				description: "Fixed not making a default workspace when creating a new profile on specific conditions",
 			},
 			{
 				description: "Fixed being able to unload splitted tabs",
@@ -1604,6 +1613,14 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed not having any background if the workspace hasnt gotten a color yet",
 			},
 			{
+				description: "Fixed texture slider not working",
+				issue: 2711
+			},
+			{
+				description: "Fixed white flash when navigating popups",
+				isue: 2438
+			},
+			{
 				description: "Fixed some translations issues",
 			},
 		],
@@ -1615,7 +1632,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Compact mode will now use '--zen-main-browser-background-toolbar' as the background color",
 			"Added a new variable for the translucency of the browser in macos",
 		]
-	}*/
+	}
 ].reverse();
 
 export function releaseNoteIsAlpha(note: ReleaseNote) {
