@@ -1530,6 +1530,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Color picker colors will now appear where the mouse has been clicked",
 			"Added a workspace indicator that will show the workspace name and icon",
 			"Created the first version of Zen Essentials!",
+			"Added support for forward/backward mouse buttons for switching workspaces",
 			"Pinned tabs and essentials will stay active in all windows",
 			"For macos, the browser will now have a transparency/blur factor, based on the theme's contrast. Giving a more native look to the browser",
 			"Improved UI theme colors generation and newtab aligment",
@@ -1542,6 +1543,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Glance tabs will now appear as a small square next to the parent tab",
 			"Added option to show newtab button at the top of normal tabs",
 			"Added option to add/remove newtab button separation border",
+			"Added touch pad gestures for switching workspaces",
 		],
 		fixes: [
 			{
@@ -1623,6 +1625,9 @@ export const releaseNotes: ReleaseNote[] = [
 			{
 				description: "Fixed some translations issues",
 			},
+			{
+				description: "Fixed workspaces buttons scalling down when being clicked",
+			}
 		],
 		breakingChanges: [
 			"Changed default layout of the browser, you might want to reset your layout to default",
