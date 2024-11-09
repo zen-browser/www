@@ -1521,9 +1521,9 @@ export const releaseNotes: ReleaseNote[] = [
 	},
 	{
 		version: "1.0.1-a.18",
-		date: "06/11/2024",
+		date: "09/11/2024",
 		image: true,
-		workflowId: 11710639673,
+		workflowId: 11758612771,
 		extra:
 			"This release brings some quality of life improvements and new features to Zen Browser! First thing you would notice, pinned tabs look like normal tabs now. Why? Because we added 'essentials'.\n\nEssentials are a new way to manage your tabs, workspaces and pinned tabs. You can now have pinned tabs your workspace, and essentials will be the only tabs that are not workspace specific.\n\nWe've also started to experiment with new layouts and designs for the browser, and we've added a more native look to the browser!",
 		features: [
