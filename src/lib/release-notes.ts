@@ -1635,6 +1635,7 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 		themeChanges: [
 			"Compact mode will now use '--zen-main-browser-background-toolbar' as the background color",
+			"Browser background isn't defined on zen-main-app-wrapper element anymore but on the #browser element",
 			"Added a new variable for the translucency of the browser in macos",
 		]
 	}
