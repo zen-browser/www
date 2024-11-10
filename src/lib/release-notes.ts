@@ -1638,6 +1638,59 @@ export const releaseNotes: ReleaseNote[] = [
 			"Browser background isn't defined on zen-main-app-wrapper element anymore but on the #browser element",
 			"Added a new variable for the translucency of the browser in macos",
 		]
+	},
+	{
+		version: "1.0.1-a.19",
+		date: "10/11/2024",
+		image: false,
+		workflowId: 11767769200,
+		extra:
+			"This release is a small patch to fix some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
+		fixes: [
+			{
+				description: "Fixed inconsistent resize cursors in split view resize mode",
+				issue: 2252
+			},
+			{
+				description: "Fixed having a glance tab over an essential tab",
+			},
+			{
+				description: "Fixed restoring pinned tabs when using private browsing",
+			},
+			{
+				description: "Fixed not being able to remove sidepanel button from the toolbar",
+				isue: 2792
+			},
+			{
+				description: "Fixed support URLs pointing to a 404 pages",
+			},
+			{
+				description: "Fixed extra all-tabs and newtab buttons not appearing on customised toolbar", 
+			},
+			{
+				description: "Fixed workspaces indicator appearing when workspaces are disabled",
+			},
+			{
+				description: "Fixed compact mode toolbar being active when the sidebar is open",
+			},
+			{
+				description: "Workspaces indicator will show the first letter of the name if there's no icon in collapsed mode",
+			},
+			{
+				description: "Fixed sidebar moving the website when having expand on hover enabled",
+			},
+			{
+				description: "Fixed closing glance not unloading the site, causing memory leaks",
+			}
+		],
+		features: [
+			"Made essential tabs a bit smaller and more transparent",
+			"Changed glance looks and animations",
+			"You can now click on the workspace indicator to open the workspaces panel",
+			"Add workspace switching by scrolling sidebar",
+			"Added a max height to pinned tabs, making it less intrusive",
+			"Made workspace indicator stand less out",
+		]
 	}
 ].reverse();
 
