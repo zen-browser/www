@@ -54,8 +54,8 @@ export const FAQ = () => {
 						<AccordionTrigger>How secure is Zen Browser?</AccordionTrigger>
 						<AccordionContent>
 							Zen Browser is built on top of Firefox, which is known for its
-							security features. We also have additional security features like
-							HTTPS only built into Zen Browser to help keep you safe online.
+							security features. We also have additional security features like a
+							HTTPS-only mode built into Zen Browser to help keep you safe online.
 						</AccordionContent>
 					</AccordionItem>
 				</Accordion>
