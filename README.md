@@ -4,7 +4,7 @@
 </picture>
 </div>
 <h1 align="center">
-Zen Browser Website (plyght's edits incl.)
+Zen Browser Website
 </h1>
 
 [![](https://data.jsdelivr.com/v1/package/gh/zen-browser/www/badge)](https://www.jsdelivr.com/package/gh/zen-browser/www)
