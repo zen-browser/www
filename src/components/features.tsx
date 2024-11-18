@@ -11,6 +11,7 @@ import {
 import {
 	Link1Icon,
 	LockClosedIcon,
+	MinusIcon,
 	QuestionMarkIcon,
 	UpdateIcon,
 } from "@radix-ui/react-icons";
@@ -31,7 +32,7 @@ function Checkmark() {
 
 function Question() {
 	return (
-		<QuestionMarkIcon className="h-7 w-7 rounded-full bg-yellow-500 p-1 text-black dark:bg-yellow-400" />
+		<MinusIcon className="h-7 w-7 rounded-full bg-yellow-500 p-1 text-black dark:bg-yellow-400" />
 	);
 }
 
