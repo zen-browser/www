@@ -12,7 +12,6 @@ import {
 	Link1Icon,
 	LockClosedIcon,
 	MinusIcon,
-	QuestionMarkIcon,
 	UpdateIcon,
 } from "@radix-ui/react-icons";
 import Link from "next/link";
