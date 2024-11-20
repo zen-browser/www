@@ -1,0 +1,15 @@
+---
+const { class: className, isPrimary, } = Astro.props;
+---
+
+<button class:list={['px-4 py-2 rounded-full scale-100 transition-transform duration-200', className, isPrimary ? 'bg-coral/70 text-paper hover:!transform hover:!scale-105' : 'hover:bg-coral/10']}>
+  <slot />
+</button>
+<style>
+  button {
+    font-family: "Bricolage Grotesque", sans-serif !important;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+  }
+</style>

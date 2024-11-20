@@ -3,15 +3,24 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro dev --port 3000",
+    "start": "astro preview --port 3000",
     "build": "astro check && astro build",
-    "preview": "astro preview",
+    "preview": "astro preview --port 3000",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.13",
     "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^5.1.2",
+    "astro": "^4.16.13",
+    "autoprefixer": "10.4.14",
+    "motion": "^11.11.17",
+    "postcss": "8.4.21",
+    "prettier": "^3.3.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
   }
 }

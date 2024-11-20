@@ -1,0 +1,17 @@
+---
+const { class: className } = Astro.props;
+---
+
+<h1 class:list={[className]}>
+  <slot />
+</h1>
+<style>
+  h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    margin-bottom: .4rem;
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+</style>
