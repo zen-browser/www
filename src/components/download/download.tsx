@@ -70,7 +70,7 @@ export default function DownloadPage() {
 
 	const startDownload = () => {
 		let releaseTarget: string;
-		if (selectedLinuxDownloadType === "flatpak") {
+		if (selectedPlatform === "Linux" && selectedLinuxDownloadType === "flatpak") {
 			window.open(
 				"https://dl.flathub.org/repo/appstream/io.github.zen_browser.zen.flatpakref",
 			);
@@ -128,6 +128,7 @@ export default function DownloadPage() {
 	const handleContinue = () => {
 		if (
 			flowIndex === 2 &&
+			selectedPlatform === "Linux" &&
 			selectedLinuxDownloadType === "flatpak" &&
 			selectedArchitecture === "specific"
 		) {
@@ -165,10 +166,10 @@ export default function DownloadPage() {
 					{(hasDownloaded && (
 						<div className="mt-20 flex flex-col items-start">
 							<DownloadedHeader />
-							{selectedLinuxDownloadType === "appimage" && (
+							{selectedPlatform === "Linux" && selectedLinuxDownloadType === "appimage" && (
 								<AppImageInstaller isTwilight={isTwilight} />
 							)}
-							{selectedLinuxDownloadType === "flatpak" && <FlatPakInstaller />}
+							{selectedPlatform === "Linux" && selectedLinuxDownloadType === "flatpak" && <FlatPakInstaller />}
 						</div>
 					)) || (
 						<>
