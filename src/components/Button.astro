@@ -1,8 +1,8 @@
 ---
-const { class: className, isPrimary, } = Astro.props;
+const { class: className, isPrimary, isBordered } = Astro.props;
 ---
 
-<button class:list={['px-4 py-2 rounded-full transition-transform duration-200', className, isPrimary ? 'bg-coral opacity-60 text-paper hover:!transform hover:!scale-105' : 'hover:bg-coral/10']}>
+<button class:list={['px-4 py-2 flex gap-2 items-center justify-center rounded-full transition-transform duration-200', className, isPrimary ? 'bg-button-primary text-paper hover:!transform hover:!scale-105' : !isBordered ? 'hover:bg-dark/10' : 'border-2 border-dark hover:bg-dark hover:shadow-sm hover:text-paper !transition-bg']} >
   <slot />
 </button>
 <style>
