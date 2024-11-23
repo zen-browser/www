@@ -1,4 +1,6 @@
-# Astro Starter Kit: Basics
+# https://zen-astro-test.b-cdn.net
+
+## Astro Starter Kit: Basics
 
 ```sh
 npm create astro@latest -- --template basics
