@@ -14,12 +14,23 @@ const { title } = Astro.props;
 		<meta name="robots" content="noindex, nofollow, noarchive, nocache, nosnippet, noimageindex"/>
 		<meta name="robots" content="noindex" />
 		<!-- end -->
-		<meta name="description" content="Astro description" />
+		<meta name="description" content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta property="og:color" content="#F2F0E3">
+		<!-- open graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/share-pic.png" />
+		<meta property="og:description" content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data.." />
+		<meta property="og:color" content="#F2F0E3" />
+		<!-- end -->
 
+		<!-- twitter card -->
+		<!-- ... -->
+		 <!-- end -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
