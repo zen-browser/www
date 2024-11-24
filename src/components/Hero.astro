@@ -1,0 +1,32 @@
+---
+import Title from '../components/Title.astro'
+import Description from '../components/Description.astro'
+import Button from '../components/Button.astro'
+import Circles from '../components/Circles.astro'
+import { Image } from 'astro:assets'
+import myImage from '../assets/browser.png'
+import { ArrowRight } from 'lucide-astro'
+---
+
+<header
+  id="header"
+  class="flex h-screen w-full flex-col items-center gap-24 pt-24 text-center md:gap-[15%] md:pt-[30%]"
+>
+<Circles />
+  <div class="flex flex-col items-center">
+    <Title class='text-center leading-[108px]'>Welcome to<br class="hidden md:block" /> a calmer internet</Title>
+    <Description class='text-center'
+      >Beautifully designed, privacy-focused, and packed with features.<br
+      />We care about your experience, not your data.</Description
+    >
+    <div class="mt-6 gap-3 sm:gap-6 flex flex-col sm:flex-row">
+      <Button isPrimary>
+        Download
+        <ArrowRight class="size-4" />
+      </Button>
+      <Button>Start Exploring</Button>
+    </div>
+  </div>
+  <Image src={myImage} alt="Zen browser" class="mt-10" />
+  <!-- <img src="/browser.webp" id="header-browser-image" alt="Zen browser" /> -->
+</header>

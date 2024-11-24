@@ -2,14 +2,11 @@
 const { class: className, isPrimary, isBordered } = Astro.props;
 ---
 
-<button class:list={['px-4 py-2 flex gap-2 items-center justify-center rounded-full transition-transform duration-200', className, isPrimary ? 'bg-button-primary text-paper hover:!transform hover:!scale-105' : !isBordered ? 'hover:bg-dark/10' : 'border-2 border-dark hover:bg-dark hover:shadow-sm hover:text-paper !transition-bg']} >
+<button class:list={['px-6 py-2 flex gap-2 items-center justify-center rounded-full transition-transform duration-200', className, isPrimary ? 'bg-dark text-paper' : !isBordered ? 'hover:bg-dark border-2 border-dark hover:text-paper' : 'border-2 border-dark hover:bg-dark hover:shadow-sm hover:text-paper !transition-bg']} >
   <slot />
 </button>
 <style>
   button {
-    font-family: "Bricolage Grotesque", sans-serif !important;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
+    font-size: .9rem;
   }
 </style>

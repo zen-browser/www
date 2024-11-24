@@ -2,7 +2,7 @@
 const { class: className } = Astro.props
 ---
 
-<h1 class:list={[className]}>
+<h1 class:list={["text-dark", className]}>
   <slot />
 </h1>
 <style>
@@ -13,10 +13,10 @@ const { class: className } = Astro.props
 
   h1 {
     font-size: 6rem;
-    line-height: 1.5;
+    line-height: 0.9;
     margin-bottom: 0.4rem;
     font-family: 'Junicode', serif;
-    font-weight: 500;
+    font-weight: 600;
     font-variation-settings: unset;
     font-style: normal;
   }

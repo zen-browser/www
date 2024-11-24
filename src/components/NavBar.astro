@@ -1,0 +1,51 @@
+
+---
+import Title from '../components/Title.astro'
+import Description from '../components/Description.astro'
+import Button from '../components/Button.astro'
+import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
+import { ArrowRight, ChevronDown } from 'lucide-astro'
+---
+
+<nav
+  id="nav-bar"
+  class="fixed flex justify-between w-full items-center pt-6 px-6 z-10 top-0 left-0" 
+>
+  <div class="font-bold text-lg">
+    zen browser
+  </div>
+  <Astronav>
+    <MenuItems class="rounded-full border-dark border-2 p-2 pl-4 backdrop-blur-xl bg-paper/30 hidden lg:flex">
+      <ul class="gap-6 lg:flex items-center">
+        <Dropdown class="group">
+          <button class="flex items-center">
+            <span>Getting Started</span>
+            <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200" />
+          </button>
+          <DropdownItems>
+            <div class="absolute top-0">
+              wad
+            </div>
+          </DropdownItems>
+        </Dropdown>
+        <Dropdown class="group">
+          <button class="flex items-center">
+            <span>Useful Links</span>
+            <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200" />
+          </button>
+          <DropdownItems>
+            <div class="absolute top-0">
+              wad
+            </div>
+          </DropdownItems>
+        </Dropdown>
+        <button class="flex items-center">
+          <span>Mods</span>
+        </button>
+        <Button>
+          Download
+          <ArrowRight class="size-4" />
+        </Button>
+    </MenuItems>
+  </Astronav> 
+</nav>
