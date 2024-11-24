@@ -10,15 +10,27 @@ const { title } = Astro.props;
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<!-- no bot here for now -->
+		<meta name="robots" content="noindex, nofollow, noarchive, nocache, nosnippet, noimageindex"/>
+		<meta name="robots" content="noindex" />
+		<!-- end -->
+		<meta name="description" content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+		<meta name="theme-color" content="#da755b">
+		<!-- open graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/share-pic.webp" />
+		<meta property="og:description" content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data.." />
+		<meta property="og:color" content="#da755b3" />
+		<!-- twitter card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		 <!-- Fonts -->
+		 <link rel="preconnect" href="https://fonts.bunny.net">
+		 <link href="https://fonts.bunny.net/css?family=bricolage-grotesque:200,300,400,500,600,700,800|instrument-serif:400,400i" rel="stylesheet" />
 	</head>
 	<body class="bg-paper">
 		<slot />

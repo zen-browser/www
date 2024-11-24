@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
 import Description from '../components/Description.astro';
 import Button from '../components/Button.astro';
+import { Image } from 'astro:assets';
+import myImage from "../assets/browser.png";
 import { Github, Lock, Check, HeartHandshake, Shield } from 'lucide-astro'
 ---
 
@@ -17,14 +19,30 @@ import { Github, Lock, Check, HeartHandshake, Shield } from 'lucide-astro'
 					<Button>mods page</Button>
 				</div>
 			</div>
-			<img src="/assets/browser.png" id="header-browser-image" alt="Zen browser" />
+			<Image src={myImage} id="header-browser-image" alt="Zen browser" loading="eager"></Image>
+			<!-- <img src="/browser.webp" id="header-browser-image" alt="Zen browser" /> -->
 		</header>
 		<div class="h-screen bg-dark text-paper flex flex-col lg:flex-row overflow-hidden lg:gap-24 justify-center items-center lg:p-24">
 			<div class:list={["lg:w-1/3 m-24 lg:m-0 lg:ml-24"]}>
 				<Title>Designed to maximize your productivity</Title>
 				<Description>Our browser is designed to be as minimal as possible, so you can focus on what matters most.</Description>
 			</div>
-			<img src="/assets/browser.png" alt="Zen browser" class:list={["lg:w-2/3"]} id="browser-image-productivity" />
+			<div class="w-1/3 h-2/3 bg-paper rounded-lg shadow-sm">
+			</div>
+		</div>
+		<div class="h-screen flex flex-col lg:flex-row overflow-hidden lg:gap-12 justify-center items-center">
+			<div class:list={["lg:w-2/4 h-2/3 px-12 flex flex-col"]}>
+				<Title>Customizable, down to the last pixel</Title>
+				<Description>Zen is built to be as customizable as possible, so you can make it your own.</Description>
+				<Description class="mt-3">Either by using our built-in themes generator and customization tools, using custom CSS, or using community-made mods, the only limit is your imagination.</Description>
+				<div class="w-full h-full mt-10 rounded-md shadow-md mt-auto bg-dark text-paper">
+					VIDEO HERE
+				</div>
+			</div>
+			<div class:list={["lg:w-1/3 h-2/3 bg-zen-blue text-paper p-12 flex justify-end flex-col rounded-lg shadow-sm"]}>
+				<Title>Private, Open Source, and Secure</Title>
+				<Description>Our browser is built onto the Firefox engine, so you can trust that your data is safe with us.</Description>
+			</div>
 		</div>
 	</main>
 </Layout>
