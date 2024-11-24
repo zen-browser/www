@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/tailwind": "^5.1.2",
+    "@fontsource/bricolage-grotesque": "^5.1.0",
     "astro": "^4.16.13",
     "autoprefixer": "10.4.14",
     "lucide-astro": "^0.460.0",
