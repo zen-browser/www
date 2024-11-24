@@ -6,11 +6,16 @@ const { class: className } = Astro.props;
   <slot />
 </h1>
 <style>
+  @font-face {
+    font-family: 'Junicode';
+    src: url('/fonts/JunicodeVF-Roman.woff2') format('woff2');
+  }
+
   h1 {
     font-size: 2.8rem;
     line-height: 1.2;
     margin-bottom: .4rem;
-    font-family: "Instrument Serif", serif;
+    font-family: "Junicode", serif;
     font-weight: 400;
     font-variation-settings: unset;
     font-style: normal;
