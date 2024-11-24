@@ -2,6 +2,9 @@ name: Upload to bunny
  
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - redesign
  
 jobs:
   upload:
