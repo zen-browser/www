@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Title from '../components/Title.astro';
 import Description from '../components/Description.astro';
 import Button from '../components/Button.astro';
+import { Image } from 'astro:assets';
+import myImage from "../assets/browser.png";
 import { Github, Lock, Check, HeartHandshake, Shield } from 'lucide-astro'
 ---
 
@@ -17,7 +19,8 @@ import { Github, Lock, Check, HeartHandshake, Shield } from 'lucide-astro'
 					<Button>mods page</Button>
 				</div>
 			</div>
-			<img src="/assets/browser.png" id="header-browser-image" alt="Zen browser" />
+			<Image src={myImage} id="header-browser-image" alt="Zen browser" loading="eager"></Image>
+			<!-- <img src="/browser.webp" id="header-browser-image" alt="Zen browser" /> -->
 		</header>
 		<div class="h-screen bg-dark text-paper flex flex-col lg:flex-row overflow-hidden lg:gap-24 justify-center items-center lg:p-24">
 			<div class:list={["lg:w-1/3 m-24 lg:m-0 lg:ml-24"]}>
