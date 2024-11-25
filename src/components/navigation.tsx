@@ -126,7 +126,7 @@ export function Navigation() {
 		>
 			<MobileNav />
 			<NavigationMenu>
-				<NavigationMenuList className="hidden w-full items-center justify-between gap-32 py-3 sm:flex">
+				<NavigationMenuList className="hidden w-full items-center justify-between sm:gap-5 md:gap-16 lg:gap-32 py-3 sm:flex">
 					<div>
 						<NavigationMenuItem className="flex cursor-pointer items-center">
 							<NavigationMenuLink href="/">
