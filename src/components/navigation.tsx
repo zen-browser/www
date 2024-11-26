@@ -118,10 +118,15 @@ ListItem.displayName = "ListItem2";
 export function Navigation() {
 	const latestRelease = releaseNotes[0];
 	return (
-		<div className="border-grey sticky left-0 top-0 z-40 flex w-full items-center justify-center border-b bg-background p-2">
+		<div className="border-grey sticky left-0 top-0 z-40 flex w-full items-center justify-center border-b bg-background p-2"
+      style={{
+		backdropFilter: "blur(10px)",
+		WebkitBackdropFilter: "blur(10px)",
+      }}
+		>
 			<MobileNav />
 			<NavigationMenu>
-				<NavigationMenuList className="hidden w-full items-center justify-between gap-32 py-3 sm:flex">
+				<NavigationMenuList className="hidden w-full items-center justify-between sm:gap-5 md:gap-16 lg:gap-32 py-3 sm:flex">
 					<div>
 						<NavigationMenuItem className="flex cursor-pointer items-center">
 							<NavigationMenuLink href="/">

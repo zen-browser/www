@@ -61,7 +61,6 @@ export default async function RootLayout({
 					defaultTheme="system"
 					enableSystem
 					disableTransitionOnChange
-					scriptProps={{ "data-cfasync": "false" }}
 				>
 					<StyledComponentsRegistry>
 						<div className="flex min-h-screen flex-col">
