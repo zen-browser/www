@@ -1727,7 +1727,10 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description: "Fixed right-side sidebar on compact mode occupying the screen space",
-			}
+			},
+			{
+				description: "Fixed bug where a popup window would not close/open a new tab",
+			},
 		],
 		features: [
 			"Updated zen glance animations for smoother transitions and adjust timing (Still in development)",
