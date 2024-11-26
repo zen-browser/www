@@ -1724,6 +1724,9 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description: "Fixed handling container-specific essentials (now available)",
+			},
+			{
+				description: "Fixed right-side sidebar on compact mode occupying the screen space",
 			}
 		],
 		features: [
