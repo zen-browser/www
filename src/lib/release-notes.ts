@@ -1691,6 +1691,54 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added a max height to pinned tabs, making it less intrusive",
 			"Made workspace indicator stand less out",
 		]
+	},
+	{
+		version: "1.0.1-a.20",
+		date: "26/11/2024",
+		image: false,
+		workflowId: 12040407157,
+		extra:
+			"This release only contains bug fixes and small improvements, since we are working on a big update for the next release.\n\nWe are working on a huge rebrand with new website, new layouts (single sidebar, multiple toolbars and horizontal tabs), new looks and branding. We are really exited for what's about to come, people have been giving GREAT critizism about the new UI, and we love it.\n\nStay tuned, next time, we'll be a beta release!",
+		fixes: [
+			{
+				description: "Fix pinned tab state and favicon handling",
+				issue: 2853
+			},
+			{
+				description: "Prevent pins deletion from database on non explicit tab closes (window closing)",
+				issue: 2875,
+			},
+			{
+				description: "Fix inconsistent cursor when resizing split view",
+				issue: 2252
+			},
+			{
+				description: "Fixed changing essential tab when switching workspaces",
+			},
+			{
+				description: "Fixed restoring pinned tabs to their pinned URLs on startup if the option is checked",
+				isue: 2817
+			},
+			{
+				description: "Prevent creating new window for dragging pinned tab out of the window.",
+			},
+			{
+				description: "Fixed handling container-specific essentials (now available)",
+			}
+		],
+		features: [
+			"Updated zen glance animations for smoother transitions and adjust timing (Still in development)",
+			"Add reset to pinned URL button to pinned tabs",
+			"Made the URL bar background more rounded",
+			"Updated to Firefox 132.0.2 (133.0 not included as it needs a bit more of testing)",
+			"Added support for -moz-gtk-csd-reversed-placement on Linux",
+			"Enhance workspace deactivation styles with grayscale filter for better visibility",
+			"Windows and linux ARM64 builds are now available on the github for testing!",
+			"Hidde container label when URL bar is narrow"
+		],
+		breakingChanges: [
+			"Removed collapsible sidebar (mod will be available soon). This is due to the dificulty of maintaining it as we evolve the sidebar",
+		],
 	}
 ].reverse();
 
