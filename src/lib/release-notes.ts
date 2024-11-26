@@ -1698,7 +1698,7 @@ export const releaseNotes: ReleaseNote[] = [
 		image: false,
 		workflowId: 12040407157,
 		extra:
-			"This release only contains bug fixes and small improvements, since we are working on a big update for the next release.\n\nWe are working on a huge rebrand with new website, new layouts (single sidebar, multiple toolbars and horizontal tabs), new looks and branding. We are really exited for what's about to come, people have been giving GREAT critizism about the new UI, and we love it.\n\nStay tuned, next time, we'll be a beta release!",
+			"This release only contains bug fixes and small improvements, since we are working on a big update for the next release.\n\nWe are working on a huge rebrand with new website, new layouts (single sidebar, multiple toolbars and horizontal tabs), new looks and branding. We are really exited for what's about to come, people have been giving GREAT critizism about the new UI, and we love it.\n\nStay tuned, next time, we'll be a beta release!\n\nP.S. Not all bug fixes have been included inside this release due to the timing of the release, we'd like to test some of the fixes a bit more before releasing them.",
 		fixes: [
 			{
 				description: "Fix pinned tab state and favicon handling",
