@@ -15,7 +15,7 @@ export default function PrivacyPolicy() {
 
 These are the most active developers in the project. Awesome people that make Zen Browser possible, the order is not important, all of them are a big part of the project.
 
-* [**Mauro Baladés**](https://github.com/mauro-balades): Creator, Main Developer, and a funny guy.
+* [**Mauro Baladés**](https://github.com/mr-cheff): Creator, Main Developer, and a funny guy.
 * **Oscar Gonzalez**: Site Reliability Engineer (SRE) and code signing.
 * [**Jan Heres**](https://janheres.eu/): Active contributor and helps with MacOS builds, known as \`mr. macos\`.
 * [**BrhmDev**](https://github.com/BrhmDev): Active contributor with great contributions, known as \`mr. black magic\`.
