@@ -1696,7 +1696,7 @@ export const releaseNotes: ReleaseNote[] = [
 		version: "1.0.1-a.20",
 		date: "26/11/2024",
 		image: false,
-		workflowId: 12040407157,
+		workflowId: 12056595291,
 		extra:
 			"This release only contains bug fixes and small improvements, since we are working on a big update for the next release.\n\nWe are working on a huge rebrand with new website, new layouts (single sidebar, multiple toolbars and horizontal tabs), new looks and branding. We are really exited for what's about to come, people have been giving GREAT critizism about the new UI, and we love it.\n\nStay tuned, next time, we'll be a beta release!\n\nP.S. Not all bug fixes have been included inside this release due to the timing of the release, we'd like to test some of the fixes a bit more before releasing them.",
 		fixes: [
@@ -1729,6 +1729,9 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed right-side sidebar on compact mode occupying the screen space",
 			},
 			{
+				description: "Fixed some titlebar buttons not covering full height",
+			},
+			{
 				description: "Fixed bug where a popup window would not close/open a new tab",
 			},
 		],
@@ -1736,7 +1739,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Updated zen glance animations for smoother transitions and adjust timing (Still in development)",
 			"Add reset to pinned URL button to pinned tabs",
 			"Made the URL bar background more rounded",
-			"Updated to Firefox 132.0.2 (133.0 not included as it needs a bit more of testing)",
+			"Updated to Firefox 133.0",
 			"Added support for -moz-gtk-csd-reversed-placement on Linux",
 			"Enhance workspace deactivation styles with grayscale filter for better visibility",
 			"Windows and linux ARM64 builds are now available on the github for testing!",
