@@ -1743,7 +1743,8 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added support for -moz-gtk-csd-reversed-placement on Linux",
 			"Enhance workspace deactivation styles with grayscale filter for better visibility",
 			"Windows and linux ARM64 builds are now available on the github for testing!",
-			"Hidde container label when URL bar is narrow"
+			"Hidde container label when URL bar is narrow",
+			"Macos ARM64 builds will now ship with PGO, performance increase!",
 		],
 		breakingChanges: [
 			"Removed collapsible sidebar (mod will be available soon). This is due to the dificulty of maintaining it as we evolve the sidebar",
