@@ -6,7 +6,7 @@ export const releases: any = {
 	WindowsZipGeneric: "zen.win-generic.zip",
 
 	MacOS: "zen.macos-aarch64.dmg",
-	MacOSIntel: "zen.macos-x64.dmg",
+	MacOSIntel: "zen.macos-x86_64.dmg",
 
 	Linux: "zen.linux-specific.tar.bz2",
 	LinuxGeneric: "zen.linux-generic.tar.bz2",
