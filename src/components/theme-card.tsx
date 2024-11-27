@@ -64,9 +64,15 @@ export default function ThemeCard({
 								No tags available
 							</span>
 						)}
-						<span className="self-center text-xs italic">
+						<a 
+							className="self-center text-xs italic text-blue-500"
+							href={authorLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							onClick={(e) => e.stopPropagation()}
+						>
 							By: {theme.author}
-						</span>
+						</a>
 					</div>
 				</CardHeader>
 				<CardContent>
