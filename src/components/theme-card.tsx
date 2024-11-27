@@ -64,6 +64,9 @@ export default function ThemeCard({
 								No tags available
 							</span>
 						)}
+						<span className="self-center text-xs italic">
+							By: {theme.author}
+						</span>
 					</div>
 				</CardHeader>
 				<CardContent>
