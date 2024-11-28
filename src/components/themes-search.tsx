@@ -16,6 +16,7 @@ import {
 } from "./ui/select";
 import type React from "react";
 import Link from "next/link";
+import { useEffect } from "react";
 
 // const TAGS = ["color scheme", "dark", "tabs"];
 
@@ -51,6 +52,22 @@ export default function ThemesSearch({
 	const sortOptions = ["name", "createdAt", "updatedAt"];
 	const sortOrderOptions = ["asc", "desc"];
 	const limitOptions = [12, 24, 36];
+	useEffect(() => {
+		const handlePopState = () => {
+			// set order when history changes
+			const currentSortBy =
+				new URLSearchParams(window.location.search).get("order") || "asc";
+			setSortOrder(currentSortBy);
+		};
+		// add a event listener to listen on popstate changes
+		window.addEventListener("popstate", handlePopState);
+
+		// Cleanup the listener on unmount
+		return () => {
+			window.removeEventListener("popstate", handlePopState);
+		};
+	}, []);
+
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="mt-10 flex w-full items-center overflow-hidden rounded-full border border-black bg-black/10 p-2 dark:border-muted dark:bg-muted/50">
