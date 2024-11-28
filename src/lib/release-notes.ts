@@ -1749,6 +1749,19 @@ export const releaseNotes: ReleaseNote[] = [
 		breakingChanges: [
 			"Removed collapsible sidebar (mod will be available soon). This is due to the dificulty of maintaining it as we evolve the sidebar",
 		],
+	},
+	{
+		version: "1.0.1-a.21",
+		date: "28/11/2024",
+		image: false,
+		workflowId: 12060871686,
+		extra:
+			"The latest release had huge amounts of bugs due to a firefox upgrade, this release include some of the most critical ones",
+		fixes: [
+			{
+				description: "Various fixes in version 20",
+			},
+		],
 	}
 ].reverse();
 
