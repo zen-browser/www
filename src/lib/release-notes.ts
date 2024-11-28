@@ -1762,6 +1762,14 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Various fixes in version 20",
 			},
 		],
+	},
+	{
+		version: "1.0.1-a.22",
+		date: "28/11/2024",
+		image: false,
+		workflowId: 12066385503,
+		extra:
+			"This build rolls back to version 1.0.1-a.19 due to the number of bugs and complains. Sorry!
 	}
 ].reverse();
 
