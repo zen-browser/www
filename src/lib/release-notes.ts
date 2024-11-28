@@ -1769,7 +1769,7 @@ export const releaseNotes: ReleaseNote[] = [
 		image: false,
 		workflowId: 12066385503,
 		extra:
-			"This build rolls back to version 1.0.1-a.19 due to the number of bugs and complains. Sorry!
+			"This build rolls back to version 1.0.1-a.19 due to the number of bugs and complains. Sorry!"
 	}
 ].reverse();
 
