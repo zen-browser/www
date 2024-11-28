@@ -1665,7 +1665,7 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed support URLs pointing to a 404 pages",
 			},
 			{
-				description: "Fixed extra all-tabs and newtab buttons not appearing on customised toolbar", 
+				description: "Fixed extra all-tabs and newtab buttons not appearing on customised toolbar",
 			},
 			{
 				description: "Fixed workspaces indicator appearing when workspaces are disabled",
