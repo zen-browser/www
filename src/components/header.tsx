@@ -4,7 +4,6 @@ import { ChevronDown } from "lucide-react";
 import CoolHeaderText from "./cool-header-text/cool-header-text";
 import Link from "next/link";
 import HeaderMarquee from "./header-marquee";
-import "../app/header.css"
 export default function Header() {
 	return (
 		<>
@@ -22,7 +21,7 @@ export default function Header() {
 				</p>
 				<div className="flex w-full flex-col justify-center md:flex-row">
 					<Link href="/download" prefetch={false}>
-						<Button className="header-animated-button -translate-y-4 animate-fade-in gap-1 text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black from-blue-500 to-blue-700 bg-gradient-to-br">
+						<Button className=" -translate-y-4 animate-fade-in gap-1 text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black from-blue-500 to-blue-700 bg-gradient-to-br">
 							<span className="text-white font-bold">Download Zen Now </span>
 							<ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1 text-white" />
 						</Button>
