@@ -68,7 +68,7 @@ export default function Footer() {
 							<a
 								target="_blank"
 								rel="noopener noreferrer"
-								href="hhttps://bsky.app/profile/zen-browser.app"
+								href="https://bsky.app/profile/zen-browser.app"
 								className="ml-5"
 							>
 								<BlueskyLogo className="h-5 w-5" />
