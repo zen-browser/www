@@ -5,6 +5,7 @@ import {
 	TwitterLogoIcon,
 } from "@radix-ui/react-icons";
 import { MastodonLogo } from "./icons/mastodon";
+import { BlueskyLogo } from "./icons/bluesky";
 import { Button } from "./ui/button";
 
 export default function Footer() {
@@ -63,6 +64,14 @@ export default function Footer() {
 								className="ml-5"
 							>
 								<TwitterLogoIcon className="h-5 w-5" />
+							</a>
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								href="hhttps://bsky.app/profile/zen-browser.app"
+								className="ml-5"
+							>
+								<BlueskyLogo className="h-5 w-5" />
 							</a>
 						</div>
 					</div>
