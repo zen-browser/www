@@ -12,13 +12,9 @@ function useMarketplace(themes: ZenTheme[]) {
 	const [tags, setTags] = useState(searchParams.get("tags")?.split(",") || []);
 	const [limit, setLimit] = useState(Number(searchParams.get("limit") || 12));
 	const [page, setPage] = useState(Number(searchParams.get("page") || 1));
-	const [sortOrder, setSortOrder] = useState(() => {
-		const initialSortOrder = searchParams.get("order");
-		if (sortBy === "createdAt" && !initialSortOrder) {
-			return "desc";
-		}
-		return initialSortOrder || "asc";
-	});
+	const [sortOrder, setSortOrder] = useState(
+		searchParams.get("order") || "asc",
+	);
 
 	// Derived value: filtered and sorted themes
 	const filteredThemes = useMemo(() => {
