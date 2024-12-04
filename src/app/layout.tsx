@@ -6,6 +6,11 @@ import StyledComponentsRegistry from "@/lib/styled-components-registry";
 import Footer from "@/components/footer";
 import { Navigation } from "@/components/navigation";
 import { ny } from "@/lib/utils";
+import dynamic from "next/dynamic";
+
+const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
+	ssr: false
+});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -63,6 +68,7 @@ export default async function RootLayout({
 					disableTransitionOnChange
 				>
 					<StyledComponentsRegistry>
+						<CustomCursor />
 						<div className="flex min-h-screen flex-col">
 							<Navigation />
 							<main className="flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4">
