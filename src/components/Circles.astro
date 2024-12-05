@@ -2,15 +2,16 @@
 // Circles.astro
 const sizes = [216, 396, 576, 756]
 const borderWidths = [20, 30, 40, 50]
+const multiplier = 0.9;
 ---
-<div id="circles" class="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-  <div class="absolute left-1/2 top-0 opacity-10 translate-y-[-90%] lg:opacity-100  -translate-x-1/2 lg:-translate-y-1/2">
+<div id="circles" class="inset-0 overflow-hidden pointer-events-none -z-10 -translate-y-1/4">
+  <div class="mx-auto opacity-10 lg:opacity-100">
     {[...Array(4)].map((_, i) => (
       <div class="absolute rounded-full border-coral -translate-x-1/2 -translate-y-1/2"
        style={{
-        width: `${sizes[i]}px`,
-        height: `${sizes[i]}px`,
-        borderWidth: `${borderWidths[i]}px`,
+        width: `${multiplier*sizes[i]}px`,
+        height: `${multiplier*sizes[i]}px`,
+        borderWidth: `${multiplier*borderWidths[i]}px`,
         }}
       />
       ))}

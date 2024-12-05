@@ -11,11 +11,11 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
   id="nav-bar"
   class="fixed flex justify-between w-full items-center pt-6 px-6 z-10 top-0 left-0" 
 >
-  <div class="font-bold text-lg">
-    zen browser
-  </div>
   <Astronav>
-    <MenuItems class="rounded-full border-dark border-2 p-2 pl-4 backdrop-blur-xl bg-paper/30 hidden lg:flex">
+    <MenuItems class="rounded-full border-dark border-2 p-2 pl-4 backdrop-blur-xl bg-paper/80 hidden mx-auto lg:flex gap-12">
+      <a class="font-bold text-lg items-center flex" href="/">
+        zen browser
+      </a>
       <ul class="gap-6 lg:flex items-center">
         <Dropdown class="group">
           <button class="flex items-center">
@@ -42,7 +42,7 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
         <button class="flex items-center">
           <span>Mods</span>
         </button>
-        <Button>
+        <Button isPrimary>
           Download
           <ArrowRight class="size-4" />
         </Button>

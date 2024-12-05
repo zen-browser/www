@@ -10,16 +10,16 @@ import { ArrowRight } from 'lucide-astro'
 
 <header
   id="header"
-  class="flex h-screen w-full flex-col items-center gap-24 pt-24 text-center md:gap-[15%] md:pt-[30%]"
+  class="flex h-screen w-full flex-col items-center gap-24 text-center md:gap-[15%]"
 >
 <Circles />
-  <div class="flex flex-col items-center">
-    <Title class='text-center leading-[108px]'>Welcome to<br class="hidden md:block" /> a calmer internet</Title>
-    <Description class='text-center'
+  <div class="flex flex-col items-center h-full justify-center">
+    <Title class='text-left px-12 lg:px-0 lg:text-center leading-[108px]'>Welcome to<br class="hidden md:block" /> a calmer internet</Title>
+    <Description class='text-left px-12 lg:px-0 lg:text-center'
       >Beautifully designed, privacy-focused, and packed with features.<br
       />We care about your experience, not your data.</Description
     >
-    <div class="mt-6 gap-3 sm:gap-6 flex flex-col sm:flex-row">
+    <div class="mt-6 gap-3 sm:gap-6 flex flex-row">
       <Button isPrimary>
         Download
         <ArrowRight class="size-4" />
@@ -27,6 +27,6 @@ import { ArrowRight } from 'lucide-astro'
       <Button>Start Exploring</Button>
     </div>
   </div>
-  <Image src={myImage} alt="Zen browser" class="mt-10" />
   <!-- <img src="/browser.webp" id="header-browser-image" alt="Zen browser" /> -->
+  <Image src={myImage} alt="Zen browser" class="absolute top-full -translate-y-[20%]" />
 </header>
