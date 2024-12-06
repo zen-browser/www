@@ -64,6 +64,15 @@ export default function ThemeCard({
 								No tags available
 							</span>
 						)}
+						<a 
+							className="self-center text-xs italic text-blue-500"
+							href={authorLink}
+							target="_blank"
+							rel="noopener noreferrer"
+							onClick={(e) => e.stopPropagation()}
+						>
+							By: {theme.author}
+						</a>
 					</div>
 				</CardHeader>
 				<CardContent>
@@ -82,20 +91,6 @@ export default function ThemeCard({
 							onClick={(e) => e.stopPropagation()}
 						>
 							Homepage
-						</a>
-					)}
-					{theme.homepage && authorLink && (
-						<span className="text-md mx-2 text-muted-foreground">·</span>
-					)}
-					{authorLink && (
-						<a
-							href={authorLink}
-							className="text-md text-blue-500"
-							target="_blank"
-							rel="noopener noreferrer"
-							onClick={(e) => e.stopPropagation()}
-						>
-							Author
 						</a>
 					)}
 				</CardFooter>

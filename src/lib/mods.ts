@@ -139,8 +139,9 @@ export function getThemesFromSearch(
 	// Filter themes based on query, tags, and date
 	const filteredThemes = themes.filter((theme) => {
 		const titleMatchesQuery = theme.name.toLowerCase().includes(normalizedQuery);
+		const authorMatchesQuery = theme.author.toLowerCase().includes(normalizedQuery);
 		const descriptionMatchesQuery = theme.description.toLowerCase().includes(normalizedQuery);
-		const matchesQuery = titleMatchesQuery || descriptionMatchesQuery;
+		const matchesQuery = titleMatchesQuery || descriptionMatchesQuery || authorMatchesQuery;
 		const matchesTag =
 			tags.length === 0 ||
 			(theme.tags && tags.some((tag) => theme.tags.includes(tag)));
