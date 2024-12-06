@@ -14,14 +14,14 @@ const ARCHITECTURE_DATA: Record<
 	{ label: string; icon: string; description: string }
 > = {
 	generic: {
-		label: "Generic",
+		label: "32 bit",
 		icon: "👴",
-		description: "Slow but compatible with older devices",
+		description: "Compatible with older devices (pre-2012)",
 	},
 	specific: {
-		label: "Optimized",
+		label: "64 bit",
 		icon: "🚀",
-		description: "Blazing fast and compatible with modern devices",
+		description: "Compabible with newer devices",
 	},
 };
 

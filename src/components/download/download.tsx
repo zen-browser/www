@@ -185,6 +185,10 @@ export default function DownloadPage() {
 								know which device you're using. This will only take a moment, we
 								promise.
 							</p>
+							<p className="mt-3 text-muted-foreground">
+								If you're using Winget, HomeBrew, or Arch, please visit
+								<a href="https://github.com/zen-browser/desktop" className="text-blue-400"> our GitHub repository</a> for installation instructions.
+							</p>
 							{isTwilight && (
 								<div className="mt-5 flex items-center text-yellow-500">
 									<InfoCircledIcon className="ml-2 mr-4 size-4" />

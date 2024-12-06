@@ -14,12 +14,12 @@ const MAC_ARCHITECTURE_DATA: Record<
 	generic: {
 		label: "Intel",
 		icon: "x64",
-		description: "64-bit Intel architecture, for older Macs",
+		description: "For the older Macs running Intel 64-bit processors",
 	},
 	specific: {
 		label: "AArch64",
 		icon: "🍏",
-		description: "64-bit ARM architecture, for Apple's M Series Chips",
+		description: "For the new Macs, running ARM. (AArch64)",
 	},
 };
 
