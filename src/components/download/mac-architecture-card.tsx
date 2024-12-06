@@ -17,7 +17,7 @@ const MAC_ARCHITECTURE_DATA: Record<
 		description: "For the older Macs running Intel 64-bit processors",
 	},
 	specific: {
-		label: "AArch64",
+		label: "M Series",
 		icon: "🍏",
 		description: "For the new Macs, running ARM. (AArch64)",
 	},
