@@ -21,9 +21,9 @@ export default function Header() {
 				</p>
 				<div className="flex w-full flex-col justify-center md:flex-row">
 					<Link href="/download" prefetch={false}>
-						<Button className="-translate-y-4 animate-fade-in gap-1 text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black">
-							<span>Download Zen Now </span>
-							<ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+						<Button className=" -translate-y-4 animate-fade-in gap-1 text-white opacity-0 ease-in-out [--animation-delay:600ms] dark:text-black from-blue-500 to-blue-700 bg-gradient-to-br">
+							<span className="text-white font-bold">Download Zen Now </span>
+							<ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1 text-white" />
 						</Button>
 					</Link>
 					<Link
