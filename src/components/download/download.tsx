@@ -70,7 +70,10 @@ export default function DownloadPage() {
 
 	const startDownload = () => {
 		let releaseTarget: string;
-		if (selectedPlatform === "Linux" && selectedLinuxDownloadType === "flatpak") {
+		if (
+			selectedPlatform === "Linux" &&
+			selectedLinuxDownloadType === "flatpak"
+		) {
 			window.open(
 				"https://dl.flathub.org/repo/appstream/io.github.zen_browser.zen.flatpakref",
 			);
@@ -92,7 +95,11 @@ export default function DownloadPage() {
 			console.log("platform: ", selectedPlatform);
 			console.log("compat: ", arch);
 			const baseUrl = isTwilight ? TWILIGHT_BASE_URL : BASE_URL;
-			window.location.replace(`${baseUrl}/${releases[releaseTarget]}`);
+			const releaseKey =
+				isTwilight && releaseTarget === "MacOSIntel"
+					? "MacOSIntelTwilight"
+					: releaseTarget;
+			window.location.replace(`${baseUrl}/${releases[releaseKey]}`);
 		}
 		setHasDownloaded(true);
 		throwConfetti();
@@ -166,10 +173,12 @@ export default function DownloadPage() {
 					{(hasDownloaded && (
 						<div className="mt-20 flex flex-col items-start">
 							<DownloadedHeader />
-							{selectedPlatform === "Linux" && selectedLinuxDownloadType === "appimage" && (
-								<AppImageInstaller isTwilight={isTwilight} />
-							)}
-							{selectedPlatform === "Linux" && selectedLinuxDownloadType === "flatpak" && <FlatPakInstaller />}
+							{selectedPlatform === "Linux" &&
+								selectedLinuxDownloadType === "appimage" && (
+									<AppImageInstaller isTwilight={isTwilight} />
+								)}
+							{selectedPlatform === "Linux" &&
+								selectedLinuxDownloadType === "flatpak" && <FlatPakInstaller />}
 						</div>
 					)) || (
 						<>
