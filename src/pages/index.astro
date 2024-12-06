@@ -1,12 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/Hero.astro' 
+import Community from '../components/Community.astro'
+import Features from '../components/Features.astro'
 ---
 
 <Layout title="Welcome to Zen">
   <main>
     <Hero />
-    <!-- <div class="h-[500px]" /> -->
+    <Community />
+    <Features />
   </main>
 </Layout>
 <style>
@@ -24,20 +27,4 @@ import Hero from '../components/Hero.astro'
   }
 </style>
 <script>
-  import { inView, animate } from 'motion'
-
-  inView('#browser-image-productivity', (entry) => {
-    animate(
-      '#browser-image-productivity',
-      {
-        opacity: [0, 1],
-        transform: ['translateX(20px)', 'translate(0,0)'],
-      },
-      {
-        delay: 0.9,
-        duration: 0.3,
-        ease: 'easeInOut',
-      }
-    )
-  })
 </script>

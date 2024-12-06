@@ -1,0 +1,40 @@
+---
+import Title from '../components/Title.astro'
+import Description from '../components/Description.astro'
+import Button from '../components/Button.astro'
+import Circles from '../components/Circles.astro'
+import { Image } from 'astro:assets'
+import myImage from '../assets/browser.png'
+import { 
+  Github,
+  Check,
+ } from 'lucide-astro'
+---
+
+<section
+  id="Community"
+  class="flex min-h-screen w-full flex-col items-center text-center relative"
+>
+  <div class="flex-1 w-full"></div>
+  <Title>Community Driven</Title>
+  <Description class="px-4 lg:px-0 lg:w-1/2">
+    We are a community-driven project. We listen to our users and build the
+    features they want. Zen focuses on privacy and customization, not on data collection.
+  </Description>
+  <div class="mt-6 gap-3 px-4 sm:px-0 w-full sm:gap-10 flex flex-wrap justify-center">
+    <a href="https://github.com/zen-browser">
+      <Button class:list={['px-4']}>
+        <Github class="size-4" />
+        <span>View on Github</span>
+      </Button>
+    </a>
+    <div class="flex items-center gap-4">
+      <Check class="size-4" />
+      <span>Fully Customizable</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <Check class="size-4" />
+      <span>Privacy Focused</span>
+    </div>
+  </div>
+</section>

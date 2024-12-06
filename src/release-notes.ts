@@ -1239,7 +1239,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description:
-					"Fixed about page linking 'global comunity' to a Mozilla page",
+					"Fixed about page linking 'global Community' to a Mozilla page",
 			},
 		],
 		features: [

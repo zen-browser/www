@@ -6,6 +6,7 @@ interface Props {
 const { title } = Astro.props;
 import "@fontsource/bricolage-grotesque/400.css";
 import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -36,20 +37,42 @@ import NavBar from "../components/NavBar.astro";
 	</head>
 	<body class="bg-paper font-['bricolage-grotesque']">
 		<slot />
+		<Footer />
 		<NavBar />
 	</body>
 </html>
 <style is:global>
+  @font-face {
+    font-family: 'Junicode';
+    src: url('/fonts/JunicodeVF-Roman.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Junicode-Italic';
+    src: url('/fonts/JunicodeVF-Italic.woff2') format('woff2');
+  }
+
 	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
+	}
 
-    font-size: 18px;
+	html {
+		scroll-behavior: smooth;
+	}
+
+	*:not(h1) > * {
+		font-size: 18px;
     font-family: "Bricolage Grotesque", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 500;
     font-variation-settings: "wdth" 100;
 	}
+
+	h1 .italic {
+    font-family: 'Junicode-Italic', serif;
+		font-style: normal;
+  }
 </style>

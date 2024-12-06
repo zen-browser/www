@@ -1,0 +1,127 @@
+---
+import Title from '../components/Title.astro'
+import Description from '../components/Description.astro'
+import Button from '../components/Button.astro'
+import Circles from '../components/Circles.astro'
+import { Image } from 'astro:assets'
+import myImage from '../assets/browser.png'
+import { 
+  Github,
+  Check,
+ } from 'lucide-astro'
+---
+
+<section
+  id="features"
+  class="flex min-h-screen w-full px-4 lg:px-12 xl:px-24 py-36 flex-col relative"
+>
+  <div class="flex flex-col lg:flex-row w-full items-start gap-12">
+    <div id="feature-list" class="lg:w-1/3 flex flex-col gap-4">
+      <Title>Features</Title>
+      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+        <div class="flex flex-col">
+          <Description class="feature-title font-bold text-2xl">
+            Workspaces
+          </Description>
+          <p class="desc text-base font-normal mt-2">
+            With Zen, you can create multiple workspaces to keep your tabs organized.
+          </p>
+        </div>
+      </div>
+      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+        <div class="flex flex-col">
+          <Description class="feature-title font-bold text-2xl">
+            Compact Mode
+          </Description>
+          <p class="desc text-base font-normal mt-2">
+            Zen's compact mode allows you to see more of your content at once.
+          </p>
+        </div>
+      </div>
+      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+        <div class="flex flex-col">
+          <Description class="feature-title font-bold text-2xl">
+            Split Views
+          </Description>
+          <p class="desc text-base font-normal mt-2">
+            Split your browser into multiple views to see more content at once.
+          </p>
+        </div>
+      </div>
+      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+        <div class="flex flex-col">
+          <Description class="feature-title font-bold text-2xl">
+            Sidebar
+          </Description>
+          <p class="desc text-base font-normal mt-2">
+            Zen's sidebar allows you to quickly access your favourite websites.
+          </p>
+        </div>
+      </div>
+      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+        <div class="flex flex-col">
+          <Description class="feature-title font-bold text-2xl">
+            Zen Glance
+          </Description>
+          <p class="desc text-base font-normal mt-2">
+            Preview your tabs with Zen Glance to quickly find what you're looking for, without switching tabs.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="relative lg:w-2/3 lg:pl-20 items-center m-auto">
+      <div class="bg-coral rounded-xl ml-auto" id="feature-list-image">
+        <img src="/browser.webp" alt="" class="object-fit">
+        <img src="/browser.webp" alt="" class="object-fit">
+        <img src="/browser.webp" alt="" class="object-fit">
+        <img src="/browser.webp" alt="" class="object-fit">
+        <img src="/browser.webp" alt="" class="object-fit">
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  function changeFeature(index: number) {
+    document.querySelectorAll('#feature-list .feature').forEach((feature: any, i) => {
+      if (i === index) {
+        feature.setAttribute('active', '');
+      } else {
+        feature.removeAttribute('active');
+      }
+    });
+    document.querySelectorAll('#feature-list-image img').forEach((img: any, i) => {
+      img.style.opacity = i === index ? 1 : 0;
+      img.classList.toggle('absolute', i !== index);
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('#feature-list .feature').forEach((feature: any, i) => {
+      feature.addEventListener('click', () => {
+        changeFeature(i);
+      });
+    });
+    changeFeature(0);
+  });
+</script>
+<style>
+  .feature {
+    user-select: none;
+    transition: background-color 0.1s ease-in-out;
+  }
+
+  .feature p {
+    transition: max-height 0.2s ease-in-out, margin-top 0.1s ease-in-out;
+  }
+
+  .feature:not([active]) .desc {
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    margin-top: 0;
+  }
+
+  .feature[active] {
+    @apply bg-coral/10;
+  }
+</style>
