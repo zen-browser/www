@@ -134,7 +134,7 @@ export function Navigation() {
 							</NavigationMenuLink>
 						</NavigationMenuItem>
 					</div>
-					<div className="flex">
+					<div className="flex items-center">
 						<NavigationMenuItem>
 							<NavigationMenuTrigger>Getting Started</NavigationMenuTrigger>
 							<NavigationMenuContent>
