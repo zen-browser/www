@@ -16,6 +16,7 @@ export interface ReleaseNote {
 	workflowId?: number;
 }
 
+//TODO: Fix dates for Date.parse()
 export const releaseNotes: ReleaseNote[] = [
 	{
 		version: "1.0.0-a.1",
