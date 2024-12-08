@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ReleaseNoteItem from '../components/ReleaseNoteItem.astro'
+import { releaseNotes } from '../release-notes'
+---
+
+<Layout title="Release Notes">
+	<main
+		class="flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4"
+	>
+		<div
+			class="py-42 flex min-h-screen flex-col justify-center px-10 lg:px-10 xl:px-10 2xl:w-3/5"
+		>
+			<h1 class="mt-48 text-4xl font-bold">Release Notes</h1>
+			<p class="text-muted-foreground mt-8 text-lg">
+				Stay up to date with the latest changes to Zen Browser! Since the <a
+					class="text-blue-500"
+					href="#1.0.0-a.1">first release</a
+				> till <a
+					class="text-blue-500"
+					href={`/release-notes#${releaseNotes[0].version}`}
+					>{releaseNotes[0].version}</a
+				>, we've been working hard to make Zen Browser the best it can be.
+				Thanks everyone for your feedback! ❤️
+			</p>
+			{releaseNotes.map((notes) => <ReleaseNoteItem {...notes} />)}
+		</div>
+	</main>
+</Layout>
