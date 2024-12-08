@@ -1,0 +1,34 @@
+---
+import Description from '../../components/Description.astro';
+import ModsSearch from '../../components/ModsSearch.astro';
+import Title from '../../components/Title.astro';
+import Layout from '../../layouts/Layout.astro';
+import { getAllMods, type ZenTheme } from '../../mods';
+
+const mods = await getAllMods() || [];
+console.log(mods);
+---
+
+<Layout title="Zen Mods">
+  <main>
+    <header class="min-h-[65vh] flex flex-col justify-center w-full border-b-2 border-dark">
+      <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6">
+        <div>
+          <Title>Zen Mods</Title>
+          <Description>
+            Zen Mods is a collection of themes and plugins for Zen Browser. You can
+            find a theme for every mood and a plugin for every need.
+          </Description>
+        </div>
+        <div class="rounded-full border-2 border-dark p-3 flex gap-2">
+          <input type="text" class="border-none bg-transparent w-full !outline-none" placeholder="Search for mods" />
+        </div>
+      </div>
+    </header>
+    <div>
+        {mods.map((mod: ZenTheme) => (
+            <a href={`/mods/${mod.id}`}>{mod.name}</a>
+        ))}
+    </div>
+  </main>
+</Layout>

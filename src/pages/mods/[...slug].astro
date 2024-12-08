@@ -1,0 +1,21 @@
+---
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+import { getAllMods, type ZenTheme } from '../../mods';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const mods = await getAllMods();
+  return mods.map((mod) => ({
+    params: { slug: mod.id },
+    props: { ...mod },
+  }));
+}
+
+// https://github.com/TeaClientMC/Website/blob/7faacc9f8b2c79c74f711d413b155c84faafc00d/src/pages/news/%5B...slug%5D.astro
+
+const mod = Astro.props;
+---
+
+<Layout title={`${mod.name} - Zen Mods`} >
+  {mod.name}
+</Layout>
