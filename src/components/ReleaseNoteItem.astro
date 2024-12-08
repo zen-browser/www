@@ -1,9 +1,13 @@
 ---
-import type { ReleaseNote } from '../release-notes'
-export type Props = ReleaseNote
-const props = Astro.props
+import { Accordion, AccordionItem } from 'free-astro-components'
 
-const date = new Date(Date.parse(props.date));
+import type { ReleaseNote } from '../release-notes'
+export type Props = ReleaseNote;
+const props = Astro.props;
+
+const [day, month, year] = props.date.split('/');
+const date = new Date(Date.parse(`${year}-${month}-${day}`));
+	
 ---
 
 <section
@@ -12,10 +16,10 @@ const date = new Date(Date.parse(props.date));
 	>
 	<div class="mb-0 hidden lg:block ml-5 md:ml-10 mr-24 mt-1 h-fit min-w-52 text-xs text-muted-foreground">
 		{date.toLocaleDateString('en-US', { dateStyle: 'long'})}
-		<div class="mt-2 flex items-center text-blue-500 opacity-60">
-			<a rel="noopener noreferrer" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${props.version}`}>Github Release<a/>
-			<span class="mx-1 text-muted-foreground">•</span>
-			<a rel="noopener noreferrer" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run<a/>
+		<div class="mt-2 flex items-center">
+			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${props.version}`}>Github Release<a/>
+			<span class="text-muted-foreground mx-auto">•</span>
+			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run<a/>
 		</div>
 	</div>
 
@@ -32,9 +36,71 @@ const date = new Date(Date.parse(props.date));
 			) : null
 		}
 		<div class="mt-8" data-orientation="vertical"></div>
-		<!--TODO: Fixes, Breaking changes, Features  -->
-
+		<Accordion>
+			{props.fixes ? (
+				<AccordionItem title="Fixes" name="fixes">
+					<ul class="list-disc list-inside">
+						{props.fixes.map((fix: any) => (
+							<li class="text-md text-muted-foreground">
+								{fix.description}
+								{fix.issue ? (
+									<a
+										class="text-blue-500"
+										href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
+										rel="noopener noreferrer"
+										target="_blank"
+									>
+										#{fix.issue}
+									</a>
+								) : null}
+							</li>
+						))}
+					</ul>
+				</AccordionItem>
+			) : null}
+			{props.features ? (
+				<AccordionItem title="Features" name="features">
+					<ul class="list-disc list-inside">
+						{props.features.map((feature: string) => (
+							<li class="text-md text-muted-foreground">{feature}</li>
+						))}
+					</ul>
+				</AccordionItem>
+			) : null}
+			{props.themeChanges ? (
+				<AccordionItem title="Theme Changes" name="themeChanges">
+					<ul class="list-disc list-inside">
+						{props.themeChanges.map((themeChange: string) => (
+							<li class="text-md text-muted-foreground">{themeChange}</li>
+						))}
+					</ul>
+				</AccordionItem>
+			) : null}
+			{props.breakingChanges ? (
+				<AccordionItem title="Breaking Changes" name="breakingChanges">
+					<ul class="list-disc list-inside">
+						{props.breakingChanges.map((breakingChange: string) => (
+							<li class="text-md text-muted-foreground">{breakingChange}</li>
+						))}
+					</ul>
+				</AccordionItem>
+			) : null}
 	</div>
 </section>
+<style is:global>
+	.ac-accordion-item-title {
+		@apply !text-dark;
 
+		&:hover {
+			@apply !text-dark/70;
+		}
+	}
 
+	.ac-accordion-item {
+		transition: height 0.2s ease-in-out !important;
+
+		& li {
+			@apply !text-dark/70;
+		}
+	}
+</style>

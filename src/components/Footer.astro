@@ -10,15 +10,21 @@ import { ArrowRight, Github, Twitter } from 'lucide-astro'
 
 <footer
   id="footer"
-  class="flex flex-col w-full p-4 lg:p-24 gap-24 md:gap-[15%] bg-coral border-t border-dark"
+  class="flex flex-col w-full p-4 lg:p-24 !pb-0 gap-24 md:gap-[15%] bg-dark text-paper border-t border-dark relative overflow-hidden"
 >
-  <Title>Zen Browser</Title>
-  <div class="flex flex-col justify-between w-full lg:flex-row gap-6">
-    <Button isPrimary class="h-fit">
+  <div>
+    <Title class="!text-paper">Zen Browser</Title>
+    <Description class="w-1/3">
+      Beautifully designed, privacy-focused, and packed with features. We care
+      about your experience, not your data.
+    </Description>
+  </div>
+  <div class="flex flex-col justify-between w-full lg:flex-row gap-6 lg:pr-52 my-12">
+    <Button href="/download" isPrimary class="h-fit bg-paper !text-dark">
       Download
       <ArrowRight class="size-4" />
     </Button>
-    <div class="gap-6 flex flex-col">
+    <div class="gap-10 flex flex-col">
       <div class="flex flex-col gap-2">
         <Description class="!font-semibold">
           Follow Us
@@ -34,40 +40,40 @@ import { ArrowRight, Github, Twitter } from 'lucide-astro'
       </div>
       <div class="flex flex-col gap-2">
         <Description class="!font-semibold">
-          About
+          About Us
         </Description>
         <div class="opacity-80 flex flex-col">
           <a href="/about" class="font-normal">About Us</a>
-          <a href="/about" class="font-normal">About Us</a>
+          <a href="/privacy-policy" class="font-normal">Privacy Policy</a>
+          <a href="https://github.com/zen-browser/desktop/issues/new/choose" class="font-normal">Report an Issue</a>
         </div>
       </div>
     </div>
     <div class="flex flex-col gap-2">
       <Description class="!font-semibold">
-        About
+        Get Started
       </Description>
       <div class="opacity-80 flex flex-col">
-        <a href="/about" class="font-normal">About Us</a>
-        <a href="/about" class="font-normal">About Us</a>
+        <a href="/download" class="font-normal">Download</a>
+        <a href="/mods" class="font-normal">Zen Mods</a>
+        <a href="/release-notes" class="font-normal">Release Notes</a>
+        <a href="download?twilight" class="font-normal">Twilight</a>
       </div>
     </div>
     <div class="flex flex-col gap-2">
       <Description class="!font-semibold">
-        About
+        Get Help
       </Description>
       <div class="opacity-80 flex flex-col">
-        <a href="/about" class="font-normal">About Us</a>
-        <a href="/about" class="font-normal">About Us</a>
-      </div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <Description class="!font-semibold">
-        About
-      </Description>
-      <div class="opacity-80 flex flex-col">
-        <a href="/about" class="font-normal">About Us</a>
-        <a href="/about" class="font-normal">About Us</a>
+        <a href="https://discord.gg/zen-browser" class="font-normal">Discord</a>
+        <a href="https://uptime.zen-browser.app/" class="font-normal">Uptime Status</a>
       </div>
     </div>
   </div>
+  <div class="flex w-full h-32 items-center">
+    <div class="flex">
+      Made with ❤️ by the <a href="/about" class="font-bold inline-block ml-2">Zen Browser Team</a>
+    </div>
+    <Circles white multiplier={0.7} class="ml-auto mb-[-100px] mr-[-80px] hidden lg:block" />
+  </div>  
 </footer>

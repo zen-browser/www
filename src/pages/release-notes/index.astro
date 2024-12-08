@@ -1,7 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import ReleaseNoteItem from '../components/ReleaseNoteItem.astro'
-import { releaseNotes } from '../release-notes'
+import Layout from '../../layouts/Layout.astro'
+import ReleaseNoteItem from '../../components/ReleaseNoteItem.astro'
+import { releaseNotes } from '../../release-notes'
+import Title from '../../components/Title.astro'
 ---
 
 <Layout title="Release Notes">
@@ -11,7 +12,7 @@ import { releaseNotes } from '../release-notes'
 		<div
 			class="py-42 flex min-h-screen flex-col justify-center px-10 lg:px-10 xl:px-10 2xl:w-3/5"
 		>
-			<h1 class="mt-48 text-4xl font-bold">Release Notes</h1>
+			<Title class="mt-48 text-4xl font-bold">Release Notes</Title>
 			<p class="text-muted-foreground mt-8 text-lg">
 				Stay up to date with the latest changes to Zen Browser! Since the <a
 					class="text-blue-500"
@@ -23,7 +24,7 @@ import { releaseNotes } from '../release-notes'
 				>, we've been working hard to make Zen Browser the best it can be.
 				Thanks everyone for your feedback! ❤️
 			</p>
-			{releaseNotes.map((notes) => <ReleaseNoteItem {...notes} />)}
+			{releaseNotes.map((notes: any) => <ReleaseNoteItem {...notes} />)}
 		</div>
 	</main>
 </Layout>

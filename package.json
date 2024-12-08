@@ -16,6 +16,7 @@
     "astro": "^4.16.13",
     "astro-navbar": "^2.3.7",
     "autoprefixer": "10.4.14",
+    "free-astro-components": "^1.1.1",
     "lucide-astro": "^0.460.0",
     "motion": "^11.13.1",
     "postcss": "8.4.21",

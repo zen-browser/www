@@ -10,7 +10,7 @@ import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 	<head>
 		<meta charset="UTF-8" />
 		<!-- no bot here for now -->
@@ -19,7 +19,7 @@ import Footer from "../components/Footer.astro";
 		<!-- end -->
 		<meta name="description" content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data." />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="theme-color" content="#da755b">
@@ -35,7 +35,7 @@ import Footer from "../components/Footer.astro";
 		 <link rel="preconnect" href="https://fonts.bunny.net">
 		 <link href="https://fonts.bunny.net/css?family=bricolage-grotesque:200,300,400,500,600,700,800|instrument-serif:400,400i" rel="stylesheet" />
 	</head>
-	<body class="bg-paper font-['bricolage-grotesque']">
+	<body class="bg-paper font-['bricolage-grotesque'] text-dark">
 		<slot />
 		<Footer />
 		<NavBar />

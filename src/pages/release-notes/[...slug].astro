@@ -1,0 +1,14 @@
+---
+import { releaseNotes } from '../../release-notes'
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  return releaseNotes.map((release: any) => ({
+    params: { slug: release.version },
+    props: { ...release },
+  }));
+}
+
+const release = Astro.props;
+return Astro.redirect(`/release-notes#${release.version}`);
+---

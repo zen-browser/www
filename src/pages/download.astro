@@ -1,0 +1,24 @@
+---
+import Button from '../components/Button.astro'
+import Description from '../components/Description.astro'
+import Title from '../components/Title.astro'
+import Layout from '../layouts/Layout.astro'
+import { Image } from 'astro:assets';
+import myImage from '../assets/app-icon.png';
+---
+
+<Layout title="Welcome to Zen">
+  <main class="h-screen flex flex-col justify-center items-center">
+    <div class="flex">
+      <Image src={myImage } alt="Zen Browser" class="w-24 h-24" />
+      <div class="p-4 mb-24 lg:w-1/2">
+        <Title>Try out Zen!</Title>
+        <Description>
+          Start browsing the web with Zen Browser today. Beautifully designed,
+          privacy-focused, and packed with features!
+        </Description>
+      </div>
+    </div>
+    
+  </main>
+</Layout>
