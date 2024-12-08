@@ -8,9 +8,10 @@ export default {
 				'-lg': '@media (min-width: 1024px)',
 			},
 			colors: {
-				"paper": "#F2F0E3",
+				"paper": "var(--zen-paper)",
 				"coral": "#F76F53",
-				"dark": "#202020",
+				"dark": "var(--zen-dark)",
+				"muted": "var(--zen-muted)",
 				"zen-blue": "#6287f5",
 				"zen-green": "#63f78b",
 			},

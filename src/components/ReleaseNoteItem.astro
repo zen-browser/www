@@ -11,7 +11,7 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 ---
 
 <section
-	class="relative mt-24 flex flex-col border-t pt-24 lg:flex-row"
+	class="relative mt-24 flex flex-col border-t border-dark/30 pt-24 lg:flex-row"
 	id={props.version}
 	>
 	<div class="mb-0 hidden lg:block ml-5 md:ml-10 mr-24 mt-1 h-fit min-w-52 text-xs text-muted-foreground">
@@ -92,7 +92,7 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 		@apply !text-dark;
 
 		&:hover {
-			@apply !text-dark/70;
+			opactiy: 0.8 !important;
 		}
 	}
 
@@ -100,7 +100,7 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 		transition: height 0.2s ease-in-out !important;
 
 		& li {
-			@apply !text-dark/70;
+			opacity: .5;
 		}
 	}
 </style>

@@ -10,7 +10,7 @@ import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
-<html lang="en" data-theme="light">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<!-- no bot here for now -->
@@ -52,6 +52,18 @@ import Footer from "../components/Footer.astro";
     src: url('/fonts/JunicodeVF-Italic.woff2') format('woff2');
   }
 
+	:root {
+		--zen-paper: #F2F0E3;
+		--zen-dark: #202020;
+		--zen-muted: rgba(0, 0, 0, 0.05);
+
+		&[data-theme='dark'] {
+			--zen-paper: #202020;
+			--zen-dark: #F2F0E3;
+			--zen-muted: rgba(255, 255, 255, 0.05);
+		}
+	}
+
 	* {
 		margin: 0;
 		padding: 0;
@@ -70,4 +82,14 @@ import Footer from "../components/Footer.astro";
     font-weight: 500;
     font-variation-settings: "wdth" 100;
 	}
+</style>
+<style is:global>
+  /* Declare a custom CSS class to make the icon look right */
+  .svg-inline--fa {
+    overflow: visible;
+    box-sizing: content-box;
+    display: inline-block;
+    height: 1em;
+    vertical-align: -0.125em;
+  }
 </style>

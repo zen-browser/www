@@ -5,20 +5,406 @@ import Title from '../components/Title.astro'
 import Layout from '../layouts/Layout.astro'
 import { Image } from 'astro:assets';
 import myImage from '../assets/app-icon.png';
+
+import { library, icon } from "@fortawesome/fontawesome-svg-core";
+import { faWindows, faLinux, faApple } from "@fortawesome/free-brands-svg-icons";
+import { ArrowLeft, ArrowRight, HardDriveDownload, Info } from 'lucide-astro';
+
+library.add(faWindows, faLinux, faApple);
+const windowsIcon = icon({ prefix: "fab", iconName: "windows" });
+const linuxIcon = icon({ prefix: "fab", iconName: "linux" });
+const appleIcon = icon({ prefix: "fab", iconName: "apple" });
 ---
 
 <Layout title="Welcome to Zen">
   <main class="h-screen flex flex-col justify-center items-center">
-    <div class="flex">
-      <Image src={myImage } alt="Zen Browser" class="w-24 h-24" />
-      <div class="p-4 mb-24 lg:w-1/2">
-        <Title>Try out Zen!</Title>
-        <Description>
-          Start browsing the web with Zen Browser today. Beautifully designed,
-          privacy-focused, and packed with features!
-        </Description>
+    <div class="flex justify-center flex-col px-2 md:px-12 lg:px-0 lg:flex-row xl:justify-start">
+      <Image src={myImage} alt="Zen Browser" class="w-24 h-24" />
+      <div class="p-4 mb-24 lg:w-1/2 flex flex-col gap-12 ">
+        <div>
+          <Title>Try out Zen!</Title>
+          <Description>
+            Start browsing the web with Zen Browser today. Beautifully designed,
+            privacy-focused, and packed with features!
+          </Description>
+        </div>
+        <div id="download-form">
+          <div id="form-os-select" class="form-item">
+            <div class="form-title">
+              Before downloading, we need to your system info!
+            </div>
+            <div class="form-description">
+              Please select your operating system below, we already auto-detected
+              it for you!
+            </div>
+            <form class="flex flex-col gap-2" id="os-select">
+              <input type="radio" name="os" value="windows" id="os-select-windows" class="hidden" />
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="os-select-windows">
+                <Fragment set:html={windowsIcon.html} />
+                <div>Windows</div>
+              </label>
+              <input type="radio" name="os" value="linux" id="os-select-linux" class="hidden" />
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="os-select-linux">
+                <Fragment set:html={linuxIcon.html} />
+                <div>Linux</div>
+              </label>
+              <input type="radio" name="os" value="macos" id="os-select-macos" class="hidden" />
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="os-select-macos">
+                <Fragment set:html={appleIcon.html} />
+                <div>MacOS</div>
+              </label>
+            </form>
+          </div>
+          <div id="form-macos-download" class="form-item hidden">
+            <div class="form-title">
+              Download Zen for MacOS!
+            </div>
+            <div class="form-description">
+              You can choose between the Intel or ARM version of Zen Browser, select
+              the one that fits your system.
+            </div>
+            <div class="flex flex-col gap-4">
+              <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="macos-arm-download">
+                Download ARM Version
+                <HardDriveDownload class="size-4" />
+              </div>
+              <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="macos-intel-download">
+                Download Intel Version
+                <HardDriveDownload class="size-4" />
+              </div>
+            </div>
+          </div>
+          <div id="linux-target-download" class="form-item hidden">
+            <div class="form-title">
+              Choose your Linux target system
+            </div>
+            <div class="form-description">
+              We have a few options for Linux, please select the one that fits your
+              system.
+            </div>
+            <form class="flex flex-col gap-2">
+              <input type="radio" name="linux-target" value="optimized" id="linux-target-optimized" class="hidden" checked/>
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="linux-target-optimized">
+                <div>Optimized</div>
+              </label>
+              <input type="radio" name="linux-target" value="generic" id="linux-target-generic" class="hidden" />
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="linux-target-generic">
+                <div>Generic</div>
+              </label>
+              <input type="radio" name="linux-target" value="aarch64" id="linux-target-aarch64" class="hidden" />
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="linux-target-aarch64">
+                <div>ARM64</div>
+              </label>
+            </form>
+            <div class="italic ml-2 flex gap-4 items-center mt-4">
+              <Info class="size-6" />
+              <div class="text-sm">
+                <strong class="text-sm">Stuck?</strong> If you're not sure which one to choose, please refer to the <a class="text-sm underline font-bold" href="https://docs.zen-browser.app/guides/generic-optimized" target="_blank" class="text-primary">documentation</a>.
+              </div>
+            </div>
+          </div>
+          <div id="form-linux-download" class="form-item hidden">
+            <div class="form-title">
+              Download Zen for Linux!
+            </div>
+            <div class="form-description">
+              You can choose between different download formats for Linux, select
+              the one that fits you best.
+            </div>
+            <div class="flex flex-col gap-4">
+              <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="linux-tar-download">
+                Download Tarball
+                <HardDriveDownload class="size-4" />
+              </div>
+              <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="linux-appimage-download">
+                Download AppImage
+                <HardDriveDownload class="size-4" />
+              </div>
+            </div>
+          </div>
+          <div id="windows-target-download" class="form-item hidden">
+            <div class="form-title">
+              Choose your Windows target system
+            </div>
+            <div class="form-description">
+              We have a few options for Windows, please select the one that fits your
+              system.
+            </div>
+            <form class="flex flex-col gap-2">
+              <input type="radio" name="windows-target" value="optimized" id="windows-target-optimized" class="hidden" checked/>
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-optimized">
+                <div>Optimized</div>
+              </label>
+              <input type="radio" name="windows-target" value="generic" id="windows-target-generic" class="hidden" />
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-generic">
+                <div>Generic</div>
+              </label>
+              <input type="radio" name="windows-target" value="aarch64" id="windows-target-aarch64" class="hidden" />
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-aarch64">
+                <div>ARM64</div>
+              </label>
+            </form>
+            <div class="italic ml-2 flex gap-4 items-center mt-4">
+              <Info class="size-6" />
+              <div class="text-sm">
+                <strong class="text-sm">Stuck?</strong> If you're not sure which one to choose, please refer to the <a class="text-sm underline font-bold" href="https://docs.zen-browser.app/guides/generic-optimized" target="_blank" class="text-primary">documentation</a>.
+              </div>
+            </div>
+          </div>
+          <div id="windows-download" class="form-item hidden">
+            <div class="form-title">
+              Download Zen for Windows!
+            </div>
+            <div class="form-description">
+              You can choose between different download formats for Windows, select
+              the one that fits you best.
+            </div>
+            <div class="flex flex-col gap-4">
+              <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="windows-installer-download">
+                Download Installer
+                <HardDriveDownload class="size-4" />
+              </div>
+              <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="windows-zip-download">
+                Download Zip
+                <HardDriveDownload class="size-4" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex w-full items-center justify-end">
+          <Button isPrimary id="next-button">
+            Continue
+            <ArrowRight class="size-4" />
+          </Button>
+        </div>
       </div>
     </div>
-    
   </main>
 </Layout>
+<script>
+  const releases = {
+    macos: {
+      intel: "macos-x86_64.dmg",
+      arm: "macos-aarch64.dmg",
+    },
+    linux: {
+      optimized: {
+        tar: "zen.linux-specific.tar.bz2",
+        appImage: "zen-specific.AppImage",
+      },
+      generic: {
+        tar: "zen.linux-generic.tar.bz2",
+        appImage: "zen-generic.AppImage",
+      },
+      aarch64: {
+        tar: "zen.linux-aarch64.tar.bz2",
+        appImage: "zen-aarch64.AppImage",
+      },
+    },
+    windows: {
+      optimized: {
+        installer: "zen.installer.exe",
+        zip: "zen.win-specific.zip",
+      },
+      generic: {
+        installer: "zen.installer-generic.exe",
+        zip: "zen.win-generic.zip",
+      },
+      arm: {
+        installer: "zen.installer-arm64.exe",
+        zip: "zen.win-arm64.zip",
+      },
+    },
+  } as any;
+
+  const BASE_URL =
+    "https://github.com/zen-browser/desktop/releases/latest/download";
+  const TWILIGHT_BASE_URL =
+    "https://github.com/zen-browser/desktop/releases/download/twilight";
+
+  var selectedOS: string | null = null;
+  var isTwilight: boolean = false;
+
+  var selectedArch: string | null = null;
+
+  function hideNextButton() {
+    const nextButton = document.getElementById("next-button") as HTMLButtonElement;
+    nextButton.classList.add("hidden");
+  }
+
+  function showThanksPage() {
+    hideNextButton();
+  }
+
+  function downloadRelease(os: string, arch: string, format: string = "") {
+    let releaseName = releases[os][arch];
+    if (os !== "macos") {
+      releaseName = releases[os][arch][format];
+    }
+    const url = `${isTwilight ? TWILIGHT_BASE_URL : BASE_URL}/${releaseName}`;
+    window.location.replace(url);
+
+    hideNextButton();
+  }
+
+  function goNextForm() {
+    if (selectedOS === null) {
+      const osSelect = document.getElementById("os-select") as HTMLFormElement;
+      const selectedRadio = osSelect.querySelector("input[type='radio']:checked") as HTMLInputElement;
+      selectedOS = selectedRadio.value;
+      document.getElementById("form-os-select")?.classList.add("hidden");
+      console.log(selectedOS);
+
+      if (selectedOS === "macos") {
+        const macosDownload = document.getElementById("form-macos-download") as HTMLDivElement;
+        macosDownload.classList.remove("hidden");
+        hideNextButton();
+      } else if (selectedOS === "linux") {
+        const linuxDownload = document.getElementById("linux-target-download") as HTMLDivElement;
+        linuxDownload.classList.remove("hidden");
+      } else if (selectedOS === "windows") {
+        const windowsDownload = document.getElementById("windows-target-download") as HTMLDivElement;
+        windowsDownload.classList.remove("hidden");
+      }
+    } else if (selectedOS === "linux" && selectedArch === null) {
+      const linuxTargetSelect = document.getElementById("linux-target-download") as HTMLFormElement;
+      const selectedRadio = linuxTargetSelect.querySelector("input[type='radio']:checked") as HTMLInputElement;
+      selectedArch = selectedRadio.value;
+      document.getElementById("linux-target-download")?.classList.add("hidden");
+
+      const linuxDownload = document.getElementById("form-linux-download") as HTMLDivElement;
+      linuxDownload.classList.remove("hidden");
+
+      hideNextButton();
+    } else if (selectedOS === "windows" && selectedArch === null) {
+      const windowsTargetSelect = document.getElementById("windows-target-download") as HTMLFormElement;
+      const selectedRadio = windowsTargetSelect.querySelector("input[type='radio']:checked") as HTMLInputElement;
+      selectedArch = selectedRadio.value;
+      document.getElementById("windows-target-download")?.classList.add("hidden");
+
+      const windowsDownload = document.getElementById("windows-download") as HTMLDivElement;
+      windowsDownload.classList.remove("hidden");
+
+      hideNextButton();
+    } else {
+      throw new Error("Unknown state");
+    }
+  }
+
+  function filloutDefaultOS() {
+    const osSelect = document.getElementById("os-select") as HTMLFormElement;
+    const osSelectWindows = document.getElementById("os-select-windows") as HTMLInputElement;
+    const osSelectLinux = document.getElementById("os-select-linux") as HTMLInputElement;
+    const osSelectMacOS = document.getElementById("os-select-macos") as HTMLInputElement;
+
+    if (navigator.platform.includes("Win")) {
+      osSelectWindows.checked = true;
+    } else if (navigator.platform.includes("Linux")) {
+      osSelectLinux.checked = true;
+    } else if (navigator.platform.includes("Mac")) {
+      osSelectMacOS.checked = true;
+    }
+  }
+
+  function getIfTwilight() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const twilight = urlParams.get("twilight");
+    if (twilight === "true") {
+      isTwilight = true;
+    }
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    getIfTwilight();
+
+    document.getElementById("next-button")?.addEventListener("click", () => {
+      console.log("Next button clicked");
+      goNextForm();
+    });
+
+    document.getElementById("macos-arm-download")?.addEventListener("click", () => {
+      downloadRelease("macos", "arm");
+    });
+
+    document.getElementById("macos-intel-download")?.addEventListener("click", () => {
+      downloadRelease("macos", "intel");
+    });
+
+    document.getElementById("linux-tar-download")?.addEventListener("click", () => {
+      downloadRelease("linux", selectedArch as string, "tar");
+    });
+
+    document.getElementById("linux-appimage-download")?.addEventListener("click", () => {
+      downloadRelease("linux", selectedArch as string, "appImage");
+    });
+
+    document.getElementById("windows-installer-download")?.addEventListener("click", () => {
+      downloadRelease("windows", selectedArch as string, "installer");
+    });
+
+    document.getElementById("windows-zip-download")?.addEventListener("click", () => {
+      downloadRelease("windows", selectedArch as string, "zip");
+    });
+
+    filloutDefaultOS();
+  });
+</script>
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #download-form {
+
+  }
+
+  .form-item {
+    @apply select-none;
+    opacity: 0;
+
+    animation: fadeIn 0.2s forwards;
+
+    &:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+  }
+
+  .form-title {
+    @apply font-bold mb-1;
+  }
+
+  .form-description {
+    @apply opacity-50 text-sm mb-4;
+  }
+
+  form {
+    & > label {
+      @apply cursor-pointer transition-transform duration-200;
+    
+      &:hover {
+        @apply bg-muted;
+      }
+
+      input[type="radio"]:checked + & {
+        transform: translateX(5px);
+        @apply bg-dark text-paper;
+      }
+    }
+  }
+</style>

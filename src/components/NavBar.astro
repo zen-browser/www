@@ -9,10 +9,10 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
 
 <nav
   id="nav-bar"
-  class="fixed flex justify-between w-full items-center pt-6 px-6 z-10 top-0 left-0" 
+  class="fixed flex justify-between w-full items-center pt-6 px-6 z-10 top-0 left-0"
 >
   <Astronav>
-    <MenuItems class="rounded-full border-dark border-2 p-2 pl-4 backdrop-blur-xl bg-paper/80 hidden mx-auto lg:flex gap-12">
+    <MenuItems class="rounded-full border-dark border-2 p-2 pl-4 backdrop-blur-2xl bg-paper/80 dark:bg-paper dark:shadow-md hidden mx-auto lg:flex gap-12">
       <a class="font-bold text-lg items-center flex" href="/">
         zen browser
       </a>
@@ -115,7 +115,7 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
       @apply flex gap-2 p-4 flex-col rounded-lg select-none cursor-pointer transition-colors duration-200;
 
       &:hover {
-        @apply bg-dark/10;
+        @apply bg-muted;
       }
 
       & .dropdown-title {
