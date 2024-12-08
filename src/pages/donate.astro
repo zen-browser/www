@@ -1,0 +1,42 @@
+---
+import Button from '../components/Button.astro'
+import Description from '../components/Description.astro'
+import Title from '../components/Title.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Welcome to Zen">
+  <main class="h-screen flex flex-col justify-center items-center">
+    <div class="text-center p-4 mb-24 lg:w-1/2">
+      <Title>Donate!</Title>
+      <Description>
+        We are a small team of developers working hard to bring you the best
+        browsing experience. If you like what we do, please consider supporting
+        us.
+      </Description>
+    </div>
+    <div class="w-full relative flex flex-col lg:flex-row justify-center">
+      <div class="p-8 lg:pr-24 flex flex-col lg:w-1/3">
+        <div class="font-bold text-6xl">Patreon</div>
+        <Description>
+          Patreon allows you to support us with a monthly donation. You can
+          choose the level of support that works best for you.
+        </Description>
+        <div class="mt-4">
+          <Button isPrimary>Go to Patreon</Button>
+        </div>
+      </div>
+      <div class="hidden lg:block h-full w-[1.5px] bg-dark"></div>
+      <div class="p-8 lg:pl-24 flex flex-col lg:w-1/3">
+        <div class="font-bold text-6xl">Ko-fi</div>
+        <Description>
+          Ko-fi allows you to support us with a one-time donation. You can
+          choose the amount that works best for you.
+        </Description>
+        <div class="mt-4">
+          <Button isPrimary>Go to Patreon</Button>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -23,8 +23,35 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
             <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200" />
           </button>
           <DropdownItems>
-            <div class="absolute top-0">
-              wad
+            <div class="navbar-dropdown">
+              <a class="dropdown-item row-span-2 bg-dark/5" href="/mods">
+                <div class="dropdown-title">
+                  Zen Mods
+                </div>
+                <div class="dropdown-description">
+                  Customize your browsing experience with Zen Mods.
+                </div>
+                <Button isPrimary class="mt-auto">
+                  Try Zen Mods
+                  <ArrowRight class="size-4" />
+                </Button>
+              </a>
+              <a class="dropdown-item"  href="/release-notes">
+                <div class="dropdown-title">
+                  Release Notes
+                </div>
+                <div class="dropdown-description">
+                  Stay up to date with the latest features and improvements.
+                </div>
+              </a>
+              <a class="dropdown-item" href="/discord">
+                <div class="dropdown-title">
+                  Discord
+                </div>
+                <div class="dropdown-description">
+                  Join our community on Discord to chat with other Zen users!
+                </div>
+              </a>
             </div>
           </DropdownItems>
         </Dropdown>
@@ -34,18 +61,70 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
             <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200" />
           </button>
           <DropdownItems>
-            <div class="absolute top-0">
-              wad
+            <div class="navbar-dropdown !grid-cols-1 gap-1">
+              <a class="dropdown-item"  href="/donate">
+                <div class="dropdown-title">
+                  Donate ❤️
+                </div>
+                <div class="dropdown-description">
+                  Support the development of Zen Browser with a donation.
+                </div>
+              </a>
+              <a class="dropdown-item" href="/about">
+                <div class="dropdown-title">
+                  About Us 🌟
+                </div>
+                <div class="dropdown-description">
+                  Learn more about the team behind Zen Browser.
+                </div>
+              </a>
+              <a class="dropdown-item" href="https://docs.zen-browser.app">
+                <div class="dropdown-title">
+                  Documentation
+                </div>
+                <div class="dropdown-description">
+                  Learn how to use Zen Browser with our documentation.
+                </div>
+              </a>
+              <a class="dropdown-item" href="https://github.com/zen-browser" target="_blank">
+                <div class="dropdown-title">
+                  GitHub
+                </div>  
+                <div class="dropdown-description">
+                  Contribute to the development of Zen Browser on GitHub.
+                </div>
+              </a>
             </div>
           </DropdownItems>
         </Dropdown>
-        <button class="flex items-center">
+        <a class="flex items-center" href="/mods">
           <span>Mods</span>
-        </button>
+        </a>
         <Button isPrimary>
           Download
           <ArrowRight class="size-4" />
         </Button>
     </MenuItems>
-  </Astronav> 
+  </Astronav>
 </nav>
+<style>
+  .navbar-dropdown {
+    @apply absolute bg-paper shadow-sm rounded-lg border border-dark p-3 grid gap-2 grid-cols-2;
+
+    & .dropdown-item {
+      @apply flex gap-2 p-4 flex-col rounded-lg select-none cursor-pointer transition-colors duration-200;
+
+      &:hover {
+        @apply bg-dark/10;
+      }
+
+      & .dropdown-title {
+        @apply font-bold;
+      }
+
+      & .dropdown-description {
+        @apply text-sm;
+      }
+    }
+  }
+</style>
