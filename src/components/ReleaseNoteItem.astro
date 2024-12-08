@@ -1,13 +1,40 @@
 ---
-import { ReleaseNote } from "../release-notes"
+import type { ReleaseNote } from '../release-notes'
+export type Props = ReleaseNote
+const props = Astro.props
 
-export type Props = ReleaseNote;
-
-const props = Astro.props;
+const date = new Date(Date.parse(props.date));
 ---
 
+<section
+	class="relative mt-24 flex flex-col border-t pt-24 lg:flex-row"
+	id={props.version}
+	>
+	<div class="mb-0 hidden lg:block ml-5 md:ml-10 mr-24 mt-1 h-fit min-w-52 text-xs text-muted-foreground">
+		{date.toLocaleDateString('en-US', { dateStyle: 'long'})}
+		<div class="mt-2 flex items-center text-blue-500 opacity-60">
+			<a rel="noopener noreferrer" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${props.version}`}>Github Release<a/>
+			<span class="mx-1 text-muted-foreground">•</span>
+			<a rel="noopener noreferrer" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run<a/>
+		</div>
+	</div>
+
+	<div class="px-5 md:px-10 md:pr-32">
+		<h1 class="text-3xl font-bold">Release notes for {props.version} 🎉</h1>
+		<p class="mt-8 text-lg text-muted-forground">
+			If you encounter any issues, please report them on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zen-browser/desktop/issues/" class="text-underline text-blue-500">the issues page</a>. Thanks everyone for your feedback! ❤️ 
+		</p>
+
+		{props.extra ? (
+			<p class="text-md mt-8 text-muted-foreground">
+				{props.extra}
+			</p>
+			) : null
+		}
+		<div class="mt-8" data-orientation="vertical"></div>
+		<!--TODO: Fixes, Breaking changes, Features  -->
+
+	</div>
+</section>
 
 
-<section class="relative flex flex-col border-t lg:flex-row mt-24 pt-24" id={props.version}>
-
-</section> 
