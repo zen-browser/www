@@ -12,7 +12,7 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
   class="fixed flex justify-between w-full items-center pt-6 px-6 z-10 top-0 left-0"
 >
   <Astronav>
-    <MenuItems class="rounded-full border-dark border-2 p-2 pl-4 backdrop-blur-2xl bg-paper/80 dark:bg-paper dark:shadow-md hidden mx-auto lg:flex gap-12">
+    <MenuItems class="rounded-full border-dark border-2 p-2 pl-4 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md hidden mx-auto lg:flex gap-12">
       <a class="font-bold text-lg items-center flex" href="/">
         zen browser
       </a>
@@ -109,7 +109,7 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
 </nav>
 <style>
   .navbar-dropdown {
-    @apply absolute bg-paper shadow-sm rounded-lg border border-dark p-3 grid gap-2 grid-cols-2;
+    @apply absolute bg-paper shadow-sm rounded-lg border-2 border-dark p-3 grid gap-2 grid-cols-2;
 
     & .dropdown-item {
       @apply flex gap-2 p-4 flex-col rounded-lg select-none cursor-pointer transition-colors duration-200;
