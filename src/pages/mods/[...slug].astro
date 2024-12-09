@@ -1,7 +1,10 @@
 ---
 import { getAbsoluteLocaleUrl } from 'astro:i18n';
-import { getAllMods, type ZenTheme } from '../../mods';
+import { getAllMods, type ZenTheme, getAuthorLink } from '../../mods';
 import Layout from '../../layouts/Layout.astro';
+import Title from '../../components/Title.astro';
+import Description from '../../components/Description.astro';
+import Button from '../../components/Button.astro';
 
 export async function getStaticPaths() {
   const mods = await getAllMods();
@@ -17,5 +20,53 @@ const mod = Astro.props;
 ---
 
 <Layout title={`${mod.name} - Zen Mods`} >
-  {mod.name}
+  <main class="mt-32 2xl:mt-0">
+    <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6 my-52">
+      <div>
+        <Title>{mod.name}</Title>
+        <Description>{mod.description}</Description>
+      </div>
+      <img
+        src={mod.image}
+        alt={mod.name}
+        class="h-full w-full object-cover rounded-xl border-8 shadow border-white"
+      />
+      <div class="flex justify-between flex-col lg:flex-row flex">
+        <div class="font-normal w-full">
+          Created by <a href={getAuthorLink(mod.author)} class="font-bold">@{mod.author}</a> • <span class="font-bold">v{mod.version}</span>
+        </div>
+        <div>
+          <Button
+            class="hidden"
+            id="install-theme"
+            zen-theme-id={mod.id}
+            isPrimary
+          >
+            Install Theme 🎉
+          </Button>
+          <Button
+            class="hidden"
+            id="install-theme-uninstall"
+            zen-theme-id={mod.id}
+            isPrimary
+          >
+            Uninstall Theme
+          </Button>
+          <p
+            id="install-theme-error"
+            class="text-sm text-muted-foreground"
+          >
+            You need to have Zen Browser installed to install this theme.{" "}
+            <a href="/download" class="text-blue-500 text-sm inline">
+              Download now!
+            </a>
+          </p>
+        </div>
+      </div>
+      <!-- TODO: Readme markdown 
+      <div class="h-[1px] opacity-80 bg-dark w-full"></div>
+      -->
+    </div>
+    <div>
+  </main>
 </Layout>

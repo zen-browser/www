@@ -5,6 +5,7 @@ import Description from '../components/Description.astro'
 import Button from '../components/Button.astro'
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
 import { ArrowRight, ChevronDown } from 'lucide-astro'
+import Logo from './Logo.astro';
 ---
 
 <nav
@@ -12,11 +13,11 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
   class="fixed flex justify-between w-full items-center pt-6 px-6 z-10 top-0 left-0"
 >
   <Astronav>
-    <MenuItems class="rounded-full border-dark border-2 p-2 pl-4 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md hidden mx-auto lg:flex gap-12">
-      <a class="font-bold text-lg items-center flex" href="/">
-        zen browser
+    <MenuItems class="rounded-full border-dark border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md hidden mx-auto lg:flex gap-20">
+      <a class="font-bold text-lg items-center flex gap-2" href="/">
+        <Logo class="text-dark" /> zen browser
       </a>
-      <ul class="gap-6 lg:flex items-center">
+      <div class="gap-6 lg:flex items-center">
         <Dropdown class="group">
           <button class="flex items-center">
             <span>Getting Started</span>
@@ -100,10 +101,11 @@ import { ArrowRight, ChevronDown } from 'lucide-astro'
         <a class="flex items-center" href="/mods">
           <span>Mods</span>
         </a>
-        <Button href="/download" isPrimary>
-          Download
-          <ArrowRight class="size-4" />
-        </Button>
+      </div>
+      <Button href="/download" isPrimary>
+        Download
+        <ArrowRight class="size-4" />
+      </Button>
     </MenuItems>
   </Astronav>
 </nav>

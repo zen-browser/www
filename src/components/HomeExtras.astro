@@ -1,0 +1,55 @@
+---
+import Title from '../components/Title.astro'
+import Description from '../components/Description.astro'
+import { Image } from 'astro:assets';
+
+import browserCollapsed from '../assets/collapsed.png';
+import browseMultiToolbar from '../assets/multiple-toolbar.png';
+import browserSingleToolbar from '../assets/single-toolbar.png';
+import Button from './Button.astro';
+import { ArrowRight } from 'lucide-astro';
+---
+
+<section
+  id="customization"
+  class="flex w-full px-4 lg:px-12 xl:px-24 py-36 pt-24 gap-16 flex-col lg:flex-row relative"
+>
+  <div>
+    <Title>Customizable to<br />the last pixel</Title>
+    <Description class="px-4 lg:px-0 lg:w-1/2">
+      Zen Browser is designed to be customizable. You can change every aspect of the browser to suit your needs. Literally, your imagination is the limit.
+    </Description>
+    <div class="flex mt-4">
+      <Button isPrimary>
+        Zen Mods
+        <ArrowRight class="size-4" />
+      </Button>
+    </div>
+  </div>
+  <div class="relative w-1/2 flex hidden lg:block" id="browser-images">
+    <Image src={browserCollapsed} alt="Zen browser" class="w-2/3 rounded-md shadow-md absolute top-[5%] left-[65%] -translate-x-1/2" />
+    <Image src={browseMultiToolbar} alt="Zen browser" class="w-2/3 rounded-md mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2" />
+    <Image src={browserSingleToolbar} alt="Zen browser" class="w-2/3 rounded-md shadow-md absolute top-[15%] left-[10%] z-10 -translate-x-1/2" />
+  </div>
+</section>
+<style>
+  #browser-images {
+    & img {
+      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+    &:hover {
+      & img:nth-child(1) {
+        transform: rotate(5deg) scale(1.05) translateX(-52%) translateY(-10%);
+      }
+
+      & img:nth-child(2) {
+        transform: rotate(2deg) scale(1.05) translateX(-50%) translateY(10%);
+      }
+
+      & img:nth-child(3) {
+        transform: rotate(-5deg) scale(1.05) translateX(-50%) translateY(-10%);
+      }
+    }
+  }
+</style>

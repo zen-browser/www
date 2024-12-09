@@ -943,7 +943,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description: "Misaligned padding across window",
-				isue: 1542,
+				issue: 1542,
 			},
 			{
 				description: "Fixed exiting from split view with more than 6 tabs",
@@ -952,7 +952,7 @@ export const releaseNotes: ReleaseNote[] = [
 			{
 				description:
 					"Fixed the sidebar ignoring the mobile user agent checkbox on creation",
-				isue: 1536,
+				issue: 1536,
 			},
 			{
 				description:
@@ -1490,7 +1490,7 @@ export const releaseNotes: ReleaseNote[] = [
 		fixes: [
 			{
 				description: "Fixed compact mode sidebar breaking when open a link from the other subpanels",
-				isue: 2218
+				issue: 2218
 			},
 			{
 				description: "Allow glance meta key only for macos",
@@ -1509,7 +1509,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description: "Fixed Workspace icon jumping in sidebar if not in strip mode",
-				isue: 2413
+				issue: 2413
 			}
 		],
 		features: [
@@ -1577,7 +1577,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description: "Fixed being able to unload splitted tabs",
-				isue: 2236
+				issue: 2236
 			},
 			{
 				description: "Fixed having a duplicate new-tab button when creating new profiles",
@@ -1619,7 +1619,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description: "Fixed white flash when navigating popups",
-				isue: 2438
+				issue: 2438
 			},
 			{
 				description: "Fixed some translations issues",
@@ -1658,7 +1658,7 @@ export const releaseNotes: ReleaseNote[] = [
 			},
 			{
 				description: "Fixed not being able to remove sidepanel button from the toolbar",
-				isue: 2792
+				issue: 2792
 			},
 			{
 				description: "Fixed support URLs pointing to a 404 pages",
@@ -1690,5 +1690,92 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added a max height to pinned tabs, making it less intrusive",
 			"Made workspace indicator stand less out",
 		]
-	}
+	},
+	{
+		version: "1.0.2-b.0",
+		date: "10/12/2024",
+		image: true,
+		workflowId: 12246343549,
+		extra:
+			"This release introduces a new stage for Zen Browser, the beta stage! This means that we are getting closer to a stable release, and we are now focusing on fixing bugs and improving the overall experience.\n\nWe've added a new feature called Zen Sync, which allows you to sync your workspaces, pinned tabs, and essentials across devices. We've also added a new feature called Zen Search, which allows you to search for tabs, workspaces, and pinned tabs.\n\nWe've also updated to the latest stable version of Firefox (132.0.2), and we've added a new feature called Zen Sync, which allows you to sync your workspaces, pinned tabs, and essentials across devices.",
+		fixes: [
+			{
+				description: "Various fixes in version 20",
+			},
+			{
+				description: "Fix pinned tab state and favicon handling",
+				issue: 2853
+			},
+			{
+				description: "Prevent pins deletion from database on non explicit tab closes (window closing)",
+				issue: 2875,
+			},
+			{
+				description: "Fix inconsistent cursor when resizing split view",
+				issue: 2252
+			},
+			{
+				description: "Fixed changing essential tab when switching workspaces",
+			},
+			{
+				description: "Fixed restoring pinned tabs to their pinned URLs on startup if the option is checked",
+				isue: 2817
+			},
+			{
+				description: "Prevent creating new window for dragging pinned tab out of the window.",
+			},
+			{
+				description: "Fixed handling container-specific essentials (now available)",
+			},
+			{
+				description: "Fixed right-side sidebar on compact mode occupying the screen space",
+			},
+			{
+				description: "Fixed some titlebar buttons not covering full height",
+			},
+			{
+				description: "Fixed bug where a popup window would not close/open a new tab",
+			},
+			{
+				description: "Fixed switching workspaces with the mouse wheel being sluggish",
+			},
+			{
+				description: "Fixed weird layouts in very specific conditions on macos",
+			},
+			{
+				description: "Fixed HTTP pacing requests for improved performance",
+			},
+			{
+				description: "Fixed windows mica titlebar disappearing",
+			},
+			{
+				description: "Fixed random 'null's appearing for macos users",
+			}
+		],
+		features: [
+			"New branding and logos!",
+			"Updated zen glance animations for smoother transitions and adjust timing (Still in development)",
+			"Add reset to pinned URL button to pinned tabs",
+			"Made the URL bar background more rounded",
+			"Updated to Firefox 133.0",
+			"Added support for -moz-gtk-csd-reversed-placement on Linux",
+			"Enhance workspace deactivation styles with grayscale filter for better visibility",
+			"Windows and linux ARM64 builds are now available on the github for testing!",
+			"Hide container label when URL bar is narrow",
+			"Macos ARM64 builds will now ship with PGO, performance increase!",
+			"Added different layouts for zen: single toolbar, multiple toolbars, and no toolbar",
+			"The URL bar will now be floating on the top of the page",
+			"Added native mica support for Windows 11",
+			"Added hiding window controls support",
+			"Created new animations for glance",
+			"Added context aware animations for workspace switching",
+			"New onboarding experience for new users!",
+			"Started experimenting with horizontal tabs",
+		],
+		breakingChanges: [
+			"Urlbar now will open when clicking on it instead of on-mousedown",
+			"Changed default glance opening trigger to 'alt+click' on linux/windows systems",
+			"Removed collapsible sidebar expande on hover (mod will be available soon). This is due to the dificulty of maintaining it as we evolve the sidebar",
+		],
+	},
 ].reverse();

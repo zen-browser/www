@@ -1,19 +1,19 @@
 ---
 import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
-import Button from '../components/Button.astro'
-import Circles from '../components/Circles.astro'
-import { Image } from 'astro:assets'
-import myImage from '../assets/browser.png'
-import { 
-  Github,
-  Check,
- } from 'lucide-astro'
+import { Image } from 'astro:assets';
+
+import browserWorkspaces from '../assets/browser-workspaces.png';
+import browserCompactMode from '../assets/browser-compactmode.png';
+import browserSplitViews from '../assets/browser-splitview.png';
+import browserSidebar from '../assets/browser-sidebar.png';
+
+import browserGlance from '../assets/browser-glance.webm';
 ---
 
 <section
   id="features"
-  class="flex min-h-screen w-full px-4 lg:px-12 xl:px-24 py-36 flex-col relative"
+  class="flex w-full px-4 lg:px-12 xl:px-24 py-36 flex-col relative"
 >
   <div class="flex flex-col lg:flex-row w-full items-start gap-12">
     <div id="feature-list" class="lg:w-1/3 flex flex-col gap-4">
@@ -71,11 +71,11 @@ import {
     </div>
     <div class="relative lg:w-2/3 lg:pl-20 items-center m-auto">
       <div class="bg-coral rounded-xl ml-auto" id="feature-list-image">
-        <img src="/browser.webp" alt="" class="object-fit">
-        <img src="/browser.webp" alt="" class="object-fit">
-        <img src="/browser.webp" alt="" class="object-fit">
-        <img src="/browser.webp" alt="" class="object-fit">
-        <img src="/browser.webp" alt="" class="object-fit">
+        <Image src={browserWorkspaces} alt="Browser Workspaces" class="rounded-xl" />
+        <Image src={browserCompactMode} alt="Browser Compact Mode" class="rounded-xl" />
+        <Image src={browserSplitViews} alt="Browser Split Views" class="rounded-xl" />
+        <Image src={browserSidebar} alt="Browser Sidebar" class="rounded-xl" />
+        <video src={browserGlance} autoplay loop muted playsinline class="rounded-xl absolute top-0 left-0 w-full h-full object-cover" />
       </div>
     </div>
   </div>
@@ -89,7 +89,7 @@ import {
         feature.removeAttribute('active');
       }
     });
-    document.querySelectorAll('#feature-list-image img').forEach((img: any, i) => {
+    document.querySelectorAll('#feature-list-image > *').forEach((img: any, i) => {
       img.style.opacity = i === index ? 1 : 0;
       img.classList.toggle('absolute', i !== index);
     });

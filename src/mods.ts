@@ -29,3 +29,7 @@ export async function getAllMods(): Promise<ZenTheme[]> {
     return [];
   }
 }
+
+export function getAuthorLink(author: string): string {
+	return `https://github.com/${author}`;
+}

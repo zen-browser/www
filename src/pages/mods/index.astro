@@ -10,7 +10,7 @@ console.log(mods);
 
 <Layout title="Zen Mods">
   <main class="mt-32 2xl:mt-0">
-    <header class="min-h-[65vh] flex flex-col justify-center w-full border-b-2 border-dark">
+    <header class="mt-52 mb-32 flex flex-col justify-center w-full border-dark">
       <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6">
         <div>
           <Title>Zen Mods</Title>
@@ -24,12 +24,24 @@ console.log(mods);
         </div>
       </div>
     </header>
-    <div>
-        {mods.map((mod: ZenTheme) => (
-            <a href={`/mods/${mod.id}`}>
-              
-            </a>
-        ))}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 p-10 lg:p-24 lg:px-24 mx-auto">
+      {mods.map((mod: ZenTheme) => (
+        <a href={`/mods/${mod.id}`} class="block border-transparent transition-colors duration-100 flex flex-col gap-4 hover:opacity-90 mb-6">
+          <div class="relative mb-0 hidden aspect-[1.85/1] h-48 overflow-hidden rounded-md border-4 object-cover shadow-md border-white lg:block lg:h-auto">
+            <img
+              src={mod.image}
+              alt={mod.name}
+              class="h-full w-full object-cover hover:scale-105 transition-transform duration-100"
+            />
+          </div>
+          <div class="">
+            <h2 class="font-bold text-lg">
+              {mod.name} <span class="font-normal text-sm ml-1">by @{mod.author}</span>
+            </h2>
+            <p class="text-sm font-thin">{mod.description}</p>
+          </div>
+        </a>
+      ))}
     </div>
   </main>
 </Layout>

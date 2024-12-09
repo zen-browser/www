@@ -1,0 +1,50 @@
+---
+import Button from '../components/Button.astro'
+import Description from '../components/Description.astro'
+import Title from '../components/Title.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Welcome to Zen">
+  <main class="min-h-screen h-screen relative flex flex-col my-52 justify-center items-center">
+    <div class="text-center p-4 mb-24 lg:w-1/2">
+      <Title>About Us</Title>
+      <Description>
+        We are simply a group of developers and designers who care about your experience on the web. We believe that the internet should be a place where you can explore, learn, and connect without worrying about your data being collected.
+      </Description>
+      <Button href="/donate" class="w-fit mx-auto mt-4" isPrimary>A little help?</Button>
+    </div>
+    <div class="w-full relative flex flex-col lg:flex-row justify-center items-center">
+      <div class="p-8 lg:pr-24 flex flex-col lg:w-1/3">
+        <div class="font-bold text-6xl">Main Team</div>
+        <Description>
+          This list shows the main team members who are working hard to bring you the best browsing experience.
+        </Description>
+        <div class="mt-4">
+          <ul>
+              <li class="text-sm"><a href="https://github.com/mr-cheff"><strong class="font-bold">Mauro Baladés</strong></a>: Creator, Main Developer, and a funny guy.</li>
+              <li class="text-sm mt-1"><strong class="italic">Oscar Gonzalez</strong>: Site Reliability Engineer (SRE) and code signing.</li>
+              <li class="text-sm mt-1"><a href="https://janheres.eu/"><strong class="font-bold">Jan Heres</strong></a>: Active contributor and helps with MacOS builds</li>
+              <li class="text-sm mt-1"><a href="https://github.com/BrhmDev"><strong class="font-bold">BrhmDev</strong></a>: Active contributor with great contributions</li>
+              <li class="text-sm mt-1"><a href="https://thatcanoa.org/"><strong class="font-bold">Canoa</strong></a> Active contributor, and very active in issue handling and website management</li>
+              <li class="text-sm mt-1"><a href="https://github.com/kristijanribaric"><strong class="font-bold">kristijanribaric</strong></a>: Active contributor</li>
+              <li class="text-sm mt-1"><a href="https://github.com/n7itro"><strong class="font-bold">n7itro</strong></a>: Active contributor and release notes writer</li>
+              <li class="text-sm mt-1"><a href="https://josuegalre.netlify.app/"><strong class="font-bold">Bryan Galdámez</strong></a>: Huge contributor on theme functionalities</li>
+              <li class="text-sm mt-1"><a href="https://iamjafeth.com/"><strong class="font-bold">Jafeth Garro</strong></a>: Documentation writer</li>
+              <li class="text-sm mt-1"><a href="https://github.com/LarveyOfficial/"><strong class="font-bold">Larvey</strong></a>: AUR maintainer</li>
+              <li class="text-sm mt-1"><a href="https://github.com/gunir"><strong class="font-bold">Gunir</strong></a>: Helps a lot with firefox's configuration and knowledge</li>
+            </ul>
+        </div>
+      </div>
+      <div class="hidden lg:block h-full w-[1.5px] bg-dark absolute"></div>
+      <div class="p-8 lg:pl-24 flex flex-col lg:w-1/3">
+        <div class="font-bold text-6xl">Contributors</div>
+        <Description>
+          Here are all the wonderful people that decided to contribute to the project! The first set of images are from the desktop repository, and the second set is from the website repository.
+        </Description>
+        <img src="https://contributors-img.web.app/image?repo=zen-browser/desktop" alt="Contributors Image" class="mt-4" />
+        <img src="https://contributors-img.web.app/image?repo=zen-browser/www" alt="Contributors Image (website)" class="mt-4" />
+      </div>
+    </div>
+  </main>
+</Layout>
