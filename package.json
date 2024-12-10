@@ -1,34 +1,38 @@
 {
-  "name": "www",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev --port 3000",
-    "start": "astro preview --port 3000",
-    "build": "astro check && astro build",
-    "preview": "astro preview --port 3000",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/cloudflare": "^12.0.1",
-    "@astrojs/tailwind": "^5.1.2",
-    "@fontsource/bricolage-grotesque": "^5.1.0",
-    "@fortawesome/fontawesome-svg-core": "^6.7.1",
-    "@fortawesome/free-brands-svg-icons": "^6.7.1",
-    "@fortawesome/free-solid-svg-icons": "^6.7.1",
-    "astro": "^5.0.4",
-    "astro-navbar": "^2.3.7",
-    "autoprefixer": "10.4.14",
-    "free-astro-components": "^1.1.1",
-    "lucide-astro": "^0.460.0",
-    "motion": "^11.13.1",
-    "postcss": "8.4.21",
-    "prettier": "^3.3.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.6",
-    "sharp": "^0.33.5",
-    "tailwindcss": "^3.4.15",
-    "typescript": "^5.6.3"
-  }
+	"name": "www",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev --port 3000",
+		"start": "astro preview --port 3000",
+		"build": "astro check && astro build",
+		"preview": "astro preview --port 3000",
+		"wrangler": "wrangler",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.4",
+		"@astrojs/cloudflare": "^12.0.1",
+		"@astrojs/tailwind": "^5.1.2",
+		"@fontsource/bricolage-grotesque": "^5.1.0",
+		"@fortawesome/fontawesome-svg-core": "^6.7.1",
+		"@fortawesome/free-brands-svg-icons": "^6.7.1",
+		"@fortawesome/free-solid-svg-icons": "^6.7.1",
+		"astro": "^5.0.4",
+		"astro-navbar": "^2.3.7",
+		"autoprefixer": "10.4.14",
+		"free-astro-components": "^1.1.1",
+		"lucide-astro": "^0.460.0",
+		"motion": "^11.13.1",
+		"postcss": "8.4.21",
+		"prettier": "^3.3.3",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-tailwindcss": "^0.6.6",
+		"sharp": "^0.33.5",
+		"tailwindcss": "^3.4.15",
+		"typescript": "^5.6.3"
+	},
+	"devDependencies": {
+		"wrangler": "^3.94.0"
+	}
 }
