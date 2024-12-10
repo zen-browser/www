@@ -313,39 +313,37 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
     }
   }
 
-  window.addEventListener("DOMContentLoaded", () => {
-    getIfTwilight();
+  getIfTwilight();
 
-    document.getElementById("next-button")?.addEventListener("click", () => {
-      goNextForm();
-    });
-
-    document.getElementById("macos-arm-download")?.addEventListener("click", () => {
-      downloadRelease("macos", "arm");
-    });
-
-    document.getElementById("macos-intel-download")?.addEventListener("click", () => {
-      downloadRelease("macos", "intel");
-    });
-
-    document.getElementById("linux-tar-download")?.addEventListener("click", () => {
-      downloadRelease("linux", selectedArch as string, "tar");
-    });
-
-    document.getElementById("linux-appimage-download")?.addEventListener("click", () => {
-      downloadRelease("linux", selectedArch as string, "appImage");
-    });
-
-    document.getElementById("windows-installer-download")?.addEventListener("click", () => {
-      downloadRelease("windows", selectedArch as string, "installer");
-    });
-
-    document.getElementById("windows-zip-download")?.addEventListener("click", () => {
-      downloadRelease("windows", selectedArch as string, "zip");
-    });
-
-    filloutDefaultOS();
+  document.getElementById("next-button")?.addEventListener("click", () => {
+    goNextForm();
   });
+
+  document.getElementById("macos-arm-download")?.addEventListener("click", () => {
+    downloadRelease("macos", "arm");
+  });
+
+  document.getElementById("macos-intel-download")?.addEventListener("click", () => {
+    downloadRelease("macos", "intel");
+  });
+
+  document.getElementById("linux-tar-download")?.addEventListener("click", () => {
+    downloadRelease("linux", selectedArch as string, "tar");
+  });
+
+  document.getElementById("linux-appimage-download")?.addEventListener("click", () => {
+    downloadRelease("linux", selectedArch as string, "appImage");
+  });
+
+  document.getElementById("windows-installer-download")?.addEventListener("click", () => {
+    downloadRelease("windows", selectedArch as string, "installer");
+  });
+
+  document.getElementById("windows-zip-download")?.addEventListener("click", () => {
+    downloadRelease("windows", selectedArch as string, "zip");
+  });
+
+  filloutDefaultOS();
 </script>
 <style>
   @keyframes fadeIn {
