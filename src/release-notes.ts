@@ -1697,7 +1697,7 @@ export const releaseNotes: ReleaseNote[] = [
 		image: true,
 		workflowId: 12246343549,
 		extra:
-			"This release introduces a new stage for Zen Browser, the beta stage! This means that we are getting closer to a stable release, and we are now focusing on fixing bugs and improving the overall experience.\n\nWe've added a new feature called Zen Sync, which allows you to sync your workspaces, pinned tabs, and essentials across devices. We've also added a new feature called Zen Search, which allows you to search for tabs, workspaces, and pinned tabs.\n\nWe've also updated to the latest stable version of Firefox (132.0.2), and we've added a new feature called Zen Sync, which allows you to sync your workspaces, pinned tabs, and essentials across devices.",
+			"This release introduces a new stage for Zen Browser, the beta stage! This means that we are getting closer to a stable release, and we are now focusing on fixing bugs and improving the overall experience.\n\nWe've made some significant changes to the UI, including a new layout for the browser called single toolbar and much more!",
 		fixes: [
 			{
 				description: "Various fixes in version 20",
