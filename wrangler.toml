@@ -1,6 +1,0 @@
-name = "changeme"
-pages_build_output_dir = "./dist"
-compatibility_date = "changeme"
-
-[env]
-production = {}
