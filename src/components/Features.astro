@@ -80,16 +80,16 @@ import browserGlance from '../assets/browser-glance.webm';
     </div>
   </div>
 </section>
-<script is:inline>
-  function changeFeature(index) {
-    document.querySelectorAll('#feature-list .feature').forEach((feature, i) => {
+<script>
+  function changeFeature(index: number) {
+    document.querySelectorAll('#feature-list .feature').forEach((feature: any, i) => {
       if (i === index) {
         feature.setAttribute('active', '');
       } else {
         feature.removeAttribute('active');
       }
     });
-    document.querySelectorAll('#feature-list-image > *').forEach((img, i) => {
+    document.querySelectorAll('#feature-list-image > *').forEach((img: any, i) => {
       img.style.opacity = i === index ? 1 : 0;
       img.classList.toggle('absolute', i !== index);
       img.classList.toggle('hidden', i !== index);
@@ -97,7 +97,7 @@ import browserGlance from '../assets/browser-glance.webm';
   }
 
   window.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('#feature-list .feature').forEach((feature, i) => {
+    document.querySelectorAll('#feature-list .feature').forEach((feature: any, i) => {
       feature.addEventListener('click', () => {
         changeFeature(i);
       });
