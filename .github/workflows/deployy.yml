@@ -1,4 +1,4 @@
-name: Upload to bunny
+name: Upload to Bunny
  
 on:
   workflow_dispatch:
@@ -9,9 +9,6 @@ on:
 jobs:
   upload:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        go-version: [1.22.3]
 
     steps:
       - name: Checkout code
