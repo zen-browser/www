@@ -32,7 +32,7 @@ jobs:
         uses: ayeressian/bunnycdn-storage-deploy@v2.2.4
         with:
           source: "dist"
-          destination: "www"
+          destination: ""
           storageZoneName: "${{ secrets.STORAGE_NAME }}"
           storagePassword: "${{ secrets.STORAGE_PASSWORD }}"
           upload: "true"
