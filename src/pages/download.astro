@@ -253,7 +253,6 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
       const selectedRadio = osSelect.querySelector("input[type='radio']:checked") as HTMLInputElement;
       selectedOS = selectedRadio.value;
       document.getElementById("form-os-select")?.classList.add("hidden");
-      console.log(selectedOS);
 
       if (selectedOS === "macos") {
         const macosDownload = document.getElementById("form-macos-download") as HTMLDivElement;
@@ -318,7 +317,6 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
     getIfTwilight();
 
     document.getElementById("next-button")?.addEventListener("click", () => {
-      console.log("Next button clicked");
       goNextForm();
     });
 
