@@ -39,7 +39,7 @@ const mod = Astro.props;
           <Button
             class="hidden"
             id="install-theme"
-            zen-theme-id={mod.id}
+            extra={{"zen-theme-id":mod.id}}
             isPrimary
           >
             Install Theme 🎉
@@ -47,7 +47,7 @@ const mod = Astro.props;
           <Button
             class="hidden"
             id="install-theme-uninstall"
-            zen-theme-id={mod.id}
+            extra={{"zen-theme-id":mod.id}}
             isPrimary
           >
             Uninstall Theme
