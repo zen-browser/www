@@ -3,10 +3,13 @@ import { releaseNotes } from '../../release-notes'
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  return releaseNotes.map((release: any) => ({
+  return [...releaseNotes.map((release: any) => ({
     params: { slug: release.version },
     props: { ...release },
-  }));
+  })), {
+    params: { slug: ['latest'] },
+    props: { ...releaseNotes[0] },
+  }];
 }
 
 const release = Astro.props;
