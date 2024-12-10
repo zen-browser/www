@@ -96,7 +96,9 @@ import browserGlance from '../assets/browser-glance.webm';
     });
   }
 
+  console.log("TEST");
   window.addEventListener('DOMContentLoaded', () => {
+    console.log("HELLLO");
     document.querySelectorAll('#feature-list .feature').forEach((feature: any, i) => {
       feature.addEventListener('click', () => {
         changeFeature(i);
