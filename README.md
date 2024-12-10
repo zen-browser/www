@@ -1,6 +1,6 @@
 <div align="center">
 <picture>
-    <img src="./public/logos/zen-alpha-white.svg" width="128px">
+    <img src="./public/favicon.ico" width="128px">
 </picture>
 </div>
 <h1 align="center">
