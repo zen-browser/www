@@ -92,6 +92,7 @@ import browserGlance from '../assets/browser-glance.webm';
     document.querySelectorAll('#feature-list-image > *').forEach((img: any, i) => {
       img.style.opacity = i === index ? 1 : 0;
       img.classList.toggle('absolute', i !== index);
+      img.classList.toggle('hidden', i !== index);
     });
   }
 
