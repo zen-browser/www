@@ -1,13 +1,13 @@
 ---
-const { class: className, isPrimary, isBordered, href, id } = Astro.props;
+const { class: className, isPrimary, isBordered, href, id, extra } = Astro.props;
 ---
 
 {href ? (
-  <a id={id} href={href} class:list={['px-6 py-2 flex gap-2 items-center justify-center rounded-full transition-transform duration-200', className, isPrimary ? 'bg-dark text-paper' : !isBordered ? 'hover:bg-dark border-2 border-dark hover:text-paper' : 'border-2 border-dark hover:bg-dark hover:shadow-sm hover:text-paper !transition-bg']} >
+  <a id={id} {...extra} href={href} class:list={['px-6 py-2 flex gap-2 items-center justify-center rounded-full transition-transform duration-200', className, isPrimary ? 'bg-dark text-paper' : !isBordered ? 'hover:bg-dark border-2 border-dark hover:text-paper' : 'border-2 border-dark hover:bg-dark hover:shadow-sm hover:text-paper !transition-bg']} >
     <slot />
   </a>
 ) : (
-  <button id={id} class:list={['px-6 py-2 flex gap-2 items-center justify-center rounded-full transition-transform duration-200', className, isPrimary ? 'bg-dark text-paper' : !isBordered ? 'hover:bg-dark border-2 border-dark hover:text-paper' : 'border-2 border-dark hover:bg-dark hover:shadow-sm hover:text-paper !transition-bg']} >
+  <button id={id} {...extra} class:list={['px-6 py-2 flex gap-2 items-center justify-center rounded-full transition-transform duration-200', className, isPrimary ? 'bg-dark text-paper' : !isBordered ? 'hover:bg-dark border-2 border-dark hover:text-paper' : 'border-2 border-dark hover:bg-dark hover:shadow-sm hover:text-paper !transition-bg']} >
     <slot />
   </button>
 )}

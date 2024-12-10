@@ -13,11 +13,11 @@ import Logo from './Logo.astro';
   class="fixed flex justify-between w-full items-center pt-6 px-6 z-10 top-0 left-0"
 >
   <Astronav>
-    <MenuItems class="rounded-full border-dark border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md hidden mx-auto lg:flex gap-20">
+    <MenuItems class="w-fit rounded-full border-dark border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-auto flex gap-2 lg:gap-20">
       <a class="font-bold text-lg items-center flex gap-2" href="/">
-        <Logo class="text-dark" /> zen browser
+        <Logo class="text-dark" /> <span class="hidden lg:block">zen browser</span>
       </a>
-      <div class="gap-6 lg:flex items-center">
+      <div class="gap-6 flex items-center">
         <Dropdown class="group">
           <button class="flex items-center">
             <span>Getting Started</span>
