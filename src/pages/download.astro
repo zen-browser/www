@@ -139,8 +139,8 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
               <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-generic">
                 <div>Generic</div>
               </label>
-              <input type="radio" name="windows-target" value="aarch64" id="windows-target-aarch64" class="hidden" />
-              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-aarch64">
+              <input type="radio" name="windows-target" value="arm64" id="windows-target-arm64" class="hidden" />
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-arm64">
                 <div>ARM64</div>
               </label>
             </form>
@@ -210,7 +210,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
         installer: "zen.installer-generic.exe",
         zip: "zen.win-generic.zip",
       },
-      arm: {
+      arm64: {
         installer: "zen.installer-arm64.exe",
         zip: "zen.win-arm64.zip",
       },
@@ -237,6 +237,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
   }
 
   function downloadRelease(os: string, arch: string, format: string = "") {
+    console.log("Downloading release", os, arch, format);
     let releaseName = releases[os][arch];
     if (os !== "macos") {
       releaseName = releases[os][arch][format];
