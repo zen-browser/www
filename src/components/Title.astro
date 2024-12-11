@@ -7,12 +7,13 @@ const { class: className } = Astro.props
 </h1>
 <style>
   h1 {
-    font-size: 6rem;
     line-height: 0.9;
     margin-bottom: 0.4rem;
     font-family: 'Junicode', serif;
     font-weight: 600;
     font-style: normal;
     font-feature-settings: 'swsh' 1;
+
+    @apply text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
   }
 </style>
