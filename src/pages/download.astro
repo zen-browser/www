@@ -120,6 +120,10 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
                 Download AppImage
                 <HardDriveDownload class="size-4" />
               </div>
+              <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="linux-flathub-download">
+                Download from Flathub
+                <HardDriveDownload class="size-4" />
+              </div>
             </div>
           </div>
           <div id="windows-target-download" class="form-item hidden">
@@ -334,6 +338,11 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
 
   document.getElementById("linux-appimage-download")?.addEventListener("click", () => {
     downloadRelease("linux", selectedArch as string, "appImage");
+  });
+
+
+  document.getElementById("linux-flathub-download")?.addEventListener("click", () => {
+    window.open("https://flathub.org/apps/io.github.zen_browser.zen");
   });
 
   document.getElementById("windows-installer-download")?.addEventListener("click", () => {
