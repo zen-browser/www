@@ -7,6 +7,7 @@ import myImage from '../assets/browser.png'
 import { ArrowRight } from 'lucide-astro';
 import { motion } from 'motion/react';
 import { AnimatedText } from './AnimatedText';
+import { getTitleAnimation } from '../animations'
 
 let titleAnimationCounter = 0;
 function getNewAnimationDelay() {
@@ -14,11 +15,8 @@ function getNewAnimationDelay() {
   return titleAnimationCounter * 0.15;
 }
 
-function getTitleAnimation() {
-  return {
-    initial: { opacity: 0, translateY: 20, filter: 'blur(4px)' },
-    animate: { opacity: 1, translateY: 0, filter: 'blur(0px)', transition: { duration: 0.3, delay: getNewAnimationDelay() } },
-  };
+function getHeroTitleAnimation() {
+  return getTitleAnimation(getNewAnimationDelay());
 }
 
 ---
@@ -29,37 +27,37 @@ function getTitleAnimation() {
 >
   <div class="flex flex-col items-center h-full justify-center">
     <Title class='text-left px-12 lg:px-0 md:text-center leading-[108px] md:!text-7xl lg:!text-9xl !font-normal'>
-      <motion.span client:load {...getTitleAnimation()}>
+      <motion.span client:load {...getHeroTitleAnimation()}>
         Welcome
       </motion.span>
-      <motion.span client:load {...getTitleAnimation()}>
+      <motion.span client:load {...getHeroTitleAnimation()}>
         to
       </motion.span>
       <br class="hidden md:block" /> 
-      <motion.span client:load {...getTitleAnimation()}>
+      <motion.span client:load {...getHeroTitleAnimation()}>
         a
       </motion.span>
-      <motion.span client:load {...getTitleAnimation()} className='italic'>
+      <motion.span client:load {...getHeroTitleAnimation()} className='italic'>
         calmer
       </motion.span>
-      <motion.span client:load {...getTitleAnimation()}>
+      <motion.span client:load {...getHeroTitleAnimation()}>
         internet
       </motion.span>
     </Title>
-    <motion.span client:load {...getTitleAnimation()}>
+    <motion.span client:load {...getHeroTitleAnimation()}>
       <Description class='text-left px-12 lg:px-0 md:text-center'
         >Beautifully designed, privacy-focused, and packed with features.<br
         />We care about your experience, not your data.</Description
       >
     </motion.span>
     <div class="w-2/3 md:w-fit mt-6 gap-3 sm:gap-6 flex flex-col md:flex-row">
-      <motion.span client:load {...getTitleAnimation()}>
+      <motion.span client:load {...getHeroTitleAnimation()}>
         <Button class="w-full" href="/download" isPrimary>
           Download
           <ArrowRight class="size-4" />
         </Button>
       </motion.span>
-      <motion.span client:load {...getTitleAnimation()}>
+      <motion.span client:load {...getHeroTitleAnimation()}>
         <Button href="#features">Start Exploring</Button>
       </motion.span>
     </div>
