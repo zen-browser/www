@@ -1778,4 +1778,40 @@ export const releaseNotes: ReleaseNote[] = [
 			"Removed collapsible sidebar expande on hover (mod will be available soon). This is due to the dificulty of maintaining it as we evolve the sidebar",
 		],
 	},
+	{
+		version: "1.0.2-b.1",
+		date: "11/12/2024",
+		image: false,
+		workflowId: 12280896272,
+		extra:
+			"This release brings some commong bug fixes and improvements to the browser. Thanks everyone for the feedback!",
+		fixes: [
+			{
+				description: "Fixed weird top-bar when mica is enabled with windows 11 accent color enabled",
+			},
+			{
+				description: "Fixed the urlbar being infinitely long",
+			},
+			{
+				description: "Fixed weird placement of macos window controls when having multiple toolbars enabled",
+			},
+			{
+				description: "Fixed dead links in the preferences page",
+			},
+			{
+				description: "Fixed an 'all-tabs' buttons appearing always and not being able to remove it",
+			},
+			{
+				description: "Fixed overlaping top toolbar in compact mode when having multiple toolbars enabled",
+			},
+			{
+				description: "Fixed gradient generator overflowing the dialog on some displays",
+			},
+		],
+		features: [
+			"Added a preference to disable the new floating URL bar (May be open to bugs, the preference is used as a deprecated feature)",
+			"Added new and better compact mode animations",
+			"Hide top-buttons when they are empty, preventing having a huge space in compact mode",
+		]
+	},
 ].reverse();
