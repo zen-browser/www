@@ -1,12 +1,12 @@
 ---
-const { class: className } = Astro.props
+const { class: className } = Astro.props;
 ---
 
-<h1 class:list={["text-dark", className]}>
+<h1 class:list={["title text-dark", className]}>
   <slot />
 </h1>
 <style>
-  h1 {
+  .title {
     line-height: 0.9;
     margin-bottom: 0.4rem;
     font-family: 'Junicode', serif;
@@ -14,6 +14,6 @@ const { class: className } = Astro.props
     font-style: normal;
     font-feature-settings: 'swsh' 1;
 
-    @apply text-4xl lg:text-5xl xl:text-6xl;
+    @apply text-5xl xl:text-6xl;
   }
 </style>
