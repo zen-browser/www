@@ -25,10 +25,10 @@ function getTitleAnimation() {
 
 <header
   id="header"
-  class="flex py-56 min-h-screen w-full flex-col items-center gap-24 text-center gap-[20%] lg:gap-[15%]"
+  class="flex py-32 md:py-56 md:min-h-screen w-full flex-col items-center text-center gap-[20%] lg:gap-[15%]"
 >
   <div class="flex flex-col items-center h-full justify-center">
-    <Title class='text-left px-12 lg:px-0 lg:text-center leading-[108px] md:!text-9xl !font-normal'>
+    <Title class='text-left px-12 lg:px-0 md:text-center leading-[108px] md:!text-7xl lg:!text-9xl !font-normal'>
       <motion.span client:load {...getTitleAnimation()}>
         Welcome
       </motion.span>
@@ -47,14 +47,14 @@ function getTitleAnimation() {
       </motion.span>
     </Title>
     <motion.span client:load {...getTitleAnimation()}>
-      <Description class='text-left px-12 lg:px-0 lg:text-center'
+      <Description class='text-left px-12 lg:px-0 md:text-center'
         >Beautifully designed, privacy-focused, and packed with features.<br
         />We care about your experience, not your data.</Description
       >
     </motion.span>
-    <div class="mt-6 gap-3 sm:gap-6 flex flex-row">
+    <div class="w-2/3 md:w-fit mt-6 gap-3 sm:gap-6 flex flex-col md:flex-row">
       <motion.span client:load {...getTitleAnimation()}>
-        <Button href="/download" isPrimary>
+        <Button class="w-full" href="/download" isPrimary>
           Download
           <ArrowRight class="size-4" />
         </Button>

@@ -13,11 +13,11 @@ import Logo from './Logo.astro';
   class="fixed flex justify-between w-full items-center lg:pt-6 lg:px-6 z-10 top-0 left-0"
 >
   <Astronav>
-    <MenuItems class="w-fit lg:rounded-full border-dark border-b-2 lg:border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-auto flex gap-2 lg:gap-20">
+    <MenuItems class="w-full lg:w-fit lg:rounded-full border-dark border-b-2 lg:border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-auto flex gap-2 lg:gap-20">
       <a class="font-bold text-lg items-center flex gap-2" href="/">
         <Logo class="text-dark" /> <span class="hidden lg:block">zen browser</span>
       </a>
-      <div class="gap-6 flex items-center">
+      <div class="gap-6 flex items-center text-xs lg:text-base">
         <Dropdown class="group">
           <button class="flex items-center">
             <span>Getting Started</span>
@@ -102,12 +102,12 @@ import Logo from './Logo.astro';
           <span>Mods</span>
         </a>
       </div>
-      <Button href="/download" isPrimary>
-        <span class="hidden lg:block">
+      <Button href="/download" class="ml-auto" isPrimary>
+        <span class="hidden md:flex items-center gap-2">
           Download
           <ArrowRight class="size-4" />
         </span>
-        <span class="lg:hidden">
+        <span class="md:hidden">
           <Download class="size-4" />
         </span>
       </Button>
