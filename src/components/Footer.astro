@@ -4,7 +4,6 @@ import Description from '../components/Description.astro'
 import Button from '../components/Button.astro'
 import Circles from '../components/Circles.astro'
 import { ArrowRight } from 'lucide-astro'
-import { ThemeSwitch } from 'free-astro-components'
 
 import { library, icon } from "@fortawesome/fontawesome-svg-core";
 import { faMastodon, faBluesky, faGithub, faTwitter, faReddit } from "@fortawesome/free-brands-svg-icons";
@@ -28,9 +27,6 @@ const Reddit = icon({ prefix: "fab", iconName: "reddit" });
         Beautifully designed, privacy-focused, and packed with features. We care
         about your experience, not your data.
       </Description>
-    </div>
-    <div id="theme-switcher" class="mt-12 lg:py-0 w-fit">
-      <ThemeSwitch label="Toggle theme" class="!text-dark" />
     </div>
   </div>
   <div class="flex flex-col justify-between w-full lg:flex-row gap-6 lg:pr-52 lg:my-12">
@@ -100,8 +96,3 @@ const Reddit = icon({ prefix: "fab", iconName: "reddit" });
     <Circles white multiplier={0.7} class="ml-auto mb-[-100px] mr-[-80px] hidden lg:block" />
   </div>  
 </footer>
-<style is:global>
-  #theme-switcher * {
-    @apply !text-paper;
-  }
-</style>
