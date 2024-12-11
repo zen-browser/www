@@ -6,6 +6,7 @@ import Button from '../components/Button.astro'
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
 import { ArrowRight, ChevronDown } from 'lucide-astro'
 import Logo from './Logo.astro';
+import { ThemeSwitch } from 'free-astro-components'
 ---
 
 <nav
@@ -108,6 +109,9 @@ import Logo from './Logo.astro';
       </Button>
     </MenuItems>
   </Astronav>
+  <div id="theme-switcher" class="w-fit rounded-full border-dark border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md">
+    <ThemeSwitch label="Toggle theme" class="" />
+  </div>
 </nav>
 <style>
   .navbar-dropdown {
@@ -128,5 +132,10 @@ import Logo from './Logo.astro';
         @apply text-sm;
       }
     }
+  }
+</style>
+<style is:global>
+  #theme-switcher * {
+    @apply !text-dark;
   }
 </style>
