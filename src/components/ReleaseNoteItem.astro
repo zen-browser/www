@@ -14,19 +14,16 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 	class="relative mt-24 flex flex-col border-t border-dark/30 pt-24 lg:flex-row"
 	id={props.version}
 	>
-	<div class="mb-0 hidden lg:block ml-5 md:ml-10 mr-24 mt-1 h-fit min-w-52 text-xs text-muted-foreground">
-		{date.toLocaleDateString('en-US', { dateStyle: 'long'})}
-		<div class="mt-2 flex items-center">
+	<div class="px-5 md:px-10 md:pr-32">
+        <h1 class="text-3xl font-bold">Release notes for {props.version} 🎉</h1>
+        {date.toLocaleDateString('en-US', { dateStyle: 'long'})}
+		<div class="mt-2">
 			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${props.version}`}>Github Release<a/>
 			<span class="text-muted-foreground mx-auto">•</span>
 			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run<a/>
 		</div>
-	</div>
-
-	<div class="px-5 md:px-10 md:pr-32">
-		<h1 class="text-3xl font-bold">Release notes for {props.version} 🎉</h1>
 		<p class="mt-8 text-lg text-muted-forground">
-			If you encounter any issues, please report them on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zen-browser/desktop/issues/" class="text-underline text-blue-500">the issues page</a>. Thanks everyone for your feedback! ❤️ 
+			If you encounter any issues, please report them on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zen-browser/desktop/issues/" class="text-underline text-blue-500">the issues page</a>. 
 		</p>
 
 		{props.extra ? (
