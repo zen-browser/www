@@ -15,4 +15,4 @@ This repository contains the source code for the Zen Browser Website. We are thr
 
 Zen Browser's website is built with [Next.js](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/).
 
-If you are interested in contributing to this project, please read the [Contributing Guidelines](./CONTRIBUTING.md).
+If you are interested in contributing to this project, please read the [Contributing Guidelines](https://docs.zen-browser.app/contribute/www).
