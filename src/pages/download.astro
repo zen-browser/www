@@ -313,9 +313,9 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
 
   function getIfTwilight() {
     const urlParams = new URLSearchParams(window.location.search);
-    const twilight = urlParams.get("twilight");
-    if (twilight) {
-      isTwilight = true;
+    isTwilight = urlParams.has("twilight");
+    if (isTwilight) {
+      console.log("Twilight mode enabled");
     }
   }
 
