@@ -247,9 +247,10 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
       releaseName = releases[os][arch][format];
     }
     const url = `${isTwilight ? TWILIGHT_BASE_URL : BASE_URL}/${releaseName}`;
-    window.location.replace(url);
+    console.log("Downloading from", url);
+    window.open(url, "_blank");
 
-    hideNextButton();
+    showThanksPage();
   }
 
   function goNextForm() {
