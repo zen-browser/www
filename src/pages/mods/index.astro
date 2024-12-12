@@ -26,7 +26,7 @@ const mods = await getAllMods() || [];
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 p-10 lg:p-24 lg:px-24 mx-auto">
       {mods.map((mod: ZenTheme) => (
         <a href={`/mods/${mod.id}`} class="block border-transparent transition-colors duration-100 flex flex-col gap-4 hover:opacity-90 mb-6">
-          <div class="relative mb-0 hidden aspect-[1.85/1] h-48 overflow-hidden rounded-md border-4 object-cover shadow-md border-white lg:block lg:h-auto">
+          <div class="relative mb-0 hidden aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 object-cover shadow-md border-dark lg:block lg:h-auto">
             <img
               src={mod.image}
               alt={mod.name}
