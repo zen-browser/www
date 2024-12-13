@@ -9,6 +9,10 @@ import browserSplitViews from '../assets/browser-splitview.png';
 import browserSidebar from '../assets/browser-sidebar.png';
 
 import browserGlance from '../assets/browser-glance.webm';
+
+import { motion } from 'motion/react';
+import { getTitleAnimation, getZoomInAnimation } from '../animations' 
+
 ---
 
 <section
@@ -17,8 +21,10 @@ import browserGlance from '../assets/browser-glance.webm';
 >
   <div class="flex flex-col lg:flex-row w-full items-start gap-12">
     <div id="feature-list" class="lg:w-1/3 flex flex-col gap-4">
-      <Title>Features</Title>
-      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+      <motion.span client:load viewport={{ once: true }} {...getTitleAnimation(0.2)}>
+        <Title>Features</Title>
+      </motion.span>
+      <motion.div client:load viewport={{ once: true }} {...getZoomInAnimation(0.4)} className="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
         <div class="flex flex-col">
           <Description class="feature-title font-bold text-2xl">
             Workspaces
@@ -27,8 +33,8 @@ import browserGlance from '../assets/browser-glance.webm';
             With Zen, you can create multiple workspaces to keep your tabs organized.
           </p>
         </div>
-      </div>
-      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+      </motion.div>
+      <motion.div client:load viewport={{ once: true }} {...getZoomInAnimation(0.6)} className="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
         <div class="flex flex-col">
           <Description class="feature-title font-bold text-2xl">
             Compact Mode
@@ -37,8 +43,8 @@ import browserGlance from '../assets/browser-glance.webm';
             Zen's compact mode allows you to see more of your content at once.
           </p>
         </div>
-      </div>
-      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+      </motion.div>
+      <motion.div client:load viewport={{ once: true }} {...getZoomInAnimation(0.8)} className="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
         <div class="flex flex-col">
           <Description class="feature-title font-bold text-2xl">
             Split Views
@@ -47,8 +53,8 @@ import browserGlance from '../assets/browser-glance.webm';
             Split your browser into multiple views to see more content at once.
           </p>
         </div>
-      </div>
-      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+      </motion.div>
+      <motion.div client:load viewport={{ once: true }} {...getZoomInAnimation(1)} className="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
         <div class="flex flex-col">
           <Description class="feature-title font-bold text-2xl">
             Sidebar
@@ -57,8 +63,8 @@ import browserGlance from '../assets/browser-glance.webm';
             Zen's sidebar allows you to quickly access your favourite websites.
           </p>
         </div>
-      </div>
-      <div class="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
+      </motion.div>
+      <motion.div client:load viewport={{ once: true }} {...getZoomInAnimation(1.2)} className="feature flex hover:bg-coral/5 rounded-xl p-4 w-full cursor-pointer">
         <div class="flex flex-col">
           <Description class="feature-title font-bold text-2xl">
             Zen Glance
@@ -67,7 +73,7 @@ import browserGlance from '../assets/browser-glance.webm';
             Preview your tabs with Zen Glance to quickly find what you're looking for, without switching tabs.
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
     <div class="relative lg:w-2/3 lg:pl-20 items-center m-auto">
       <div class="ml-auto" id="feature-list-image">
