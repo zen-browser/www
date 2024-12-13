@@ -1,6 +1,6 @@
 ---
 import { getAbsoluteLocaleUrl } from 'astro:i18n';
-import { getAllMods, type ZenTheme, getAuthorLink } from '../../mods';
+import { getAllMods, type ZenTheme, getAuthorLink, getLocalizedDate } from '../../mods';
 import Layout from '../../layouts/Layout.astro';
 import Title from '../../components/Title.astro';
 import Description from '../../components/Description.astro';
@@ -17,6 +17,11 @@ export async function getStaticPaths() {
 // https://github.com/TeaClientMC/Website/blob/7faacc9f8b2c79c74f711d413b155c84faafc00d/src/pages/news/%5B...slug%5D.astro
 
 const mod = Astro.props;
+
+const dates = {
+  createdAt: getLocalizedDate(mod.createdAt),
+  updatedAt: getLocalizedDate(mod.updatedAt)
+}
 ---
 
 <Layout title={`${mod.name} - Zen Mods`} >
@@ -31,11 +36,13 @@ const mod = Astro.props;
         alt={mod.name}
         class="h-full w-full object-cover rounded-xl border-2 shadow border-dark"
       />
-      <div class="flex justify-between flex-col lg:flex-row flex">
-        <div class="font-normal w-full">
-          Created by <a href={getAuthorLink(mod.author)} class="font-bold">@{mod.author}</a> • <span class="font-bold">v{mod.version}</span>
+      <div class="flex justify-between flex-col sm:flex-row gap-2">
+        <div class="font-normal flex-shrink-0">
+          <p>Created by <a href={getAuthorLink(mod.author)} class="font-bold">@{mod.author}</a> • <span class="font-bold">v{mod.version}</span></p>
+          <p>Creation date • <b>{dates.createdAt}</b></p>
+          {(dates.createdAt !== dates.updatedAt) && <p>Latest update • <b>{dates.updatedAt}</b></p>}
         </div>
-        <div>
+        <div class="flex flex-col sm:items-end">
           <Button
             class="hidden"
             id="install-theme"
@@ -54,12 +61,10 @@ const mod = Astro.props;
           </Button>
           <p
             id="install-theme-error"
-            class="text-sm text-muted-foreground"
+            class="flex flex-col text-sm text-muted-foreground"
           >
             You need to have Zen Browser installed to install this theme.{" "}
-            <a href="/download" class="text-blue-500 text-sm inline">
-              Download now!
-            </a>
+            <Button href="/download" class="inline-flex">Download now!</Button>
           </p>
         </div>
       </div>

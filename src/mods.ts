@@ -1,3 +1,5 @@
+import { format } from "date-fns"
+
 export interface ZenTheme {
 	name: string;
 	description: string;
@@ -32,4 +34,8 @@ export async function getAllMods(): Promise<ZenTheme[]> {
 
 export function getAuthorLink(author: string): string {
 	return `https://github.com/${author}`;
+}
+
+export function getLocalizedDate(date: Date): string {
+	return format(date, "PP");
 }

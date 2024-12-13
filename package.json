@@ -24,6 +24,7 @@
 		"astro": "^5.0.4",
 		"astro-navbar": "^2.3.7",
 		"autoprefixer": "10.4.14",
+		"date-fns": "^4.1.0",
 		"free-astro-components": "^1.1.1",
 		"lucide-astro": "^0.460.0",
 		"motion": "^11.13.5",
