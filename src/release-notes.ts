@@ -1814,4 +1814,56 @@ export const releaseNotes: ReleaseNote[] = [
 			"Hide top-buttons when they are empty, preventing having a huge space in compact mode",
 		]
 	},
+	{
+		version: "1.0.2-b.2",
+		date: "15/12/2024",
+		image: false,
+		workflowId: 12333272353,
+		extra:
+			"This release is a small patch to fix some issues and improve overall stability. Thanks everyone for the feedback!",
+		fixes: [
+			{
+				description: "Fixed compact mode options not showing when using multiple toolbars"
+			},
+			{
+				description: "Fixed top-toolbar being overlapped by tabs sidebar in compact mode"
+			},
+			{
+				description: "Fixed macos window control when changing right side tabs to normal tabs"
+			},
+			{
+				description: "Fixed compact mode overlaping site when having bookmarks bar enabled"
+			},
+			{
+				description: "Fixed entering into customize mode while having collapsed tabs"
+			},
+			{
+				description: "Fixed compact mode not working when only having toolbar hidden in single sidebar layout"
+			},
+			{
+				description: "Fixed exiting compact mode with right sidebar for windows"
+			},
+			{
+				description: "Fixed weird shadows and sidebar resize splitter showing when collapsed sidebar"
+			},
+			{
+				description: "Fixed private mode indicator overflowing collapsed sidebar"
+			},
+			{
+				description: "Hide label in zen-workspaces when sidebar is not expanded"
+			},
+			{
+				description: "Fixed clicking on the URLbar suggestions not performing any actions"
+			}
+		],
+		features: [
+			"Added new sidebar animation when entering compact mode",
+			"Updated to firefox 133.0.3",
+			"Added the very requested, very needed, feature rich, blazingly fast, innovative URL bar option we had in previous versions",
+			"Added an option to only have a floating URL bar when typing (default, please check look and feel settings)",
+			"Added a new animation when creating a new tab",
+			"Added the collapse/expand sidebar keyboard shortcut",
+			"Added new URL bar suggestions UI"
+		]
+	},
 ].reverse();
