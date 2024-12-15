@@ -4,9 +4,10 @@ import Description from '../components/Description.astro'
 import Button from '../components/Button.astro'
 import { Image } from 'astro:assets'
 import myImage from '../assets/browser.png'
+import myImage2 from '../assets/browser2.png'
+import myImage3 from '../assets/browser3.png'
 import { ArrowRight } from 'lucide-astro';
 import { motion } from 'motion/react';
-import { AnimatedText } from './AnimatedText';
 import { getTitleAnimation } from '../animations'
 
 let titleAnimationCounter = 0;
@@ -25,8 +26,8 @@ function getHeroTitleAnimation() {
   id="header"
   class="flex pt-32 pb-32 md:pb-28 md:pt-0 md:min-h-screen w-full flex-col items-center text-center gap-[20%] lg:gap-[15%]"
 >
-  <div class="flex flex-col items-center h-full justify-center m-auto">
-    <Title class='text-left px-12 lg:px-0 md:text-center leading-[108px] md:!text-7xl lg:!text-9xl !font-normal'>
+  <div class="flex flex-col items-center h-full justify-center">
+    <Title class='relative text-left px-12 lg:px-0 md:text-center leading-[108px] md:!text-7xl lg:!text-9xl !font-normal'>
       <motion.span client:load {...getHeroTitleAnimation()}>
         Welcome
       </motion.span>
@@ -42,6 +43,9 @@ function getHeroTitleAnimation() {
       </motion.span>
       <motion.span client:load {...getHeroTitleAnimation()}>
         internet
+      </motion.span>
+      <motion.div className="absolute top-0 right-0 rounded-full py-1 px-4 !font-bold bg-coral text-paper text-base !rotate-8" client:load {...getHeroTitleAnimation()}>
+        beta out now!
       </motion.span>
     </Title>
     <motion.span client:load {...getHeroTitleAnimation()}>
@@ -63,6 +67,29 @@ function getHeroTitleAnimation() {
     </div>
   </div>
 </header>
-<motion.span client:load {...getTitleAnimation()}>
-  <Image src={myImage} alt="Zen browser" class="top-full -translate-y-[20%] mx-auto" loading="eager" />
+<motion.span client:load {...getHeroTitleAnimation()} className="relative" id="hero-images">
+  <Image src={myImage} alt="Zen browser" class="-translate-y-[10%] mx-auto rounded-lg shadow-md z-30" loading="eager" />
+  <Image src={myImage2} alt="Zen browser 2" class="top-0 -translate-y-[21%] left-1/2 -translate-x-[50%] absolute rounded-lg shadow-md z-[-1] scale-[0.95]" />
+  <Image src={myImage3} alt="Zen browser 3" class="top-0 -translate-y-[31%] left-1/2 -translate-x-[50%] absolute rounded-lg shadow-md z-[-2] scale-[0.85]" />
 </motion.span>
+<style>
+  #hero-images {
+    & img {
+      transition: transform 0.4s ease;
+    }
+
+    &:hover {
+      & img:nth-child(1) {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      & img:nth-child(2) {
+        transform: translateY(-20%) translateX(-60%) rotate(-2deg) scale(1);
+      }
+
+      & img:nth-child(3) {
+        transform: translateY(-30%) translateX(-40%) rotate(2deg) scale(1);
+      }
+    }
+  }
+</style>
