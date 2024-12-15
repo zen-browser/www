@@ -3,9 +3,7 @@ import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
 import Button from '../components/Button.astro'
 import { Image } from 'astro:assets'
-import myImage from '../assets/browser.png'
-import myImage2 from '../assets/browser2.png'
-import myImage3 from '../assets/browser3.png'
+import myImage from '../assets/browsers.png'
 import { ArrowRight } from 'lucide-astro';
 import { motion } from 'motion/react';
 import { getTitleAnimation } from '../animations'
@@ -67,29 +65,6 @@ function getHeroTitleAnimation() {
     </div>
   </div>
 </header>
-<motion.span client:load {...getHeroTitleAnimation()} className="relative" id="hero-images">
+<motion.span client:load {...getHeroTitleAnimation()} className="relative">
   <Image src={myImage} alt="Zen browser" class="-translate-y-[10%] mx-auto rounded-lg shadow-md z-30" loading="eager" />
-  <Image src={myImage2} alt="Zen browser 2" class="top-0 -translate-y-[21%] left-1/2 -translate-x-[50%] absolute rounded-lg shadow-md z-[-1] scale-[0.95]" />
-  <Image src={myImage3} alt="Zen browser 3" class="top-0 -translate-y-[31%] left-1/2 -translate-x-[50%] absolute rounded-lg shadow-md z-[-2] scale-[0.85]" />
 </motion.span>
-<style>
-  #hero-images {
-    & img {
-      transition: transform 0.4s ease;
-    }
-
-    &:hover {
-      & img:nth-child(1) {
-        transform: translateY(0) rotate(0deg);
-      }
-
-      & img:nth-child(2) {
-        transform: translateY(-20%) translateX(-60%) rotate(-2deg) scale(1);
-      }
-
-      & img:nth-child(3) {
-        transform: translateY(-30%) translateX(-40%) rotate(2deg) scale(1);
-      }
-    }
-  }
-</style>
