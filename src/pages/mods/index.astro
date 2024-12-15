@@ -5,7 +5,7 @@ import Layout from '../../layouts/Layout.astro'
 import ModsList from '../../components/ModsList'
 import { getAllMods } from '../../mods'
 
-const mods = (await getAllMods({})) || []
+const mods = (await getAllMods()) || []
 ---
 
 <Layout title="Zen Mods">
@@ -23,6 +23,6 @@ const mods = (await getAllMods({})) || []
     </header>
 
     <!-- Importing ModList component -->
-    <ModsList mods={mods} client:visible />
+    <ModsList mods={mods} client:load />
   </main>
 </Layout>
