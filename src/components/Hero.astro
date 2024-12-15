@@ -22,7 +22,7 @@ function getHeroTitleAnimation() {
 
 <header
   id="header"
-  class="flex pt-32 pb-32 md:pb-28 md:pt-0 md:min-h-screen w-full flex-col items-center text-center gap-[20%] lg:gap-[15%]"
+  class="flex py-32 md:pt-56 md:pb-42 w-full flex-col items-center text-center gap-[20%] lg:gap-[15%]"
 >
   <div class="flex flex-col items-center h-full justify-center">
     <Title class='relative text-left px-12 lg:px-0 md:text-center leading-[108px] md:!text-7xl lg:!text-9xl !font-normal'>
@@ -65,6 +65,4 @@ function getHeroTitleAnimation() {
     </div>
   </div>
 </header>
-<motion.span client:load {...getHeroTitleAnimation()} className="relative">
-  <Image src={myImage} alt="Zen browser" class="-translate-y-[30%] mx-auto" loading="eager" />
-</motion.span>
+<Image src={myImage} alt="Zen browser" class="mx-auto mb-24" loading="eager" />
