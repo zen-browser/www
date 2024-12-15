@@ -6,6 +6,7 @@ import Button from '../components/Button.astro'
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
 import { ArrowRight, ChevronDown, Download, DownloadCloud } from 'lucide-astro'
 import Logo from './Logo.astro';
+import { ThemeSwitch } from 'free-astro-components'
 ---
 
 <nav
@@ -102,6 +103,9 @@ import Logo from './Logo.astro';
           <span>Mods</span>
         </a>
       </div>
+      <div id="theme-switcher" class="block ml-auto lg:hidden">
+        <ThemeSwitch label="" class="p-2" />
+      </div>
       <Button href="/download" class="ml-auto" isPrimary>
         <span class="hidden md:flex items-center gap-2">
           Download
@@ -113,6 +117,9 @@ import Logo from './Logo.astro';
       </Button>
     </MenuItems>
   </Astronav>
+  <div id="theme-switcher" class="hidden lg:block py-0 w-fit lg:w-fit lg:rounded-full border-dark border-b-2 lg:border-2 px-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-0 md:mx-4 flex gap-2 lg:gap-20 font-bold text-lg items-center">
+    <ThemeSwitch label="Theme" class="p-2" />
+  </div>
 </nav>
 <style>
   .navbar-dropdown {
@@ -133,5 +140,10 @@ import Logo from './Logo.astro';
         @apply text-sm;
       }
     }
+  }
+</style>
+<style is:global>
+  #theme-switcher * {
+    @apply text-dark;
   }
 </style>
