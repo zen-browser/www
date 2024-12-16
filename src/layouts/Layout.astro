@@ -29,11 +29,12 @@ import Footer from "../components/Footer.astro";
 		<meta property="og:color" content="#da755b3" />
 		<!-- twitter card -->
 		<meta name="twitter:card" content="summary_large_image" />
-		 <!-- Fonts -->
-		 <link rel="preconnect" href="https://fonts.bunny.net">
-		 <link href="https://fonts.bunny.net/css?family=bricolage-grotesque:200,300,400,500,600,700,800|instrument-serif:400,400i" rel="stylesheet" />
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.bunny.net">
+		<link href="https://fonts.bunny.net/css?family=bricolage-grotesque:200,300,400,500,600,700,800|instrument-serif:400,400i" rel="stylesheet" />
+		<link rel="alternate" type="application/rss+xml" title="Zen Browser Release Notes" href={`${Astro.url.origin}/feed.xml`} />
 	</head>
-	<body class="bg-paper font-['bricolage-grotesque'] text-dark overflow-x-hidden">
+	<body class="bg-paper font-['bricolage-grotesque'] text-dark overflow-x-hidden"> 
 		<slot />
 		<Footer />
 		<NavBar />
