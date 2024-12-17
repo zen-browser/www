@@ -175,11 +175,19 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
             </div>
           </div>
         </div>
-        <div class="flex w-full items-center justify-end">
-          <Button isPrimary id="next-button">
-            Continue
-            <ArrowRight class="size-4" />
-          </Button>
+        <div class="flex w-full items-center">
+          <div class="flex flex-1 justify-start">
+            <Button id="back-button" class="hidden">
+              <ArrowLeft class="size-4" />
+              Back
+            </Button>
+          </div>
+          <div class="flex flex-1 justify-end">
+            <Button isPrimary id="next-button">
+              Continue
+              <ArrowRight class="size-4" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>
@@ -231,13 +239,18 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
 
   var selectedArch: string | null = null;
 
-  function hideNextButton() {
-    const nextButton = document.getElementById("next-button") as HTMLButtonElement;
-    nextButton.classList.add("hidden");
+  function showButton(buttonId: string, show: boolean) {
+    const button = document.getElementById(buttonId) as HTMLButtonElement;
+    if (show) {
+      button?.classList.remove("hidden");
+    } else {
+      button?.classList.add("hidden");
+    }
   }
 
   function showThanksPage() {
-    hideNextButton();
+    showButton("next-button", false);
+    showButton("back-button", false);
   }
 
   function downloadRelease(os: string, arch: string, format: string = "") {
@@ -263,7 +276,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
       if (selectedOS === "macos") {
         const macosDownload = document.getElementById("form-macos-download") as HTMLDivElement;
         macosDownload.classList.remove("hidden");
-        hideNextButton();
+        showButton("next-button", false);
       } else if (selectedOS === "linux") {
         const linuxDownload = document.getElementById("linux-target-download") as HTMLDivElement;
         linuxDownload.classList.remove("hidden");
@@ -271,6 +284,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
         const windowsDownload = document.getElementById("windows-target-download") as HTMLDivElement;
         windowsDownload.classList.remove("hidden");
       }
+      showButton("back-button", true); // Show Back button after first step
     } else if (selectedOS === "linux" && selectedArch === null) {
       const linuxTargetSelect = document.getElementById("linux-target-download") as HTMLFormElement;
       const selectedRadio = linuxTargetSelect.querySelector("input[type='radio']:checked") as HTMLInputElement;
@@ -280,7 +294,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
       const linuxDownload = document.getElementById("form-linux-download") as HTMLDivElement;
       linuxDownload.classList.remove("hidden");
 
-      hideNextButton();
+      showButton("next-button", false);
     } else if (selectedOS === "windows" && selectedArch === null) {
       const windowsTargetSelect = document.getElementById("windows-target-download") as HTMLFormElement;
       const selectedRadio = windowsTargetSelect.querySelector("input[type='radio']:checked") as HTMLInputElement;
@@ -290,11 +304,43 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
       const windowsDownload = document.getElementById("windows-download") as HTMLDivElement;
       windowsDownload.classList.remove("hidden");
 
-      hideNextButton();
+      showButton("next-button", false);
     } else {
       throw new Error("Unknown state");
     }
   }
+
+  function goPreviousForm() {
+    if (selectedArch) {
+      // Go back to architecture selection
+      if (selectedOS === "linux") {
+        document.getElementById("form-linux-download")?.classList.add("hidden");
+        document.getElementById("linux-target-download")?.classList.remove("hidden");
+      } else if (selectedOS === "windows") {
+        document.getElementById("windows-download")?.classList.add("hidden");
+        document.getElementById("windows-target-download")?.classList.remove("hidden");
+      }
+      selectedArch = null;
+      showButton("back-button", true);
+      showButton("next-button", true);
+    } else if (selectedOS) {
+      // Go back to OS selection
+      if (selectedOS === "macos") {
+        document.getElementById("form-macos-download")?.classList.add("hidden");
+      } else if (selectedOS === "linux") {
+        document.getElementById("linux-target-download")?.classList.add("hidden");
+      } else if (selectedOS === "windows") {
+        document.getElementById("windows-target-download")?.classList.add("hidden");
+      }
+      document.getElementById("form-os-select")?.classList.remove("hidden");
+      selectedOS = null;
+      showButton("back-button", false);
+      showButton("next-button", true);
+    }
+  }
+
+  showButton("back-button", false); // Hide Back button on page load
+  showButton("next-button", true); // Ensure Next button is visible on load
 
   function filloutDefaultOS() {
     const osSelect = document.getElementById("os-select") as HTMLFormElement;
@@ -323,6 +369,10 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
 
   document.getElementById("next-button")?.addEventListener("click", () => {
     goNextForm();
+  });
+
+  document.getElementById("back-button")?.addEventListener("click", () => {
+    goPreviousForm();
   });
 
   document.getElementById("macos-arm-download")?.addEventListener("click", () => {
