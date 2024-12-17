@@ -20,12 +20,16 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
   <main class="flex flex-col justify-center items-center mt-44">
     <div class="flex justify-center flex-col px-2 md:px-12 lg:px-0 lg:flex-row xl:justify-start">
       <Image src={myImage} alt="Zen Browser" class="w-24 h-24" />
-      <div class="p-4 mb-24 lg:w-1/2 flex flex-col gap-12">
+      <div class="p-4 mb-24 lg:w-1/2 flex flex-col gap-6">
         <div>
-          <Title>Try out Zen!</Title>
+          <Title>Try out <span id="zen-name">Zen</span>!</Title>
           <Description>
             Start browsing the web with Zen Browser today. Beautifully designed,
             privacy-focused, and packed with features!
+          </Description>
+          <Description id="twilight-info" class="hidden mt-6">
+            <strong>Twilight Mode:</strong> You're currently in Twilight mode, this
+            means you're downloading the latest experimental features and updates.
           </Description>
         </div>
         <div id="download-form">
@@ -37,7 +41,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
               Please select your operating system below, we already auto-detected
               it for you!
             </div>
-            <form class="flex flex-col gap-2" id="os-select">
+            <form class="flex flex-col gap-2 form-select" id="os-select">
               <input type="radio" name="os" value="windows" id="os-select-windows" class="hidden" />
               <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="os-select-windows">
                 <Fragment set:html={windowsIcon.html} />
@@ -63,7 +67,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
               You can choose between the Intel or ARM version of Zen Browser, select
               the one that fits your system.
             </div>
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-4 form-select">
               <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="macos-arm-download">
                 Download ARM Version
                 <HardDriveDownload class="size-4" />
@@ -82,7 +86,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
               We have a few options for Linux, please select the one that fits your
               system.
             </div>
-            <form class="flex flex-col gap-2">
+            <form class="flex flex-col gap-2 form-select">
               <input type="radio" name="linux-target" value="optimized" id="linux-target-optimized" class="hidden" checked/>
               <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="linux-target-optimized">
                 <div>Optimized</div>
@@ -96,7 +100,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
                 <div>ARM64</div>
               </label>
             </form>
-            <div class="italic ml-2 flex gap-4 items-center mt-4">
+            <div class="italic ml-2 flex gap-4 items-center mt-4 extra-delay">
               <Info class="size-6" />
               <div class="text-sm">
                 <strong class="text-sm">Stuck?</strong> If you're not sure which one to choose, please refer to the <a class="text-sm underline font-bold" href="https://docs.zen-browser.app/guides/generic-optimized" target="_blank" class="text-primary">documentation</a>.
@@ -111,7 +115,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
               You can choose between different download formats for Linux, select
               the one that fits you best.
             </div>
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-4 form-select">
               <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="linux-tar-download">
                 Download Tarball
                 <HardDriveDownload class="size-4" />
@@ -134,7 +138,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
               We have a few options for Windows, please select the one that fits your
               system.
             </div>
-            <form class="flex flex-col gap-2">
+            <form class="flex flex-col gap-2 form-select">
               <input type="radio" name="windows-target" value="optimized" id="windows-target-optimized" class="hidden" checked/>
               <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-optimized">
                 <div>Optimized</div>
@@ -148,7 +152,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
                 <div>ARM64</div>
               </label>
             </form>
-            <div class="italic ml-2 flex gap-4 items-center mt-4">
+            <div class="italic ml-2 flex gap-4 items-center mt-4 extra-delay">
               <Info class="size-6" />
               <div class="text-sm">
                 <strong class="text-sm">Stuck?</strong> If you're not sure which one to choose, please refer to the <a class="text-sm underline font-bold" href="https://docs.zen-browser.app/guides/generic-optimized" target="_blank" class="text-primary">documentation</a>.
@@ -163,7 +167,7 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
               You can choose between different download formats for Windows, select
               the one that fits you best.
             </div>
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-4 form-select">
               <div class="border-2 p-2 px-4 border-dark text-dark rounded-md shadow-sm flex items-center cursor-pointer justify-between hover:bg-dark hover:text-paper transition-all duration-100" id="windows-installer-download">
                 Download Installer
                 <HardDriveDownload class="size-4" />
@@ -316,6 +320,12 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
     isTwilight = urlParams.has("twilight");
     if (isTwilight) {
       console.log("Twilight mode enabled");
+      const name = document.getElementById("zen-name");
+      const twilightInfo = document.getElementById("twilight-info");
+      if (name)
+        name.innerHTML = "Twilight";
+      if (twilightInfo)
+        twilightInfo.classList.remove("hidden");
     }
   }
 
@@ -356,16 +366,18 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
 
   filloutDefaultOS();
 </script>
-<style>
+<style is:global>
   @keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(10px);
+      filter: blur(5px);
     }
 
     to {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
     }
   }
 
@@ -374,21 +386,34 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
   }
 
   .form-item {
+    --animation-delay: 0s;
+  }
+
+  .form-select {
+    --animation-delay: 0.4s;
+  }
+
+  .extra-delay {
+    --animation-delay: 0.8s;
+  }
+
+  .form-item > *:not(.hidden, .form-select),
+  .form-select > *:not(.hidden, input[type="radio"]) {
     @apply select-none;
     opacity: 0;
 
     animation: fadeIn 0.2s forwards;
 
-    &:nth-child(1) {
-      animation-delay: 0.1s;
+    &:nth-of-type(1) {
+      animation-delay: calc(var(--animation-delay) + .1s) !important;
     }
 
-    &:nth-child(2) {
-      animation-delay: 0.2s;
+    &:nth-of-type(2) {
+      animation-delay: calc(var(--animation-delay) + .2s) !important;
     }
 
-    &:nth-child(3) {
-      animation-delay: 0.3s;
+    &:nth-of-type(3) {
+      animation-delay: calc(var(--animation-delay) + .3s) !important;
     }
   }
 
