@@ -1,8 +1,8 @@
-name: Upload to Bunny
+name: Upload to B-Main
  
 on:
   workflow_dispatch:
- 
+
 jobs:
   upload:
     runs-on: ubuntu-latest
