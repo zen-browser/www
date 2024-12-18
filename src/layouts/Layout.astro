@@ -35,9 +35,9 @@ import Footer from "../components/Footer.astro";
 		<link rel="alternate" type="application/rss+xml" title="Zen Browser Release Notes" href={`${Astro.url.origin}/feed.xml`} />
 	</head>
 	<body class="bg-paper font-['bricolage-grotesque'] text-dark overflow-x-hidden"> 
+		<NavBar />
 		<slot />
 		<Footer />
-		<NavBar />
 	</body>
 </html>
 <style is:global>
