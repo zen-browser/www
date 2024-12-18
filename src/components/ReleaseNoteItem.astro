@@ -18,9 +18,9 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
         <h1 class="text-3xl font-bold">Release notes for {props.version} 🎉</h1>
         {date.toLocaleDateString('en-US', { dateStyle: 'long'})}
 		<div class="mt-2">
-			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${props.version}`}>Github Release<a/>
+			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${props.version}`}>Github Release</a>
 			<span class="text-muted-foreground mx-auto">•</span>
-			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run<a/>
+			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run</a>
 		</div>
 		<p class="mt-8 text-lg text-muted-forground">
 			If you encounter any issues, please report them on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zen-browser/desktop/issues/" class="text-underline text-blue-500">the issues page</a>. 
@@ -46,6 +46,7 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 										href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
 										rel="noopener noreferrer"
 										target="_blank"
+										aria-label={`View issue number ${fix.issue} on GitHub`}
 									>
 										#{fix.issue}
 									</a>
