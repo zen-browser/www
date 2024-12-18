@@ -1,46 +1,28 @@
 ---
-import Description from '../../components/Description.astro';
-import Title from '../../components/Title.astro';
-import Layout from '../../layouts/Layout.astro';
-import { getAllMods, type ZenTheme } from '../../mods';
+import Description from '../../components/Description.astro'
+import Title from '../../components/Title.astro'
+import Layout from '../../layouts/Layout.astro'
+import ModsList from '../../components/ModsList'
+import { getAllMods } from '../../mods'
 
-const mods = await getAllMods() || [];
+const mods = (await getAllMods()) || []
 ---
 
 <Layout title="Zen Mods">
   <main class="mt-32 2xl:mt-0">
-    <header class="mt-52 mb-32 flex flex-col justify-center w-full border-dark">
-      <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6">
+    <header class="mb-10 mt-52 flex w-full flex-col justify-center border-dark">
+      <div class="mx-auto flex flex-col gap-6 px-8 lg:w-1/2">
         <div>
           <Title>Zen Mods</Title>
           <Description>
-            Zen Mods is a collection of themes and plugins for Zen Browser. You can
-            find a theme for every mood and a plugin for every need.
+            Zen Mods is a collection of themes and plugins for Zen Browser. You
+            can find a theme for every mood and a plugin for every need.
           </Description>
-        </div>
-        <div class="hidden rounded-full border-2 border-dark p-3 flex gap-2">
-          <input type="text" class="border-none bg-transparent w-full !outline-none" placeholder="Search for mods" />
         </div>
       </div>
     </header>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 p-10 lg:p-24 lg:px-24 mx-auto">
-      {mods.map((mod: ZenTheme) => (
-        <a href={`/mods/${mod.id}`} class="block border-transparent transition-colors duration-100 flex flex-col gap-4 hover:opacity-90 mb-6">
-          <div class="relative mb-0 hidden aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 object-cover shadow-md border-dark lg:block lg:h-auto">
-            <img
-              src={mod.image}
-              alt={mod.name}
-              class="h-full w-full object-cover hover:scale-105 transition-transform duration-100"
-            />
-          </div>
-          <div class="">
-            <h2 class="font-bold text-lg">
-              {mod.name} <span class="font-normal text-sm ml-1">by @{mod.author}</span>
-            </h2>
-            <p class="text-sm font-thin">{mod.description}</p>
-          </div>
-        </a>
-      ))}
-    </div>
+
+    <!-- Importing ModList component -->
+    <ModsList mods={mods} client:load />
   </main>
 </Layout>
