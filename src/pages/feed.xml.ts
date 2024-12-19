@@ -112,6 +112,10 @@ function addReleaseNoteSection(title: string, items?: string[]): string {
 }
 
 function fixToReleaseNote(fix?: Exclude<ReleaseNote['fixes'], undefined>[number]) {
+    if (typeof fix === 'string') {
+        return fix;
+    }
+
     if (!fix || !fix.description || fix.description.length === 0) {
         return "";
     }
