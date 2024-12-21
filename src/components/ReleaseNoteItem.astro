@@ -11,7 +11,7 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 ---
 
 <section
-	class="relative mt-24 flex flex-col border-t border-dark/30 pt-24 lg:flex-row"
+	class="relative mt-24 flex flex-col border-t border-dark pt-24 lg:flex-row"
 	id={props.version}
 	>
 	<div class="px-5 md:px-10 md:pr-32">
@@ -92,9 +92,13 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 <style is:global>
 	.ac-accordion-item-title {
 		@apply !text-dark;
+		flex-direction: row-reverse!important;
 
 		&:hover {
 			opactiy: 0.8 !important;
+		}
+		& > svg {
+			color: var(--zen-dark)!important;
 		}
 	}
 
@@ -103,6 +107,13 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 
 		& li {
 			opacity: .5;
+		}
+	}
+	.ac-accordion {
+		&.ac-accordion--light {
+			> * + * {
+				border-color: var(--zen-dark)!important
+			}
 		}
 	}
 </style>
