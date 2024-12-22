@@ -56,6 +56,7 @@ import Footer from '../components/Footer.astro'
         }
       })()
     </script>
+    <style>:root{--zen-paper:#f2f0e3;--zen-dark:#202020;--zen-muted:rgba(0, 0, 0, 0.05);&[data-theme='dark']{--zen-paper:#202020;--zen-dark:#f2f0e3;--zen-muted:rgba(255, 255, 255, 0.05)}}</style>
   </head>
   <body
     class="overflow-x-hidden bg-paper font-['bricolage-grotesque'] text-dark"
@@ -74,18 +75,6 @@ import Footer from '../components/Footer.astro'
   @font-face {
     font-family: 'Junicode-Italic';
     src: url('/fonts/JunicodeVF-Italic.woff2') format('woff2');
-  }
-
-  :root {
-    --zen-paper: #f2f0e3;
-    --zen-dark: #202020;
-    --zen-muted: rgba(0, 0, 0, 0.05);
-
-    &[data-theme='dark'] {
-      --zen-paper: #202020;
-      --zen-dark: #f2f0e3;
-      --zen-muted: rgba(255, 255, 255, 0.05);
-    }
   }
 
   * {
