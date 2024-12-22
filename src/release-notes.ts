@@ -1960,6 +1960,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Removed permission buttons in the URL bar into an unified button, saving space (single toolbar layout)",
 			"Added support for function keys in the range of F13-F24, also for nums lock and scroll lock keys",
 			"Add experimental window controls preference to hide the window controls always (zen.view.experimental-no-window-controls)",
+			"Fixed and improved PGO, LTO and clang plugins for all builds, improving performance",
 		],
 		breakingChanges: [
 			"Due to a high amount of complaints, we've removed the 'Inspect Element' shortcut to 'Ctrl+Shift+L' (Windows/Linux) and 'Cmd+Opt+I' (macOS). This is done to prioritize the 'Copy current URL' shortcut",
