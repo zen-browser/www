@@ -27,7 +27,7 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 		</p>
 
 		{props.extra ? (
-			<p class="text-md mt-8 text-muted-foreground">
+			<p class="text-md mt-8 text-muted-foreground extra">
 				<Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
 			</p>
 			) : null
@@ -103,6 +103,12 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 
 		& li {
 			opacity: .5;
+		}
+	}
+
+	.extra {
+		& a {
+			@apply !text-blue-500;
 		}
 	}
 </style>
