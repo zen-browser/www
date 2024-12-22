@@ -36,6 +36,7 @@ import Footer from "../components/Footer.astro";
 	</head>
 	<body class="bg-paper font-['bricolage-grotesque'] text-dark overflow-x-hidden"> 
 		<NavBar />
+		<div id="cursor"></div>
 		<slot />
 		<Footer />
 	</body>
@@ -50,7 +51,6 @@ import Footer from "../components/Footer.astro";
     font-family: 'Junicode-Italic';
     src: url('/fonts/JunicodeVF-Italic.woff2') format('woff2');
   }
-
 	:root {
 		--zen-paper: #F2F0E3;
 		--zen-dark: #202020;
@@ -71,6 +71,29 @@ import Footer from "../components/Footer.astro";
 
 	html {
 		scroll-behavior: smooth;
+		cursor: none;
+	}
+	html:has(button:hover) #cursor, html:has(a:hover) #cursor, html:has(#theme-switcher:hover) #cursor, html:has(.cursor-pointer:hover) #cursor {
+		width: 40px;
+		height: 40px;
+	}
+	html:has(input:hover) #cursor {
+		width: 10px;
+		height: 40px;
+	}
+	#cursor {
+		position: fixed;
+		width: 20px;
+		height: 20px;
+		border-radius: 99999999999999px;
+		backdrop-filter: invert(1);
+		z-index: 9999;
+		pointer-events: none;
+		transform: translate(-50%, -50%);
+		transition: width .3s ease-in-out, height .3s ease-in-out;
+	}
+	button, a, #theme-switcher, #theme-switcher *, .cursor-pointer, input {
+		cursor: none !important;
 	}
 
 	body, body > * {
@@ -98,3 +121,13 @@ import Footer from "../components/Footer.astro";
     vertical-align: -0.125em;
   }
 </style>
+<script>
+
+	document.addEventListener('mousemove', (e) => {
+		const cursor = document.getElementById('cursor');
+		if (cursor) {
+			cursor.style.left = e.clientX + 'px';
+			cursor.style.top = e.clientY + 'px';
+		}
+	});
+</script>
