@@ -27,8 +27,8 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 		</p>
 
 		{props.extra ? (
-			<p class="text-md mt-8 text-muted-foreground">
-				{props.extra}
+			<p class="text-md mt-8 text-muted-foreground extra">
+				<Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
 			</p>
 			) : null
 		}
@@ -39,18 +39,22 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 					<ul class="list-disc list-inside">
 						{props.fixes.map((fix: any) => (
 							<li class="text-md text-muted-foreground">
-								{fix.description}
-								{fix.issue ? (
-									<a
-										class="text-blue-500"
-										href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
-										rel="noopener noreferrer"
-										target="_blank"
-										aria-label={`View issue number ${fix.issue} on GitHub`}
-									>
-										#{fix.issue}
-									</a>
-								) : null}
+								{typeof fix === 'string' ? fix : (
+									<>
+										{fix.description}
+										{fix.issue ? (
+											<a
+												class="text-blue-500"
+												href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
+												rel="noopener noreferrer"
+												target="_blank"
+												aria-label={`View issue number ${fix.issue} on GitHub`}
+											>
+												#{fix.issue}
+											</a>
+										) : null}
+									</>
+								)}
 							</li>
 						))}
 					</ul>
@@ -99,6 +103,12 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 
 		& li {
 			opacity: .5;
+		}
+	}
+
+	.extra {
+		& a {
+			@apply !text-blue-500;
 		}
 	}
 </style>

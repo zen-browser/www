@@ -34,36 +34,16 @@ import { ArrowRight } from 'lucide-astro';
 </section>
 <style>
   #browser-images {
-    & img {
-      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    & img:nth-child(1) {
+      transform: rotate(5deg) scale(1.05) translateX(-52%) translateY(-10%);
     }
 
-    &:hover {
-      & img:nth-child(1) {
-        transform: rotate(5deg) scale(1.05) translateX(-52%) translateY(-10%);
-      }
-
-      & img:nth-child(2) {
-        transform: rotate(2deg) scale(1.05) translateX(-50%) translateY(10%);
-      }
-
-      & img:nth-child(3) {
-        transform: rotate(-5deg) scale(1.05) translateX(-50%) translateY(-10%);
-      }
+    & img:nth-child(2) {
+      transform: rotate(2deg) scale(1.05) translateX(-50%) translateY(10%);
     }
 
-    @media (max-width: 1000px) {
-      & img:nth-child(1) {
-        transform: rotate(5deg) scale(1.05) translateX(-52%) translateY(-10%);
-      }
-
-      & img:nth-child(2) {
-        transform: rotate(2deg) scale(1.05) translateX(-50%) translateY(10%);
-      }
-
-      & img:nth-child(3) {
-        transform: rotate(-5deg) scale(1.05) translateX(-50%) translateY(-10%);
-      }
+    & img:nth-child(3) {
+      transform: rotate(-5deg) scale(1.05) translateX(-50%) translateY(-10%);
     }
   }
 </style>

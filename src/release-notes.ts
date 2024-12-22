@@ -1,7 +1,9 @@
-interface Fix {
+interface FixWithIssue {
 	description: string;
 	issue?: number;
 }
+
+type Fix = string | FixWithIssue;
 
 export interface ReleaseNote {
 	version: string;
@@ -1866,4 +1868,102 @@ export const releaseNotes: ReleaseNote[] = [
 			"Added new URL bar suggestions UI"
 		]
 	},
+	{
+		version: "1.0.2-b.3",
+		date: "19/12/2024",
+		image: true,
+		workflowId: 12419745635,
+		extra:
+			"This release brings more bug fixing and ovcerall stability while also including some small polishing features/details. Our goal during the beta phase is to get everything as stable and ready for our stable release!\n\nNote: We will be hosting a hall-of-fame event, where top 20 zen rices will be featured in the website!\n\nMerry Christmas everyone!",
+		fixes: [
+			"Fixed workspaces not being initialized correctly when creating a fresh profile",
+			"Fixed gradient generator not being correctly initialized on startup",
+			"Fixed moving around/reordering pinned and essential tabs not saving",
+			"Fixed pinned tabs and essential tabs not being saved correctly on the first run of a fresh profile",
+			{
+				description: "Fixed compact mode preferences page having wrong labels",
+				issue: 3885,
+			},
+			"Fixed scroll direction when swiping workspaces with mousepads",
+			"Fixed weird margins in compact mode in certain conditions",
+			{
+				description: "Fixed trying to unload multiple tabs at once",
+				issue: 3831
+			},
+			"Fixed surrounding spaces for certain layouts while using the web panels sidebar",
+			"Fixed workspace indicator showing if workspaces are disabled",
+			"Fixed URL bar not showing while in compact mode + right sidebar",
+			"Fixed clicking on the URLbar not doing anything on some conditions",
+			"Fixed accessibility issues with system links",
+			"Fixed bookmarks toolbar being reset when changing toolbar layouts",
+			"Fixed having right side floating URL bar opening in single toolbar",
+			"Fixed not being able to click on window buttons when having collapsed sidebar on the right",
+			"Fixed opening unfloatable URL bar when having compact mode having a weird behavior",
+			"Fixed not saving essential tabs correctly, leading to data loss",
+		],
+		features: [
+			"Added a 'Copy current URL' keyboard shortcut",
+			"Enhanced URL bar layout when it's not floating",
+			"Improved and polished compact mode switching animation (Can be disabled in about:config or when having performance issues)",
+			"Added delays when hovering on the window buttons, making it a bit less error-prone",
+			"Added experimental rounded corners for website (Disabled by default on macos)",
+			"Added fallback cache-based website favicon in case we fail to fetch the website's favicon for essentials/pinned tabs",
+			"Added a more optimized version of zen hardening, there should be less performance issues now and less font-rendering issues",
+			"Added a smoother scrolling experience by using msd physics and changing scroll values/offests (Disabled in macos)",
+			"Optimized workspace switching animations",
+		]
+	},
+	{
+		version: "1.0.2-b.4",
+		date: "22/12/2024",
+		image: false,
+		workflowId: 12453824612,
+		extra:
+			"This release includes many more bug fixes and improvements to the browser. We've also added an <a href='https://github.com/zen-browser/desktop/tree/dev/docs/issue-metrics' target='_blank'>issue metrics</a> file too see how many issues we've fixed each month!",
+		fixes: [
+			"Fixed fullscreen notice having a weird animation",
+			"Fixed workspace indicator not hiding if the config is set to hide it",
+			"Improved accessibility for links on some native system pages",
+			"Fixed toolbar buttons disappearing if the window is too small",
+			"Fixed compact mode getting stuck when clicking on a pinned tab",
+			{
+				description: "Fixed opening customizable toolbar while having multiple windows",
+				issue: 3819
+			},
+			{
+				description: "Fixed glance not working on sites that prevented click event to happen",
+				issue: 2480
+			},
+			"Fixed compact mode animations on hover for macos, having laggy window buttons and splitter size for macos",
+			"Minor fixes to layout spacing and padding",
+			{
+				description: "Fixed URL bar being outisde of the window in compact mode while typing",
+				issue: 3913
+			},
+			{
+				description: "Fixed tab context menu not working when changing tab to a different workspace",
+				isue: 2963
+			},
+			{
+				description: "Fixed fullscreen videos having a top-bar on certain layouts",
+				isue: 3269
+			},
+			{
+				description: "Fixed wrong firefox version when using extensions API, therefor breaking some extensions",
+				isue: 1366
+			}
+		],
+		features: [
+			"Adjust mouse wheel delta multiplier for improved scrolling sensitivity",
+			"Disable Normandy studies by default",
+			"Zen Mods will now not load if the browser is opened in safe mode",
+			"Removed permission buttons in the URL bar into an unified button, saving space (single toolbar layout)",
+			"Added support for function keys in the range of F13-F24, also for nums lock and scroll lock keys",
+			"Add experimental window controls preference to hide the window controls always (zen.view.experimental-no-window-controls)",
+			"Fixed and improved PGO, LTO and clang plugins for all builds, improving performance",
+		],
+		breakingChanges: [
+			"Due to a high amount of complaints, we've removed the 'Inspect Element' shortcut to 'Ctrl+Shift+L' (Windows/Linux) and 'Cmd+Opt+I' (macOS). This is done to prioritize the 'Copy current URL' shortcut",
+		]
+	}
 ].reverse();
