@@ -1921,7 +1921,7 @@ export const releaseNotes: ReleaseNote[] = [
 		extra:
 			"This release includes many more bug fixes and improvements to the browser. We've also added an <a href='https://github.com/zen-browser/desktop/tree/dev/docs/issue-metrics' target='_blank'>issue metrics</a> file too see how many issues we've fixed each month!",
 		fixes: [
-			"Fixed foolscreen notice having a weird animation",
+			"Fixed fullscreen notice having a weird animation",
 			"Fixed workspace indicator not hiding if the config is set to hide it",
 			"Improved accessibility for links on some native system pages",
 			"Fixed toolbar buttons disappearing if the window is too small",
