@@ -1913,4 +1913,56 @@ export const releaseNotes: ReleaseNote[] = [
 			"Optimized workspace switching animations",
 		]
 	},
+	{
+		version: "1.0.2-b.4",
+		date: "22/12/2024",
+		image: false,
+		workflowId: 12453824612,
+		extra:
+			"This release includes many more bug fixes and improvements to the browser. We've also added an <a href='https://github.com/zen-browser/desktop/tree/dev/docs/issue-metrics' target='_blank'>issue metrics</a> file too see how many issues we've fixed each month!",
+		fixes: [
+			"Fixed foolscreen notice having a weird animation",
+			"Fixed workspace indicator not hiding if the config is set to hide it",
+			"Improved accessibility for links on some native system pages",
+			"Fixed toolbar buttons disappearing if the window is too small",
+			"Fixed compact mode getting stuck when clicking on a pinned tab",
+			{
+				description: "Fixed opening customizable toolbar while having multiple windows",
+				issue: 3819
+			},
+			{
+				description: "Fixed glance not working on sites that prevented click event to happen",
+				issue: 2480
+			},
+			"Fixed compact mode animations on hover for macos, having laggy window buttons and splitter size for macos",
+			"Minor fixes to layout spacing and padding",
+			{
+				description: "Fixed URL bar being outisde of the window in compact mode while typing",
+				issue: 3913
+			},
+			{
+				description: "Fixed tab context menu not working when changing tab to a different workspace",
+				isue: 2963
+			},
+			{
+				description: "Fixed fullscreen videos having a top-bar on certain layouts",
+				isue: 3269
+			},
+			{
+				description: "Fixed wrong firefox version when using extensions API, therefor breaking some extensions",
+				isue: 1366
+			}
+		],
+		features: [
+			"Adjust mouse wheel delta multiplier for improved scrolling sensitivity",
+			"Disable Normandy studies by default",
+			"Zen Mods will now not load if the browser is opened in safe mode",
+			"Removed permission buttons in the URL bar into an unified button, saving space (single toolbar layout)",
+			"Added support for function keys in the range of F13-F24, also for nums lock and scroll lock keys",
+			"Add experimental window controls preference to hide the window controls always (zen.view.experimental-no-window-controls)",
+		],
+		breakingChanges: [
+			"Due to a high amount of complaints, we've removed the 'Inspect Element' shortcut to 'Ctrl+Shift+L' (Windows/Linux) and 'Cmd+Opt+I' (macOS). This is done to prioritize the 'Copy current URL' shortcut",
+		]
+	}
 ].reverse();
