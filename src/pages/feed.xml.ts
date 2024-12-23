@@ -87,7 +87,7 @@ function formatReleaseNote(releaseNote: ReleaseNote) {
         content += `<p>${releaseNote.extra.replace(/(\n)/g, "<br />")}</p>`;
     }
 
-    content += addReleaseNoteSection("⚠️ Breaking changes", releaseNote.breakingChanges);
+    content += addReleaseNoteSection("⚠️ Breaking changes", releaseNote.breakingChanges?.map(breakingChangeToReleaseNote));
     content += addReleaseNoteSection("✓ Fixes", releaseNote.fixes?.map(fixToReleaseNote));
     content += addReleaseNoteSection("🖌 Theme Changes", releaseNote.themeChanges)
     content += addReleaseNoteSection("⭐ Features", releaseNote.features);
@@ -125,6 +125,18 @@ function fixToReleaseNote(fix?: Exclude<ReleaseNote['fixes'], undefined>[number]
         note += ` (<a href="https://github.com/zen-browser/desktop/issues/${fix.issue}" target="_blank">#${fix.issue}</a>)`;
     }
     return note;
+}
+
+function breakingChangeToReleaseNote(breakingChange?: Exclude<ReleaseNote['breakingChanges'], undefined>[number]) {
+    if (typeof breakingChange === 'string') {
+        return breakingChange;
+    }
+
+    if (!breakingChange || !breakingChange.description || breakingChange.description.length === 0) {
+        return "";
+    }
+
+    return `${breakingChange.description} (<a href="${breakingChange.link}" target="_blank">Learn more</a>)`;
 }
 
 function pubDate(date?: Date) {
