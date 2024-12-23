@@ -1,44 +1,69 @@
 ---
 interface Props {
-	title: string;
+  title: string
 }
 
-const { title } = Astro.props;
-import "@fontsource/bricolage-grotesque/400.css";
-import NavBar from "../components/NavBar.astro";
-import Footer from "../components/Footer.astro";
+const { title } = Astro.props
+import '@fontsource/bricolage-grotesque/400.css'
+import NavBar from '../components/NavBar.astro'
+import Footer from '../components/Footer.astro'
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data." />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<!-- ICO Favicon as a fallback for browsers that don't support SVG FavIcons (Safari) -->
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="theme-color" content="#da755b">
-		<!-- open graph -->
-		<meta property="og:title" content={title} />
-		<meta property="og:type" content="website" />
-		<meta property="og:image" content="/share-pic.png" />
-		<meta property="og:description" content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data.." />
-		<meta property="og:color" content="#da755b3" />
-		<!-- twitter card -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.bunny.net">
-		<link href="https://fonts.bunny.net/css?family=bricolage-grotesque:200,300,400,500,600,700,800|instrument-serif:400,400i" rel="stylesheet" />
-		<link rel="alternate" type="application/rss+xml" title="Zen Browser Release Notes" href={`${Astro.url.origin}/feed.xml`} />
-	</head>
-	<body class="bg-paper font-['bricolage-grotesque'] text-dark overflow-x-hidden"> 
-		<NavBar />
-		<slot />
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- ICO Favicon as a fallback for browsers that don't support SVG FavIcons (Safari) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="theme-color" content="#da755b" />
+    <!-- open graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/share-pic.png" />
+    <meta
+      property="og:description"
+      content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data.."
+    />
+    <meta property="og:color" content="#da755b3" />
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css?family=bricolage-grotesque:200,300,400,500,600,700,800|instrument-serif:400,400i"
+      rel="stylesheet"
+    />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Zen Browser Release Notes"
+      href={`${Astro.url.origin}/feed.xml`}
+    />
+    <script is:inline>
+      ;(function () {
+        // Retrieve the saved theme from localStorage
+        const savedTheme = localStorage.getItem('theme')
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme)
+        }
+      })()
+    </script>
+  </head>
+  <body
+    class="overflow-x-hidden bg-paper font-['bricolage-grotesque'] text-dark"
+  >
+    <NavBar />
+    <slot />
+    <Footer />
+  </body>
 </html>
 <style is:global>
   @font-face {
@@ -51,42 +76,43 @@ import Footer from "../components/Footer.astro";
     src: url('/fonts/JunicodeVF-Italic.woff2') format('woff2');
   }
 
-	:root {
-		--zen-paper: #F2F0E3;
-		--zen-dark: #202020;
-		--zen-muted: rgba(0, 0, 0, 0.05);
+  :root {
+    --zen-paper: #f2f0e3;
+    --zen-dark: #202020;
+    --zen-muted: rgba(0, 0, 0, 0.05);
 
-		&[data-theme='dark'] {
-			--zen-paper: #202020;
-			--zen-dark: #F2F0E3;
-			--zen-muted: rgba(255, 255, 255, 0.05);
-		}
-	}
+    &[data-theme='dark'] {
+      --zen-paper: #202020;
+      --zen-dark: #f2f0e3;
+      --zen-muted: rgba(255, 255, 255, 0.05);
+    }
+  }
 
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-	html {
-		scroll-behavior: smooth;
-	}
+  html {
+    scroll-behavior: smooth;
+  }
 
-	body, body > * {
-    font-family: "Bricolage Grotesque", sans-serif;
+  body,
+  body > * {
+    font-family: 'Bricolage Grotesque', sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 500;
-    font-variation-settings: "wdth" 100;
-	}
+    font-variation-settings: 'wdth' 100;
+  }
 
-	h1 .italic {
-		font-family: "Junicode-Italic", serif;
-		font-weight: 400;
-		font-feature-settings: 'swsh' 0;
-		font-style: normal;
-	}
+  h1 .italic {
+    font-family: 'Junicode-Italic', serif;
+    font-weight: 400;
+    font-feature-settings: 'swsh' 0;
+    font-style: normal;
+  }
 </style>
 <style is:global>
   /* Declare a custom CSS class to make the icon look right */

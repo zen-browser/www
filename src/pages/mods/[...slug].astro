@@ -1,10 +1,11 @@
 ---
 import { getAbsoluteLocaleUrl } from 'astro:i18n';
-import { getAllMods, type ZenTheme, getAuthorLink, getLocalizedDate } from '../../mods';
+import { getAllMods, getAuthorLink, getLocalizedDate } from '../../mods';
 import Layout from '../../layouts/Layout.astro';
 import Title from '../../components/Title.astro';
 import Description from '../../components/Description.astro';
 import Button from '../../components/Button.astro';
+import BackButton from '../../components/BackButton.astro';
 import { Info } from 'lucide-astro';
 
 export async function getStaticPaths() {
@@ -26,8 +27,8 @@ const dates = {
 ---
 
 <Layout title={`${mod.name} - Zen Mods`} >
-  <main class="mt-32 2xl:mt-0">
-    <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6 my-52">
+  <main class="mt-6 2xl:mt-0">
+    <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6 mt-20 lg:mt-32 mb-24">
       <div
         id="install-theme-error"
         class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 rounded-xl bg-red-200 p-2 px-4"
@@ -42,6 +43,7 @@ const dates = {
           >Download now!</Button
         >
       </div>
+      <BackButton />
       <div>
         <Title>{mod.name}</Title>
         <Description>{mod.description}</Description>
