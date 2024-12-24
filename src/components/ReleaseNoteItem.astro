@@ -1,7 +1,7 @@
 ---
 import { Accordion, AccordionItem } from 'free-astro-components'
 
-import type { ReleaseNote } from '../release-notes'
+import type { ReleaseNote, BreakingChange } from '../release-notes'
 export type Props = ReleaseNote;
 const props = Astro.props;
 
@@ -81,8 +81,21 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 			{props.breakingChanges ? (
 				<AccordionItem title="Breaking Changes" name="breakingChanges">
 					<ul class="list-disc list-inside">
-						{props.breakingChanges.map((breakingChange: string) => (
-							<li class="text-md text-muted-foreground">{breakingChange}</li>
+						{props.breakingChanges.map((breakingChange: BreakingChange) => (
+							<li class="text-md text-muted-foreground">{typeof breakingChange === 'string' ? breakingChange : (
+								<>
+									{breakingChange.description}
+									<a
+										class="text-blue-500"
+										href={breakingChange.link}
+										rel="noopener noreferrer"
+										target="_blank"
+										aria-label={`View breaking change on GitHub`}
+									>
+										Learn more
+									</a>
+								</>
+							)}</li>
 						))}
 					</ul>
 				</AccordionItem>

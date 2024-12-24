@@ -87,25 +87,15 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
               system.
             </div>
             <form class="flex flex-col gap-2 form-select">
-              <input type="radio" name="linux-target" value="optimized" id="linux-target-optimized" class="hidden" checked/>
-              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="linux-target-optimized">
-                <div>Optimized</div>
-              </label>
-              <input type="radio" name="linux-target" value="generic" id="linux-target-generic" class="hidden" />
-              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="linux-target-generic">
-                <div>Generic</div>
+              <input type="radio" name="linux-target" value="x86_64" id="linux-target-x86_64" class="hidden" checked/>
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="linux-target-x86_64">
+                <div>x86_64</div>
               </label>
               <input type="radio" name="linux-target" value="aarch64" id="linux-target-aarch64" class="hidden" />
               <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="linux-target-aarch64">
-                <div>ARM64</div>
+                <div>aarch64</div>
               </label>
             </form>
-            <div class="italic ml-2 flex gap-4 items-center mt-4 extra-delay">
-              <Info class="size-6" />
-              <div class="text-sm">
-                <strong class="text-sm">Stuck?</strong> If you're not sure which one to choose, please refer to the <a class="text-sm underline font-bold" href="https://docs.zen-browser.app/guides/generic-optimized" target="_blank" class="text-primary">documentation</a>.
-              </div>
-            </div>
           </div>
           <div id="form-linux-download" class="form-item hidden">
             <div class="form-title">
@@ -139,25 +129,15 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
               system.
             </div>
             <form class="flex flex-col gap-2 form-select">
-              <input type="radio" name="windows-target" value="optimized" id="windows-target-optimized" class="hidden" checked/>
-              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-optimized">
-                <div>Optimized</div>
-              </label>
-              <input type="radio" name="windows-target" value="generic" id="windows-target-generic" class="hidden" />
-              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-generic">
-                <div>Generic</div>
+              <input type="radio" name="windows-target" value="x86_64" id="windows-target-x86_64" class="hidden" checked/>
+              <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-x86_64">
+                <div>x86_64</div>
               </label>
               <input type="radio" name="windows-target" value="arm64" id="windows-target-arm64" class="hidden" />
               <label class="flex border-2 rounded-md p-2 w-full border-dark gap-2 px-4 items-center cursor-pointer" for="windows-target-arm64">
                 <div>ARM64</div>
               </label>
             </form>
-            <div class="italic ml-2 flex gap-4 items-center mt-4 extra-delay">
-              <Info class="size-6" />
-              <div class="text-sm">
-                <strong class="text-sm">Stuck?</strong> If you're not sure which one to choose, please refer to the <a class="text-sm underline font-bold" href="https://docs.zen-browser.app/guides/generic-optimized" target="_blank" class="text-primary">documentation</a>.
-              </div>
-            </div>
           </div>
           <div id="windows-download" class="form-item hidden">
             <div class="form-title">
@@ -204,13 +184,9 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
       arm: "zen.macos-aarch64.dmg",
     },
     linux: {
-      optimized: {
-        tar: "zen.linux-specific.tar.bz2",
-        appImage: "zen-specific.AppImage",
-      },
-      generic: {
-        tar: "zen.linux-generic.tar.bz2",
-        appImage: "zen-generic.AppImage",
+      x86_64: {
+        tar: "zen.linux-x86_64.tar.bz2",
+        appImage: "zen-x86_64.AppImage",
       },
       aarch64: {
         tar: "zen.linux-aarch64.tar.bz2",
@@ -218,13 +194,9 @@ const appleIcon = icon({ prefix: "fab", iconName: "apple" });
       },
     },
     windows: {
-      optimized: {
+      x86_64: {
         installer: "zen.installer.exe",
-        zip: "zen.win-specific.zip",
-      },
-      generic: {
-        installer: "zen.installer-generic.exe",
-        zip: "zen.win-generic.zip",
+        zip: "zen.win-x86_64.zip",
       },
       arm64: {
         installer: "zen.installer-arm64.exe",

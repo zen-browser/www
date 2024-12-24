@@ -5,6 +5,8 @@ interface FixWithIssue {
 
 type Fix = string | FixWithIssue;
 
+export type BreakingChange = string | { description: string; link: string };
+
 export interface ReleaseNote {
 	version: string;
 	date: string;
@@ -12,7 +14,7 @@ export interface ReleaseNote {
 	image?: boolean;
 	fixes?: Fix[];
 	features?: string[];
-	breakingChanges?: string[];
+	breakingChanges?: BreakingChange[];
 	themeChanges?: string[];
 	inProgress?: boolean;
 	workflowId?: number;
@@ -1951,6 +1953,14 @@ export const releaseNotes: ReleaseNote[] = [
 			{
 				description: "Fixed wrong firefox version when using extensions API, therefor breaking some extensions",
 				isue: 1366
+			},
+			{
+				description: "Fixed color bar at the top when Windows 11 setting is enabled",
+				issue: 3546
+			},
+			{
+				description: "Fixed arrow keys not working after opening any popup",
+				issue: 2743
 			}
 		],
 		features: [
@@ -1964,6 +1974,10 @@ export const releaseNotes: ReleaseNote[] = [
 		],
 		breakingChanges: [
 			"Due to a high amount of complaints, we've removed the 'Inspect Element' shortcut to 'Ctrl+Shift+L' (Windows/Linux) and 'Cmd+Opt+I' (macOS). This is done to prioritize the 'Copy current URL' shortcut",
+			{
+				description: "Removed opimized builds for linux and windows",
+				link: "https://github.com/zen-browser/desktop/wiki/Why-have-optimized-builds-been-removed%3F"
+			}
 		]
 	}
 ].reverse();
