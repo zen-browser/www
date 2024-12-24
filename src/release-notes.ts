@@ -1954,10 +1954,10 @@ export const releaseNotes: ReleaseNote[] = [
 				description: "Fixed wrong firefox version when using extensions API, therefor breaking some extensions",
 				isue: 1366
 			},
-			{
-				description: "Fixed color bar at the top when Windows 11 setting is enabled",
-				issue: 3546
-			},
+			//{
+			//	description: "Fixed color bar at the top when Windows 11 setting is enabled",
+			//	issue: 3546
+			//},
 			{
 				description: "Fixed arrow keys not working after opening any popup",
 				issue: 2743
