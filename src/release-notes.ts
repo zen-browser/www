@@ -1955,7 +1955,7 @@ export const releaseNotes: ReleaseNote[] = [
 				isue: 1366
 			},
 			{
-				description: "FIxed color bar at the top when Windows 11 setting is enabled",
+				description: "Fixed color bar at the top when Windows 11 setting is enabled",
 				issue: 3546
 			},
 			{
