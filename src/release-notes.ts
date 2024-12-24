@@ -1958,10 +1958,10 @@ export const releaseNotes: ReleaseNote[] = [
 			//	description: "Fixed color bar at the top when Windows 11 setting is enabled",
 			//	issue: 3546
 			//},
-			{
-				description: "Fixed arrow keys not working after opening any popup",
-				issue: 2743
-			}
+			//{
+			//	description: "Fixed arrow keys not working after opening any popup",
+			//	issue: 2743
+			//}
 		],
 		features: [
 			"Adjust mouse wheel delta multiplier for improved scrolling sensitivity",
