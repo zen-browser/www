@@ -1979,5 +1979,22 @@ export const releaseNotes: ReleaseNote[] = [
 				link: "https://github.com/zen-browser/desktop/wiki/Why-have-optimized-builds-been-removed%3F"
 			}
 		]
-	}
+	},
+	{
+		version: "1.0.2-b.5",
+		date: "26/12/2024",
+		image: false,
+		workflowId: 12481117227,
+		extra:
+			"This release is just a small patch to fix a really annoying issue with extension popups not working correctly.",
+		fixes: [
+			{
+				description: "Fixed compact mode staying open when toggling while having a popup open",
+			},
+			"Fixed extension popups not multiplying their height every time they are opened",
+		],
+		breakingChanges: [
+			"Disabled firefox's login manager by default, because safer alternatives are available. Can be enabled again in the preferences",
+		],
+	},
 ].reverse();
