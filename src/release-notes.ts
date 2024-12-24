@@ -1973,7 +1973,7 @@ export const releaseNotes: ReleaseNote[] = [
 			"Fixed and improved PGO, LTO and clang plugins for all builds, improving performance",
 		],
 		breakingChanges: [
-			"Due to a high amount of complaints, we've removed the 'Inspect Element' shortcut to 'Ctrl+Shift+L' (Windows/Linux) and 'Cmd+Opt+I' (macOS). This is done to prioritize the 'Copy current URL' shortcut",
+			"Due to a high amount of complaints, we've changed the 'Inspect Element' shortcut to 'Ctrl+Shift+L' (Windows/Linux) and 'Cmd+Opt+I' (macOS). This is done to prioritize the 'Copy current URL' shortcut",
 			{
 				description: "Removed opimized builds for linux and windows",
 				link: "https://github.com/zen-browser/desktop/wiki/Why-have-optimized-builds-been-removed%3F"
