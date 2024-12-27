@@ -8,6 +8,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [tailwind(), react(), sitemap()],
+    integrations: [tailwind(), react(), sitemap({
+        filter: (page) => !page.includes('mods/'),
+    })],
     site: 'https://zen-browser.app',
 });
