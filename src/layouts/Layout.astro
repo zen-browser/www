@@ -7,6 +7,11 @@ const { title } = Astro.props
 import '@fontsource/bricolage-grotesque/400.css'
 import NavBar from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro'
+import Breadcrumb from '../components/Breadcrumb.astro'
+
+// The two-level breadcrumb will not be shown if the URL is the home page ("/") or a mod page ("/mods/*")
+const pathname = Astro.url.pathname;
+const showBreadcrumb = !(pathname === '/' || pathname.startsWith('/mods/'));
 ---
 
 <!doctype html>
@@ -63,6 +68,7 @@ import Footer from '../components/Footer.astro'
     class="overflow-x-hidden bg-paper font-['bricolage-grotesque'] text-dark"
   >
     <NavBar />
+    {showBreadcrumb && <Breadcrumb />}
     <slot />
     <Footer />
   </body>
