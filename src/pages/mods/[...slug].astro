@@ -7,6 +7,7 @@ import Description from '../../components/Description.astro';
 import Button from '../../components/Button.astro';
 import BackButton from '../../components/BackButton.astro';
 import { Info } from 'lucide-astro';
+import CustomBreadcrumb from '../../components/CustomBreadcrumb.astro'
 
 export async function getStaticPaths() {
   const mods = await getAllMods();
@@ -24,14 +25,28 @@ const dates = {
   createdAt: getLocalizedDate(mod.createdAt),
   updatedAt: getLocalizedDate(mod.updatedAt)
 }
+
+// Breadcrumb data for the three-level breadcrumb
+const currentPath = Astro.request.url;
+const titles = {
+  home: "Home",
+  mods: "Mods",
+  modName: mod.name, 
+};
+const links = {
+  home: "/",
+  mods: "/mods",
+  modName: currentPath, 
+};
 ---
 
 <Layout title={`${mod.name} - Zen Mods`} >
+  <CustomBreadcrumb titles={titles} links={links} currentPath={currentPath} />
   <main class="mt-6 2xl:mt-0">
     <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6 mt-20 lg:mt-32 mb-24">
       <div
         id="install-theme-error"
-        class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 rounded-xl bg-red-200 p-2 px-4"
+        class="flex flex-col md:flex-row items-center justify-center md:justify-between mt-[75px] lg:mt-[25px] gap-2 rounded-xl bg-red-200 p-2 px-4"
       >
         <div class="flex items-center gap-2 text-center md:text-left">
           <Info />
