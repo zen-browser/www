@@ -131,4 +131,21 @@ const showBreadcrumb = !(pathname === '/' || pathname.startsWith('/mods/'));
     height: 1em;
     vertical-align: -0.125em;
   }
+
+  /* astro-breadcrumbs layout on mobile */
+  .c-breadcrumbs__link.is-current {
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+  }
+  @media(max-width: 600px) {
+    .c-breadcrumbs__link.is-current {
+      max-width: 200px !important;            
+    }
+  }
+  @media(max-width: 500px) {
+    .c-breadcrumbs__link.is-current {      
+      max-width: 130px !important;      
+    }
+  }
 </style>
