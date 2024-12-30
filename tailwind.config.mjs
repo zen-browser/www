@@ -11,6 +11,7 @@ export default {
 			colors: {
 				"paper": "var(--zen-paper)",
 				"coral": "#F76F53",
+				"darkcoral": "#CF573E",
 				"dark": "var(--zen-dark)",
 				"muted": "var(--zen-muted)",
 				"zen-blue": "#6287f5",

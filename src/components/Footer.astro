@@ -20,19 +20,19 @@ const Reddit = icon({ prefix: "fab", iconName: "reddit" });
 
 <footer
   id="footer"
-  class="flex flex-col w-full py-12 px-4 lg:p-24 !pb-0 gap-24 md:gap-[15%] bg-dark text-paper border-t border-dark relative overflow-hidden"
+  class="flex flex-col w-full py-12 px-4 lg:p-24 !pb-0 gap-24 md:gap-[15%] bg-dark text-paper border-t border-dark relative overflow-hidden rounded-tl-[12px] rounded-tr-[12px]"
 >
   <div class="w-full flex justify-between items-center flex-col lg:flex-row">
     <div>
       <Title class="!text-paper">Zen Browser</Title>
-      <Description class="px-4 lg:px-0 lg:w-2/5">
+      <Description class="px-0 lg:px-0 lg:w-2/5">
         Beautifully designed, privacy-focused, and packed with features. We care
         about your experience, not your data.
       </Description>
     </div>
   </div>
   <div class="flex flex-col justify-between w-full lg:flex-row gap-6 lg:pr-52 lg:my-12">
-    <Button href="/download" isPrimary class="h-fit bg-paper w-fit !text-dark">
+    <Button href="/download" isPrimary class="h-fit !bg-coral w-fit">
       Download
       <ArrowRight class="size-4" />
     </Button>
@@ -66,6 +66,7 @@ const Reddit = icon({ prefix: "fab", iconName: "reddit" });
         <div class="opacity-80 flex flex-col">
           <a href="/about" class="font-normal">About Us</a>
           <a href="/privacy-policy" class="font-normal">Privacy Policy</a>
+          <a href="https://live.standards.site/zen" target="_blank" class="font-normal">Brand Assets</a>
         </div>
       </div>
     </div>
@@ -92,9 +93,9 @@ const Reddit = icon({ prefix: "fab", iconName: "reddit" });
     </div>
   </div>
   <div class="flex w-full h-32 items-center">
-    <div class="flex">
+    <div class="flex opacity-65">
       Made with ❤️ by the <a href="/about" class="font-bold inline-block ml-2">Zen Browser Team</a>
     </div>
-    <Circles white multiplier={0.7} class="ml-auto mb-[-100px] mr-[-80px] hidden lg:block" />
+    <Circles white multiplier={0.9} class="ml-auto mb-[-100px] mr-[-80px] hidden lg:block" />
   </div>  
 </footer>

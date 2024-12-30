@@ -6,6 +6,7 @@ import Button from '../components/Button.astro'
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
 import { ArrowRight, ChevronDown, Download, DownloadCloud } from 'lucide-astro'
 import Logo from './Logo.astro';
+import LogoSmall from './LogoSmall.astro';
 import { ThemeSwitch } from 'free-astro-components'
 ---
 
@@ -14,11 +15,14 @@ import { ThemeSwitch } from 'free-astro-components'
   class="fixed flex justify-between w-full items-center lg:pt-6 lg:px-6 z-20 top-0 left-0"
 >
   <Astronav>
-    <MenuItems class="w-full lg:w-fit lg:rounded-full border-dark border-b-2 lg:border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-auto flex gap-2 lg:gap-20">
-      <a class="font-bold text-lg items-center flex gap-2 mr-3" href="/">
-        <Logo class="text-dark" /> <span class="hidden lg:block">zen browser</span>
+    <MenuItems class="w-full lg:w-fit lg:rounded-full border-coral border-b-2 lg:border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-auto flex gap-2 lg:gap-16 px-3">
+      <a class="flex items-center mr-3 hidden md:block" href="/">
+        <Logo class="h-full w-full"/>
       </a>
-      <div class="gap-6 flex items-center text-xs sm:text-sm lg:text-base">
+      <a class="flex items-center mr-3 block md:hidden" href="/">
+        <LogoSmall class="h-full w-full"/>
+      </a>
+      <div class="gap-6 flex items-center text-xs sm:text-sm lg:text-base dark:text-paper">
         <Dropdown class="group">
           <button class="flex items-center">
             <span>Getting Started</span>
@@ -103,11 +107,11 @@ import { ThemeSwitch } from 'free-astro-components'
           <span>Mods</span>
         </a>
       </div>
-      <div class="flex gap-2 ml-auto">
-        <div id="theme-switcher" class="block ml-auto xl:hidden">
-          <ThemeSwitch label="" class="py-2 px-1" />
+      <div class="flex gap-4 ml-auto">
+        <div id="theme-switcher" class="block ml-auto xl:hidden flex items-center justify-center">
+          <ThemeSwitch label="" class="theme-switcher-small"/>
         </div>
-        <Button href="/download" class="ml-auto" isPrimary>
+        <Button href="/download" class="ml-auto bg-coral" isPrimary>
           <span class="hidden md:flex items-center gap-2">
             Download
             <ArrowRight class="size-4" />
@@ -147,5 +151,9 @@ import { ThemeSwitch } from 'free-astro-components'
 <style is:global>
   #theme-switcher * {
     @apply text-dark;
+  }
+  .theme-switcher-small {
+    max-width: 18px;
+    max-height: 18px;
   }
 </style>

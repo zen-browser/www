@@ -10,9 +10,12 @@ const { class: className } = Astro.props;
     line-height: 0.9;
     margin-bottom: 0.4rem;
     font-family: 'Junicode', serif;
-    font-weight: 600;
+    font-weight: 300;
     font-style: normal;
-    font-feature-settings: 'swsh' 1;
+    font-variation-settings: "wght" 300, "wdth" 75, "ENLA" 0;
+    font-feature-settings: 'swsh' 0;
+    font-variant-numeric: lining-nums proportional-nums;
+    letter-spacing: -1px;
 
     @apply text-5xl xl:text-6xl;
   }
