@@ -1,0 +1,23 @@
+---
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+---
+
+<nav class="absolute top-[115px] left-1/2 transform -translate-x-1/2 z-10 w-full flex justify-center">
+  <Breadcrumbs schemaJsonScript={false}>
+    <svg
+      slot="separator"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </Breadcrumbs>
+</div>
