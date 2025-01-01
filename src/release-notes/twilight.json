@@ -57,6 +57,7 @@
       "issue": 437
     },
     "Fixed zen's app bundle ID giving an incorrect identifier",
+    "Fixed issue related to changing workspace with the 4 / 5 mouse buttons and we now take into consideration natural scrolling",
     "Fixed some website dialogs overflowing the window",
     {
       "description": "Fixed extension Pin to Toolbar overlayed with gtk theme toggle",
