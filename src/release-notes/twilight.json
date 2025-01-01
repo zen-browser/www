@@ -25,6 +25,7 @@
       "description": "Fixed weird colouring for toggle inputs",
       "issue": 4047
     },
+    "Update application identifier for Zen Browser to align with new naming conventions (MacOS)",
     "Fixed translations trying to be overriden on Windows builds",
     {
       "description": "Fixed web panels closing and inmediately opening again when clicking on the toolbar button",
@@ -55,7 +56,6 @@
       "description": "Fixed touch security not working on macos",
       "issue": 437
     },
-    "Update application identifier for Zen Browser to align with new naming conventions",
     "Fixed zen's app bundle ID giving an incorrect identifier",
     "Fixed some website dialogs overflowing the window",
     {
