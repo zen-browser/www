@@ -27,7 +27,13 @@ def main():
     json.dump(stable, f, indent=2)
 
   with open(TWILIGHT_RELEASE_NOTES, "w") as f:
-    json.dump({}, f, indent=2)
+    json.dump({
+      "version": "xxx",
+      "image": False,
+      "extra": "",
+      "fixes": [],
+      "features": [],
+    }, f, indent=2)
 
   print("Twilight release notes merged into stable release notes.")
 
