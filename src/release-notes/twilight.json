@@ -80,7 +80,8 @@
     "Improved design of native zen dialogs",
     "Re-enabled the default password manager",
     "Improved on-boarding experience for new users",
-    "Added support for searching for emojis on the workspace icon picker"
+    "Added support for searching for emojis on the workspace icon picker",
+    "Added support for MacOS smart cards"
   ],
   "breakingChanges": [
     "Changed versioning scheme to match Firefox's Release Candidates"
