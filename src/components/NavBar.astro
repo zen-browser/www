@@ -15,16 +15,16 @@ import { ThemeSwitch } from 'free-astro-components'
   class="fixed flex justify-between w-full items-center lg:pt-6 lg:px-6 z-20 top-0 left-0"
 >
   <Astronav>
-    <MenuItems class="w-full lg:w-fit lg:rounded-full border-coral border-b-2 lg:border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-auto flex gap-2 lg:gap-16 px-3">
+    <MenuItems class="w-full lg:w-fit lg:rounded-full border-b-2 lg:border-2 p-2 backdrop-blur-2xl text-paper bg-dark dark:bg-paper dark:shadow-md mx-auto flex gap-2 lg:gap-16 px-3">
       <a class="flex items-center mr-3 hidden md:block" href="/">
         <Logo class="h-full w-full"/>
       </a>
       <a class="flex items-center mr-3 block md:hidden" href="/">
         <LogoSmall class="h-full w-full"/>
       </a>
-      <div class="gap-6 flex items-center text-xs sm:text-sm lg:text-base dark:text-paper">
+      <div class="gap-6 flex items-center text-xs sm:text-sm lg:text-base text-dark">
         <Dropdown class="group">
-          <button class="flex items-center">
+          <button class="flex items-center text-paper">
             <span>Getting Started</span>
             <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200" />
           </button>
@@ -62,7 +62,7 @@ import { ThemeSwitch } from 'free-astro-components'
           </DropdownItems>
         </Dropdown>
         <Dropdown class="group">
-          <button class="flex items-center">
+          <button class="flex items-center text-paper">
             <span>Useful Links</span>
             <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200" />
           </button>
@@ -103,7 +103,7 @@ import { ThemeSwitch } from 'free-astro-components'
             </div>
           </DropdownItems>
         </Dropdown>
-        <a class="items-center hidden lg:block" href="/mods">
+        <a class="items-center hidden lg:block text-paper" href="/mods">
           <span>Mods</span>
         </a>
       </div>
@@ -111,20 +111,20 @@ import { ThemeSwitch } from 'free-astro-components'
         <div id="theme-switcher" class="block ml-auto xl:hidden flex items-center justify-center">
           <ThemeSwitch label="" class="theme-switcher-small"/>
         </div>
-        <Button href="/download" class="ml-auto bg-coral" isPrimary>
-          <span class="hidden md:flex items-center gap-2">
+        <Button href="/download" class="ml-auto bg-paper" isPrimary>
+          <span class="hidden md:flex items-center gap-2 text-dark">
             Download
             <ArrowRight class="size-4" />
           </span>
-          <span class="md:hidden">
+          <span class="md:hidden text-dark">
             <Download class="size-4" />
           </span>
         </Button>
       </div>
     </MenuItems>
   </Astronav>
-  <div id="theme-switcher" class="hidden xl:block py-0 w-fit lg:w-fit lg:rounded-full border-dark right-0 border-b-2 lg:border-2 px-4 absolute backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-0 md:mx-4 flex gap-2 lg:gap-20 font-bold text-lg items-center">
-    <ThemeSwitch label="Theme" class="p-1" />
+  <div id="theme-switcher" class="hidden xl:block py-0 w-fit lg:w-fit lg:rounded-full border-dark right-0 border-b-2 lg:border-2 px-1 absolute backdrop-blur-2xl bg-dark dark:shadow-md mx-0 md:mx-4 flex gap-2 lg:gap-20 font-bold text-lg items-center">
+    <ThemeSwitch label="" class="p-1" />
   </div>
 </nav>
 <style>
@@ -150,7 +150,10 @@ import { ThemeSwitch } from 'free-astro-components'
 </style>
 <style is:global>
   #theme-switcher * {
-    @apply text-dark;
+    @apply text-paper;
+  }
+  #theme-switcher *:hover {
+    @apply text-coral;
   }
   .theme-switcher-small {
     max-width: 18px;
