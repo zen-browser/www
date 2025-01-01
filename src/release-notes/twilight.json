@@ -1,9 +1,6 @@
 {
-  "version": "1.0.2-b.6",
-  "date": "26/12/2024",
-  "image": false,
-  "workflowId": 12481117227,
-  "extra": "This release is just a small patch to fix a really annoying issue with extension popups not working correctly.",
+  "version": "1.2-b.6",
+  "extra": "This new release includes more polishing changes and bug fixes. We are most exited about our new release schedule, we are now using Firefox's Release Candidates for twilight, meaning we can test out new Firefox versions before they are released to the public. This will allow us to fix any issues before they are released to the public.\n\nIt may be a bit late, but happy new year! We hope you have a great year ahead of you!",
   "fixes": [
     {
       "description": "Fixed compact mode staying open when toggling while having a popup open"

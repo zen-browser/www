@@ -11,7 +11,7 @@ export type BreakingChange = string | { description: string; link: string };
 
 export interface ReleaseNote {
 	version: string;
-	date: string;
+	date?: string; // optional for twilight
 	extra?: string;
 	image?: boolean;
 	fixes?: Fix[];
@@ -20,6 +20,7 @@ export interface ReleaseNote {
 	themeChanges?: string[];
 	inProgress?: boolean;
 	workflowId?: number;
+	isTwilight?: boolean;
 }
 
 export const releaseNotes: ReleaseNote[] = releaseNotesStable.reverse();

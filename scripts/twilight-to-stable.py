@@ -20,6 +20,7 @@ def main():
     stable = json.load(f)
 
   twilight["workflowId"] = workflow_id
+  twilight["image"] = False
   twilight["date"] = datetime.datetime.now().strftime("%d/%m/%Y")
   stable.append(twilight)
 

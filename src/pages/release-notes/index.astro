@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import ReleaseNoteItem from '../../components/ReleaseNoteItem.astro'
-import { releaseNotes } from '../../release-notes'
+import { releaseNotes, releaseNotesTwilight } from '../../release-notes'
 import Title from '../../components/Title.astro'
 ---
 
@@ -24,6 +24,7 @@ import Title from '../../components/Title.astro'
 				>, we've been working hard to make Zen Browser the best it can be.
 				Thanks everyone for your feedback! ❤️
 			</p>
+			<ReleaseNoteItem {...releaseNotesTwilight} isTwilight />
 			{releaseNotes.map((notes: any) => <ReleaseNoteItem {...notes} />)}
 		</div>
 	</main>

@@ -1,33 +1,65 @@
 ---
-import { Accordion, AccordionItem } from 'free-astro-components'
+import { Accordion, AccordionItem } from 'free-astro-components';
+import { Info } from 'lucide-astro';
 
 import type { ReleaseNote, BreakingChange } from '../release-notes'
 export type Props = ReleaseNote;
-const props = Astro.props;
+const {isTwilight, ...props} = Astro.props;
 
-const [day, month, year] = props.date.split('/');
-const date = new Date(Date.parse(`${year}-${month}-${day}`));
-	
+let date;
+if (props.date) {
+	const [day, month, year] = props.date.split('/');
+	date = new Date(Date.parse(`${year}-${month}-${day}`));
+}
 ---
 
 <section
-	class="relative mt-24 flex flex-col border-t border-dark pt-24 lg:flex-row"
+	class="relative mt-24 flex flex-col border-t pt-24 lg:flex-row release-note-item"
 	id={props.version}
 	>
 	<div class="px-5 md:px-10 md:pr-32">
-        <h1 class="text-3xl font-bold">Release notes for {props.version} 🎉</h1>
-        {date.toLocaleDateString('en-US', { dateStyle: 'long'})}
+		{isTwilight ? (
+			<a class="rounded-full bg-coral w-fit py-1 px-3 text-xs !mb-2 block text-paper" href="/download?twilight">
+				Twilight
+			</a>
+		) : null}
+		<h1 class="text-3xl font-bold">
+			{isTwilight ? (
+				<>
+					Twilight changes for {props.version} 🌙
+				</>
+			) : (
+				<>
+					Release notes for {props.version} 🎉
+				</>
+			)}
+		</h1>
+		{date && date.toLocaleDateString('en-US', { dateStyle: 'long'})}
 		<div class="mt-2">
-			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${props.version}`}>Github Release</a>
-			<span class="text-muted-foreground mx-auto">•</span>
-			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run</a>
+			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}>Github Release</a>
+			{!isTwilight ? (
+				<>
+					<span class="text-muted-foreground mx-auto">•</span>
+					<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run</a>
+				</>
+			) : null}
 		</div>
-		<p class="mt-8 text-lg text-muted-forground">
-			If you encounter any issues, please report them on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zen-browser/desktop/issues/" class="text-underline text-blue-500">the issues page</a>. 
+		<div class="mt-6 text-sm opacity-70 text-muted-forground flex">
+			{isTwilight ? (
+				<Info class="my-0 mx-4 size-6 text-yellow-500" />
+			) : null}
+			<p class="m-0">
+				{isTwilight ? (
+					<>
+						Please note that Twilight is a pre-release version of Zen Browser. It may contain bugs and unfinished features.
+					</>
+				) : null}
+				If you encounter any issues, please report them on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zen-browser/desktop/issues/" class="text-underline text-blue-500">the issues page</a>. 
+			</div>
 		</p>
 
 		{props.extra ? (
-			<p class="text-md mt-8 text-muted-foreground extra">
+			<p class="text-md mt-2 text-muted-foreground extra">
 				<Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
 			</p>
 			) : null
@@ -108,7 +140,7 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 		flex-direction: row-reverse!important;
 
 		&:hover {
-			opactiy: 0.8 !important;
+			opacity: 0.8 !important;
 		}
 
 		& > svg {
@@ -126,7 +158,7 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 	.ac-accordion {
 		&.ac-accordion--light {
 			> * + * {
-				border-color: var(--zen-dark)!important;
+				border-color: light-dark(rgba(0,0,0,.1), rgba(255,255,255,.1)) !important;
 				width: 100%;
 			}
 		}
@@ -136,5 +168,9 @@ const date = new Date(Date.parse(`${year}-${month}-${day}`));
 		& a {
 			@apply !text-blue-500;
 		}
+	}
+
+	.release-note-item {
+		border-color: light-dark(rgba(0,0,0,.2), rgba(255,255,255,.2));
 	}
 </style>
