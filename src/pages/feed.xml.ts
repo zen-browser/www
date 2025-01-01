@@ -12,7 +12,7 @@ const RSS_ENTRY_LIMIT = 20;
 export function GET(context: any) {
     // Just in case the release notes array is empty for whatever reason.
     const latestDate = releaseNotes.length > 0
-        ? formatRssDate(releaseNotes[0].date)
+        ? formatRssDate(releaseNotes[0].date as string)
         : new Date();
 
     const rssData: RSSOptions = {
@@ -37,7 +37,7 @@ export function GET(context: any) {
         rssData.items.push({
             title: `Release notes for version ${releaseNote.version}`,
             link: `https://www.zen-browser.app/release-notes/${releaseNote.version}`,
-            pubDate: formatRssDate(releaseNote.date),
+            pubDate: formatRssDate(releaseNote.date as string),
             description: releaseNote.extra,
             content: formatReleaseNote(releaseNote),
         });
