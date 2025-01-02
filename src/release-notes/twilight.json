@@ -56,6 +56,7 @@
     "Fixed moving pinned tabs into the essential tabs container breaking the UI",
     "Improved security for Zen Mods, only allowing installs from the Zen Mods website",
     "Fixed the completly broken save bookmark dialog",
+    "Fixed and improved the grain texture for workspace backgrounds (Thanks to @different55)",
     {
       "description": "Fixed touch security not working on macos",
       "issue": 437
