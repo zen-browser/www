@@ -1,4 +1,5 @@
 ---
+import { ArrowRight, ChevronRight } from 'lucide-astro'
 import Button from '../components/Button.astro'
 import Description from '../components/Description.astro'
 import Title from '../components/Title.astro'
@@ -6,7 +7,7 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="Donate - Zen Browser">
-  <main class="flex my-44 flex-col items-center justify-center">
+  <main class="flex flex-col items-center pt-36 pb-52">
     <div class="mb-24 p-4 text-center lg:w-1/2">
       <Title>Donate!</Title>
       <Description>
@@ -15,30 +16,33 @@ import Layout from '../layouts/Layout.astro'
         us.
       </Description>
     </div>
-    <div class="relative flex w-full flex-col justify-center lg:flex-row">
+    <div class="relative flex w-full flex-col justify-center items-center lg:flex-row">
       <div class="flex flex-col p-8 lg:w-1/3 lg:pr-24">
         <div class="text-6xl font-bold">Patreon</div>
         <Description>
           Patreon allows you to support us with a monthly donation. You can
           choose the level of support that works best for you.
         </Description>
-        <div class="mt-4">
-          <Button isPrimary href="https://www.patreon.com/zen_browser"
-            >Go to Patreon</Button
-          >
+        <div class="mt-6">
+          <Button isPrimary href="https://www.patreon.com/zen_browser" class="w-fit">
+            Go to Patreon
+            <ArrowRight class="size-4" />
+          </Button>
         </div>
       </div>
-      <div class="hidden h-full w-[1.5px] bg-dark lg:block"></div>
+      <div class="hidden h-72 w-[1px] bg-dark lg:block opacity-15"></div>
       <div class="flex flex-col p-8 lg:w-1/3 lg:pl-24">
         <div class="text-6xl font-bold">Ko-fi</div>
         <Description>
           Ko-fi allows you to support us with a one-time donation. You can
-          choose the amount that works best for you.
+          choose the amount that works best for you. Monthly donations are also
+          available.
         </Description>
-        <div class="mt-4">
-          <Button href="https://ko-fi.com/zen_browser" isPrimary
-            >Go to Ko-fi</Button
-          >
+        <div class="mt-6">
+          <Button href="https://ko-fi.com/zen_browser" isPrimary class="w-fit">
+            Go to Ko-fi
+            <ArrowRight class="size-4" />
+          </Button>
         </div>
       </div>
     </div>

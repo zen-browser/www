@@ -36,11 +36,11 @@ if (props.date) {
 		</h1>
 		{date && date.toLocaleDateString('en-US', { dateStyle: 'long'})}
 		<div class="mt-2">
-			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}>Github Release</a>
+			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-coral opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}>Github Release</a>
 			{!isTwilight ? (
 				<>
 					<span class="text-muted-foreground mx-auto">•</span>
-					<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-blue-500 opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run</a>
+					<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-coral opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run</a>
 				</>
 			) : null}
 		</div>
@@ -54,7 +54,7 @@ if (props.date) {
 						Please note that Twilight is a pre-release version of Zen Browser. It may contain bugs and unfinished features.
 					</>
 				) : null}
-				If you encounter any issues, please report them on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zen-browser/desktop/issues/" class="text-underline text-blue-500">the issues page</a>. 
+				If you encounter any issues, please report them on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zen-browser/desktop/issues/" class="text-underline text-coral">the issues page</a>. 
 			</div>
 		</p>
 
@@ -76,7 +76,7 @@ if (props.date) {
 										{fix.description}
 										{fix.issue ? (
 											<a
-												class="text-blue-500"
+												class="text-coral"
 												href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
 												rel="noopener noreferrer"
 												target="_blank"
@@ -118,7 +118,7 @@ if (props.date) {
 								<>
 									{breakingChange.description}
 									<a
-										class="text-blue-500"
+										class="text-coral"
 										href={breakingChange.link}
 										rel="noopener noreferrer"
 										target="_blank"
@@ -166,7 +166,7 @@ if (props.date) {
 
 	.extra {
 		& a {
-			@apply !text-blue-500;
+			@apply !text-coral;
 		}
 	}
 
