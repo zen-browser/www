@@ -84,6 +84,7 @@
     "Improved on-boarding experience for new users",
     "Added support for searching for emojis on the workspace icon picker",
     "Added support for MacOS smart cards",
+    "Color picker dialog will now convert to a valid color if it's hex-like but invalid",
     "Made workspace switching tab's animation more smooth"
   ],
   "breakingChanges": [
