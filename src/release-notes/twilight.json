@@ -42,6 +42,10 @@
     },
     "Fixed pinning and unpinning extensions messing up the toolbar",
     {
+      "description": "Fixed duplicating a tab showing the default workspace container indicator",
+      "issue": 4132
+    },
+    {
       "description": "Fixed common issues on the on-boarding pages such as button backgrounds and spacing",
       "issue": 4035
     },
