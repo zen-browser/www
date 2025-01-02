@@ -1,0 +1,92 @@
+{
+  "version": "1.2-b.6",
+  "extra": "This new release includes more polishing changes and bug fixes. We are most exited about our new release schedule, we are now using Firefox's Release Candidates for twilight, meaning we can test out new Firefox versions before they are released to the public. This will allow us to fix any issues before they are released to the public.\n\nIt may be a bit late, but happy new year! We hope you have a great year ahead of you!",
+  "fixes": [
+    "Fixed compact mode sidebar not hiding fully on some occasions",
+    "Fixed context menu checkbox icon aligments for Windows users",
+    "Fixed having multiple windows displaying the wrong essentials at startup",
+    {
+      "description": "Fixed toolbar jittering when in compact mode",
+      "issue": 3916
+    },
+    {
+      "description": "Fixed grain texture not being clipped at window corners",
+      "issue": 2942
+    },
+    {
+      "description": "Fixed arrow keys not working after opening an extension popup",
+      "issue": 2743
+    },
+    {
+      "description": "Fixed animation for opening popups cliping their content",
+      "issue": 4050
+    },
+    {
+      "description": "Fixed weird colouring for toggle inputs",
+      "issue": 4047
+    },
+    "Update application identifier for Zen Browser to align with new naming conventions (MacOS)",
+    "Fixed translations trying to be overriden on Windows builds",
+    {
+      "description": "Fixed web panels closing and inmediately opening again when clicking on the toolbar button",
+      "issue": 4049
+    },
+    "Fix margin for titlebar buttonbox in OSX theme",
+    {
+      "description": "Fixed on-boarding search engine icons having large sizes",
+      "issue": 3575
+    },
+    {
+      "description": "Fixed preferences sidebar hidding on smaller screens",
+      "issue": 4051
+    },
+    "Fixed pinning and unpinning extensions messing up the toolbar",
+    {
+      "description": "Fixed common issues on the on-boarding pages such as button backgrounds and spacing",
+      "issue": 4035
+    },
+    "Fixed syncing workspaces on some specific scenarios",
+    "Fixed glance buttons not being able to be clicked",
+    "Fixed horizontal spacing issues when using split views",
+    {
+      "description": "Fixed naming issues between sidebar and web panels",
+      "issue": 4043
+    },
+    "Improved security for Zen Mods, only allowing installs from the Zen Mods website",
+    "Fixed the completly broken save bookmark dialog",
+    {
+      "description": "Fixed touch security not working on macos",
+      "issue": 437
+    },
+    "Fixed zen's app bundle ID giving an incorrect identifier",
+    "Fixed issue related to changing workspace with the 4 / 5 mouse buttons and we now take into consideration natural scrolling",
+    "Fixed some website dialogs overflowing the window",
+    {
+      "description": "Fixed extension Pin to Toolbar overlayed with gtk theme toggle",
+      "issue": 1934
+    },
+    "Fixed essential icon not appearing on the context menu",
+    "Fixed accessibility issues on some native links",
+    "Fixed windows 11 titlebar looking weird when having a custom accent color",
+    "Fixed workspaces icons appearing on private mode once opening another window",
+    {
+      "description": "Fixed having invalid shortcuts hard-locking the user inside the loading screen",
+      "issue": 4071
+    }
+  ],
+  "features": [
+    "Updated to firefox 134.0",
+    "Added transitioning when changing between workspaces backgrounds",
+    "Added support for Windows 11 setting 'Show accent color on window title bars and borders'",
+    "Enabled experimental features for twilight builds",
+    "Improved design of native zen dialogs",
+    "Re-enabled the default password manager",
+    "Improved on-boarding experience for new users",
+    "Added support for searching for emojis on the workspace icon picker",
+    "Added support for MacOS smart cards",
+    "Made workspace switching tab's animation more smooth"
+  ],
+  "breakingChanges": [
+    "Changed versioning scheme to match Firefox's Release Candidates"
+  ]
+}
