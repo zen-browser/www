@@ -15,29 +15,29 @@ import { getTitleAnimation } from '../animations'
   class="flex w-full flex-col items-center text-center relative"
 >
   <Title>
-    <motion.span client:load viewport={{ once: true }} {...getTitleAnimation(0.2)}>
+    <motion.span client:load {...getTitleAnimation(0.2)}>
       Community
     </motion.span>
-    <motion.span client:load viewport={{ once: true }} {...getTitleAnimation(0.4)}>
+    <motion.span client:load {...getTitleAnimation(0.4)}>
       Driven
     </motion.span>
   </Title>
-  <motion.p client:load viewport={{ once: true }} {...getTitleAnimation(0.6)} className="px-4 lg:px-0 lg:w-1/2">
+  <motion.p client:load {...getTitleAnimation(0.6)} className="px-4 lg:px-0 lg:w-1/2">
     We are a community-driven project. We listen to our users and build the
     features they want. Zen focuses on privacy and customization, not on data collection.
   </motion.p>
   <div class="mt-6 gap-3 px-4 sm:px-0 w-full sm:gap-10 flex flex-wrap justify-center">
-    <motion.span client:load viewport={{ once: true }} {...getTitleAnimation(0.8)}>
+    <motion.span client:load {...getTitleAnimation(0.8)}>
       <Button class:list={['px-4']} href="https://github.com/zen-browser">
         <Github class="size-4" />
         <span>View on Github</span>
       </Button>
     </motion.span>
-    <motion.div client:load viewport={{ once: true }} {...getTitleAnimation(1)} className="flex items-center gap-4">
+    <motion.div client:load {...getTitleAnimation(1)} className="flex items-center gap-4">
       <Check class="size-4" />
       <span>Fully Customizable</span>
     </motion.div>
-    <motion.div client:load viewport={{ once: true }} {...getTitleAnimation(1.2)} className="flex items-center gap-4">
+    <motion.div client:load {...getTitleAnimation(1.2)} className="flex items-center gap-4">
       <Check class="size-4" />
       <span>Privacy Focused</span>
     </motion.div>
