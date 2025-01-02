@@ -13,6 +13,17 @@ import Footer from '../components/Footer.astro'
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!-- Dark mode -->
+    <script is:inline>
+      ;(function () {
+        // Retrieve the saved theme from localStorage
+        const savedTheme = localStorage.getItem('theme')
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme)
+        }
+      })()
+    </script>
+
     <meta
       name="description"
       content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data."
@@ -37,16 +48,6 @@ import Footer from '../components/Footer.astro'
     <meta property="og:color" content="#da755b3" />
     <!-- twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <!-- Dark mode -->
-    <script is:inline>
-      ;(function () {
-        // Retrieve the saved theme from localStorage
-        const savedTheme = localStorage.getItem('theme')
-        if (savedTheme) {
-          document.documentElement.setAttribute('data-theme', savedTheme)
-        }
-      })()
-    </script>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
