@@ -45,6 +45,7 @@
       "description": "Fixed common issues on the on-boarding pages such as button backgrounds and spacing",
       "issue": 4035
     },
+    "Fixed visibility issues when selecting multiple essentials",
     "Fixed syncing workspaces on some specific scenarios",
     "Fixed glance buttons not being able to be clicked",
     "Fixed horizontal spacing issues when using split views",
@@ -52,6 +53,7 @@
       "description": "Fixed naming issues between sidebar and web panels",
       "issue": 4043
     },
+    "Fixed moving pinned tabs into the essential tabs container breaking the UI",
     "Improved security for Zen Mods, only allowing installs from the Zen Mods website",
     "Fixed the completly broken save bookmark dialog",
     {
