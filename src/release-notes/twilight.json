@@ -71,6 +71,7 @@
     },
     "Fixed essential icon not appearing on the context menu",
     "Fixed accessibility issues on some native links",
+    "Fixed compact mode not closing when opening an extension dialog pinned to the sidebar",
     "Fixed windows 11 titlebar looking weird when having a custom accent color",
     "Fixed workspaces icons appearing on private mode once opening another window",
     {
