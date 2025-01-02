@@ -65,6 +65,10 @@
       "description": "Fixed extension Pin to Toolbar overlayed with gtk theme toggle",
       "issue": 1934
     },
+    {
+      "description": "Fixed opening home page instead of newtab when closing the last workspace tab",
+      "issue": 3201
+    },
     "Fixed essential icon not appearing on the context menu",
     "Fixed accessibility issues on some native links",
     "Fixed windows 11 titlebar looking weird when having a custom accent color",
