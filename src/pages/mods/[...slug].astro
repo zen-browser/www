@@ -6,6 +6,10 @@ import Title from '../../components/Title.astro';
 import Description from '../../components/Description.astro';
 import Button from '../../components/Button.astro';
 import BackButton from '../../components/BackButton.astro';
+
+import { Info } from 'lucide-astro';
+import ReadmeComponent from '../../components/ReadmeComponent.astro';
+
 import { ArrowRight, Info } from 'lucide-astro';
 
 export async function getStaticPaths() {
@@ -15,8 +19,6 @@ export async function getStaticPaths() {
     props: { ...mod },
   }));
 }
-
-// https://github.com/TeaClientMC/Website/blob/7faacc9f8b2c79c74f711d413b155c84faafc00d/src/pages/news/%5B...slug%5D.astro
 
 const mod = Astro.props;
 
@@ -79,9 +81,7 @@ const dates = {
           </Button>
         </div>
       </div>
-      <!-- TODO: Readme markdown 
-      <div class="h-[1px] opacity-80 bg-dark w-full"></div>
-      -->
+      <ReadmeComponent url={mod.readme} id={mod.id}/>
     </div>
     <div>
   </main>
