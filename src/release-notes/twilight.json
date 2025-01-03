@@ -40,6 +40,7 @@
       "description": "Fixed preferences sidebar hidding on smaller screens",
       "issue": 4051
     },
+    "Fixed coloring issue on tree elements such as search engine selection on the preferences page",
     "Fixed pinning and unpinning extensions messing up the toolbar",
     {
       "description": "Fixed duplicating a tab showing the default workspace container indicator",
