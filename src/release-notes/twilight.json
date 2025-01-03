@@ -34,6 +34,7 @@
     },
     "Fixed empty separations not appearing at the top toolbar",
     "Fixed the spacing between the titlebar window buttons and toolbar buttons in MacOS",
+    "Fixed support for scrolling vertical tabs when opening a background tab",
     {
       "description": "Fixed on-boarding search engine icons having large sizes",
       "issue": 3575
