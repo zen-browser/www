@@ -11,10 +11,10 @@ import { ThemeSwitch } from 'free-astro-components'
 
 <nav
   id="nav-bar"
-  class="fixed flex justify-between w-full items-center lg:pt-6 lg:px-6 z-20 top-0 left-0"
+  class="flex justify-between w-full items-center lg:pt-3 lg:px-6 z-20 relative"
 >
   <Astronav>
-    <MenuItems class="w-full lg:w-fit lg:rounded-full border-dark border-b-2 lg:border-2 p-2 backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-auto flex gap-2 lg:gap-20">
+    <MenuItems class="w-full lg:w-fit p-2 bg-paper mx-auto flex gap-2 lg:gap-20 relative">
       <a class="font-bold text-lg items-center flex gap-2 mr-3" href="/">
         <Logo class="text-dark" /> <span class="hidden lg:block">zen browser</span>
       </a>
@@ -22,7 +22,7 @@ import { ThemeSwitch } from 'free-astro-components'
         <Dropdown class="group">
           <button class="flex items-center">
             <span>Getting Started</span>
-            <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200" />
+            <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200 size-4 md:ml-2" />
           </button>
           <DropdownItems>
             <div class="navbar-dropdown w-full lg:w-fit top-16 left-0 right-1/4">
@@ -60,7 +60,7 @@ import { ThemeSwitch } from 'free-astro-components'
         <Dropdown class="group">
           <button class="flex items-center">
             <span>Useful Links</span>
-            <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200" />
+            <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200 size-4 md:ml-2" />
           </button>
           <DropdownItems>
             <div class="navbar-dropdown w-full lg:w-fit left-0 !grid-cols-1 gap-1 top-16 lg:left-1/3 lg:right-1/4">
@@ -104,7 +104,7 @@ import { ThemeSwitch } from 'free-astro-components'
         </a>
       </div>
       <div class="flex gap-2 ml-auto">
-        <div id="theme-switcher" class="block ml-auto xl:hidden">
+        <div id="theme-switcher" class="ml-auto md:mr-2">
           <ThemeSwitch label="" class="py-2 px-1" />
         </div>
         <Button href="/download" class="ml-auto" isPrimary>
@@ -119,9 +119,6 @@ import { ThemeSwitch } from 'free-astro-components'
       </div>
     </MenuItems>
   </Astronav>
-  <div id="theme-switcher" class="hidden xl:block py-0 w-fit lg:w-fit lg:rounded-full border-dark right-0 border-b-2 lg:border-2 px-4 absolute backdrop-blur-2xl bg-paper dark:bg-paper dark:shadow-md mx-0 md:mx-4 flex gap-2 lg:gap-20 font-bold text-lg items-center">
-    <ThemeSwitch label="Theme" class="p-1" />
-  </div>
 </nav>
 <style>
   .navbar-dropdown {

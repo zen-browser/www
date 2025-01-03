@@ -6,8 +6,11 @@ import Title from '../../components/Title.astro';
 import Description from '../../components/Description.astro';
 import Button from '../../components/Button.astro';
 import BackButton from '../../components/BackButton.astro';
+
 import { Info } from 'lucide-astro';
 import ReadmeComponent from '../../components/ReadmeComponent.astro';
+
+import { ArrowRight, Info } from 'lucide-astro';
 
 export async function getStaticPaths() {
   const mods = await getAllMods();
@@ -27,20 +30,21 @@ const dates = {
 
 <Layout title={`${mod.name} - Zen Mods`} >
   <main class="mt-6 2xl:mt-0">
-    <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6 mt-20 lg:mt-32 mb-24">
+    <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6 mt-12 lg:mt-32 mb-24">
       <div
         id="install-theme-error"
-        class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 rounded-xl bg-red-200 p-2 px-4"
+        class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 rounded-xl bg-red-200 dark:bg-red-700 p-2 px-4"
       >
         <div class="flex items-center gap-2 text-center md:text-left">
           <Info />
-          <p class="text-muted-foreground text-sm">
+          <p class="text-sm">
             You need to have Zen Browser installed to install this theme.{' '}
           </p>
         </div>
-        <Button href="/download" class="inline-flex bg-red-300 flex-shrink-0 whitespace-nowrap" isAlert
-          >Download now!</Button
-        >
+        <Button href="/download" class="inline-flex bg-red-300 !rounded-lg dark:bg-red-800 flex-shrink-0 whitespace-nowrap" isAlert>
+          Download now!
+          <ArrowRight class="size-4" />
+        </Button>
       </div>
       <BackButton />
       <div>
