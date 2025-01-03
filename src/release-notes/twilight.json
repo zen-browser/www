@@ -32,7 +32,8 @@
       "description": "Fixed web panels closing and inmediately opening again when clicking on the toolbar button",
       "issue": 4049
     },
-    "Fix margin for titlebar buttonbox in OSX theme",
+    "Fixed empty separations not appearing at the top toolbar",
+    "Fixed the spacing between the titlebar window buttons and toolbar buttons in MacOS",
     {
       "description": "Fixed on-boarding search engine icons having large sizes",
       "issue": 3575
