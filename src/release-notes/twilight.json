@@ -17,6 +17,7 @@
       "description": "Fixed arrow keys not working after opening an extension popup",
       "issue": 2743
     },
+    "Fixed wrong window buttons when opening customize toolbar in compact mode",
     {
       "description": "Fixed animation for opening popups cliping their content",
       "issue": 4050
