@@ -101,7 +101,8 @@
     "Added support for searching for emojis on the workspace icon picker",
     "Added support for MacOS smart cards",
     "Color picker dialog will now convert to a valid color if it's hex-like but invalid",
-    "Made workspace switching tab's animation smoother"
+    "Made workspace switching tab's animation smoother",
+    "Added developer tools shortcuts support!"
   ],
   "breakingChanges": [
     "Changed versioning scheme to match Firefox's Release Candidates"
