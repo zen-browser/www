@@ -36,6 +36,14 @@
     "Fixed the spacing between the titlebar window buttons and toolbar buttons in MacOS",
     "Fixed support for scrolling vertical tabs when opening a background tab",
     {
+      "description": "Fixed mod default preferences not displayed correctly until reopening the settings page or browser restart",
+      "issue": 3887
+    },
+    {
+      "description": "Fixed changing mod string preferences sometimes results in missing characters",
+      "issue": 3558
+    },
+    {
       "description": "Fixed on-boarding search engine icons having large sizes",
       "issue": 3575
     },
