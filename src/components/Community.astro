@@ -2,42 +2,52 @@
 import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
 import Button from '../components/Button.astro'
-import { motion } from 'motion/react';
-import { 
-  Github,
-  Check,
- } from 'lucide-astro'
-import { getTitleAnimation } from '../animations' 
+import { motion } from 'motion/react'
+import { Github, Check } from 'lucide-astro'
+import { getTitleAnimation } from '../animations'
 ---
 
 <section
   id="Community"
-  class="flex w-full flex-col items-center text-center relative"
+  class="relative flex w-full flex-col items-center text-center"
 >
   <Title>
     <motion.span client:load {...getTitleAnimation(0.2)}>
       Community
     </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.4)}>
-      Driven
-    </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.4)}> Driven </motion.span>
   </Title>
-  <motion.p client:load {...getTitleAnimation(0.6)} className="px-4 lg:px-0 lg:w-1/2">
+  <motion.p
+    client:load
+    {...getTitleAnimation(0.6)}
+    className="px-4 lg:w-1/2 lg:px-0"
+  >
     We are a community-driven project. We listen to our users and build the
-    features they want. Zen focuses on privacy and customization, not on data collection.
+    features they want. Zen focuses on privacy and customization, not on data
+    collection.
   </motion.p>
-  <div class="mt-6 gap-3 px-4 sm:px-0 w-full sm:gap-10 flex flex-wrap justify-center">
+  <div
+    class="mt-6 flex w-full flex-wrap justify-center gap-3 px-4 sm:gap-10 sm:px-0"
+  >
     <motion.span client:load {...getTitleAnimation(0.8)}>
       <Button class:list={['px-4']} href="https://github.com/zen-browser">
         <Github class="size-4" />
         <span>View on Github</span>
       </Button>
     </motion.span>
-    <motion.div client:load {...getTitleAnimation(1)} className="flex items-center gap-4">
+    <motion.div
+      client:load
+      {...getTitleAnimation(1)}
+      className="flex items-center gap-4"
+    >
       <Check class="size-4" />
       <span>Fully Customizable</span>
     </motion.div>
-    <motion.div client:load {...getTitleAnimation(1.2)} className="flex items-center gap-4">
+    <motion.div
+      client:load
+      {...getTitleAnimation(1.2)}
+      className="flex items-center gap-4"
+    >
       <Check class="size-4" />
       <span>Privacy Focused</span>
     </motion.div>

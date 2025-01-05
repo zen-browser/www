@@ -1,17 +1,20 @@
 ---
 import { releaseNotes } from '../../release-notes'
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro'
 
 export async function getStaticPaths() {
-  return [...releaseNotes.map((release: any) => ({
-    params: { slug: release.version },
-    props: { ...release },
-  })), {
-    params: { slug: 'latest' },
-    props: { ...releaseNotes[0] },
-  }];
+  return [
+    ...releaseNotes.map((release: any) => ({
+      params: { slug: release.version },
+      props: { ...release },
+    })),
+    {
+      params: { slug: 'latest' },
+      props: { ...releaseNotes[0] },
+    },
+  ]
 }
 
-const release = Astro.props;
-return Astro.redirect(`/release-notes#${release.version}`);
+const release = Astro.props
+return Astro.redirect(`/release-notes#${release.version}`)
 ---

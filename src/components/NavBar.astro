@@ -1,35 +1,46 @@
-
 ---
 import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
 import Button from '../components/Button.astro'
-import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
+import {
+  Astronav,
+  MenuItems,
+  MenuIcon,
+  Dropdown,
+  DropdownItems,
+  DropdownSubmenu,
+} from 'astro-navbar'
 import { ArrowRight, ChevronDown, Download, DownloadCloud } from 'lucide-astro'
-import Logo from './Logo.astro';
+import Logo from './Logo.astro'
 import { ThemeSwitch } from 'free-astro-components'
 ---
 
 <nav
   id="nav-bar"
-  class="flex justify-between w-full items-center lg:pt-3 lg:px-6 z-20 relative"
+  class="relative z-20 flex w-full items-center justify-between lg:px-6 lg:pt-3"
 >
   <Astronav>
-    <MenuItems class="w-full lg:w-fit p-2 bg-paper mx-auto flex gap-2 lg:gap-20 relative">
-      <a class="font-bold text-lg items-center flex gap-2 mr-3" href="/">
-        <Logo class="text-dark" /> <span class="hidden lg:block">zen browser</span>
+    <MenuItems
+      class="relative mx-auto flex w-full gap-2 bg-paper p-2 lg:w-fit lg:gap-20"
+    >
+      <a class="mr-3 flex items-center gap-2 text-lg font-bold" href="/">
+        <Logo class="text-dark" />
+        <span class="hidden lg:block">zen browser</span>
       </a>
-      <div class="gap-6 flex items-center text-xs sm:text-sm lg:text-base">
+      <div class="flex items-center gap-6 text-xs sm:text-sm lg:text-base">
         <Dropdown class="group">
           <button class="flex items-center">
             <span>Getting Started</span>
-            <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200 size-4 md:ml-2" />
+            <ChevronDown
+              class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
+            />
           </button>
           <DropdownItems>
-            <div class="navbar-dropdown w-full lg:w-fit top-16 left-0 right-1/4">
-              <a class="dropdown-item row-span-2 bg-dark/5" href="/mods">
-                <div class="dropdown-title">
-                  Zen Mods
-                </div>
+            <div
+              class="navbar-dropdown left-0 right-1/4 top-16 w-full lg:w-fit"
+            >
+              <a class="dropdown-item bg-dark/5 row-span-2" href="/mods">
+                <div class="dropdown-title">Zen Mods</div>
                 <div class="dropdown-description">
                   Customize your browsing experience with Zen Mods.
                 </div>
@@ -38,18 +49,14 @@ import { ThemeSwitch } from 'free-astro-components'
                   <ArrowRight class="size-4" />
                 </Button>
               </a>
-              <a class="dropdown-item"  href="/release-notes">
-                <div class="dropdown-title">
-                  Release Notes
-                </div>
+              <a class="dropdown-item" href="/release-notes">
+                <div class="dropdown-title">Release Notes</div>
                 <div class="dropdown-description">
                   Stay up to date with the latest features and improvements.
                 </div>
               </a>
               <a class="dropdown-item" href="https://discord.gg/zen-browser">
-                <div class="dropdown-title">
-                  Discord
-                </div>
+                <div class="dropdown-title">Discord</div>
                 <div class="dropdown-description">
                   Join our community on Discord to chat with other Zen users!
                 </div>
@@ -60,38 +67,38 @@ import { ThemeSwitch } from 'free-astro-components'
         <Dropdown class="group">
           <button class="flex items-center">
             <span>Useful Links</span>
-            <ChevronDown class="group-open:rotate-180 transform transition-transform duration-200 size-4 md:ml-2" />
+            <ChevronDown
+              class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
+            />
           </button>
           <DropdownItems>
-            <div class="navbar-dropdown w-full lg:w-fit left-0 !grid-cols-1 gap-1 top-16 lg:left-1/3 lg:right-1/4">
-              <a class="dropdown-item"  href="/donate">
-                <div class="dropdown-title">
-                  Donate ❤️
-                </div>
+            <div
+              class="navbar-dropdown left-0 top-16 w-full !grid-cols-1 gap-1 lg:left-1/3 lg:right-1/4 lg:w-fit"
+            >
+              <a class="dropdown-item" href="/donate">
+                <div class="dropdown-title">Donate ❤️</div>
                 <div class="dropdown-description">
                   Support the development of Zen Browser with a donation.
                 </div>
               </a>
               <a class="dropdown-item" href="/about">
-                <div class="dropdown-title">
-                  About Us 🌟
-                </div>
+                <div class="dropdown-title">About Us 🌟</div>
                 <div class="dropdown-description">
                   Learn more about the team behind Zen Browser.
                 </div>
               </a>
               <a class="dropdown-item" href="https://docs.zen-browser.app">
-                <div class="dropdown-title">
-                  Documentation
-                </div>
+                <div class="dropdown-title">Documentation</div>
                 <div class="dropdown-description">
                   Learn how to use Zen Browser with our documentation.
                 </div>
               </a>
-              <a class="dropdown-item" href="https://github.com/zen-browser" target="_blank">
-                <div class="dropdown-title">
-                  GitHub
-                </div>  
+              <a
+                class="dropdown-item"
+                href="https://github.com/zen-browser"
+                target="_blank"
+              >
+                <div class="dropdown-title">GitHub</div>
                 <div class="dropdown-description">
                   Contribute to the development of Zen Browser on GitHub.
                 </div>
@@ -99,16 +106,16 @@ import { ThemeSwitch } from 'free-astro-components'
             </div>
           </DropdownItems>
         </Dropdown>
-        <a class="items-center hidden lg:block" href="/mods">
+        <a class="hidden items-center lg:block" href="/mods">
           <span>Mods</span>
         </a>
       </div>
-      <div class="flex gap-2 ml-auto">
+      <div class="ml-auto flex gap-2">
         <div id="theme-switcher" class="ml-auto md:mr-2">
-          <ThemeSwitch label="" class="py-2 px-1" />
+          <ThemeSwitch label="" class="px-1 py-2" />
         </div>
         <Button href="/download" class="ml-auto" isPrimary>
-          <span class="hidden md:flex items-center gap-2">
+          <span class="hidden items-center gap-2 md:flex">
             Download
             <ArrowRight class="size-4" />
           </span>
@@ -122,10 +129,10 @@ import { ThemeSwitch } from 'free-astro-components'
 </nav>
 <style>
   .navbar-dropdown {
-    @apply absolute bg-paper shadow-sm rounded-lg border-2 border-dark p-3 grid gap-2 grid-cols-2;
+    @apply absolute grid grid-cols-2 gap-2 rounded-lg border-2 border-dark bg-paper p-3 shadow-sm;
 
     & .dropdown-item {
-      @apply flex gap-2 p-4 flex-col rounded-lg select-none cursor-pointer transition-colors duration-200;
+      @apply flex cursor-pointer select-none flex-col gap-2 rounded-lg p-4 transition-colors duration-200;
 
       &:hover {
         @apply bg-muted;

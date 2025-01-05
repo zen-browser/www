@@ -1,5 +1,5 @@
 name: Upload to B-Main
- 
+
 on:
   workflow_dispatch:
 
@@ -11,11 +11,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          
+
       - name: get pnpm
         run: npm install -g pnpm
 
@@ -31,12 +30,10 @@ jobs:
       - name: Deploy to BunnyCDN
         uses: ayeressian/bunnycdn-storage-deploy@v2.2.4
         with:
-          source: "dist"
-          destination: ""
-          storageZoneName: "${{ secrets.STORAGE_NAME }}"
-          storagePassword: "${{ secrets.STORAGE_PASSWORD }}"
-          upload: "true"
-          remove: "false"
-          purgePullZone: "false"
-
-          
+          source: 'dist'
+          destination: ''
+          storageZoneName: '${{ secrets.STORAGE_NAME }}'
+          storagePassword: '${{ secrets.STORAGE_PASSWORD }}'
+          upload: 'true'
+          remove: 'false'
+          purgePullZone: 'false'

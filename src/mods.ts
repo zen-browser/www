@@ -1,4 +1,4 @@
-import { format } from "date-fns"
+import { format } from 'date-fns'
 
 export interface ZenTheme {
   name: string
@@ -37,5 +37,5 @@ export function getAuthorLink(author: string): string {
 }
 
 export function getLocalizedDate(date: Date): string {
-	return format(date, "PP");
+  return format(date, 'PP')
 }

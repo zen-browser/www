@@ -1,176 +1,219 @@
 ---
-import { Accordion, AccordionItem } from 'free-astro-components';
-import { Info } from 'lucide-astro';
+import { Accordion, AccordionItem } from 'free-astro-components'
+import { Info } from 'lucide-astro'
 
 import type { ReleaseNote, BreakingChange } from '../release-notes'
-export type Props = ReleaseNote;
-const {isTwilight, ...props} = Astro.props;
+export type Props = ReleaseNote
+const { isTwilight, ...props } = Astro.props
 
-let date;
+let date
 if (props.date) {
-	const [day, month, year] = props.date.split('/');
-	date = new Date(Date.parse(`${year}-${month}-${day}`));
+  const [day, month, year] = props.date.split('/')
+  date = new Date(Date.parse(`${year}-${month}-${day}`))
 }
 ---
 
 <section
-	class="relative mt-24 flex flex-col border-t pt-24 lg:flex-row release-note-item"
-	id={props.version}
-	>
-	<div class="px-5 md:px-10 md:pr-32">
-		{isTwilight ? (
-			<a class="rounded-full bg-coral w-fit py-1 px-3 text-xs !mb-2 block text-paper" href="/download?twilight">
-				Twilight
-			</a>
-		) : null}
-		<h1 class="text-3xl font-bold">
-			{isTwilight ? (
-				<>
-					Twilight changes for {props.version} 🌙
-				</>
-			) : (
-				<>
-					Release notes for {props.version} 🎉
-				</>
-			)}
-		</h1>
-		{date && date.toLocaleDateString('en-US', { dateStyle: 'long'})}
-		<div class="mt-2">
-			<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-coral opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}>Github Release</a>
-			{!isTwilight ? (
-				<>
-					<span class="text-muted-foreground mx-auto">•</span>
-					<a rel="noopener noreferrer" class="whitespace-nowrap text-sm text-coral opacity-60" target="_blank" href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}>Workflow run</a>
-				</>
-			) : null}
-		</div>
-		<div class="mt-6 text-sm opacity-70 text-muted-forground flex">
-			{isTwilight ? (
-				<Info class="my-0 mx-4 size-6 text-yellow-500" />
-			) : null}
-			<p class="m-0">
-				{isTwilight ? (
-					<>
-						Please note that Twilight is a pre-release version of Zen Browser. It may contain bugs and unfinished features.
-					</>
-				) : null}
-				If you encounter any issues, please report them on <a rel="noopener noreferrer" target="_blank" href="https://github.com/zen-browser/desktop/issues/" class="text-underline text-coral">the issues page</a>. 
-			</div>
-		</p>
+  class="release-note-item relative mt-24 flex flex-col border-t pt-24 lg:flex-row"
+  id={props.version}
+>
+  <div class="px-5 md:px-10 md:pr-32">
+    {
+      isTwilight ? (
+        <a
+          class="!mb-2 block w-fit rounded-full bg-coral px-3 py-1 text-xs text-paper"
+          href="/download?twilight"
+        >
+          Twilight
+        </a>
+      ) : null
+    }
+    <h1 class="text-3xl font-bold">
+      {
+        isTwilight ? (
+          <>Twilight changes for {props.version} 🌙</>
+        ) : (
+          <>Release notes for {props.version} 🎉</>
+        )
+      }
+    </h1>
+    {date && date.toLocaleDateString('en-US', { dateStyle: 'long' })}
+    <div class="mt-2">
+      <a
+        rel="noopener noreferrer"
+        class="whitespace-nowrap text-sm text-coral opacity-60"
+        target="_blank"
+        href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}
+        >Github Release</a
+      >
+      {
+        !isTwilight ? (
+          <>
+            <span class="text-muted-foreground mx-auto">•</span>
+            <a
+              rel="noopener noreferrer"
+              class="whitespace-nowrap text-sm text-coral opacity-60"
+              target="_blank"
+              href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}
+            >
+              Workflow run
+            </a>
+          </>
+        ) : null
+      }
+    </div>
+    <div class="text-muted-forground mt-6 flex text-sm opacity-70">
+      {isTwilight ? <Info class="mx-4 my-0 size-6 text-yellow-500" /> : null}
+      <p class="m-0">
+        {
+          isTwilight ? (
+            <>
+              Please note that Twilight is a pre-release version of Zen Browser.
+              It may contain bugs and unfinished features.
+            </>
+          ) : null
+        }
+        If you encounter any issues, please report them on <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://github.com/zen-browser/desktop/issues/"
+          class="text-underline text-coral">the issues page</a
+        >.
+      </p>
+    </div>
 
-		{props.extra ? (
-			<p class="text-md mt-2 text-muted-foreground extra">
-				<Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
-			</p>
-			) : null
-		}
-		<div class="mt-8" data-orientation="vertical"></div>
-		<Accordion>
-			{props.fixes ? (
-				<AccordionItem title="Fixes" name="fixes">
-					<ul class="list-disc list-inside">
-						{props.fixes.map((fix: any) => (
-							<li class="text-md text-muted-foreground">
-								{typeof fix === 'string' ? fix : (
-									<>
-										{fix.description}
-										{fix.issue ? (
-											<a
-												class="text-coral"
-												href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
-												rel="noopener noreferrer"
-												target="_blank"
-												aria-label={`View issue number ${fix.issue} on GitHub`}
-											>
-												#{fix.issue}
-											</a>
-										) : null}
-									</>
-								)}
-							</li>
-						))}
-					</ul>
-				</AccordionItem>
-			) : null}
-			{props.features ? (
-				<AccordionItem title="Features" name="features">
-					<ul class="list-disc list-inside">
-						{props.features.map((feature: string) => (
-							<li class="text-md text-muted-foreground">{feature}</li>
-						))}
-					</ul>
-				</AccordionItem>
-			) : null}
-			{props.themeChanges ? (
-				<AccordionItem title="Theme Changes" name="themeChanges">
-					<ul class="list-disc list-inside">
-						{props.themeChanges.map((themeChange: string) => (
-							<li class="text-md text-muted-foreground">{themeChange}</li>
-						))}
-					</ul>
-				</AccordionItem>
-			) : null}
-			{props.breakingChanges ? (
-				<AccordionItem title="Breaking Changes" name="breakingChanges">
-					<ul class="list-disc list-inside">
-						{props.breakingChanges.map((breakingChange: BreakingChange) => (
-							<li class="text-md text-muted-foreground">{typeof breakingChange === 'string' ? breakingChange : (
-								<>
-									{breakingChange.description}
-									<a
-										class="text-coral"
-										href={breakingChange.link}
-										rel="noopener noreferrer"
-										target="_blank"
-										aria-label={`View breaking change on GitHub`}
-									>
-										Learn more
-									</a>
-								</>
-							)}</li>
-						))}
-					</ul>
-				</AccordionItem>
-			) : null}
-	</div>
+    {
+      props.extra ? (
+        <p class="text-md text-muted-foreground extra mt-2">
+          <Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
+        </p>
+      ) : null
+    }
+    <div class="mt-8" data-orientation="vertical"></div>
+    <Accordion>
+      {
+        props.fixes ? (
+          <AccordionItem title="Fixes" name="fixes">
+            <ul class="list-inside list-disc">
+              {props.fixes.map((fix: any) => (
+                <li class="text-md text-muted-foreground">
+                  {typeof fix === 'string' ? (
+                    fix
+                  ) : (
+                    <>
+                      {fix.description}
+                      {fix.issue ? (
+                        <a
+                          class="text-coral"
+                          href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                          aria-label={`View issue number ${fix.issue} on GitHub`}
+                        >
+                          #{fix.issue}
+                        </a>
+                      ) : null}
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </AccordionItem>
+        ) : null
+      }
+      {
+        props.features ? (
+          <AccordionItem title="Features" name="features">
+            <ul class="list-inside list-disc">
+              {props.features.map((feature: string) => (
+                <li class="text-md text-muted-foreground">{feature}</li>
+              ))}
+            </ul>
+          </AccordionItem>
+        ) : null
+      }
+      {
+        props.themeChanges ? (
+          <AccordionItem title="Theme Changes" name="themeChanges">
+            <ul class="list-inside list-disc">
+              {props.themeChanges.map((themeChange: string) => (
+                <li class="text-md text-muted-foreground">{themeChange}</li>
+              ))}
+            </ul>
+          </AccordionItem>
+        ) : null
+      }
+      {
+        props.breakingChanges ? (
+          <AccordionItem title="Breaking Changes" name="breakingChanges">
+            <ul class="list-inside list-disc">
+              {props.breakingChanges.map((breakingChange: BreakingChange) => (
+                <li class="text-md text-muted-foreground">
+                  {typeof breakingChange === 'string' ? (
+                    breakingChange
+                  ) : (
+                    <>
+                      {breakingChange.description}
+                      <a
+                        class="text-coral"
+                        href={breakingChange.link}
+                        rel="noopener noreferrer"
+                        target="_blank"
+                        aria-label={`View breaking change on GitHub`}
+                      >
+                        Learn more
+                      </a>
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </AccordionItem>
+        ) : null
+      }
+    </Accordion>
+  </div>
+  <style is:global>
+    .ac-accordion-item-title {
+      @apply !text-dark;
+      flex-direction: row-reverse !important;
+
+      &:hover {
+        opacity: 0.8 !important;
+      }
+
+      & > svg {
+        color: var(--zen-dark) !important;
+      }
+    }
+
+    .ac-accordion-item {
+      transition: height 0.2s ease-in-out !important;
+
+      & li {
+        opacity: 0.5;
+      }
+    }
+    .ac-accordion {
+      &.ac-accordion--light {
+        > * + * {
+          border-color: light-dark(
+            rgba(0, 0, 0, 0.1),
+            rgba(255, 255, 255, 0.1)
+          ) !important;
+          width: 100%;
+        }
+      }
+    }
+
+    .extra {
+      & a {
+        @apply !text-coral;
+      }
+    }
+
+    .release-note-item {
+      border-color: light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
+    }
+  </style>
 </section>
-<style is:global>
-	.ac-accordion-item-title {
-		@apply !text-dark;
-		flex-direction: row-reverse!important;
-
-		&:hover {
-			opacity: 0.8 !important;
-		}
-
-		& > svg {
-			color: var(--zen-dark)!important;
-		}
-	}
-
-	.ac-accordion-item {
-		transition: height 0.2s ease-in-out !important;
-
-		& li {
-			opacity: .5;
-		}
-	}
-	.ac-accordion {
-		&.ac-accordion--light {
-			> * + * {
-				border-color: light-dark(rgba(0,0,0,.1), rgba(255,255,255,.1)) !important;
-				width: 100%;
-			}
-		}
-	}
-
-	.extra {
-		& a {
-			@apply !text-coral;
-		}
-	}
-
-	.release-note-item {
-		border-color: light-dark(rgba(0,0,0,.2), rgba(255,255,255,.2));
-	}
-</style>

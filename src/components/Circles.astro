@@ -1,18 +1,28 @@
 ---
-const { white, multiplier = 0.9, class: classList } = Astro.props;
+const { white, multiplier = 0.9, class: classList } = Astro.props
 const sizes = [216, 396, 576, 756]
 const borderWidths = [20, 30, 40, 50]
 ---
-<div id="circles" class:list={["inset-0 overflow-hidden pointer-events-none", classList]}>
+
+<div
+  id="circles"
+  class:list={['pointer-events-none inset-0 overflow-hidden', classList]}
+>
   <div class="mx-auto opacity-10 lg:opacity-100">
-    {[...Array(4)].map((_, i) => (
-      <div class:list={["absolute rounded-full -translate-x-1/2 -translate-y-1/2", white ? "border-paper" : "border-coral"]}
-       style={{
-          width: `${multiplier*sizes[i]}px`,
-          height: `${multiplier*sizes[i]}px`,
-          borderWidth: `${multiplier*borderWidths[i]}px`,
+    {
+      [...Array(4)].map((_, i) => (
+        <div
+          class:list={[
+            'absolute -translate-x-1/2 -translate-y-1/2 rounded-full',
+            white ? 'border-paper' : 'border-coral',
+          ]}
+          style={{
+            width: `${multiplier * sizes[i]}px`,
+            height: `${multiplier * sizes[i]}px`,
+            borderWidth: `${multiplier * borderWidths[i]}px`,
           }}
-      />
-      ))}
+        />
+      ))
+    }
   </div>
 </div>

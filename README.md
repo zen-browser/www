@@ -13,4 +13,4 @@ This repository contains the source code for the Zen Browser Website. We are thr
 
 Zen Browser's website is built with [Astro.js](https://astro.build/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/).
 
-If you are interested in contributing to this project, please read the [Contributing Guidelines](https://docs.zen-browser.app/contribute/www). 
+If you are interested in contributing to this project, please read the [Contributing Guidelines](https://docs.zen-browser.app/contribute/www).

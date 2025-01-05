@@ -4,6 +4,6 @@ export default {
   tabWidth: 2,
   semi: false,
   singleQuote: true,
-  endOfLine: "lf",
-  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
-};
+  endOfLine: 'lf',
+  plugins: ['prettier-plugin-astro', 'prettier-plugin-tailwindcss'],
+}

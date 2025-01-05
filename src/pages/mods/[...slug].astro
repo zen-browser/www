@@ -1,37 +1,37 @@
 ---
-import { getAbsoluteLocaleUrl } from 'astro:i18n';
-import { getAllMods, getAuthorLink, getLocalizedDate } from '../../mods';
-import Layout from '../../layouts/Layout.astro';
-import Title from '../../components/Title.astro';
-import Description from '../../components/Description.astro';
-import Button from '../../components/Button.astro';
-import BackButton from '../../components/BackButton.astro';
-import { ArrowRight, Info } from 'lucide-astro';
+import { getAbsoluteLocaleUrl } from 'astro:i18n'
+import { getAllMods, getAuthorLink, getLocalizedDate } from '../../mods'
+import Layout from '../../layouts/Layout.astro'
+import Title from '../../components/Title.astro'
+import Description from '../../components/Description.astro'
+import Button from '../../components/Button.astro'
+import BackButton from '../../components/BackButton.astro'
+import { ArrowRight, Info } from 'lucide-astro'
 
 export async function getStaticPaths() {
-  const mods = await getAllMods();
+  const mods = await getAllMods()
   return mods.map((mod) => ({
     params: { slug: mod.id },
     props: { ...mod },
-  }));
+  }))
 }
 
 // https://github.com/TeaClientMC/Website/blob/7faacc9f8b2c79c74f711d413b155c84faafc00d/src/pages/news/%5B...slug%5D.astro
 
-const mod = Astro.props;
+const mod = Astro.props
 
 const dates = {
   createdAt: getLocalizedDate(mod.createdAt),
-  updatedAt: getLocalizedDate(mod.updatedAt)
+  updatedAt: getLocalizedDate(mod.updatedAt),
 }
 ---
 
-<Layout title={`${mod.name} - Zen Mods`} >
+<Layout title={`${mod.name} - Zen Mods`}>
   <main class="mt-6 2xl:mt-0">
-    <div class="px-8 mx-auto flex flex-col lg:w-1/2 gap-6 mt-12 lg:mt-32 mb-24">
+    <div class="mx-auto mb-24 mt-12 flex flex-col gap-6 px-8 lg:mt-32 lg:w-1/2">
       <div
         id="install-theme-error"
-        class="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 rounded-xl bg-red-200 dark:bg-red-700 p-2 px-4"
+        class="flex flex-col items-center justify-center gap-2 rounded-xl bg-red-200 p-2 px-4 md:flex-row md:justify-between dark:bg-red-700"
       >
         <div class="flex items-center gap-2 text-center md:text-left">
           <Info />
@@ -39,7 +39,11 @@ const dates = {
             You need to have Zen Browser installed to install this theme.{' '}
           </p>
         </div>
-        <Button href="/download" class="inline-flex bg-red-300 !rounded-lg dark:bg-red-800 flex-shrink-0 whitespace-nowrap" isAlert>
+        <Button
+          href="/download"
+          class="inline-flex flex-shrink-0 whitespace-nowrap !rounded-lg bg-red-300 dark:bg-red-800"
+          isAlert
+        >
           Download now!
           <ArrowRight class="size-4" />
         </Button>
@@ -52,19 +56,29 @@ const dates = {
       <img
         src={mod.image}
         alt={mod.name}
-        class="h-full w-full object-cover rounded-xl border-2 shadow border-dark"
+        class="h-full w-full rounded-xl border-2 border-dark object-cover shadow"
       />
-      <div class="flex justify-between flex-col sm:flex-row gap-2">
-        <div class="font-normal flex-shrink-0">
-          <p>Created by <a href={getAuthorLink(mod.author)} class="font-bold">@{mod.author}</a> • <span class="font-bold">v{mod.version}</span></p>
+      <div class="flex flex-col justify-between gap-2 sm:flex-row">
+        <div class="flex-shrink-0 font-normal">
+          <p>
+            Created by <a href={getAuthorLink(mod.author)} class="font-bold"
+              >@{mod.author}</a
+            > • <span class="font-bold">v{mod.version}</span>
+          </p>
           <p>Creation date • <b>{dates.createdAt}</b></p>
-          {(dates.createdAt !== dates.updatedAt) && <p>Latest update • <b>{dates.updatedAt}</b></p>}
+          {
+            dates.createdAt !== dates.updatedAt && (
+              <p>
+                Latest update • <b>{dates.updatedAt}</b>
+              </p>
+            )
+          }
         </div>
         <div class="flex flex-col sm:items-end">
           <Button
             class="hidden"
             id="install-theme"
-            extra={{"zen-theme-id":mod.id}}
+            extra={{ 'zen-theme-id': mod.id }}
             isPrimary
           >
             Install Theme 🎉
@@ -72,7 +86,7 @@ const dates = {
           <Button
             class="hidden"
             id="install-theme-uninstall"
-            extra={{"zen-theme-id":mod.id}}
+            extra={{ 'zen-theme-id': mod.id }}
             isPrimary
           >
             Uninstall Theme
@@ -83,6 +97,6 @@ const dates = {
       <div class="h-[1px] opacity-80 bg-dark w-full"></div>
       -->
     </div>
-    <div>
-  </main>
-</Layout>
+    <div></div>
+  </main></Layout
+>
