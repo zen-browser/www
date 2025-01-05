@@ -98,7 +98,9 @@
       "description": "Fixed having invalid shortcuts hard-locking the user inside the loading screen",
       "issue": 4071
     },
-    "Fixed weird UI when dragging essentials around, making them look like they are clipping out of the view"
+    "Fixed weird UI when dragging essentials around, making them look like they are clipping out of the view",
+    "Floating URL bar will not slide in the compact mode sidebar anymore",
+    "Fixed compact mode sidebar flashing for some seconds when opening a glance window"
   ],
   "features": [
     "Updated to firefox 134.0",
