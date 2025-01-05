@@ -1,0 +1,123 @@
+{
+  "version": "1.6t",
+  "extra": "This new release includes more polishing changes and bug fixes. We are most excited about our new release schedule, we are now using Firefox's Release Candidates for twilight, meaning we can test out new Firefox versions before they are released to the public. This will allow us to fix any issues before they are released to the public.\n\nIt may be a bit late, but happy new year! We hope you have a great year ahead of you!",
+  "fixes": [
+    "Fixed compact mode sidebar not hiding fully on some occasions",
+    "Fixed context menu checkbox icon aligments for Windows users",
+    "Fixed having multiple windows displaying the wrong essentials at startup",
+    {
+      "description": "Fixed toolbar jittering when in compact mode",
+      "issue": 3916
+    },
+    {
+      "description": "Fixed grain texture not being clipped at window corners",
+      "issue": 2942
+    },
+    {
+      "description": "Fixed arrow keys not working after opening an extension popup",
+      "issue": 2743
+    },
+    "Fixed wrong window buttons when opening customize toolbar in compact mode",
+    {
+      "description": "Fixed animation for opening popups cliping their content",
+      "issue": 4050
+    },
+    {
+      "description": "Fixed weird colouring for toggle inputs",
+      "issue": 4047
+    },
+    "Update application identifier for Zen Browser to align with new naming conventions (MacOS)",
+    "Fixed translations trying to be overriden on Windows builds",
+    {
+      "description": "Fixed web panels closing and inmediately opening again when clicking on the toolbar button",
+      "issue": 4049
+    },
+    "Fixed empty separations not appearing at the top toolbar",
+    "Fixed the spacing between the titlebar window buttons and toolbar buttons in MacOS",
+    "Fixed support for scrolling vertical tabs when opening a background tab",
+    {
+      "description": "Fixed mod default preferences not displayed correctly until reopening the settings page or browser restart",
+      "issue": 3887
+    },
+    {
+      "description": "Fixed changing mod string preferences sometimes results in missing characters",
+      "issue": 3558
+    },
+    {
+      "description": "Fixed on-boarding search engine icons having large sizes",
+      "issue": 3575
+    },
+    {
+      "description": "Fixed preferences sidebar hidding on smaller screens",
+      "issue": 4051
+    },
+    "Fixed coloring issue on tree elements such as search engine selection on the preferences page",
+    "Fixed pinning and unpinning extensions messing up the toolbar",
+    {
+      "description": "Fixed duplicating a tab showing the default workspace container indicator",
+      "issue": 4132
+    },
+    {
+      "description": "Fixed common issues on the on-boarding pages such as button backgrounds and spacing",
+      "issue": 4035
+    },
+    "Fixed visibility issues when selecting multiple essentials",
+    "Fixed syncing workspaces on some specific scenarios",
+    "Fixed glance buttons not being able to be clicked",
+    "Fixed horizontal spacing issues when using split views",
+    {
+      "description": "Fixed naming issues between sidebar and web panels",
+      "issue": 4043
+    },
+    "Fixed moving pinned tabs into the essential tabs container breaking the UI",
+    "Improved security for Zen Mods, only allowing installs from the Zen Mods website",
+    "Fixed the completly broken save bookmark dialog",
+    "Fixed and improved the grain texture for workspace backgrounds (Thanks to @different55)",
+    {
+      "description": "Fixed touch security not working on macos",
+      "issue": 437
+    },
+    "Fixed zen's app bundle ID giving an incorrect identifier",
+    "Fixed issue related to changing workspace with the 4 / 5 mouse buttons and we now take into consideration natural scrolling",
+    "Fixed some website dialogs overflowing the window",
+    "Fixed moving around pins not saving their position after a restart",
+    {
+      "description": "Fixed extension Pin to Toolbar overlayed with gtk theme toggle",
+      "issue": 1934
+    },
+    {
+      "description": "Fixed opening home page instead of newtab when closing the last workspace tab",
+      "issue": 3201
+    },
+    "Fixed essential icon not appearing on the context menu",
+    "Fixed accessibility issues on some native links",
+    "Fixed compact mode not closing when opening an extension dialog pinned to the sidebar",
+    "Fixed windows 11 titlebar looking weird when having a custom accent color",
+    "Fixed workspaces icons appearing on private mode once opening another window",
+    {
+      "description": "Fixed having invalid shortcuts hard-locking the user inside the loading screen",
+      "issue": 4071
+    },
+    "Fixed weird UI when dragging essentials around, making them look like they are clipping out of the view",
+    "Floating URL bar will not slide in the compact mode sidebar anymore",
+    "Fixed compact mode sidebar flashing for some seconds when opening a glance window"
+  ],
+  "features": [
+    "Updated to firefox 134.0",
+    "Added transitioning when changing between workspaces backgrounds",
+    "Added support for Windows 11 setting 'Show accent color on window title bars and borders'",
+    "Enabled experimental features for twilight builds",
+    "Improved design of native zen dialogs",
+    "Re-enabled the default password manager",
+    "Improved on-boarding experience for new users",
+    "Added support for searching for emojis on the workspace icon picker",
+    "Added support for MacOS smart cards",
+    "Color picker dialog will now convert to a valid color if it's hex-like but invalid",
+    "Made workspace switching tab's animation smoother",
+    "Added developer tools shortcuts support!"
+  ],
+  "breakingChanges": [
+    "Changed versioning scheme to match Firefox's Release Candidates",
+    "Removed option to disable workspaces. Workspaces are now a core feature of Zen, and it can be really easy to ignore them (they are hidden if you have just one workspace) if you don't want to use them. Most of Zen's functionality is built around workspaces, so we decided to make them a core feature. They where an option before because they where experimental."
+  ]
+}

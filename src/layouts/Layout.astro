@@ -10,9 +10,20 @@ import Footer from '../components/Footer.astro'
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
+    <!-- Dark mode -->
+    <script is:inline defer>
+      ;(function () {
+        // Retrieve the saved theme from localStorage
+        const savedTheme = localStorage.getItem('theme')
+        if (savedTheme) {
+          document.documentElement.setAttribute('data-theme', savedTheme)
+        }
+      })()
+    </script>
+
     <meta
       name="description"
       content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data."
@@ -43,21 +54,13 @@ import Footer from '../components/Footer.astro'
       href="https://fonts.bunny.net/css?family=bricolage-grotesque:200,300,400,500,600,700,800|instrument-serif:400,400i"
       rel="stylesheet"
     />
+    <!-- RSS Feed -->
     <link
       rel="alternate"
       type="application/rss+xml"
       title="Zen Browser Release Notes"
       href={`${Astro.url.origin}/feed.xml`}
     />
-    <script is:inline>
-      ;(function () {
-        // Retrieve the saved theme from localStorage
-        const savedTheme = localStorage.getItem('theme')
-        if (savedTheme) {
-          document.documentElement.setAttribute('data-theme', savedTheme)
-        }
-      })()
-    </script>
   </head>
   <body
     class="overflow-x-hidden bg-paper font-['bricolage-grotesque'] text-dark"

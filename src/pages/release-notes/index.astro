@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import ReleaseNoteItem from '../../components/ReleaseNoteItem.astro'
-import { releaseNotes } from '../../release-notes'
+import { releaseNotes, releaseNotesTwilight } from '../../release-notes'
 import Title from '../../components/Title.astro'
 ---
 
@@ -13,17 +13,18 @@ import Title from '../../components/Title.astro'
 			class="py-42 flex min-h-screen flex-col justify-center px-10 lg:px-10 xl:px-10 2xl:w-3/5"
 		>
 			<Title class="mt-48 text-4xl font-bold">Release Notes</Title>
-			<p class="text-muted-foreground mt-8 text-lg">
+			<p class="opacity-55 text-base">
 				Stay up to date with the latest changes to Zen Browser! Since the <a
-					class="text-blue-500"
+					class="text-coral"
 					href="#1.0.0-a.1">first release</a
 				> till <a
-					class="text-blue-500"
+					class="text-coral"
 					href={`/release-notes#${releaseNotes[0].version}`}
 					>{releaseNotes[0].version}</a
 				>, we've been working hard to make Zen Browser the best it can be.
 				Thanks everyone for your feedback! ❤️
 			</p>
+			<ReleaseNoteItem {...releaseNotesTwilight} isTwilight />
 			{releaseNotes.map((notes: any) => <ReleaseNoteItem {...notes} />)}
 		</div>
 	</main>

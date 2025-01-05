@@ -22,7 +22,7 @@ function getHeroTitleAnimation() {
 
 <header
   id="header"
-  class="flex py-32 md:pt-56 pb-16 md:pb-32 lg:pb-16 w-full flex-col items-center text-center gap-[20%] lg:gap-[15%]"
+  class="flex py-32 pb-16 md:pb-32 lg:pb-16 w-full flex-col items-center text-center gap-[20%] lg:gap-[15%]"
 >
   <div class="flex flex-col items-center h-full justify-center">
     <motion.a href='/download' className="rounded-full py-0 px-2 py-1 md:px-4 bg-dark mb-10 items-center text-paper text-sm shadow-sm flex gap-2 hover:bg-paper hover:text-dark border-2 border-dark transition-bg hover:duration-200" client:load {...getTitleAnimation(1.8)}>
@@ -42,7 +42,7 @@ function getHeroTitleAnimation() {
       <motion.span client:load {...getHeroTitleAnimation()}>
         a
       </motion.span>
-      <motion.span client:load {...getHeroTitleAnimation()} className='italic'>
+      <motion.span client:load {...getHeroTitleAnimation()} className='italic text-coral'>
         calmer
       </motion.span>
       <motion.span client:load {...getHeroTitleAnimation()}>
