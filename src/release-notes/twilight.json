@@ -105,6 +105,7 @@
   "features": [
     "Updated to firefox 134.0",
     "Added transitioning when changing between workspaces backgrounds",
+    "Browser background now goes grayscale when unfocused",
     "Added support for Windows 11 setting 'Show accent color on window title bars and borders'",
     "Enabled experimental features for twilight builds",
     "Improved design of native zen dialogs",
