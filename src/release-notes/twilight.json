@@ -99,7 +99,6 @@
       "issue": 4071
     },
     "Fixed weird UI when dragging essentials around, making them look like they are clipping out of the view",
-    "Floating URL bar will not slide in the compact mode sidebar anymore",
     "Fixed compact mode sidebar flashing for some seconds when opening a glance window"
   ],
   "features": [
@@ -112,6 +111,7 @@
     "Improved on-boarding experience for new users",
     "Added support for searching for emojis on the workspace icon picker",
     "Added support for MacOS smart cards",
+    "Builds will now contain full LTO, improving performance",
     "Color picker dialog will now convert to a valid color if it's hex-like but invalid",
     "Made workspace switching tab's animation smoother",
     "Added developer tools shortcuts support!"
