@@ -86,10 +86,15 @@ const Reddit = icon({ prefix: "fab", iconName: "reddit" });
       </Description>
       <div class="opacity-80 flex flex-col">
         <a href="https://discord.gg/zen-browser" class="font-normal">Discord</a>
-        <a href="https://uptime.zen-browser.app/" class="font-normal">Uptime Status</a>
+        <div class="flex items-center">
+          <div class="absolute">
+            <img src="https://uptime.zen-browser.app/embed-badges/pulse?" loading="lazy" alt="Phare badge" class="h-5 w-5 relative right-5 lg:right-6" />
+          </div>
+          <a href="https://uptime.zen-browser.app/" class="font-normal">Uptime Status</a>
+        </div>
         <a href="https://github.com/zen-browser/desktop/issues/new/choose" class="font-normal">Report an Issue</a>
       </div>
-    </div>
+    </div>   
   </div>
   <div class="flex w-full h-32 items-center">
     <div class="flex">
