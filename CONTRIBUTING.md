@@ -28,8 +28,9 @@ git checkout -b <BRANCH_NAME>
 5. Start the development environment.
 
 ```bash
-npm install # or your favorite package manager
-npm run dev
+corepack enable # Enable corepack to use pnpm
+pnpm install
+pnpm run dev
 ```
 
 6. Make your changes.
