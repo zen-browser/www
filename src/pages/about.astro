@@ -21,11 +21,9 @@ import Layout from '../layouts/Layout.astro'
         >A little help?</Button
       >
     </div>
-    <div
-      class="relative flex w-full flex-col items-center justify-center lg:flex-row"
-    >
-      <div class="flex flex-col p-8 lg:w-1/3 lg:pr-24">
-        <div class="text-6xl font-bold">Main Team</div>
+    <div class="w-full relative flex flex-col lg:flex-row justify-center items-center">
+      <div class="p-8 lg:pr-24 flex flex-col lg:w-1/3">
+        <div class="font-bold text-4xl lg:text-6xl">Main Team</div>
         <Description>
           This list shows the main team members who are working hard to bring
           you the best browsing experience.
@@ -102,15 +100,22 @@ import Layout from '../layouts/Layout.astro'
           </ul>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="absolute hidden h-full w-[1px] bg-dark opacity-15 lg:block">
       </div>
       <div class="flex flex-col p-8 lg:w-1/3 lg:pl-24">
         <div class="text-6xl font-bold">Contributors</div>
+=======
+      <div class="hidden lg:block h-full w-[1px] bg-dark absolute opacity-15"></div>
+      <div class="p-8 lg:pl-24 flex flex-col lg:w-1/3">
+        <div class="font-bold text-4xl lg:text-6xl">Contributors</div>
+>>>>>>> f8d29b1979d59dba1553516a8d05007a3d5ccb3f
         <Description>
           Here are all the wonderful people that decided to contribute to the
           project! The first set of images are from the desktop repository, and
           the second set is from the website repository.
         </Description>
+<<<<<<< HEAD
         <img
           src="https://contributors-img.web.app/image?repo=zen-browser/desktop"
           alt="Contributors"
@@ -121,6 +126,10 @@ import Layout from '../layouts/Layout.astro'
           alt="Contributors (website)"
           class="mt-4"
         />
+=======
+        <a href="https://github.com/zen-browser/desktop/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=zen-browser/desktop" alt="Contributors" class="mt-4" /></a>
+        <a href="https://github.com/zen-browser/www/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=zen-browser/www" alt="Contributors (website)" class="mt-4" /></a>
+>>>>>>> f8d29b1979d59dba1553516a8d05007a3d5ccb3f
       </div>
     </div>
   </main>
