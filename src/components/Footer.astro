@@ -5,75 +5,100 @@ import Button from '../components/Button.astro'
 import Circles from '../components/Circles.astro'
 import { ArrowRight } from 'lucide-astro'
 
+import { library, icon } from '@fortawesome/fontawesome-svg-core'
+import {
+  faMastodon,
+  faBluesky,
+  faGithub,
+  faTwitter,
+  faReddit,
+} from '@fortawesome/free-brands-svg-icons'
 
-import { library, icon } from "@fortawesome/fontawesome-svg-core";
-import { faMastodon, faBluesky, faGithub, faTwitter, faReddit } from "@fortawesome/free-brands-svg-icons";
-
-library.add(faMastodon, faBluesky, faGithub, faTwitter, faReddit);
-const Mastodon = icon({ prefix: "fab", iconName: "mastodon" });
-const Bluesky = icon({ prefix: "fab", iconName: "bluesky" });
-const Github = icon({ prefix: "fab", iconName: "github" });
-const Twitter = icon({ prefix: "fab", iconName: "twitter" });
-const Reddit = icon({ prefix: "fab", iconName: "reddit" });
-
+library.add(faMastodon, faBluesky, faGithub, faTwitter, faReddit)
+const Mastodon = icon({ prefix: 'fab', iconName: 'mastodon' })
+const Bluesky = icon({ prefix: 'fab', iconName: 'bluesky' })
+const Github = icon({ prefix: 'fab', iconName: 'github' })
+const Twitter = icon({ prefix: 'fab', iconName: 'twitter' })
+const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
 ---
 
 <footer
   id="footer"
-  class="flex flex-col w-full py-12 px-4 lg:p-24 !pb-0 gap-24 md:gap-[15%] bg-dark text-paper border-t border-dark relative overflow-hidden"
+  class="relative flex w-full flex-col gap-24 overflow-hidden border-t border-dark bg-dark px-4 py-12 !pb-0 text-paper md:gap-[15%] lg:p-24"
 >
-  <div class="w-full flex justify-between items-center flex-col lg:flex-row">
+  <div class="flex w-full flex-col items-center justify-between lg:flex-row">
     <div>
       <Title class="!text-paper">Zen Browser</Title>
-      <Description class="px-4 lg:px-0 lg:w-2/5">
+      <Description class="px-4 lg:w-2/5 lg:px-0">
         Beautifully designed, privacy-focused, and packed with features. We care
         about your experience, not your data.
       </Description>
     </div>
   </div>
-  <div class="flex flex-col justify-between w-full lg:flex-row gap-6 lg:pr-52 lg:my-12">
-    <Button href="/download" isPrimary class="h-fit bg-paper w-fit !text-dark">
+  <div
+    class="flex w-full flex-col justify-between gap-6 lg:my-12 lg:flex-row lg:pr-52"
+  >
+    <Button href="/download" isPrimary class="h-fit w-fit bg-paper !text-dark">
       Download
       <ArrowRight class="size-4" />
     </Button>
-    <div class="gap-10 flex flex-col">
+    <div class="flex flex-col gap-10">
       <div class="flex flex-col gap-2">
-        <Description class="!font-semibold">
-          Follow Us
-        </Description>
-        <div class="opacity-80 flex gap-4 items-center">
-          <a href="https://github.com/zen-browser" target="_blank" class="font-bold" aria-label="Visit Zen Browser on GitHub">
+        <Description class="!font-semibold"> Follow Us </Description>
+        <div class="flex items-center gap-4 opacity-80">
+          <a
+            href="https://github.com/zen-browser"
+            target="_blank"
+            class="font-bold"
+            aria-label="Visit Zen Browser on GitHub"
+          >
             <Fragment set:html={Github.html} />
           </a>
-          <a href="https://twitter.com/zen_browser" target="_blank" class="font-normal" aria-label="Visit Zen Browser on Twitter">
+          <a
+            href="https://twitter.com/zen_browser"
+            target="_blank"
+            class="font-normal"
+            aria-label="Visit Zen Browser on Twitter"
+          >
             <Fragment set:html={Twitter.html} />
           </a>
-          <a href="https://fosstodon.org/@zenbrowser" target="_blank" class="font-normal" aria-label="Visit Zen Browser on Mastodon">
+          <a
+            href="https://fosstodon.org/@zenbrowser"
+            target="_blank"
+            class="font-normal"
+            aria-label="Visit Zen Browser on Mastodon"
+          >
             <Fragment set:html={Mastodon.html} />
           </a>
-          <a href="https://bsky.app/profile/zen-browser.app" target="_blank" class="font-normal" aria-label="Visit Zen Browser on Bluesky">
+          <a
+            href="https://bsky.app/profile/zen-browser.app"
+            target="_blank"
+            class="font-normal"
+            aria-label="Visit Zen Browser on Bluesky"
+          >
             <Fragment set:html={Bluesky.html} />
           </a>
-          <a href="https://www.reddit.com/r/zen_browser" target="_blank" class="font-normal" aria-label="Visit Zen Browser on Reddit">
+          <a
+            href="https://www.reddit.com/r/zen_browser"
+            target="_blank"
+            class="font-normal"
+            aria-label="Visit Zen Browser on Reddit"
+          >
             <Fragment set:html={Reddit.html} />
           </a>
         </div>
       </div>
       <div class="flex flex-col gap-2">
-        <Description class="!font-semibold">
-          About Us
-        </Description>
-        <div class="opacity-80 flex flex-col">
+        <Description class="!font-semibold"> About Us </Description>
+        <div class="flex flex-col opacity-80">
           <a href="/about" class="font-normal">About Us</a>
           <a href="/privacy-policy" class="font-normal">Privacy Policy</a>
         </div>
       </div>
     </div>
     <div class="flex flex-col gap-2">
-      <Description class="!font-semibold">
-        Get Started
-      </Description>
-      <div class="opacity-80 flex flex-col">
+      <Description class="!font-semibold"> Get Started </Description>
+      <div class="flex flex-col opacity-80">
         <a href="/download" class="font-normal">Download</a>
         <a href="/mods" class="font-normal">Zen Mods</a>
         <a href="/release-notes" class="font-normal">Release Notes</a>
@@ -81,25 +106,39 @@ const Reddit = icon({ prefix: "fab", iconName: "reddit" });
       </div>
     </div>
     <div class="flex flex-col gap-2">
-      <Description class="!font-semibold">
-        Get Help
-      </Description>
-      <div class="opacity-80 flex flex-col">
+      <Description class="!font-semibold"> Get Help </Description>
+      <div class="flex flex-col opacity-80">
         <a href="https://discord.gg/zen-browser" class="font-normal">Discord</a>
         <div class="flex items-center">
           <div class="absolute">
-            <img src="https://uptime.zen-browser.app/embed-badges/pulse?" loading="lazy" alt="Phare badge" class="h-5 w-5 relative right-5 lg:right-6" />
+            <img
+              src="https://uptime.zen-browser.app/embed-badges/pulse?"
+              loading="lazy"
+              alt="Phare badge"
+              class="relative right-5 h-5 w-5 lg:right-6"
+            />
           </div>
-          <a href="https://uptime.zen-browser.app/" class="font-normal">Uptime Status</a>
+          <a href="https://uptime.zen-browser.app/" class="font-normal"
+            >Uptime Status</a
+          >
         </div>
-        <a href="https://github.com/zen-browser/desktop/issues/new/choose" class="font-normal">Report an Issue</a>
+        <a
+          href="https://github.com/zen-browser/desktop/issues/new/choose"
+          class="font-normal">Report an Issue</a
+        >
       </div>
-    </div>   
-  </div>
-  <div class="flex w-full h-32 items-center">
-    <div class="flex">
-      Made with ❤️ by the <a href="/about" class="font-bold inline-block ml-2">Zen Browser Team</a>
     </div>
-    <Circles white multiplier={0.7} class="ml-auto mb-[-100px] mr-[-80px] hidden lg:block" />
-  </div>  
+  </div>
+  <div class="flex h-32 w-full items-center">
+    <div class="flex">
+      Made with ❤️ by the <a href="/about" class="ml-2 inline-block font-bold"
+        >Zen Browser Team</a
+      >
+    </div>
+    <Circles
+      white
+      multiplier={0.7}
+      class="mb-[-100px] ml-auto mr-[-80px] hidden lg:block"
+    />
+  </div>
 </footer>

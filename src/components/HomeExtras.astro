@@ -1,35 +1,51 @@
 ---
 import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
-import { Image } from 'astro:assets';
+import { Image } from 'astro:assets'
 
-import browserCollapsed from '../assets/collapsed.png';
-import browseMultiToolbar from '../assets/multiple-toolbar.png';
-import browserSingleToolbar from '../assets/single-toolbar.png';
-import Button from './Button.astro';
-import { ArrowRight } from 'lucide-astro';
+import browserCollapsed from '../assets/collapsed.png'
+import browseMultiToolbar from '../assets/multiple-toolbar.png'
+import browserSingleToolbar from '../assets/single-toolbar.png'
+import Button from './Button.astro'
+import { ArrowRight } from 'lucide-astro'
 ---
 
 <section
   id="customization"
-  class="flex w-full px-4 lg:px-12 xl:px-24 py-36 pt-24 gap-16 flex-col lg:flex-row relative overflow-y-hidden"
+  class="relative flex w-full flex-col gap-16 overflow-y-hidden px-4 py-36 pt-24 lg:flex-row lg:px-12 xl:px-24"
 >
   <div>
-    <Title>Customizable<br class="md:hidden" /> to <br class="hidden md:block" />the last pixel</Title>
-    <Description class="lg:px-0 lg:w-1/2">
-      Zen Browser is designed to be customizable. You can change every aspect of the browser to suit your needs. Literally, your imagination is the limit.
+    <Title
+      >Customizable<br class="md:hidden" /> to <br class="hidden md:block" />the
+      last pixel</Title
+    >
+    <Description class="lg:w-1/2 lg:px-0">
+      Zen Browser is designed to be customizable. You can change every aspect of
+      the browser to suit your needs. Literally, your imagination is the limit.
     </Description>
-    <div class="flex mt-4">
+    <div class="mt-4 flex">
       <Button isPrimary href="/mods">
-      Zen Mods
-      <ArrowRight className="size-4" />
-    </Button>
+        Zen Mods
+        <ArrowRight className="size-4" />
+      </Button>
     </div>
   </div>
-  <div class="relative ml-16 h-32 lg:mx-0 lg:w-1/2 flex" id="browser-images">
-    <Image src={browserCollapsed} alt="Zen browser" class="w-2/3 rounded-md shadow-md absolute top-[5%] left-[65%] -translate-x-1/2" />
-    <Image src={browseMultiToolbar} alt="Zen browser" class="w-2/3 rounded-md mx-auto absolute top-1/2 left-1/2 transform -translate-x-1/2" />
-    <Image src={browserSingleToolbar} alt="Zen browser" class="w-2/3 rounded-md shadow-md absolute top-[15%] left-[10%] z-10 -translate-x-1/2" />
+  <div class="relative ml-16 flex h-32 lg:mx-0 lg:w-1/2" id="browser-images">
+    <Image
+      src={browserCollapsed}
+      alt="Zen browser"
+      class="absolute left-[65%] top-[5%] w-2/3 -translate-x-1/2 rounded-md shadow-md"
+    />
+    <Image
+      src={browseMultiToolbar}
+      alt="Zen browser"
+      class="absolute left-1/2 top-1/2 mx-auto w-2/3 -translate-x-1/2 transform rounded-md"
+    />
+    <Image
+      src={browserSingleToolbar}
+      alt="Zen browser"
+      class="absolute left-[10%] top-[15%] z-10 w-2/3 -translate-x-1/2 rounded-md shadow-md"
+    />
   </div>
 </section>
 <style>
