@@ -16,6 +16,8 @@
 		"@astrojs/react": "^4.1.2",
 		"@astrojs/rss": "^4.0.10",
 		"@astrojs/sitemap": "^3.2.1",
+		"@astrojs/tailwind": "^5.1.2",
+		"@astropub/md": "^1.0.0",
 		"@astrojs/tailwind": "^5.1.4",
 		"@fontsource/bricolage-grotesque": "^5.1.0",
 		"@fortawesome/fontawesome-svg-core": "^6.7.1",
@@ -41,6 +43,7 @@
 		"typescript": "^5.6.3"
 	},
 	"devDependencies": {
+		"@tailwindcss/typography": "^0.5.15",
 		"wrangler": "^3.94.0"
 	}
 }

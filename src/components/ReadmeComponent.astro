@@ -1,0 +1,36 @@
+---
+import { markdown } from '@astropub/md'
+import { ExternalLink } from 'lucide-astro'
+
+interface Props {
+  url: string
+  id: string
+}
+
+const { url, id } = Astro.props
+
+const readme = await fetch(url).then((res) => res.text())
+const readmeLink = `https://github.com/zen-browser/theme-store/tree/main/themes/${id}`
+const html = await markdown(readme)
+---
+
+<section id="readme-wrapper" class="rounded-xl bg-coral/10 p-2">
+  <h2
+    class="flex w-full flex-wrap items-baseline justify-start gap-1 pb-2 text-2xl"
+  >
+    Readme
+    <a href={readmeLink} target="_blank">
+      {' '}
+      <ExternalLink
+        class="aspect-square h-4 text-dark opacity-40 hover:opacity-100 transition-all ease-linear duration-100"
+      />{' '}
+    </a>
+
+  </h2>
+  <div
+    id="markdown-content"
+    class="prose-lg border-t border-dark pt-2 p-2 prose-a:underline prose-li:list-disc"
+  >
+    <Fragment set:html={html} class:list={'readme-text'} />
+  </div>
+</section>
