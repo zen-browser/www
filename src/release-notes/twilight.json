@@ -120,6 +120,6 @@
   ],
   "breakingChanges": [
     "Changed versioning scheme to match Firefox's Release Candidates",
-    "Removed option to disable workspaces. Workspaces are now a core feature of Zen, and it can be really easy to ignore them (they are hidden if you have just one workspace) if you don't want to use them. Most of Zen's functionality is built around workspaces, so we decided to make them a core feature. They where an option before because they where experimental."
+    "Removed option to disable workspaces. Workspaces are now a core feature of Zen, and it can be really easy to ignore them (they are hidden if you have just one workspace) if you don't want to use them. Most of Zen's functionality is built around workspaces, so we decided to make them a core feature. They were an option before because they where experimental."
   ]
 }
