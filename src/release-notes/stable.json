@@ -1947,6 +1947,7 @@
         "issue": 4043
       },
       "Fixed moving pinned tabs into the essential tabs container breaking the UI",
+      "Fixed compact mode not opening when hovering on the side when the window changes size",
       "Improved security for Zen Mods, only allowing installs from the Zen Mods website",
       "Fixed the completly broken save bookmark dialog",
       "Fixed and improved the grain texture for workspace backgrounds (Thanks to @different55)",
@@ -1990,7 +1991,6 @@
       "Added support for searching for emojis on the workspace icon picker",
       "Added support for MacOS smart cards",
       "Installed mods will now be correctly ordered in the settings page",
-      "Builds will now contain full LTO, improving performance",
       "Color picker dialog will now convert to a valid color if it's hex-like but invalid",
       "Made workspace switching tab's animation smoother",
       "Added developer tools shortcuts support!"
