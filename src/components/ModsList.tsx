@@ -90,7 +90,7 @@ export default function ModsList({ mods }: ModsListProps) {
           <input
             type="text"
             id="search"
-            className="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg"
+            className="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg outline-none"
             placeholder="Type to search..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
