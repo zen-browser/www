@@ -1995,7 +1995,7 @@
       "Changed versioning scheme to match Firefox's Release Candidates",
       "Removed option to disable workspaces. Workspaces are now a core feature of Zen, and it can be really easy to ignore them (they are hidden if you have just one workspace) if you don't want to use them. Most of Zen's functionality is built around workspaces, so we decided to make them a core feature. They were an option before because they where experimental."
     ],
-    "workflowId": 12660919692,
+    "workflowId": 12700507897,
     "image": false,
     "date": "07/01/2025"
   }
