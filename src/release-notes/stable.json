@@ -1875,7 +1875,7 @@
     ]
   },
   {
-    "version": "1.6t",
+    "version": "1.6b",
     "extra": "This new release includes more polishing changes and bug fixes. We are most excited about our new release schedule, we are now using Firefox's Release Candidates for twilight, meaning we can test out new Firefox versions before they are released to the public. This will allow us to fix any issues before they are released to the public.\n\nIt may be a bit late, but happy new year! We hope you have a great year ahead of you!",
     "fixes": [
       "Fixed compact mode sidebar not hiding fully on some occasions",
