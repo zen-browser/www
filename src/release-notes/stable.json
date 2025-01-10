@@ -1951,10 +1951,6 @@
       "Improved security for Zen Mods, only allowing installs from the Zen Mods website",
       "Fixed the completly broken save bookmark dialog",
       "Fixed and improved the grain texture for workspace backgrounds (Thanks to @different55)",
-      {
-        "description": "Fixed touch security not working on macos",
-        "issue": 437
-      },
       "Fixed zen's app bundle ID giving an incorrect identifier",
       "Fixed issue related to changing workspace with the 4 / 5 mouse buttons and we now take into consideration natural scrolling",
       "Fixed some website dialogs overflowing the window",
