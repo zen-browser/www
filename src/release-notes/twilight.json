@@ -1,7 +1,22 @@
 {
-  "version": "xxx",
+  "version": "1.6t.1",
   "image": false,
-  "extra": "",
-  "fixes": [],
-  "features": []
+  "extra": "This is a small update, but it brings some nice improvements to the workspace and the overall experience.",
+  "fixes": [
+    "Fixed wrong spacing when using right side tabs",
+    {
+      "description": "Fixed urlbar being below the tabs visually",
+      "issue": 4276
+    },
+    "Fixed the browser not closing when the last tab is closed (and the preference is set)"
+
+  ],
+  "features": [
+    "New workspace behavior when closing tabs, it's more customizable now",
+    "Improved workspace transitioning, giving it a more realistic and smooth feel",
+    "Made context switching animations context aware, making them more intuitive",
+    "Improved glance animations",
+    "Compact mode now has a better opening transition, like in A*c",
+    "Essential tabs now have the favicon as the background"
+  ]
 }
