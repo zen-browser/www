@@ -8,8 +8,8 @@
       "description": "Fixed urlbar being below the tabs visually",
       "issue": 4276
     },
-    "Fixed the browser not closing when the last tab is closed (and the preference is set)"
-
+    "Fixed the browser not closing when the last tab is closed (and the preference is set)",
+    "Fixed keyboard shortcuts being restarted on startup, saying they are corrupted"
   ],
   "features": [
     "New workspace behavior when closing tabs, it's more customizable now",
