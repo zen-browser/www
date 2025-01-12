@@ -1875,8 +1875,8 @@
     ]
   },
   {
-    "version": "1.6t",
-    "extra": "This new release includes more polishing changes and bug fixes. We are most excited about our new release schedule, we are now using Firefox's Release Candidates for twilight, meaning we can test out new Firefox versions before they are released to the public. This will allow us to fix any issues before they are released to the public.\n\nIt may be a bit late, but happy new year! We hope you have a great year ahead of you!",
+    "version": "1.6b",
+    "extra": "This new release includes more polishing changes and bug fixes. We are most excited about our latest release schedule. We are now using Firefox's Release Candidates for Twilight, meaning we can test out new Firefox versions before they are released to the public. This will allow us to fix any issues before they are released to the public.\n\nIt may be a bit late, but happy new year! We hope you have a great year ahead!\n\nP.S. We also have a community-made <a href='https://discord.gg/kXRF2478vD' target='_blank'>Discord Server</a> designed to discuss ricing and customizing Zen!",
     "fixes": [
       "Fixed compact mode sidebar not hiding fully on some occasions",
       "Fixed context menu checkbox icon aligments for Windows users",
@@ -1951,10 +1951,6 @@
       "Improved security for Zen Mods, only allowing installs from the Zen Mods website",
       "Fixed the completly broken save bookmark dialog",
       "Fixed and improved the grain texture for workspace backgrounds (Thanks to @different55)",
-      {
-        "description": "Fixed touch security not working on macos",
-        "issue": 437
-      },
       "Fixed zen's app bundle ID giving an incorrect identifier",
       "Fixed issue related to changing workspace with the 4 / 5 mouse buttons and we now take into consideration natural scrolling",
       "Fixed some website dialogs overflowing the window",
@@ -1997,9 +1993,9 @@
     ],
     "breakingChanges": [
       "Changed versioning scheme to match Firefox's Release Candidates",
-      "Removed option to disable workspaces. Workspaces are now a core feature of Zen, and it can be really easy to ignore them (they are hidden if you have just one workspace) if you don't want to use them. Most of Zen's functionality is built around workspaces, so we decided to make them a core feature. They were an option before because they where experimental."
+      "Removed option to disable workspaces. Workspaces are now a core feature of Zen, and it can be really easy to ignore them (they are hidden if you have just one workspace) if you don't want to use them. Most of Zen's functionality is built around workspaces, so we decided to make them a core feature. They were an option before because they were experimental."
     ],
-    "workflowId": 12660919692,
+    "workflowId": 12700507897,
     "image": false,
     "date": "07/01/2025"
   }

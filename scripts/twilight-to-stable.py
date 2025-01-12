@@ -21,7 +21,7 @@ def main():
 
   twilight["workflowId"] = workflow_id
   twilight["image"] = False
-  twilight["version"] = twilight["version"].replace("-t", "-b")
+  twilight["version"] = twilight["version"].replace("t", "b")
   twilight["date"] = datetime.datetime.now().strftime("%d/%m/%Y")
   stable.append(twilight)
 
