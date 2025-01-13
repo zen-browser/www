@@ -20,6 +20,7 @@
     }
   ],
   "features": [
+    "Updated to firefox 134.0.1",
     "New workspace behavior when closing tabs, it's more customizable now",
     "Improved workspace transitioning, giving it a more realistic and smooth feel",
     "Made context switching animations context aware, making them more intuitive",

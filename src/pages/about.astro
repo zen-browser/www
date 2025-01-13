@@ -21,9 +21,11 @@ import Layout from '../layouts/Layout.astro'
         >A little help?</Button
       >
     </div>
-    <div class="w-full relative flex flex-col lg:flex-row justify-center items-center">
-      <div class="p-8 lg:pr-24 flex flex-col lg:w-1/3">
-        <div class="font-bold text-4xl lg:text-6xl">Main Team</div>
+    <div
+      class="relative flex w-full flex-col items-center justify-center lg:flex-row"
+    >
+      <div class="flex flex-col p-8 lg:w-1/3 lg:pr-24">
+        <div class="text-4xl font-bold lg:text-6xl">Main Team</div>
         <Description>
           This list shows the main team members who are working hard to bring
           you the best browsing experience.
@@ -39,26 +41,30 @@ import Layout from '../layouts/Layout.astro'
               <strong class="italic">Oscar Gonzalez</strong><span
                 class="opacity-60"
               >
-                Site Reliability Engineer (SRE) and code signing.</span>
+                Site Reliability Engineer (SRE) and code signing.</span
+              >
             </li>
             <li class="mt-1 text-sm">
               <a href="https://janheres.eu/"
                 ><strong class="font-bold">Jan Heres</strong></a
               ><span class="opacity-60"
-                >: Active contributor and helps with MacOS builds</span>
+                >: Active contributor and helps with MacOS builds</span
+              >
             </li>
             <li class="mt-1 text-sm">
               <a href="https://github.com/BrhmDev"
                 ><strong class="font-bold">BrhmDev</strong></a
               ><span class="opacity-60"
-                >: Active contributor with great contributions</span>
+                >: Active contributor with great contributions</span
+              >
             </li>
             <li class="mt-1 text-sm">
               <a href="https://thatcanoa.org/"
                 ><strong class="font-bold">Canoa</strong></a
               ><span class="opacity-60"
                 >: Active contributor, and very active in issue handling and
-                website management</span>
+                website management</span
+              >
             </li>
             <li class="mt-1 text-sm">
               <a href="https://cybrneon.xyz/"
@@ -74,13 +80,15 @@ import Layout from '../layouts/Layout.astro'
               <a href="https://github.com/n7itro"
                 ><strong class="font-bold">n7itro</strong></a
               ><span class="opacity-60"
-                >: Active contributor and release notes writer</span>
+                >: Active contributor and release notes writer</span
+              >
             </li>
             <li class="mt-1 text-sm">
               <a href="https://josuegalre.netlify.app/"
                 ><strong class="font-bold">Bryan Galdámez</strong></a
               ><span class="opacity-60"
-                >: Huge contributor on theme functionalities</span>
+                >: Huge contributor on theme functionalities</span
+              >
             </li>
             <li class="mt-1 text-sm">
               <a href="https://iamjafeth.com/"
@@ -95,21 +103,35 @@ import Layout from '../layouts/Layout.astro'
             <li class="mt-1 text-sm">
               <strong class="italic">Daniel García</strong><span
                 class="opacity-60"
-                >: MacOS certificate and app notarization maintainer</span>
+                >: MacOS certificate and app notarization maintainer</span
+              >
             </li>
           </ul>
         </div>
       </div>
-      <div class="hidden lg:block h-full w-[1px] bg-dark absolute opacity-15"></div>
-      <div class="p-8 lg:pl-24 flex flex-col lg:w-1/3">
-        <div class="font-bold text-4xl lg:text-6xl">Contributors</div>
+      <div class="absolute hidden h-full w-[1px] bg-dark opacity-15 lg:block">
+      </div>
+      <div class="flex flex-col p-8 lg:w-1/3 lg:pl-24">
+        <div class="text-4xl font-bold lg:text-6xl">Contributors</div>
         <Description>
           Here are all the wonderful people that decided to contribute to the
           project! The first set of images are from the desktop repository, and
           the second set is from the website repository.
         </Description>
-        <a href="https://github.com/zen-browser/desktop/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=zen-browser/desktop" alt="Contributors" class="mt-4" /></a>
-        <a href="https://github.com/zen-browser/www/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=zen-browser/www" alt="Contributors (website)" class="mt-4" /></a>
+        <a href="https://github.com/zen-browser/desktop/graphs/contributors"
+          ><img
+            src="https://contributors-img.web.app/image?repo=zen-browser/desktop"
+            alt="Contributors"
+            class="mt-4"
+          /></a
+        >
+        <a href="https://github.com/zen-browser/www/graphs/contributors"
+          ><img
+            src="https://contributors-img.web.app/image?repo=zen-browser/www"
+            alt="Contributors (website)"
+            class="mt-4"
+          /></a
+        >
       </div>
     </div>
   </main>

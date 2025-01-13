@@ -25,7 +25,8 @@ import Title from '../../components/Title.astro'
         Thanks everyone for your feedback! ❤️
       </p>
       {
-        (releaseNotesTwilight.features.length || releaseNotesTwilight.fixes.length) ? (
+        releaseNotesTwilight.features.length ||
+        releaseNotesTwilight.fixes.length ? (
           <ReleaseNoteItem {...releaseNotesTwilight} isTwilight />
         ) : null
       }

@@ -2,32 +2,72 @@
 import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
 import { Image } from 'astro:assets'
+import { motion } from 'motion/react'
 
 import browserCollapsed from '../assets/collapsed.png'
 import browseMultiToolbar from '../assets/multiple-toolbar.png'
 import browserSingleToolbar from '../assets/single-toolbar.png'
+import tutaLogo from '../assets/tuta-logo.png'
 import Button from './Button.astro'
 import { ArrowRight } from 'lucide-astro'
+
+import { getTitleAnimation, getZoomInAnimation } from '../animations'
 ---
 
+<section id="sponsors" class="px-4 py-44 pt-32 lg:flex-row lg:px-12 xl:px-24">
+  <div class="mx-auto flex flex-col items-center text-center lg:w-1/2">
+    <motion.span client:load {...getTitleAnimation(0.2)}>
+      <Title>Our Sponsors</Title>
+    </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.4)}>
+      <Description>
+        We are grateful to our sponsors for their support. They help us to keep
+        the project alive.<br />You can also be part of this journey by donating <a
+          href="/donate"
+          class="text-coral">here</a
+        >!
+      </Description>
+    </motion.span>
+    <div class="relative mt-8 flex items-center justify-center">
+      <motion.span client:load {...getTitleAnimation(0.6)}>
+        <a
+          href="https://tuta.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-fit"
+        >
+          <Image src={tutaLogo} alt="Tuta" class="h-16 w-fit object-contain" />
+        </a>
+      </motion.span>
+    </div>
+  </div>
+</section>
 <section
   id="customization"
   class="relative flex w-full flex-col gap-16 overflow-y-hidden px-4 py-36 pt-24 lg:flex-row lg:px-12 xl:px-24"
 >
   <div>
-    <Title
-      >Customizable<br class="md:hidden" /> to <br class="hidden md:block" />the
-      last pixel</Title
-    >
-    <Description class="lg:w-1/2 lg:px-0">
-      Zen Browser is designed to be customizable. You can change every aspect of
-      the browser to suit your needs. Literally, your imagination is the limit.
-    </Description>
+    <motion.span client:load {...getTitleAnimation(0.2)}>
+      <Title
+        >Customizable<br class="md:hidden" /> to <br
+          class="hidden md:block"
+        />the last pixel</Title
+      >
+    </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.4)}>
+      <Description class="lg:w-1/2 lg:px-0">
+        Zen Browser is designed to be customizable. You can change every aspect
+        of the browser to suit your needs. Literally, your imagination is the
+        limit.
+      </Description>
+    </motion.span>
     <div class="mt-4 flex">
-      <Button isPrimary href="/mods">
-        Zen Mods
-        <ArrowRight className="size-4" />
-      </Button>
+      <motion.span client:load {...getTitleAnimation(0.6)}>
+        <Button isPrimary href="/customization">
+          Learn More
+          <ArrowRight className="size-4" />
+        </Button>
+      </motion.span>
     </div>
   </div>
   <div class="relative ml-16 flex h-32 lg:mx-0 lg:w-1/2" id="browser-images">
