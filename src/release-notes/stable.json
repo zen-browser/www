@@ -363,7 +363,9 @@
     "version": "1.0.0-a.13",
     "date": "05/08/2024",
     "extra": "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
-    "features": ["Allow to remember sidebar width even after collapsing it."],
+    "features": [
+      "Allow to remember sidebar width even after collapsing it."
+    ],
     "fixes": [
       {
         "description": "Task Manager Icon Missing in Flatpak Version",
@@ -919,7 +921,9 @@
     "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-    "features": ["Added a new system for handling keyboard shortcuts"],
+    "features": [
+      "Added a new system for handling keyboard shortcuts"
+    ],
     "fixes": [
       {
         "description": "The New Tab button is not visible",
@@ -976,7 +980,9 @@
       "Enabled container tabs by default",
       "Improved Expand Tabs on Hover layout"
     ],
-    "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
+    "themeChanges": [
+      "Toggle inputs will not use the themed tertiary color"
+    ],
     "breakingChanges": [
       "The keyboard shortcuts will be overriden by the defaults ones in this update"
     ],
@@ -1273,7 +1279,9 @@
         "issue": 2156
       }
     ],
-    "breakingChanges": ["Removed Show Expand Button option from settings"],
+    "breakingChanges": [
+      "Removed Show Expand Button option from settings"
+    ],
     "themeChanges": [
       "The variable '--zen-main-browser-background' will now contain the generated gradient",
       "Added the 'unread' attribute for background tabs that haven't been accessed yet"
@@ -1376,7 +1384,9 @@
         "description": "Fixed wrong aligment on glance action buttons"
       }
     ],
-    "features": ["No new features, sorry"]
+    "features": [
+      "No new features, sorry"
+    ]
   },
   {
     "version": "1.0.1-a.17",
@@ -1998,5 +2008,46 @@
     "workflowId": 12700507897,
     "image": false,
     "date": "07/01/2025"
+  },
+  {
+    "version": "1.7b",
+    "image": false,
+    "extra": "This is a small update, but it brings some nice improvements to the workspace and the overall experience.",
+    "fixes": [
+      "Fixed wrong spacing when using right side tabs",
+      {
+        "description": "Fixed urlbar being below the tabs visually",
+        "issue": 4276
+      },
+      "Fixed the browser not closing when the last tab is closed (and the preference is set)",
+      "Fixed keyboard shortcuts being restarted on startup, saying they are corrupted",
+      {
+        "description": "Fixed unfocusing the browser with `widget.gtk.rounded-bottom-corners.enabled` causes the bottom corners to stop being rounded",
+        "issue": 4294
+      },
+      {
+        "description": "Fixed a small border being visible at the top of the window",
+        "issue": 4264
+      },
+      "Fixed essentials not re-appearing when multiple windows are closed at the same time",
+      "Fixed spacing when a workspace doesn't have any icons"
+    ],
+    "features": [
+      "Updated to firefox 134.0.1 (Fixes the YouTube issue!)",
+      "New workspace behavior when closing tabs, it's more customizable now",
+      "Improved workspace transitioning, giving it a more realistic and smooth feel",
+      "Made context switching animations context aware, making them more intuitive",
+      "Improved glance animations",
+      "Compact mode now has a better opening transition, like in A*c",
+      "Essential tabs now have the favicon as the background",
+      "Enabled full LTO for windows and linux builds (speed and size improvement)"
+    ],
+    "breakingChanges": [
+      "MacOS users default toolbar layout has the webpanels button removed",
+      "Disabled smooth scroll on tabs by default (like it was in previous versions)",
+      "Changed flatpak id from 'io.github.zen_browser.zen' to 'app.zen_browser.zen' (Should update automatically)"
+    ],
+    "workflowId": 12775205250,
+    "date": "14/01/2025"
   }
 ]

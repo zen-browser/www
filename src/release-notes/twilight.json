@@ -1,34 +1,9 @@
 {
-  "version": "1.7t",
+  "version": "1.7.1t",
   "image": false,
-  "extra": "This is a small update, but it brings some nice improvements to the workspace and the overall experience.",
-  "fixes": [
-    "Fixed wrong spacing when using right side tabs",
-    {
-      "description": "Fixed urlbar being below the tabs visually",
-      "issue": 4276
-    },
-    "Fixed the browser not closing when the last tab is closed (and the preference is set)",
-    "Fixed keyboard shortcuts being restarted on startup, saying they are corrupted",
-    {
-      "description": "Fixed unfocusing the browser with `widget.gtk.rounded-bottom-corners.enabled` causes the bottom corners to stop being rounded",
-      "issue": 4294
-    },
-    {
-      "description": "Fixed a small border being visible at the top of the window",
-      "issue": 4264
-    }
-  ],
+  "extra": "",
+  "fixes": [],
   "features": [
-    "Updated to firefox 134.0.1",
-    "New workspace behavior when closing tabs, it's more customizable now",
-    "Improved workspace transitioning, giving it a more realistic and smooth feel",
-    "Made context switching animations context aware, making them more intuitive",
-    "Improved glance animations",
-    "Compact mode now has a better opening transition, like in A*c",
-    "Essential tabs now have the favicon as the background"
-  ],
-  "breakingChanges": [
-    "MacOS users default toolbar layout has the webpanels button removed"
+    "Added support for better UI in rounded corners, giving a more native feel to the app"
   ]
 }
