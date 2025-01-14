@@ -2038,7 +2038,7 @@
       "Improved workspace transitioning, giving it a more realistic and smooth feel",
       "Made context switching animations context aware, making them more intuitive",
       "Improved glance animations",
-      "Compact mode now has a better opening transition, like in A*c",
+      "Compact mode now has a better opening transition",
       "Essential tabs now have the favicon as the background",
       "Enabled full LTO for windows and linux builds (speed and size improvement)"
     ],
