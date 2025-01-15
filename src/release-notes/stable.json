@@ -2029,6 +2029,7 @@
         "description": "Fixed a small border being visible at the top of the window",
         "issue": 4264
       },
+      "Fixed compact mode not closing sometimes if the mouse is moved too fast",
       "Fixed essentials not re-appearing when multiple windows are closed at the same time",
       "Fixed spacing when a workspace doesn't have any icons"
     ],
@@ -2038,9 +2039,11 @@
       "Improved workspace transitioning, giving it a more realistic and smooth feel",
       "Made context switching animations context aware, making them more intuitive",
       "Improved glance animations",
-      "Compact mode now has a better opening transition",
+      "Compact mode now has a better opening transition and compact mode sidebar has a small delay when closing",
       "Essential tabs now have the favicon as the background",
-      "Enabled full LTO for windows and linux builds (speed and size improvement)"
+      "Enabled full LTO for windows and linux builds (speed and size improvement)",
+      "Added support for better UI in rounded corners, giving a more native feel to the app",
+      "Fixed paddings on the sidebar if the element-separation is too small"
     ],
     "breakingChanges": [
       "MacOS users default toolbar layout has the webpanels button removed",
