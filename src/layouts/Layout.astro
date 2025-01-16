@@ -10,18 +10,16 @@ import Footer from '../components/Footer.astro'
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <!-- Dark mode -->
-    <script is:inline defer>
-      ;(function () {
+    <script is:inline>
+      (function () {
         // Retrieve the saved theme from localStorage
-        const savedTheme = localStorage.getItem('theme')
-        if (savedTheme) {
-          document.documentElement.setAttribute('data-theme', savedTheme)
-        }
-      })()
+        const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light mode
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      })();
     </script>
 
     <meta
