@@ -12,7 +12,6 @@ import Footer from '../components/Footer.astro'
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <!-- Dark mode -->
     <script is:inline>
       (function () {
@@ -22,6 +21,21 @@ import Footer from '../components/Footer.astro'
       })();
     </script>
 
+    <style>
+      :root {
+        --zen-paper: #f2f0e3;
+        --zen-dark: #202020;
+        --zen-muted: rgba(0, 0, 0, 0.05);
+
+        &[data-theme='dark'] {
+          --zen-paper: #202020;
+          --zen-dark: #f2f0e3;
+          --zen-muted: rgba(255, 255, 255, 0.05);
+        }
+      }
+    </style>
+
+    <meta charset="UTF-8" />
     <meta
       name="description"
       content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data."
@@ -77,18 +91,6 @@ import Footer from '../components/Footer.astro'
   @font-face {
     font-family: 'Junicode-Italic';
     src: url('/fonts/JunicodeVF-Italic.woff2') format('woff2');
-  }
-
-  :root {
-    --zen-paper: #f2f0e3;
-    --zen-dark: #202020;
-    --zen-muted: rgba(0, 0, 0, 0.05);
-
-    &[data-theme='dark'] {
-      --zen-paper: #202020;
-      --zen-dark: #f2f0e3;
-      --zen-muted: rgba(255, 255, 255, 0.05);
-    }
   }
 
   * {
