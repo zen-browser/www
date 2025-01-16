@@ -9,32 +9,29 @@ import NavBar from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro'
 ---
 
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme') ?? "light";
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  })();
+
+  if (theme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+
+  window.localStorage.setItem('theme', theme);
+</script>
+
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Dark mode -->
-    <script is:inline>
-      (function () {
-        // Retrieve the saved theme from localStorage
-        const savedTheme = localStorage.getItem('theme') || 'light'; // Default to light mode
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      })();
-    </script>
-
-    <style>
-      :root {
-        --zen-paper: #f2f0e3;
-        --zen-dark: #202020;
-        --zen-muted: rgba(0, 0, 0, 0.05);
-
-        &[data-theme='dark'] {
-          --zen-paper: #202020;
-          --zen-dark: #f2f0e3;
-          --zen-muted: rgba(255, 255, 255, 0.05);
-        }
-      }
-    </style>
-
     <meta charset="UTF-8" />
     <meta
       name="description"
@@ -97,6 +94,18 @@ import Footer from '../components/Footer.astro'
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  :root {
+    --zen-paper: #f2f0e3;
+    --zen-dark: #202020;
+    --zen-muted: rgba(0, 0, 0, 0.05);
+
+    &[data-theme='dark'] {
+      --zen-paper: #202020;
+      --zen-dark: #f2f0e3;
+      --zen-muted: rgba(255, 255, 255, 0.05);
+    }
   }
 
   html {
