@@ -2012,7 +2012,7 @@
   {
     "version": "1.7b",
     "image": false,
-    "extra": "This is a small update, but it brings some nice improvements to the workspace and the overall experience.",
+    "extra": "This is a small update, but it brings some nice improvements to the workspace and the overall experience.\n\n<strong>IMPORTANT FOR FLATPAK USERS:</strong> The app id has changed, please see <a href='https://www.reddit.com/r/zen_browser/comments/1i2cspi/comment/m7di8z1/' target='_blank'>this post</a> for instructions on how to migrate",
     "fixes": [
       "Fixed wrong spacing when using right side tabs",
       {
@@ -2048,7 +2048,7 @@
     "breakingChanges": [
       "MacOS users default toolbar layout has the webpanels button removed",
       "Disabled smooth scroll on tabs by default (like it was in previous versions)",
-      "Changed flatpak id from 'io.github.zen_browser.zen' to 'app.zen_browser.zen' (Should update automatically)"
+      "Changed flatpak id from 'io.github.zen_browser.zen' to 'app.zen_browser.zen'"
     ],
     "workflowId": 12794695928,
     "date": "14/01/2025"
