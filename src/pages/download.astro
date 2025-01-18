@@ -307,11 +307,6 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
     }
   }
 
-  function showThanksPage() {
-    showButton('next-button', false)
-    showButton('back-button', false)
-  }
-
   function downloadRelease(os: string, arch: string, format: string = '') {
     console.log('Downloading release', os, arch, format)
     let releaseName = releases[os][arch]
@@ -321,8 +316,6 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
     const url = `${isTwilight ? TWILIGHT_BASE_URL : BASE_URL}/${releaseName}`
     console.log('Downloading from', url)
     window.open(url, '_blank')
-
-    showThanksPage()
   }
 
   function goNextForm() {
