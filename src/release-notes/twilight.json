@@ -9,10 +9,12 @@
     "Fixed macos users having all toolbar buttons on the right side",
     "Fixed having one extra pixel on the web views, leading to weird UI",
     "Refactored overall UI and spacings",
+    "Fixed unloading tabs still taking up memory",
     "Fixed essentials being deleted when closing the last window",
     "Fixed split views leading to weird margins",
     "Fixed the sidebar thinking the mouse is over them when it's not",
-    "Completly fixed workspaces from being subject to any sort of race conditions, huge stability improvement for any future issues with multiple windows/processes"
+    "Completly fixed workspaces from being subject to any sort of race conditions, huge stability improvement for any future issues with multiple windows/processes",
+    "Fixed unloading tabs while having the devtools open"
   ],
   "features": [
     "New shadows, colors, fonts, spacing and animations!",
@@ -22,6 +24,7 @@
     "Made the sidebar icons overflow! Meaning the size wont matter anymore on the number of icons"
   ],
   "breakingChanges": [
-    "Changed default setting for 'Essentials favicon in background' to false, These settings will be better handled once we have a customized settings page"
+    "Changed default setting for 'Essentials favicon in background' to false, These settings will be better handled once we have a customized settings page",
+    "Changed the about:config 'close window with last tab' default value to false"
   ]
 }
