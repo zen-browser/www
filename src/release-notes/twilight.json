@@ -5,6 +5,7 @@
   "fixes": [
     "Fixed essentials and pinned tabs not being correctly restored when using multiple windows",
     "Fixed bookmarks failing to correctly initialize when using multiple windows",
+    "Fixed 1password always prompting for password with the message 'It looks like Firefox has been updated'",
     "Fixed macos users having all toolbar buttons on the right side",
     "Fixed having one extra pixel on the web views, leading to weird UI",
     "Refactored overall UI and spacings",
