@@ -1,8 +1,26 @@
 {
   "version": "1.7.1t",
   "image": false,
-  "extra": "",
-  "fixes": [],
+  "extra": "We are back again with yet another stability update.\n\nThe focus on this update was to finally fix main issues people have with essentias/pinned tabs and make the overall experience/UI much better.\n\nWe also added some new features and animations to make the experience even better. We are also working on a new settings page to make the experience even better. Stay tuned!",
+  "fixes": [
+    "Fixed essentials and pinned tabs not being correctly restored when using multiple windows",
+    "Fixed bookmarks failing to correctly initialize when using multiple windows",
+    "Fixed macos users having all toolbar buttons on the right side",
+    "Fixed having one extra pixel on the web views, leading to weird UI",
+    "Refactored overall UI and spacings",
+    "Fixed essentials being deleted when closing the last window",
+    "Fixed split views leading to weird margins",
+    "Fixed the sidebar thinking the mouse is over them when it's not",
+    "Completly fixed workspaces from being subject to any sort of race conditions, huge stability improvement for any future issues with multiple windows/processes"
+  ],
   "features": [
+    "New shadows, colors, fonts, spacing and animations!",
+    "Pinned tabs wont have a scrollbar (or max height) anymore unless it covers 90% of the screen",
+    "Compact mode delay before closing has been reduced",
+    "New compact mode animations and feel",
+    "Made the sidebar icons overflow! Meaning the size wont matter anymore on the number of icons"
+  ],
+  "breakingChanges": [
+    "Changed default setting for 'Essentials favicon in background' to false, These settings will be better handled once we have a customized settings page"
   ]
 }
