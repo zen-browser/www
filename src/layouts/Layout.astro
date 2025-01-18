@@ -9,21 +9,30 @@ import NavBar from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro'
 ---
 
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme') ?? "light";
+    }
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark';
+    }
+    return 'light';
+  })();
+
+  if (theme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+
+  window.localStorage.setItem('theme', theme);
+</script>
+
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Dark mode -->
-    <script is:inline defer>
-      ;(function () {
-        // Retrieve the saved theme from localStorage
-        const savedTheme = localStorage.getItem('theme')
-        if (savedTheme) {
-          document.documentElement.setAttribute('data-theme', savedTheme)
-        }
-      })()
-    </script>
-
     <meta
       name="description"
       content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data."
@@ -81,6 +90,12 @@ import Footer from '../components/Footer.astro'
     src: url('/fonts/JunicodeVF-Italic.woff2') format('woff2');
   }
 
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   :root {
     --zen-paper: #f2f0e3;
     --zen-dark: #202020;
@@ -91,12 +106,6 @@ import Footer from '../components/Footer.astro'
       --zen-dark: #f2f0e3;
       --zen-muted: rgba(255, 255, 255, 0.05);
     }
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
   }
 
   html {
