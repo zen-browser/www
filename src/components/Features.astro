@@ -3,12 +3,11 @@ import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
 import { Image } from 'astro:assets'
 
-import browserWorkspaces from '../assets/browser-workspaces.png'
-import browserCompactMode from '../assets/browser-compactmode.png'
-import browserSplitViews from '../assets/browser-splitview.png'
-import browserSidebar from '../assets/browser-sidebar.png'
-
+import browserSidebar from '../assets/browser-sidebar.webm'
+import browserWorkspaces from '../assets/browser-workspaces.webm'
+import browserCompactMode from '../assets/browser-compactmode.webm'
 import browserGlance from '../assets/browser-glance.webm'
+import browserSplitViews from '../assets/browser-splitview.webm'
 
 import { motion } from 'motion/react'
 import { getTitleAnimation, getZoomInAnimation } from '../animations'
@@ -18,120 +17,120 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
   id="features"
   class="relative flex w-full flex-col px-4 py-36 lg:px-12 xl:px-24"
 >
-  <div class="flex w-full flex-col items-start gap-12 lg:flex-row">
-    <div id="feature-list" class="flex flex-col gap-4 lg:w-1/3">
+  <div class="flex w-full flex-col items-center gap-12 lg:gap-24 xl:gap-48">
+    <div class="flex flex-col px-12 lg:px-24 xl:text-center">
       <motion.span client:load {...getTitleAnimation(0.2)}>
-        <Title>Features</Title>
+        <Title class="font-bold"
+          >How does zen keep <u class="font-extrabold">you</u><br
+            class="hidden lg:block"
+          /> always <span class="font-extrabold text-coral">organized</span
+          >?</Title
+        >
       </motion.span>
-      <motion.div
-        client:load
-        viewport={{ once: true }}
-        {...getZoomInAnimation(0.4)}
-        className="feature flex w-full cursor-pointer rounded-xl p-4 hover:bg-coral/5"
-      >
-        <div class="flex flex-col">
-          <Description class="feature-title text-2xl font-bold">
-            Workspaces
-          </Description>
-          <p class="desc mt-2 text-base font-normal">
-            With Zen, you can create multiple workspaces to keep your tabs
-            organized.
-          </p>
-        </div>
-      </motion.div>
-      <motion.div
-        client:load
-        viewport={{ once: true }}
-        {...getZoomInAnimation(0.6)}
-        className="feature flex w-full cursor-pointer rounded-xl p-4 hover:bg-coral/5"
-      >
-        <div class="flex flex-col">
-          <Description class="feature-title text-2xl font-bold">
-            Compact Mode
-          </Description>
-          <p class="desc mt-2 text-base font-normal">
-            Zen's compact mode allows you to see more of your content at once.
-          </p>
-        </div>
-      </motion.div>
-      <motion.div
-        client:load
-        viewport={{ once: true }}
-        {...getZoomInAnimation(0.8)}
-        className="feature flex w-full cursor-pointer rounded-xl p-4 hover:bg-coral/5"
-      >
-        <div class="flex flex-col">
-          <Description class="feature-title text-2xl font-bold">
-            Split Views
-          </Description>
-          <p class="desc mt-2 text-base font-normal">
-            Split your browser into multiple views to see more content at once.
-          </p>
-        </div>
-      </motion.div>
-      <motion.div
-        client:load
-        viewport={{ once: true }}
-        {...getZoomInAnimation(1)}
-        className="feature flex w-full cursor-pointer rounded-xl p-4 hover:bg-coral/5"
-      >
-        <div class="flex flex-col">
-          <Description class="feature-title text-2xl font-bold">
-            Sidebar
-          </Description>
-          <p class="desc mt-2 text-base font-normal">
-            Zen's sidebar allows you to quickly access your favourite websites.
-          </p>
-        </div>
-      </motion.div>
-      <motion.div
-        client:load
-        viewport={{ once: true }}
-        {...getZoomInAnimation(1.2)}
-        className="feature flex w-full cursor-pointer rounded-xl p-4 hover:bg-coral/5"
-      >
-        <div class="flex flex-col">
-          <Description class="feature-title text-2xl font-bold">
-            Zen Glance
-          </Description>
-          <p class="desc mt-2 text-base font-normal">
-            Preview your tabs with Zen Glance to quickly find what you're
-            looking for, without switching tabs.
-          </p>
-        </div>
-      </motion.div>
+      <Description class="mt-4 text-lg font-normal">
+        Zen is designed to help you focus on what matters most. Here are some<br
+          class="hidden lg:block"
+        /> of the features that help you stay focused.
+      </Description>
     </div>
-    <div class="relative m-auto items-center lg:w-2/3 lg:pl-20">
-      <div class="ml-auto" id="feature-list-image">
-        <Image
-          src={browserWorkspaces}
-          alt="Browser Workspaces"
-          class="rounded-xl border-4 border-white shadow"
-        />
-        <Image
-          src={browserCompactMode}
-          alt="Browser Compact Mode"
-          class="rounded-xl border-4 border-white shadow"
-        />
-        <Image
-          src={browserSplitViews}
-          alt="Browser Split Views"
-          class="rounded-xl border-4 border-white shadow"
-        />
-        <Image
-          src={browserSidebar}
-          alt="Browser Sidebar"
-          class="rounded-xl border-4 border-white shadow"
-        />
-        <video
-          src={browserGlance}
-          autoplay
-          loop
-          muted
-          playsinline
-          class="absolute left-0 top-0 h-full w-full rounded-xl border-4 border-white object-cover shadow"
-        ></video>
+
+    <div class="long-feature">
+      <div class="lg:p-24">
+        <Description class="feature-title text-6xl font-bold">
+          Workspaces
+        </Description>
+        <p class="desc mt-2 text-xl font-normal">
+          With Zen, you can create multiple workspaces to keep your tabs
+          organized.
+        </p>
       </div>
+      <video
+        src={browserWorkspaces}
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="none"
+        class="w-full rounded-xl border-4 border-white object-cover shadow"
+      ></video>
+    </div>
+    <div class="long-feature xl:!flex-row-reverse">
+      <div class="lg:p-24">
+        <Description class="feature-title text-6xl font-bold">
+          Compact Mode
+        </Description>
+        <p class="desc mt-2 text-xl font-normal">
+          Zen's compact mode allows you to focus on your work without any
+          distractions.
+        </p>
+      </div>
+      <video
+        src={browserCompactMode}
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="none"
+        class="w-full rounded-xl border-4 border-white object-cover shadow"
+      ></video>
+    </div>
+    <div class="long-feature">
+      <div class="lg:p-24">
+        <Description class="feature-title text-6xl font-bold">
+          Zen Glance
+        </Description>
+        <p class="desc mt-2 text-xl font-normal">
+          Zen's glance feature allows you to view links without <i>actually</i>
+          opening them.
+        </p>
+      </div>
+      <video
+        src={browserGlance}
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="none"
+        class="w-full rounded-xl border-4 border-white object-cover shadow"
+      ></video>
+    </div>
+    <div class="long-feature xl:!flex-row-reverse">
+      <div class="lg:p-24">
+        <Description class="feature-title text-6xl font-bold whitespace-nowrap">
+          Split Views
+        </Description>
+        <p class="desc mt-2 text-xl font-normal">
+          Zen's split view feature allows you to view multiple tabs at once.
+        </p>
+      </div>
+      <video
+        src={browserSplitViews}
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="none"
+        class="w-full rounded-xl border-4 border-white object-cover shadow"
+      ></video>
+    </div>
+    <div class="long-feature">
+      <div class="lg:p-24">
+        <Description class="feature-title text-6xl font-bold">
+          Sidebar
+        </Description>
+        <p class="desc mt-2 text-xl font-normal">
+          Zen's sidebar feature allows you to view all your tabs in one place.
+        </p>
+      </div>
+      <video
+        src={browserSidebar}
+        autoplay
+        loop
+        muted
+        playsinline
+        preload="none"
+        class="w-full rounded-xl border-4 border-white object-cover shadow"
+      ></video>
     </div>
   </div>
 </section>
@@ -185,5 +184,9 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
 
   .feature[active] {
     @apply bg-coral/10;
+  }
+
+  .long-feature {
+    @apply relative flex w-full flex-col items-center gap-10 px-4 md:px-12 lg:px-24 xl:flex-row xl:gap-32;
   }
 </style>

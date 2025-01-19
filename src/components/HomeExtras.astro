@@ -39,7 +39,7 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
 </section>
 <section
   id="customization"
-  class="relative flex w-full flex-col gap-16 overflow-y-hidden px-4 py-36 pt-24 lg:flex-row lg:px-12 xl:px-24"
+  class="relative flex w-full flex-col gap-12 overflow-y-hidden px-4 py-36 pt-24 lg:flex-row lg:px-12 xl:px-52"
 >
   <div>
     <motion.span client:load {...getTitleAnimation(0.2)}>
@@ -56,10 +56,10 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
         limit.
       </Description>
     </motion.span>
-    <div class="mt-4 flex">
+    <div class="mt-4 flex gap-4">
       <motion.span client:load {...getTitleAnimation(0.6)}>
         <Button isPrimary href="/customization">
-          Learn More
+          Zen Mods
           <ArrowRight className="size-4" />
         </Button>
       </motion.span>
