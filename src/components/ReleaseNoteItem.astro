@@ -150,7 +150,7 @@ if (props.date) {
               {props.breakingChanges.map((breakingChange: BreakingChange) => (
                 <li class="text-md text-muted-foreground">
                   {typeof breakingChange === 'string' ? (
-                    breakingChange
+                    <Fragment set:html={breakingChange} />
                   ) : (
                     <>
                       {breakingChange.description}
