@@ -2056,7 +2056,7 @@
   {
     "version": "1.7.1b",
     "image": false,
-    "extra": "We are back again with yet another stability update.\n\nThe focus on this update was to finally fix main issues people have with essentias/pinned tabs and make the overall experience/UI much better.\n\nWe also added some new features and animations to make the experience even better. We are also working on a new settings page to make the experience even better. Stay tuned!",
+    "extra": "We are back again with yet another stability update.\n\nThe focus on this update was to finally fix main issues people have with essentias/pinned tabs and make the overall experience/UI much better.\n\nWe've improved the overall UI and feel of the browser, added new optimized and *bouncy* animations, added some quality of life improvements and overall just having a great time!\n\nOne thing to expect on future releases is the implementation of a new settings window, where all zen specific features can be easilly customized and toggled.",
     "fixes": [
       "Fixed essentials and pinned tabs not being correctly restored when using multiple windows",
       "Fixed bookmarks failing to correctly initialize when using multiple windows",
