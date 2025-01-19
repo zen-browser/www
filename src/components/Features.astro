@@ -18,14 +18,13 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
   class="relative flex w-full flex-col px-4 py-36 lg:px-12 xl:px-24"
 >
   <div class="flex w-full flex-col items-center gap-24 xl:gap-48">
-    <div class="w-full flex flex-col px-2 md:px-12 lg:px-24 xl:text-center">
+    <div class="flex w-full flex-col px-2 md:px-12 lg:px-24 xl:text-center">
       <motion.span client:load {...getTitleAnimation(0.2)}>
         <Description class="text-6xl font-bold"
-          >How does zen <br
-          class="lg:hidden"
-        />keep <u class="font-extrabold">you</u><br
-            class="hidden lg:block"
-          /> always <span class="font-extrabold text-coral">organized</span
+          >How does zen <br class="lg:hidden" />keep <u class="font-extrabold"
+            >you</u
+          ><br class="hidden lg:block" /> always <span
+            class="font-extrabold text-coral">organized</span
           >?</Description
         >
       </motion.span>
@@ -38,7 +37,9 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
 
     <div class="long-feature">
       <div class="lg:p-24">
-        <Description class="feature-title text-5xl md:text-6xl font-bold whitespace-nowrap">
+        <Description
+          class="feature-title whitespace-nowrap text-5xl font-bold md:text-6xl"
+        >
           Workspaces
         </Description>
         <p class="desc mt-2 text-xl font-normal">
@@ -53,12 +54,11 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      ></video>
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
     <div class="long-feature xl:!flex-row-reverse">
       <div class="lg:p-24">
-        <Description class="feature-title text-5xl md:text-6xl font-bold">
+        <Description class="feature-title text-5xl font-bold md:text-6xl">
           Compact Mode
         </Description>
         <p class="desc mt-2 text-xl font-normal">
@@ -73,12 +73,13 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      ></video>
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
     <div class="long-feature">
       <div class="lg:p-24">
-        <Description class="feature-title text-5xl md:text-6xl font-bold whitespace-nowrap">
+        <Description
+          class="feature-title whitespace-nowrap text-5xl font-bold md:text-6xl"
+        >
           Zen Glance
         </Description>
         <p class="desc mt-2 text-xl font-normal">
@@ -93,12 +94,13 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      ></video>
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
     <div class="long-feature xl:!flex-row-reverse">
       <div class="lg:p-24">
-        <Description class="feature-title text-5xl md:text-6xl font-bold whitespace-nowrap whitespace-nowrap">
+        <Description
+          class="feature-title whitespace-nowrap text-5xl font-bold md:text-6xl"
+        >
           Split Views
         </Description>
         <p class="desc mt-2 text-xl font-normal">
@@ -112,12 +114,11 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      ></video>
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
     <div class="long-feature">
       <div class="lg:p-24">
-        <Description class="feature-title text-5xl md:text-6xl font-bold">
+        <Description class="feature-title text-5xl font-bold md:text-6xl">
           Sidebar
         </Description>
         <p class="desc mt-2 text-xl font-normal">
@@ -131,8 +132,7 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      ></video>
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
   </div>
 </section>
@@ -166,16 +166,15 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
   changeFeature(0)
 </script>
 <style>
-
   .long-feature {
-    @apply relative flex w-full flex-col items-center gap-10 px-4 md:px-12 lg:px-24 xl:px-0 2xl:px-24 xl:flex-row xl:gap-32;
-  
+    @apply relative flex w-full flex-col items-center gap-10 px-4 md:px-12 lg:px-24 xl:flex-row xl:gap-32 xl:px-0 2xl:px-24;
+
     & > div:first-child {
       @apply xl:min-w-[40%];
     }
 
     & video {
-      @apply xl:h-[32rem] xl:h-96 2xl:h-[32rem];
+      @apply xl:h-96 xl:h-[32rem] 2xl:h-[32rem];
     }
   }
 </style>

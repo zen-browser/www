@@ -9,7 +9,7 @@ import { getTitleAnimation } from '../animations'
 
 <section
   id="Community"
-  class="relative flex w-full flex-col items-center text-start md:text-center px-4 md:px-0 lg:py-24"
+  class="relative flex w-full flex-col items-center px-4 text-start md:px-0 md:text-center lg:py-24"
 >
   <Title class="px-4 font-bold">
     <motion.span client:load {...getTitleAnimation(0.2)}>
@@ -27,7 +27,7 @@ import { getTitleAnimation } from '../animations'
     collection.
   </motion.p>
   <div
-    class="mt-6 flex w-full flex-wrap md:justify-center gap-3 px-4 sm:gap-10 sm:px-0"
+    class="mt-6 flex w-full flex-wrap gap-3 px-4 sm:gap-10 sm:px-0 md:justify-center"
   >
     <motion.span client:load {...getTitleAnimation(0.8)}>
       <Button class:list={['px-4']} href="https://github.com/zen-browser">
