@@ -2068,7 +2068,7 @@
       "Fixed essentials being deleted when closing the last window",
       "Fixed split views leading to weird margins",
       "Fixed the sidebar thinking the mouse is over them when it's not",
-      "Completly fixed workspaces from being subject to any sort of race conditions, huge stability improvement for any future issues with multiple windows/processes",
+      "Workspaces no longer run into problems caused by timing issues. This means a big improvement in reliability, especially when using multiple windows or processes at the same time",
       "Fixed unloading tabs while having the devtools open",
       "Fixed essentials trying to duplicate them before all windows have been restored",
       "Fixed weird margins when using the web panels",
