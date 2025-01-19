@@ -4,6 +4,7 @@ import Description from '../components/Description.astro'
 import Button from '../components/Button.astro'
 import { Image } from 'astro:assets'
 import myImage from '../assets/browsers.png'
+import myImageLight from '../assets/browsers-light.png'
 import { ArrowRight } from 'lucide-astro'
 import { motion } from 'motion/react'
 import { getTitleAnimation } from '../animations'
@@ -76,7 +77,13 @@ function getHeroTitleAnimation() {
   <Image
     src={myImage}
     alt="Zen browser"
-    class="mx-auto mb-24"
+    class="mx-auto mb-24 hidden dark:block"
+    loading="eager"
+  />
+  <Image
+    src={myImageLight}
+    alt="Zen browser"
+    class="mx-auto mb-24 block dark:hidden"
     loading="eager"
   />
 </motion.span>

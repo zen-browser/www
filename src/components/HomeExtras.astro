@@ -14,10 +14,10 @@ import { ArrowRight } from 'lucide-astro'
 import { getTitleAnimation, getZoomInAnimation } from '../animations'
 ---
 
-<section id="sponsors" class="px-4 py-44 pt-32 lg:flex-row lg:px-12 xl:px-24">
-  <div class="mx-auto flex flex-col items-center text-center lg:w-1/2">
+<section id="sponsors" class="px-4 lg:py-32 lg:flex-row lg:px-12 xl:px-24">
+  <div class="mx-auto flex flex-col px-6 lg:px-0 lg:text-center lg:w-1/2">
     <motion.span client:load {...getTitleAnimation(0.2)}>
-      <Title>Our Sponsors</Title>
+      <Title class="font-bold">Our Sponsors</Title>
     </motion.span>
     <motion.span client:load {...getTitleAnimation(0.4)}>
       <Description>
@@ -39,7 +39,7 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
 </section>
 <section
   id="customization"
-  class="relative flex w-full flex-col gap-12 overflow-y-hidden px-4 py-36 pt-24 lg:flex-row lg:px-12 xl:px-52"
+  class="relative flex w-full flex-col lg:gap-12 overflow-y-hidden px-10 py-36 pt-24 lg:flex-row md:px-12 xl:px-52"
 >
   <div>
     <motion.span client:load {...getTitleAnimation(0.2)}>
@@ -65,7 +65,7 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
       </motion.span>
     </div>
   </div>
-  <div class="relative ml-16 flex h-32 lg:mx-0 lg:w-1/2" id="browser-images">
+  <div class="relative mt-32 md:mt-52 lg:mt-0 ml-16 flex h-32 lg:mx-0 lg:w-1/2" id="browser-images">
     <Image
       src={browserCollapsed}
       alt="Zen browser"
