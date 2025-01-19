@@ -14,14 +14,18 @@
     "Fixed split views leading to weird margins",
     "Fixed the sidebar thinking the mouse is over them when it's not",
     "Completly fixed workspaces from being subject to any sort of race conditions, huge stability improvement for any future issues with multiple windows/processes",
-    "Fixed unloading tabs while having the devtools open"
+    "Fixed unloading tabs while having the devtools open",
+    "Fixed essentials trying to duplicate them before all windows have been restored",
+    "Fixed weird margins when using the web panels",
+    "Fixed animations when trying to switch workspaces but no other workspace exists"
   ],
   "features": [
     "New shadows, colors, fonts, spacing and animations!",
     "Pinned tabs wont have a scrollbar (or max height) anymore unless it covers 90% of the screen",
     "Compact mode delay before closing has been reduced",
     "New compact mode animations and feel",
-    "Made the sidebar icons overflow! Meaning the size wont matter anymore on the number of icons"
+    "Made the sidebar icons overflow! Meaning the size wont matter anymore on the number of top icons",
+    "Tweaked values for windows to provide a more native feel"
   ],
   "breakingChanges": [
     "Changed default setting for 'Essentials favicon in background' to false, These settings will be better handled once we have a customized settings page",
