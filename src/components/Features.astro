@@ -168,14 +168,14 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
 <style>
 
   .long-feature {
-    @apply relative flex w-full flex-col items-center gap-10 px-4 md:px-12 lg:px-24 xl:flex-row xl:gap-32;
+    @apply relative flex w-full flex-col items-center gap-10 px-4 md:px-12 lg:px-24 xl:px-0 2xl:px-24 xl:flex-row xl:gap-32;
   
     & > div:first-child {
       @apply xl:min-w-[40%];
     }
 
     & video {
-      @apply xl:h-[32rem];
+      @apply xl:h-[32rem] xl:h-96 2xl:h-[32rem];
     }
   }
 </style>
