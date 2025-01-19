@@ -2062,7 +2062,9 @@
       "Fixed unloading tabs while having the devtools open",
       "Fixed essentials trying to duplicate them before all windows have been restored",
       "Fixed weird margins when using the web panels",
-      "Fixed animations when trying to switch workspaces but no other workspace exists"
+      "Fixed animations when trying to switch workspaces but no other workspace exists",
+      "Fixed dialogs having bad contrast on some themes",
+      "Fixed the sidebar thinking it's being hovered when opening the URL bar"
     ],
     "features": [
       "Made compact mode individual for each window",
