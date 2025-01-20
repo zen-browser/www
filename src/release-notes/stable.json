@@ -2079,7 +2079,7 @@
       "Changed default setting for 'Essentials favicon in background' to false, These settings will be better handled once we have a customized settings page (toggle <strong>zen.theme.essentials-favicon-bg</strong> in <strong>about:config</strong> to change it back)",
       "Changed the about:config 'close window with last tab' default value to false"
     ],
-    "workflowId": 12856540987,
+    "workflowId": 12858147265,
     "date": "19/01/2025"
   }
 ]
