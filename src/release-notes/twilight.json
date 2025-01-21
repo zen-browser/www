@@ -3,16 +3,16 @@
   "image": false,
   "extra": "Another stability update, where we've fixed a few more bugs and improved the overall feel of the app.\n\nThis is a small update, released primarily to keep Firefox up to date while we work on the next big update.",
   "fixes": [
-    "Fixed firefox sidebar spacings",
+    "Fixed Firefox sidebar spacings",
     "Fixed compact mode rounded corners",
-    "Fixed native fonts for windows and linux",
+    "Fixed native fonts for Windows and Linux",
     "Fixed sidebar hiding icons when they could easily fit",
     "Fixed native rounded corners for each OS",
     "Fixed an error when opening zen when having compact mode enabled"
   ],
   "features": [
     "Update Firefox version to 134.0.2",
-    "Imrpoved glance animations",
+    "Improved glance animations",
     "Add dark mode support for dialog box",
     "Essentials/Urlbar background is now calculated based on the window color, making it look more blended",
     "Adjusted overall spacings and rounded corners around the browser for a better feel"
