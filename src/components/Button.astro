@@ -1,4 +1,7 @@
 ---
+import { motion } from 'motion/react'
+import { getTitleAnimation } from '../animations'
+
 const {
   class: className,
   isPrimary,
@@ -12,7 +15,10 @@ const {
 
 {
   href ? (
-    <a
+    <motion.a
+      className="transition-bg h-fit flex items-center justify-center gap-2 rounded-full border-2 border-dark bg-dark p-2 text-sm text-paper shadow-sm hover:bg-paper hover:text-dark hover:duration-200 md:px-4"
+      client:load
+      {...getTitleAnimation(0.2)}
       id={id}
       {...extra}
       href={href}
@@ -29,9 +35,12 @@ const {
       ]}
     >
       <slot />
-    </a>
+    </motion.a>
   ) : (
-    <button
+    <motion.button
+      className="transition-bg h-fit flex items-center justify-center gap-2 rounded-full border-2 border-dark bg-dark p-2 text-sm text-paper shadow-sm hover:bg-paper hover:text-dark hover:duration-200 md:px-4"
+      client:load
+      {...getTitleAnimation(0.2)}
       id={id}
       {...extra}
       class:list={[
@@ -47,7 +56,7 @@ const {
       ]}
     >
       <slot />
-    </button>
+    </motion.button>
   )
 }
 <style>

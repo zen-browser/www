@@ -27,11 +27,11 @@ function getHeroTitleAnimation() {
   <div class="flex h-full flex-col items-center justify-center">
     <motion.a
       href="/download"
-      className="transition-bg mb-10 flex items-center gap-2 rounded-full border-2 border-dark bg-dark px-2 py-0 py-1 text-sm text-paper shadow-sm hover:bg-paper hover:text-dark hover:duration-200 md:px-4"
+      className="transition-bg mb-10 flex items-center gap-2 rounded-full border-2 border-dark bg-dark px-2 py-1 text-sm text-paper shadow-sm hover:bg-paper hover:text-dark hover:duration-200 md:px-4"
       client:load
       {...getTitleAnimation(1.8)}
     >
-      <div>Beta is now available!</div>
+      <span>Beta is now available!</span>
       <ArrowRight class="size-4" />
     </motion.a>
     <Title
