@@ -93,7 +93,7 @@ if (props.date) {
     <Accordion>
       {
         props.fixes ? (
-          <AccordionItem title="Fixes" name="fixes">
+          <AccordionItem title="Fixes">
             <ul class="list-inside list-disc">
               {props.fixes.map((fix: any) => (
                 <li class="text-md text-muted-foreground">
@@ -123,7 +123,7 @@ if (props.date) {
       }
       {
         props.features ? (
-          <AccordionItem title="Features" name="features">
+          <AccordionItem title="Features">
             <ul class="list-inside list-disc">
               {props.features.map((feature: string) => (
                 <li class="text-md text-muted-foreground">{feature}</li>
@@ -134,7 +134,7 @@ if (props.date) {
       }
       {
         props.themeChanges ? (
-          <AccordionItem title="Theme Changes" name="themeChanges">
+          <AccordionItem title="Theme Changes">
             <ul class="list-inside list-disc">
               {props.themeChanges.map((themeChange: string) => (
                 <li class="text-md text-muted-foreground">{themeChange}</li>
@@ -145,7 +145,7 @@ if (props.date) {
       }
       {
         props.breakingChanges ? (
-          <AccordionItem title="Breaking Changes" name="breakingChanges">
+          <AccordionItem title="Breaking Changes">
             <ul class="list-inside list-disc">
               {props.breakingChanges.map((breakingChange: BreakingChange) => (
                 <li class="text-md text-muted-foreground">
