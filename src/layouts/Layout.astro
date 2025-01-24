@@ -78,9 +78,7 @@ import { ClientRouter } from 'astro:transitions'
     class="overflow-x-hidden bg-paper font-['bricolage-grotesque'] text-dark"
   >
     <NavBar />
-    <div transition:animate="slide" transition:name="page">
-      <slot />
-    </div>
+    <slot />
     <Footer />
   </body>
 </html>
@@ -143,17 +141,3 @@ import { ClientRouter } from 'astro:transitions'
     vertical-align: -0.125em;
   }
 </style>
-
-<script>
-  document.addEventListener('astro:page-load', () => {
-    document.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', (e) => {
-        const href = link.getAttribute('href')
-        if (href && href === window.location.pathname) {
-          e.preventDefault()
-          window.scrollTo({ top: 0, behavior: 'smooth' })
-        }
-      })
-    })
-  })
-</script>
