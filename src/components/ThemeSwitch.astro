@@ -25,12 +25,13 @@ import MoonIcon from '../icons/MoonIcon.astro'
 </button>
 
 <script>
-  const themeToggleBtn = document.getElementById('theme-toggle')
-
-  themeToggleBtn?.addEventListener('click', () => {
-    const currentTheme = document.documentElement.dataset.theme
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
-    localStorage.theme = newTheme
-    document.documentElement.dataset.theme = newTheme
+  document.addEventListener('astro:page-load', () => {
+    const themeToggleBtn = document.getElementById('theme-toggle')
+    themeToggleBtn?.addEventListener('click', () => {
+      const currentTheme = document.documentElement.dataset.theme
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+      localStorage.theme = newTheme
+      document.documentElement.dataset.theme = newTheme
+    })
   })
 </script>
