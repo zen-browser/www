@@ -511,7 +511,9 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
       //downloadRelease("windows", selectedArch as string, "zip");
     })
 
-  filloutDefaultOS()
+  document.addEventListener('astro:page-load', () => {
+    filloutDefaultOS()
+  })
 </script>
 <style is:global>
   @keyframes fadeIn {

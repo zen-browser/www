@@ -1,0 +1,37 @@
+---
+const { src, class: className, ...rest } = Astro.props
+const type = src.split('.').pop() || 'webm'
+---
+
+<video class={className} data-src={src} preload="none" {...rest}>
+  <source src="" type={`video/${type}`} />
+</video>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const videos = document.querySelectorAll('video[data-src]')
+
+    const loadVideo = (video: HTMLVideoElement) => {
+      const source = video.querySelector('source')
+      const dataSrc = video.getAttribute('data-src')
+      if (dataSrc && source) {
+        source.src = dataSrc
+        video.load()
+        video.removeAttribute('data-src')
+      }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadVideo(entry.target as HTMLVideoElement)
+          observer.unobserve(entry.target)
+        }
+      })
+    })
+
+    videos.forEach((video) => {
+      observer.observe(video)
+    })
+  })
+</script>

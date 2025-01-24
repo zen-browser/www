@@ -1,16 +1,20 @@
 ---
-import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
-import { Image } from 'astro:assets'
 
 import browserSidebar from '../assets/browser-sidebar.webm'
+import browserSidebarPoster from '../assets/poster/browser-sidebar.webp'
 import browserWorkspaces from '../assets/browser-workspaces.webm'
+import browserWorkspacesPoster from '../assets/poster/browser-workspaces.webp'
 import browserCompactMode from '../assets/browser-compactmode.webm'
+import browserCompactModePoster from '../assets/poster/browser-compactmode.webp'
 import browserGlance from '../assets/browser-glance.webm'
+import browserGlancePoster from '../assets/poster/browser-glance.webp'
 import browserSplitViews from '../assets/browser-splitview.webm'
+import browserSplitViewsPoster from '../assets/poster/browser-splitview.webp'
 
 import { motion } from 'motion/react'
-import { getTitleAnimation, getZoomInAnimation } from '../animations'
+import { getTitleAnimation } from '../animations'
+import Video from './Video.astro'
 ---
 
 <section
@@ -47,134 +51,145 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
           organized.
         </p>
       </div>
-      <video
+      <Video
         src={browserWorkspaces}
+        poster={browserWorkspacesPoster.src}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
-    </div>
-    <div class="long-feature xl:!flex-row-reverse">
-      <div class="lg:p-24">
-        <Description class="feature-title text-5xl font-bold md:text-6xl">
-          Compact Mode
-        </Description>
-        <p class="desc mt-2 text-xl font-normal">
-          Zen's compact mode allows you to focus on your work without any
-          distractions.
-        </p>
+        class="rounded-xl border-4 border-white object-cover shadow"
+      />
+      <div class="long-feature xl:!flex-row-reverse">
+        <div class="lg:p-24">
+          <Description class="feature-title text-5xl font-bold md:text-6xl">
+            Compact Mode
+          </Description>
+          <p class="desc mt-2 text-xl font-normal">
+            Zen's compact mode allows you to focus on your work without any
+            distractions.
+          </p>
+        </div>
+        <Video
+          src={browserCompactMode}
+          poster={browserCompactModePoster.src}
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          class="rounded-xl border-4 border-white object-cover shadow"
+        />
       </div>
-      <video
-        src={browserCompactMode}
-        autoplay
-        loop
-        muted
-        playsinline
-        preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
-    </div>
-    <div class="long-feature">
-      <div class="lg:p-24">
-        <Description
-          class="feature-title whitespace-nowrap text-5xl font-bold md:text-6xl"
-        >
-          Zen Glance
-        </Description>
-        <p class="desc mt-2 text-xl font-normal">
-          Zen's glance feature allows you to view links without <i>actually</i>
-          opening them.
-        </p>
+      <div class="long-feature">
+        <div class="lg:p-24">
+          <Description
+            class="feature-title whitespace-nowrap text-5xl font-bold md:text-6xl"
+          >
+            Zen Glance
+          </Description>
+          <p class="desc mt-2 text-xl font-normal">
+            Zen's glance feature allows you to view links without <i>actually</i
+            >
+            opening them.
+          </p>
+        </div>
+        <Video
+          src={browserGlance}
+          poster={browserGlancePoster.src}
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          class="rounded-xl border-4 border-white object-cover shadow"
+        />
       </div>
-      <video
-        src={browserGlance}
-        autoplay
-        loop
-        muted
-        playsinline
-        preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
-    </div>
-    <div class="long-feature xl:!flex-row-reverse">
-      <div class="lg:p-24">
-        <Description
-          class="feature-title whitespace-nowrap text-5xl font-bold md:text-6xl"
-        >
-          Split Views
-        </Description>
-        <p class="desc mt-2 text-xl font-normal">
-          Zen's split view feature allows you to view multiple tabs at once.
-        </p>
+      <div class="long-feature xl:!flex-row-reverse">
+        <div class="lg:p-24">
+          <Description
+            class="feature-title whitespace-nowrap text-5xl font-bold md:text-6xl"
+          >
+            Split Views
+          </Description>
+          <p class="desc mt-2 text-xl font-normal">
+            Zen's split view feature allows you to view multiple tabs at once.
+          </p>
+        </div>
+        <Video
+          src={browserSplitViews}
+          poster={browserSplitViewsPoster.src}
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          class="rounded-xl border-4 border-white object-cover shadow"
+        />
       </div>
-      <video
-        src={browserSplitViews}
-        autoplay
-        loop
-        muted
-        playsinline
-        preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
-    </div>
-    <div class="long-feature">
-      <div class="lg:p-24">
-        <Description class="feature-title text-5xl font-bold md:text-6xl">
-          Sidebar
-        </Description>
-        <p class="desc mt-2 text-xl font-normal">
-          Zen's sidebar feature allows you to view all your tabs in one place.
-        </p>
+      <div class="long-feature">
+        <div class="lg:p-24">
+          <Description class="feature-title text-5xl font-bold md:text-6xl">
+            Sidebar
+          </Description>
+          <p class="desc mt-2 text-xl font-normal">
+            Zen's sidebar feature allows you to view all your tabs in one place.
+          </p>
+        </div>
+        <Video
+          src={browserSidebar}
+          poster={browserSidebarPoster.src}
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          class="rounded-xl border-4 border-white object-cover shadow"
+        />
       </div>
-      <video
-        src={browserSidebar}
-        autoplay
-        loop
-        muted
-        playsinline
-        preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
   </div>
-</section>
-<script>
-  function changeFeature(index: number) {
+  <script>
+    function changeFeature(index: number) {
+      document
+        .querySelectorAll('#feature-list .feature')
+        .forEach((feature: any, i) => {
+          if (i === index) {
+            feature.setAttribute('active', '')
+          } else {
+            feature.removeAttribute('active')
+          }
+        })
+      document
+        .querySelectorAll('#feature-list-image > *')
+        .forEach((img: any, i) => {
+          img.style.opacity = i === index ? 1 : 0
+          img.classList.toggle('absolute', i !== index)
+          img.classList.toggle('hidden', i !== index)
+        })
+    }
+
     document
       .querySelectorAll('#feature-list .feature')
       .forEach((feature: any, i) => {
-        if (i === index) {
-          feature.setAttribute('active', '')
-        } else {
-          feature.removeAttribute('active')
-        }
+        feature.addEventListener('click', () => {
+          changeFeature(i)
+        })
       })
-    document
-      .querySelectorAll('#feature-list-image > *')
-      .forEach((img: any, i) => {
-        img.style.opacity = i === index ? 1 : 0
-        img.classList.toggle('absolute', i !== index)
-        img.classList.toggle('hidden', i !== index)
-      })
-  }
+    changeFeature(0)
+  </script>
+  <style>
+    .long-feature {
+      @apply relative flex w-full flex-col items-center gap-10 px-4 md:px-12 lg:px-24 xl:flex-row xl:gap-32 xl:px-0 2xl:px-24;
 
-  document
-    .querySelectorAll('#feature-list .feature')
-    .forEach((feature: any, i) => {
-      feature.addEventListener('click', () => {
-        changeFeature(i)
-      })
-    })
-  changeFeature(0)
-</script>
-<style>
-  .long-feature {
-    @apply relative flex w-full flex-col items-center gap-10 px-4 md:px-12 lg:px-24 xl:flex-row xl:gap-32 xl:px-0 2xl:px-24;
+      & > div:first-child {
+        @apply xl:min-w-[40%];
+      }
 
-    & > div:first-child {
-      @apply xl:min-w-[40%];
+      & video {
+        @apply xl:h-96 2xl:h-[32rem];
+      }
     }
-
-    & video {
-      @apply xl:h-96 2xl:h-[32rem];
-    }
-  }
-</style>
+  </style>
+</section>
