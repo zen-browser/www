@@ -1,0 +1,36 @@
+---
+interface Props {
+  label?: string
+  class?: string
+}
+
+const { label = 'Toggle theme', class: className, ...rest } = Astro.props
+import SunIcon from '../icons/SunIcon.astro'
+import MoonIcon from '../icons/MoonIcon.astro'
+---
+
+<button
+  id="theme-toggle"
+  type="button"
+  class:list={[
+    'rounded-lg p-2.5 outline-none',
+    'bg-muted/50 shadow-sm',
+    className,
+  ]}
+  aria-label={label}
+  {...rest}
+>
+  <SunIcon class="hidden size-5 dark:block" />
+  <MoonIcon class="size-5 dark:hidden" />
+</button>
+
+<script>
+  const themeToggleBtn = document.getElementById('theme-toggle')
+
+  themeToggleBtn?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.dataset.theme
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+    localStorage.theme = newTheme
+    document.documentElement.dataset.theme = newTheme
+  })
+</script>

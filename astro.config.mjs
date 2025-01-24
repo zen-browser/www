@@ -19,4 +19,7 @@ export default defineConfig({
   redirects: {
     '/themes/[...slug]': '/mods/[...slug]',
   },
+  prefetch: {
+    prefetchAll: true,
+  }
 })
