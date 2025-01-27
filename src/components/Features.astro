@@ -2,15 +2,10 @@
 import Description from '../components/Description.astro'
 
 import browserSidebar from '../assets/browser-sidebar.webm'
-import browserSidebarPoster from '../assets/poster/browser-sidebar.webp'
 import browserWorkspaces from '../assets/browser-workspaces.webm'
-import browserWorkspacesPoster from '../assets/poster/browser-workspaces.webp'
 import browserCompactMode from '../assets/browser-compactmode.webm'
-import browserCompactModePoster from '../assets/poster/browser-compactmode.webp'
 import browserGlance from '../assets/browser-glance.webm'
-import browserGlancePoster from '../assets/poster/browser-glance.webp'
 import browserSplitViews from '../assets/browser-splitview.webm'
-import browserSplitViewsPoster from '../assets/poster/browser-splitview.webp'
 
 import { motion } from 'motion/react'
 import { getTitleAnimation } from '../animations'
@@ -53,7 +48,6 @@ import Video from './Video.astro'
       </div>
       <Video
         src={browserWorkspaces}
-        poster={browserWorkspacesPoster.src}
         autoplay
         loop
         muted
@@ -74,7 +68,6 @@ import Video from './Video.astro'
       </div>
       <Video
         src={browserCompactMode}
-        poster={browserCompactModePoster.src}
         autoplay
         loop
         muted
@@ -97,7 +90,6 @@ import Video from './Video.astro'
       </div>
       <Video
         src={browserGlance}
-        poster={browserGlancePoster.src}
         autoplay
         loop
         muted
@@ -119,7 +111,6 @@ import Video from './Video.astro'
       </div>
       <Video
         src={browserSplitViews}
-        poster={browserSplitViewsPoster.src}
         autoplay
         loop
         muted
@@ -139,7 +130,6 @@ import Video from './Video.astro'
       </div>
       <Video
         src={browserSidebar}
-        poster={browserSidebarPoster.src}
         autoplay
         loop
         muted

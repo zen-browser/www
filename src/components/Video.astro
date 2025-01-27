@@ -3,7 +3,12 @@ const { src, class: className, ...rest } = Astro.props
 const type = src.split('.').pop() || 'webm'
 ---
 
-<video class={className} data-src={src} preload="none" {...rest}>
+<video
+  class:list={['w-full', className]}
+  data-src={src}
+  preload="none"
+  {...rest}
+>
   <source src="" type={`video/${type}`} />
 </video>
 
