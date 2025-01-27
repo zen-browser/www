@@ -12,7 +12,7 @@ import {
 } from 'astro-navbar'
 import { ArrowRight, ChevronDown, Download, DownloadCloud } from 'lucide-astro'
 import Logo from './Logo.astro'
-import ThemeSwitch from './ThemeSwitch.astro'
+import { ThemeSwitch } from 'free-astro-components'
 ---
 
 <nav
@@ -112,7 +112,7 @@ import ThemeSwitch from './ThemeSwitch.astro'
       </div>
       <div class="ml-auto flex gap-2">
         <div id="theme-switcher" class="ml-auto md:mr-2">
-          <ThemeSwitch />
+          <ThemeSwitch label="" class="px-1 py-2" />
         </div>
         <Button href="/download" class="ml-auto" isPrimary>
           <span class="hidden items-center gap-2 md:flex">

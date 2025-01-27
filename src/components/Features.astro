@@ -1,5 +1,7 @@
 ---
+import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
+import { Image } from 'astro:assets'
 
 import browserSidebar from '../assets/browser-sidebar.webm'
 import browserWorkspaces from '../assets/browser-workspaces.webm'
@@ -8,8 +10,7 @@ import browserGlance from '../assets/browser-glance.webm'
 import browserSplitViews from '../assets/browser-splitview.webm'
 
 import { motion } from 'motion/react'
-import { getTitleAnimation } from '../animations'
-import Video from './Video.astro'
+import { getTitleAnimation, getZoomInAnimation } from '../animations'
 ---
 
 <section
@@ -46,15 +47,14 @@ import Video from './Video.astro'
           organized.
         </p>
       </div>
-      <Video
+      <video
         src={browserWorkspaces}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      />
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
     <div class="long-feature xl:!flex-row-reverse">
       <div class="lg:p-24">
@@ -66,15 +66,14 @@ import Video from './Video.astro'
           distractions.
         </p>
       </div>
-      <Video
+      <video
         src={browserCompactMode}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      />
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
     <div class="long-feature">
       <div class="lg:p-24">
@@ -88,15 +87,14 @@ import Video from './Video.astro'
           opening them.
         </p>
       </div>
-      <Video
+      <video
         src={browserGlance}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      />
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
     <div class="long-feature xl:!flex-row-reverse">
       <div class="lg:p-24">
@@ -109,15 +107,14 @@ import Video from './Video.astro'
           Zen's split view feature allows you to view multiple tabs at once.
         </p>
       </div>
-      <Video
+      <video
         src={browserSplitViews}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      />
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
     <div class="long-feature">
       <div class="lg:p-24">
@@ -128,15 +125,14 @@ import Video from './Video.astro'
           Zen's sidebar feature allows you to view all your tabs in one place.
         </p>
       </div>
-      <Video
+      <video
         src={browserSidebar}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"
-      />
+        class="rounded-xl border-4 border-white object-cover shadow"></video>
     </div>
   </div>
 </section>
