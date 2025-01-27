@@ -45,99 +45,121 @@ const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
     <div class="flex flex-col gap-10">
       <div class="flex flex-col gap-2">
         <Description class="!font-semibold"> Follow Us </Description>
-        <div class="flex items-center gap-4 opacity-80">
-          <a
-            href="https://github.com/zen-browser"
-            target="_blank"
-            class="font-bold"
-            aria-label="Visit Zen Browser on GitHub"
-          >
-            <Fragment set:html={Github.html} />
-          </a>
-          <a
-            href="https://twitter.com/zen_browser"
-            target="_blank"
-            class="font-normal"
-            aria-label="Visit Zen Browser on Twitter"
-          >
-            <Fragment set:html={Twitter.html} />
-          </a>
-          <a
-            href="https://fosstodon.org/@zenbrowser"
-            target="_blank"
-            class="font-normal"
-            aria-label="Visit Zen Browser on Mastodon"
-          >
-            <Fragment set:html={Mastodon.html} />
-          </a>
-          <a
-            href="https://bsky.app/profile/zen-browser.app"
-            target="_blank"
-            class="font-normal"
-            aria-label="Visit Zen Browser on Bluesky"
-          >
-            <Fragment set:html={Bluesky.html} />
-          </a>
-          <a
-            href="https://www.reddit.com/r/zen_browser"
-            target="_blank"
-            class="font-normal"
-            aria-label="Visit Zen Browser on Reddit"
-          >
-            <Fragment set:html={Reddit.html} />
-          </a>
-        </div>
+        <ul class="flex items-center gap-4 opacity-80">
+          <li>
+            <a
+              href="https://github.com/zen-browser"
+              target="_blank"
+              class="font-bold"
+              aria-label="Visit Zen Browser on GitHub"
+            >
+              <Fragment set:html={Github.html} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://twitter.com/zen_browser"
+              target="_blank"
+              class="font-normal"
+              aria-label="Visit Zen Browser on Twitter"
+            >
+              <Fragment set:html={Twitter.html} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://fosstodon.org/@zenbrowser"
+              target="_blank"
+              class="font-normal"
+              aria-label="Visit Zen Browser on Mastodon"
+            >
+              <Fragment set:html={Mastodon.html} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://bsky.app/profile/zen-browser.app"
+              target="_blank"
+              class="font-normal"
+              aria-label="Visit Zen Browser on Bluesky"
+            >
+              <Fragment set:html={Bluesky.html} />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.reddit.com/r/zen_browser"
+              target="_blank"
+              class="font-normal"
+              aria-label="Visit Zen Browser on Reddit"
+            >
+              <Fragment set:html={Reddit.html} />
+            </a>
+          </li>
+        </ul>
       </div>
       <div class="flex flex-col gap-2">
         <Description class="!font-semibold"> About Us </Description>
-        <div class="flex flex-col opacity-80">
-          <a href="/about" class="font-normal">About Us</a>
-          <a href="/privacy-policy" class="font-normal">Privacy Policy</a>
-        </div>
+        <ul class="flex flex-col opacity-80">
+          <li><a href="/about" class="font-normal">About Us</a></li>
+          <li>
+            <a href="/privacy-policy" class="font-normal">Privacy Policy</a>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="flex flex-col gap-2">
       <Description class="!font-semibold"> Get Started </Description>
-      <div class="flex flex-col opacity-80">
-        <a href="/download" class="font-normal">Download</a>
-        <a href="/mods" class="font-normal">Zen Mods</a>
-        <a href="/release-notes" class="font-normal">Release Notes</a>
-        <a href="/download?twilight" class="font-normal">Twilight</a>
-      </div>
+      <ul class="flex flex-col opacity-80">
+        <li><a href="/download" class="font-normal">Download</a></li>
+        <li><a href="/mods" class="font-normal">Zen Mods</a></li>
+        <li><a href="/release-notes" class="font-normal">Release Notes</a></li>
+        <li><a href="/download?twilight" class="font-normal">Twilight</a></li>
+      </ul>
     </div>
     <div class="flex flex-col gap-2">
       <Description class="!font-semibold"> Get Help </Description>
-      <div class="flex flex-col opacity-80">
-        <a href="https://discord.gg/zen-browser" class="font-normal">Discord</a>
-        <div class="flex items-center">
-          <div class="absolute">
-            <img
-              src="https://uptime.zen-browser.app/embed-badges/pulse?"
-              loading="lazy"
-              alt="Phare badge"
-              class="relative right-5 h-5 w-5 lg:right-6"
-            />
-          </div>
-          <a href="https://uptime.zen-browser.app/" class="font-normal"
-            >Uptime Status</a
+      <ul class="flex flex-col opacity-80">
+        <li>
+          <a href="https://discord.gg/zen-browser" class="font-normal"
+            >Discord</a
           >
-        </div>
-        <a
-          href="https://github.com/zen-browser/desktop/issues/new/choose"
-          class="font-normal">Report an Issue</a
-        >
-        <a href="mailto:hello@zen-browser.app" class="font-normal"
-          >hello@zen-browser.app</a
-        >
-      </div>
+        </li>
+        <li>
+          <div class="flex items-center">
+            <div class="absolute">
+              <img
+                src="https://uptime.zen-browser.app/embed-badges/pulse?"
+                loading="lazy"
+                alt="Phare badge"
+                class="relative right-5 h-5 w-5 lg:right-6"
+              />
+            </div>
+            <a href="https://uptime.zen-browser.app/" class="font-normal"
+              >Uptime Status</a
+            >
+          </div>
+        </li>
+        <li>
+          <a
+            href="https://github.com/zen-browser/desktop/issues/new/choose"
+            class="font-normal">Report an Issue</a
+          >
+        </li>
+        <li>
+          <a href="mailto:hello@zen-browser.app" class="font-normal"
+            >hello@zen-browser.app</a
+          >
+        </li>
+      </ul>
     </div>
   </div>
   <div class="flex h-32 w-full items-center">
-    <div class="flex">
+    <span class="flex">
       Made with ❤️ by the <a href="/about" class="ml-2 inline-block font-bold"
         >Zen Browser Team</a
       >
-    </div>
+    </span>
     <Circles
       white
       multiplier={0.7}
