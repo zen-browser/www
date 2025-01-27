@@ -18,5 +18,5 @@ export default defineConfig({
   site: 'https://zen-browser.app',
   redirects: {
     '/themes/[...slug]': '/mods/[...slug]',
-  },
+  }
 })

@@ -261,257 +261,265 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
   </main>
 </Layout>
 <script>
-  const releases = {
-    macos: {
-      intel: 'zen.macos-x86_64.dmg',
-      arm: 'zen.macos-aarch64.dmg',
-    },
-    linux: {
-      x86_64: {
-        tar: 'zen.linux-x86_64.tar.bz2',
-        appImage: 'zen-x86_64.AppImage',
+  document.addEventListener('astro:page-load', () => {
+    const releases = {
+      macos: {
+        intel: 'zen.macos-x86_64.dmg',
+        arm: 'zen.macos-aarch64.dmg',
       },
-      aarch64: {
-        tar: 'zen.linux-aarch64.tar.bz2',
-        appImage: 'zen-aarch64.AppImage',
+      linux: {
+        x86_64: {
+          tar: 'zen.linux-x86_64.tar.bz2',
+          appImage: 'zen-x86_64.AppImage',
+        },
+        aarch64: {
+          tar: 'zen.linux-aarch64.tar.bz2',
+          appImage: 'zen-aarch64.AppImage',
+        },
       },
-    },
-    windows: {
-      x86_64: {
-        installer: 'zen.installer.exe',
-        zip: 'zen.win-x86_64.zip',
+      windows: {
+        x86_64: {
+          installer: 'zen.installer.exe',
+          zip: 'zen.win-x86_64.zip',
+        },
+        arm64: {
+          installer: 'zen.installer-arm64.exe',
+          zip: 'zen.win-arm64.zip',
+        },
       },
-      arm64: {
-        installer: 'zen.installer-arm64.exe',
-        zip: 'zen.win-arm64.zip',
-      },
-    },
-  } as any
+    } as any
 
-  const BASE_URL =
-    'https://github.com/zen-browser/desktop/releases/latest/download'
-  const TWILIGHT_BASE_URL =
-    'https://github.com/zen-browser/desktop/releases/download/twilight'
+    const BASE_URL =
+      'https://github.com/zen-browser/desktop/releases/latest/download'
+    const TWILIGHT_BASE_URL =
+      'https://github.com/zen-browser/desktop/releases/download/twilight'
 
-  var selectedOS: string | null = null
-  var isTwilight: boolean = false
+    var selectedOS: string | null = null
+    var isTwilight: boolean = false
 
-  var selectedArch: string | null = null
+    var selectedArch: string | null = null
 
-  function showButton(buttonId: string, show: boolean) {
-    const button = document.getElementById(buttonId) as HTMLButtonElement
-    if (show) {
-      button?.classList.remove('hidden')
-    } else {
-      button?.classList.add('hidden')
+    function showButton(buttonId: string, show: boolean) {
+      const button = document.getElementById(buttonId) as HTMLButtonElement
+      if (show) {
+        button?.classList.remove('hidden')
+      } else {
+        button?.classList.add('hidden')
+      }
     }
-  }
 
-  function downloadRelease(os: string, arch: string, format: string = '') {
-    console.log('Downloading release', os, arch, format)
-    let releaseName = releases[os][arch]
-    if (os !== 'macos') {
-      releaseName = releases[os][arch][format]
+    function downloadRelease(os: string, arch: string, format: string = '') {
+      console.log('Downloading release', os, arch, format)
+      let releaseName = releases[os][arch]
+      if (os !== 'macos') {
+        releaseName = releases[os][arch][format]
+      }
+      const url = `${isTwilight ? TWILIGHT_BASE_URL : BASE_URL}/${releaseName}`
+      console.log('Downloading from', url)
+      window.open(url, '_blank')
     }
-    const url = `${isTwilight ? TWILIGHT_BASE_URL : BASE_URL}/${releaseName}`
-    console.log('Downloading from', url)
-    window.open(url, '_blank')
-  }
 
-  function goNextForm() {
-    if (selectedOS === null) {
-      const osSelect = document.getElementById('os-select') as HTMLFormElement
-      const selectedRadio = osSelect.querySelector(
-        "input[type='radio']:checked",
-      ) as HTMLInputElement
-      selectedOS = selectedRadio.value
-      document.getElementById('form-os-select')?.classList.add('hidden')
+    function goNextForm() {
+      if (selectedOS === null) {
+        const osSelect = document.getElementById('os-select') as HTMLFormElement
+        const selectedRadio = osSelect.querySelector(
+          "input[type='radio']:checked",
+        ) as HTMLInputElement
+        selectedOS = selectedRadio.value
+        document.getElementById('form-os-select')?.classList.add('hidden')
 
-      if (selectedOS === 'macos') {
-        const macosDownload = document.getElementById(
-          'form-macos-download',
-        ) as HTMLDivElement
-        macosDownload.classList.remove('hidden')
-        showButton('next-button', false)
-      } else if (selectedOS === 'linux') {
-        const linuxDownload = document.getElementById(
+        if (selectedOS === 'macos') {
+          const macosDownload = document.getElementById(
+            'form-macos-download',
+          ) as HTMLDivElement
+          macosDownload.classList.remove('hidden')
+          showButton('next-button', false)
+        } else if (selectedOS === 'linux') {
+          const linuxDownload = document.getElementById(
+            'linux-target-download',
+          ) as HTMLDivElement
+          linuxDownload.classList.remove('hidden')
+        } else if (selectedOS === 'windows') {
+          const windowsDownload = document.getElementById(
+            'windows-target-download',
+          ) as HTMLDivElement
+          windowsDownload.classList.remove('hidden')
+        }
+        showButton('back-button', true) // Show Back button after first step
+      } else if (selectedOS === 'linux' && selectedArch === null) {
+        const linuxTargetSelect = document.getElementById(
           'linux-target-download',
+        ) as HTMLFormElement
+        const selectedRadio = linuxTargetSelect.querySelector(
+          "input[type='radio']:checked",
+        ) as HTMLInputElement
+        selectedArch = selectedRadio.value
+        document
+          .getElementById('linux-target-download')
+          ?.classList.add('hidden')
+
+        const linuxDownload = document.getElementById(
+          'form-linux-download',
         ) as HTMLDivElement
         linuxDownload.classList.remove('hidden')
-      } else if (selectedOS === 'windows') {
-        const windowsDownload = document.getElementById(
+
+        showButton('next-button', false)
+      } else if (selectedOS === 'windows' && selectedArch === null) {
+        const windowsTargetSelect = document.getElementById(
           'windows-target-download',
+        ) as HTMLFormElement
+        const selectedRadio = windowsTargetSelect.querySelector(
+          "input[type='radio']:checked",
+        ) as HTMLInputElement
+        selectedArch = selectedRadio.value
+        document
+          .getElementById('windows-target-download')
+          ?.classList.add('hidden')
+
+        const windowsDownload = document.getElementById(
+          'windows-download',
         ) as HTMLDivElement
         windowsDownload.classList.remove('hidden')
+
+        showButton('next-button', false)
+      } else {
+        throw new Error('Unknown state')
       }
-      showButton('back-button', true) // Show Back button after first step
-    } else if (selectedOS === 'linux' && selectedArch === null) {
-      const linuxTargetSelect = document.getElementById(
-        'linux-target-download',
-      ) as HTMLFormElement
-      const selectedRadio = linuxTargetSelect.querySelector(
-        "input[type='radio']:checked",
+    }
+
+    function goPreviousForm() {
+      if (selectedArch) {
+        // Go back to architecture selection
+        if (selectedOS === 'linux') {
+          document
+            .getElementById('form-linux-download')
+            ?.classList.add('hidden')
+          document
+            .getElementById('linux-target-download')
+            ?.classList.remove('hidden')
+        } else if (selectedOS === 'windows') {
+          document.getElementById('windows-download')?.classList.add('hidden')
+          document
+            .getElementById('windows-target-download')
+            ?.classList.remove('hidden')
+        }
+        selectedArch = null
+        showButton('back-button', true)
+        showButton('next-button', true)
+      } else if (selectedOS) {
+        // Go back to OS selection
+        if (selectedOS === 'macos') {
+          document
+            .getElementById('form-macos-download')
+            ?.classList.add('hidden')
+        } else if (selectedOS === 'linux') {
+          document
+            .getElementById('linux-target-download')
+            ?.classList.add('hidden')
+        } else if (selectedOS === 'windows') {
+          document
+            .getElementById('windows-target-download')
+            ?.classList.add('hidden')
+        }
+        document.getElementById('form-os-select')?.classList.remove('hidden')
+        selectedOS = null
+        showButton('back-button', false)
+        showButton('next-button', true)
+      }
+    }
+
+    showButton('back-button', false) // Hide Back button on page load
+    showButton('next-button', true) // Ensure Next button is visible on load
+
+    function filloutDefaultOS() {
+      const osSelect = document.getElementById('os-select') as HTMLFormElement
+      const osSelectWindows = document.getElementById(
+        'os-select-windows',
       ) as HTMLInputElement
-      selectedArch = selectedRadio.value
-      document.getElementById('linux-target-download')?.classList.add('hidden')
-
-      const linuxDownload = document.getElementById(
-        'form-linux-download',
-      ) as HTMLDivElement
-      linuxDownload.classList.remove('hidden')
-
-      showButton('next-button', false)
-    } else if (selectedOS === 'windows' && selectedArch === null) {
-      const windowsTargetSelect = document.getElementById(
-        'windows-target-download',
-      ) as HTMLFormElement
-      const selectedRadio = windowsTargetSelect.querySelector(
-        "input[type='radio']:checked",
+      const osSelectLinux = document.getElementById(
+        'os-select-linux',
       ) as HTMLInputElement
-      selectedArch = selectedRadio.value
-      document
-        .getElementById('windows-target-download')
-        ?.classList.add('hidden')
+      const osSelectMacOS = document.getElementById(
+        'os-select-macos',
+      ) as HTMLInputElement
 
-      const windowsDownload = document.getElementById(
-        'windows-download',
-      ) as HTMLDivElement
-      windowsDownload.classList.remove('hidden')
-
-      showButton('next-button', false)
-    } else {
-      throw new Error('Unknown state')
-    }
-  }
-
-  function goPreviousForm() {
-    if (selectedArch) {
-      // Go back to architecture selection
-      if (selectedOS === 'linux') {
-        document.getElementById('form-linux-download')?.classList.add('hidden')
-        document
-          .getElementById('linux-target-download')
-          ?.classList.remove('hidden')
-      } else if (selectedOS === 'windows') {
-        document.getElementById('windows-download')?.classList.add('hidden')
-        document
-          .getElementById('windows-target-download')
-          ?.classList.remove('hidden')
+      if (navigator.platform.includes('Win')) {
+        osSelectWindows.checked = true
+      } else if (navigator.platform.includes('Linux')) {
+        osSelectLinux.checked = true
+      } else if (navigator.platform.includes('Mac')) {
+        osSelectMacOS.checked = true
       }
-      selectedArch = null
-      showButton('back-button', true)
-      showButton('next-button', true)
-    } else if (selectedOS) {
-      // Go back to OS selection
-      if (selectedOS === 'macos') {
-        document.getElementById('form-macos-download')?.classList.add('hidden')
-      } else if (selectedOS === 'linux') {
-        document
-          .getElementById('linux-target-download')
-          ?.classList.add('hidden')
-      } else if (selectedOS === 'windows') {
-        document
-          .getElementById('windows-target-download')
-          ?.classList.add('hidden')
+    }
+
+    function getIfTwilight() {
+      const urlParams = new URLSearchParams(window.location.search)
+      isTwilight = urlParams.has('twilight')
+      if (isTwilight) {
+        console.log('Twilight mode enabled')
+        const name = document.getElementById('zen-name')
+        const twilightInfo = document.getElementById('twilight-info')
+        if (name) name.innerHTML = 'Twilight'
+        if (twilightInfo) twilightInfo.classList.remove('hidden')
+      } else {
+        document.getElementById('windows-zip-download')?.classList.add('hidden')
       }
-      document.getElementById('form-os-select')?.classList.remove('hidden')
-      selectedOS = null
-      showButton('back-button', false)
-      showButton('next-button', true)
     }
-  }
 
-  showButton('back-button', false) // Hide Back button on page load
-  showButton('next-button', true) // Ensure Next button is visible on load
+    getIfTwilight()
 
-  function filloutDefaultOS() {
-    const osSelect = document.getElementById('os-select') as HTMLFormElement
-    const osSelectWindows = document.getElementById(
-      'os-select-windows',
-    ) as HTMLInputElement
-    const osSelectLinux = document.getElementById(
-      'os-select-linux',
-    ) as HTMLInputElement
-    const osSelectMacOS = document.getElementById(
-      'os-select-macos',
-    ) as HTMLInputElement
+    document.getElementById('next-button')?.addEventListener('click', () => {
+      goNextForm()
+    })
 
-    if (navigator.platform.includes('Win')) {
-      osSelectWindows.checked = true
-    } else if (navigator.platform.includes('Linux')) {
-      osSelectLinux.checked = true
-    } else if (navigator.platform.includes('Mac')) {
-      osSelectMacOS.checked = true
-    }
-  }
+    document.getElementById('back-button')?.addEventListener('click', () => {
+      goPreviousForm()
+    })
 
-  function getIfTwilight() {
-    const urlParams = new URLSearchParams(window.location.search)
-    isTwilight = urlParams.has('twilight')
-    if (isTwilight) {
-      console.log('Twilight mode enabled')
-      const name = document.getElementById('zen-name')
-      const twilightInfo = document.getElementById('twilight-info')
-      if (name) name.innerHTML = 'Twilight'
-      if (twilightInfo) twilightInfo.classList.remove('hidden')
-    } else {
-      document.getElementById('windows-zip-download')?.classList.add('hidden')
-    }
-  }
+    document
+      .getElementById('macos-arm-download')
+      ?.addEventListener('click', () => {
+        downloadRelease('macos', 'arm')
+      })
 
-  getIfTwilight()
+    document
+      .getElementById('macos-intel-download')
+      ?.addEventListener('click', () => {
+        downloadRelease('macos', 'intel')
+      })
 
-  document.getElementById('next-button')?.addEventListener('click', () => {
-    goNextForm()
+    document
+      .getElementById('linux-tar-download')
+      ?.addEventListener('click', () => {
+        downloadRelease('linux', selectedArch as string, 'tar')
+      })
+
+    document
+      .getElementById('linux-appimage-download')
+      ?.addEventListener('click', () => {
+        downloadRelease('linux', selectedArch as string, 'appImage')
+      })
+
+    document
+      .getElementById('linux-flathub-download')
+      ?.addEventListener('click', () => {
+        window.open('https://flathub.org/apps/app.zen_browser.zen')
+      })
+
+    document
+      .getElementById('windows-installer-download')
+      ?.addEventListener('click', () => {
+        downloadRelease('windows', selectedArch as string, 'installer')
+      })
+
+    document
+      .getElementById('windows-zip-download')
+      ?.addEventListener('click', () => {
+        //downloadRelease("windows", selectedArch as string, "zip");
+      })
+
+    filloutDefaultOS()
   })
-
-  document.getElementById('back-button')?.addEventListener('click', () => {
-    goPreviousForm()
-  })
-
-  document
-    .getElementById('macos-arm-download')
-    ?.addEventListener('click', () => {
-      downloadRelease('macos', 'arm')
-    })
-
-  document
-    .getElementById('macos-intel-download')
-    ?.addEventListener('click', () => {
-      downloadRelease('macos', 'intel')
-    })
-
-  document
-    .getElementById('linux-tar-download')
-    ?.addEventListener('click', () => {
-      downloadRelease('linux', selectedArch as string, 'tar')
-    })
-
-  document
-    .getElementById('linux-appimage-download')
-    ?.addEventListener('click', () => {
-      downloadRelease('linux', selectedArch as string, 'appImage')
-    })
-
-  document
-    .getElementById('linux-flathub-download')
-    ?.addEventListener('click', () => {
-      window.open('https://flathub.org/apps/app.zen_browser.zen')
-    })
-
-  document
-    .getElementById('windows-installer-download')
-    ?.addEventListener('click', () => {
-      downloadRelease('windows', selectedArch as string, 'installer')
-    })
-
-  document
-    .getElementById('windows-zip-download')
-    ?.addEventListener('click', () => {
-      //downloadRelease("windows", selectedArch as string, "zip");
-    })
-
-  filloutDefaultOS()
 </script>
 <style is:global>
   @keyframes fadeIn {
