@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props
+const onHomepage = Astro.url.origin === 'https://zen-browser.app/'
 import '@fontsource/bricolage-grotesque/400.css'
 import NavBar from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro'
@@ -32,29 +33,39 @@ import Footer from '../components/Footer.astro'
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="description"
-      content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data."
-    />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-0.xml" />
 
-    <!-- ICO Favicon as a fallback for browsers that don't support SVG FavIcons (Safari) -->
+    <!-- Injecting schema to homepage only (for SEO) -->
+    {onHomepage && (
+      <script type="application/ld+json">
+      {{
+        "@context":"https://schema.org",
+        "@type":"WebSite",
+        "name":"Zen Browser",
+        "url":"https://zen-browser.app/",
+      }}
+      </script>)}
+
+    <!-- ICO favicon as a fallback for browsers that don't support SVG favicons (Safari) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="theme-color" content="#da755b" />
-    <!-- open graph -->
+  
+    <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/share-pic.png" />
     <meta
       property="og:description"
-      content="Beautifully designed, privacy-focused, and packed with features. We care about your experience, not your data.."
+      content="Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features."
     />
-    <meta property="og:color" content="#da755b3" />
-    <!-- twitter card -->
+    <meta property="og:color" content="#da755b" />
+    <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net" />
