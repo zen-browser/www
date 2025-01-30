@@ -95,6 +95,14 @@ import Footer from '../components/Footer.astro'
     box-sizing: border-box;
   }
 
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      --zen-paper: #202020;
+      --zen-dark: #f2f0e3;
+      --zen-muted: rgba(255, 255, 255, 0.05);
+    }
+  }
+
   :root {
     --zen-paper: #f2f0e3;
     --zen-dark: #202020;
@@ -109,6 +117,7 @@ import Footer from '../components/Footer.astro'
 
   html {
     scroll-behavior: smooth;
+    color-scheme: light dark;
   }
 
   body,
