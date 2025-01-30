@@ -2147,7 +2147,8 @@
       "If the newtab button is at the top, new tabs will be inserted at the top as well"
     ],
     "breakingChanges": [
-      "The default newtab possition is now at the top (can be disabled in the settings under Look & Feel)"
+      "The default newtab possition is now at the top (can be disabled in the settings under Look & Feel)",
+      "Changed default pinned behaviour where it always opens a new tab if only pinned tabs exist"
     ],
     "workflowId": 13046680294,
     "date": "30/01/2025"
