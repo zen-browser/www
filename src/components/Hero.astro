@@ -6,25 +6,38 @@ import { Image } from 'astro:assets'
 import myImage from '../assets/browsers.png'
 import myImageLight from '../assets/browsers-light.png'
 import { ArrowRight } from 'lucide-astro'
-import { motion } from 'motion/react'
+import { motion } from 'framer-motion'
 import { getTitleAnimation } from '../animations'
 
-let titleAnimationCounter = 0
-function getNewAnimationDelay() {
-  titleAnimationCounter++
-  return titleAnimationCounter * 0.15
+export function splitTextIntoWords(text: string) {
+  return text.split(' ').map((word, wordIndex) => ({
+    word,
+    characters: word.split('').map((char, charIndex) => ({
+      char,
+      key: `${wordIndex}-${charIndex}`,
+    })),
+  }))
 }
 
-function getHeroTitleAnimation() {
-  return getTitleAnimation(getNewAnimationDelay())
+let titleAnimationCounter = 0
+function getNewAnimationDelay(customDelay = 0.15) {
+  titleAnimationCounter++
+  return titleAnimationCounter * customDelay
 }
+
+function getHeroTitleAnimation(customDelay = 0.15, customDuration = 0.3) {
+  return getTitleAnimation(getNewAnimationDelay(customDelay), customDuration)
+}
+
+const titleText = 'Welcome to a calmer internet'
+const splitTitleText = splitTextIntoWords(titleText)
 ---
 
 <header
   id="header"
-  class="flex w-full flex-col items-center gap-[20%] py-32 pb-16 text-center md:pb-32 lg:gap-[15%] lg:pb-16"
+  class="flex h-screen w-full flex-col items-center gap-[20%] pb-16 text-center md:pb-32 lg:gap-[15%] lg:pb-16"
 >
-  <div class="flex h-full flex-col items-center justify-center">
+  <div class="flex h-full w-full flex-col items-center justify-center">
     <motion.a
       href="/download"
       className="transition-bg mb-10 flex items-center gap-2 rounded-full border-2 border-dark bg-dark px-2 py-0 py-1 text-sm text-paper shadow-sm hover:bg-paper hover:text-dark hover:duration-200 md:px-4"
@@ -35,45 +48,51 @@ function getHeroTitleAnimation() {
       <ArrowRight class="size-4" />
     </motion.a>
     <Title
-      class="relative px-12 text-left !font-normal leading-[108px] md:text-center md:!text-7xl lg:px-0 lg:!text-9xl"
+      class="relative whitespace-normal break-words px-12 text-left font-instrument font-normal leading-tight md:text-center md:!text-6xl lg:px-0 lg:!text-8xl"
     >
-      <motion.span client:load {...getHeroTitleAnimation()}>
-        welcome
-      </motion.span>
-      <motion.span client:load {...getHeroTitleAnimation()}> to </motion.span>
-      <br class="hidden md:block" />
-      <motion.span client:load {...getHeroTitleAnimation()}> a </motion.span>
-      <motion.span
-        client:load
-        {...getHeroTitleAnimation()}
-        className="italic text-coral"
-      >
-        calmer
-      </motion.span>
-      <motion.span client:load {...getHeroTitleAnimation()}>
-        internet
-      </motion.span>
+      {
+        splitTitleText.map(({ word, characters }, wordIndex) => (
+          <span
+            class={
+              word === 'calmer'
+                ? 'inline-block text-nowrap font-instrument italic text-coral'
+                : 'inline-block text-nowrap'
+            }
+          >
+            {characters.map(({ char, key }) => (
+              <motion.span
+                key={key}
+                className="inline-block"
+                client:load
+                {...getHeroTitleAnimation(0.05)}
+              >
+                {char}
+              </motion.span>
+            ))}
+            {wordIndex < splitTitleText.length - 1 && (
+              <span class="inline-block" />
+            )}
+          </span>
+        ))
+      }
     </Title>
-    <motion.span client:load {...getHeroTitleAnimation()}>
+    <motion.span client:load {...getHeroTitleAnimation(0.07)}>
       <Description class="px-12 text-left md:text-center lg:px-0"
         >Beautifully designed, privacy-focused, and packed with features.<br
         />We care about your experience, not your data.</Description
       >
     </motion.span>
     <div class="mt-6 flex w-2/3 flex-col gap-3 sm:gap-6 md:w-fit md:flex-row">
-      <motion.span client:load {...getHeroTitleAnimation()}>
-        <Button class="w-full" href="/download" isPrimary>
-          Download
-          <ArrowRight class="size-4" />
-        </Button>
+      <motion.span client:load {...getHeroTitleAnimation(0.07)}>
+        <Button class="w-full" href="/download" isPrimary> Download </Button>
       </motion.span>
-      <motion.span client:load {...getHeroTitleAnimation()}>
-        <Button href="#features">Explore Zen</Button>
+      <motion.span client:load {...getHeroTitleAnimation(0.07)}>
+        <Button href="#features">Explore</Button>
       </motion.span>
     </div>
   </div>
 </header>
-<motion.span client:load {...getHeroTitleAnimation()}>
+<!-- <motion.span client:load {...getHeroTitleAnimation()}>
   <Image
     src={myImage}
     alt="Zen browser"
@@ -86,4 +105,4 @@ function getHeroTitleAnimation() {
     class="mx-auto mb-24 block dark:hidden"
     loading="eager"
   />
-</motion.span>
+</motion.span> -->

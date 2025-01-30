@@ -16,6 +16,21 @@ export default {
         'zen-blue': '#6287f5',
         'zen-green': '#63f78b',
       },
+      fontFamily: {
+        instrument: ['Instrument Serif', 'serif'],
+      },
+      fontStyle: {
+        italic: ['Instrument Serif Italic', 'serif'],
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 2s ease-in-out',
+      },
     },
   },
   plugins: [],
