@@ -2152,5 +2152,13 @@
     ],
     "workflowId": 13053102880,
     "date": "30/01/2025"
+  },
+  {
+    "version": "1.7.4b",
+    "image": false,
+    "extra": "Quick fix for a critical bug that was introduced in the previous release.",
+    "fixes": [
+      "Fixed the browser not opening when having multiple windows"
+    ]
   }
 ]
