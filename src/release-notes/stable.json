@@ -2106,5 +2106,51 @@
     ],
     "workflowId": 12896824615,
     "date": "21/01/2025"
+  },
+  {
+    "version": "1.7.3b",
+    "image": false,
+    "extra": "In this release, more stability and performance improvements have been made.",
+    "fixes": [
+      "Fixed essentials background having the wrong border radius",
+      "Fixed compact mode sidebar not re-opening when the animation key is off",
+      "Fixed closing pinned tabs with CTRL+W making the browser unuseable",
+      {
+        "description": "Fixed glance opening on essential tabs even if it's disabled",
+        "issue": 4564
+      },
+      "Fixed crash on overflow menu in macos",
+      "Fixed elements shifting on macos fullscreen",
+      "Fixed changing entering on customizable mode when having multiple windows",
+      "Fixed empty space ontop of the vertical tabs when there's no buttons inside it",
+      "Fixed having an empty overflow menu when using single toolbar layout",
+      "Fixed print dialog not opening and fixed website dialogs being clipped",
+      "Fixed keyboard shortcuts not working after pinning extension to the bookmarks bar",
+      "Fixed tabs overflowing the browser when closing multiple essential tabs",
+      "Fixed visual inconsistency with split view confirmation popup"
+    ],
+    "features": [
+      "Macos users with single toolbar layout will now NOT have the three dots panel button. This is done to decreased used space. Alternatives can be using the macos native menu bar or disabling it with 'zen.view.mac.show-three-dot-menu' in about:config",
+      "MacOS builds are now in a single, unified DMG file",
+      "Pinned tabs AND normal tabs will now scroll together in order to increase visibility",
+      "Glance now has a more native feel to it",
+      "Glance will now wait for the answer to 'this page might not save your data' before closing the tab",
+      "Better and more consistent workspace transition for touchpad users",
+      "Added more native tab border radius",
+      "Split view rearangement now has transition animations",
+      "Improved the display of workspace icons in the workspace switcher",
+      "New tab animation is now smoother",
+      "Increase tab unloader timeout from 20 to 40 minutes",
+      "Compact mode doesn't animate if the mouse is already on the sidebar",
+      "Made the animation of workspace switching faster and smoother",
+      "Add ellipsis to URL bar placeholder text for improved visibility",
+      "If the newtab button is at the top, new tabs will be inserted at the top as well"
+    ],
+    "breakingChanges": [
+      "The default newtab possition is now at the top (can be disabled in the settings under Look & Feel)",
+      "Changed default pinned behaviour where it always opens a new tab if only pinned tabs exist"
+    ],
+    "workflowId": 13053102880,
+    "date": "30/01/2025"
   }
 ]

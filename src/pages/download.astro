@@ -87,34 +87,13 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
               <label
                 class="flex w-full cursor-pointer items-center gap-2 rounded-md border-2 border-dark p-2 px-4"
                 for="os-select-macos"
+                id="macos-select"
               >
                 <Fragment set:html={appleIcon.html} />
-                <div>MacOS</div>
+                <div>Download MacOS DMG</div>
+                <HardDriveDownload class="ml-auto size-4" />
               </label>
             </form>
-          </div>
-          <div id="form-macos-download" class="form-item hidden">
-            <div class="form-title">Download Zen for MacOS!</div>
-            <div class="form-description">
-              You can choose between the Intel or ARM version of Zen Browser,
-              select the one that fits your system.
-            </div>
-            <div class="form-select flex flex-col gap-4">
-              <div
-                class="flex cursor-pointer items-center justify-between rounded-md border-2 border-dark p-2 px-4 text-dark shadow-sm transition-all duration-100 hover:bg-dark hover:text-paper"
-                id="macos-arm-download"
-              >
-                Download ARM Version
-                <HardDriveDownload class="size-4" />
-              </div>
-              <div
-                class="flex cursor-pointer items-center justify-between rounded-md border-2 border-dark p-2 px-4 text-dark shadow-sm transition-all duration-100 hover:bg-dark hover:text-paper"
-                id="macos-intel-download"
-              >
-                Download Intel Version
-                <HardDriveDownload class="size-4" />
-              </div>
-            </div>
           </div>
           <div id="linux-target-download" class="form-item hidden">
             <div class="form-title">Choose your Linux target system</div>
@@ -263,8 +242,7 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 <script>
   const releases = {
     macos: {
-      intel: 'zen.macos-x86_64.dmg',
-      arm: 'zen.macos-aarch64.dmg',
+      universal: 'zen.macos-universal.dmg',
     },
     linux: {
       x86_64: {
@@ -327,13 +305,7 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
       selectedOS = selectedRadio.value
       document.getElementById('form-os-select')?.classList.add('hidden')
 
-      if (selectedOS === 'macos') {
-        const macosDownload = document.getElementById(
-          'form-macos-download',
-        ) as HTMLDivElement
-        macosDownload.classList.remove('hidden')
-        showButton('next-button', false)
-      } else if (selectedOS === 'linux') {
+      if (selectedOS === 'linux') {
         const linuxDownload = document.getElementById(
           'linux-target-download',
         ) as HTMLDivElement
@@ -403,9 +375,7 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
       showButton('next-button', true)
     } else if (selectedOS) {
       // Go back to OS selection
-      if (selectedOS === 'macos') {
-        document.getElementById('form-macos-download')?.classList.add('hidden')
-      } else if (selectedOS === 'linux') {
+      if (selectedOS === 'linux') {
         document
           .getElementById('linux-target-download')
           ?.classList.add('hidden')
@@ -470,15 +440,9 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
   })
 
   document
-    .getElementById('macos-arm-download')
+    .getElementById('macos-select')
     ?.addEventListener('click', () => {
-      downloadRelease('macos', 'arm')
-    })
-
-  document
-    .getElementById('macos-intel-download')
-    ?.addEventListener('click', () => {
-      downloadRelease('macos', 'intel')
+      downloadRelease('macos', 'universal')
     })
 
   document
