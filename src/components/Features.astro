@@ -1,7 +1,5 @@
 ---
-import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
-import { Image } from 'astro:assets'
 
 import browserSidebar from '../assets/browser-sidebar.webm'
 import browserWorkspaces from '../assets/browser-workspaces.webm'
@@ -10,7 +8,8 @@ import browserGlance from '../assets/browser-glance.webm'
 import browserSplitViews from '../assets/browser-splitview.webm'
 
 import { motion } from 'motion/react'
-import { getTitleAnimation, getZoomInAnimation } from '../animations'
+import { getTitleAnimation } from '../animations'
+import Video from './Video.astro'
 ---
 
 <section
@@ -20,12 +19,18 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
   <div class="flex w-full flex-col items-center gap-24 xl:gap-48">
     <div class="flex w-full flex-col px-2 md:px-12 lg:px-24 xl:text-center">
       <motion.span client:load {...getTitleAnimation(0.2)}>
-        <Description class="text-6xl font-bold">Zen <br class="lg:hidden" />helps <u class="font-extrabold">you</u><br class="hidden lg:block" /> stay <span class="font-extrabold text-coral">organized</span></Description>
+        <Description class="text-6xl font-bold"
+          >How does zen <br class="lg:hidden" />keep <u class="font-extrabold"
+            >you</u
+          ><br class="hidden lg:block" /> always <span
+            class="font-extrabold text-coral">organized</span
+          >?</Description
+        >
       </motion.span>
       <Description class="mt-4 text-lg font-normal">
-        Stay organized and focused with Zen Browser. Our innovative features are designed<br
+        Zen is designed to help you focus on what matters most. Here are some<br
           class="hidden lg:block"
-        /> to help you prioritize what matters most in your online experience.
+        /> of the features that help you stay focused.
       </Description>
     </div>
 
@@ -41,14 +46,15 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
           organized.
         </p>
       </div>
-      <video
+      <Video
         src={browserWorkspaces}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
+        class="rounded-xl border-4 border-white object-cover shadow"
+      />
     </div>
     <div class="long-feature xl:!flex-row-reverse">
       <div class="lg:p-24">
@@ -60,14 +66,15 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
           distractions.
         </p>
       </div>
-      <video
+      <Video
         src={browserCompactMode}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
+        class="rounded-xl border-4 border-white object-cover shadow"
+      />
     </div>
     <div class="long-feature">
       <div class="lg:p-24">
@@ -81,34 +88,36 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
           opening them.
         </p>
       </div>
-      <video
+      <Video
         src={browserGlance}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
+        class="rounded-xl border-4 border-white object-cover shadow"
+      />
     </div>
     <div class="long-feature xl:!flex-row-reverse">
       <div class="lg:p-24">
         <Description
           class="feature-title whitespace-nowrap text-5xl font-bold md:text-6xl"
         >
-          Split View
+          Split Views
         </Description>
         <p class="desc mt-2 text-xl font-normal">
           Zen's split view feature allows you to view multiple tabs at once.
         </p>
       </div>
-      <video
+      <Video
         src={browserSplitViews}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
+        class="rounded-xl border-4 border-white object-cover shadow"
+      />
     </div>
     <div class="long-feature">
       <div class="lg:p-24">
@@ -119,14 +128,15 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
           Zen's sidebar feature allows you to view all your tabs in one place.
         </p>
       </div>
-      <video
+      <Video
         src={browserSidebar}
         autoplay
         loop
         muted
         playsinline
         preload="none"
-        class="rounded-xl border-4 border-white object-cover shadow"></video>
+        class="rounded-xl border-4 border-white object-cover shadow"
+      />
     </div>
   </div>
 </section>
