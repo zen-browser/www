@@ -2158,7 +2158,8 @@
     "image": false,
     "extra": "Quick fix for a critical bug that was introduced in the previous release.",
     "fixes": [
-      "Fixed the browser not opening when having multiple windows"
+      "Fixed the browser not opening when having multiple windows",
+      "Fixed macos fullscreen having a weird shadow"
     ]
   }
 ]
