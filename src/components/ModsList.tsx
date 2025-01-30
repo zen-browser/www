@@ -1,7 +1,9 @@
-import React, { useState, useMemo } from 'react'
+import type React from 'react'
+import { useState, useEffect } from 'react'
 import type { ZenTheme } from '../mods'
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons'
+import { useModsSearch } from '../hooks/useModsSearch'
 
 // Add icons to the library
 library.add(faSort, faSortUp, faSortDown)
@@ -16,29 +18,29 @@ interface ModsListProps {
 }
 
 export default function ModsList({ mods }: ModsListProps) {
-  const [search, setSearch] = useState('')
-  const [createdSort, setCreatedSort] = useState<'default' | 'asc' | 'desc'>(
-    'default',
-  )
-  const [updatedSort, setUpdatedSort] = useState<'default' | 'asc' | 'desc'>(
-    'default',
-  )
+  const {
+    search,
+    createdSort,
+    updatedSort,
+    page,
+    limit,
+    totalPages,
+    totalItems,
+    setSearch,
+    toggleCreatedSort,
+    toggleUpdatedSort,
+    setPage,
+    setLimit,
+    mods: paginatedMods,
+    searchParams,
+  } = useModsSearch(mods)
 
-  const toggleCreatedSort = () => {
-    setCreatedSort((prev) => {
-      if (prev === 'default') return 'asc'
-      if (prev === 'asc') return 'desc'
-      return 'default'
-    })
-  }
+  const [pageInput, setPageInput] = useState(page.toString())
 
-  const toggleUpdatedSort = () => {
-    setUpdatedSort((prev) => {
-      if (prev === 'default') return 'asc'
-      if (prev === 'asc') return 'desc'
-      return 'default'
-    })
-  }
+  // Keep page input in sync with actual page
+  useEffect(() => {
+    setPageInput(page.toString())
+  }, [page])
 
   function getSortIcon(state: 'default' | 'asc' | 'desc') {
     if (state === 'asc') return ascSortIcon
@@ -46,42 +48,85 @@ export default function ModsList({ mods }: ModsListProps) {
     return defaultSortIcon
   }
 
-  const filteredAndSortedMods = useMemo(() => {
-    let filtered = [...mods]
+  function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
+    setSearch(e.target.value)
+  }
 
-    // Filter by search
-    const searchTerm = search.toLowerCase()
-    if (searchTerm) {
-      filtered = filtered.filter(
-        (mod) =>
-          mod.name.toLowerCase().includes(searchTerm) ||
-          mod.description.toLowerCase().includes(searchTerm) ||
-          mod.author.toLowerCase().includes(searchTerm) ||
-          (mod.tags?.some((tag) => tag.toLowerCase().includes(searchTerm)) ??
-            false),
-      )
+  function handleLimitChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    setLimit(Number.parseInt(e.target.value, 10))
+  }
+
+  function handlePageSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    const newPage = Number.parseInt(pageInput, 10)
+    if (!Number.isNaN(newPage) && newPage >= 1 && newPage <= totalPages) {
+      setPage(newPage)
+      window.scrollTo(0, 0)
+    } else {
+      setPageInput(page.toString())
+    }
+  }
+
+  function handlePageInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setPageInput(e.target.value)
+  }
+
+  function getPageUrl(pageNum: number) {
+    let link = '/mods'
+
+    if (pageNum > 1) {
+      link += `?page=${pageNum}`
     }
 
-    // Sort by createdAt if chosen
-    if (createdSort !== 'default') {
-      filtered.sort((a, b) => {
-        const diff =
-          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        return createdSort === 'asc' ? diff : -diff
-      })
+    if (searchParams) {
+      link += `&${searchParams.toString()}`
     }
 
-    // Sort by updatedAt if chosen
-    if (updatedSort !== 'default') {
-      filtered.sort((a, b) => {
-        const diff =
-          new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
-        return updatedSort === 'asc' ? diff : -diff
-      })
-    }
+    return link
+  }
 
-    return filtered
-  }, [mods, search, createdSort, updatedSort])
+  function renderPagination() {
+    if (totalPages <= 1) return null
+
+    // Render page input for larger page counts
+    return (
+      <div className="mx-auto mb-12 flex items-center justify-center gap-4 px-8">
+        <a
+          href={getPageUrl(page - 1)}
+          className={`px-3 py-2 ${
+            page === 1
+              ? 'pointer-events-none text-gray-400'
+              : 'text-dark hover:text-gray-600'
+          }`}
+        >
+          &lt;
+        </a>
+        <form onSubmit={handlePageSubmit} className="flex items-center gap-2">
+          <span className="text-sm">Page</span>
+          <input
+            type="text"
+            value={pageInput}
+            onChange={handlePageInputChange}
+            className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
+            aria-label="Page number"
+          />
+          <span className="text-sm">
+            of {totalPages} ({totalItems} items)
+          </span>
+        </form>
+        <a
+          href={getPageUrl(page + 1)}
+          className={`px-3 py-2 ${
+            page === totalPages
+              ? 'pointer-events-none text-gray-400'
+              : 'text-dark hover:text-gray-600'
+          }`}
+        >
+          &gt;
+        </a>
+      </div>
+    )
+  }
 
   return (
     <div>
@@ -93,11 +138,11 @@ export default function ModsList({ mods }: ModsListProps) {
             className="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg outline-none"
             placeholder="Type to search..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={handleSearch}
           />
         </div>
 
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row items-center gap-4">
           <div className="flex flex-col items-start gap-2">
             <button
               type="button"
@@ -127,11 +172,28 @@ export default function ModsList({ mods }: ModsListProps) {
               />
             </button>
           </div>
+
+          <div className="ml-auto flex items-center gap-2">
+            <label htmlFor="limit" className="text-sm font-semibold">
+              Items per page:
+            </label>
+            <select
+              id="limit"
+              value={limit}
+              onChange={handleLimitChange}
+              className="rounded border border-dark bg-transparent px-2 py-1 text-sm"
+            >
+              <option value="12">12</option>
+              <option value="24">24</option>
+              <option value="48">48</option>
+              <option value="96">96</option>
+            </select>
+          </div>
         </div>
       </div>
 
       <div className="mx-auto grid grid-cols-1 gap-12 p-10 md:grid-cols-2 lg:grid-cols-3 lg:p-24 lg:px-24">
-        {filteredAndSortedMods.map((mod) => (
+        {paginatedMods.map((mod) => (
           <a
             key={mod.id}
             href={`/mods/${mod.id}`}
@@ -141,6 +203,7 @@ export default function ModsList({ mods }: ModsListProps) {
               <img
                 src={mod.image}
                 alt={mod.name}
+                loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-100 hover:scale-105"
               />
             </div>
@@ -156,6 +219,8 @@ export default function ModsList({ mods }: ModsListProps) {
           </a>
         ))}
       </div>
+
+      {renderPagination()}
     </div>
   )
 }
