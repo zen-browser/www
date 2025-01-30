@@ -142,7 +142,7 @@ export default function ModsList({ mods }: ModsListProps) {
           />
         </div>
 
-        <div className="flex flex-row items-center gap-4">
+        <div className="grid w-full grid-cols-2 place-items-center gap-4 sm:grid-cols-3">
           <div className="flex flex-col items-start gap-2">
             <button
               type="button"
@@ -173,15 +173,15 @@ export default function ModsList({ mods }: ModsListProps) {
             </button>
           </div>
 
-          <div className="ml-auto flex items-center gap-2">
-            <label htmlFor="limit" className="text-sm font-semibold">
-              Items per page:
+          <div className="flex items-center gap-2 px-4 py-2">
+            <label htmlFor="limit" className="text-md font-semibold">
+              Per page:
             </label>
             <select
               id="limit"
               value={limit}
               onChange={handleLimitChange}
-              className="rounded border border-dark bg-transparent px-2 py-1 text-sm"
+              className="rounded border border-dark bg-transparent px-2 py-1 text-sm [&>option]:text-black"
             >
               <option value="12">12</option>
               <option value="24">24</option>
