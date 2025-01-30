@@ -39,10 +39,15 @@ import { ThemeSwitch } from 'free-astro-components'
             <div
               class="navbar-dropdown left-0 right-1/4 top-16 w-full lg:w-fit"
             >
-              <a class="dropdown-item bg-dark/5 row-span-2" href="/mods">
-                <div class="dropdown-title">Zen Mods</div>
-                <div class="dropdown-description">
-                  Customize your browsing experience with Zen Mods.
+              <a
+                class="dropdown-item bg-dark/5 row-span-2 justify-between"
+                href="/mods"
+              >
+                <div class="flex flex-col gap-1">
+                  <span class="dropdown-title">Zen Mods</span>
+                  <p class="dropdown-description">
+                    Customize your browsing experience with Zen Mods.
+                  </p>
                 </div>
                 <Button isPrimary class="mt-auto">
                   Try Zen Mods
@@ -50,16 +55,16 @@ import { ThemeSwitch } from 'free-astro-components'
                 </Button>
               </a>
               <a class="dropdown-item" href="/release-notes">
-                <div class="dropdown-title">Release Notes</div>
-                <div class="dropdown-description">
+                <span class="dropdown-title">Release Notes</span>
+                <p class="dropdown-description">
                   Stay up to date with the latest features and improvements.
-                </div>
+                </p>
               </a>
               <a class="dropdown-item" href="https://discord.gg/zen-browser">
-                <div class="dropdown-title">Discord</div>
-                <div class="dropdown-description">
+                <span class="dropdown-title">Discord</span>
+                <p class="dropdown-description">
                   Join our community on Discord to chat with other Zen users!
-                </div>
+                </p>
               </a>
             </div>
           </DropdownItems>
@@ -76,32 +81,32 @@ import { ThemeSwitch } from 'free-astro-components'
               class="navbar-dropdown left-0 top-16 w-full !grid-cols-1 gap-1 lg:left-1/3 lg:right-1/4 lg:w-fit"
             >
               <a class="dropdown-item" href="/donate">
-                <div class="dropdown-title">Donate ❤️</div>
-                <div class="dropdown-description">
+                <span class="dropdown-title">Donate ❤️</span>
+                <p class="dropdown-description">
                   Support the development of Zen Browser with a donation.
-                </div>
+                </p>
               </a>
               <a class="dropdown-item" href="/about">
-                <div class="dropdown-title">About Us 🌟</div>
-                <div class="dropdown-description">
+                <span class="dropdown-title">About Us 🌟</span>
+                <p class="dropdown-description">
                   Learn more about the team behind Zen Browser.
-                </div>
+                </p>
               </a>
               <a class="dropdown-item" href="https://docs.zen-browser.app">
-                <div class="dropdown-title">Documentation</div>
-                <div class="dropdown-description">
+                <span class="dropdown-title">Documentation</span>
+                <p class="dropdown-description">
                   Learn how to use Zen Browser with our documentation.
-                </div>
+                </p>
               </a>
               <a
                 class="dropdown-item"
                 href="https://github.com/zen-browser"
                 target="_blank"
               >
-                <div class="dropdown-title">GitHub</div>
-                <div class="dropdown-description">
+                <span class="dropdown-title">GitHub</span>
+                <p class="dropdown-description">
                   Contribute to the development of Zen Browser on GitHub.
-                </div>
+                </p>
               </a>
             </div>
           </DropdownItems>
