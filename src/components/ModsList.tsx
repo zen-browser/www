@@ -72,17 +72,16 @@ export default function ModsList({ mods }: ModsListProps) {
   }
 
   function getPageUrl(pageNum: number) {
-    let link = '/mods'
-
+    const params = new URLSearchParams(searchParams)
+    
     if (pageNum > 1) {
-      link += `?page=${pageNum}`
+      params.set('page', pageNum.toString())
+    } else {
+      params.delete('page')
     }
 
-    if (searchParams) {
-      link += `&${searchParams.toString()}`
-    }
-
-    return link
+    const queryString = params.toString()
+    return `/mods${queryString ? `?${queryString}` : ''}`
   }
 
   function renderPagination() {
