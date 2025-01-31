@@ -1,10 +1,10 @@
 ---
 interface Props {
   title: string
+  isHome?: boolean
 }
 
-const { title } = Astro.props
-const onHomepage = Astro.url.origin === 'https://zen-browser.app/'
+const { title, isHome } = Astro.props
 import '@fontsource/bricolage-grotesque/400.css'
 import NavBar from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro'
@@ -38,9 +38,9 @@ import Footer from '../components/Footer.astro'
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-0.xml" />
 
-    <!-- Injecting schema to homepage only (for SEO) -->
-    {onHomepage && (
-      <script type="application/ld+json">
+    {isHome && (
+      <!-- Injecting schema to homepage only (for SEO) -->
+      <script is:inline type="application/ld+json">
       {{
         "@context":"https://schema.org",
         "@type":"WebSite",
