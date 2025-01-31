@@ -8,7 +8,7 @@ import myImage from '../assets/app-icon.png'
 
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import { faWindows, faLinux, faApple } from '@fortawesome/free-brands-svg-icons'
-import { ArrowLeft, ArrowRight, HardDriveDownload, Info } from 'lucide-astro'
+import { ArrowLeft, HardDriveDownload, Info } from 'lucide-astro'
 
 library.add(faWindows, faLinux, faApple)
 const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
@@ -212,7 +212,7 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
                 <HardDriveDownload class="size-4" />
               </div>
               <div
-                class="flex cursor-not-allowed cursor-pointer items-center justify-between rounded-md border-2 border-dark p-2 px-4 text-dark opacity-50 shadow-sm transition-all duration-100 hover:bg-dark hover:text-paper"
+                class="flex cursor-pointer items-center justify-between rounded-md border-2 border-dark p-2 px-4 text-dark opacity-50 shadow-sm transition-all duration-100 hover:bg-dark hover:text-paper"
                 id="windows-zip-download"
               >
                 Download Zip
@@ -226,12 +226,6 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
             <Button id="back-button" class="hidden">
               <ArrowLeft class="size-4" />
               Back
-            </Button>
-          </div>
-          <div class="flex flex-1 justify-end">
-            <Button isPrimary id="next-button">
-              Continue
-              <ArrowRight class="size-4" />
             </Button>
           </div>
         </div>
@@ -331,8 +325,6 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
         'form-linux-download',
       ) as HTMLDivElement
       linuxDownload.classList.remove('hidden')
-
-      showButton('next-button', false)
     } else if (selectedOS === 'windows' && selectedArch === null) {
       const windowsTargetSelect = document.getElementById(
         'windows-target-download',
@@ -349,8 +341,6 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
         'windows-download',
       ) as HTMLDivElement
       windowsDownload.classList.remove('hidden')
-
-      showButton('next-button', false)
     } else {
       throw new Error('Unknown state')
     }
@@ -372,7 +362,6 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
       }
       selectedArch = null
       showButton('back-button', true)
-      showButton('next-button', true)
     } else if (selectedOS) {
       // Go back to OS selection
       if (selectedOS === 'linux') {
@@ -387,33 +376,10 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
       document.getElementById('form-os-select')?.classList.remove('hidden')
       selectedOS = null
       showButton('back-button', false)
-      showButton('next-button', true)
     }
   }
 
   showButton('back-button', false) // Hide Back button on page load
-  showButton('next-button', true) // Ensure Next button is visible on load
-
-  function filloutDefaultOS() {
-    const osSelect = document.getElementById('os-select') as HTMLFormElement
-    const osSelectWindows = document.getElementById(
-      'os-select-windows',
-    ) as HTMLInputElement
-    const osSelectLinux = document.getElementById(
-      'os-select-linux',
-    ) as HTMLInputElement
-    const osSelectMacOS = document.getElementById(
-      'os-select-macos',
-    ) as HTMLInputElement
-
-    if (navigator.platform.includes('Win')) {
-      osSelectWindows.checked = true
-    } else if (navigator.platform.includes('Linux')) {
-      osSelectLinux.checked = true
-    } else if (navigator.platform.includes('Mac')) {
-      osSelectMacOS.checked = true
-    }
-  }
 
   function getIfTwilight() {
     const urlParams = new URLSearchParams(window.location.search)
@@ -431,19 +397,13 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 
   getIfTwilight()
 
-  document.getElementById('next-button')?.addEventListener('click', () => {
-    goNextForm()
-  })
-
   document.getElementById('back-button')?.addEventListener('click', () => {
     goPreviousForm()
   })
 
-  document
-    .getElementById('macos-select')
-    ?.addEventListener('click', () => {
-      downloadRelease('macos', 'universal')
-    })
+  document.getElementById('macos-select')?.addEventListener('click', () => {
+    downloadRelease('macos', 'universal')
+  })
 
   document
     .getElementById('linux-tar-download')
@@ -475,7 +435,41 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
       //downloadRelease("windows", selectedArch as string, "zip");
     })
 
-  filloutDefaultOS()
+  document
+    .getElementById('os-select-windows')
+    ?.addEventListener('click', () => {
+      goNextForm()
+    })
+
+  document
+    .getElementById('os-select-linux')
+    ?.addEventListener('click', (event) => {
+      goNextForm()
+    })
+
+  document
+    .getElementById('linux-target-x86_64')
+    ?.addEventListener('click', () => {
+      goNextForm()
+    })
+
+  document
+    .getElementById('linux-target-aarch64')
+    ?.addEventListener('click', () => {
+      goNextForm()
+    })
+
+  document
+    .getElementById('windows-target-x86_64')
+    ?.addEventListener('click', () => {
+      goNextForm()
+    })
+
+  document
+    .getElementById('windows-target-arm64')
+    ?.addEventListener('click', () => {
+      goNextForm()
+    })
 </script>
 <style is:global>
   @keyframes fadeIn {
@@ -494,7 +488,6 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 
   #download-form {
   }
-
   .form-item {
     --animation-delay: 0s;
   }
@@ -541,11 +534,6 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 
       &:hover {
         @apply bg-muted;
-      }
-
-      input[type='radio']:checked + & {
-        transform: translateX(5px);
-        @apply bg-dark text-paper;
       }
     }
   }
