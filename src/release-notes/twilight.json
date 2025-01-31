@@ -1,7 +1,10 @@
 {
-  "version": "xxx",
+  "version": "1.7.5b",
   "image": false,
-  "extra": "",
-  "fixes": [],
+  "extra": "Another stability update while we are figuring big changes out!",
+  "fixes": [
+    "Fixed double clicking the sidebar not opening a new tab",
+    "Fixed having tabs for workspace containers not changing containers"
+  ],
   "features": []
 }
