@@ -10,7 +10,7 @@ import NavBar from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro'
 ---
 
-<script is:inline>
+<script is:inline data-cfasync="false">
   const theme = (() => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme') ?? 'light'
