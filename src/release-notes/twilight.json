@@ -4,7 +4,12 @@
   "extra": "Another stability update while we are figuring big changes out!",
   "fixes": [
     "Fixed double clicking the sidebar not opening a new tab",
-    "Fixed having tabs for workspace containers not changing containers"
+    "Fixed having tabs for workspace containers not changing containers",
+    "Fixed tabs scrolling to the top each time a tab is closed",
+    "Fixed 'Switch to workspace where container is set as default when opening container tabs' not working"
   ],
-  "features": []
+  "features": [
+    "Added the ability to pinning or adding to essentials by simply dragging and dropping",
+    "Add thin scrollbar style to vertical tabs for improved aesthetics"
+  ]
 }
