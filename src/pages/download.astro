@@ -412,6 +412,7 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
       osSelectLinux.checked = true
     } else if (navigator.platform.includes('Mac')) {
       osSelectMacOS.checked = true
+      showButton('next-button', false)
     }
   }
 
@@ -439,10 +440,17 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
     goPreviousForm()
   })
 
+  document.getElementById('macos-select')?.addEventListener('click', () => {
+    downloadRelease('macos', 'universal')
+    showButton('next-button', false)
+  })
+  document.getElementById('os-select-linux')?.addEventListener('click', () => {
+    showButton('next-button', true)
+  })
   document
-    .getElementById('macos-select')
+    .getElementById('os-select-windows')
     ?.addEventListener('click', () => {
-      downloadRelease('macos', 'universal')
+      showButton('next-button', true)
     })
 
   document
