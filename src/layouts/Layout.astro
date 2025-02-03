@@ -41,12 +41,12 @@ import Footer from '../components/Footer.astro'
     {isHome && (
       <!-- Injecting schema to homepage only (for SEO) -->
       <script is:inline type="application/ld+json">
-      {{
+      {
         "@context":"https://schema.org",
         "@type":"WebSite",
         "name":"Zen Browser",
         "url":"https://zen-browser.app/",
-      }}
+      }
       </script>)}
 
     <!-- ICO favicon as a fallback for browsers that don't support SVG favicons (Safari) -->
