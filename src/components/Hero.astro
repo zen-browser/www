@@ -37,16 +37,7 @@ const splitTitleText = splitTextIntoWords(titleText)
   id="header"
   class="flex h-screen w-full flex-col items-center gap-[20%] pb-16 text-center md:pb-32 lg:gap-[15%] lg:pb-16"
 >
-  <div class="flex h-full w-full flex-col items-center justify-center">
-    <motion.a
-      href="/download"
-      className="transition-bg mb-10 flex items-center gap-2 rounded-full border-2 border-dark bg-dark px-2 py-0 py-1 text-sm text-paper shadow-sm hover:bg-paper hover:text-dark hover:duration-200 md:px-4"
-      client:load
-      {...getTitleAnimation(1.8)}
-    >
-      <div>Beta is now available!</div>
-      <ArrowRight class="size-4" />
-    </motion.a>
+  <div class="flex h-full flex-col items-center justify-center">
     <Title
       class="relative whitespace-normal break-words px-12 text-left font-instrument font-normal leading-tight md:text-center md:!text-6xl lg:px-0 lg:!text-8xl"
     >
@@ -83,8 +74,11 @@ const splitTitleText = splitTextIntoWords(titleText)
       >
     </motion.span>
     <div class="mt-6 flex w-2/3 flex-col gap-3 sm:gap-6 md:w-fit md:flex-row">
-      <motion.span client:load {...getHeroTitleAnimation(0.07)}>
-        <Button class="w-full" href="/download" isPrimary> Download </Button>
+      <motion.span client:load {...getHeroTitleAnimation()}>
+        <Button class="w-full" href="/download" isPrimary>
+          Beta is now available!
+          <ArrowRight class="size-4" />
+        </Button>
       </motion.span>
       <motion.span client:load {...getHeroTitleAnimation(0.07)}>
         <Button href="#features">Explore</Button>

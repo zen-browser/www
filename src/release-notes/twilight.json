@@ -1,7 +1,19 @@
 {
-  "version": "xxx",
+  "version": "1.7.5b",
   "image": false,
-  "extra": "",
-  "fixes": [],
-  "features": []
+  "extra": "Another stability update while we are figuring big changes out!",
+  "fixes": [
+    "Fixed double clicking the sidebar not opening a new tab",
+    "Fixed having tabs for workspace containers not changing containers",
+    "Fixed tabs scrolling to the top each time a tab is closed",
+    "Fixed 'Switch to workspace where container is set as default when opening container tabs' not working",
+    "Fixed sidebar spacings and styling issues",
+    "Fixed glance sometimes crashing when opening a new tab",
+    "Fixed workspaces switching randomly when closing a tab in certain scenarios"
+  ],
+  "features": [
+    "Added the ability to pinning or adding to essentials by simply dragging and dropping",
+    "Add thin scrollbar style to vertical tabs for improved aesthetics",
+    "Added support for having glance in multiple tabs!"
+  ]
 }
