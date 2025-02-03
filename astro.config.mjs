@@ -12,7 +12,8 @@ export default defineConfig({
     tailwind(),
     react(),
     sitemap({
-      filter: (page) => !page.includes('mods/'),
+      // TODO: Maybe? Maybe not?
+      //   filter: (page) => !page.includes('mods/'),
     }),
   ],
   site: 'https://zen-browser.app',
