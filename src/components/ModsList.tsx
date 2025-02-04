@@ -73,7 +73,7 @@ export default function ModsList({ mods }: ModsListProps) {
 
   function getPageUrl(pageNum: number) {
     const params = new URLSearchParams(searchParams)
-    
+
     if (pageNum > 1) {
       params.set('page', pageNum.toString())
     } else {
