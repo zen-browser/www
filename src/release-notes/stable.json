@@ -363,7 +363,9 @@
     "version": "1.0.0-a.13",
     "date": "05/08/2024",
     "extra": "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
-    "features": ["Allow to remember sidebar width even after collapsing it."],
+    "features": [
+      "Allow to remember sidebar width even after collapsing it."
+    ],
     "fixes": [
       {
         "description": "Task Manager Icon Missing in Flatpak Version",
@@ -919,7 +921,9 @@
     "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-    "features": ["Added a new system for handling keyboard shortcuts"],
+    "features": [
+      "Added a new system for handling keyboard shortcuts"
+    ],
     "fixes": [
       {
         "description": "The New Tab button is not visible",
@@ -976,7 +980,9 @@
       "Enabled container tabs by default",
       "Improved Expand Tabs on Hover layout"
     ],
-    "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
+    "themeChanges": [
+      "Toggle inputs will not use the themed tertiary color"
+    ],
     "breakingChanges": [
       "The keyboard shortcuts will be overriden by the defaults ones in this update"
     ],
@@ -1273,7 +1279,9 @@
         "issue": 2156
       }
     ],
-    "breakingChanges": ["Removed Show Expand Button option from settings"],
+    "breakingChanges": [
+      "Removed Show Expand Button option from settings"
+    ],
     "themeChanges": [
       "The variable '--zen-main-browser-background' will now contain the generated gradient",
       "Added the 'unread' attribute for background tabs that haven't been accessed yet"
@@ -1376,7 +1384,9 @@
         "description": "Fixed wrong aligment on glance action buttons"
       }
     ],
-    "features": ["No new features, sorry"]
+    "features": [
+      "No new features, sorry"
+    ]
   },
   {
     "version": "1.0.1-a.17",
@@ -2163,5 +2173,42 @@
       "Fixed the browser not opening when having multiple windows",
       "Fixed macos fullscreen having a weird shadow"
     ]
+  },
+  {
+    "version": "1.7.5b",
+    "image": false,
+    "extra": "Another stability update while we are figuring big changes out!\n\nThis update has been focused on adding some cool new features such as removing the need of new tabs and a better glance experience. We have also fixed a lot of bugs that have been reported by the community, thank you for your feedback!",
+    "fixes": [
+      "Fixed double clicking the sidebar not opening a new tab",
+      "Fixed having tabs for workspace containers not changing containers",
+      "Fixed tabs scrolling to the top each time a tab is closed",
+      "Fixed 'Switch to workspace where container is set as default when opening container tabs' not working",
+      "Fixed sidebar spacings and styling issues",
+      "Fixed glance sometimes crashing when opening a new tab",
+      "Fixed workspaces switching randomly when closing a tab in certain scenarios",
+      "Fixed hard-locks randomly appearing, often due to keyboard shortcuts",
+      "Fixed essentials having scrollbar issues",
+      "Fixed glance tabs being unloaded",
+      "Fixed unloading about: pages making the browser unresponsive",
+      "Fixed settings page not displaying correctly some of the shortcut descriptions",
+      "Fixed mute button having a broken icon"
+    ],
+    "features": [
+      "Updated to firefox 135.0",
+      "NEW TABS HAVE BEEN REMOVED, instead we are opting for opening the URL bar and then pressing enter to open a new tab ('zen.urlbar.replace-newtab' to false in about:config to revert)",
+      "Added the ability to pinning or adding to essentials by simply dragging and dropping",
+      "Add thin scrollbar style to vertical tabs for improved aesthetics",
+      "Added support for having glance in multiple tabs!",
+      "Floating urlbar doesn't show the compact mode sidebar anymore",
+      "Added a 'copy current url as markdown' shortcut",
+      "New glance UI and animations",
+      "New icons!"
+    ],
+    "breakingChanges": [
+      "Disabled tab previews by default, can be enabled in settings",
+      "We now use the .tar.xz format for the linux release"
+    ],
+    "workflowId": 13146940435,
+    "date": "05/02/2025"
   }
 ]
