@@ -8,27 +8,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: get pnpm
+      - name: Setup pnpm
         run: npm install -g pnpm
 
-      - name: double check xD
+      - name: Print pnpm version
         run: pnpm --version
 
-      - name: get dependencies
+      - name: Install dependencies
         run: pnpm i
 
-      - name: buld
+      - name: Build
         run: pnpm run build
 
       - name: Deploy to BunnyCDN
-        uses: ayeressian/bunnycdn-storage-deploy@v2.2.4
+        uses: ayeressian/bunnycdn-storage-deploy@v2
         with:
           source: 'dist'
           destination: ''
