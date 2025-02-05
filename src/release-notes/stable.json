@@ -2191,7 +2191,8 @@
       "Fixed glance tabs being unloaded",
       "Fixed unloading about: pages making the browser unresponsive",
       "Fixed settings page not displaying correctly some of the shortcut descriptions",
-      "Fixed mute button having a broken icon"
+      "Fixed mute button having a broken icon",
+      "Fixed bug where container-specific essentials don't remain focused when switching workspaces"
     ],
     "features": [
       "Updated to firefox 135.0",
@@ -2207,9 +2208,10 @@
     ],
     "breakingChanges": [
       "Disabled tab previews by default, can be enabled in settings",
-      "We now use the .tar.xz format for the linux release"
+      "We now use the .tar.xz format for the linux release",
+      "New tabs have been removed, check the features section"
     ],
-    "workflowId": 13151668938,
+    "workflowId": 13154821581,
     "date": "05/02/2025"
   }
 ]
