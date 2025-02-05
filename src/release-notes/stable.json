@@ -2181,7 +2181,8 @@
       "Fixed glance tabs being unloaded",
       "Fixed unloading about: pages making the browser unresponsive",
       "Fixed settings page not displaying correctly some of the shortcut descriptions",
-      "Fixed mute button having a broken icon"
+      "Fixed mute button having a broken icon",
+      "Fixed bug where container-specific essentials don't remain focused when switching workspaces"
     ],
     "features": [
       "Updated to firefox 135.0",
@@ -2192,13 +2193,15 @@
       "Floating urlbar doesn't show the compact mode sidebar anymore",
       "Added a 'copy current url as markdown' shortcut",
       "New glance UI and animations",
-      "New icons!"
+      "New icons!",
+      "Improved workspace switching with gestures"
     ],
     "breakingChanges": [
       "Disabled tab previews by default, can be enabled in settings",
-      "We now use the .tar.xz format for the linux release"
+      "We now use the .tar.xz format for the linux release",
+      "New tabs have been removed, check the features section"
     ],
-    "workflowId": 13146940435,
+    "workflowId": 13164544885,
     "date": "05/02/2025"
   }
 ]
