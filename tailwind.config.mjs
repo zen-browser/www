@@ -27,9 +27,14 @@ export default {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
+        breathe: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.2)' },
+        },
       },
       animation: {
         fadeIn: 'fadeIn 2s ease-in-out',
+        breathe: 'breathe 5s ease-in-out infinite',
       },
     },
   },

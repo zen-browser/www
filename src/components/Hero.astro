@@ -74,7 +74,7 @@ const splitTitleText = splitTextIntoWords(titleText)
       >
     </motion.span>
     <div class="mt-6 flex w-2/3 flex-col gap-3 sm:gap-6 md:w-fit md:flex-row">
-      <motion.span client:load {...getHeroTitleAnimation()}>
+      <motion.span client:load {...getHeroTitleAnimation(0.07)}>
         <Button class="w-full" href="/download" isPrimary>
           Beta is now available!
           <ArrowRight class="size-4" />
