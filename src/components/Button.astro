@@ -17,14 +17,14 @@ const {
       {...extra}
       href={href}
       class:list={[
-        'transition-bg flex items-center justify-center gap-2 rounded-full px-6 py-2 transition-transform duration-200',
+        'transition-bg flex items-center justify-center gap-2 rounded-xl px-6 py-4 transition-transform duration-150 hover:scale-[1.02]',
         className,
         isPrimary
-          ? 'border-2 border-dark bg-dark text-paper hover:bg-paper hover:text-dark'
+          ? 'border-dark bg-dark text-paper shadow-lg'
           : isAlert
             ? 'bg-red-300 text-dark'
             : !isBordered
-              ? 'border-2 border-dark hover:bg-dark hover:text-paper'
+              ? 'bg-[rgba(0,0,0,.05)]'
               : '!transition-bg border-2 border-dark hover:bg-dark hover:text-paper hover:shadow-sm',
       ]}
     >
@@ -35,14 +35,14 @@ const {
       id={id}
       {...extra}
       class:list={[
-        'flex items-center justify-center gap-2 rounded-full px-6 py-2 transition-transform duration-200',
+        'transition-bg flex items-center justify-center gap-2 rounded-lg px-6 py-3 transition-transform duration-150 hover:scale-[1.02]',
         className,
         isPrimary
-          ? 'bg-dark text-paper'
+          ? 'border-dark bg-dark text-paper shadow-md'
           : isAlert
             ? 'bg-red-300 text-dark'
             : !isBordered
-              ? 'border-2 border-dark hover:bg-dark hover:text-paper'
+              ? ''
               : '!transition-bg border-2 border-dark hover:bg-dark hover:text-paper hover:shadow-sm',
       ]}
     >
