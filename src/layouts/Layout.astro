@@ -8,6 +8,7 @@ const { title, isHome } = Astro.props
 import '@fontsource/bricolage-grotesque/400.css'
 import NavBar from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro'
+import MobileNavBar from '../components/MobileNavBar'
 ---
 
 <script is:inline data-cfasync="false">
@@ -51,11 +52,11 @@ import Footer from '../components/Footer.astro'
 
     <!-- ICO favicon as a fallback for browsers that don't support SVG favicons (Safari) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="theme-color" content="#da755b" />
-  
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
@@ -68,11 +69,17 @@ import Footer from '../components/Footer.astro'
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.bunny.net/css?family=bricolage-grotesque:200,300,400,500,600,700,800|instrument-serif:400,400i"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- RSS Feed -->
     <link
       rel="alternate"
@@ -81,10 +88,14 @@ import Footer from '../components/Footer.astro'
       href={`${Astro.url.origin}/feed.xml`}
     />
   </head>
-  <body
-    class="overflow-x-hidden bg-paper font-['bricolage-grotesque'] text-dark"
-  >
-    <NavBar />
+  <body class="overflow-x-hidden bg-paper text-dark">
+    <div
+      class="fixed inset-0 -z-10 h-full w-full animate-fadeIn items-center px-5 py-24 blur-2xl"
+      style="background: radial-gradient(40% 65% at 50% 140%, #f76f53 0%, #00000000 100%); background-size: 2500px 1200px; background-position: center 80%; background-repeat: no-repeat;"
+    >
+    </div>
+    <NavBar/>
+    <MobileNavBar client:load />
     <slot />
     <Footer />
   </body>
@@ -108,11 +119,11 @@ import Footer from '../components/Footer.astro'
 
   :root {
     --zen-paper: #f2f0e3;
-    --zen-dark: #202020;
+    --zen-dark: #251d1d;
     --zen-muted: rgba(0, 0, 0, 0.05);
 
     &[data-theme='dark'] {
-      --zen-paper: #202020;
+      --zen-paper: #251d1d;
       --zen-dark: #f2f0e3;
       --zen-muted: rgba(255, 255, 255, 0.05);
     }
@@ -131,12 +142,12 @@ import Footer from '../components/Footer.astro'
     font-variation-settings: 'wdth' 100;
   }
 
-  h1 .italic {
-    font-family: 'Junicode-Italic', serif;
+  /* h1 .italic {
+    font-family: 'Instrument Serif Italic', serif;
     font-weight: 400;
     font-feature-settings: 'swsh' 0;
     font-style: normal;
-  }
+  } */
 </style>
 <style is:global>
   /* Declare a custom CSS class to make the icon look right */
