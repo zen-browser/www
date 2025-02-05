@@ -2202,13 +2202,14 @@
       "Floating urlbar doesn't show the compact mode sidebar anymore",
       "Added a 'copy current url as markdown' shortcut",
       "New glance UI and animations",
-      "New icons!"
+      "New icons!",
+      "Improved workspace switching with gestures"
     ],
     "breakingChanges": [
       "Disabled tab previews by default, can be enabled in settings",
       "We now use the .tar.xz format for the linux release"
     ],
-    "workflowId": 13146940435,
+    "workflowId": 13151668938,
     "date": "05/02/2025"
   }
 ]
