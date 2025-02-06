@@ -2199,9 +2199,10 @@
     "breakingChanges": [
       "Disabled tab previews by default, can be enabled in settings",
       "We now use the .tar.xz format for the linux release",
-      "New tabs have been removed, check the features section"
+      "New tabs have been removed, check the features section",
+      "Replaced default toolbar layout, the profile button with the settings icon"
     ],
-    "workflowId": 13164544885,
+    "workflowId": 13184385191,
     "date": "05/02/2025"
   }
 ]
