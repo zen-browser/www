@@ -62,6 +62,9 @@ importers:
       lucide-astro:
         specifier: ^0.460.0
         version: 0.460.0(astro@5.2.5(jiti@1.21.7)(rollup@4.34.0)(typescript@5.7.3)(yaml@2.7.0))
+      lucide-react:
+        specifier: ^0.474.0
+        version: 0.474.0(react@19.0.0)
       motion:
         specifier: ^11.13.5
         version: 11.18.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -1637,6 +1640,11 @@ packages:
     resolution: {integrity: sha512-4iteWvZ2l/KjXXKnaKXdeCXOd2zsO6gqdhSm7krjYgDlb68mPpylPSvWciBP26h2IRKkorKqkkKCmkFBbChFiA==}
     peerDependencies:
       astro: '>=2.7.1'
+
+  lucide-react@0.474.0:
+    resolution: {integrity: sha512-CmghgHkh0OJNmxGKWc0qfPJCYHASPMVSyGY8fj3xgk4v84ItqDg64JNKFZn5hC6E0vHi6gxnbCgwhyVB09wQtA==}
+    peerDependencies:
+      react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   magic-string@0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
@@ -4442,6 +4450,10 @@ snapshots:
   lucide-astro@0.460.0(astro@5.2.5(jiti@1.21.7)(rollup@4.34.0)(typescript@5.7.3)(yaml@2.7.0)):
     dependencies:
       astro: 5.2.5(jiti@1.21.7)(rollup@4.34.0)(typescript@5.7.3)(yaml@2.7.0)
+
+  lucide-react@0.474.0(react@19.0.0):
+    dependencies:
+      react: 19.0.0
 
   magic-string@0.25.9:
     dependencies:
