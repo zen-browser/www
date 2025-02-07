@@ -2218,12 +2218,13 @@
       "Fixed urlbar margins when using single toolbar mode",
       "Fixed tabs scrolling to the top constantly",
       "Fixed changing tabs not being scrolled to when overflowing the sidebar",
-      "Fixed opening glance tabs on essentials messing up the sidebar"
+      "Fixed opening glance tabs on essentials messing up the sidebar",
+      "Fixed pinned tabs appearing on normal container after a restart"
     ],
     "features": [
       "Tabs can now be dragged into pinned tabs by dragging them into the workspace indicator"
     ],
-    "workflowId": 13209362901,
+    "workflowId": 13209591935,
     "date": "08/02/2025"
   }
 ]
