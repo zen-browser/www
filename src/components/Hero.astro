@@ -63,11 +63,15 @@ function getHeroTitleAnimation() {
     </div>
   </div>
 </header>
-<motion.span client:load {...getHeroTitleAnimation()}>
+<motion.span
+  className="flex max-w-full px-8 lg:max-w-none lg:flex-none lg:px-0"
+  client:load
+  {...getHeroTitleAnimation()}
+>
   <Image
     src={myImage}
     alt="Zen browser"
-    class="mx-4 mb-24 rounded-3xl shadow-md lg:mx-auto lg:w-3/4 dark:opacity-80"
+    class="mb-24 rounded-3xl shadow-md lg:mx-auto lg:w-3/4 dark:opacity-80"
     loading="eager"
   />
 </motion.span>
