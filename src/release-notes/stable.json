@@ -2199,9 +2199,32 @@
     "breakingChanges": [
       "Disabled tab previews by default, can be enabled in settings",
       "We now use the .tar.xz format for the linux release",
-      "New tabs have been removed, check the features section"
+      "New tabs have been removed, check the features section",
+      "Replaced default toolbar layout, the profile button with the settings icon"
     ],
-    "workflowId": 13164544885,
+    "workflowId": 13194954146,
     "date": "05/02/2025"
+  },
+  {
+    "version": "1.7.6b",
+    "image": false,
+    "extra": "This release is a small one, but it brings a few fixes and a new feature.",
+    "fixes": [
+      "Fixed sidebar icons all looking the same",
+      "Fixed floating URL bar making the compact mode appear for some time",
+      "Fixed tabs appearing on the pinned tabs section",
+      "Fixed middle mouse click on the sidebar not opening a new tab",
+      "Fixed notifications not being able to be closed",
+      "Fixed urlbar margins when using single toolbar mode",
+      "Fixed tabs scrolling to the top constantly",
+      "Fixed changing tabs not being scrolled to when overflowing the sidebar",
+      "Fixed opening glance tabs on essentials messing up the sidebar",
+      "Fixed pinned tabs appearing on normal container after a restart"
+    ],
+    "features": [
+      "Tabs can now be dragged into pinned tabs by dragging them into the workspace indicator"
+    ],
+    "workflowId": 13209591935,
+    "date": "08/02/2025"
   }
 ]
