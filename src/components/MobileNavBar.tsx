@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import MyLogo from './Mylogo'
 import { Menu } from 'lucide-react'
+import ThemeSwitch from './ThemeSwitch/ThemeSwitch'
 
 const MobileNavbar: React.FC = () => {
   const [isMenuOpen, setMenuOpen] = useState(false)
@@ -10,19 +11,22 @@ const MobileNavbar: React.FC = () => {
   return (
     <div className="lg:hidden">
       {/* Mobile Header */}
-      <header className="flex items-center justify-between bg-paper px-4 py-2 dark:shadow">
+      <header className="flex items-center justify-between bg-paper px-4 py-2">
         <a className="flex items-center gap-2" href="/">
           <MyLogo className="h-8 w-8 text-coral" />
           <span className="text-lg font-bold">zen browser</span>
         </a>
-        <button
-          id="burger-btn"
-          className="p-2 text-dark"
-          aria-label="Open menu"
-          onClick={() => setMenuOpen(true)}
-        >
-          <Menu className="h-6 w-6" />
-        </button>
+        <div className="flex flex-row gap-2">
+          <ThemeSwitch />
+          <button
+            id="burger-btn"
+            className="p-2 text-dark"
+            aria-label="Open menu"
+            onClick={() => setMenuOpen(true)}
+          >
+            <Menu className="h-6 w-6" />
+          </button>
+        </div>
       </header>
 
       {/* Mobile Slide Menu (slides in from the right) */}
