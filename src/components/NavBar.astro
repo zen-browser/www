@@ -1,4 +1,5 @@
 ---
+import { motion } from 'motion/react'
 import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
 import Button from '../components/Button.astro'
@@ -13,18 +14,19 @@ import {
 import { ArrowRight, ChevronDown, Download, DownloadCloud } from 'lucide-astro'
 import Logo from './Logo.astro'
 import { ThemeSwitch } from 'free-astro-components'
+import { getTitleAnimation } from '../animations.ts'
 ---
 
 <nav
   id="nav-bar"
-  class="relative z-20 flex w-full items-center justify-between lg:px-6 lg:pt-3"
+  class="relative z-20 hidden w-full items-center justify-between lg:flex lg:px-6 lg:pt-3"
 >
   <Astronav>
     <MenuItems
-      class="relative mx-auto flex w-full gap-2 bg-paper p-2 lg:w-3/4 lg:min-w-fit"
+      class="relative mx-auto flex w-full justify-between gap-2 bg-paper p-2 lg:w-3/4 lg:min-w-fit"
     >
       <a class="flex items-center gap-2 text-lg font-bold" href="/">
-        <Logo class="text-dark" />
+        <Logo class="text-coral" />
         <span class="hidden lg:block">zen browser</span>
       </a>
       <div class="mx-auto flex">
@@ -37,8 +39,10 @@ import { ThemeSwitch } from 'free-astro-components'
               />
             </button>
             <DropdownItems>
-              <div
-                class="navbar-dropdown left-0 right-1/4 top-16 w-full lg:w-fit"
+              <motion.div
+                className="navbar-dropdown"
+                {...getTitleAnimation(0, 0.3, false)}
+                client:load
               >
                 <a class="dropdown-item bg-dark/5 row-span-2" href="/mods">
                   <div class="dropdown-title">Zen Mods</div>
@@ -62,7 +66,7 @@ import { ThemeSwitch } from 'free-astro-components'
                     Join our community on Discord to chat with other Zen users!
                   </div>
                 </a>
-              </div>
+              </motion.div>
             </DropdownItems>
           </Dropdown>
           <Dropdown class="group">
@@ -73,8 +77,10 @@ import { ThemeSwitch } from 'free-astro-components'
               />
             </button>
             <DropdownItems>
-              <div
-                class="navbar-dropdown left-0 top-16 w-full !grid-cols-1 gap-1 lg:left-1/3 lg:right-1/4 lg:w-fit"
+              <motion.div
+                className="navbar-dropdown !grid-cols-1 gap-1"
+                {...getTitleAnimation(0, 0.3, false)}
+                client:load
               >
                 <a class="dropdown-item" href="/donate">
                   <div class="dropdown-title">Donate ❤️</div>
@@ -104,7 +110,7 @@ import { ThemeSwitch } from 'free-astro-components'
                     Contribute to the development of Zen Browser on GitHub.
                   </div>
                 </a>
-              </div>
+              </motion.div>
             </DropdownItems>
           </Dropdown>
           <a class="hidden items-center lg:block" href="/mods">
@@ -129,10 +135,10 @@ import { ThemeSwitch } from 'free-astro-components'
     </MenuItems>
   </Astronav>
 </nav>
+
 <style>
   .navbar-dropdown {
-    @apply absolute grid grid-cols-2 gap-2 rounded-lg border-2 border-dark bg-paper p-3 shadow-sm;
-
+    @apply absolute left-1/2 mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border-2 border-dark bg-paper p-3 shadow-sm;
     & .dropdown-item {
       @apply flex cursor-pointer select-none flex-col gap-2 rounded-lg p-4 transition-colors duration-200;
 

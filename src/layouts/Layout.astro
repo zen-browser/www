@@ -12,6 +12,7 @@ const defaultOgImage = '/share-pic.png';
 import '@fontsource/bricolage-grotesque/400.css'
 import NavBar from '../components/NavBar.astro'
 import Footer from '../components/Footer.astro'
+import MobileNavBar from '../components/MobileNavBar'
 ---
 
 <script is:inline data-cfasync="false">
@@ -90,6 +91,7 @@ import Footer from '../components/Footer.astro'
     class="overflow-x-hidden bg-paper font-['bricolage-grotesque'] text-dark"
   >
     <NavBar />
+    <MobileNavBar client:load />
     <slot />
     <Footer />
   </body>

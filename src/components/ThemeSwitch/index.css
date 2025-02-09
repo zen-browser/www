@@ -1,0 +1,88 @@
+:root {
+  --zen-dark: 22, 22, 22;
+  --zen-paper: 255, 255, 255;
+
+  --ac-font-sans: ui-sans-serif, system-ui, sans-serif;
+  --ac-text-sm: 0.875rem;
+  --ac-spacing-2: 0.5rem;
+  --ac-spacing-5: 1.25rem;
+}
+
+.light,
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --ac-color-100: var(--zen-paper);
+  --ac-color-200: var(--zen-paper);
+  --ac-color-300: var(--zen-paper);
+  --ac-color-400: var(--zen-paper);
+  --ac-color-500: var(--zen-dark);
+  --ac-color-600: var(--zen-dark);
+  --ac-color-700: var(--zen-dark);
+}
+
+.dark,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --ac-color-100: var(--zen-dark);
+  --ac-color-200: var(--zen-dark);
+  --ac-color-300: var(--zen-dark);
+  --ac-color-400: var(--zen-dark);
+  --ac-color-500: var(--zen-paper);
+  --ac-color-600: var(--zen-paper);
+  --ac-color-700: var(--zen-paper);
+}
+
+.ac-theme-switch-wrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--ac-spacing-2);
+  font-family: var(--ac-font-sans);
+  color: rgb(var(--ac-color-700));
+  font-size: var(--ac-text-sm);
+}
+
+.ac-theme-switch-wrapper:hover .ac-theme-switch-icon,
+.ac-theme-switch-wrapper:has(:focus) .ac-theme-switch-icon {
+  color: rgb(var(--ac-color-500));
+}
+
+.ac-theme-switch-wrapper:hover .ac-theme-switch-label,
+.ac-theme-switch-wrapper:has(:focus) .ac-theme-switch-label {
+  color: rgb(var(--ac-color-500));
+}
+
+html[data-theme='dark'] .ac-theme-switch-icon--light {
+  display: none;
+}
+
+html[data-theme='light'] .ac-theme-switch-icon--dark {
+  display: none;
+}
+
+.ac-theme-switch {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+}
+
+.ac-theme-switch-icon {
+  height: var(--ac-spacing-5);
+  transition: all 0.3s ease-in-out;
+  width: var(--ac-spacing-5);
+}
+
+.ac-theme-switch-label {
+  color: rgb(var(--ac-color-500));
+  transition: all 0.3s ease-in-out;
+}
+
+.ac-theme-switch-label--hidden {
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+}
