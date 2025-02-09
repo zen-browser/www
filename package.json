@@ -30,7 +30,7 @@
     "free-astro-components": "^1.1.1",
     "lucide-astro": "^0.460.0",
     "motion": "^11.13.5",
-    "postcss": "8.4.21",
+    "postcss": "^8.5.1",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.6",
@@ -42,6 +42,5 @@
   },
   "devDependencies": {
     "wrangler": "^3.94.0"
-  },
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+  }
 }

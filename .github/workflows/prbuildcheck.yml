@@ -15,14 +15,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      - name: Verify pnpm installation
-        run: pnpm --version
+      - name: Verify npm installation
+        run: npm --version
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: npm install --no-frozen-lockfile
 
       - name: Build project
-        run: pnpm run build
+        run: npm run build
