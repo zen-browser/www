@@ -363,9 +363,7 @@
     "version": "1.0.0-a.13",
     "date": "05/08/2024",
     "extra": "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
-    "features": [
-      "Allow to remember sidebar width even after collapsing it."
-    ],
+    "features": ["Allow to remember sidebar width even after collapsing it."],
     "fixes": [
       {
         "description": "Task Manager Icon Missing in Flatpak Version",
@@ -921,9 +919,7 @@
     "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-    "features": [
-      "Added a new system for handling keyboard shortcuts"
-    ],
+    "features": ["Added a new system for handling keyboard shortcuts"],
     "fixes": [
       {
         "description": "The New Tab button is not visible",
@@ -980,9 +976,7 @@
       "Enabled container tabs by default",
       "Improved Expand Tabs on Hover layout"
     ],
-    "themeChanges": [
-      "Toggle inputs will not use the themed tertiary color"
-    ],
+    "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
     "breakingChanges": [
       "The keyboard shortcuts will be overriden by the defaults ones in this update"
     ],
@@ -1279,9 +1273,7 @@
         "issue": 2156
       }
     ],
-    "breakingChanges": [
-      "Removed Show Expand Button option from settings"
-    ],
+    "breakingChanges": ["Removed Show Expand Button option from settings"],
     "themeChanges": [
       "The variable '--zen-main-browser-background' will now contain the generated gradient",
       "Added the 'unread' attribute for background tabs that haven't been accessed yet"
@@ -1384,9 +1376,7 @@
         "description": "Fixed wrong aligment on glance action buttons"
       }
     ],
-    "features": [
-      "No new features, sorry"
-    ]
+    "features": ["No new features, sorry"]
   },
   {
     "version": "1.0.1-a.17",
@@ -2209,9 +2199,32 @@
     "breakingChanges": [
       "Disabled tab previews by default, can be enabled in settings",
       "We now use the .tar.xz format for the linux release",
-      "New tabs have been removed, check the features section"
+      "New tabs have been removed, check the features section",
+      "Replaced default toolbar layout, the profile button with the settings icon"
     ],
-    "workflowId": 13162922608,
+    "workflowId": 13194954146,
     "date": "05/02/2025"
+  },
+  {
+    "version": "1.7.6b",
+    "image": false,
+    "extra": "This release is a small one, but it brings a few fixes and a new feature.",
+    "fixes": [
+      "Fixed sidebar icons all looking the same",
+      "Fixed floating URL bar making the compact mode appear for some time",
+      "Fixed tabs appearing on the pinned tabs section",
+      "Fixed middle mouse click on the sidebar not opening a new tab",
+      "Fixed notifications not being able to be closed",
+      "Fixed urlbar margins when using single toolbar mode",
+      "Fixed tabs scrolling to the top constantly",
+      "Fixed changing tabs not being scrolled to when overflowing the sidebar",
+      "Fixed opening glance tabs on essentials messing up the sidebar",
+      "Fixed pinned tabs appearing on normal container after a restart"
+    ],
+    "features": [
+      "Tabs can now be dragged into pinned tabs by dragging them into the workspace indicator"
+    ],
+    "workflowId": 13209591935,
+    "date": "08/02/2025"
   }
 ]

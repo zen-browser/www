@@ -240,11 +240,11 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
     },
     linux: {
       x86_64: {
-        tar: 'zen.linux-x86_64.tar.bz2',
+        tar: 'zen.linux-x86_64.tar.xz',
         appImage: 'zen-x86_64.AppImage',
       },
       aarch64: {
-        tar: 'zen.linux-aarch64.tar.bz2',
+        tar: 'zen.linux-aarch64.tar.xz',
         appImage: 'zen-aarch64.AppImage',
       },
     },
@@ -417,11 +417,17 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
       downloadRelease('linux', selectedArch as string, 'appImage')
     })
 
-  document
+  if (!isTwilight) {
+    document
     .getElementById('linux-flathub-download')
     ?.addEventListener('click', () => {
       window.open('https://flathub.org/apps/app.zen_browser.zen')
     })
+  }
+  else {
+    document
+    .getElementById('linux-flathub-download')?.classList.add('hidden')
+  }
 
   document
     .getElementById('windows-installer-download')
