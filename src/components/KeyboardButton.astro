@@ -1,7 +1,10 @@
 ---
-const { key } = Astro.props
+const { key, isPrimary } = Astro.props
 ---
 
-<button class="rounded-md border-2 border-dashed border-paper px-2 uppercase">
-  <span>{key}</span>
-</button>
+<span
+  class:list={[
+    'underline decoration-paper underline-offset-2',
+    isPrimary ? 'decoration-paper' : 'decoration-dark',
+  ]}>{key}</span
+>
