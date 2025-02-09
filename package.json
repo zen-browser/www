@@ -29,6 +29,7 @@
     "date-fns": "^4.1.0",
     "free-astro-components": "^1.1.1",
     "lucide-astro": "^0.460.0",
+    "lucide-react": "^0.475.0",
     "motion": "^11.13.5",
     "postcss": "^8.5.1",
     "prettier": "^3.3.3",
