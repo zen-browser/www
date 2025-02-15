@@ -1,7 +1,31 @@
 {
-  "version": "xxx",
+  "version": "1.8t",
   "image": false,
-  "extra": "",
-  "fixes": [],
-  "features": []
+  "extra": "Huge update filled with improvements and QoL features.",
+  "fixes": [
+    "Fixed weird text generation when rendering PDFs/Google Docs on some websites, without the need to disable hardware acceleration",
+    "Fixed glance opening on the wrong location when expanding while opened on a normal tab",
+    "Fixed tabs being cliped while dragging with the touchpad",
+    "Fixed the floating URL bar hiding while doing IME composition",
+    "Fixed transparent URL bar when focusing it on fullscreen",
+    "Fixed workspace switching sometimes selecting the wrong previously selected tab",
+    "Fixed tabs sharing screens not hiding when switching workspaces",
+    "Fixed urlbar glitching when focusing in compact mode",
+    "Fixed pinned tabs separator using the wrong tabs when hiding",
+    "Fixed rearanging essential tabs containing glance tabs",
+    "Fixed normal tabs opening where pinned tabs are after having a glance tab opened"
+  ],
+  "features": [
+    "🔥 Tabs are handled in different containers, meaning faster transitions and better swiping experience",
+    "🔥 Added support for acrylic backgrounds for windows 11 with mica support",
+    "🔥 (Rolling) Added support for drag-to-split and splitted tabs are now grouped together",
+    "🔥 (Rolling) Added support renaming pinned tabs",
+    "🔥 (Rolling) New, better on boarding experience",
+    "Improved URL bar styles, colors and more",
+    "When opening a new tab with the urlbar, the newtab button is now selected for better understanding",
+    "More nativity. MacOS will now use SF Pro icons, windows users will use Fluent icons and Linux users will use Nucleo icons",
+    "Added a timer setting that states how much the newtab urlbar should wait before clearing it's contents (default is 45 seconds)",
+    "Faster initialization of the UI",
+    "MacOS users will now have zen display as 'Zen' instead of 'Zen Browser' in the native top bar"
+  ]
 }
