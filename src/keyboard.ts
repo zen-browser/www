@@ -30,7 +30,11 @@ function handleDownloadPageKey(e: KeyboardEvent) {
 }
 
 function handleOsSpecificKeys(e: KeyboardEvent, url: string) {
-  if (url.endsWith('#os-select-windows')) {
+  if (e.key === 'Backspace') {
+    document.querySelector<HTMLElement>('#back-button')?.click()
+    return
+  }
+  if (url.endsWith('#windows')) {
     switch (e.key) {
       case '1':
         clickAndScroll('windows-target-x86_64')
@@ -40,11 +44,11 @@ function handleOsSpecificKeys(e: KeyboardEvent, url: string) {
         break
     }
   } else if (
-    url.endsWith('#windows-target-x86_64') ||
-    url.endsWith('#windows-target-arm64')
+    url.endsWith('#windows-x86_64') ||
+    url.endsWith('#windows-arm64')
   ) {
     handleWindowsTargetKeys(e, url)
-  } else if (url.endsWith('#os-select-linux')) {
+  } else if (url.endsWith('#linux')) {
     switch (e.key) {
       case '1':
         clickAndScroll('linux-target-x86_64')
@@ -53,10 +57,7 @@ function handleOsSpecificKeys(e: KeyboardEvent, url: string) {
         clickAndScroll('linux-target-aarch64')
         break
     }
-  } else if (
-    url.endsWith('#linux-target-x86_64') ||
-    url.endsWith('#linux-target-aarch64')
-  ) {
+  } else if (url.endsWith('#linux-x86_64') || url.endsWith('#linux-aarch64')) {
     handleLinuxTargetKeys(e)
   }
 }
@@ -95,7 +96,6 @@ function clickAndScroll(targetId: string) {
   const targetElement = document.querySelector<HTMLElement>(`#${targetId}`)
   if (targetElement) {
     targetElement.click()
-    window.location.href = `#${targetId}`
   }
 }
 
