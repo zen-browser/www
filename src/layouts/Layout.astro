@@ -96,6 +96,127 @@ import MobileNavBar from '../components/MobileNavBar'
     <Footer />
   </body>
 </html>
+<script>
+  document.addEventListener('keydown', (e) => {
+    if (window.location.pathname.includes('/download')) {
+      handleDownloadPageKey(e);
+    } 
+    handleGeneralKey(e);
+  });
+  
+  function handleDownloadPageKey(e) {
+    const url = window.location.href;
+  
+    switch (e.key) {
+      case 'w':
+        clickAndScroll('os-select-windows');
+        break;
+      case 'l':
+        clickAndScroll('os-select-linux');
+        break;
+      case 'm':
+        document.querySelector('#macos-select')?.click();
+        break;
+      default:
+        handleOsSpecificKeys(e, url);
+    }
+  }
+  
+  function handleOsSpecificKeys(e, url) {
+    if (url.includes('#os-select-windows')) {
+      switch (e.key) {
+        case '1':
+          clickAndScroll('windows-target-x86_64');
+          break;
+        case '2':
+          clickAndScroll('windows-target-arm64');
+          break;
+      }
+    } else if (url.includes('#windows-target-x86_64') || url.includes('#windows-target-arm64')) {
+      handleWindowsTargetKeys(e, url);
+    } else if (url.includes('#os-select-linux')) {
+      switch (e.key) {
+        case '1':
+          clickAndScroll('linux-target-x86_64');
+          break;
+        case '2':
+          clickAndScroll('linux-target-aarch64');
+          break;
+      }
+    } else if (url.includes('#linux-target-x86_64') || url.includes('#linux-target-aarch64')) {
+      handleLinuxTargetKeys(e);
+    }
+  }
+  
+  function handleWindowsTargetKeys(e, url) {
+    const twilight = url.includes('?twilight');
+  
+    switch (e.key) {
+      case '1':
+        document.querySelector('#windows-installer-download')?.click();
+        break;
+      case '2':
+        if (twilight) {
+          document.querySelector('#windows-zip-download')?.click();
+        }
+        break;
+    }
+  }
+  
+  function handleLinuxTargetKeys(e) {
+    switch (e.key) {
+      case '1':
+        document.querySelector('#linux-tar-download')?.click();
+        break;
+      case '2':
+        document.querySelector('#linux-appimage-download')?.click();
+        break;
+      case '3':
+        document.querySelector('#linux-flathub-download')?.click();
+        break;
+    }
+  }
+  
+  function clickAndScroll(targetId) {
+    const targetElement = document.querySelector(`#${targetId}`);
+    if (targetElement) {
+      targetElement.click();
+      window.location.href = `#${targetId}`;
+    }
+  }
+  
+  function handleGeneralKey(e) {
+    switch (e.key) {
+      case 's':
+        window.location.href = '/';
+        break;
+      case 'n':
+        window.location.href = '#nav-bar';
+        break;
+      case 'f':
+        window.location.href = '#footer';
+        break;
+      case 'e':
+        window.location.href = '/#features';
+        break;
+      case 'd':
+        window.location.href = '/download';
+        break;
+      case 'z':
+        window.location.href = '/mods';
+        break;
+      case 'r':
+        window.location.href = '/release-notes';
+        break;
+      case 't':
+        window.location.href = '/download?twilight';
+        break;
+      case 'g':
+        window.open('https://github.com/zen-browser');
+        break;
+    }
+  }
+</script>
 <style is:global>
   @font-face {
     font-family: 'Junicode';

@@ -12,6 +12,7 @@ import Button from './Button.astro'
 import { ArrowRight } from 'lucide-astro'
 
 import { getTitleAnimation, getZoomInAnimation } from '../animations'
+import KeyboardButton from './KeyboardButton.astro'
 ---
 
 <section id="sponsors" class="px-4 lg:flex-row lg:px-12 lg:py-32 xl:px-24">
@@ -60,7 +61,7 @@ import { getTitleAnimation, getZoomInAnimation } from '../animations'
     <div class="mt-4 flex gap-4">
       <motion.span client:load {...getTitleAnimation(0.6)}>
         <Button isPrimary href="/mods">
-          Explore Zen Mods
+          Explore <KeyboardButton key="Z" />en Mods
           <ArrowRight className="size-4" />
         </Button>
       </motion.span>

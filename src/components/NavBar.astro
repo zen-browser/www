@@ -15,6 +15,7 @@ import { ArrowRight, ChevronDown, Download, DownloadCloud } from 'lucide-astro'
 import Logo from './Logo.astro'
 import { ThemeSwitch } from 'free-astro-components'
 import { getTitleAnimation } from '../animations.ts'
+import KeyboardButton from './KeyboardButton.astro'
 ---
 
 <nav
@@ -124,7 +125,7 @@ import { getTitleAnimation } from '../animations.ts'
         </div>
         <Button href="/download" class="ml-auto" isPrimary>
           <span class="hidden items-center gap-2 md:flex">
-            Download
+            <KeyboardButton key="D" />ownload
             <ArrowRight class="size-4" />
           </span>
           <span class="md:hidden">

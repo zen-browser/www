@@ -5,6 +5,7 @@ import Button from '../components/Button.astro'
 import { motion } from 'motion/react'
 import { Github, Check } from 'lucide-astro'
 import { getTitleAnimation } from '../animations'
+import KeyboardButton from './KeyboardButton.astro'
 ---
 
 <section
@@ -32,7 +33,7 @@ import { getTitleAnimation } from '../animations'
     <motion.span client:load {...getTitleAnimation(0.8)}>
       <Button class:list={['px-4']} href="https://github.com/zen-browser">
         <Github class="size-4" />
-        <span>View on GitHub</span>
+        <span>View on <KeyboardButton key="G" />itHub</span>
       </Button>
     </motion.span>
     <motion.div

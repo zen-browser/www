@@ -13,6 +13,7 @@ import {
   faTwitter,
   faReddit,
 } from '@fortawesome/free-brands-svg-icons'
+import KeyboardButton from './KeyboardButton.astro'
 
 library.add(faMastodon, faBluesky, faGithub, faTwitter, faReddit)
 const Mastodon = icon({ prefix: 'fab', iconName: 'mastodon' })
@@ -39,7 +40,7 @@ const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
     class="flex w-full flex-col justify-between gap-6 lg:my-12 lg:flex-row lg:pr-52"
   >
     <Button href="/download" isPrimary class="h-fit w-fit bg-paper !text-dark">
-      Download
+      <KeyboardButton key="D" />ownload
       <ArrowRight class="size-4" />
     </Button>
     <div class="flex flex-col gap-10">
@@ -99,10 +100,17 @@ const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
     <div class="flex flex-col gap-2">
       <Description class="!font-semibold"> Get Started </Description>
       <div class="flex flex-col opacity-80">
-        <a href="/download" class="font-normal">Download</a>
-        <a href="/mods" class="font-normal">Zen Mods</a>
-        <a href="/release-notes" class="font-normal">Release Notes</a>
-        <a href="/download?twilight" class="font-normal">Twilight</a>
+        <a href="/download" class="font-normal"
+          ><KeyboardButton key="D" />ownload</a
+        >
+        <a href="/mods" class="font-normal"><KeyboardButton key="Z" />en Mods</a
+        >
+        <a href="/release-notes" class="font-normal"
+          ><KeyboardButton key="R" />elease Notes</a
+        >
+        <a href="/download?twilight" class="font-normal"
+          ><KeyboardButton key="T" />wilight</a
+        >
       </div>
     </div>
     <div class="flex flex-col gap-2">

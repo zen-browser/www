@@ -7,6 +7,7 @@ import myImage from '../assets/browser.png'
 import { ArrowRight } from 'lucide-astro'
 import { motion } from 'motion/react'
 import { getTitleAnimation } from '../animations'
+import KeyboardButton from './KeyboardButton.astro'
 
 let titleAnimationCounter = 0
 function getNewAnimationDelay() {
@@ -53,12 +54,12 @@ function getHeroTitleAnimation() {
     <div class="mt-6 flex w-2/3 flex-col gap-3 sm:gap-6 md:w-fit md:flex-row">
       <motion.span client:load {...getHeroTitleAnimation()}>
         <Button class="w-full" href="/download" isPrimary>
-          Beta is now available!
+          <KeyboardButton key="D" /> Beta is now available!
           <ArrowRight class="size-4" />
         </Button>
       </motion.span>
       <motion.span client:load {...getHeroTitleAnimation()}>
-        <Button href="#features">Explore Zen</Button>
+        <Button href="#features"><KeyboardButton key="E" /> Explore Zen</Button>
       </motion.span>
     </div>
   </div>
