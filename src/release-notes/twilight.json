@@ -19,7 +19,7 @@
     "🔥 Tabs are handled in different containers, meaning faster transitions and better swiping experience",
     "🔥 Added support for acrylic backgrounds for windows 11 with mica support",
     "🔥 (Rolling) Added a better gradient generator that follows color theory",
-    "🔥 (Rolling) Added support renaming pinned tabs",
+    "🔥 Added support renaming pinned tabs",
     "🔥 (Rolling) New, better on boarding experience",
     "Improved URL bar styles, colors and more",
     "When opening a new tab with the urlbar, the newtab button is now selected for better understanding",
