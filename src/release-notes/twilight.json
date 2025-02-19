@@ -20,7 +20,7 @@
     "🔥 Added support for acrylic backgrounds for windows 11 with mica support",
     "🔥 (Rolling) Added a better gradient generator that follows color theory",
     "🔥 Added support renaming pinned tabs",
-    "🔥 Added support for a state-less empty tab",
+    "🔥 Added support for a state-less empty tab (only enabled if 'zen.urlbar.replace-newtab' is enabled)",
     "🔥 (Rolling) New, better on boarding experience",
     "Improved URL bar styles, colors and more",
     "When opening a new tab with the urlbar, the newtab button is now selected for better understanding",
