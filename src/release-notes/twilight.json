@@ -13,7 +13,8 @@
     "Fixed urlbar glitching when focusing in compact mode",
     "Fixed pinned tabs separator using the wrong tabs when hiding",
     "Fixed rearanging essential tabs containing glance tabs",
-    "Fixed normal tabs opening where pinned tabs are after having a glance tab opened"
+    "Fixed normal tabs opening where pinned tabs are after having a glance tab opened",
+    "Fixed trying to unload an about:* page rendering the browser useless"
   ],
   "features": [
     "🔥 Tabs are handled in different containers, meaning faster transitions and better swiping experience",
