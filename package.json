@@ -23,7 +23,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
-    "astro": "^5.2.5",
+    "astro": "^5.3.0",
     "astro-navbar": "^2.3.7",
     "autoprefixer": "10.4.14",
     "date-fns": "^4.1.0",
