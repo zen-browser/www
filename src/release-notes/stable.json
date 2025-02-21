@@ -363,7 +363,9 @@
     "version": "1.0.0-a.13",
     "date": "05/08/2024",
     "extra": "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
-    "features": ["Allow to remember sidebar width even after collapsing it."],
+    "features": [
+      "Allow to remember sidebar width even after collapsing it."
+    ],
     "fixes": [
       {
         "description": "Task Manager Icon Missing in Flatpak Version",
@@ -919,7 +921,9 @@
     "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-    "features": ["Added a new system for handling keyboard shortcuts"],
+    "features": [
+      "Added a new system for handling keyboard shortcuts"
+    ],
     "fixes": [
       {
         "description": "The New Tab button is not visible",
@@ -976,7 +980,9 @@
       "Enabled container tabs by default",
       "Improved Expand Tabs on Hover layout"
     ],
-    "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
+    "themeChanges": [
+      "Toggle inputs will not use the themed tertiary color"
+    ],
     "breakingChanges": [
       "The keyboard shortcuts will be overriden by the defaults ones in this update"
     ],
@@ -1273,7 +1279,9 @@
         "issue": 2156
       }
     ],
-    "breakingChanges": ["Removed Show Expand Button option from settings"],
+    "breakingChanges": [
+      "Removed Show Expand Button option from settings"
+    ],
     "themeChanges": [
       "The variable '--zen-main-browser-background' will now contain the generated gradient",
       "Added the 'unread' attribute for background tabs that haven't been accessed yet"
@@ -1376,7 +1384,9 @@
         "description": "Fixed wrong aligment on glance action buttons"
       }
     ],
-    "features": ["No new features, sorry"]
+    "features": [
+      "No new features, sorry"
+    ]
   },
   {
     "version": "1.0.1-a.17",
@@ -2226,5 +2236,63 @@
     ],
     "workflowId": 13209591935,
     "date": "08/02/2025"
+  },
+  {
+    "version": "1.8b",
+    "image": false,
+    "extra": "Huge update filled with improvements and QoL features.\n\nP.S. Checkout this cool site! https://doeszenhavedrmyet.com/",
+    "fixes": [
+      "Fixed weird text generation when rendering PDFs/Google Docs on some websites, without the need to disable hardware acceleration",
+      "Fixed glance opening on the wrong location when expanding while opened on a normal tab",
+      "Fixed tabs being cliped while dragging with the touchpad",
+      "Fixed the floating URL bar hiding while doing IME composition",
+      "Fixed transparent URL bar when focusing it on fullscreen",
+      "Fixed workspace switching sometimes selecting the wrong previously selected tab",
+      "Fixed tabs sharing screens not hiding when switching workspaces",
+      "Fixed urlbar glitching when focusing in compact mode",
+      "Fixed pinned tabs separator using the wrong tabs when hiding",
+      "Fixed rearanging essential tabs containing glance tabs",
+      "Fixed normal tabs opening where pinned tabs are after having a glance tab opened",
+      "Fixed trying to unload an about:* page rendering the browser useless",
+      "Fixed floating URL bar glitching hovering compact mode sidebar",
+      "Fixed pinned/essentials tabs being reorganized when opening multiple windows",
+      "Fixed renaming/changing icons on some occations not working",
+      "Fixed pinning tabs with glance opened not working",
+      "Fixed pinned tabs / essentials opening in the container that the window was opened",
+      "Fixed not being able to move around multiple pinned tabs at the same time",
+      "Fixed selecting essentials / pinned tabs when switching workspaces"
+    ],
+    "features": [
+      "\ud83d\udd25 Tabs are handled in different containers, meaning faster transitions and better swiping experience",
+      "\ud83d\udd25 Added support for acrylic backgrounds for windows 11 with mica support",
+      "\ud83d\udd25 Added a better gradient generator that follows color theory",
+      "\ud83d\udd25 Added support renaming pinned tabs",
+      "\ud83d\udd25 Added support for a state-less empty tab (only enabled if 'zen.urlbar.replace-newtab' is enabled)",
+      "\ud83d\udd25 New, better on boarding experience",
+      "Pinned tabs will now have an 'indicator' to reset back to the original URL",
+      "Windows users will now be able to watch DRM content (experimental wmfcdm encrypted media, off by default)",
+      "Improved URL bar styles, colors and more",
+      "Updated to firefox 135.0.1",
+      "When opening a new tab with the urlbar, the newtab button is now selected for better understanding",
+      "Added a timer setting that states how much the newtab urlbar should wait before clearing it's contents (default is 45 seconds)",
+      "Faster initialization of the UI and better initial loading experience",
+      "Increased font size for macos users",
+      "MacOS users will now have zen display as 'Zen' instead of 'Zen Browser' in the native top bar",
+      "Removed 'status alert' green dot from tabs",
+      "Added improved and bouncier toast notifications",
+      "URL bar is now fully floatable, always at the center of the screen and with better looks",
+      "Added an option to completly ignore hovering over the compact mode sidebar ('zen.view.compact.show-sidebar-and-toolbar-on-hover' in about:config)",
+      "Improved shadows, borders and corners in common UI elements",
+      "Compact mode now also gets texture if any is set",
+      "MacOS window buttons are now mono colored (zen.widget.mac.mono-window-controls in about:config)",
+      "Add support for additional languages: Welsh, Estonian, Persian, Finnish, Hebrew, and Icelandic",
+      "Swiping between workspaces now has a force feedback and a maximum limit"
+    ],
+    "breakingChanges": [
+      "Removed profile switching toolbar button and dialog, now that firefox will release them in their next version",
+      "Bottom toolbar has ben reset to the default"
+    ],
+    "workflowId": 13466711068,
+    "date": "21/02/2025"
   }
 ]
