@@ -1,0 +1,10 @@
+---
+const { key, isPrimary } = Astro.props
+---
+
+<span
+  class:list={[
+    'underline decoration-paper underline-offset-2',
+    isPrimary ? 'decoration-paper' : 'decoration-dark',
+  ]}>{key}</span
+>
