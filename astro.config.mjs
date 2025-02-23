@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 
-import react from '@astrojs/react'
+import preact from '@astrojs/preact'
 
 import sitemap from '@astrojs/sitemap'
 
@@ -10,7 +10,7 @@ import sitemap from '@astrojs/sitemap'
 export default defineConfig({
   integrations: [
     tailwind(),
-    react(),
+    preact({ compat: true }),
     sitemap({
       // TODO: Maybe? Maybe not?
       //   filter: (page) => !page.includes('mods/'),

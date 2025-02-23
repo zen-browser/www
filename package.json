@@ -10,10 +10,14 @@
     "wrangler": "wrangler",
     "astro": "astro"
   },
+  "overrides": {
+    "react": "npm:@preact/compat@latest",
+    "react-dom": "npm:@preact/compat@latest"
+  },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/cloudflare": "^12.2.1",
-    "@astrojs/react": "^4.2.0",
+    "@astrojs/preact": "^4.0.4",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^6.0.0",
@@ -21,8 +25,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.7.1",
     "@fortawesome/free-brands-svg-icons": "^6.7.1",
     "@fortawesome/free-solid-svg-icons": "^6.7.1",
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.2",
     "astro": "^5.3.0",
     "astro-navbar": "^2.3.7",
     "autoprefixer": "10.4.14",
@@ -32,11 +34,10 @@
     "lucide-react": "^0.475.0",
     "motion": "^11.13.5",
     "postcss": "^8.5.1",
+    "preact": "^10.26.2",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.6",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
     "sharp": "^0.33.5",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"

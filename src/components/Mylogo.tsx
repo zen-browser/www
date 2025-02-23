@@ -1,10 +1,8 @@
-import React from 'react'
-
 interface MyLogoProps {
   className?: string
 }
 
-const MyLogo: React.FC<MyLogoProps> = ({ className }) => (
+const MyLogo = ({ className }: MyLogoProps) => (
   <svg
     className={className}
     width="32"

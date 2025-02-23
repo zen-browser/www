@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import { useState } from 'preact/hooks'
 import MyLogo from './Mylogo'
 import { Menu } from 'lucide-react'
 import ThemeSwitch from './ThemeSwitch/ThemeSwitch'
 
-const MobileNavbar: React.FC = () => {
+const MobileNavbar = () => {
   const [isMenuOpen, setMenuOpen] = useState(false)
 
   const menuTransformClass = isMenuOpen ? 'translate-x-0' : 'translate-x-full'
