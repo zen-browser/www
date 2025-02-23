@@ -2261,7 +2261,7 @@
       "Fixed pinned tabs / essentials opening in the container that the window was opened",
       "Fixed not being able to move around multiple pinned tabs at the same time",
       "Fixed selecting essentials / pinned tabs when switching workspaces",
-      "Fixed opening new windows with contaienr specific essentials showing all at once",
+      "Fixed opening new windows with contaienr specific essentials showing all at once"
     ],
     "features": [
       "\ud83d\udd25 Tabs are handled in different containers, meaning faster transitions and better swiping experience",
