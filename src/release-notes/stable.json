@@ -2260,7 +2260,8 @@
       "Fixed pinning tabs with glance opened not working",
       "Fixed pinned tabs / essentials opening in the container that the window was opened",
       "Fixed not being able to move around multiple pinned tabs at the same time",
-      "Fixed selecting essentials / pinned tabs when switching workspaces"
+      "Fixed selecting essentials / pinned tabs when switching workspaces",
+      "Fixed opening new windows with contaienr specific essentials showing all at once",
     ],
     "features": [
       "\ud83d\udd25 Tabs are handled in different containers, meaning faster transitions and better swiping experience",
@@ -2286,13 +2287,15 @@
       "Compact mode now also gets texture if any is set",
       "MacOS window buttons are now mono colored (zen.widget.mac.mono-window-controls in about:config)",
       "Add support for additional languages: Welsh, Estonian, Persian, Finnish, Hebrew, and Icelandic",
-      "Swiping between workspaces now has a force feedback and a maximum limit"
+      "Swiping between workspaces now has a force feedback and a maximum limit",
+      "Double clicking on an essential now resets to the original URL",
+      "Changed default behaviour of the '-' button on pinned tabs to reset, unload and switch the tab" 
     ],
     "breakingChanges": [
       "Removed profile switching toolbar button and dialog, now that firefox will release them in their next version",
       "Bottom toolbar has ben reset to the default"
     ],
-    "workflowId": 13483193145,
+    "workflowId": 13486953635,
     "date": "21/02/2025"
   }
 ]
