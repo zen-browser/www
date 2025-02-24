@@ -2305,9 +2305,11 @@
     "fixes": [
       "Fixed updating from older versions not showing tabs from other workspaces at startup",
       "Fixed double clicking on essentials not restoring their URL",
-      "Fixed reordering tabs with glance changing locations"
+      "Fixed reordering tabs with glance changing locations",
+      "Fixed opening the settings page not selecting the tab",
+      "Fixed issues where a new profile would be created"
     ],
-    "workflowId": 13495269800,
+    "workflowId": 13505838487,
     "date": "24/02/2025"
   }
 ]
