@@ -1,5 +1,4 @@
-import type React from 'react'
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'preact/hooks'
 import type { ZenTheme } from '../mods'
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons'
@@ -48,15 +47,17 @@ export default function ModsList({ mods }: ModsListProps) {
     return defaultSortIcon
   }
 
-  function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
-    setSearch(e.target.value)
+  function handleSearch(e: Event) {
+    const target = e.target as HTMLInputElement
+    setSearch(target.value)
   }
 
-  function handleLimitChange(e: React.ChangeEvent<HTMLSelectElement>) {
-    setLimit(Number.parseInt(e.target.value, 10))
+  function handleLimitChange(e: Event) {
+    const target = e.target as HTMLSelectElement
+    setLimit(Number.parseInt(target.value, 10))
   }
 
-  function handlePageSubmit(e: React.FormEvent) {
+  function handlePageSubmit(e: Event) {
     e.preventDefault()
     const newPage = Number.parseInt(pageInput, 10)
     if (!Number.isNaN(newPage) && newPage >= 1 && newPage <= totalPages) {
@@ -67,27 +68,24 @@ export default function ModsList({ mods }: ModsListProps) {
     }
   }
 
-  function handlePageInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setPageInput(e.target.value)
+  function handlePageInputChange(e: Event) {
+    const target = e.target as HTMLInputElement
+    setPageInput(target.value)
   }
 
   function getPageUrl(pageNum: number) {
     const params = new URLSearchParams(searchParams)
-
     if (pageNum > 1) {
       params.set('page', pageNum.toString())
     } else {
       params.delete('page')
     }
-
     const queryString = params.toString()
     return `/mods${queryString ? `?${queryString}` : ''}`
   }
 
   function renderPagination() {
     if (totalPages <= 1) return null
-
-    // Render page input for larger page counts
     return (
       <div className="mx-auto mb-12 flex items-center justify-center gap-4 px-8">
         <a
@@ -105,7 +103,7 @@ export default function ModsList({ mods }: ModsListProps) {
           <input
             type="text"
             value={pageInput}
-            onChange={handlePageInputChange}
+            onInput={handlePageInputChange}
             className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
             aria-label="Page number"
           />
@@ -137,7 +135,7 @@ export default function ModsList({ mods }: ModsListProps) {
             className="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg outline-none"
             placeholder="Type to search..."
             value={search}
-            onChange={handleSearch}
+            onInput={handleSearch}
           />
         </div>
 
@@ -179,7 +177,7 @@ export default function ModsList({ mods }: ModsListProps) {
             <select
               id="limit"
               value={limit}
-              onChange={handleLimitChange}
+              onInput={handleLimitChange}
               className="rounded border border-dark bg-transparent px-2 py-1 text-sm [&>option]:text-black"
             >
               <option value="12">12</option>
