@@ -2297,5 +2297,17 @@
     ],
     "workflowId": 13486953635,
     "date": "21/02/2025"
+  },
+  {
+    "version": "1.8.1b",
+    "image": false,
+    "extra": "Small update with some bug fixes and improvements",
+    "fixes": [
+      "Fixed updating from older versions not showing tabs from other workspaces at startup",
+      "Fixed double clicking on essentials not restoring their URL",
+      "Fixed reordering tabs with glance changing locations"
+    ],
+    "workflowId": 13494730786,
+    "date": "24/02/2025"
   }
 ]
