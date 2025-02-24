@@ -2307,9 +2307,10 @@
       "Fixed double clicking on essentials not restoring their URL",
       "Fixed reordering tabs with glance changing locations",
       "Fixed opening the settings page not selecting the tab",
-      "Fixed issues where a new profile would be created"
+      "Fixed issues where a new profile would be created",
+      "Fixed floating urlbar when entering compact mode using double toolbars"
     ],
-    "workflowId": 13505838487,
+    "workflowId": 13505992592,
     "date": "24/02/2025"
   }
 ]
