@@ -2312,5 +2312,23 @@
     ],
     "workflowId": 13505992592,
     "date": "24/02/2025"
+  },
+   {
+    "version": "1.8.2b",
+    "image": false,
+    "extra": "Another update with many bug fixes!",
+    "fixes": [
+      "Fixed pinned tabs reordering on startup",
+      "Fixed bookmarks not inheriting the container from the workspace",
+      "Fixed URL barin compact mode being cliped by the window",
+      "Fixed reordering normal tabs not working sometimes",
+      "Fixed pining a tab adding them to the essentials container",
+      "Other small fixes for compact mode not animating properly"
+    ],
+    "features": [
+      "localhost and http URL will now not be trimmed in single toolbar layout"
+    ],
+    "workflowId": 13530880093,
+    "date": "25/02/2025"
   }
 ]
