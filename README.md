@@ -4,7 +4,7 @@
 </picture>
 </div>
 <h1 align="center">
-Zen Browser Website
+Puchify Website
 </h1>
 
 [![Status badge](https://img.shields.io/endpoint?url=https%3A%2F%2Fuptime.zen-browser.app%2Fshield-badges%2Fstatus.json&style=for-the-badge)](https://uptime.zen-browser.app)
