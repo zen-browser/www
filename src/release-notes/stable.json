@@ -323,7 +323,7 @@
       "Added support for disallowing the sidebar web panels to closed when clicked outside and floating (Settings)",
       "Added support for the sidebar web panels to remember their width and if they are floating",
       "Allow installing unsigned extensions",
-      "Imrpoved onboarding experience",
+      "Improved onboarding experience",
       "New compact mode design, it's much better now",
       "Reduced CPU requirements for MacOS Intel CPUs",
       "Reduced blur for floating URL bar",
@@ -749,7 +749,7 @@
     "image": true,
     "extra": "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for mods, improved overal UX and added an a better theme support (Now called Zen Mods)!",
     "features": [
-      "Added verified digital signnature to Windows builds",
+      "Added verified digital signature to Windows builds",
       "Added Zen to Homebrew Cask repository",
       "Enabled private search suggestions by default",
       "Improved Theme Store settings page",
@@ -1224,7 +1224,7 @@
     "workflowId": 11419764479,
     "extra": "This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
     "features": [
-      "Fixed always rendering the split view overlay, pottentially fixing huge speed issues",
+      "Fixed always rendering the split view overlay, potentially fixing huge speed issues",
       "Disabled 'all' webrender options by default, performance increase for unsuported GPUs"
     ],
     "fixes": [
@@ -1935,7 +1935,7 @@
         "issue": 3575
       },
       {
-        "description": "Fixed preferences sidebar hidding on smaller screens",
+        "description": "Fixed preferences sidebar hiding on smaller screens",
         "issue": 4051
       },
       "Fixed coloring issue on tree elements such as search engine selection on the preferences page",
@@ -2244,7 +2244,7 @@
     "fixes": [
       "Fixed weird text generation when rendering PDFs/Google Docs on some websites, without the need to disable hardware acceleration",
       "Fixed glance opening on the wrong location when expanding while opened on a normal tab",
-      "Fixed tabs being cliped while dragging with the touchpad",
+      "Fixed tabs being clipped while dragging with the touchpad",
       "Fixed the floating URL bar hiding while doing IME composition",
       "Fixed transparent URL bar when focusing it on fullscreen",
       "Fixed workspace switching sometimes selecting the wrong previously selected tab",
