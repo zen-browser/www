@@ -14,7 +14,7 @@ const MobileNavbar = () => {
       <header className="flex items-center justify-between bg-paper px-4 py-2">
         <a className="flex items-center gap-2" href="/">
           <MyLogo className="h-8 w-8 text-coral" />
-          <span className="text-lg font-bold">zen browser</span>
+          <span className="text-lg font-bold">Puchify</span>
         </a>
         <div className="flex flex-row gap-2">
           <ThemeSwitch />
