@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'preact/hooks'
 import type { ZenTheme } from '../mods'
 
 type SortOrder = 'default' | 'asc' | 'desc'
@@ -70,7 +70,9 @@ export function useModsSearch(mods: ZenTheme[]) {
       searchParams.delete('limit')
     }
 
-    const newUrl = `${window.location.pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`
+    const newUrl = `${window.location.pathname}${
+      searchParams.toString() ? `?${searchParams.toString()}` : ''
+    }`
     window.history.replaceState({}, '', newUrl)
   }, [state, searchParams])
 

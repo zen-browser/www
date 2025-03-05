@@ -323,7 +323,7 @@
       "Added support for disallowing the sidebar web panels to closed when clicked outside and floating (Settings)",
       "Added support for the sidebar web panels to remember their width and if they are floating",
       "Allow installing unsigned extensions",
-      "Imrpoved onboarding experience",
+      "Improved onboarding experience",
       "New compact mode design, it's much better now",
       "Reduced CPU requirements for MacOS Intel CPUs",
       "Reduced blur for floating URL bar",
@@ -749,7 +749,7 @@
     "image": true,
     "extra": "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for mods, improved overal UX and added an a better theme support (Now called Zen Mods)!",
     "features": [
-      "Added verified digital signnature to Windows builds",
+      "Added verified digital signature to Windows builds",
       "Added Zen to Homebrew Cask repository",
       "Enabled private search suggestions by default",
       "Improved Theme Store settings page",
@@ -1224,7 +1224,7 @@
     "workflowId": 11419764479,
     "extra": "This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
     "features": [
-      "Fixed always rendering the split view overlay, pottentially fixing huge speed issues",
+      "Fixed always rendering the split view overlay, potentially fixing huge speed issues",
       "Disabled 'all' webrender options by default, performance increase for unsuported GPUs"
     ],
     "fixes": [
@@ -1935,7 +1935,7 @@
         "issue": 3575
       },
       {
-        "description": "Fixed preferences sidebar hidding on smaller screens",
+        "description": "Fixed preferences sidebar hiding on smaller screens",
         "issue": 4051
       },
       "Fixed coloring issue on tree elements such as search engine selection on the preferences page",
@@ -2244,7 +2244,7 @@
     "fixes": [
       "Fixed weird text generation when rendering PDFs/Google Docs on some websites, without the need to disable hardware acceleration",
       "Fixed glance opening on the wrong location when expanding while opened on a normal tab",
-      "Fixed tabs being cliped while dragging with the touchpad",
+      "Fixed tabs being clipped while dragging with the touchpad",
       "Fixed the floating URL bar hiding while doing IME composition",
       "Fixed transparent URL bar when focusing it on fullscreen",
       "Fixed workspace switching sometimes selecting the wrong previously selected tab",
@@ -2260,7 +2260,8 @@
       "Fixed pinning tabs with glance opened not working",
       "Fixed pinned tabs / essentials opening in the container that the window was opened",
       "Fixed not being able to move around multiple pinned tabs at the same time",
-      "Fixed selecting essentials / pinned tabs when switching workspaces"
+      "Fixed selecting essentials / pinned tabs when switching workspaces",
+      "Fixed opening new windows with contaienr specific essentials showing all at once"
     ],
     "features": [
       "\ud83d\udd25 Tabs are handled in different containers, meaning faster transitions and better swiping experience",
@@ -2286,13 +2287,48 @@
       "Compact mode now also gets texture if any is set",
       "MacOS window buttons are now mono colored (zen.widget.mac.mono-window-controls in about:config)",
       "Add support for additional languages: Welsh, Estonian, Persian, Finnish, Hebrew, and Icelandic",
-      "Swiping between workspaces now has a force feedback and a maximum limit"
+      "Swiping between workspaces now has a force feedback and a maximum limit",
+      "Double clicking on an essential now resets to the original URL",
+      "Changed default behaviour of the '-' button on pinned tabs to reset, unload and switch the tab" 
     ],
     "breakingChanges": [
       "Removed profile switching toolbar button and dialog, now that firefox will release them in their next version",
-      "Bottom toolbar has ben reset to the default"
+      "Bottom toolbar has been reset to the default"
     ],
-    "workflowId": 13466711068,
+    "workflowId": 13486953635,
     "date": "21/02/2025"
+  },
+  {
+    "version": "1.8.1b",
+    "image": false,
+    "extra": "Small update with some bug fixes and improvements",
+    "fixes": [
+      "Fixed updating from older versions not showing tabs from other workspaces at startup",
+      "Fixed double clicking on essentials not restoring their URL",
+      "Fixed reordering tabs with glance changing locations",
+      "Fixed opening the settings page not selecting the tab",
+      "Fixed issues where a new profile would be created",
+      "Fixed floating urlbar when entering compact mode using double toolbars"
+    ],
+    "workflowId": 13505992592,
+    "date": "24/02/2025"
+  },
+   {
+    "version": "1.8.2b",
+    "image": false,
+    "extra": "Another update with many bug fixes!",
+    "fixes": [
+      "Fixed pinned tabs reordering on startup",
+      "Fixed bookmarks not inheriting the container from the workspace",
+      "Fixed URL barin compact mode being cliped by the window",
+      "Fixed reordering normal tabs not working sometimes",
+      "Fixed pining a tab adding them to the essentials container",
+      "Other small fixes for compact mode not animating properly"
+    ],
+    "features": [
+      "localhost and http URL will now not be trimmed in single toolbar layout"
+    ],
+    "workflowId": 13530880093,
+    "date": "25/02/2025"
   }
 ]
