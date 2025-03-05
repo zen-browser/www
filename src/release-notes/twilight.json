@@ -26,6 +26,8 @@
     "Added martial arts emoji to the default emoji set",
     "MacOS users can now control what window material they have (zen.widget.macos.window-material, 1 to 7, default is 2)",
     "Added support to drag and drop tabs from other windows while in compact mode",
-    "Small changes to padding around the website and URL bar"
+    "Small changes to padding around the website and URL bar",
+    "Allow mica to be changed dynamically without a restart",
+    "Did some changes to the default on boarding essentials selection as some people had concerns about them"
   ]
 }
