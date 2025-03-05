@@ -1,7 +1,31 @@
 {
-  "version": "xxx",
+  "version": "1.9t",
   "image": false,
-  "extra": "",
-  "fixes": [],
-  "features": []
+  "extra": "Another nice update for Zen! This time we've added a new feature that allows you drag and drop tabs into the browser to split them!",
+  "fixes": [
+    "Fixed pinned tabs being subject to appearing on the essentials container",
+    "Fixed opening bookmarks on empty tab pages",
+    "Fixed automatic glance opening from the edge of the screen",
+    "Fixed background gradients not showing the colors in the correct order",
+    "Fixed creating essentials being in the wrong order",
+    "Fixed watermark not waiting enough time and startup layout",
+    "Fixed reordering tabs not being correctly saved for pinned tabs",
+    "Fixed bookmark items not opening",
+    "Fixed not hiding empty tab from add-ons, crashing the browser on some cases",
+    "Fixed compact mode sidebar animating on an empty state and not animating properly when having the URL bar floating",
+    "Fixed expanding glance not opening in the correct possition when having container specific essentials",
+    "Fixed external links not opening in the correct workspace container",
+    "Fixed appimage not being able to set itself as default web browser"
+  ],
+  "features": [
+    "Updated to firefox 136.0",
+    "Added support for a drag and drop tab split feature that also groups tabs in a nice UI!",
+    "Implemented a more complete JPEG XL decoding and OS support, allowing things such as animated images and more",
+    "Allow having full url without https in sidebar (zen.urlbar.show-domain-only-in-sidebar)",
+    "Add preference to hide one-off search buttons (off by default, zen.urlbar.hide-one-offs)",
+    "Added martial arts emoji to the default emoji set",
+    "MacOS users can now control what window material they have (zen.widget.macos.window-material, 1 to 7, default is 2)",
+    "Added support to drag and drop tabs from other windows while in compact mode",
+    "Small changes to padding around the website and URL bar"
+  ]
 }
