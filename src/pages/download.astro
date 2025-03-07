@@ -344,6 +344,7 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
     } else {
       throw new Error('Unknown state')
     }
+    window.location.href = `#${selectedOS}${selectedArch ? '-' + selectedArch : ''}`
   }
 
   function goPreviousForm() {
@@ -377,6 +378,12 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
       selectedOS = null
       showButton('back-button', false)
     }
+    if (
+      window.location.href.endsWith('/download') ||
+      window.location.href.endsWith('/download?twilight')
+    )
+      return
+    window.history.back()
   }
 
   showButton('back-button', false) // Hide Back button on page load
@@ -419,14 +426,12 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 
   if (!isTwilight) {
     document
-    .getElementById('linux-flathub-download')
-    ?.addEventListener('click', () => {
-      window.open('https://flathub.org/apps/app.zen_browser.zen')
-    })
-  }
-  else {
-    document
-    .getElementById('linux-flathub-download')?.classList.add('hidden')
+      .getElementById('linux-flathub-download')
+      ?.addEventListener('click', () => {
+        window.open('https://flathub.org/apps/app.zen_browser.zen')
+      })
+  } else {
+    document.getElementById('linux-flathub-download')?.classList.add('hidden')
   }
 
   document
@@ -476,6 +481,19 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
     ?.addEventListener('click', () => {
       goNextForm()
     })
+
+  window.addEventListener('load', () => {
+    if (
+      window.location.href.endsWith('?twilight') ||
+      window.location.href.endsWith('/download')
+    ) {
+      return
+    }
+    if (window.location.href.includes('?twilight')) {
+      return window.history.pushState(null, '', '/download?twilight')
+    }
+    return window.history.pushState(null, '', '/download')
+  })
 </script>
 <style is:global>
   @keyframes fadeIn {
