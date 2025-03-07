@@ -15,7 +15,9 @@
     "Fixed compact mode sidebar animating on an empty state and not animating properly when having the URL bar floating",
     "Fixed expanding glance not opening in the correct possition when having container specific essentials",
     "Fixed external links not opening in the correct workspace container",
-    "Fixed appimage not being able to set itself as default web browser"
+    "Fixed appimage not being able to set itself as default web browser",
+    "Fixed closing the browser in an empty state opening about:blank on startup",
+    "Fixed linux users crashing when closing the laptop lid"
   ],
   "features": [
     "Updated to firefox 136.0",
@@ -27,7 +29,7 @@
     "MacOS users can now control what window material they have (zen.widget.macos.window-material, 1 to 7, default is 2)",
     "Added support to drag and drop tabs from other windows while in compact mode",
     "Small changes to padding around the website and URL bar",
-    "Allow mica to be changed dynamically without a restart",
+    "Favicons should render with better corners now",
     "Did some changes to the default on boarding essentials selection as some people had concerns about them"
   ]
 }
