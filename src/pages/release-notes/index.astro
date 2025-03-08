@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro'
 import ReleaseNoteItem from '../../components/ReleaseNoteItem.astro'
 import { releaseNotes, releaseNotesTwilight } from '../../release-notes'
 import Title from '../../components/Title.astro'
+import Description from '../../components/Description.astro'
 ---
 
 <Layout title="Release Notes - Zen Browser">
@@ -12,7 +13,7 @@ import Title from '../../components/Title.astro'
     <div
       class="py-42 flex min-h-screen flex-col justify-center px-10 lg:px-10 xl:px-10 2xl:w-3/5"
     >
-      <Title class="mt-48 text-4xl font-bold">Release Notes</Title>
+      <Description class="mt-48 text-4xl font-bold">Release Notes</Description>
       <p class="text-base opacity-55">
         Stay up to date with the latest changes to Zen Browser! Since the <a
           class="text-coral"
