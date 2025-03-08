@@ -9,6 +9,8 @@ import CompactModeVideo from '../assets/CompactMode.mp4'
 import SplitViewsVideo from '../assets/SplitViews.mp4'
 
 import Video from './Video.astro'
+
+const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.props
 ---
 
 <section
@@ -17,11 +19,11 @@ import Video from './Video.astro'
 >
   <Description class="mb-2 text-6xl font-bold">
     <motion.span client:load {...getTitleAnimation(0.2)}>
-      Productivity
+      {title1}
     </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.4)}> at </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.4)}> {title2} </motion.span>
     <motion.span client:load {...getTitleAnimation(0.6)}>
-      its best
+      {title3}
     </motion.span>
   </Description>
   <motion.p client:load {...getTitleAnimation(0.6)} className="lg:w-1/2">
