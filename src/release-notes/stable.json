@@ -2340,7 +2340,8 @@
       "Fixed external links not opening in the correct workspace container",
       "Fixed appimage not being able to set itself as default web browser",
       "Fixed closing the browser in an empty state opening about:blank on startup",
-      "Fixed linux users crashing when closing the laptop lid"
+      "Fixed linux users crashing when closing the laptop lid",
+      "Fixed dragging tabs from different windows crashing the browser if they are from different containers"
     ],
     "features": [
       "Updated to firefox 136.0",
@@ -2355,7 +2356,7 @@
       "Favicons should render with better corners now",
       "Did some changes to the default on boarding essentials selection as some people had concerns about them"
     ],
-    "workflowId": 13730470316,
+    "workflowId": 13732201436,
     "date": "07/03/2025"
   }
 ]
