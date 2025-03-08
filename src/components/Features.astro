@@ -1,0 +1,192 @@
+---
+import Description from '../components/Description.astro'
+import { motion } from 'motion/react'
+import { getTitleAnimation } from '../animations'
+
+import WorkspacesVideo from '../assets/Workspaces.mp4'
+import GlanceVideo from '../assets/Glance.mp4'
+import CompactModeVideo from '../assets/CompactMode.mp4'
+import SplitViewsVideo from '../assets/SplitViews.mp4'
+
+import Video from './Video.astro'
+---
+
+<section
+  id="Community"
+  class="relative flex w-full flex-col px-4 text-start md:px-24 lg:mx-auto lg:w-3/4 lg:px-0 lg:py-36"
+>
+  <Description class="mb-2 text-6xl font-bold">
+    <motion.span client:load {...getTitleAnimation(0.2)}>
+      Productivity
+    </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.4)}> at </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.6)}>
+      its best
+    </motion.span>
+  </Description>
+  <motion.p client:load {...getTitleAnimation(0.6)} className="lg:w-1/2">
+    Zen is packed with features that help you stay productive and focused.
+    Browsers should be tools that help you get things done, not distractions
+    that keep you from your work.
+  </motion.p>
+  <div class="mt-6 flex flex-col justify-between gap-2 lg:flex-row">
+    <div
+      id="features-list"
+      class="relative flex w-full flex-col gap-3 md:flex-row lg:w-1/3 lg:flex-col"
+    >
+      <motion.div
+        client:load
+        {...getTitleAnimation(0.8)}
+        className="feature"
+        data-video={WorkspacesVideo}
+      >
+        <Description class="text-2xl font-bold">Workspaces</Description>
+        <Description>
+          Organize your tabs into workspaces to keep your projects separate and
+          organized, and switch between them with ease.
+        </Description>
+      </motion.div>
+      <motion.div
+        client:load
+        {...getTitleAnimation(1)}
+        className="feature"
+        data-video={CompactModeVideo}
+      >
+        <Description class="text-2xl font-bold">Compact Mode</Description>
+        <Description>
+          Zen's compact mode gives you more screen real estate by hiding the tab
+          bar when you don't need it, and showing it when you do.
+        </Description>
+      </motion.div>
+      <motion.div
+        client:load
+        {...getTitleAnimation(1.2)}
+        className="feature"
+        data-video={GlanceVideo}
+      >
+        <Description class="text-2xl font-bold">Glance</Description>
+        <Description>
+          Zen's glance feature lets you preview tabs without switching to them,
+          so you can quickly find the tab you're looking for.
+        </Description>
+      </motion.div>
+      <motion.div
+        client:load
+        {...getTitleAnimation(1.4)}
+        className="feature"
+        data-video={SplitViewsVideo}
+      >
+        <Description class="text-2xl font-bold">Split View</Description>
+        <Description>
+          Zen's split view feature lets you view two tabs side by side, so you
+          can compare information or work on two things at once.
+        </Description>
+      </motion.div>
+    </div>
+    <div class="relative w-1/2">
+      <Video
+        autoplay
+        loop
+        src=""
+        muted
+        playsinline
+        preload="none"
+        class="mb-24 hidden rounded-3xl shadow-md lg:absolute lg:mx-auto lg:block lg:w-full dark:opacity-80"
+        id="feature-video"
+      />
+    </div>
+  </div>
+</section>
+<script>
+  import { animate } from 'motion/react'
+
+  const features = document.querySelectorAll('.feature')
+  const videos = Array.from(features).map(
+    (f) => f.getAttribute('data-video') as string,
+  )
+
+  var currentFeature = -1
+
+  function changeToFeature({
+    target,
+  }: {
+    target: HTMLElement | undefined | null
+  }) {
+    target = target?.closest('.feature')
+    if (!target) return
+    const index = Array.from(features).indexOf(target)
+    if (index === -1) return
+    const videoSrc = videos[index]
+    const video = document.getElementById('feature-video')
+    if (!video) return
+    if (currentFeature === index) return
+    currentFeature = index
+    animate(video, {
+      opacity: 0,
+    })
+    video.setAttribute('src', videoSrc)
+
+    for (const feature of features) {
+      feature.removeAttribute('active')
+    }
+    target.setAttribute('active', '')
+    const rect = target.getBoundingClientRect()
+    video.addEventListener(
+      'loadeddata',
+      () => {
+        const videoParentRect = video.parentElement?.getBoundingClientRect()
+        const videoRect = video.getBoundingClientRect()
+        // Always make the video fit the parent
+        let y =
+          rect.top -
+          videoParentRect!.top +
+          rect.height / 2 -
+          videoRect.height / 2
+        if (y < 0) {
+          if (index === 0) {
+            y = 0
+          } else {
+            y = 20
+          }
+        } else if (y + videoRect.height > videoParentRect!.height) {
+          if (index === features.length - 1) {
+            y = videoParentRect!.height - videoRect.height
+          } else {
+            y = rect.height * index - videoRect.height / 2 + 25
+          }
+        }
+        animate(
+          video,
+          {
+            opacity: 1,
+            y: y,
+          },
+          {},
+        )
+      },
+      { once: true },
+    )
+  }
+
+  for (const feature of features) {
+    feature.addEventListener('click', changeToFeature as any)
+  }
+
+  changeToFeature({ target: features[0] as any })
+</script>
+<style>
+  .feature {
+    @apply w-full cursor-pointer select-none rounded-lg p-4 hover:bg-[rgba(0,0,0,.03)];
+    transition: background-color 0.2s;
+    &[active] {
+      @apply md:bg-[rgba(0,0,0,.05)];
+    }
+  }
+
+  /* Dont animate translation on small screens */
+  @media (max-width: 1024px) {
+    #feature-video {
+      transform: none !important;
+    }
+  }
+</style>

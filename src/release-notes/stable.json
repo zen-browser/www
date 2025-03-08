@@ -2147,7 +2147,7 @@
       "If the newtab button is at the top, new tabs will be inserted at the top as well"
     ],
     "breakingChanges": [
-      "The default newtab possition is now at the top (can be disabled in the settings under Look & Feel)",
+      "The default newtab position is now at the top (can be disabled in the settings under Look & Feel)",
       "Changed default pinned behaviour where it always opens a new tab if only pinned tabs exist"
     ],
     "workflowId": 13053102880,
@@ -2336,7 +2336,7 @@
       "Fixed bookmark items not opening",
       "Fixed not hiding empty tab from add-ons, crashing the browser on some cases",
       "Fixed compact mode sidebar animating on an empty state and not animating properly when having the URL bar floating",
-      "Fixed expanding glance not opening in the correct possition when having container specific essentials",
+      "Fixed expanding glance not opening in the correct position when having container specific essentials",
       "Fixed external links not opening in the correct workspace container",
       "Fixed appimage not being able to set itself as default web browser",
       "Fixed closing the browser in an empty state opening about:blank on startup",

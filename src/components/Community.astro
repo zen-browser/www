@@ -4,18 +4,18 @@ import Button from '../components/Button.astro'
 import { motion } from 'motion/react'
 import { Github, Check } from 'lucide-astro'
 import { getTitleAnimation } from '../animations'
-import Video from './Video.astro'
-import WorkspacesVideo from '../assets/Workspaces.mp4'
+import ComImage from '../assets/ComImage.png'
+import Image from 'astro/components/Image.astro'
 ---
 
 <section
   id="Community"
-  class="relative flex w-full flex-col items-center px-4 text-start md:px-0 md:text-center lg:py-36"
+  class="relative flex w-full flex-col items-center px-4 text-start md:px-0 md:text-center lg:pt-36"
 >
   <Description class="mb-2 px-4 text-6xl font-bold">
-    <motion.span client:load {...getTitleAnimation(0.2)}> What </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.4)}> Defines </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.6)}> Zen? </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.2)}> Our </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.4)}> Core </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.6)}> Values </motion.span>
   </Description>
   <motion.p
     client:load
@@ -57,14 +57,10 @@ import WorkspacesVideo from '../assets/Workspaces.mp4'
     client:load
     {...getTitleAnimation(1.4)}
   >
-    <Video
-      src={WorkspacesVideo}
-      autoplay
-      loop
-      muted
-      playsinline
-      preload="none"
-      class="mb-24 mt-12 rounded-3xl shadow-md lg:mx-auto lg:w-3/4 dark:opacity-80"
+    <Image
+      src={ComImage}
+      alt="Community"
+      class="my-24 rounded-3xl shadow-md lg:mx-auto lg:w-4/5 dark:opacity-80"
     />
   </motion.span>
 </section>
