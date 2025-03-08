@@ -3,10 +3,11 @@ import Title from '../components/Title.astro'
 import Description from '../components/Description.astro'
 import Button from '../components/Button.astro'
 import { Image } from 'astro:assets'
-import myImage from '../assets/browser.png'
+import HomePageVideo from '../assets/HomePageVideo.mp4'
 import { ArrowRight } from 'lucide-astro'
 import { motion } from 'motion/react'
 import { getTitleAnimation } from '../animations'
+import Video from './Video.astro'
 
 let titleAnimationCounter = 0
 function getNewAnimationDelay() {
@@ -25,7 +26,7 @@ function getHeroTitleAnimation() {
 >
   <div class="flex h-full flex-col items-center justify-center">
     <Title
-      class="relative px-12 text-left !font-normal leading-[108px] md:text-center md:!text-7xl lg:px-0 lg:!text-9xl"
+      class="relative px-12 text-center !font-normal leading-[108px] md:!text-7xl lg:px-0 lg:!text-9xl"
     >
       <motion.span client:load {...getHeroTitleAnimation()}>
         welcome
@@ -45,8 +46,9 @@ function getHeroTitleAnimation() {
       </motion.span>
     </Title>
     <motion.span client:load {...getHeroTitleAnimation()}>
-      <Description class="px-12 text-left md:text-center lg:px-0"
+      <Description class="px-12 text-center lg:px-0"
         >Beautifully designed, privacy-focused, and packed with features.<br
+          class="hidden md:block"
         />We care about your experience, not your data.</Description
       >
     </motion.span>
@@ -68,10 +70,13 @@ function getHeroTitleAnimation() {
   client:load
   {...getHeroTitleAnimation()}
 >
-  <Image
-    src={myImage}
-    alt="Zen browser"
+  <Video
+    src={HomePageVideo}
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="none"
     class="mb-24 rounded-3xl shadow-md lg:mx-auto lg:w-3/4 dark:opacity-80"
-    loading="eager"
   />
 </motion.span>

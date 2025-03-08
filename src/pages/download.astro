@@ -419,14 +419,12 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 
   if (!isTwilight) {
     document
-    .getElementById('linux-flathub-download')
-    ?.addEventListener('click', () => {
-      window.open('https://flathub.org/apps/app.zen_browser.zen')
-    })
-  }
-  else {
-    document
-    .getElementById('linux-flathub-download')?.classList.add('hidden')
+      .getElementById('linux-flathub-download')
+      ?.addEventListener('click', () => {
+        window.open('https://flathub.org/apps/app.zen_browser.zen')
+      })
+  } else {
+    document.getElementById('linux-flathub-download')?.classList.add('hidden')
   }
 
   document

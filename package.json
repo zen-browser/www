@@ -10,10 +10,6 @@
     "wrangler": "wrangler",
     "astro": "astro"
   },
-  "overrides": {
-    "react": "npm:@preact/compat@latest",
-    "react-dom": "npm:@preact/compat@latest"
-  },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/cloudflare": "^12.2.1",

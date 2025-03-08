@@ -1,3 +1,72 @@
 ---
-return Astro.redirect('/release-notes/latest')
+import { ArrowRight } from 'lucide-astro'
+import Button from '../components/Button.astro'
+import Description from '../components/Description.astro'
+import SocialMediaStrip from '../components/SocialMediaStrip.astro'
+import Layout from '../layouts/Layout.astro'
+
+import { releaseNotes } from '../release-notes'
+import whatsNewText from '../release-notes/whats-new.json'
+import Video from '../components/Video.astro'
+
+import whatsNewVideo from '../assets/whats-new.mp4'
+
+const latestVersion = releaseNotes[0]
 ---
+
+<Layout title="What's New - Zen Browser">
+  <main
+    class="relative mx-auto flex flex-col items-center gap-24 px-6 pb-52 pt-36 lg:px-24 xl:flex-row"
+  >
+    <div class="flex flex-col gap-8">
+      <div>
+        <Description class="text-5xl font-bold md:text-6xl"
+          >What's New in {latestVersion.version}!</Description
+        >
+        <Description>{latestVersion.date}</Description>
+      </div>
+      <div>
+        <Fragment set:html={whatsNewText[0].replace(/\n/g, '<br>')} />
+      </div>
+      <ul class="hidden flex-col gap-2 md:flex">
+        <a
+          href="https://github.com/zen-browser/desktop/issues/new/choose"
+          target="_blank"
+        >
+          <li class="ml-3 list-disc">
+            <Description class="text-base font-bold"
+              >Report an issue</Description
+            >
+          </li>
+        </a>
+        <a href="https://discord.gg/zen-browser" target="_blank">
+          <li class="ml-3 list-disc">
+            <Description class="text-base font-bold"
+              >Join our Discord</Description
+            >
+          </li>
+        </a>
+      </ul>
+      <div class="flex flex-col gap-8 md:flex-row">
+        <Button
+          href={`/releases#${latestVersion.version}`}
+          isPrimary
+          class="flex w-fit items-center gap-2"
+        >
+          <span>Read the full release notes</span>
+          <ArrowRight />
+        </Button>
+        <SocialMediaStrip gap="6" />
+      </div>
+    </div>
+    <Video
+      src={whatsNewVideo}
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="none"
+      class="w-full rounded-3xl object-cover shadow-lg"
+    />
+  </main>
+</Layout>

@@ -363,9 +363,7 @@
     "version": "1.0.0-a.13",
     "date": "05/08/2024",
     "extra": "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
-    "features": [
-      "Allow to remember sidebar width even after collapsing it."
-    ],
+    "features": ["Allow to remember sidebar width even after collapsing it."],
     "fixes": [
       {
         "description": "Task Manager Icon Missing in Flatpak Version",
@@ -921,9 +919,7 @@
     "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-    "features": [
-      "Added a new system for handling keyboard shortcuts"
-    ],
+    "features": ["Added a new system for handling keyboard shortcuts"],
     "fixes": [
       {
         "description": "The New Tab button is not visible",
@@ -980,9 +976,7 @@
       "Enabled container tabs by default",
       "Improved Expand Tabs on Hover layout"
     ],
-    "themeChanges": [
-      "Toggle inputs will not use the themed tertiary color"
-    ],
+    "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
     "breakingChanges": [
       "The keyboard shortcuts will be overriden by the defaults ones in this update"
     ],
@@ -1279,9 +1273,7 @@
         "issue": 2156
       }
     ],
-    "breakingChanges": [
-      "Removed Show Expand Button option from settings"
-    ],
+    "breakingChanges": ["Removed Show Expand Button option from settings"],
     "themeChanges": [
       "The variable '--zen-main-browser-background' will now contain the generated gradient",
       "Added the 'unread' attribute for background tabs that haven't been accessed yet"
@@ -1384,9 +1376,7 @@
         "description": "Fixed wrong aligment on glance action buttons"
       }
     ],
-    "features": [
-      "No new features, sorry"
-    ]
+    "features": ["No new features, sorry"]
   },
   {
     "version": "1.0.1-a.17",
@@ -2289,7 +2279,7 @@
       "Add support for additional languages: Welsh, Estonian, Persian, Finnish, Hebrew, and Icelandic",
       "Swiping between workspaces now has a force feedback and a maximum limit",
       "Double clicking on an essential now resets to the original URL",
-      "Changed default behaviour of the '-' button on pinned tabs to reset, unload and switch the tab" 
+      "Changed default behaviour of the '-' button on pinned tabs to reset, unload and switch the tab"
     ],
     "breakingChanges": [
       "Removed profile switching toolbar button and dialog, now that firefox will release them in their next version",
@@ -2313,7 +2303,7 @@
     "workflowId": 13505992592,
     "date": "24/02/2025"
   },
-   {
+  {
     "version": "1.8.2b",
     "image": false,
     "extra": "Another update with many bug fixes!",
@@ -2330,5 +2320,42 @@
     ],
     "workflowId": 13530880093,
     "date": "25/02/2025"
+  },
+  {
+    "version": "1.9b",
+    "image": false,
+    "extra": "Another nice update for Zen! This time we've added a new feature that allows you drag and drop tabs into the browser to split them!",
+    "fixes": [
+      "Fixed pinned tabs being subject to appearing on the essentials container",
+      "Fixed opening bookmarks on empty tab pages",
+      "Fixed automatic glance opening from the edge of the screen",
+      "Fixed background gradients not showing the colors in the correct order",
+      "Fixed creating essentials being in the wrong order",
+      "Fixed watermark not waiting enough time and startup layout",
+      "Fixed reordering tabs not being correctly saved for pinned tabs",
+      "Fixed bookmark items not opening",
+      "Fixed not hiding empty tab from add-ons, crashing the browser on some cases",
+      "Fixed compact mode sidebar animating on an empty state and not animating properly when having the URL bar floating",
+      "Fixed expanding glance not opening in the correct possition when having container specific essentials",
+      "Fixed external links not opening in the correct workspace container",
+      "Fixed appimage not being able to set itself as default web browser",
+      "Fixed closing the browser in an empty state opening about:blank on startup",
+      "Fixed linux users crashing when closing the laptop lid"
+    ],
+    "features": [
+      "Updated to firefox 136.0",
+      "Added support for a drag and drop tab split feature that also groups tabs in a nice UI!",
+      "Implemented a more complete JPEG XL decoding and OS support, allowing things such as animated images and more",
+      "Allow having full url without https in sidebar (zen.urlbar.show-domain-only-in-sidebar)",
+      "Add preference to hide one-off search buttons (off by default, zen.urlbar.hide-one-offs)",
+      "Added martial arts emoji to the default emoji set",
+      "MacOS users can now control what window material they have (zen.widget.macos.window-material, 1 to 7, default is 2)",
+      "Added support to drag and drop tabs from other windows while in compact mode",
+      "Small changes to padding around the website and URL bar",
+      "Favicons should render with better corners now",
+      "Did some changes to the default on boarding essentials selection as some people had concerns about them"
+    ],
+    "workflowId": 13730470316,
+    "date": "07/03/2025"
   }
 ]

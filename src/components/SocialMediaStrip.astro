@@ -1,0 +1,62 @@
+---
+const { gap = 4 } = Astro.props
+
+import { library, icon } from '@fortawesome/fontawesome-svg-core'
+import {
+  faMastodon,
+  faBluesky,
+  faGithub,
+  faTwitter,
+  faReddit,
+} from '@fortawesome/free-brands-svg-icons'
+
+library.add(faMastodon, faBluesky, faGithub, faTwitter, faReddit)
+const Mastodon = icon({ prefix: 'fab', iconName: 'mastodon' })
+const Bluesky = icon({ prefix: 'fab', iconName: 'bluesky' })
+const Github = icon({ prefix: 'fab', iconName: 'github' })
+const Twitter = icon({ prefix: 'fab', iconName: 'twitter' })
+const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
+---
+
+<div class={`flex items-center opacity-80 gap-${gap}`}>
+  <a
+    href="https://github.com/zen-browser"
+    target="_blank"
+    class="font-bold"
+    aria-label="Visit Zen Browser on GitHub"
+  >
+    <Fragment set:html={Github.html} />
+  </a>
+  <a
+    href="https://twitter.com/zen_browser"
+    target="_blank"
+    class="font-normal"
+    aria-label="Visit Zen Browser on Twitter"
+  >
+    <Fragment set:html={Twitter.html} />
+  </a>
+  <a
+    href="https://fosstodon.org/@zenbrowser"
+    target="_blank"
+    class="font-normal"
+    aria-label="Visit Zen Browser on Mastodon"
+  >
+    <Fragment set:html={Mastodon.html} />
+  </a>
+  <a
+    href="https://bsky.app/profile/zen-browser.app"
+    target="_blank"
+    class="font-normal"
+    aria-label="Visit Zen Browser on Bluesky"
+  >
+    <Fragment set:html={Bluesky.html} />
+  </a>
+  <a
+    href="https://www.reddit.com/r/zen_browser"
+    target="_blank"
+    class="font-normal"
+    aria-label="Visit Zen Browser on Reddit"
+  >
+    <Fragment set:html={Reddit.html} />
+  </a>
+</div>
