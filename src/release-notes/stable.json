@@ -2230,7 +2230,7 @@
   {
     "version": "1.8b",
     "image": false,
-    "extra": "Huge update filled with improvements and QoL features.\n\nP.S. Checkout this cool site! https://doeszenhavedrmyet.com/",
+    "extra": "Huge update filled with improvements and QoL features.\n\nP.S. Check out this cool site! https://doeszenhavedrmyet.com/",
     "fixes": [
       "Fixed weird text generation when rendering PDFs/Google Docs on some websites, without the need to disable hardware acceleration",
       "Fixed glance opening on the wrong location when expanding while opened on a normal tab",
@@ -2250,7 +2250,7 @@
       "Fixed pinning tabs with glance opened not working",
       "Fixed pinned tabs / essentials opening in the container that the window was opened",
       "Fixed not being able to move around multiple pinned tabs at the same time",
-      "Fixed selecting essentials / pinned tabs when switching workspaces",
+      "Fixed selecting essentials/pinned tabs when switching workspaces",
       "Fixed opening new windows with contaienr specific essentials showing all at once"
     ],
     "features": [
@@ -2294,11 +2294,11 @@
     "extra": "Small update with some bug fixes and improvements",
     "fixes": [
       "Fixed updating from older versions not showing tabs from other workspaces at startup",
-      "Fixed double clicking on essentials not restoring their URL",
-      "Fixed reordering tabs with glance changing locations",
+      "Fixed double-clicking on essentials not restoring their URL",
+      "Fixed re-ordering tabs with glance changing locations",
       "Fixed opening the settings page not selecting the tab",
       "Fixed issues where a new profile would be created",
-      "Fixed floating urlbar when entering compact mode using double toolbars"
+      "Fixed floating URL bar when entering compact mode using double toolbars"
     ],
     "workflowId": 13505992592,
     "date": "24/02/2025"
@@ -2308,15 +2308,15 @@
     "image": false,
     "extra": "Another update with many bug fixes!",
     "fixes": [
-      "Fixed pinned tabs reordering on startup",
+      "Fixed pinned tabs re-ordering on startup",
       "Fixed bookmarks not inheriting the container from the workspace",
-      "Fixed URL barin compact mode being cliped by the window",
-      "Fixed reordering normal tabs not working sometimes",
-      "Fixed pining a tab adding them to the essentials container",
+      "Fixed URL bar in compact mode being clipped by the window",
+      "Fixed re-ordering normal tabs not working sometimes",
+      "Fixed pinning a tab adding them to the essentials container",
       "Other small fixes for compact mode not animating properly"
     ],
     "features": [
-      "localhost and http URL will now not be trimmed in single toolbar layout"
+      "localhost and http URL will no longer be trimmed in single toolbar layout"
     ],
     "workflowId": 13530880093,
     "date": "25/02/2025"
@@ -2324,11 +2324,11 @@
   {
     "version": "1.9b",
     "image": false,
-    "extra": "Another nice update for Zen! This time we've added a new feature that allows you drag and drop tabs into the browser to split them!",
+    "extra": "Another nice update for Zen! This time, we've added a new feature that allows you to drag-and-drop tabs into the browser to split them!",
     "fixes": [
       "Fixed pinned tabs being subject to appearing on the essentials container",
       "Fixed opening bookmarks on empty tab pages",
-      "Fixed automatic glance opening from the edge of the screen",
+      "Fixed automatic Glance opening from the edge of the screen",
       "Fixed background gradients not showing the colors in the correct order",
       "Fixed creating essentials being in the wrong order",
       "Fixed watermark not waiting enough time and startup layout",
@@ -2338,23 +2338,23 @@
       "Fixed compact mode sidebar animating on an empty state and not animating properly when having the URL bar floating",
       "Fixed expanding glance not opening in the correct position when having container specific essentials",
       "Fixed external links not opening in the correct workspace container",
-      "Fixed appimage not being able to set itself as default web browser",
+      "Fixed the AppImage version not being able to set itself as the default web browser",
       "Fixed closing the browser in an empty state opening about:blank on startup",
-      "Fixed linux users crashing when closing the laptop lid",
+      "Fixed Linux users crashing when closing the laptop lid",
       "Fixed dragging tabs from different windows crashing the browser if they are from different containers"
     ],
     "features": [
-      "Updated to firefox 136.0",
-      "Added support for a drag and drop tab split feature that also groups tabs in a nice UI!",
+      "Updated to Firefox 136.0",
+      "Added support for a drag-and-drop tab split feature that also groups tabs in a nice UI!",
       "Implemented a more complete JPEG XL decoding and OS support, allowing things such as animated images and more",
-      "Allow having full url without https in sidebar (zen.urlbar.show-domain-only-in-sidebar)",
+      "Allow having full URL without https in sidebar (zen.urlbar.show-domain-only-in-sidebar)",
       "Add preference to hide one-off search buttons (off by default, zen.urlbar.hide-one-offs)",
       "Added martial arts emoji to the default emoji set",
       "MacOS users can now control what window material they have (zen.widget.macos.window-material, 1 to 7, default is 2)",
-      "Added support to drag and drop tabs from other windows while in compact mode",
+      "Added support to drag-and-drop tabs from other windows while in compact mode",
       "Small changes to padding around the website and URL bar",
       "Favicons should render with better corners now",
-      "Did some changes to the default on boarding essentials selection as some people had concerns about them"
+      "Did some changes to the default onboarding essentials selection as some people had concerns about them"
     ],
     "workflowId": 13732201436,
     "date": "07/03/2025"
