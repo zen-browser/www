@@ -123,21 +123,22 @@ const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.pr
     if (!video) return
     if (currentFeature === index) return
     currentFeature = index
-    animate(video, {
-      opacity: 0,
-    })
-    video.setAttribute('src', videoSrc)
+    const videoCopy = video.cloneNode(true) as HTMLVideoElement
+    video.style.zIndex = '2'
+    video.parentElement?.appendChild(videoCopy)
+    videoCopy.setAttribute('src', videoSrc)
 
     for (const feature of features) {
       feature.removeAttribute('active')
     }
     target.setAttribute('active', '')
     const rect = target.getBoundingClientRect()
-    video.addEventListener(
+    videoCopy.addEventListener(
       'loadeddata',
       () => {
         const videoParentRect = video.parentElement?.getBoundingClientRect()
-        const videoRect = video.getBoundingClientRect()
+        const videoRect = video.getBoundingClientRect();
+        const originalY = video.style.transform;
         // Always make the video fit the parent
         let y =
           rect.top -
@@ -157,11 +158,11 @@ const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.pr
             y = rect.height * index - videoRect.height / 2 + 25
           }
         }
+        video.remove();
         animate(
-          video,
+          videoCopy,
           {
-            opacity: 1,
-            y: y,
+            transform: [originalY, `translateY(${y}px)`],
           },
           {},
         )
@@ -175,6 +176,10 @@ const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.pr
   }
 
   changeToFeature({ target: features[0] as any })
+  const video = document.getElementById('feature-video')
+  if (video) {
+    video.style.transform = 'translateY(0)'
+  }
 </script>
 <style>
   .feature {
