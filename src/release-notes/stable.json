@@ -363,7 +363,9 @@
     "version": "1.0.0-a.13",
     "date": "05/08/2024",
     "extra": "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
-    "features": ["Allow to remember sidebar width even after collapsing it."],
+    "features": [
+      "Allow to remember sidebar width even after collapsing it."
+    ],
     "fixes": [
       {
         "description": "Task Manager Icon Missing in Flatpak Version",
@@ -919,7 +921,9 @@
     "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-    "features": ["Added a new system for handling keyboard shortcuts"],
+    "features": [
+      "Added a new system for handling keyboard shortcuts"
+    ],
     "fixes": [
       {
         "description": "The New Tab button is not visible",
@@ -976,7 +980,9 @@
       "Enabled container tabs by default",
       "Improved Expand Tabs on Hover layout"
     ],
-    "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
+    "themeChanges": [
+      "Toggle inputs will not use the themed tertiary color"
+    ],
     "breakingChanges": [
       "The keyboard shortcuts will be overriden by the defaults ones in this update"
     ],
@@ -1273,7 +1279,9 @@
         "issue": 2156
       }
     ],
-    "breakingChanges": ["Removed Show Expand Button option from settings"],
+    "breakingChanges": [
+      "Removed Show Expand Button option from settings"
+    ],
     "themeChanges": [
       "The variable '--zen-main-browser-background' will now contain the generated gradient",
       "Added the 'unread' attribute for background tabs that haven't been accessed yet"
@@ -1376,7 +1384,9 @@
         "description": "Fixed wrong aligment on glance action buttons"
       }
     ],
-    "features": ["No new features, sorry"]
+    "features": [
+      "No new features, sorry"
+    ]
   },
   {
     "version": "1.0.1-a.17",
@@ -2358,5 +2368,26 @@
     ],
     "workflowId": 13732201436,
     "date": "07/03/2025"
+  },
+  {
+    "version": "1.9.1b",
+    "image": false,
+    "extra": "Another update with stability improvements.",
+    "fixes": [
+      "Fixed new tabs opening where essentials are in some cases.",
+      "Fixed a bug where workspace specific bookmarks dont work.",
+      "Fixed rearranging tabs having glance opened.",
+      "Fixed UI issues with double toolbar in the URLbar icons.",
+      "Fixed dropping tabs outside of the window not opening the new tab.",
+      "Fixed session restore not working with closed windows.",
+      "Fixed compact mode not hiding when minimizing the window."
+    ],
+    "features": [
+      "Added the option to drag-and-drop a tab to the right side of the screen to split",
+      "Updated to firefox 136.0.1",
+      "Glance now asks for confirmation before closing if it's focused on an input field."
+    ],
+    "workflowId": 13797803844,
+    "date": "11/03/2025"
   }
 ]
