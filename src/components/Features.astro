@@ -10,7 +10,11 @@ import SplitViewsVideo from '../assets/SplitViews.mp4'
 
 import Video from './Video.astro'
 
-const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.props
+const {
+  title1 = 'Productivity',
+  title2 = 'at',
+  title3 = 'its best',
+} = Astro.props
 ---
 
 <section
@@ -21,7 +25,9 @@ const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.pr
     <motion.span client:load {...getTitleAnimation(0.2)}>
       {title1}
     </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.4)}> {title2} </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.4)}>
+      {title2}
+    </motion.span>
     <motion.span client:load {...getTitleAnimation(0.6)}>
       {title3}
     </motion.span>
@@ -31,7 +37,9 @@ const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.pr
     Browsers should be tools that help you get things done, not distractions
     that keep you from your work.
   </motion.p>
-  <div class="mt-6 flex flex-col justify-between gap-2 lg:flex-row mb-12 lg:mb-0">
+  <div
+    class="mb-12 mt-6 flex flex-col justify-between gap-2 lg:mb-0 lg:flex-row"
+  >
     <div
       id="features-list"
       class="relative flex w-full flex-col gap-3 md:flex-row lg:w-1/3 lg:flex-col"
@@ -68,8 +76,8 @@ const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.pr
       >
         <Description class="text-2xl font-bold">Glance</Description>
         <Description>
-          Zen's Glance lets you preview tabs without switching to them,
-          so you can quickly find the page you're looking for.
+          Zen's Glance lets you preview tabs without switching to them, so you
+          can quickly find the page you're looking for.
         </Description>
       </motion.div>
       <motion.div
@@ -80,8 +88,8 @@ const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.pr
       >
         <Description class="text-2xl font-bold">Split View</Description>
         <Description>
-          Zen's Split View lets you view up to 4 tabs side by side, so you
-          can compare information or multitask easily.
+          Zen's Split View lets you view up to 4 tabs side by side, so you can
+          compare information or multitask easily.
         </Description>
       </motion.div>
     </div>
@@ -137,8 +145,8 @@ const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.pr
       'loadeddata',
       () => {
         const videoParentRect = video.parentElement?.getBoundingClientRect()
-        const videoRect = video.getBoundingClientRect();
-        const originalY = video.style.transform;
+        const videoRect = video.getBoundingClientRect()
+        const originalY = video.style.transform
         // Always make the video fit the parent
         let y =
           rect.top -
@@ -158,7 +166,7 @@ const { title1 = 'Productivity', title2 = 'at', title3 = 'its best' } = Astro.pr
             y = rect.height * index - videoRect.height / 2 + 25
           }
         }
-        video.remove();
+        video.remove()
         animate(
           videoCopy,
           {
