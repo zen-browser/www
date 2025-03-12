@@ -23,5 +23,5 @@ export interface ReleaseNote {
   isTwilight?: boolean
 }
 
-export const releaseNotes: ReleaseNote[] = releaseNotesStable.reverse()
-export { default as releaseNotesTwilight } from './release-notes/twilight.json'
+export const releaseNotes: ReleaseNote[] = releaseNotesStable.reverse();
+export { default as releaseNotesTwilight } from './release-notes/twilight.json';
