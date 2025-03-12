@@ -2366,7 +2366,7 @@
     "fixes": [
       "Fixed new tabs opening where Essentials are in some cases",
       "Fixed a bug where workspace-specific bookmarks don't work",
-      "Fixed re-arranging tabs having while Glance opened",
+      "Fixed re-arranging tabs while having Glance opened",
       "Fixed UI issues with double toolbar in the URL bar icons",
       "Fixed dropping tabs outside of the window not opening the new tab",
       "Fixed session restore not working with closed windows",
