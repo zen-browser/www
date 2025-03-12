@@ -2006,7 +2006,7 @@
     "fixes": [
       "Fixed wrong spacing when using right side tabs",
       {
-        "description": "Fixed urlbar being below the tabs visually",
+        "description": "Fixed URL bar being below the tabs visually",
         "issue": 4276
       },
       "Fixed the browser not closing when the last tab is closed (and the preference is set)",
@@ -2101,7 +2101,7 @@
       "Improved glance animations",
       "Glance now opens automatically on essential tabs instead of a new tab",
       "Add dark mode support for dialog box",
-      "Essentials/Urlbar background is now calculated based on the window color, making it look more blended",
+      "Essentials/URL bar background is now calculated based on the window color, making it look more blended",
       "Adjusted overall spacings and rounded corners around the browser for a better feel"
     ],
     "workflowId": 12896824615,
@@ -2190,8 +2190,8 @@
       "Added the ability to pinning or adding to essentials by simply dragging and dropping",
       "Add thin scrollbar style to vertical tabs for improved aesthetics",
       "Added support for having glance in multiple tabs!",
-      "Floating urlbar doesn't show the compact mode sidebar anymore",
-      "Added a 'copy current url as markdown' shortcut",
+      "Floating URL bar doesn't show the compact mode sidebar anymore",
+      "Added a 'copy current URL as markdown' shortcut",
       "New glance UI and animations",
       "New icons!",
       "Improved workspace switching with gestures"
@@ -2215,7 +2215,7 @@
       "Fixed tabs appearing on the pinned tabs section",
       "Fixed middle mouse click on the sidebar not opening a new tab",
       "Fixed notifications not being able to be closed",
-      "Fixed urlbar margins when using single toolbar mode",
+      "Fixed URL bar margins when using single toolbar mode",
       "Fixed tabs scrolling to the top constantly",
       "Fixed changing tabs not being scrolled to when overflowing the sidebar",
       "Fixed opening glance tabs on essentials messing up the sidebar",
@@ -2239,7 +2239,7 @@
       "Fixed transparent URL bar when focusing it on fullscreen",
       "Fixed workspace switching sometimes selecting the wrong previously selected tab",
       "Fixed tabs sharing screens not hiding when switching workspaces",
-      "Fixed urlbar glitching when focusing in compact mode",
+      "Fixed URL bar glitching when focusing in compact mode",
       "Fixed pinned tabs separator using the wrong tabs when hiding",
       "Fixed rearanging essential tabs containing glance tabs",
       "Fixed normal tabs opening where pinned tabs are after having a glance tab opened",
@@ -2264,8 +2264,8 @@
       "Windows users will now be able to watch DRM content (experimental wmfcdm encrypted media, off by default)",
       "Improved URL bar styles, colors and more",
       "Updated to firefox 135.0.1",
-      "When opening a new tab with the urlbar, the newtab button is now selected for better understanding",
-      "Added a timer setting that states how much the newtab urlbar should wait before clearing it's contents (default is 45 seconds)",
+      "When opening a new tab with the URL bar, the newtab button is now selected for better understanding",
+      "Added a timer setting that states how much the newtab URL bar should wait before clearing it's contents (default is 45 seconds)",
       "Faster initialization of the UI and better initial loading experience",
       "Increased font size for macos users",
       "MacOS users will now have zen display as 'Zen' instead of 'Zen Browser' in the native top bar",
@@ -2291,7 +2291,7 @@
   {
     "version": "1.8.1b",
     "image": false,
-    "extra": "Small update with some bug fixes and improvements",
+    "extra": "Small update with some bug fixes and improvements.",
     "fixes": [
       "Fixed updating from older versions not showing tabs from other workspaces at startup",
       "Fixed double-clicking on essentials not restoring their URL",
@@ -2364,18 +2364,18 @@
     "image": false,
     "extra": "Another update with stability improvements.",
     "fixes": [
-      "Fixed new tabs opening where essentials are in some cases.",
-      "Fixed a bug where workspace specific bookmarks dont work.",
-      "Fixed rearranging tabs having glance opened.",
-      "Fixed UI issues with double toolbar in the URLbar icons.",
-      "Fixed dropping tabs outside of the window not opening the new tab.",
-      "Fixed session restore not working with closed windows.",
-      "Fixed compact mode not hiding when minimizing the window."
+      "Fixed new tabs opening where Essentials are in some cases",
+      "Fixed a bug where workspace-specific bookmarks don't work",
+      "Fixed re-arranging tabs having while Glance opened",
+      "Fixed UI issues with double toolbar in the URL bar icons",
+      "Fixed dropping tabs outside of the window not opening the new tab",
+      "Fixed session restore not working with closed windows",
+      "Fixed compact mode not hiding when minimizing the window"
     ],
     "features": [
       "Added the option to drag-and-drop a tab to the right side of the screen to split",
-      "Updated to firefox 136.0.1",
-      "Glance now asks for confirmation before closing if it's focused on an input field."
+      "Updated to Firefox 136.0.1",
+      "Glance now asks for confirmation before closing if it's focused on an input field"
     ],
     "workflowId": 13799489812,
     "date": "11/03/2025"
