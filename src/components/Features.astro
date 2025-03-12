@@ -46,9 +46,8 @@ const {
     >
       <motion.div
         client:load
-        {...getTitleAnimation(0.8)}
+        {...getTitleAnimation()}
         className="feature"
-        data-video={WorkspacesVideo}
       >
         <Description class="text-2xl font-bold">Workspaces</Description>
         <Description>
@@ -58,9 +57,8 @@ const {
       </motion.div>
       <motion.div
         client:load
-        {...getTitleAnimation(1)}
+        {...getTitleAnimation()}
         className="feature"
-        data-video={CompactModeVideo}
       >
         <Description class="text-2xl font-bold">Compact Mode</Description>
         <Description>
@@ -70,9 +68,8 @@ const {
       </motion.div>
       <motion.div
         client:load
-        {...getTitleAnimation(1.2)}
+        {...getTitleAnimation()}
         className="feature"
-        data-video={GlanceVideo}
       >
         <Description class="text-2xl font-bold">Glance</Description>
         <Description>
@@ -82,9 +79,8 @@ const {
       </motion.div>
       <motion.div
         client:load
-        {...getTitleAnimation(1.4)}
+        {...getTitleAnimation()}
         className="feature"
-        data-video={SplitViewsVideo}
       >
         <Description class="text-2xl font-bold">Split View</Description>
         <Description>
@@ -101,21 +97,44 @@ const {
         muted
         playsinline
         preload="none"
-        class="hidden rounded-3xl shadow-md lg:absolute lg:mx-auto lg:block lg:w-full dark:opacity-80"
-        id="feature-video"
+        class="feature-video"
+        src={WorkspacesVideo}
+      />
+      <Video
+        autoplay
+        loop
+        src=""
+        muted
+        playsinline
+        preload="none"
+        class="feature-video"
+        src={CompactModeVideo}
+      />
+      <Video
+        autoplay
+        loop
+        src=""
+        muted
+        playsinline
+        preload="none"
+        class="feature-video"
+        src={GlanceVideo}
+      />
+      <Video
+        autoplay
+        loop
+        src=""
+        muted
+        playsinline
+        preload="none"
+        class="feature-video"
+        src={SplitViewsVideo}
       />
     </div>
   </div>
 </section>
 <script>
-  import { animate } from 'motion/react'
-
   const features = document.querySelectorAll('.feature')
-  const videos = Array.from(features).map(
-    (f) => f.getAttribute('data-video') as string,
-  )
-
-  var currentFeature = -1
 
   function changeToFeature({
     target,
@@ -126,57 +145,15 @@ const {
     if (!target) return
     const index = Array.from(features).indexOf(target)
     if (index === -1) return
-    const videoSrc = videos[index]
-    const video = document.getElementById('feature-video')
-    if (!video) return
-    if (currentFeature === index) return
-    currentFeature = index
-    const videoCopy = video.cloneNode(true) as HTMLVideoElement
-    video.style.zIndex = '2'
-    video.parentElement?.appendChild(videoCopy)
-    videoCopy.setAttribute('src', videoSrc)
-
-    for (const feature of features) {
-      feature.removeAttribute('active')
+    const video = document.querySelector(`.feature-video:nth-child(${index + 1})`) as HTMLVideoElement
+    for (const vid of document.querySelectorAll('.feature-video') as NodeListOf<HTMLVideoElement>) {
+      vid.style.opacity = '0'
+      vid.pause()
     }
-    target.setAttribute('active', '')
-    const rect = target.getBoundingClientRect()
-    videoCopy.addEventListener(
-      'loadeddata',
-      () => {
-        const videoParentRect = video.parentElement?.getBoundingClientRect()
-        const videoRect = video.getBoundingClientRect()
-        const originalY = video.style.transform
-        // Always make the video fit the parent
-        let y =
-          rect.top -
-          videoParentRect!.top +
-          rect.height / 2 -
-          videoRect.height / 2
-        if (y < 0) {
-          if (index === 0) {
-            y = 0
-          } else {
-            y = 20
-          }
-        } else if (y + videoRect.height > videoParentRect!.height) {
-          if (index === features.length - 1) {
-            y = videoParentRect!.height - videoRect.height
-          } else {
-            y = rect.height * index - videoRect.height / 2 + 25
-          }
-        }
-        video.remove()
-        animate(
-          videoCopy,
-          {
-            transform: [originalY, `translateY(${y}px)`],
-          },
-          {},
-        )
-      },
-      { once: true },
-    )
+    video.style.opacity = '1'
+    // Go back to the start of the video
+    video.currentTime = 0
+    video.play()
   }
 
   for (const feature of features) {
@@ -184,10 +161,6 @@ const {
   }
 
   changeToFeature({ target: features[0] as any })
-  const video = document.getElementById('feature-video')
-  if (video) {
-    video.style.transform = 'translateY(0)'
-  }
 </script>
 <style>
   .feature {
@@ -198,9 +171,13 @@ const {
     }
   }
 
+  .feature-video {
+    @apply hidden rounded-3xl shadow-md lg:absolute lg:mx-auto lg:block lg:w-full dark:opacity-80 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+
   /* Dont animate translation on small screens */
   @media (max-width: 1024px) {
-    #feature-video {
+    .feature-video {
       transform: none !important;
     }
   }
