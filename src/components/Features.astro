@@ -238,8 +238,10 @@ const {
   .feature {
     @apply w-full cursor-pointer select-none rounded-lg p-4 hover:bg-[rgba(0,0,0,.05)] dark:hover:bg-white/10;
     transition: all 0.2s ease-in-out;
+    border-left: 3px solid transparent;
+
     &[data-active='true'] {
-      @apply bg-[rgba(0,0,0,.05)] dark:bg-white/10;
+      @apply border-l-coral bg-[rgba(0,0,0,.05)] dark:bg-white/10;
     }
   }
 
@@ -249,8 +251,7 @@ const {
     border-bottom: 3px solid transparent;
 
     &[data-active='true'] {
-      @apply bg-[rgba(0,0,0,.05)] dark:bg-white/10;
-      border-bottom-color: theme('colors.primary.500', #4f46e5);
+      @apply border-b-coral bg-[rgba(0,0,0,.05)] dark:bg-white/10;
     }
   }
 
