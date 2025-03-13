@@ -38,122 +38,193 @@ const {
     that keep you from your work.
   </motion.p>
   <div
-    class="mb-12 mt-6 flex flex-col justify-between gap-2 lg:mb-0 lg:flex-row"
+    class="mb-12 mt-6 flex flex-col gap-6 lg:flex-row lg:justify-between lg:gap-2"
   >
-    <div
-      id="features-list"
-      class="relative flex w-full flex-col gap-3 md:flex-row lg:w-1/3 lg:flex-col"
-    >
-      <motion.div
-        client:load
-        {...getTitleAnimation()}
-        className="feature"
-      >
-        <Description class="text-2xl font-bold">Workspaces</Description>
-        <Description>
-          Organize your tabs into Workspaces to keep your projects separate and
-          organized, and switch between them with ease.
-        </Description>
-      </motion.div>
-      <motion.div
-        client:load
-        {...getTitleAnimation()}
-        className="feature"
-      >
-        <Description class="text-2xl font-bold">Compact Mode</Description>
-        <Description>
-          Zen's Compact Mode gives you more screen real estate by hiding the tab
-          bar when you don't need it, and showing it when you do.
-        </Description>
-      </motion.div>
-      <motion.div
-        client:load
-        {...getTitleAnimation()}
-        className="feature"
-      >
-        <Description class="text-2xl font-bold">Glance</Description>
-        <Description>
-          Zen's Glance lets you preview tabs without switching to them, so you
-          can quickly find the page you're looking for.
-        </Description>
-      </motion.div>
-      <motion.div
-        client:load
-        {...getTitleAnimation()}
-        className="feature"
-      >
-        <Description class="text-2xl font-bold">Split View</Description>
-        <Description>
-          Zen's Split View lets you view up to 4 tabs side by side, so you can
-          compare information or multitask easily.
-        </Description>
-      </motion.div>
+    <div class="flex w-full flex-col lg:w-1/3">
+      <!-- Mobile tabs -->
+      <div class="flex gap-2 overflow-x-auto overflow-y-clip lg:hidden">
+        <motion.button
+          client:load
+          {...getTitleAnimation()}
+          class="feature-tab whitespace-nowrap"
+          data-active="true"
+        >
+          Workspaces
+        </motion.button>
+        <motion.button
+          client:load
+          {...getTitleAnimation()}
+          class="feature-tab whitespace-nowrap"
+        >
+          Compact Mode
+        </motion.button>
+        <motion.button
+          client:load
+          {...getTitleAnimation()}
+          class="feature-tab whitespace-nowrap"
+        >
+          Glance
+        </motion.button>
+        <motion.button
+          client:load
+          {...getTitleAnimation()}
+          class="feature-tab whitespace-nowrap"
+        >
+          Split View
+        </motion.button>
+      </div>
+
+      <!-- Desktop features list -->
+      <div id="features-list" class="hidden lg:flex lg:flex-col lg:gap-3">
+        <motion.div
+          client:load
+          {...getTitleAnimation()}
+          className="feature"
+          data-active="true"
+        >
+          <Description class="text-2xl font-bold">Workspaces</Description>
+          <Description>
+            Organize your tabs into Workspaces to keep your projects separate
+            and organized, and switch between them with ease.
+          </Description>
+        </motion.div>
+        <motion.div client:load {...getTitleAnimation()} className="feature">
+          <Description class="text-2xl font-bold">Compact Mode</Description>
+          <Description>
+            Zen's Compact Mode gives you more screen real estate by hiding the
+            tab bar when you don't need it, and showing it when you do.
+          </Description>
+        </motion.div>
+        <motion.div client:load {...getTitleAnimation()} className="feature">
+          <Description class="text-2xl font-bold">Glance</Description>
+          <Description>
+            Zen's Glance lets you preview tabs without switching to them, so you
+            can quickly find the page you're looking for.
+          </Description>
+        </motion.div>
+        <motion.div client:load {...getTitleAnimation()} className="feature">
+          <Description class="text-2xl font-bold">Split View</Description>
+          <Description>
+            Zen's Split View lets you view up to 4 tabs side by side, so you can
+            compare information or multitask easily.
+          </Description>
+        </motion.div>
+      </div>
+
+      <!-- Mobile description -->
+      <div class="feature-description mt-4 lg:hidden"></div>
     </div>
-    <div class="relative w-3/5">
-      <Video
-        autoplay
-        loop
-        src=""
-        muted
-        playsinline
-        preload="none"
-        class="feature-video"
-        src={WorkspacesVideo}
-      />
-      <Video
-        autoplay
-        loop
-        src=""
-        muted
-        playsinline
-        preload="none"
-        class="feature-video"
-        src={CompactModeVideo}
-      />
-      <Video
-        autoplay
-        loop
-        src=""
-        muted
-        playsinline
-        preload="none"
-        class="feature-video"
-        src={GlanceVideo}
-      />
-      <Video
-        autoplay
-        loop
-        src=""
-        muted
-        playsinline
-        preload="none"
-        class="feature-video"
-        src={SplitViewsVideo}
-      />
+
+    <div class="relative w-full lg:w-3/5">
+      <div class="video-stack relative h-full w-full">
+        <Video
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          class="feature-video"
+          src={WorkspacesVideo}
+          data-active="true"
+        />
+        <Video
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          class="feature-video"
+          src={CompactModeVideo}
+        />
+        <Video
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          class="feature-video"
+          src={GlanceVideo}
+        />
+        <Video
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          class="feature-video"
+          src={SplitViewsVideo}
+        />
+      </div>
     </div>
   </div>
 </section>
 <script>
-  const features = document.querySelectorAll('.feature')
+  const features = document.querySelectorAll('.feature, .feature-tab')
+  const descriptions = [
+    'Organize your tabs into Workspaces to keep your projects separate and organized, and switch between them with ease.',
+    "Zen's Compact Mode gives you more screen real estate by hiding the tab bar when you don't need it, and showing it when you do.",
+    "Zen's Glance lets you preview tabs without switching to them, so you can quickly find the page you're looking for.",
+    "Zen's Split View lets you view up to 4 tabs side by side, so you can compare information or multitask easily.",
+  ]
+
+  // Set initial description
+  const descriptionEl = document.querySelector('.feature-description')
+  if (descriptionEl) {
+    descriptionEl.textContent = descriptions[0]
+  }
 
   function changeToFeature({
     target,
   }: {
     target: HTMLElement | undefined | null
   }) {
-    target = target?.closest('.feature')
+    target = target?.closest('.feature, .feature-tab')
     if (!target) return
-    const index = Array.from(features).indexOf(target)
+
+    const index = Array.from(features).indexOf(target) % 4
     if (index === -1) return
-    const video = document.querySelector(`.feature-video:nth-child(${index + 1})`) as HTMLVideoElement
-    for (const vid of document.querySelectorAll('.feature-video') as NodeListOf<HTMLVideoElement>) {
-      vid.style.opacity = '0'
-      vid.pause()
+
+    // Update both mobile and desktop elements
+    features.forEach((f, i) => {
+      if (i % 4 === index) {
+        f.setAttribute('data-active', 'true')
+      } else {
+        f.removeAttribute('data-active')
+      }
+    })
+
+    // Update mobile description
+    const descriptionEl = document.querySelector('.feature-description')
+    if (descriptionEl) {
+      descriptionEl.textContent = descriptions[index]
     }
-    video.style.opacity = '1'
-    // Go back to the start of the video
-    video.currentTime = 0
-    video.play()
+
+    const videos = document.querySelectorAll(
+      '.feature-video'
+    ) as NodeListOf<HTMLVideoElement>
+    videos.forEach((vid, i) => {
+      vid.removeAttribute('data-active')
+      const yOffset = (i - index) * 20
+      const zOffset = i === index ? 0 : -100 - Math.abs(i - index) * 50
+      const scale = i === index ? 1 : 0.95
+      const rotation = (i - index) * 3
+
+      if (i === index) {
+        vid.setAttribute('data-active', 'true')
+        vid.style.opacity = '1'
+        vid.style.transform = `translate3d(-50%, 0, 0) scale(${scale})`
+        vid.style.zIndex = '10'
+        vid.currentTime = 0
+        vid.play()
+      } else {
+        vid.style.opacity = '0.4'
+        vid.style.transform = `translate3d(-50%, ${yOffset}px, ${zOffset}px) 
+                             rotate3d(1, 0, 0, ${rotation}deg) 
+                             scale(${scale})`
+        vid.style.zIndex = String(1 - Math.abs(i - index))
+        vid.pause()
+      }
+    })
   }
 
   for (const feature of features) {
@@ -162,23 +233,77 @@ const {
 
   changeToFeature({ target: features[0] as any })
 </script>
+
 <style>
   .feature {
-    @apply w-full cursor-pointer select-none rounded-lg p-4 hover:bg-[rgba(0,0,0,.03)];
-    transition: background-color 0.2s;
-    &[active] {
-      @apply md:bg-[rgba(0,0,0,.05)];
+    @apply w-full cursor-pointer select-none rounded-lg p-4 hover:bg-[rgba(0,0,0,.05)] dark:hover:bg-white/10;
+    transition: all 0.2s ease-in-out;
+    border-left: 3px solid transparent;
+
+    &[data-active='true'] {
+      @apply bg-[rgba(0,0,0,.05)] dark:bg-white/10;
+      border-left-color: theme('colors.primary.500', #4f46e5);
     }
   }
 
+  .feature-tab {
+    @apply rounded-lg px-4 py-2 text-lg font-medium hover:bg-[rgba(0,0,0,.05)] dark:hover:bg-white/10;
+    transition: all 0.2s ease-in-out;
+    border-bottom: 3px solid transparent;
+
+    &[data-active='true'] {
+      @apply bg-[rgba(0,0,0,.05)] dark:bg-white/10;
+      border-bottom-color: theme('colors.primary.500', #4f46e5);
+    }
+  }
+
+  .feature-description {
+    @apply px-4 text-sm text-gray-600 dark:text-gray-300;
+  }
+
+  .video-stack {
+    @apply aspect-video;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+    position: sticky;
+    top: 0;
+  }
+
   .feature-video {
-    @apply hidden rounded-3xl shadow-md lg:absolute lg:mx-auto lg:block lg:w-full dark:opacity-80 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+    @apply left-1/2 hidden transform rounded-3xl shadow-md lg:absolute lg:mx-auto lg:block lg:w-full dark:opacity-80;
+    max-width: 800px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    top: 0;
+    transform-origin: top center;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    transform: translate3d(-50%, 0, -100px) scale(0.95);
   }
 
   /* Dont animate translation on small screens */
   @media (max-width: 1024px) {
     .feature-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
       transform: none !important;
+      display: none;
+      object-fit: cover;
+
+      &[data-active='true'] {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    .video-stack {
+      @apply overflow-hidden rounded-xl;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
     }
   }
 </style>
