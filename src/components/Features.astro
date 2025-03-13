@@ -217,7 +217,6 @@ const {
         vid.currentTime = 0
         vid.play()
       } else {
-        vid.style.opacity = '0.4'
         vid.style.transform = `translate3d(-50%, ${yOffset}px, ${zOffset}px) 
                              rotate3d(1, 0, 0, ${rotation}deg) 
                              scale(${scale})`
@@ -238,20 +237,18 @@ const {
   .feature {
     @apply w-full cursor-pointer select-none rounded-lg p-4 hover:bg-[rgba(0,0,0,.05)] dark:hover:bg-white/10;
     transition: all 0.2s ease-in-out;
-    border-left: 3px solid transparent;
-
+    
     &[data-active='true'] {
-      @apply border-l-coral bg-[rgba(0,0,0,.05)] dark:bg-white/10;
+      @apply bg-[rgba(0,0,0,.05)] dark:bg-white/10;
     }
   }
 
   .feature-tab {
     @apply rounded-lg px-4 py-2 text-lg font-medium hover:bg-[rgba(0,0,0,.05)] dark:hover:bg-white/10;
     transition: all 0.2s ease-in-out;
-    border-bottom: 3px solid transparent;
 
     &[data-active='true'] {
-      @apply border-b-coral bg-[rgba(0,0,0,.05)] dark:bg-white/10;
+      @apply bg-[rgba(0,0,0,.05)] dark:bg-white/10;
     }
   }
 
