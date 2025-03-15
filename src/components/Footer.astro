@@ -50,13 +50,16 @@ import { ArrowRight } from 'lucide-astro'
             aria-labelledby="follow-us-heading"
           >
             <h2 id="follow-us-heading" class="text-base !font-semibold">
-              <Description>Follow Us</Description>
+              Follow Us
             </h2>
             <SocialMediaStrip />
           </section>
-          <section class="grid gap-2" aria-labelledby="about-us-heading">
+          <section
+            class="flex flex-col gap-2"
+            aria-labelledby="about-us-heading"
+          >
             <h2 id="about-us-heading" class="text-base !font-semibold">
-              <Description>About Us</Description>
+              About Us
             </h2>
             <nav aria-label="About navigation">
               <ul class="grid gap-2 opacity-80">
@@ -70,12 +73,16 @@ import { ArrowRight } from 'lucide-astro'
             </nav>
           </section>
         </div>
-        <nav class="grid gap-2" aria-labelledby="get-started-heading">
+        <nav class="flex flex-col gap-2" aria-labelledby="get-started-heading">
           <h2 id="get-started-heading" class="text-base !font-semibold">
-            <Description> Get Started </Description>
+            Get Started
           </h2>
           <ul class="grid gap-2 opacity-80">
-            <li><a href="/download" class="font-normal">Download</a></li>
+            <li>
+              <a href="https://docs.zen-browser.app/" class="font-normal"
+                >Documentation</a
+              >
+            </li>
             <li><a href="/mods" class="font-normal">Zen Mods</a></li>
             <li>
               <a href="/release-notes" class="font-normal">Release Notes</a>
@@ -85,9 +92,9 @@ import { ArrowRight } from 'lucide-astro'
             </li>
           </ul>
         </nav>
-        <nav class="grid gap-2" aria-labelledby="get-help-heading">
+        <nav class="flex flex-col gap-2" aria-labelledby="get-help-heading">
           <h2 id="get-help-heading" class="text-base !font-semibold">
-            <Description> Get Help </Description>
+            Get Help
           </h2>
           <ul class="grid gap-2 opacity-80">
             <li>
