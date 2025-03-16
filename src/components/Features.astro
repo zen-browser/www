@@ -88,28 +88,42 @@ const features = [
       <div id="features-list" class="3xl:flex 3xl:flex-col 3xl:gap-3 hidden">
         {
           features.map((feature, index) => (
-            <motion.div
-              client:load
-              {...getTitleAnimation()}
-              className="features__item w-full cursor-pointer select-none rounded-xl p-4 transition-all duration-200 hover:bg-subtle data-[active='true']:bg-subtle"
+            <div
+              class="features__item w-full cursor-pointer select-none rounded-xl p-4 transition-all duration-200 hover:bg-subtle data-[active='true']:bg-subtle"
               data-active={index === 0 ? 'true' : undefined}
               data-index={index}
             >
               <Description class="text-2xl font-bold">
-                {feature.title}
+                <motion.span
+                  client:load
+                  {...getTitleAnimation()}
+                  class="features__title"
+                >
+                  {feature.title}
+                </motion.span>
               </Description>
-              <Description>{feature.description}</Description>
-            </motion.div>
+              <Description>
+                <motion.span
+                  client:load
+                  {...getTitleAnimation()}
+                  class="features__description"
+                >
+                  {feature.description}
+                </motion.span>
+              </Description>
+            </div>
           ))
         }
       </div>
 
-      <motion.div client:load {...getTitleAnimation()} class="3xl:hidden">
-        <div
-          class="features__description flex min-h-12 items-center px-4 text-sm text-gray-600 dark:text-gray-300"
-        >
-        </div>
-      </motion.div>
+      <motion.div
+        client:load
+        {...getTitleAnimation()}
+        id="features-description"
+        class="3xl:hidden features__description flex min-h-12 items-center px-4 text-sm text-gray-600 dark:text-gray-300"
+      >
+        {features[0].description}</motion.div
+      >
     </div>
 
     <div
@@ -180,14 +194,12 @@ const features = [
   const videos = document.querySelectorAll(
     '.features__video'
   ) as NodeListOf<HTMLVideoElement>
+  const descriptionEl = document.getElementById(
+    'features-description'
+  ) as HTMLDivElement
   let currentIndex = 0
   let userInteracted = false
   let inactivityTimeout: NodeJS.Timeout | null = null
-
-  const descriptionEl = document.querySelector('.features__description')
-  if (descriptionEl) {
-    descriptionEl.textContent = descriptions[0]
-  }
 
   const loadAllVideos = () => {
     const allVideos = document.querySelectorAll(
@@ -278,24 +290,19 @@ const features = [
       }
     }
 
-    const descriptionEl = document.querySelector('.features__description')
-    if (descriptionEl) {
-      descriptionEl.textContent = descriptions[index]
-    }
-
     updateCarousel(index)
 
     playVideo(index)
+
+    descriptionEl.textContent = descriptions[index]
 
     for (let i = 0; i < indicators.length; i++) {
       if (i === index) {
         indicators[i].classList.add('features__indicator--active')
         indicators[i].setAttribute('data-active', 'true')
-        indicators[i].classList.add('opacity-100')
       } else {
         indicators[i].classList.remove('features__indicator--active')
         indicators[i].removeAttribute('data-active')
-        indicators[i].classList.remove('opacity-100')
       }
     }
   }
