@@ -67,10 +67,7 @@ const features = [
     </motion.p>
   </div>
 
-  <div
-    class="3xl:flex-row 3xl:gap-6 flex flex-col gap-6"
-    style="margin-top: 1.5rem;"
-  >
+  <div class="3xl:flex-row 3xl:gap-6 mt-6 flex flex-col gap-6">
     <div class="3xl:w-1/3 flex w-full flex-col gap-4">
       <div class="3xl:hidden flex gap-2 overflow-x-auto overflow-y-clip">
         {
@@ -78,7 +75,7 @@ const features = [
             <motion.button
               client:load
               {...getTitleAnimation()}
-              class="feature-tab whitespace-nowrap"
+              class="features__tab whitespace-nowrap rounded-lg px-4 py-2 text-lg font-medium transition-all duration-200 hover:bg-subtle data-[active='true']:bg-subtle"
               data-active={index === 0 ? 'true' : undefined}
               data-index={index}
             >
@@ -94,7 +91,7 @@ const features = [
             <motion.div
               client:load
               {...getTitleAnimation()}
-              className="feature"
+              className="features__item w-full cursor-pointer select-none rounded-xl p-4 transition-all duration-200 hover:bg-subtle data-[active='true']:bg-subtle"
               data-active={index === 0 ? 'true' : undefined}
               data-index={index}
             >
@@ -108,22 +105,28 @@ const features = [
       </div>
 
       <motion.div client:load {...getTitleAnimation()} class="3xl:hidden">
-        <div class="feature-description"></div>
+        <div
+          class="features__description flex min-h-12 items-center px-4 text-sm text-gray-600 dark:text-gray-300"
+        >
+        </div>
       </motion.div>
     </div>
 
     <div
       class="3xl:w-3/5 relative flex h-fit w-full flex-grow place-self-center rounded-xl"
     >
-      <div class="video-stack relative w-full">
+      <div
+        class="features__video-stack relative aspect-video w-full overflow-hidden rounded-xl"
+        style="perspective: 1000px; transform-style: preserve-3d;"
+      >
         <div
           id="video-wrapper"
-          class="absolute inset-0 h-full w-full transition-transform duration-500 ease-in-out"
+          class="absolute inset-0 flex h-full w-full transition-transform duration-500 ease-in-out"
         >
           {
             features.map((feature, index) => (
               <div
-                class="video-slide"
+                class="features__video-slide flex h-full w-full flex-shrink-0 items-center justify-center"
                 data-active={index === 0 ? 'true' : undefined}
                 data-index={index}
               >
@@ -132,7 +135,7 @@ const features = [
                   loop
                   muted
                   playsinline
-                  class="feature-video"
+                  class="features__video h-auto max-h-full w-fit rounded-2xl object-cover"
                   src={feature.video}
                 />
               </div>
@@ -141,12 +144,13 @@ const features = [
         </div>
         <div
           id="carousel-indicators"
-          class="absolute right-4 top-1/2 z-10 flex -translate-y-1/2 flex-col gap-2"
+          class="features__indicators 3xl:bottom-auto 3xl:left-auto 3xl:right-4 3xl:top-1/2 3xl:-translate-x-0 3xl:-translate-y-1/2 3xl:flex-col absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 flex-row gap-2"
         >
           {
             features.map((_, index) => (
               <span
-                class:list={['indicator', { active: index === 0 }]}
+                class="features__indicator 3xl:data-[active='true']:h-8 3xl:data-[active='true']:w-3 h-3 w-3 cursor-pointer rounded-full bg-dark opacity-70 transition-all duration-300 ease-in-out hover:opacity-100 data-[active='true']:h-3 data-[active='true']:w-8 data-[active='true']:opacity-100"
+                data-active={index === 0 ? 'true' : undefined}
                 data-index={index}
               />
             ))
@@ -158,7 +162,9 @@ const features = [
 </section>
 
 <script>
-  const features = document.querySelectorAll('.feature, .feature-tab')
+  const featureElements = document.querySelectorAll(
+    '.features__item, .features__tab'
+  )
   const descriptions = [
     'Organize your tabs into Workspaces to keep your projects separate and organized, and switch between them with ease.',
     "Zen's Compact Mode gives you more screen real estate by hiding the tab bar when you don't need it, and showing it when you do.",
@@ -170,18 +176,18 @@ const features = [
     'video-wrapper'
   ) as HTMLDivElement
   const indicators = document.querySelectorAll(
-    '.indicator'
+    '.features__indicator'
   ) as NodeListOf<HTMLSpanElement>
   let currentIndex = 0
 
-  const descriptionEl = document.querySelector('.feature-description')
+  const descriptionEl = document.querySelector('.features__description')
   if (descriptionEl) {
     descriptionEl.textContent = descriptions[0]
   }
 
   const loadAllVideos = () => {
     const allVideos = document.querySelectorAll(
-      '.feature-video[data-src]'
+      '.features__video[data-src]'
     ) as NodeListOf<HTMLVideoElement>
     for (const video of allVideos) {
       const source = video.querySelector('source')
@@ -217,7 +223,7 @@ const features = [
   preloadFeatureSectionVideos()
 
   function updateCarousel(index: number) {
-    if (index < 0 || index >= features.length) return
+    if (index < 0 || index >= featureElements.length) return
 
     currentIndex = index
     const offset = index * -100
@@ -225,16 +231,18 @@ const features = [
     const mediaQuery = window.matchMedia('(min-width: 1792px)')
     if (mediaQuery.matches) {
       videoWrapper.style.transform = `translateY(${offset}%)`
-      videoWrapper.style.flexDirection = 'column'
+      videoWrapper.classList.remove('flex-row')
+      videoWrapper.classList.add('flex-col')
     } else {
       videoWrapper.style.transform = `translateX(${offset}%)`
-      videoWrapper.style.flexDirection = 'row'
+      videoWrapper.classList.remove('flex-col')
+      videoWrapper.classList.add('flex-row')
     }
   }
 
   function playVideo(index: number) {
     const allVideos = document.querySelectorAll(
-      '.feature-video'
+      '.features__video'
     ) as NodeListOf<HTMLVideoElement>
 
     for (const video of allVideos) {
@@ -251,11 +259,11 @@ const features = [
   }
 
   function changeToFeature(index: number) {
-    if (index < 0 || index >= features.length) return
+    if (index < 0 || index >= featureElements.length) return
 
     currentIndex = index
 
-    for (const feature of features) {
+    for (const feature of featureElements) {
       const featureIndex = parseInt(feature.getAttribute('data-index') || '0')
       if (featureIndex === index) {
         feature.setAttribute('data-active', 'true')
@@ -264,28 +272,29 @@ const features = [
       }
     }
 
-    const descriptionEl = document.querySelector('.feature-description')
+    const descriptionEl = document.querySelector('.features__description')
     if (descriptionEl) {
       descriptionEl.textContent = descriptions[index]
     }
 
-    updateCarousel(index)
-
-    playVideo(index)
-
     for (let i = 0; i < indicators.length; i++) {
       if (i === index) {
-        indicators[i].classList.add('active')
+        indicators[i].setAttribute('data-active', 'true')
       } else {
-        indicators[i].classList.remove('active')
+        indicators[i].removeAttribute('data-active')
       }
     }
+
+    updateCarousel(index)
+    playVideo(index)
   }
 
-  for (const feature of features) {
+  for (const feature of featureElements) {
     feature.addEventListener('click', (e) => {
-      const target = e.currentTarget as HTMLElement
-      const index = parseInt(target.getAttribute('data-index') || '0')
+      const target = e.currentTarget
+      const index = parseInt(
+        (target as HTMLElement).getAttribute('data-index') || '0'
+      )
       changeToFeature(index)
     })
   }
@@ -296,7 +305,9 @@ const features = [
     })
   }
 
-  const videoStack = document.querySelector('.video-stack') as HTMLElement
+  const videoStack = document.querySelector(
+    '.features__video-stack'
+  ) as HTMLElement
   let startX = 0
   let currentX = 0
   let startY = 0
@@ -322,7 +333,7 @@ const features = [
 
     if (mediaQuery.matches) {
       if (Math.abs(deltaY) > 50) {
-        if (deltaY > 0 && currentIndex < features.length - 1) {
+        if (deltaY > 0 && currentIndex < featureElements.length - 1) {
           changeToFeature(currentIndex + 1)
         } else if (deltaY < 0 && currentIndex > 0) {
           changeToFeature(currentIndex - 1)
@@ -331,7 +342,7 @@ const features = [
         }
       }
     } else if (Math.abs(deltaX) > 50) {
-      if (deltaX > 0 && currentIndex < features.length - 1) {
+      if (deltaX > 0 && currentIndex < featureElements.length - 1) {
         changeToFeature(currentIndex + 1)
       } else if (deltaX < 0 && currentIndex > 0) {
         changeToFeature(currentIndex - 1)
@@ -341,106 +352,15 @@ const features = [
     }
   })
 
-  // Handle window resize
   const resizeHandler = () => {
     videoWrapper.style.transition = 'none'
     updateCarousel(currentIndex)
+
     setTimeout(() => {
       videoWrapper.style.transition = 'transform 0.5s ease-in-out'
     }, 100)
   }
 
   window.addEventListener('resize', resizeHandler)
-
   playVideo(0)
 </script>
-
-<style>
-  .feature {
-    @apply w-full cursor-pointer select-none rounded-xl p-4 hover:bg-subtle;
-    transition: all 0.2s ease-in-out;
-
-    &[data-active='true'] {
-      @apply bg-subtle;
-    }
-  }
-
-  .feature-tab {
-    @apply rounded-lg px-4 py-2 text-lg font-medium hover:bg-subtle;
-    transition: all 0.2s ease-in-out;
-
-    &[data-active='true'] {
-      @apply bg-subtle;
-    }
-  }
-
-  .feature-description {
-    @apply px-4 text-sm text-gray-600 dark:text-gray-300;
-  }
-
-  .video-stack {
-    @apply aspect-video overflow-hidden rounded-xl;
-    perspective: 1000px;
-    transform-style: preserve-3d;
-  }
-
-  #video-wrapper {
-    @apply flex h-full w-full;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  .video-slide {
-    @apply flex h-full w-full flex-shrink-0 items-center justify-center;
-  }
-
-  @media (min-width: 1792px) {
-    #video-wrapper {
-      flex-direction: column;
-    }
-  }
-
-  @media (max-width: 1791px) {
-    #video-wrapper {
-      flex-direction: row;
-    }
-  }
-
-  .feature-video {
-    @apply h-auto max-h-full w-fit;
-    object-fit: cover;
-  }
-
-  #carousel-indicators {
-    z-index: 10;
-  }
-
-  .indicator {
-    @apply h-3 w-3 cursor-pointer rounded-full bg-dark opacity-70 transition-all duration-300 ease-in-out hover:opacity-100;
-  }
-
-  .indicator.active {
-    @apply h-8 w-3 opacity-100;
-  }
-
-  @media (max-width: 1791px) {
-    #carousel-indicators {
-      bottom: 1rem;
-      left: 50%;
-      top: auto;
-      right: auto;
-      transform: translateX(-50%) !important;
-      flex-direction: row;
-    }
-
-    .indicator.active {
-      width: 2rem;
-      height: 0.75rem;
-    }
-
-    .feature-description {
-      min-height: 3rem;
-      display: flex;
-      align-items: center;
-    }
-  }
-</style>
