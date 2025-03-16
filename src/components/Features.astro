@@ -121,7 +121,7 @@ const features = [
       >
         <div
           id="video-wrapper"
-          class="absolute inset-0 flex h-full w-full transition-transform duration-500 ease-in-out"
+          class="3xl:flex-col absolute inset-0 flex h-full w-full transition-transform duration-500 ease-in-out"
         >
           {
             features.map((feature, index) => (
@@ -132,7 +132,6 @@ const features = [
               >
                 <Video
                   autoplay={index === 0}
-                  loop
                   muted
                   playsinline
                   class="features__video h-auto max-h-full w-fit rounded-2xl object-cover"
@@ -178,7 +177,12 @@ const features = [
   const indicators = document.querySelectorAll(
     '.features__indicator'
   ) as NodeListOf<HTMLSpanElement>
+  const videos = document.querySelectorAll(
+    '.features__video'
+  ) as NodeListOf<HTMLVideoElement>
   let currentIndex = 0
+  let userInteracted = false
+  let inactivityTimeout: NodeJS.Timeout | null = null
 
   const descriptionEl = document.querySelector('.features__description')
   if (descriptionEl) {
@@ -231,12 +235,8 @@ const features = [
     const mediaQuery = window.matchMedia('(min-width: 1792px)')
     if (mediaQuery.matches) {
       videoWrapper.style.transform = `translateY(${offset}%)`
-      videoWrapper.classList.remove('flex-row')
-      videoWrapper.classList.add('flex-col')
     } else {
       videoWrapper.style.transform = `translateX(${offset}%)`
-      videoWrapper.classList.remove('flex-col')
-      videoWrapper.classList.add('flex-row')
     }
   }
 
@@ -261,6 +261,12 @@ const features = [
   function changeToFeature(index: number) {
     if (index < 0 || index >= featureElements.length) return
 
+    if (userInteracted) {
+      for (const video of videos) {
+        video.setAttribute('loop', 'true')
+      }
+    }
+
     currentIndex = index
 
     for (const feature of featureElements) {
@@ -277,30 +283,71 @@ const features = [
       descriptionEl.textContent = descriptions[index]
     }
 
+    updateCarousel(index)
+
+    playVideo(index)
+
     for (let i = 0; i < indicators.length; i++) {
       if (i === index) {
+        indicators[i].classList.add('features__indicator--active')
         indicators[i].setAttribute('data-active', 'true')
+        indicators[i].classList.add('opacity-100')
       } else {
+        indicators[i].classList.remove('features__indicator--active')
         indicators[i].removeAttribute('data-active')
+        indicators[i].classList.remove('opacity-100')
       }
     }
+  }
 
-    updateCarousel(index)
-    playVideo(index)
+  function setupAutoAdvance() {
+    for (const [index, video] of videos.entries()) {
+      video.addEventListener('ended', () => {
+        if (!userInteracted) {
+          const nextIndex = (index + 1) % videos.length
+          changeToFeature(nextIndex)
+        }
+      })
+    }
+  }
+
+  function resetInactivityTimeout() {
+    if (inactivityTimeout) {
+      clearTimeout(inactivityTimeout)
+    }
+
+    inactivityTimeout = setTimeout(() => {
+      for (const video of videos) {
+        video.removeAttribute('loop')
+      }
+    }, 30000)
+  }
+
+  function markUserInteraction() {
+    userInteracted = true
+    resetInactivityTimeout()
+
+    for (const video of videos) {
+      video.setAttribute('loop', 'true')
+    }
+
+    setTimeout(() => {
+      userInteracted = false
+    }, 30000)
   }
 
   for (const feature of featureElements) {
     feature.addEventListener('click', (e) => {
-      const target = e.currentTarget
-      const index = parseInt(
-        (target as HTMLElement).getAttribute('data-index') || '0'
-      )
+      markUserInteraction()
+      const target = e.currentTarget as HTMLElement
+      const index = parseInt(target.getAttribute('data-index') || '0')
       changeToFeature(index)
     })
   }
 
   for (let i = 0; i < indicators.length; i++) {
     indicators[i].addEventListener('click', () => {
+      markUserInteraction()
       changeToFeature(i)
     })
   }
@@ -314,6 +361,7 @@ const features = [
   let currentY = 0
 
   videoStack.addEventListener('touchstart', (e) => {
+    markUserInteraction()
     startX = e.touches[0].clientX
     startY = e.touches[0].clientY
     videoWrapper.style.transition = 'none'
@@ -362,5 +410,8 @@ const features = [
   }
 
   window.addEventListener('resize', resizeHandler)
+
+  setupAutoAdvance()
   playVideo(0)
+  resetInactivityTimeout()
 </script>
