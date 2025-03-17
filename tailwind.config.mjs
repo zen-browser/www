@@ -7,6 +7,8 @@ export default {
       screens: {
         '-md': '@media (min-width: 768px)',
         '-lg': '@media (min-width: 1024px)',
+        '2xl': '1536px',
+        '3xl': '1792px',
       },
       colors: {
         paper: 'var(--zen-paper)',

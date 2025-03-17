@@ -25,16 +25,21 @@ const type = src.split('.').pop() || 'webm'
     }
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        loadVideo(entry.target as HTMLVideoElement)
-        observer.unobserve(entry.target)
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          loadVideo(entry.target as HTMLVideoElement)
+          observer.unobserve(entry.target)
+        }
       }
-    })
-  })
+    },
+    {
+      rootMargin: '50% 0px',
+    }
+  )
 
-  videos.forEach((video) => {
+  for (const video of videos) {
     observer.observe(video)
-  })
+  }
 </script>
