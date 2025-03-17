@@ -4,9 +4,10 @@ interface Props {
   description?: string
   ogImage?: string
   isHome?: boolean
+  redirect?: string
 }
 
-const { title, description, ogImage, isHome } = Astro.props
+const { title, description, ogImage, isHome, redirect } = Astro.props
 const defaultDescription = 'Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features.';
 const defaultOgImage = '/share-pic.png';
 import '@fontsource/bricolage-grotesque/400.css'
@@ -39,6 +40,7 @@ import MobileNavBar from '../components/MobileNavBar'
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    {redirect ? <meta http-equiv="refresh" content={`0;url=${redirect}`} /> : null}
     <meta name="description" content={description ?? defaultDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -58,11 +60,11 @@ import MobileNavBar from '../components/MobileNavBar'
 
     <!-- ICO favicon as a fallback for browsers that don't support SVG favicons (Safari) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="theme-color" content="#da755b" />
-  
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />

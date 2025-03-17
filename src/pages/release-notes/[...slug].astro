@@ -16,5 +16,10 @@ export async function getStaticPaths() {
 }
 
 const release = Astro.props
-return Astro.redirect(`/release-notes#${release.version}`)
 ---
+
+<Layout title="Release notes" redirect={`/release-notes#${release.version}`}>
+  <main class="flex flex-col items-center pb-52 pt-36">
+    Redirecting to release notes for version {release.version}...
+  </main>
+</Layout>
