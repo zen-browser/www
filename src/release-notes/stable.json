@@ -2379,5 +2379,28 @@
     ],
     "workflowId": 13799489812,
     "date": "11/03/2025"
+  },
+  {
+    "version": "1.10b",
+    "image": false,
+    "extra": "This small but mighty update includes some exciting new features and improvements to the Zen, such as passkeys support for MacOS and a media player controleler that's fully integrated with Picture-in-Picture mode.",
+    "fixes": [
+      "Glance should now not close if onbeforeunload is triggered",
+      "Fixed splitting more than 3 tabs by dragging them to the weebview",
+      "Fixed unloading pinned tabs that had onbeforeunload listeners",
+      "Fixed and tweaked small UI issues with spacings, animations, and more",
+      "Fixed toolbars being different sizes and overflowing buttons not hidding when starting the browser",
+      "For wayland users, fixed UI panels being cut off the screen (e.g. install extension panel)"
+    ],
+    "features": [
+      "Added support for passkeys on MacOS",
+      "Added a media player controller that's fully integrated with Picture-in-Picture mode",
+      "Updated to firefox 136.0.2",
+      "Added a default favicon for broken site favicons",
+      "Better toast notifications UI",
+      "Pressing ESC on newtab urlbar will now focus the web view, meaning the input will be fully blurred"
+    ],
+    "workflowId": 13926161887,
+    "date": "18/03/2025"
   }
 ]
