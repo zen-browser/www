@@ -2390,7 +2390,8 @@
       "Fixed unloading pinned tabs that had onbeforeunload listeners",
       "Fixed and tweaked small UI issues with spacings, animations, and more",
       "Fixed toolbars being different sizes and overflowing buttons not hidding when starting the browser",
-      "For wayland users, fixed UI panels being cut off the screen (e.g. install extension panel)"
+      "For wayland users, fixed UI panels being cut off the screen (e.g. install extension panel)",
+      "Fixed opening external links not being focused and appearing at the end of the tab list"
     ],
     "features": [
       "Added support for passkeys on MacOS",
