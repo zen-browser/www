@@ -2383,7 +2383,7 @@
   {
     "version": "1.10b",
     "image": false,
-    "extra": "This small but mighty update includes some exciting new features and improvements to the Zen, such as passkeys support for MacOS and a media player controleler that's fully integrated with Picture-in-Picture mode.",
+    "extra": "This small but mighty update includes some exciting new features and improvements to the Zen, such as passkeys support for MacOS and a media player controller that's fully integrated with Picture-in-Picture mode.",
     "fixes": [
       "Glance should now not close if onbeforeunload is triggered",
       "Fixed splitting more than 3 tabs by dragging them to the weebview",
