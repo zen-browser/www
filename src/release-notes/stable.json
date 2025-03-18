@@ -2386,7 +2386,7 @@
     "extra": "This small but mighty update includes some exciting new features and improvements to the Zen, such as passkeys support for MacOS and a media player controller that's fully integrated with Picture-in-Picture mode.",
     "fixes": [
       "Glance should now not close if onbeforeunload is triggered",
-      "Fixed splitting more than 3 tabs by dragging them to the weebview",
+      "Fixed splitting more than 3 tabs by dragging them to the web view",
       "Fixed unloading pinned tabs that had onbeforeunload listeners",
       "Fixed and tweaked small UI issues with spacings, animations, and more",
       "Fixed toolbars being different sizes and overflowing buttons not hidding when starting the browser",
