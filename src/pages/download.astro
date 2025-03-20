@@ -1,544 +1,606 @@
 ---
-import Button from '../components/Button.astro'
 import Description from '../components/Description.astro'
 import Title from '../components/Title.astro'
 import Layout from '../layouts/Layout.astro'
-import { Image } from 'astro:assets'
-import myImage from '../assets/app-icon.png'
+import DownloadCard from '../components/download/ButtonCard.astro'
+import { releases } from '../components/download/release-data.astro'
 
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
-import { faWindows, faLinux, faApple } from '@fortawesome/free-brands-svg-icons'
-import { ArrowLeft, HardDriveDownload, Info } from 'lucide-astro'
+import {
+  faWindows,
+  faLinux,
+  faApple,
+  faGithub,
+} from '@fortawesome/free-brands-svg-icons'
+import { Lock, Download as DownloadIcon, ExternalLink } from 'lucide-astro'
 
-library.add(faWindows, faLinux, faApple)
+library.add(faWindows, faLinux, faApple, faGithub)
 const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
 const linuxIcon = icon({ prefix: 'fab', iconName: 'linux' })
 const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
+const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 ---
 
-<Layout title="Welcome to Zen">
-  <main class="flex min-h-screen flex-col items-center justify-center">
-    <div
-      class="lg:px-auto flex flex-col justify-center px-2 md:px-12 lg:flex-row"
-    >
-      <Image
-        src={myImage}
-        alt="Zen Browser"
-        class="h-24 w-24"
-        loading="eager"
-      />
-      <div class="mb-24 flex flex-col gap-6 p-4 lg:w-1/2">
+<Layout title="Download Zen Browser">
+  <main class="flex min-h-screen flex-col px-2">
+    <div class="container relative mx-auto max-w-5xl py-12">
+      <!-- Background elements -->
+      <!-- <div
+        class="gradient-blur gradient-blur--primary absolute -top-[10%] right-[5%] -z-10 h-[25vw] w-[25vw] opacity-[0.12]"
+      >
+      </div>
+      <div
+        class="gradient-blur gradient-blur--accent absolute bottom-[20%] left-[10%] -z-10 h-[20vw] w-[20vw] opacity-[0.12]"
+      >
+      </div> -->
+
+      <div class="my-16 animate-fadeIn text-center">
+        <!-- <div
+          class="mx-auto my-6 inline-flex items-center justify-center rounded-full border border-coral p-2 px-4 text-dark"
+        >
+          <DownloadIcon class="mr-2 h-4 w-4" />
+          <span class="text-sm font-medium">Get Started</span>
+        </div> -->
+
+        <Title>Download Zen</Title>
+        <Description class="mx-auto max-w-2xl">
+          Start your journey to a more mindful internet experience with Zen
+          Browser. Choose your platform below to get started.
+        </Description>
+      </div>
+
+      <!-- Platform selector -->
+      <div class="mb-12 flex justify-center">
+        <div class="inline-flex rounded-full bg-subtle p-1.5">
+          <button
+            class="platform-selector rounded-full px-5 py-2.5 transition-all duration-300 data-[active='true']:bg-subtle"
+            data-platform="mac"
+          >
+            <span class="flex items-center gap-2">
+              <Fragment set:html={appleIcon.html} />
+              <span>macOS</span>
+            </span>
+          </button>
+          <button
+            class="platform-selector rounded-full px-5 py-2.5 transition-all duration-300 data-[active='true']:bg-subtle"
+            data-platform="windows"
+          >
+            <span class="flex items-center gap-2">
+              <Fragment set:html={windowsIcon.html} />
+              <span>Windows</span>
+            </span>
+          </button>
+          <button
+            class="platform-selector rounded-full px-5 py-2.5 transition-all duration-300 data-[active='true']:bg-subtle"
+            data-platform="linux"
+          >
+            <span class="flex items-center gap-2">
+              <Fragment set:html={linuxIcon.html} />
+              <span>Linux</span>
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Download Cards -->
+      <div
+        class="relative mb-16 overflow-hidden rounded-3xl border border-subtle p-8 shadow-xl backdrop-blur-sm md:p-10"
+      >
+        <!-- Decorative gradient -->
+        <div
+          class="absolute inset-0 -z-10 bg-gradient-to-br from-coral/5 via-transparent to-subtle"
+        >
+        </div>
+
+        <!-- MacOS Download -->
+        <div id="mac-downloads" class="platform-section">
+          <div class="items-center gap-8 md:flex">
+            <div class="mb-8 md:mb-0 md:w-2/3">
+              <div class="mb-4 flex items-center gap-3">
+                <div class="download-card__icon">
+                  <Fragment set:html={appleIcon.html} />
+                </div>
+                <h3 class="text-2xl font-medium">macOS Download</h3>
+              </div>
+              <p class="text-muted-foreground mb-6">
+                Universal binary for Apple Silicon (M1/M2/M3) and Intel Macs. <br
+                />
+                Requires macOS 11.0 or later.
+              </p>
+              <div class="space-y-4">
+                {
+                  Object.entries(releases.macos).map(
+                    ([variant, releaseNote]) => (
+                      <DownloadCard
+                        label={releaseNote.label}
+                        href={releaseNote.link}
+                        variant={variant}
+                      />
+                    )
+                  )
+                }
+              </div>
+            </div>
+            <div class="flex justify-center md:w-1/3">
+              <div class="relative h-60 w-60">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    width="180"
+                    height="180"
+                    viewBox="0 0 180 180"
+                    class="animate-float"
+                  >
+                    <circle
+                      cx="90"
+                      cy="90"
+                      r="88"
+                      fill="none"
+                      stroke="hsl(var(--primary)/0.2)"
+                      stroke-width="1"></circle>
+                    <circle
+                      cx="90"
+                      cy="90"
+                      r="80"
+                      fill="none"
+                      stroke="hsl(var(--primary)/0.3)"
+                      stroke-width="1"></circle>
+                    <circle
+                      cx="90"
+                      cy="90"
+                      r="60"
+                      fill="none"
+                      stroke="hsl(var(--primary)/0.4)"
+                      stroke-width="2"></circle>
+                  </svg>
+                </div>
+                <div
+                  class="-sm:hidden absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-[28px] border border-subtle backdrop-blur-sm"
+                >
+                  <div
+                    class="os-icon flex h-12 w-12 items-center justify-center text-coral"
+                  >
+                    <Fragment set:html={appleIcon.html} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Windows Download -->
+        <div id="windows-downloads" class="platform-section hidden">
+          <div class="items-center gap-8 md:flex">
+            <div class="mb-8 md:mb-0 md:w-2/3">
+              <div class="mb-4 flex items-center gap-3">
+                <div class="download-card__icon">
+                  <Fragment set:html={windowsIcon.html} />
+                </div>
+                <h3 class="text-2xl font-medium">Windows Download</h3>
+              </div>
+              <p class="text-muted-foreground mb-6">
+                For Windows 10 and Windows 11. <br />
+                Both 64-bit (recommended) and 32-bit installers available.
+              </p>
+              <div class="space-y-4">
+                {
+                  Object.entries(releases.windows).map(
+                    ([variant, releaseNote]) => (
+                      <DownloadCard
+                        label={releaseNote.label}
+                        href={releaseNote.link}
+                        variant={variant}
+                      />
+                    )
+                  )
+                }
+              </div>
+            </div>
+            <div class="flex justify-center md:w-1/3">
+              <div class="relative h-60 w-60">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    width="180"
+                    height="180"
+                    viewBox="0 0 180 180"
+                    class="animate-float"
+                  >
+                    <rect
+                      x="35"
+                      y="35"
+                      width="110"
+                      height="110"
+                      rx="8"
+                      fill="none"
+                      stroke="hsl(var(--primary)/0.2)"
+                      stroke-width="1"></rect>
+                    <rect
+                      x="45"
+                      y="45"
+                      width="90"
+                      height="90"
+                      rx="6"
+                      fill="none"
+                      stroke="hsl(var(--primary)/0.3)"
+                      stroke-width="1"></rect>
+                    <rect
+                      x="60"
+                      y="60"
+                      width="60"
+                      height="60"
+                      rx="4"
+                      fill="none"
+                      stroke="hsl(var(--primary)/0.4)"
+                      stroke-width="2"></rect>
+                  </svg>
+                </div>
+                <div
+                  class="sm-hidden absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-[28px] border border-subtle backdrop-blur-sm"
+                >
+                  <div
+                    class="os-icon flex items-center justify-center text-coral"
+                  >
+                    <Fragment set:html={windowsIcon.html} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Linux Download -->
+        <!-- Linux Download -->
+        <div id="linux-downloads" class="platform-section hidden">
+          <div class="items-center gap-8 md:flex">
+            <div class="mb-8 md:mb-0 md:w-2/3">
+              <div class="mb-4 flex items-center gap-3">
+                <div class="download-card__icon">
+                  <Fragment set:html={linuxIcon.html} />
+                </div>
+                <h3 class="text-2xl font-medium">Linux Download</h3>
+              </div>
+              <p class="text-muted-foreground mb-6">
+                Available in multiple formats for different Linux distributions.
+                Choose the option that best fits your system.
+              </p>
+
+              <!-- Package managers first - most user-friendly -->
+              <div class="mb-6">
+                <h4
+                  class="mb-4 border-b border-subtle pb-2 text-lg font-medium"
+                >
+                  Package Managers
+                </h4>
+                <div class="space-y-4">
+                  <DownloadCard
+                    label="Flathub"
+                    href={releases.linux.flathub.all.link}
+                    variant="flathub"
+                  />
+                </div>
+              </div>
+
+              <!-- AppImages second - also user-friendly -->
+              <div class="mb-6">
+                <h4
+                  class="mb-4 border-b border-subtle pb-2 text-lg font-medium"
+                >
+                  AppImage (Portable)
+                </h4>
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <DownloadCard
+                    label="x86_64 (64-bit)"
+                    href={releases.linux.x86_64.appImage.link}
+                    variant="x86_64-appImage"
+                  />
+                  <DownloadCard
+                    label="ARM64"
+                    href={releases.linux.aarch64.appImage.link}
+                    variant="aarch64-appImage"
+                  />
+                </div>
+              </div>
+
+              <!-- Tarballs last - for advanced users -->
+              <div>
+                <h4
+                  class="mb-4 border-b border-subtle pb-2 text-lg font-medium"
+                >
+                  Tarball (Manual Install)
+                </h4>
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <DownloadCard
+                    label="x86_64 (64-bit)"
+                    href={releases.linux.x86_64.tarball.link}
+                    variant="x86_64-tarball"
+                  />
+                  <DownloadCard
+                    label="ARM64"
+                    href={releases.linux.aarch64.tarball.link}
+                    variant="aarch64-tarball"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-center md:w-1/3">
+              <div class="relative h-60 w-60">
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    width="180"
+                    height="180"
+                    viewBox="0 0 180 180"
+                    class="animate-float"
+                  >
+                    <polygon
+                      points="90,30 30,150 150,150"
+                      fill="none"
+                      stroke="hsl(var(--primary)/0.2)"
+                      stroke-width="1"></polygon>
+                    <polygon
+                      points="90,45 45,140 135,140"
+                      fill="none"
+                      stroke="hsl(var(--primary)/0.3)"
+                      stroke-width="1"></polygon>
+                    <polygon
+                      points="90,60 60,130 120,130"
+                      fill="none"
+                      stroke="hsl(var(--primary)/0.4)"
+                      stroke-width="2"></polygon>
+                  </svg>
+                </div>
+                <div
+                  class="-sm:hidden absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-[28px] border border-subtle backdrop-blur-sm"
+                >
+                  <div
+                    class="os-icon flex items-center justify-center text-coral"
+                  >
+                    <Fragment set:html={linuxIcon.html} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional resources -->
+      <section class="mb-16">
+        <h2 class="mb-8 text-center text-2xl font-medium">
+          Additional Resources
+        </h2>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <a
+            href="https://github.com/zen-browser"
+            class="group rounded-2xl border border-subtle p-6 transition-all duration-300 hover:border-coral hover:border-opacity-20 hover:shadow-lg hover:shadow-coral/5"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="mb-2 text-xl font-medium">Source Code</h3>
+                <p class="text-muted-foreground">
+                  Explore Zen Browser's source code on GitHub. Contribute to the
+                  project or build your own version.
+                </p>
+              </div>
+              <div
+                class="grid aspect-square h-12 w-12 place-items-center rounded-xl border border-subtle transition-all duration-300 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-10"
+              >
+                <div class="text-muted-foreground group-hover:text-coral">
+                  <Fragment set:html={githubIcon.html} />
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://docs.zen-browser.app"
+            class="group rounded-2xl border border-subtle p-6 transition-all duration-300 hover:border-coral hover:border-opacity-20 hover:shadow-lg hover:shadow-coral/5"
+          >
+            <div class="flex items-start justify-between">
+              <div>
+                <h3 class="mb-2 text-xl font-medium">Documentation</h3>
+                <p class="text-muted-foreground">
+                  Access comprehensive documentation, guides, and tutorials for
+                  Zen Browser.
+                </p>
+              </div>
+              <div
+                class="rounded-xl border border-subtle p-3 transition-all duration-300 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-20"
+              >
+                <ExternalLink class="h-5 w-5 group-hover:text-coral" />
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Security Notice -->
+      <div
+        class="grid grid-cols-[auto,1fr] gap-4 rounded-2xl border border-subtle p-6"
+      >
+        <div class="h-fit rounded-xl bg-subtle p-3">
+          <Lock class="h-5 w-5" />
+        </div>
+
         <div>
-          <Title>Try out <span id="zen-name">Zen</span>!</Title>
-          <Description>
-            Start browsing the web with Zen Browser today. Beautifully designed,
-            privacy-focused, and packed with features!
-          </Description>
-          <Description id="twilight-info" class="mt-6 hidden">
-            <strong>Twilight Mode:</strong> You're currently in Twilight mode, this
-            means you're downloading the latest experimental features and updates.
-          </Description>
-        </div>
-        <div id="download-form">
-          <div id="form-os-select" class="form-item">
-            <div class="form-title">
-              Before downloading, we need to know your system info!
-            </div>
-            <div class="form-description">
-              Please select your operating system below, we already
-              auto-detected it for you!
-            </div>
-            <form class="form-select flex flex-col gap-2" id="os-select">
-              <input
-                type="radio"
-                name="os"
-                value="windows"
-                id="os-select-windows"
-                class="hidden"
-              />
-              <label
-                class="flex w-full cursor-pointer items-center gap-2 rounded-md border-2 border-dark p-2 px-4"
-                for="os-select-windows"
-              >
-                <Fragment set:html={windowsIcon.html} />
-                <div>Windows</div>
-              </label>
-              <input
-                type="radio"
-                name="os"
-                value="linux"
-                id="os-select-linux"
-                class="hidden"
-              />
-              <label
-                class="flex w-full cursor-pointer items-center gap-2 rounded-md border-2 border-dark p-2 px-4"
-                for="os-select-linux"
-              >
-                <Fragment set:html={linuxIcon.html} />
-                <div>Linux</div>
-              </label>
-              <input
-                type="radio"
-                name="os"
-                value="macos"
-                id="os-select-macos"
-                class="hidden"
-              />
-              <label
-                class="flex w-full cursor-pointer items-center gap-2 rounded-md border-2 border-dark p-2 px-4"
-                for="os-select-macos"
-                id="macos-select"
-              >
-                <Fragment set:html={appleIcon.html} />
-                <div>Download MacOS DMG</div>
-                <HardDriveDownload class="ml-auto size-4" />
-              </label>
-            </form>
-          </div>
-          <div id="linux-target-download" class="form-item hidden">
-            <div class="form-title">Choose your Linux target system</div>
-            <div class="form-description">
-              We have a few options for Linux, please select the one that fits
-              your system.
-            </div>
-            <form class="form-select flex flex-col gap-2">
-              <input
-                type="radio"
-                name="linux-target"
-                value="x86_64"
-                id="linux-target-x86_64"
-                class="hidden"
-                checked
-              />
-              <label
-                class="flex w-full cursor-pointer items-center gap-2 rounded-md border-2 border-dark p-2 px-4"
-                for="linux-target-x86_64"
-              >
-                <div>x86_64</div>
-              </label>
-              <input
-                type="radio"
-                name="linux-target"
-                value="aarch64"
-                id="linux-target-aarch64"
-                class="hidden"
-              />
-              <label
-                class="flex w-full cursor-pointer items-center gap-2 rounded-md border-2 border-dark p-2 px-4"
-                for="linux-target-aarch64"
-              >
-                <div>aarch64</div>
-              </label>
-            </form>
-          </div>
-          <div id="form-linux-download" class="form-item hidden">
-            <div class="form-title">Download Zen for Linux!</div>
-            <div class="form-description">
-              You can choose between different download formats for Linux,
-              select the one that fits you best.
-            </div>
-            <div class="form-select flex flex-col gap-4">
-              <div
-                class="flex cursor-pointer items-center justify-between rounded-md border-2 border-dark p-2 px-4 text-dark shadow-sm transition-all duration-100 hover:bg-dark hover:text-paper"
-                id="linux-tar-download"
-              >
-                Download Tarball
-                <HardDriveDownload class="size-4" />
-              </div>
-              <div
-                class="flex cursor-pointer items-center justify-between rounded-md border-2 border-dark p-2 px-4 text-dark shadow-sm transition-all duration-100 hover:bg-dark hover:text-paper"
-                id="linux-appimage-download"
-              >
-                Download AppImage
-                <HardDriveDownload class="size-4" />
-              </div>
-              <div
-                class="flex cursor-pointer items-center justify-between rounded-md border-2 border-dark p-2 px-4 text-dark shadow-sm transition-all duration-100 hover:bg-dark hover:text-paper"
-                id="linux-flathub-download"
-              >
-                Download from Flathub
-                <HardDriveDownload class="size-4" />
-              </div>
-            </div>
-          </div>
-          <div id="windows-target-download" class="form-item hidden">
-            <div class="form-title">Choose your Windows target system</div>
-            <div class="form-description">
-              We have a few options for Windows, please select the one that fits
-              your system.
-            </div>
-            <form class="form-select flex flex-col gap-2">
-              <input
-                type="radio"
-                name="windows-target"
-                value="x86_64"
-                id="windows-target-x86_64"
-                class="hidden"
-                checked
-              />
-              <label
-                class="flex w-full cursor-pointer items-center gap-2 rounded-md border-2 border-dark p-2 px-4"
-                for="windows-target-x86_64"
-              >
-                <div>x86_64</div>
-              </label>
-              <input
-                type="radio"
-                name="windows-target"
-                value="arm64"
-                id="windows-target-arm64"
-                class="hidden"
-              />
-              <label
-                class="flex w-full cursor-pointer items-center gap-2 rounded-md border-2 border-dark p-2 px-4"
-                for="windows-target-arm64"
-              >
-                <div>ARM64</div>
-              </label>
-            </form>
-          </div>
-          <div id="windows-download" class="form-item hidden">
-            <div class="form-title">Download Zen for Windows!</div>
-            <div class="form-description">
-              You can choose between different download formats for Windows,
-              select the one that fits you best.
-            </div>
-            <div class="form-select flex flex-col gap-4">
-              <div
-                class="flex cursor-pointer items-center justify-between rounded-md border-2 border-dark p-2 px-4 text-dark shadow-sm transition-all duration-100 hover:bg-dark hover:text-paper"
-                id="windows-installer-download"
-              >
-                Download Installer
-                <HardDriveDownload class="size-4" />
-              </div>
-              <div
-                class="flex cursor-pointer items-center justify-between rounded-md border-2 border-dark p-2 px-4 text-dark opacity-50 shadow-sm transition-all duration-100 hover:bg-dark hover:text-paper"
-                id="windows-zip-download"
-              >
-                Download Zip
-                <HardDriveDownload class="size-4" />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="flex w-full items-center">
-          <div class="flex flex-1 justify-start">
-            <Button id="back-button" class="hidden">
-              <ArrowLeft class="size-4" />
-              Back
-            </Button>
-          </div>
+          <h3 class="mb-2 text-lg font-medium">Verified & Secure Downloads</h3>
+          <p class="text-muted-foreground">
+            All Zen Browser downloads are signed and verified for your security.
+            We recommend downloading directly from our official website or
+            GitHub repository. If your download seems broken or gets flagged by
+            your antivirus, please
+            <a
+              href="https://github.com/zen-browser/desktop/issues/new/choose"
+              class="text-accent ml-1 underline">report it to us</a
+            >.
+          </p>
         </div>
       </div>
     </div>
   </main>
 </Layout>
+
 <script>
-  const releases = {
-    macos: {
-      universal: 'zen.macos-universal.dmg',
-    },
-    linux: {
-      x86_64: {
-        tar: 'zen.linux-x86_64.tar.xz',
-        appImage: 'zen-x86_64.AppImage',
-      },
-      aarch64: {
-        tar: 'zen.linux-aarch64.tar.xz',
-        appImage: 'zen-aarch64.AppImage',
-      },
-    },
-    windows: {
-      x86_64: {
-        installer: 'zen.installer.exe',
-        zip: 'zen.win-x86_64.zip',
-      },
-      arm64: {
-        installer: 'zen.installer-arm64.exe',
-        zip: 'zen.win-arm64.zip',
-      },
-    },
-  } as any
+  // Handle platform selection
+  const platforms = ['mac', 'windows', 'linux']
+  const platformButtons = document.querySelectorAll('.platform-selector')
+  const platformSections = document.querySelectorAll('.platform-section')
 
-  const BASE_URL =
-    'https://github.com/zen-browser/desktop/releases/latest/download'
-  const TWILIGHT_BASE_URL =
-    'https://github.com/zen-browser/desktop/releases/download/twilight'
+  // Function to detect OS and select appropriate platform
+  function detectOS() {
+    const userAgent = window.navigator.userAgent
+    let detectedOS = 'mac' // Default to macOS
 
-  var selectedOS: string | null = null
-  var isTwilight: boolean = false
-
-  var selectedArch: string | null = null
-
-  function showButton(buttonId: string, show: boolean) {
-    const button = document.getElementById(buttonId) as HTMLButtonElement
-    if (show) {
-      button?.classList.remove('hidden')
-    } else {
-      button?.classList.add('hidden')
+    if (userAgent.indexOf('Windows') !== -1) {
+      detectedOS = 'windows'
+    } else if (userAgent.indexOf('Linux') !== -1) {
+      detectedOS = 'linux'
     }
+
+    return detectedOS
   }
 
-  function downloadRelease(os: string, arch: string, format: string = '') {
-    console.log('Downloading release', os, arch, format)
-    let releaseName = releases[os][arch]
-    if (os !== 'macos') {
-      releaseName = releases[os][arch][format]
-    }
-    const url = `${isTwilight ? TWILIGHT_BASE_URL : BASE_URL}/${releaseName}`
-    console.log('Downloading from', url)
-    window.open(url, '_blank')
+  // Initialize platform based on user's OS
+  function initializePlatform() {
+    const detectedOS = detectOS()
+    selectPlatform(detectedOS)
   }
 
-  function goNextForm() {
-    if (selectedOS === null) {
-      const osSelect = document.getElementById('os-select') as HTMLFormElement
-      const selectedRadio = osSelect.querySelector(
-        "input[type='radio']:checked",
-      ) as HTMLInputElement
-      selectedOS = selectedRadio.value
-      document.getElementById('form-os-select')?.classList.add('hidden')
-
-      if (selectedOS === 'linux') {
-        const linuxDownload = document.getElementById(
-          'linux-target-download',
-        ) as HTMLDivElement
-        linuxDownload.classList.remove('hidden')
-      } else if (selectedOS === 'windows') {
-        const windowsDownload = document.getElementById(
-          'windows-target-download',
-        ) as HTMLDivElement
-        windowsDownload.classList.remove('hidden')
+  // Function to select a platform
+  function selectPlatform(platform: string) {
+    // Update button styling
+    platformButtons.forEach((button) => {
+      const buttonPlatform = button.getAttribute('data-platform')
+      if (buttonPlatform === platform) {
+        button.setAttribute('data-active', 'true')
+      } else {
+        button.setAttribute('data-active', 'false')
       }
-      showButton('back-button', true) // Show Back button after first step
-    } else if (selectedOS === 'linux' && selectedArch === null) {
-      const linuxTargetSelect = document.getElementById(
-        'linux-target-download',
-      ) as HTMLFormElement
-      const selectedRadio = linuxTargetSelect.querySelector(
-        "input[type='radio']:checked",
-      ) as HTMLInputElement
-      selectedArch = selectedRadio.value
-      document.getElementById('linux-target-download')?.classList.add('hidden')
+    })
 
-      const linuxDownload = document.getElementById(
-        'form-linux-download',
-      ) as HTMLDivElement
-      linuxDownload.classList.remove('hidden')
-    } else if (selectedOS === 'windows' && selectedArch === null) {
-      const windowsTargetSelect = document.getElementById(
-        'windows-target-download',
-      ) as HTMLFormElement
-      const selectedRadio = windowsTargetSelect.querySelector(
-        "input[type='radio']:checked",
-      ) as HTMLInputElement
-      selectedArch = selectedRadio.value
-      document
-        .getElementById('windows-target-download')
-        ?.classList.add('hidden')
-
-      const windowsDownload = document.getElementById(
-        'windows-download',
-      ) as HTMLDivElement
-      windowsDownload.classList.remove('hidden')
-    } else {
-      throw new Error('Unknown state')
-    }
+    // Show/hide platform sections
+    platformSections.forEach((section) => {
+      if (section.id === `${platform}-downloads`) {
+        section.classList.remove('hidden')
+      } else {
+        section.classList.add('hidden')
+      }
+    })
   }
 
-  function goPreviousForm() {
-    if (selectedArch) {
-      // Go back to architecture selection
-      if (selectedOS === 'linux') {
-        document.getElementById('form-linux-download')?.classList.add('hidden')
-        document
-          .getElementById('linux-target-download')
-          ?.classList.remove('hidden')
-      } else if (selectedOS === 'windows') {
-        document.getElementById('windows-download')?.classList.add('hidden')
-        document
-          .getElementById('windows-target-download')
-          ?.classList.remove('hidden')
-      }
-      selectedArch = null
-      showButton('back-button', true)
-    } else if (selectedOS) {
-      // Go back to OS selection
-      if (selectedOS === 'linux') {
-        document
-          .getElementById('linux-target-download')
-          ?.classList.add('hidden')
-      } else if (selectedOS === 'windows') {
-        document
-          .getElementById('windows-target-download')
-          ?.classList.add('hidden')
-      }
-      document.getElementById('form-os-select')?.classList.remove('hidden')
-      selectedOS = null
-      showButton('back-button', false)
-    }
-  }
+  // Handle platform button clicks
+  platformButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const platform = button.getAttribute('data-platform') ?? ''
+      selectPlatform(platform)
+    })
+  })
 
-  showButton('back-button', false) // Hide Back button on page load
-
-  function getIfTwilight() {
+  // Check for twilight mode
+  function checkTwilightMode() {
     const urlParams = new URLSearchParams(window.location.search)
-    isTwilight = urlParams.has('twilight')
+    const isTwilight = urlParams.has('twilight')
+
     if (isTwilight) {
-      console.log('Twilight mode enabled')
-      const name = document.getElementById('zen-name')
-      const twilightInfo = document.getElementById('twilight-info')
-      if (name) name.innerHTML = 'Twilight'
-      if (twilightInfo) twilightInfo.classList.remove('hidden')
-    } else {
-      document.getElementById('windows-zip-download')?.classList.add('hidden')
+      // Replace all download links with twilight versions
+      const downloadLinks = document.querySelectorAll('a[id$="-download"]')
+      downloadLinks.forEach((link) => {
+        if (!link.id.includes('beta')) {
+          const href = link.getAttribute('href')
+          if (href && href.includes('/latest/download/')) {
+            const twilightHref = href.replace(
+              '/latest/download/',
+              '/download/twilight/'
+            )
+            link.setAttribute('href', twilightHref)
+          }
+        }
+      })
+
+      // Update UI to show twilight mode
+      const titleElem = document.querySelector('h1')
+      if (titleElem) {
+        titleElem.innerHTML = titleElem.innerHTML.replace('Zen', 'Twilight')
+      }
+
+      const tags = document.querySelectorAll('.release-type-tag')
+      tags.forEach((tag) => {
+        tag.innerHTML = tag.innerHTML.replace('Beta', 'Twilight')
+      })
     }
   }
 
-  getIfTwilight()
-
-  document.getElementById('back-button')?.addEventListener('click', () => {
-    goPreviousForm()
+  // Initialize the page
+  document.addEventListener('DOMContentLoaded', () => {
+    initializePlatform()
+    checkTwilightMode()
   })
+</script>
 
-  document.getElementById('macos-select')?.addEventListener('click', () => {
-    downloadRelease('macos', 'universal')
-  })
-
-  document
-    .getElementById('linux-tar-download')
-    ?.addEventListener('click', () => {
-      downloadRelease('linux', selectedArch as string, 'tar')
-    })
-
-  document
-    .getElementById('linux-appimage-download')
-    ?.addEventListener('click', () => {
-      downloadRelease('linux', selectedArch as string, 'appImage')
-    })
-
-  if (!isTwilight) {
-    document
-      .getElementById('linux-flathub-download')
-      ?.addEventListener('click', () => {
-        window.open('https://flathub.org/apps/app.zen_browser.zen')
-      })
-  } else {
-    document.getElementById('linux-flathub-download')?.classList.add('hidden')
+<style>
+  /* Floating animation */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
   }
 
-  document
-    .getElementById('windows-installer-download')
-    ?.addEventListener('click', () => {
-      downloadRelease('windows', selectedArch as string, 'installer')
-    })
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
 
-  document
-    .getElementById('windows-zip-download')
-    ?.addEventListener('click', () => {
-      //downloadRelease("windows", selectedArch as string, "zip");
-    })
-
-  document
-    .getElementById('os-select-windows')
-    ?.addEventListener('click', () => {
-      goNextForm()
-    })
-
-  document
-    .getElementById('os-select-linux')
-    ?.addEventListener('click', (event) => {
-      goNextForm()
-    })
-
-  document
-    .getElementById('linux-target-x86_64')
-    ?.addEventListener('click', () => {
-      goNextForm()
-    })
-
-  document
-    .getElementById('linux-target-aarch64')
-    ?.addEventListener('click', () => {
-      goNextForm()
-    })
-
-  document
-    .getElementById('windows-target-x86_64')
-    ?.addEventListener('click', () => {
-      goNextForm()
-    })
-
-  document
-    .getElementById('windows-target-arm64')
-    ?.addEventListener('click', () => {
-      goNextForm()
-    })
-</script>
-<style is:global>
+  /* Fade in animation */
   @keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(10px);
-      filter: blur(5px);
     }
-
     to {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
     }
   }
 
-  #download-form {
-  }
-  .form-item {
-    --animation-delay: 0s;
+  .animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
   }
 
-  .form-select {
-    --animation-delay: 0.4s;
+  /* Gradient blur */
+  .gradient-blur {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
   }
 
-  .extra-delay {
-    --animation-delay: 0.8s;
+  .gradient-blur--primary {
+    background: var(--color-primary, #3b82f6);
   }
 
-  .form-item > *:not(.hidden, .form-select),
-  .form-select > *:not(.hidden, input[type='radio']) {
-    @apply select-none;
-    opacity: 0;
-
-    animation: fadeIn 0.2s forwards;
-
-    &:nth-of-type(1) {
-      animation-delay: calc(var(--animation-delay) + 0.1s) !important;
-    }
-
-    &:nth-of-type(2) {
-      animation-delay: calc(var(--animation-delay) + 0.2s) !important;
-    }
-
-    &:nth-of-type(3) {
-      animation-delay: calc(var(--animation-delay) + 0.3s) !important;
-    }
+  .gradient-blur--accent {
+    background: var(--color-accent, #f97316);
   }
 
-  .form-title {
-    @apply mb-1 font-bold;
+  /* Download card icon */
+  .download-card__icon {
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-subtle p-2 text-coral;
   }
 
-  .form-description {
-    @apply mb-4 text-sm opacity-50;
+  /* Make FontAwesome icons match size */
+  .download-card__icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
   }
+</style>
 
-  form {
-    & > label {
-      @apply cursor-pointer transition-transform duration-200;
-
-      &:hover {
-        @apply bg-muted;
-      }
-    }
+<style is:global>
+  .os-icon svg {
+    height: 3rem;
+    width: 3rem;
   }
 </style>
