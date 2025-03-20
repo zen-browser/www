@@ -2,8 +2,8 @@
 import Description from '../components/Description.astro'
 import Title from '../components/Title.astro'
 import Layout from '../layouts/Layout.astro'
-import DownloadCard from '../components/download/ButtonCard.astro'
 import { releases } from '../components/download/release-data.astro'
+import PlatformDownload from '../components/download/PlatformDownload.astro'
 
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -12,7 +12,7 @@ import {
   faApple,
   faGithub,
 } from '@fortawesome/free-brands-svg-icons'
-import { Lock, Download as DownloadIcon, ExternalLink } from 'lucide-astro'
+import { Lock, ExternalLink } from 'lucide-astro'
 
 library.add(faWindows, faLinux, faApple, faGithub)
 const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
@@ -24,28 +24,15 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 <Layout title="Download Zen Browser">
   <main class="flex min-h-screen flex-col px-2">
     <div class="container relative mx-auto max-w-5xl py-12">
-      <!-- Background elements -->
-      <!-- <div
-        class="gradient-blur gradient-blur--primary absolute -top-[10%] right-[5%] -z-10 h-[25vw] w-[25vw] opacity-[0.12]"
-      >
-      </div>
-      <div
-        class="gradient-blur gradient-blur--accent absolute bottom-[20%] left-[10%] -z-10 h-[20vw] w-[20vw] opacity-[0.12]"
-      >
-      </div> -->
-
-      <div class="my-16 animate-fadeIn text-center">
-        <!-- <div
-          class="mx-auto my-6 inline-flex items-center justify-center rounded-full border border-coral p-2 px-4 text-dark"
-        >
-          <DownloadIcon class="mr-2 h-4 w-4" />
-          <span class="text-sm font-medium">Get Started</span>
-        </div> -->
-
+      <div class="my-12 flex flex-col gap-4 text-center">
         <Title>Download Zen</Title>
         <Description class="mx-auto max-w-2xl">
           Start your journey to a more mindful internet experience with Zen
           Browser. Choose your platform below to get started.
+        </Description>
+        <Description id="twilight-info" class="mx-auto hidden max-w-2xl">
+          <strong>Twilight Mode:</strong> You're currently in Twilight mode, this
+          means you're downloading the latest experimental features and updates.
         </Description>
       </div>
 
@@ -88,279 +75,35 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
       >
         <!-- Decorative gradient -->
         <div
-          class="absolute inset-0 -z-10 bg-gradient-to-br from-coral/5 via-transparent to-subtle"
+          class="decorative-gradient absolute inset-0 -z-10 bg-gradient-to-br from-coral/5 via-transparent to-subtle data-[twilight='true']:from-zen-blue/5 data-[twilight='true']:via-transparent data-[twilight='true']:to-subtle"
         >
         </div>
 
         <!-- MacOS Download -->
-        <div id="mac-downloads" class="platform-section">
-          <div class="items-center gap-8 md:flex">
-            <div class="mb-8 md:mb-0 md:w-2/3">
-              <div class="mb-4 flex items-center gap-3">
-                <div class="download-card__icon">
-                  <Fragment set:html={appleIcon.html} />
-                </div>
-                <h3 class="text-2xl font-medium">macOS Download</h3>
-              </div>
-              <p class="text-muted-foreground mb-6">
-                Universal binary for Apple Silicon (M1/M2/M3) and Intel Macs. <br
-                />
-                Requires macOS 11.0 or later.
-              </p>
-              <div class="space-y-4">
-                {
-                  Object.entries(releases.macos).map(
-                    ([variant, releaseNote]) => (
-                      <DownloadCard
-                        label={releaseNote.label}
-                        href={releaseNote.link}
-                        variant={variant}
-                      />
-                    )
-                  )
-                }
-              </div>
-            </div>
-            <div class="flex justify-center md:w-1/3">
-              <div class="relative h-60 w-60">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <svg
-                    width="180"
-                    height="180"
-                    viewBox="0 0 180 180"
-                    class="animate-float"
-                  >
-                    <circle
-                      cx="90"
-                      cy="90"
-                      r="88"
-                      fill="none"
-                      stroke="hsl(var(--primary)/0.2)"
-                      stroke-width="1"></circle>
-                    <circle
-                      cx="90"
-                      cy="90"
-                      r="80"
-                      fill="none"
-                      stroke="hsl(var(--primary)/0.3)"
-                      stroke-width="1"></circle>
-                    <circle
-                      cx="90"
-                      cy="90"
-                      r="60"
-                      fill="none"
-                      stroke="hsl(var(--primary)/0.4)"
-                      stroke-width="2"></circle>
-                  </svg>
-                </div>
-                <div
-                  class="-sm:hidden absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-[28px] border border-subtle backdrop-blur-sm"
-                >
-                  <div
-                    class="os-icon flex h-12 w-12 items-center justify-center text-coral"
-                  >
-                    <Fragment set:html={appleIcon.html} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <PlatformDownload
+          platform="mac"
+          icon={appleIcon.html}
+          title="MacOS Download"
+          description="Universal binary for Apple Silicon (M1/M2/M3) and Intel Macs.<br />Requires macOS 11.0 or later."
+          releases={releases.macos}
+        />
         <!-- Windows Download -->
-        <div id="windows-downloads" class="platform-section hidden">
-          <div class="items-center gap-8 md:flex">
-            <div class="mb-8 md:mb-0 md:w-2/3">
-              <div class="mb-4 flex items-center gap-3">
-                <div class="download-card__icon">
-                  <Fragment set:html={windowsIcon.html} />
-                </div>
-                <h3 class="text-2xl font-medium">Windows Download</h3>
-              </div>
-              <p class="text-muted-foreground mb-6">
-                For Windows 10 and Windows 11. <br />
-                Both 64-bit (recommended) and 32-bit installers available.
-              </p>
-              <div class="space-y-4">
-                {
-                  Object.entries(releases.windows).map(
-                    ([variant, releaseNote]) => (
-                      <DownloadCard
-                        label={releaseNote.label}
-                        href={releaseNote.link}
-                        variant={variant}
-                      />
-                    )
-                  )
-                }
-              </div>
-            </div>
-            <div class="flex justify-center md:w-1/3">
-              <div class="relative h-60 w-60">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <svg
-                    width="180"
-                    height="180"
-                    viewBox="0 0 180 180"
-                    class="animate-float"
-                  >
-                    <rect
-                      x="35"
-                      y="35"
-                      width="110"
-                      height="110"
-                      rx="8"
-                      fill="none"
-                      stroke="hsl(var(--primary)/0.2)"
-                      stroke-width="1"></rect>
-                    <rect
-                      x="45"
-                      y="45"
-                      width="90"
-                      height="90"
-                      rx="6"
-                      fill="none"
-                      stroke="hsl(var(--primary)/0.3)"
-                      stroke-width="1"></rect>
-                    <rect
-                      x="60"
-                      y="60"
-                      width="60"
-                      height="60"
-                      rx="4"
-                      fill="none"
-                      stroke="hsl(var(--primary)/0.4)"
-                      stroke-width="2"></rect>
-                  </svg>
-                </div>
-                <div
-                  class="sm-hidden absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-[28px] border border-subtle backdrop-blur-sm"
-                >
-                  <div
-                    class="os-icon flex items-center justify-center text-coral"
-                  >
-                    <Fragment set:html={windowsIcon.html} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PlatformDownload
+          platform="windows"
+          icon={windowsIcon.html}
+          title="Windows Download"
+          description="For Windows 10 and Windows 11.<br />Both 64-bit and ARM64 installers available."
+          releases={releases.windows}
+        />
 
         <!-- Linux Download -->
-        <!-- Linux Download -->
-        <div id="linux-downloads" class="platform-section hidden">
-          <div class="items-center gap-8 md:flex">
-            <div class="mb-8 md:mb-0 md:w-2/3">
-              <div class="mb-4 flex items-center gap-3">
-                <div class="download-card__icon">
-                  <Fragment set:html={linuxIcon.html} />
-                </div>
-                <h3 class="text-2xl font-medium">Linux Download</h3>
-              </div>
-              <p class="text-muted-foreground mb-6">
-                Available in multiple formats for different Linux distributions.
-                Choose the option that best fits your system.
-              </p>
-
-              <!-- Package managers first - most user-friendly -->
-              <div class="mb-6">
-                <h4
-                  class="mb-4 border-b border-subtle pb-2 text-lg font-medium"
-                >
-                  Package Managers
-                </h4>
-                <div class="space-y-4">
-                  <DownloadCard
-                    label="Flathub"
-                    href={releases.linux.flathub.all.link}
-                    variant="flathub"
-                  />
-                </div>
-              </div>
-
-              <!-- AppImages second - also user-friendly -->
-              <div class="mb-6">
-                <h4
-                  class="mb-4 border-b border-subtle pb-2 text-lg font-medium"
-                >
-                  AppImage (Portable)
-                </h4>
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <DownloadCard
-                    label="x86_64 (64-bit)"
-                    href={releases.linux.x86_64.appImage.link}
-                    variant="x86_64-appImage"
-                  />
-                  <DownloadCard
-                    label="ARM64"
-                    href={releases.linux.aarch64.appImage.link}
-                    variant="aarch64-appImage"
-                  />
-                </div>
-              </div>
-
-              <!-- Tarballs last - for advanced users -->
-              <div>
-                <h4
-                  class="mb-4 border-b border-subtle pb-2 text-lg font-medium"
-                >
-                  Tarball (Manual Install)
-                </h4>
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                  <DownloadCard
-                    label="x86_64 (64-bit)"
-                    href={releases.linux.x86_64.tarball.link}
-                    variant="x86_64-tarball"
-                  />
-                  <DownloadCard
-                    label="ARM64"
-                    href={releases.linux.aarch64.tarball.link}
-                    variant="aarch64-tarball"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div class="flex justify-center md:w-1/3">
-              <div class="relative h-60 w-60">
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <svg
-                    width="180"
-                    height="180"
-                    viewBox="0 0 180 180"
-                    class="animate-float"
-                  >
-                    <polygon
-                      points="90,30 30,150 150,150"
-                      fill="none"
-                      stroke="hsl(var(--primary)/0.2)"
-                      stroke-width="1"></polygon>
-                    <polygon
-                      points="90,45 45,140 135,140"
-                      fill="none"
-                      stroke="hsl(var(--primary)/0.3)"
-                      stroke-width="1"></polygon>
-                    <polygon
-                      points="90,60 60,130 120,130"
-                      fill="none"
-                      stroke="hsl(var(--primary)/0.4)"
-                      stroke-width="2"></polygon>
-                  </svg>
-                </div>
-                <div
-                  class="-sm:hidden absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 transform items-center justify-center rounded-[28px] border border-subtle backdrop-blur-sm"
-                >
-                  <div
-                    class="os-icon flex items-center justify-center text-coral"
-                  >
-                    <Fragment set:html={linuxIcon.html} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PlatformDownload
+          platform="linux"
+          icon={linuxIcon.html}
+          title="Linux Download"
+          description="Available in multiple formats for different Linux distributions. Choose the option that best fits your system."
+          releases={releases.linux}
+        />
       </div>
 
       <!-- Additional resources -->
@@ -416,7 +159,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
       <!-- Security Notice -->
       <div
-        class="grid grid-cols-[auto,1fr] gap-4 rounded-2xl border border-subtle p-6"
+        class="bg-opaicty-10 grid grid-cols-[auto,1fr] gap-4 rounded-2xl border border-subtle bg-subtle p-6"
       >
         <div class="h-fit rounded-xl bg-subtle p-3">
           <Lock class="h-5 w-5" />
@@ -442,7 +185,6 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
 <script>
   // Handle platform selection
-  const platforms = ['mac', 'windows', 'linux']
   const platformButtons = document.querySelectorAll('.platform-selector')
   const platformSections = document.querySelectorAll('.platform-section')
 
@@ -502,6 +244,17 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
     const isTwilight = urlParams.has('twilight')
 
     if (isTwilight) {
+      // Apply twilight mode to all relevant elements
+      const coralElements = document.querySelectorAll(
+        '.download-browser-logo, .release-type-tag, .decorative-gradient, .download-link, .download-arrow-icon, .download-card__icon'
+      )
+      coralElements.forEach((element) => {
+        element.setAttribute('data-twilight', 'true')
+      })
+
+      const twilightInfoElem = document.getElementById('twilight-info')
+      twilightInfoElem?.classList.remove('hidden')
+
       // Replace all download links with twilight versions
       const downloadLinks = document.querySelectorAll('a[id$="-download"]')
       downloadLinks.forEach((link) => {
@@ -517,10 +270,11 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
         }
       })
 
-      // Update UI to show twilight mode
+      // Update UI to show twilight mode with animation
       const titleElem = document.querySelector('h1')
       if (titleElem) {
-        titleElem.innerHTML = titleElem.innerHTML.replace('Zen', 'Twilight')
+        const zenText = titleElem.innerHTML
+        titleElem.innerHTML = zenText.replace('Zen', 'Twilight')
       }
 
       const tags = document.querySelectorAll('.release-type-tag')
@@ -531,64 +285,14 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
   }
 
   // Initialize the page
-  document.addEventListener('DOMContentLoaded', () => {
-    initializePlatform()
-    checkTwilightMode()
-  })
+  initializePlatform()
+  checkTwilightMode()
 </script>
 
-<style>
-  /* Floating animation */
-  @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  /* Fade in animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-
-  /* Gradient blur */
-  .gradient-blur {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(70px);
-  }
-
-  .gradient-blur--primary {
-    background: var(--color-primary, #3b82f6);
-  }
-
-  .gradient-blur--accent {
-    background: var(--color-accent, #f97316);
-  }
-
+<style is:global>
   /* Download card icon */
   .download-card__icon {
-    @apply flex h-10 w-10 items-center justify-center rounded-full bg-subtle p-2 text-coral;
+    @apply flex h-10 w-10 items-center justify-center rounded-full bg-subtle p-2 text-coral data-[twilight='true']:text-zen-blue;
   }
 
   /* Make FontAwesome icons match size */

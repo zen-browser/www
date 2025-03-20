@@ -10,21 +10,26 @@ const { label, href, variant } = Astro.props
 
 <a
   href={href}
-  class="group relative flex items-center justify-between rounded-2xl border border-subtle p-4 transition-colors duration-300 hover:border-coral hover:shadow-md"
+  class="download-link group relative flex items-center justify-between overflow-hidden rounded-2xl border border-subtle p-4 transition-all duration-300 hover:border-coral hover:shadow-md data-[twilight='true']:hover:border-zen-blue"
   target="_blank"
   rel="noopener noreferrer"
 >
+  <!-- Decorative gradient background -->
+  <div
+    class="decorative-gradient absolute inset-0 -z-10 bg-gradient-to-br from-coral/5 via-transparent to-subtle opacity-0 transition-opacity duration-300 group-hover:opacity-100 data-[twilight='true']:from-zen-blue/5"
+  >
+  </div>
   <div>
     <p class="text-lg font-medium">{label}</p>
   </div>
   <div class="ml-4 flex items-center">
     <span
-      class="release-type-tag mr-2 rounded-full bg-coral/10 px-2 py-1 text-xs font-medium text-coral"
+      class="release-type-tag mr-2 rounded-full bg-coral/10 px-2 py-1 text-xs font-medium text-coral transition-colors duration-300 group-hover:bg-coral/20 data-[twilight='true']:bg-zen-blue/10 data-[twilight='true']:text-zen-blue data-[twilight='true']:group-hover:bg-zen-blue/20"
     >
       Beta
     </span>
     <div
-      class="text-muted-foreground rounded-xl border border-subtle p-2 transition-colors duration-300 group-hover:border-coral group-hover:text-coral"
+      class="download-arrow-icon text-muted-foreground rounded-xl border border-subtle p-2 transition-colors duration-300 group-hover:border-coral group-hover:text-coral data-[twilight='true']:group-hover:border-zen-blue data-[twilight='true']:group-hover:text-zen-blue"
     >
       <svg
         width="16"
