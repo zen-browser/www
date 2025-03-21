@@ -38,9 +38,9 @@
     // Show/hide platform sections
     platformSections.forEach((section) => {
       if (section.id === `${platform}-downloads`) {
-        section.classList.remove('hidden')
+        section.setAttribute('data-active', 'true')
       } else {
-        section.classList.add('hidden')
+        section.setAttribute('data-active', 'false')
       }
     })
   }

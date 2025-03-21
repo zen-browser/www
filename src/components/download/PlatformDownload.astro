@@ -12,7 +12,11 @@ import Logo from '../Logo.astro'
 import DownloadCard from './ButtonCard.astro'
 ---
 
-<div id={`${platform}-downloads`} class="platform-section">
+<div
+  id={`${platform}-downloads`}
+  data-active={platform === 'mac'}
+  class="platform-section data-[active='false']:flex"
+>
   <div class="items-center gap-8 md:flex">
     <div class="mb-8 md:mb-0 md:w-2/3">
       <div class="mb-4 flex items-center gap-3">
