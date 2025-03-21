@@ -2419,7 +2419,8 @@
     ],
     "features": [
       "Added a minimize button to Picture-in-Picture",
-      "Workspace icons will now collapse if there are too many overflowing the sidebar"
+      "Workspace icons will now collapse if there are too many overflowing the sidebar",
+      "Media player now also takes into account video playback speed modifiers"
     ],
     "workflowId": 13986406867,
     "date": "21/03/2025"
