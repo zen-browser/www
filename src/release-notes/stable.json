@@ -2407,7 +2407,7 @@
   {
     "version": "1.10.1b",
     "image": false,
-    "extra": "",
+    "extra": "A small update with some bug fixes and improvements. We've also added a feature many of you have been asking for: a minimize button for Picture-in-Picture mode!",
     "fixes": [
       "Fixed media player having low contrast on automatic theme",
       "Fixed removing dots on the gradient generator, making more appear when changing the color",
