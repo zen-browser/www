@@ -4,6 +4,7 @@ import Title from '../components/Title.astro'
 import Layout from '../layouts/Layout.astro'
 import { releases } from '../components/download/release-data.astro'
 import PlatformDownload from '../components/download/PlatformDownload.astro'
+import DownloadScript from '../components/download/DownloadScript.astro'
 
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -21,19 +22,42 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 ---
 
+<DownloadScript />
+
 <Layout title="Download Zen Browser">
-  <main class="flex min-h-screen flex-col px-2">
+  <main class="flex min-h-screen flex-col px-2 data-[os='windows']:bg-zen-blue">
     <div class="container relative mx-auto max-w-5xl py-12">
       <div class="my-12 flex flex-col gap-4 text-center">
         <Title>Download Zen</Title>
-        <Description class="mx-auto max-w-2xl">
-          Start your journey to a more mindful internet experience with Zen
-          Browser. Choose your platform below to get started.
+        <Description class="mx-auto max-w-xl text-pretty">
+          Download Zen Browser for your platform and experience a more mindful
+          internet browsing experience. All downloads include SHA256 checksums
+          for verification.
         </Description>
-        <Description id="twilight-info" class="mx-auto hidden max-w-2xl">
-          <strong>Twilight Mode:</strong> You're currently in Twilight mode, this
-          means you're downloading the latest experimental features and updates.
-        </Description>
+        <div
+          id="twilight-info"
+          class="mx-auto hidden max-w-xl items-center justify-center gap-3 text-pretty rounded-lg border border-zen-blue/20 bg-zen-blue/5 p-4 text-left data-[twilight='true']:flex"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="mt-0.5 h-5 w-5 flex-shrink-0 text-zen-blue"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <Description>
+            <strong class="font-medium text-zen-blue">Twilight Mode:</strong> You're
+            currently in Twilight mode, this means you're downloading the latest
+            experimental features and updates.
+          </Description>
+        </div>
       </div>
 
       <!-- Platform selector -->
@@ -92,7 +116,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
           platform="windows"
           icon={windowsIcon.html}
           title="Windows Download"
-          description="For Windows 10 and Windows 11.<br />Both 64-bit and ARM64 installers available."
+          description="For Windows 10 and Windows 11.<br />If you don't know which one to pick, pick the 64-bit installer."
           releases={releases.windows}
         />
 
@@ -182,112 +206,6 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
     </div>
   </main>
 </Layout>
-
-<script>
-  // Handle platform selection
-  const platformButtons = document.querySelectorAll('.platform-selector')
-  const platformSections = document.querySelectorAll('.platform-section')
-
-  // Function to detect OS and select appropriate platform
-  function detectOS() {
-    const userAgent = window.navigator.userAgent
-    let detectedOS = 'mac' // Default to macOS
-
-    if (userAgent.indexOf('Windows') !== -1) {
-      detectedOS = 'windows'
-    } else if (userAgent.indexOf('Linux') !== -1) {
-      detectedOS = 'linux'
-    }
-
-    return detectedOS
-  }
-
-  // Initialize platform based on user's OS
-  function initializePlatform() {
-    const detectedOS = detectOS()
-    selectPlatform(detectedOS)
-  }
-
-  // Function to select a platform
-  function selectPlatform(platform: string) {
-    // Update button styling
-    platformButtons.forEach((button) => {
-      const buttonPlatform = button.getAttribute('data-platform')
-      if (buttonPlatform === platform) {
-        button.setAttribute('data-active', 'true')
-      } else {
-        button.setAttribute('data-active', 'false')
-      }
-    })
-
-    // Show/hide platform sections
-    platformSections.forEach((section) => {
-      if (section.id === `${platform}-downloads`) {
-        section.classList.remove('hidden')
-      } else {
-        section.classList.add('hidden')
-      }
-    })
-  }
-
-  // Handle platform button clicks
-  platformButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const platform = button.getAttribute('data-platform') ?? ''
-      selectPlatform(platform)
-    })
-  })
-
-  // Check for twilight mode
-  function checkTwilightMode() {
-    const urlParams = new URLSearchParams(window.location.search)
-    const isTwilight = urlParams.has('twilight')
-
-    if (isTwilight) {
-      // Apply twilight mode to all relevant elements
-      const coralElements = document.querySelectorAll(
-        '.download-browser-logo, .release-type-tag, .decorative-gradient, .download-link, .download-arrow-icon, .download-card__icon'
-      )
-      coralElements.forEach((element) => {
-        element.setAttribute('data-twilight', 'true')
-      })
-
-      const twilightInfoElem = document.getElementById('twilight-info')
-      twilightInfoElem?.classList.remove('hidden')
-
-      // Replace all download links with twilight versions
-      const downloadLinks = document.querySelectorAll('a[id$="-download"]')
-      downloadLinks.forEach((link) => {
-        if (!link.id.includes('beta')) {
-          const href = link.getAttribute('href')
-          if (href && href.includes('/latest/download/')) {
-            const twilightHref = href.replace(
-              '/latest/download/',
-              '/download/twilight/'
-            )
-            link.setAttribute('href', twilightHref)
-          }
-        }
-      })
-
-      // Update UI to show twilight mode with animation
-      const titleElem = document.querySelector('h1')
-      if (titleElem) {
-        const zenText = titleElem.innerHTML
-        titleElem.innerHTML = zenText.replace('Zen', 'Twilight')
-      }
-
-      const tags = document.querySelectorAll('.release-type-tag')
-      tags.forEach((tag) => {
-        tag.innerHTML = tag.innerHTML.replace('Beta', 'Twilight')
-      })
-    }
-  }
-
-  // Initialize the page
-  initializePlatform()
-  checkTwilightMode()
-</script>
 
 <style is:global>
   /* Download card icon */

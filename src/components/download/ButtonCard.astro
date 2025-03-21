@@ -5,7 +5,7 @@ interface Props {
   variant?: string
 }
 
-const { label, href, variant } = Astro.props
+const { label, href } = Astro.props
 ---
 
 <a
@@ -22,29 +22,31 @@ const { label, href, variant } = Astro.props
   <div>
     <p class="text-lg font-medium">{label}</p>
   </div>
-  <div class="ml-4 flex items-center">
-    <span
-      class="release-type-tag mr-2 rounded-full bg-coral/10 px-2 py-1 text-xs font-medium text-coral transition-colors duration-300 group-hover:bg-coral/20 data-[twilight='true']:bg-zen-blue/10 data-[twilight='true']:text-zen-blue data-[twilight='true']:group-hover:bg-zen-blue/20"
-    >
-      Beta
-    </span>
-    <div
-      class="download-arrow-icon text-muted-foreground rounded-xl border border-subtle p-2 transition-colors duration-300 group-hover:border-coral group-hover:text-coral data-[twilight='true']:group-hover:border-zen-blue data-[twilight='true']:group-hover:text-zen-blue"
-    >
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="lucide lucide-arrow-up-right"
+  <div class="ml-4 flex flex-col items-end">
+    <div class="flex items-center">
+      <span
+        class="release-type-tag mr-2 rounded-full bg-coral/10 px-2 py-1 text-xs font-medium text-coral transition-colors duration-300 group-hover:bg-coral/20 data-[twilight='true']:bg-zen-blue/10 data-[twilight='true']:text-zen-blue data-[twilight='true']:group-hover:bg-zen-blue/20"
       >
-        <path d="M7 17 17 7"></path>
-        <path d="M7 7h10v10"></path>
-      </svg>
+        Beta
+      </span>
+      <div
+        class="download-arrow-icon text-muted-foreground rounded-xl border border-subtle p-2 transition-colors duration-300 group-hover:border-coral group-hover:text-coral data-[twilight='true']:group-hover:border-zen-blue data-[twilight='true']:group-hover:text-zen-blue"
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-arrow-up-right"
+        >
+          <path d="M7 17 17 7"></path>
+          <path d="M7 7h10v10"></path>
+        </svg>
+      </div>
     </div>
   </div>
 </a>
