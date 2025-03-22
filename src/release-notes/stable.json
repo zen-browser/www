@@ -2383,25 +2383,46 @@
   {
     "version": "1.10b",
     "image": false,
-    "extra": "This small but mighty update includes some exciting new features and improvements to the Zen, such as passkeys support for MacOS and a media player controller that's fully integrated with Picture-in-Picture mode.",
+    "extra": "This small but mighty update includes some exciting new features and improvements to Zen, such as passkey support for MacOS, and a media player controller that's fully integrated with Picture-in-Picture mode.",
     "fixes": [
-      "Glance should now not close if onbeforeunload is triggered",
+      "Glance should no longer close if 'onbeforeunload' is triggered",
       "Fixed splitting more than 3 tabs by dragging them to the web view",
-      "Fixed unloading pinned tabs that had onbeforeunload listeners",
-      "Fixed and tweaked small UI issues with spacings, animations, and more",
+      "Fixed unloading pinned tabs that had 'onbeforeunload' listeners",
+      "Fixed and tweaked small UI issues with spacing, animations, and more",
       "Fixed toolbars being different sizes and overflowing buttons not hidding when starting the browser",
-      "For wayland users, fixed UI panels being cut off the screen (e.g. install extension panel)",
+      "For Wayland users, fixed UI panels being cut off the screen (e.g. install extension panel)",
       "Fixed opening external links not being focused and appearing at the end of the tab list"
     ],
     "features": [
       "Added support for passkeys on MacOS",
       "Added a media player controller that's fully integrated with Picture-in-Picture mode",
-      "Updated to firefox 136.0.2",
+      "Updated to Firefox 136.0.2",
       "Added a default favicon for broken site favicons",
       "Better toast notifications UI",
-      "Pressing ESC on newtab urlbar will now focus the web view, meaning the input will be fully blurred"
+      "Pressing ESC on newtab URL bar will now focus the web view, meaning the input will be fully blurred"
     ],
     "workflowId": 13935735067,
     "date": "18/03/2025"
+  },
+  {
+    "version": "1.10.1b",
+    "image": false,
+    "extra": "A small update with some bug fixes and improvements. We've also added a feature many of you have been asking for: a minimize button for Picture-in-Picture mode!",
+    "fixes": [
+      "Fixed media player having low contrast on automatic theme",
+      "Fixed removing dots on the gradient generator, making more appear when changing the color",
+      "Fixed tab unloader asking if for confirmation to leave the site before unloading tabs",
+      "Fixed drag-to-pin not working on private windows",
+      "Fixed overflowing tabs scrolling to the top when the media player is open",
+      "Fixed unloading tabs still taking up memory",
+      "Fixed flatpak users mounting shader cache to the wrong directory"
+    ],
+    "features": [
+      "Added a minimize button to Picture-in-Picture",
+      "Workspace icons will now collapse if there are too many overflowing the sidebar",
+      "Media player now also takes into account video playback speed modifiers"
+    ],
+    "workflowId": 13986406867,
+    "date": "21/03/2025"
   }
 ]
