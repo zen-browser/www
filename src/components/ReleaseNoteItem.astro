@@ -14,10 +14,10 @@ if (props.date) {
 ---
 
 <section
-  class="release-note-item relative mt-24 flex flex-col border-t pt-24 lg:flex-row"
+  class="release-note-item md:max-w-full overflow-y-hidden relative mt-24 flex flex-col border-t pt-24"
   id={props.version}
 >
-  <div class="px-5 md:px-10 md:pr-32">
+  <div class="px-5 md:px-10 md:pr-32 flex flex-col gap-8">
     {
       isTwilight ? (
         <a
@@ -28,20 +28,23 @@ if (props.date) {
         </a>
       ) : null
     }
-    <h1 class="text-3xl font-bold">
-      {
-        isTwilight ? (
-          <>Twilight changes for {props.version} 🌙</>
-        ) : (
-          <>Release notes for {props.version} 🎉</>
-        )
-      }
-    </h1>
-    {date && date.toLocaleDateString('en-US', { dateStyle: 'long' })}
-    <div class="mt-2">
+    <div class="flex flex-col lg:items-end lg:flex-row">
+      <h1 class="text-3xl font-bold">
+        {
+          isTwilight ? (
+            <>Twilight changes for {props.version} 🌙</>
+          ) : (
+            <>Release notes for {props.version} 🎉</>
+          )
+        }
+      </h1>
+      <p class="lg:ml-auto">{date && date.toLocaleDateString('en-US', { dateStyle: 'long' })}</p>
+    </div>
+    
+    <div class="">
       <a
         rel="noopener noreferrer"
-        class="whitespace-nowrap text-sm text-coral opacity-60"
+        class="whitespace-nowrap text-sm text-coral opacity-70 underline underline-offset-4"
         target="_blank"
         href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}
         >GitHub Release</a
@@ -52,7 +55,7 @@ if (props.date) {
             <span class="text-muted-foreground mx-auto">•</span>
             <a
               rel="noopener noreferrer"
-              class="whitespace-nowrap text-sm text-coral opacity-60"
+              class="whitespace-nowrap text-sm text-coral opacity-70 underline underline-offset-4"
               target="_blank"
               href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}
             >
@@ -62,7 +65,7 @@ if (props.date) {
         ) : null
       }
     </div>
-    <div class="text-muted-forground mt-6 flex text-sm opacity-70">
+    <div class="text-muted-forground flex text-sm opacity-70">
       {isTwilight ? <Info class="mx-4 my-0 size-6 text-yellow-500" /> : null}
       <p class="m-0">
         {
@@ -77,20 +80,20 @@ if (props.date) {
           rel="noopener noreferrer"
           target="_blank"
           href="https://github.com/zen-browser/desktop/issues/"
-          class="text-underline text-coral">the issues page</a
+          class="text-underline text-coral underline underline-offset-4">the issues page</a
         >.
       </p>
     </div>
 
     {
       props.extra ? (
-        <p class="text-md text-muted-foreground extra mt-2">
+        <p class="text-md text-muted-foreground extra">
           <Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
         </p>
       ) : null
     }
-    <div class="mt-8" data-orientation="vertical"></div>
-    <Accordion>
+    <div class="" data-orientation="vertical"></div>
+    <Accordion class="px-3 rounded-lg border-2 border-dark">
       {
         props.fixes ? (
           <AccordionItem title="Fixes">
