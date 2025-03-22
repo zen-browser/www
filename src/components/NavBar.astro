@@ -44,15 +44,17 @@ import { getTitleAnimation } from '../animations.ts'
                 {...getTitleAnimation(0, 0.3, false)}
                 client:load
               >
-                <a class="dropdown-item bg-dark/5 row-span-2" href="/mods">
+                <a
+                  class="dropdown-item button bg-dark/5 row-span-2"
+                  href="/mods"
+                >
                   <div class="dropdown-title">Zen Mods</div>
                   <div class="dropdown-description">
                     Customize your browsing experience with Zen Mods.
                   </div>
-                  <Button isPrimary class="mt-auto">
-                    Try Zen Mods
-                    <ArrowRight class="size-4" />
-                  </Button>
+                  <div class="dropdown-arrow">
+                    <ArrowRight class="size-14" />
+                  </div>
                 </a>
                 <a class="dropdown-item" href="/release-notes">
                   <div class="dropdown-title">Release Notes</div>
@@ -142,7 +144,14 @@ import { getTitleAnimation } from '../animations.ts'
     & .dropdown-item {
       @apply flex cursor-pointer select-none flex-col gap-2 rounded-lg p-4 transition-colors duration-200;
 
-      &:hover {
+      &.button {
+        @apply border-2 border-dark bg-dark text-paper;
+      }
+      &.button:hover {
+        @apply scale-[1.02];
+      }
+
+      &:not(.button):hover {
         @apply bg-muted;
       }
 
@@ -152,6 +161,10 @@ import { getTitleAnimation } from '../animations.ts'
 
       & .dropdown-description {
         @apply text-sm;
+      }
+
+      & .dropdown-arrow {
+        @apply flex flex-1 items-end justify-end;
       }
     }
   }
