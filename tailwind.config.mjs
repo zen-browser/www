@@ -5,8 +5,9 @@ export default {
   theme: {
     extend: {
       screens: {
-        '-md': '@media (min-width: 768px)',
-        '-lg': '@media (min-width: 1024px)',
+        '-sm': '@media (max-width: 639px)',
+        '-md': '@media (max-width: 767px)',
+        '-lg': '@media (max-width: 1023px)',
       },
       colors: {
         paper: 'var(--zen-paper)',
