@@ -200,7 +200,7 @@ const {
     }
 
     const videos = document.querySelectorAll(
-      '.feature-video'
+      '.feature-video',
     ) as NodeListOf<HTMLVideoElement>
     videos.forEach((vid, i) => {
       vid.removeAttribute('data-active')
@@ -235,20 +235,20 @@ const {
 
 <style>
   .feature {
-    @apply w-full cursor-pointer select-none rounded-lg p-4 hover:bg-[rgba(0,0,0,.05)] dark:hover:bg-white/10;
+    @apply w-full cursor-pointer select-none rounded-lg p-4 hover:bg-subtle;
     transition: all 0.2s ease-in-out;
-    
+
     &[data-active='true'] {
-      @apply bg-[rgba(0,0,0,.05)] dark:bg-white/10;
+      @apply bg-subtle;
     }
   }
 
   .feature-tab {
-    @apply rounded-lg px-4 py-2 text-lg font-medium hover:bg-[rgba(0,0,0,.05)] dark:hover:bg-white/10;
+    @apply rounded-lg px-4 py-2 text-lg font-medium hover:bg-subtle;
     transition: all 0.2s ease-in-out;
 
     &[data-active='true'] {
-      @apply bg-[rgba(0,0,0,.05)] dark:bg-white/10;
+      @apply bg-subtle;
     }
   }
 

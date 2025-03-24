@@ -9,80 +9,136 @@ import { ArrowRight } from 'lucide-astro'
 
 <footer
   id="footer"
-  class="relative flex w-full flex-col gap-24 overflow-hidden border-t border-dark bg-dark px-4 py-12 !pb-0 text-paper md:gap-[15%] lg:p-24"
+  class="relative flex w-full flex-col gap-16 overflow-hidden border-t border-dark bg-dark px-4 py-12 text-paper lg:p-24"
+  role="contentinfo"
+  aria-label="Site footer"
 >
-  <div class="flex w-full flex-col items-center justify-between lg:flex-row">
-    <div>
-      <Title class="!text-paper">Zen Browser</Title>
-      <Description class="px-4 lg:w-2/5 lg:px-0">
+  <div class="flex w-full flex-col items-start justify-between gap-12">
+    <section
+      class="w-full text-center lg:w-1/2 lg:text-left"
+      aria-labelledby="footer-title"
+    >
+      <Title id="footer-title" class="!text-paper">Zen Browser</Title>
+      <Description class="mx-auto max-w-xl lg:mx-0">
         Beautifully designed, privacy-focused, and packed with features. We care
         about your experience, not your data.
       </Description>
-    </div>
-  </div>
-  <div
-    class="flex w-full flex-col justify-between gap-6 lg:my-12 lg:flex-row lg:pr-52"
-  >
-    <Button href="/download" isPrimary class="h-fit w-fit bg-paper !text-dark">
-      Download
-      <ArrowRight class="size-4" />
-    </Button>
-    <div class="flex flex-col gap-10">
-      <div class="flex flex-col gap-2">
-        <Description class="!font-semibold"> Follow Us </Description>
-        <SocialMediaStrip />
-      </div>
-      <div class="flex flex-col gap-2">
-        <Description class="!font-semibold"> About Us </Description>
-        <div class="flex flex-col opacity-80">
-          <a href="/about" class="font-normal">About Us</a>
-          <a href="/privacy-policy" class="font-normal">Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <Description class="!font-semibold"> Get Started </Description>
-      <div class="flex flex-col opacity-80">
-        <a href="/download" class="font-normal">Download</a>
-        <a href="/mods" class="font-normal">Zen Mods</a>
-        <a href="/release-notes" class="font-normal">Release Notes</a>
-        <a href="/download?twilight" class="font-normal">Twilight</a>
-      </div>
-    </div>
-    <div class="flex flex-col gap-2">
-      <Description class="!font-semibold"> Get Help </Description>
-      <div class="flex flex-col opacity-80">
-        <a href="https://discord.gg/zen-browser" class="font-normal">Discord</a>
-        <div class="flex items-center">
-          <div class="absolute">
-            <img
-              src="https://uptime.zen-browser.app/embed-badges/pulse?"
-              loading="lazy"
-              alt="Phare badge"
-              class="relative right-5 h-5 w-5 lg:right-6"
-            />
-          </div>
-          <a href="https://uptime.zen-browser.app/" class="font-normal"
-            >Uptime Status</a
-          >
-        </div>
-        <a
-          href="https://github.com/zen-browser/desktop/issues/new/choose"
-          class="font-normal">Report an Issue</a
-        >
-      </div>
-    </div>
-  </div>
-  <div class="flex h-32 w-full items-center">
-    <div class="flex">
-      Made with ❤️ by the <a href="/about" class="ml-2 inline-block font-bold"
-        >Zen Team</a
+    </section>
+    <section class="grid gap-10 place-self-center lg:place-self-start">
+      <Button
+        href="/download"
+        isPrimary
+        class="h-fit w-fit bg-paper !text-dark"
+        aria-label="Download Zen Browser"
       >
-    </div>
-    <Circles
-      white
-      multiplier={0.7}
-      class="mb-[-100px] ml-auto mr-[-80px] hidden lg:block"
-    />
+        Download
+        <ArrowRight class="size-4" aria-hidden="true" />
+      </Button>
+    </section>
+    <section
+      class="grid w-full max-w-5xl place-items-center gap-12 text-center sm:text-left"
+      aria-label="Footer navigation and links"
+    >
+      <div
+        class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:w-full"
+      >
+        <div
+          class="grid gap-8 sm:col-span-2 sm:grid-cols-2 md:col-span-1 md:grid-cols-1"
+        >
+          <section
+            class="flex flex-col items-center gap-2 sm:items-start"
+            aria-labelledby="follow-us-heading"
+          >
+            <h2 id="follow-us-heading" class="text-base !font-semibold">
+              Follow Us
+            </h2>
+            <SocialMediaStrip />
+          </section>
+          <section
+            class="flex flex-col gap-2"
+            aria-labelledby="about-us-heading"
+          >
+            <h2 id="about-us-heading" class="text-base !font-semibold">
+              About Us
+            </h2>
+            <nav aria-label="About navigation">
+              <ul class="grid gap-2 opacity-80">
+                <li><a href="/about" class="font-normal">About Us</a></li>
+                <li>
+                  <a href="/privacy-policy" class="font-normal"
+                    >Privacy Policy</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </section>
+        </div>
+        <nav class="flex flex-col gap-2" aria-labelledby="get-started-heading">
+          <h2 id="get-started-heading" class="text-base !font-semibold">
+            Get Started
+          </h2>
+          <ul class="grid gap-2 opacity-80">
+            <li>
+              <a href="https://docs.zen-browser.app/" class="font-normal"
+                >Documentation</a
+              >
+            </li>
+            <li><a href="/mods" class="font-normal">Zen Mods</a></li>
+            <li>
+              <a href="/release-notes" class="font-normal">Release Notes</a>
+            </li>
+            <li>
+              <a href="/download?twilight" class="font-normal">Twilight</a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="flex flex-col gap-2" aria-labelledby="get-help-heading">
+          <h2 id="get-help-heading" class="text-base !font-semibold">
+            Get Help
+          </h2>
+          <ul class="grid gap-2 opacity-80">
+            <li>
+              <a href="https://discord.gg/zen-browser" class="font-normal"
+                >Discord</a
+              >
+            </li>
+            <li>
+              <a href="https://uptime.zen-browser.app/" class="font-normal"
+                >Uptime Status</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/zen-browser/desktop/issues/new/choose"
+                class="font-normal">Report an Issue</a
+              >
+            </li>
+            <li>
+              <a href="mailto:hello@zen-browser.app" class="font-normal"
+                >hello@zen-browser.app</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <section
+      class="grid w-full grid-cols-[1fr_auto] items-center gap-2"
+      aria-label="Copyright information"
+    >
+      <p class="flex justify-center gap-2 lg:justify-start">
+        Made with <span aria-label="love">❤️</span> by the <a
+          href="/about"
+          class="inline-block font-bold">Zen Team</a
+        >
+      </p>
+    </section>
+    <section class="absolute bottom-0 right-0">
+      <Circles
+        white
+        multiplier={0.7}
+        class="mb-[-100px] ml-auto mr-[-80px] hidden lg:block"
+      />
+    </section>
   </div>
 </footer>
