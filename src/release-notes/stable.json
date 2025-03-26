@@ -2438,15 +2438,15 @@
   {
     "version": "1.10.2b",
     "image": false,
-    "extra": "Just a small update to improve on stability while we are working on much bigger things such as: Folders, New Workspace management UI, new settings panel, and more. Sorry!",
+    "extra": "Just a small update to improve stability while we work on much bigger things like: tab folders, a new workspace management UI, a new settings panel, and more. Sorry!",
     "fixes": [
-      "Fixed media player's playback rate and overflow not being updated correctly",
-      "Fixed pinning tabs on private mode making the browser not respond",
+      "Fixed the media player's playback rate and overflow not being updated correctly",
+      "Fixed pinning tabs in private mode making the browser unresponsive",
       "Fixed compact mode and back/forward mouse buttons switching workspaces or not hiding the sidebar"
     ],
     "features": [
-      "Updated to firefox 136.0.3",
-      "Split views now stay across restarts",
+      "Updated to Firefox 136.0.3",
+      "Split views now persist across restarts",
       "Toasts will now appear on the left when the sidebar is on the right"
     ],
     "workflowId": 14067980701,
