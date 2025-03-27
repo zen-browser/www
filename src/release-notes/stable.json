@@ -2446,7 +2446,6 @@
     "version": "1.10.3b",
     "image": false,
     "extra": "Terribly sorry for the frequent updates, this emergency release simply updates Firefox, fixing a critical vulnerability in chromium's sandboxing system. You can read more here:\n\n<a href='https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/'>https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/</a>",
-    "fixes": [],
     "features": ["Updated Firefox to 136.0.4"],
     "workflowId": 14109635630,
     "date": "27/03/2025"
