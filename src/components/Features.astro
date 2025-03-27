@@ -164,7 +164,9 @@ const {
 <section id="sponsors" class="px-4 lg:flex-row lg:px-12 lg:py-32 xl:px-24">
   <div class="mx-auto flex flex-col px-6 lg:w-1/2 lg:px-0 lg:text-center">
     <motion.span client:load {...getTitleAnimation(0.2)}>
-      <Description class="mb-2 px-4 text-6xl font-bold">Our Sponsors</Title>
+      <Description class="mb-2 px-4 text-6xl font-bold"
+        >Our Sponsors</Description
+      >
     </motion.span>
     <motion.span client:load {...getTitleAnimation(0.4)}>
       <Description>
@@ -261,7 +263,7 @@ const {
 
 <style>
   .feature {
-    @apply w-full cursor-pointer select-none rounded-lg p-4 hover:bg-subtle opacity-0;
+    @apply w-full cursor-pointer select-none rounded-lg p-4 opacity-0 hover:bg-subtle;
     transition: all 0.2s ease-in-out;
 
     &[data-active='true'] {
