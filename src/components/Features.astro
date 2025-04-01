@@ -8,12 +8,16 @@ import GlanceVideo from '../assets/Glance.webm'
 import CompactModeVideo from '../assets/CompactMode.webm'
 import SplitViewsVideo from '../assets/SplitViews.webm'
 
+import tutaLogo from '../assets/tuta-logo.png'
+
 import Video from './Video.astro'
+import Image from 'astro/components/Image.astro'
 
 const {
   title1 = 'Productivity',
   title2 = 'at',
   title3 = 'its best',
+  showSponsors = false,
 } = Astro.props
 ---
 
@@ -53,21 +57,21 @@ const {
         </motion.button>
         <motion.button
           client:load
-          {...getTitleAnimation()}
+          {...getTitleAnimation(0.2)}
           class="feature-tab whitespace-nowrap"
         >
           Compact Mode
         </motion.button>
         <motion.button
           client:load
-          {...getTitleAnimation()}
+          {...getTitleAnimation(0.4)}
           class="feature-tab whitespace-nowrap"
         >
           Glance
         </motion.button>
         <motion.button
           client:load
-          {...getTitleAnimation()}
+          {...getTitleAnimation(0.6)}
           class="feature-tab whitespace-nowrap"
         >
           Split View
@@ -158,6 +162,31 @@ const {
     </div>
   </div>
 </section>
+<section id="sponsors" class={'mb-32 px-4' + (showSponsors ? '' : ' hidden')}>
+  <div class="mx-auto flex flex-col px-6 text-center">
+    <motion.span client:load {...getTitleAnimation(0.2)}>
+      <Description class="mb-2 px-4 text-6xl font-bold"
+        >Our Sponsors</Description
+      >
+    </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.4)}>
+      <Description>
+        We are grateful to our sponsors for their support. They help us to keep
+        the project alive.<br />You can also be part of this journey by donating <a
+          href="/donate"
+          class="text-coral">here</a
+        >!
+      </Description>
+    </motion.span>
+    <div class="relative mt-8 flex items-center justify-center">
+      <motion.span client:load {...getTitleAnimation(0.6)}>
+        <a href="https://tuta.com/" target="_blank" class="w-fit">
+          <Image src={tutaLogo} alt="Tuta" class="h-16 w-fit object-contain" />
+        </a>
+      </motion.span>
+    </div>
+  </div>
+</section>
 <script>
   const features = document.querySelectorAll('.feature, .feature-tab')
   const descriptions = [
@@ -235,7 +264,7 @@ const {
 
 <style>
   .feature {
-    @apply w-full cursor-pointer select-none rounded-lg p-4 hover:bg-subtle;
+    @apply w-full cursor-pointer select-none rounded-lg p-4 opacity-0 hover:bg-subtle;
     transition: all 0.2s ease-in-out;
 
     &[data-active='true'] {

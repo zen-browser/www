@@ -2424,5 +2424,30 @@
     ],
     "workflowId": 13986406867,
     "date": "21/03/2025"
+  },
+  {
+    "version": "1.10.2b",
+    "image": false,
+    "extra": "Just a small update to improve stability while we work on much bigger things like: tab folders, a new workspace management UI, a new settings panel, and more. Sorry!",
+    "fixes": [
+      "Fixed the media player's playback rate and overflow not being updated correctly",
+      "Fixed pinning tabs in private mode making the browser unresponsive",
+      "Fixed compact mode and back/forward mouse buttons switching workspaces or not hiding the sidebar"
+    ],
+    "features": [
+      "Updated to Firefox 136.0.3",
+      "Split views now persist across restarts",
+      "Toasts will now appear on the left when the sidebar is on the right"
+    ],
+    "workflowId": 14067980701,
+    "date": "26/03/2025"
+  },
+  {
+    "version": "1.10.3b",
+    "image": false,
+    "extra": "Terribly sorry for the frequent updates, this emergency release simply updates Firefox, fixing a critical vulnerability in chromium's sandboxing system. You can read more here:\n\n<a href='https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/'>https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/</a>",
+    "features": ["Updated Firefox to 136.0.4"],
+    "workflowId": 14109635630,
+    "date": "27/03/2025"
   }
 ]

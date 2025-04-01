@@ -4,6 +4,7 @@ import ReleaseNoteItem from '../../components/ReleaseNoteItem.astro'
 import { releaseNotes, releaseNotesTwilight } from '../../release-notes'
 import Title from '../../components/Title.astro'
 import Description from '../../components/Description.astro'
+import Button from '../../components/Button.astro'
 ---
 
 <Layout title="Release Notes - Zen Browser">
@@ -11,6 +12,7 @@ import Description from '../../components/Description.astro'
     class="flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4"
   >
     <div
+      id="release-notes"
       class="py-42 flex min-h-screen flex-col justify-center px-10 lg:px-10 xl:px-10 2xl:w-3/5"
     >
       <Description class="mt-48 text-4xl font-bold">Release Notes</Description>
@@ -25,6 +27,14 @@ import Description from '../../components/Description.astro'
         >, we've been working hard to make Zen Browser the best it can be.
         Thanks everyone for your feedback! ❤️
       </p>
+      <Button
+        id="toggle-notes"
+        class="-mb-12 ml-auto mt-8 flex w-32"
+        isPrimary
+        data-open="false"
+      >
+        Expand all
+      </Button>
       {
         releaseNotesTwilight.features.length ||
         releaseNotesTwilight.fixes.length ? (
@@ -35,3 +45,25 @@ import Description from '../../components/Description.astro'
     </div>
   </main>
 </Layout>
+<script>
+  const button = document.getElementById('toggle-notes')
+  const container = document.getElementById('release-notes')
+  const toggleNotes = () => {
+    if (!button || !container) return
+
+    const accordionItems = container.getElementsByTagName('details')
+    const isOpen = button.getAttribute('data-open') === 'true'
+
+    Array.from(accordionItems).forEach((accordionItem) => {
+      if (isOpen) {
+        accordionItem.removeAttribute('open')
+      } else {
+        accordionItem.setAttribute('open', '')
+      }
+    })
+
+    button.setAttribute('data-open', (!isOpen).toString())
+    button.textContent = isOpen ? 'Expand all' : 'Collapse all'
+  }
+  button?.addEventListener('click', toggleNotes)
+</script>
