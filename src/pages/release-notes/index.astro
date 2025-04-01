@@ -27,7 +27,12 @@ import Button from '../../components/Button.astro'
         >, we've been working hard to make Zen Browser the best it can be.
         Thanks everyone for your feedback! ❤️
       </p>
-      <Button id="toggle-notes" class="flex ml-auto mt-8 -mb-12 w-32" isPrimary data-open="false">
+      <Button
+        id="toggle-notes"
+        class="-mb-12 ml-auto mt-8 flex w-32"
+        isPrimary
+        data-open="false"
+      >
         Expand all
       </Button>
       {
@@ -41,24 +46,24 @@ import Button from '../../components/Button.astro'
   </main>
 </Layout>
 <script>
-  const button = document.getElementById("toggle-notes");
-  const container = document.getElementById("release-notes");
+  const button = document.getElementById('toggle-notes')
+  const container = document.getElementById('release-notes')
   const toggleNotes = () => {
-    if (!button || !container) return;
+    if (!button || !container) return
 
-    const accordionItems = container.getElementsByTagName("details");
-    const isOpen = button.getAttribute("data-open") === "true";
+    const accordionItems = container.getElementsByTagName('details')
+    const isOpen = button.getAttribute('data-open') === 'true'
 
     Array.from(accordionItems).forEach((accordionItem) => {
       if (isOpen) {
-        accordionItem.removeAttribute("open");
+        accordionItem.removeAttribute('open')
       } else {
-        accordionItem.setAttribute("open", "");
+        accordionItem.setAttribute('open', '')
       }
-    });
+    })
 
-    button.setAttribute("data-open", (!isOpen).toString());
-    button.textContent = isOpen ? "Expand all" : "Collapse all";
+    button.setAttribute('data-open', (!isOpen).toString())
+    button.textContent = isOpen ? 'Expand all' : 'Collapse all'
   }
-  button?.addEventListener("click", toggleNotes);
+  button?.addEventListener('click', toggleNotes)
 </script>

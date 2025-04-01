@@ -17,6 +17,7 @@ const {
   title1 = 'Productivity',
   title2 = 'at',
   title3 = 'its best',
+  showSponsors = false,
 } = Astro.props
 ---
 
@@ -161,7 +162,7 @@ const {
     </div>
   </div>
 </section>
-<section id="sponsors" class="mb-32 px-4">
+<section id="sponsors" class={'mb-32 px-4' + (showSponsors ? '' : ' hidden')}>
   <div class="mx-auto flex flex-col px-6 text-center">
     <motion.span client:load {...getTitleAnimation(0.2)}>
       <Description class="mb-2 px-4 text-6xl font-bold"
