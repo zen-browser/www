@@ -73,23 +73,18 @@ export default function ModsList({ mods }: ModsListProps) {
     setPageInput(target.value)
   }
 
-  function getPageUrl(pageNum: number) {
-    const params = new URLSearchParams(searchParams)
-    if (pageNum > 1) {
-      params.set('page', pageNum.toString())
-    } else {
-      params.delete('page')
-    }
-    const queryString = params.toString()
-    return `/mods${queryString ? `?${queryString}` : ''}`
+  function navigatePage(pageNum: number) {
+    setPage(pageNum)
+    window.scrollTo(0, 0)
   }
 
   function renderPagination() {
     if (totalPages <= 1) return null
     return (
       <div className="mx-auto mb-12 flex items-center justify-center gap-4 px-8">
-        <a
-          href={getPageUrl(page - 1)}
+        <button
+          type="button"
+          onClick={() => navigatePage(page - 1)}
           className={`px-3 py-2 ${
             page === 1
               ? 'pointer-events-none text-gray-400'
@@ -97,7 +92,7 @@ export default function ModsList({ mods }: ModsListProps) {
           }`}
         >
           &lt;
-        </a>
+        </button>
         <form onSubmit={handlePageSubmit} className="flex items-center gap-2">
           <span className="text-sm">Page</span>
           <input
@@ -111,8 +106,9 @@ export default function ModsList({ mods }: ModsListProps) {
             of {totalPages} ({totalItems} items)
           </span>
         </form>
-        <a
-          href={getPageUrl(page + 1)}
+        <button
+          type="button"
+          onClick={() => navigatePage(page + 1)}
           className={`px-3 py-2 ${
             page === totalPages
               ? 'pointer-events-none text-gray-400'
@@ -120,7 +116,7 @@ export default function ModsList({ mods }: ModsListProps) {
           }`}
         >
           &gt;
-        </a>
+        </button>
       </div>
     )
   }
