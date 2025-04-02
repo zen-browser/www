@@ -82,7 +82,7 @@ const {
       <div id="features-list" class="hidden lg:flex lg:flex-col lg:gap-3">
         <motion.div
           client:load
-          {...getTitleAnimation()}
+          {...getTitleAnimation(0.8)}
           className="feature"
           data-active="true"
         >
@@ -92,21 +92,21 @@ const {
             and organized, and switch between them with ease.
           </Description>
         </motion.div>
-        <motion.div client:load {...getTitleAnimation()} className="feature">
+        <motion.div client:load {...getTitleAnimation(1)} className="feature">
           <Description class="text-2xl font-bold">Compact Mode</Description>
           <Description>
             Zen's Compact Mode gives you more screen real estate by hiding the
             tab bar when you don't need it, and showing it when you do.
           </Description>
         </motion.div>
-        <motion.div client:load {...getTitleAnimation()} className="feature">
+        <motion.div client:load {...getTitleAnimation(1.2)} className="feature">
           <Description class="text-2xl font-bold">Glance</Description>
           <Description>
             Zen's Glance lets you preview tabs without switching to them, so you
             can quickly find the page you're looking for.
           </Description>
         </motion.div>
-        <motion.div client:load {...getTitleAnimation()} className="feature">
+        <motion.div client:load {...getTitleAnimation(1.4)} className="feature">
           <Description class="text-2xl font-bold">Split View</Description>
           <Description>
             Zen's Split View lets you view up to 4 tabs side by side, so you can
@@ -265,7 +265,7 @@ const {
 <style>
   .feature {
     @apply w-full cursor-pointer select-none rounded-lg p-4 opacity-0 hover:bg-subtle;
-    transition: all 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
 
     &[data-active='true'] {
       @apply bg-subtle;
@@ -273,8 +273,8 @@ const {
   }
 
   .feature-tab {
-    @apply rounded-lg px-4 py-2 text-lg font-medium hover:bg-subtle;
-    transition: all 0.2s ease-in-out;
+    @apply rounded-lg px-4 py-2 text-lg font-medium hover:bg-subtle opacity-0;
+    transition: background 0.2s ease-in-out;
 
     &[data-active='true'] {
       @apply bg-subtle;
