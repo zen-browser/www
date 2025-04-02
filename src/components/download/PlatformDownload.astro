@@ -8,7 +8,9 @@ interface Props {
 }
 
 const { platform, icon, title, description, releases } = Astro.props
-import Logo from '../Logo.astro'
+import { Image } from 'astro:assets'
+import AppIconDark from '../../assets/app-icon-dark.png'
+import AppIconLight from '../../assets/app-icon-light.png'
 import DownloadCard from './ButtonCard.astro'
 ---
 
@@ -88,7 +90,16 @@ import DownloadCard from './ButtonCard.astro'
     <div
       class="download-browser-logo flex justify-center text-coral transition-colors data-[twilight='true']:text-zen-blue md:w-1/3"
     >
-      <Logo class:list=" h-24 w-24" />
+      <Image
+        src={AppIconDark}
+        alt="Zen Browser"
+        class="dark:hidden w-32 transform translate-y-6"
+      />
+      <Image
+        src={AppIconLight}
+        alt="Zen Browser"
+        class="hidden dark:block w-32 transform translate-y-6"
+      />
     </div>
   </div>
 </div>
