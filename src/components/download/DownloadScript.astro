@@ -63,7 +63,7 @@
       twilightInfoElem?.setAttribute('data-twilight', 'true')
 
       // Update UI to show twilight mode with animation
-      const titleElem = document.querySelector('h1')
+      const titleElem = document.getElementById('download-title')
       if (titleElem) {
         const zenText = titleElem.innerHTML
         titleElem.innerHTML = zenText.replace('Zen', 'Twilight')

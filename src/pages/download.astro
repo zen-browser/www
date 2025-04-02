@@ -24,11 +24,11 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
 <DownloadScript />
 
-<Layout title="Download Zen Browser">
+<Layout title="Download Zen">
   <main class="flex min-h-screen flex-col px-2 data-[os='windows']:bg-zen-blue">
     <div class="container relative mx-auto max-w-5xl py-12">
       <div class="mt-12 mb-6 flex flex-col gap-4">
-        <Description class="text-6xl font-bold">Download Zen</Description>
+        <Description id="download-title" class="text-6xl font-bold">Download Zen</Description>
         <Description class="max-w-xl text-pretty">
           Download Zen Browser for your platform and experience a more mindful
           internet browsing experience. All downloads include SHA256 checksums
@@ -36,7 +36,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
         </Description>
         <div
           id="twilight-info"
-          class="hidden max-w-xl items-center justify-center gap-3 text-pretty rounded-lg border border-zen-blue/20 bg-zen-blue/5 p-4 text-left data-[twilight='true']:flex"
+          class="hidden max-w-xl items-center justify-center gap-3 text-pretty rounded-xl border border-zen-blue/20 bg-zen-blue/5 p-4 text-left data-[twilight='true']:flex"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
       <!-- Platform selector -->
       <div class="mb-6 flex">
-        <div class="inline-flex rounded-3xl shadow-md bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.3)] p-2">
+        <div class="inline-flex rounded-3xl shadow-md dark:shadow-sm bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.3)] p-2">
           <button
             class="platform-selector rounded-2xl px-5 py-2.5 transition-all duration-200 data-[active='true']:bg-subtle"
             data-platform="mac"
