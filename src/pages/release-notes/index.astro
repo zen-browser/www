@@ -27,14 +27,19 @@ import Button from '../../components/Button.astro'
         >, we've been working hard to make Zen Browser the best it can be.
         Thanks everyone for your feedback! ❤️
       </p>
-      <Button
-        id="toggle-notes"
-        class="-mb-12 ml-auto mt-8 flex w-32"
-        isPrimary
-        data-open="false"
-      >
-        Expand all
-      </Button>
+      <div class="ml-auto flex w-fit items-center gap-4">
+        <Button class="mt-8 flex" isPrimary href="/donate">
+          Give us some support!
+        </Button>
+        <Button
+          id="toggle-notes"
+          class="mt-8 flex w-36"
+          data-open="false"
+          href="#"
+        >
+          Expand all
+        </Button>
+      </div>
       {
         releaseNotesTwilight.features.length ||
         releaseNotesTwilight.fixes.length ? (
