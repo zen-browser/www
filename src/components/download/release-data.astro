@@ -1,0 +1,50 @@
+---
+import { releaseNotes, releaseNotesTwilight } from '../../release-notes'
+
+export const releases = {
+  macos: {
+    universal: {
+      link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.macos-universal.dmg',
+      label: `Universal`,
+    },
+  },
+  windows: {
+    x86_64: {
+      link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.installer.exe',
+      label: `64-bit (Recommended)`,
+    },
+    arm64: {
+      link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.installer-arm64.exe',
+      label: `ARM64`,
+    },
+  },
+  linux: {
+    x86_64: {
+      tarball: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-x86_64.tar.xz',
+        label: `Tarball x86_64`,
+      },
+      appImage: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen-x86_64.AppImage',
+        label: `AppImage x86_64`,
+      },
+    },
+    aarch64: {
+      tarball: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-aarch64.tar.xz',
+        label: `Tarball aarch64`,
+      },
+      appImage: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen-aarch64.AppImage',
+        label: `AppImage aarch64`,
+      },
+    },
+    flathub: {
+      all: {
+        link: 'https://flathub.org/apps/app.zen_browser.zen',
+        label: `Flathub`,
+      },
+    },
+  },
+}
+---
