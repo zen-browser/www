@@ -63,9 +63,9 @@ const dates = {
         class="h-full w-full rounded-xl border-2 border-dark object-cover shadow"
       />
       <div class="flex flex-col justify-between gap-2 sm:flex-row">
-        <div class="flex-shrink-0 font-normal">
+        <div class="flex flex-col gap-2 flex-shrink-0 font-normal">
           <p>
-            Created by <a href={getAuthorLink(mod.author)} class="font-bold"
+            Created by <a href={getAuthorLink(mod.author)} class="font-bold zen-link"
               >@{mod.author}</a
             > • <span class="font-bold">v{mod.version}</span>
           </p>
@@ -83,7 +83,7 @@ const dates = {
                 href={mod.homepage}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="underline"
+                class="zen-link"
               >
                 Visit mod homepage
               </a>
