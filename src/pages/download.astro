@@ -27,8 +27,10 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 <Layout title="Download Zen">
   <main class="flex min-h-screen flex-col px-2 data-[os='windows']:bg-zen-blue">
     <div class="container relative mx-auto max-w-5xl py-12">
-      <div class="mt-12 mb-6 flex flex-col gap-4">
-        <Description id="download-title" class="text-6xl font-bold">Download Zen</Description>
+      <div class="mb-6 mt-12 flex flex-col gap-4">
+        <Description id="download-title" class="text-6xl font-bold"
+          >Download Zen</Description
+        >
         <Description class="max-w-xl text-pretty">
           Download Zen Browser for your platform and experience a more mindful
           internet browsing experience. All downloads include SHA256 checksums
@@ -62,7 +64,9 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
       <!-- Platform selector -->
       <div class="mb-6 flex">
-        <div class="inline-flex rounded-3xl shadow-md dark:shadow-sm bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.3)] p-2">
+        <div
+          class="inline-flex rounded-3xl bg-[rgba(255,255,255,0.4)] p-2 shadow-md dark:bg-[rgba(0,0,0,0.3)] dark:shadow-sm"
+        >
           <button
             class="platform-selector rounded-2xl px-5 py-2.5 transition-all duration-200 data-[active='true']:bg-subtle"
             data-platform="mac"
@@ -95,9 +99,8 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
       <!-- Download Cards -->
       <div
-        class="relative mb-16 overflow-hidden rounded-3xl p-8 shadow-xl md:p-10 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.3)]"
+        class="relative mb-16 overflow-hidden rounded-3xl bg-[rgba(255,255,255,0.4)] p-8 shadow-xl md:p-10 dark:bg-[rgba(0,0,0,0.3)]"
       >
-
         <!-- MacOS Download -->
         <PlatformDownload
           platform="mac"
@@ -134,7 +137,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           <a
             href="https://github.com/zen-browser"
-            class="group rounded-2xl p-6 transition-all duration-300 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.3)] hover:shadow-lg"
+            class="group rounded-2xl bg-[rgba(255,255,255,0.4)] p-6 transition-all duration-300 hover:shadow-lg dark:bg-[rgba(0,0,0,0.3)]"
           >
             <div class="flex items-start justify-between">
               <div>
@@ -147,7 +150,9 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
               <div
                 class="grid aspect-square h-12 w-12 place-items-center rounded-xl border border-subtle transition-all duration-100 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-10"
               >
-                <div class="text-muted-foreground group-hover:text-coral transition-all duration-200">
+                <div
+                  class="text-muted-foreground transition-all duration-200 group-hover:text-coral"
+                >
                   <Fragment set:html={githubIcon.html} />
                 </div>
               </div>
@@ -156,7 +161,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
           <a
             href="https://docs.zen-browser.app"
-            class="group rounded-2xl p-6 transition-all duration-200 bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(0,0,0,0.3)] hover:shadow-lg"
+            class="group rounded-2xl bg-[rgba(255,255,255,0.4)] p-6 transition-all duration-200 hover:shadow-lg dark:bg-[rgba(0,0,0,0.3)]"
           >
             <div class="flex items-start justify-between">
               <div>
@@ -169,7 +174,9 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
               <div
                 class="rounded-xl border border-subtle p-3 transition-all duration-100 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-20"
               >
-                <ExternalLink class="h-5 w-5 group-hover:text-coral transition-all duration-200" />
+                <ExternalLink
+                  class="h-5 w-5 transition-all duration-200 group-hover:text-coral"
+                />
               </div>
             </div>
           </a>
@@ -187,10 +194,10 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
         <div>
           <h3 class="mb-2 text-lg font-medium">Verified & Secure Downloads</h3>
           <p class="text-muted-foreground">
-            All Zen downloads are signed and verified for your security.
-            We recommend downloading directly from our official website or
-            GitHub repository. If your download seems broken or gets flagged by
-            your antivirus, please
+            All Zen downloads are signed and verified for your security. We
+            recommend downloading directly from our official website or GitHub
+            repository. If your download seems broken or gets flagged by your
+            antivirus, please
             <a
               href="https://github.com/zen-browser/desktop/issues/new/choose"
               class="text-accent ml-1 underline">report it to us</a
