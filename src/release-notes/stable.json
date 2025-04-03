@@ -2449,5 +2449,48 @@
     "features": ["Updated Firefox to 136.0.4"],
     "workflowId": 14109635630,
     "date": "27/03/2025"
+  },
+  {
+    "version": "1.11b",
+    "image": false,
+    "extra": "This update brings in some new QoL improvements we think you'll love and more stability!",
+    "fixes": [
+      "Fixed dialogs in glance tabs shrinking",
+      "Fixed glance opening links that are not http(s) or files (such as magnet links)",
+      "Fixed opening glance tabs while in a split view",
+      {
+        "description": "Fixed huge performance degradation and high CPU usage when having extensions with tabs access permission",
+        "issue": 7057
+      },
+      "Fixed windows showing Mozilla as Zen's vendor",
+      {
+        "description": "Fixed opening the certificate manager from the settings",
+        "issue": 7083
+      },
+      "Tab unloader now unloads tabs that are not in the current workspace",
+      "Fixed tabs not moving to forced workspaces",
+      {
+        "description": "Media Playback Continues After Unloading a Pinned Tab",
+        "issue": 6995
+      },
+      "Fixed restoring tabs with split views making the browser not load anything",
+      "Fixed other related workspace changing issues"
+    ],
+    "themeChanges": [
+      "Media query '-moz-bool-pref:' has been changed to '-moz-pref()'. This got removed in firefox 137 but we added support for the old implementation until 138."
+    ],
+    "features": [
+      "Updated to firefox 137.0",
+      "Added support for 'split glance tab' in the glance button menu",
+      "Added support for Mica context menus and panels",
+      "Added support for MacOS native panel backgrounds",
+      "Mica and acrylic don't require a restart anymore to take effect",
+      "Increased security by following Mozilla's new guidelines for parent process event handling"
+    ],
+    "breakingChanges": [
+      "While we understand some of you used the web panels, recent research lead us to remove completely the web panel feature. This is due to security concerns and difficulties in maintaining it. We recommend using split views instead. We are sorry for the inconvenience this may cause."
+    ],
+    "workflowId": 14242192854,
+    "date": "03/04/2025"
   }
 ]
