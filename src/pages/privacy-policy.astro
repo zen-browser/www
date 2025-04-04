@@ -43,7 +43,9 @@ import Layout from '../layouts/Layout.astro'
       However, you can opt-in to share telemetry data to Mozilla for the
       improvement of FireFox (the base upon which the Zen Browser is built). It
       will be treated in accordance with their Privacy Policy which you can read
-      about <a href="https://www.mozilla.org/en-US/privacy/">here</a>.
+      about <a
+        class="zen-link"
+        href="https://www.mozilla.org/en-US/privacy/">here</a>.
     </p>
     <h3 class="mt-4 text-xl !font-bold" id="-1-2-no-personal-data-collection-">
       <strong class="font-bold">1.2. No Personal Data Collection</strong>
@@ -108,12 +110,15 @@ import Layout from '../layouts/Layout.astro'
     </p>
     <ul>
       <li>
-        <a href="https://www.mozilla.org/en-US/privacy/mozilla-accounts/"
+        <a
+          class="zen-link"
+          href="https://www.mozilla.org/en-US/privacy/mozilla-accounts/"
           >Mozilla Firefox Sync</a
         >
       </li>
       <li>
         <a
+          class="zen-link"
           href="https://support.mozilla.org/en-US/kb/how-firefox-securely-saves-passwords#:~:text=Firefox%20Desktop%20encrypts%20your%20passwords,cryptography%20to%20obscure%20your%20passwords."
           >This is how we store your passwords</a
         >
@@ -202,7 +207,9 @@ import Layout from '../layouts/Layout.astro'
     </p>
     <ul>
       <li>
-        Please check <a href="https://www.mozilla.org/en-US/privacy/"
+        Please check <a
+          class="zen-link"
+          href="https://www.mozilla.org/en-US/privacy/"
           >Firefox Privacy Notice</a
         > for more information.
       </li>
@@ -216,11 +223,15 @@ import Layout from '../layouts/Layout.astro'
     </p>
     <ul>
       <li>
-        Discord: <a href="https://discord.gg/zen-browser"
+        Discord: <a
+          class="zen-link"
+          href="https://discord.gg/zen-browser"
           >Zen Browser&#39;s Discord</a
         >
       </li>
-      <li>GitHub: <a href="https://github.com/zen-browser">Organization</a></li>
+      <li>GitHub: <a 
+        class="zen-link"
+        href="https://github.com/zen-browser">Organization</a></li>
     </ul>
   </main>
 </Layout>
@@ -236,9 +247,5 @@ import Layout from '../layouts/Layout.astro'
 
   li {
     @apply ml-4 list-disc;
-  }
-
-  a {
-    @apply text-coral;
   }
 </style>
