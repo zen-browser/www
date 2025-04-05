@@ -92,7 +92,7 @@ if (props.date) {
     <div class="mt-8" data-orientation="vertical"></div>
     <Accordion>
       {
-        props.fixes ? (
+        props.fixes?.length ? (
           <AccordionItem title="Fixes">
             <ul class="list-inside list-disc">
               {props.fixes.map((fix: any) => (
@@ -124,7 +124,7 @@ if (props.date) {
         ) : null
       }
       {
-        props.features ? (
+        props.features?.length ? (
           <AccordionItem title="Features">
             <ul class="list-inside list-disc">
               {props.features.map((feature: string) => (
@@ -135,7 +135,7 @@ if (props.date) {
         ) : null
       }
       {
-        props.themeChanges ? (
+        props.themeChanges?.length ? (
           <AccordionItem title="Theme Changes">
             <ul class="list-inside list-disc">
               {props.themeChanges.map((themeChange: string) => (
@@ -146,7 +146,7 @@ if (props.date) {
         ) : null
       }
       {
-        props.breakingChanges ? (
+        props.breakingChanges?.length ? (
           <AccordionItem title="Breaking Changes">
             <ul class="list-inside list-disc">
               {props.breakingChanges.map((breakingChange: BreakingChange) => (
