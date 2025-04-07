@@ -2508,10 +2508,10 @@
   {
     "version": "1.11.1b",
     "image": false,
-    "extra": "This small updates bring some nice fixes and stability to zen",
+    "extra": "This small update brings some nice fixes and stability improvements to Zen",
     "fixes": [
-      "Fixed glance not becoming it's own tab when expanding",
-      "Fixed custom colors not staying across sessions",
+      "Fixed Glance not becoming it's own tab when expanding",
+      "Fixed custom colors not persisting across sessions",
       "Fixed compact mode on the right shifting the website to the left"
     ],
     "workflowId": 14277375722,
