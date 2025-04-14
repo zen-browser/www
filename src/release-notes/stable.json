@@ -2552,7 +2552,7 @@
     "extra": "We are back with some nice QoL improvements and bug fixes. We decided the release of Firefox 138 will be the defining moment for Zen, allowing stable enough groups for us to release tab folders! We are also working on something called 'Zen Library'!",
     "fixes": [
       "Fixed glance sometimes acting weird when cycling tabs with the keyboard",
-      "Fixed verious animations and generic issues in compact mode",
+      "Fixed various animations and generic issues in compact mode",
       "Fixed URL bar height being wrong when exiting from full-screen videos",
       "Fixed the sidebar being visible in compact mode when opening the floating URL bar",
       "Fixed ctrl+T sometimes opening on the current tab if pressing ctrl+enter"
