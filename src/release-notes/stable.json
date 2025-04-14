@@ -2555,7 +2555,8 @@
       "Fixed various animations and generic issues in compact mode",
       "Fixed URL bar height being wrong when exiting from full-screen videos",
       "Fixed the sidebar being visible in compact mode when opening the floating URL bar",
-      "Fixed ctrl+T sometimes opening on the current tab if pressing ctrl+enter"
+      "Fixed ctrl+T sometimes opening on the current tab if pressing ctrl+enter",
+      "Fixed pinned tabs disappearing after restarting when splitting them or duplicating them"
     ],
     "features": [
       "On macos, you can now cycle through tabs with cmd+opt+UP or cmd+opt+DOWN",
