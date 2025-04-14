@@ -2508,28 +2508,28 @@
   {
     "version": "1.11.2b",
     "image": false,
-    "extra": "Another stability update for Zen, while we are preparing some cool new features for the future! Clue: it starts with a 'F'",
+    "extra": "Another stability update for Zen, while we prepare some cool new features for the future! Clue: it starts with an 'F'",
     "fixes": [
       {
-        "description": "Fixed transparent Url bar's background when clicking Ctrl+T while playing a video in fullscreen mode",
+        "description": "Fixed the URL bar showing a transparent background after clicking 'Ctrl+T' in a fullscreen video",
         "issue": 6996
       },
       {
-        "description": "Fixed breaking shortly after 'Close other tabs",
+        "description": "Fixed the browser breaking shortly after 'Close other tabs",
         "issue": 7459
       },
       {
-        "description": "Fixed opacity of #urlbar element is sometimes overwritten",
+        "description": "Fixed the opacity of #urlbar element sometimes being overwritten",
         "issue": 7454
       },
-      "Fixed flashbangs on mica context panels",
-      "Fixed firefox sidebar staying always at the left side",
-      "Other fixes to compact mode, glance and PiP integration with the media player"
+      "Fixed flashbangs on Mica context panels",
+      "Fixed Firefox sidebar staying on the left permanently",
+      "Other fixes to compact mode, Glance and PiP integration with the media player"
     ],
     "features": [
-      "Updated to firefox 137.0.1",
-      "Added support for linux transparency under the `zen.widget.linux.transparency` preference",
-      "Added support for drag-and-drop essentials to split 2 tabs together and when pinning a non-pinned tab with a pinned tab, the pinned tab will be duplicated instead of added into the split view group"
+      "Updated to Firefox 137.0.1",
+      "Added support for Linux transparency under the `zen.widget.linux.transparency` preference",
+      "Added support for drag-and-drop essentials to split 2 tabs together; when pinning a non-pinned tab with a pinned tab, the pinned tab will be duplicated instead of being added into the split view group"
     ],
     "workflowId": 14363153438,
     "date": "09/04/2025"
