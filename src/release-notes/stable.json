@@ -2549,7 +2549,7 @@
   {
     "version": "1.11.3b",
     "image": false,
-    "extra": "We are back with some nice QoL improvements and bug fixes. We decided the release of firefox 138 will be the defining moment for zen, allowing stable enough groups for us to release tab folders! We are also working on something called 'Zen Library'!",
+    "extra": "We are back with some nice QoL improvements and bug fixes. We decided the release of Firefox 138 will be the defining moment for Zen, allowing stable enough groups for us to release tab folders! We are also working on something called 'Zen Library'!",
     "fixes": [
       "Fixed glance sometimes acting weird when cycling tabs with the keyboard",
       "Fixed verious animations and generic issues in compact mode",
