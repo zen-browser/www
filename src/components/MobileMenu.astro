@@ -1,0 +1,107 @@
+<!-- Hidden checkbox for menu toggle -->
+<input
+  type="checkbox"
+  id="mobile-menu-toggle"
+  class="peer sr-only lg:hidden"
+  aria-hidden="true"
+/>
+
+<!-- Mobile Slide Menu -->
+<div
+  id="mobile-menu"
+  class="fixed inset-y-0 right-0 z-40 w-64 translate-x-full transform bg-paper shadow-lg transition-transform duration-300 peer-checked:translate-x-0 lg:hidden"
+>
+  <div class="flex items-center justify-between border-b border-dark px-4 py-2">
+    <div class="text-lg font-bold">Menu</div>
+    <label
+      for="mobile-menu-toggle"
+      class="cursor-pointer p-2 text-dark"
+      aria-label="Close menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width={2}
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </label>
+  </div>
+  <nav class="px-4 py-2">
+    <ul class="space-y-4">
+      <!-- Getting Started Links -->
+      <li>
+        <div class="mb-2 font-bold">Getting Started</div>
+        <ul class="ml-4 space-y-2">
+          <li>
+            <a href="/mods" class="block text-dark hover:text-coral">Zen Mods</a
+            >
+          </li>
+          <li>
+            <a href="/release-notes" class="block text-dark hover:text-coral"
+              >Release Notes</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://discord.gg/zen-browser"
+              class="block text-dark hover:text-coral">Discord</a
+            >
+          </li>
+        </ul>
+      </li>
+      <!-- Useful Links -->
+      <li>
+        <div class="mb-2 font-bold">Useful Links</div>
+        <ul class="ml-4 space-y-2">
+          <li>
+            <a href="/donate" class="block text-dark hover:text-coral"
+              >Donate ❤️</a
+            >
+          </li>
+          <li>
+            <a href="/about" class="block text-dark hover:text-coral"
+              >About Us 🌟</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://docs.zen-browser.app"
+              class="block text-dark hover:text-coral">Documentation</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/zen-browser"
+              target="_blank"
+              class="block text-dark hover:text-coral">GitHub</a
+            >
+          </li>
+        </ul>
+      </li>
+      <!-- Extra Links -->
+      <li>
+        <a href="/mods" class="block font-bold text-dark hover:text-coral"
+          >Mods</a
+        >
+      </li>
+      <li>
+        <a href="/download" class="block font-bold text-dark hover:text-coral"
+          >Download</a
+        >
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Overlay for Mobile Menu -->
+<label
+  for="mobile-menu-toggle"
+  class="pointer-events-none fixed inset-0 z-30 bg-black opacity-0 transition-opacity duration-300 peer-checked:pointer-events-auto peer-checked:opacity-50"
+  aria-hidden="true"></label>
