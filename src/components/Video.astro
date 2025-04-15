@@ -3,38 +3,61 @@ const { src, class: className, ...rest } = Astro.props
 const type = src.split('.').pop() || 'webm'
 ---
 
-<video
-  class:list={['w-fit', className]}
-  data-src={src}
-  preload="none"
-  {...rest}
->
-  <source src="" type={`video/${type}`} />
-</video>
+<div class="video-container">
+  <div class="video-placeholder"></div>
+  <video
+    class:list={['w-fit', className]}
+    data-src={src}
+    preload="none"
+    {...rest}
+  >
+    <source src="" type={`video/${type}`} />
+  </video>
+</div>
+
+<style>
+  .video-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .video-placeholder {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  video[data-src] + .video-placeholder {
+    display: block;
+  }
+
+  video:not([data-src]) + .video-placeholder {
+    display: none;
+  }
+</style>
 
 <script>
-  const videos = document.querySelectorAll('video[data-src]')
+  const videos = document.querySelectorAll(
+    'video[data-src]'
+  ) as NodeListOf<HTMLVideoElement>
 
   const loadVideo = (video: HTMLVideoElement) => {
     const source = video.querySelector('source')
     const dataSrc = video.getAttribute('data-src')
     if (dataSrc && source) {
       source.src = dataSrc
-      video.load()
       video.removeAttribute('data-src')
+      video.load()
+      const placeholder = video.previousElementSibling as HTMLElement
+      if (placeholder) {
+        placeholder.style.display = 'none'
+      }
     }
   }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        loadVideo(entry.target as HTMLVideoElement)
-        observer.unobserve(entry.target)
-      }
-    })
-  })
-
-  videos.forEach((video) => {
-    observer.observe(video)
+  document.addEventListener('DOMContentLoaded', () => {
+    for (const video of videos) {
+      loadVideo(video)
+    }
   })
 </script>

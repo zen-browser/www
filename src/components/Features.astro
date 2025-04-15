@@ -8,16 +8,12 @@ import GlanceVideo from '../assets/Glance.webm'
 import CompactModeVideo from '../assets/CompactMode.webm'
 import SplitViewsVideo from '../assets/SplitViews.webm'
 
-import tutaLogo from '../assets/tuta-logo.png'
-
 import Video from './Video.astro'
-import Image from 'astro/components/Image.astro'
 
 const {
   title1 = 'Productivity',
   title2 = 'at',
   title3 = 'its best',
-  showSponsors = false,
 } = Astro.props
 ---
 
@@ -162,31 +158,7 @@ const {
     </div>
   </div>
 </section>
-<section id="sponsors" class={'mb-32 px-4' + (showSponsors ? '' : ' hidden')}>
-  <div class="mx-auto flex flex-col px-6 text-center">
-    <motion.span client:load {...getTitleAnimation(0.2)}>
-      <Description class="mb-2 px-4 text-6xl font-bold"
-        >Our Sponsors</Description
-      >
-    </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.4)}>
-      <Description>
-        We are grateful to our sponsors for their support. They help us to keep
-        the project alive.<br />You can also be part of this journey by donating <a
-          href="/donate"
-          class="zen-link">here</a
-        >!
-      </Description>
-    </motion.span>
-    <div class="relative mt-8 flex items-center justify-center">
-      <motion.span client:load {...getTitleAnimation(0.6)}>
-        <a href="https://tuta.com/" target="_blank" class="w-fit">
-          <Image src={tutaLogo} alt="Tuta" class="h-16 w-fit object-contain" />
-        </a>
-      </motion.span>
-    </div>
-  </div>
-</section>
+
 <script>
   const features = document.querySelectorAll('.feature, .feature-tab')
   const descriptions = [
@@ -229,10 +201,9 @@ const {
     }
 
     const videos = document.querySelectorAll(
-      '.feature-video',
+      '.feature-video'
     ) as NodeListOf<HTMLVideoElement>
     videos.forEach((vid, i) => {
-      vid.removeAttribute('data-active')
       const yOffset = (i - index) * 20
       const zOffset = i === index ? 0 : -100 - Math.abs(i - index) * 50
       const scale = i === index ? 1 : 0.95
@@ -246,8 +217,9 @@ const {
         vid.currentTime = 0
         vid.play()
       } else {
-        vid.style.transform = `translate3d(-50%, ${yOffset}px, ${zOffset}px) 
-                             rotate3d(1, 0, 0, ${rotation}deg) 
+        vid.removeAttribute('data-active')
+        vid.style.transform = `translate3d(-50%, ${yOffset}px, ${zOffset}px)
+                             rotate3d(1, 0, 0, ${rotation}deg)
                              scale(${scale})`
         vid.style.zIndex = String(1 - Math.abs(i - index))
         vid.pause()
