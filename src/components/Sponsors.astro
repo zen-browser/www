@@ -1,0 +1,36 @@
+---
+import Description from '../components/Description.astro'
+import { motion } from 'motion/react'
+import { getTitleAnimation } from '../animations'
+
+import tutaLogo from '../assets/tuta-logo.png'
+
+import Image from 'astro/components/Image.astro'
+const { showSponsors = true } = Astro.props
+---
+
+<section id="sponsors" class:list={['mb-32 px-4', !showSponsors && 'hidden']}>
+  <div class="mx-auto flex flex-col px-6 text-center">
+    <motion.span client:load {...getTitleAnimation(0.2)}>
+      <Description class="mb-2 px-4 text-6xl font-bold"
+        >Our Sponsors</Description
+      >
+    </motion.span>
+    <motion.span client:load {...getTitleAnimation(0.4)}>
+      <Description>
+        We are grateful to our sponsors for their support. They help us to keep
+        the project alive.<br />You can also be part of this journey by donating <a
+          href="/donate"
+          class="zen-link">here</a
+        >!
+      </Description>
+    </motion.span>
+    <div class="relative mt-8 flex items-center justify-center">
+      <motion.span client:load {...getTitleAnimation(0.6)}>
+        <a href="https://tuta.com/" target="_blank" class="w-fit">
+          <Image src={tutaLogo} alt="Tuta" class="h-16 w-fit object-contain" />
+        </a>
+      </motion.span>
+    </div>
+  </div>
+</section>
