@@ -38,7 +38,7 @@ const type = src.split('.').pop() || 'webm'
 
 <script>
   const videos = document.querySelectorAll(
-    'video[data-src]'
+    'video[data-src]',
   ) as NodeListOf<HTMLVideoElement>
 
   const loadVideo = (video: HTMLVideoElement) => {
@@ -55,9 +55,7 @@ const type = src.split('.').pop() || 'webm'
     }
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    for (const video of videos) {
-      loadVideo(video)
-    }
-  })
+  for (const video of videos) {
+    loadVideo(video)
+  }
 </script>
