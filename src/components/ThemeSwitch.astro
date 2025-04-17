@@ -32,7 +32,8 @@ const { label, className = '' } = Astro.props
   const themeSwitch = document.getElementById(
     'theme-switcher'
   ) as HTMLButtonElement
-  const theme = (() => {
+
+  const resolveTheme = (() => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme') ?? 'light'
     }
@@ -40,12 +41,12 @@ const { label, className = '' } = Astro.props
       return 'dark'
     }
     return 'light'
-  })()
+  })
 
   const html = document.documentElement
 
   themeSwitch.addEventListener('click', () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
+    const newTheme = resolveTheme() === 'light' ? 'dark' : 'light'
     html.setAttribute('data-theme', newTheme)
     html.classList.toggle('dark', newTheme === 'dark')
     localStorage.setItem('theme', newTheme)
