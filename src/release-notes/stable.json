@@ -2549,24 +2549,24 @@
   {
     "version": "1.11.3b",
     "image": false,
-    "extra": "We are back with some nice QoL improvements and bug fixes. We decided the release of Firefox 138 will be the defining moment for Zen, allowing stable enough groups for us to release tab folders! We are also working on something called 'Zen Library'!",
+    "extra": "We are back with some nice QoL improvements and bug fixes. We decided that the release of Firefox 138 will be the defining moment for Zen, allowing stable enough groups for us to release tab folders! We are also working on something called 'Zen Library'!",
     "fixes": [
-      "Fixed glance sometimes acting weird when cycling tabs with the keyboard",
+      "Fixed Glance occasionally acting weird when cycling tabs with the keyboard",
       "Fixed various animations and generic issues in compact mode",
-      "Fixed URL bar height being wrong when exiting from full-screen videos",
+      "Fixed an incorrect URL bar height when exiting from full-screen videos",
       "Fixed the sidebar being visible in compact mode when opening the floating URL bar",
-      "Fixed ctrl+T sometimes opening on the current tab if pressing ctrl+enter",
-      "Fixed pinned tabs disappearing after restarting when splitting them or duplicating them"
+      "Fixed 'Ctrl+T' occasionally opening on the current tab when pressing 'Ctrl+Enter'",
+      "Fixed pinned tabs disappearing after restart when splitting or duplicating them"
     ],
     "features": [
-      "On macos, you can now cycle through tabs with cmd+opt+UP or cmd+opt+DOWN",
-      "Bluring the input will now fully un-select the text",
-      "Windows binaries are now correctly signed and *should* not be flagged by antivirus",
+      "On MacOS, you can now cycle through tabs with 'Cmd+Option+UP' or 'Cmd+Option+DOWN'",
+      "Blurring the input will now fully un-select the text",
+      "Windows binaries are now correctly signed and *should* not be flagged by any antivirus",
       "New media control state for sites using WebRTC, like Discord and Google Meet that allows you to mute/unmute the camera and mic",
-      "Added better support for `zen.theme.content-element-separation` being 0 in about:config for different Zen features"
+      "Added better support for `zen.theme.content-element-separation` being 0 in 'about:config' for different Zen features"
     ],
     "themes": [
-      "Added the CSS attribute `-zen-window-transform-origin` for chrome style sheets to allow for better positioning of the window when animating"
+      "Added the CSS attribute `-zen-window-transform-origin` for Chrome style sheets to allow for better positioning of the window when animating"
     ],
     "workflowId": 14434223474,
     "date": "14/04/2025"
