@@ -73,7 +73,12 @@ export function useModsSearch(mods: ZenTheme[]) {
     const newUrl = `${window.location.pathname}${
       searchParams.toString() ? `?${searchParams.toString()}` : ''
     }`
-    window.history.replaceState({}, '', newUrl)
+
+    if (state.page > 1) {
+      window.history.pushState({}, '', newUrl)
+    } else {
+      window.history.replaceState({}, '', newUrl)
+    }
   }, [state, searchParams])
 
   const filteredMods = (() => {
