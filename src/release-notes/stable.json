@@ -2619,7 +2619,7 @@
     ],
     "features": [
       "Updated to firefox 137.0.2",
-      "Enabled automatic picture-in-picture by default",
+      "Enabled automatic picture-in-picture by default (`media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled` in about:config)",
       "Enabled bottom rounded GTK corners on Linux by default"
     ],
     "workflowId": 14525944862,
