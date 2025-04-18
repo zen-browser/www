@@ -2570,5 +2570,60 @@
     ],
     "workflowId": 14434223474,
     "date": "14/04/2025"
+  },
+  {
+    "version": "1.11.4b",
+    "image": false,
+    "extra": "This update includes a number of bug fixes and performance improvements!",
+    "fixes": [
+      {
+        "descrption": "Fixed glance not working on http or file protocols",
+        "issue": 7263
+      },
+      {
+        "descrption": "Fixed the sidebar scrollbar being innaccessible because it's too thin",
+        "issue": 7374
+      },
+      {
+        "descrption": "Fixed unloaded tabs appearing in the ctrl+tab switcher",
+        "issue": 7365
+      },
+      "Fixed split view not opening a new window when dragging the tab outside",
+      "Fixed enabling Restore pinned tabs to their originally pinned URL on startup setting does not work",
+      "Fixed pinned tabs doing a second GET request on startup instead of using a cached version",
+      "Fixed windows packages not containing redistributable files",
+      {
+        "descrption": "Fixed 'reset tab' not appearing if only the query parameters changed on the URL",
+        "issue": 7614
+      },
+      {
+        "descrption": "Fixed workspaces temporarily inheriting essential tabs from the source workspace a container tab was switched from",
+        "issue": 7295
+      },
+      {
+        "descrption": "Inconsistent spacing with the native firefox sidebar on compact mode (multiple toolbars)",
+        "issue": 7118
+      },
+      "Split views not selected still having the pending attribute",
+      {
+        "descrption": "Fixed swiping workspaces with Logitech mouse not working",
+        "issue": 7274
+      },
+      {
+        "descrption": "Fixed performance issue when closing multiple tabs",
+        "issue": 7507
+      },
+      {
+        "descrption": "Window controls not expanding on split views and element separation on 0 also not expanding them",
+        "issue": 7694
+      }
+    ],
+    "features": [
+      "Updated to firefox 137.0.2",
+      "Enabled automatic picture-in-picture by default (`media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled` in about:config)",
+      "Enabled bottom rounded GTK corners on Linux by default"
+    ],
+    "workflowId": 14525944862,
+    "date": "18/04/2025"
   }
 ]
