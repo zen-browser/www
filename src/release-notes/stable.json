@@ -363,9 +363,7 @@
     "version": "1.0.0-a.13",
     "date": "05/08/2024",
     "extra": "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
-    "features": [
-      "Allow to remember sidebar width even after collapsing it."
-    ],
+    "features": ["Allow to remember sidebar width even after collapsing it."],
     "fixes": [
       {
         "description": "Task Manager Icon Missing in Flatpak Version",
@@ -921,9 +919,7 @@
     "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-    "features": [
-      "Added a new system for handling keyboard shortcuts"
-    ],
+    "features": ["Added a new system for handling keyboard shortcuts"],
     "fixes": [
       {
         "description": "The New Tab button is not visible",
@@ -980,9 +976,7 @@
       "Enabled container tabs by default",
       "Improved Expand Tabs on Hover layout"
     ],
-    "themeChanges": [
-      "Toggle inputs will not use the themed tertiary color"
-    ],
+    "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
     "breakingChanges": [
       "The keyboard shortcuts will be overriden by the defaults ones in this update"
     ],
@@ -1279,9 +1273,7 @@
         "issue": 2156
       }
     ],
-    "breakingChanges": [
-      "Removed Show Expand Button option from settings"
-    ],
+    "breakingChanges": ["Removed Show Expand Button option from settings"],
     "themeChanges": [
       "The variable '--zen-main-browser-background' will now contain the generated gradient",
       "Added the 'unread' attribute for background tabs that haven't been accessed yet"
@@ -1384,9 +1376,7 @@
         "description": "Fixed wrong aligment on glance action buttons"
       }
     ],
-    "features": [
-      "No new features, sorry"
-    ]
+    "features": ["No new features, sorry"]
   },
   {
     "version": "1.0.1-a.17",
@@ -2456,9 +2446,7 @@
     "version": "1.10.3b",
     "image": false,
     "extra": "Terribly sorry for the frequent updates, this emergency release simply updates Firefox, fixing a critical vulnerability in chromium's sandboxing system. You can read more here:\n\n<a href='https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/'>https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/</a>",
-    "features": [
-      "Updated Firefox to 136.0.4"
-    ],
+    "features": ["Updated Firefox to 136.0.4"],
     "workflowId": 14109635630,
     "date": "27/03/2025"
   },
@@ -2625,5 +2613,17 @@
     ],
     "workflowId": 14525944862,
     "date": "18/04/2025"
+  },
+  {
+    "version": "1.11.5b",
+    "image": false,
+    "extra": "A small update to fix some issues with the new PiP feature and element-separation 0",
+    "fixes": [
+      "Fixed an issue with element-separation 0 not allowing to access the window controls",
+      "Disabled automatic PiP untill we have a proper settings UI for it once we build own settings panel"
+    ],
+    "features": [],
+    "workflowId": 14551479492,
+    "date": "20/04/2025"
   }
 ]
