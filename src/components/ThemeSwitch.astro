@@ -30,10 +30,10 @@ const { label, className = '' } = Astro.props
 
 <script>
   const themeSwitch = document.getElementById(
-    'theme-switcher'
+    'theme-switcher',
   ) as HTMLButtonElement
 
-  const resolveTheme = (() => {
+  const resolveTheme = () => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       return localStorage.getItem('theme') ?? 'light'
     }
@@ -41,7 +41,7 @@ const { label, className = '' } = Astro.props
       return 'dark'
     }
     return 'light'
-  })
+  }
 
   const html = document.documentElement
 
