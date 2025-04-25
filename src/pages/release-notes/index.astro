@@ -2,9 +2,10 @@
 import Layout from '../../layouts/Layout.astro'
 import ReleaseNoteItem from '../../components/ReleaseNoteItem.astro'
 import { releaseNotes, releaseNotesTwilight } from '../../release-notes'
-import Title from '../../components/Title.astro'
 import Description from '../../components/Description.astro'
 import Button from '../../components/Button.astro'
+import { Modal, ModalBody, ModalHeader } from 'free-astro-components'
+import { ArrowUp } from 'lucide-astro'
 ---
 
 <Layout title="Release Notes - Zen Browser">
@@ -27,17 +28,20 @@ import Button from '../../components/Button.astro'
         >, we've been working hard to make Zen Browser the best it can be.
         Thanks everyone for your feedback! ❤️
       </p>
-      <div class="ml-auto flex w-fit items-center gap-4">
-        <Button class="mt-8 flex" isPrimary href="/donate">
+      <div class="mx-auto sm:mr-0 flex flex-col sm:flex-row w-fit sm:items-center gap-4 mt-8">
+        <Button class="flex" isPrimary href="/donate">
           Give us some support!
         </Button>
         <Button
           id="toggle-notes"
-          class="mt-8 flex w-36"
+          class="flex"
           data-open="false"
           href="#"
         >
           Expand all
+        </Button>
+        <Button id="navigate-to-version" href="#" class="flex">
+          Navigate to version...
         </Button>
       </div>
       {
@@ -49,15 +53,64 @@ import Button from '../../components/Button.astro'
       {releaseNotes.map((notes: any) => <ReleaseNoteItem {...notes} />)}
     </div>
   </main>
+  <Button
+    href="#"
+    id="scroll-top"
+    isPrimary
+    class="fixed bottom-8 right-8 opacity-0"
+  >
+    <p class="hidden sm:flex items-center gap-2">
+      Back to the top <ArrowUp aria-hidden="true" class="size-4"/>
+    </p>
+    <ArrowUp aria-label="Back to the top" class="sm:hidden size-4" />
+  </Button>
 </Layout>
+<Modal id="version-modal" class="m-auto !bg-paper border">
+  <ModalHeader class="border-b">
+    <h1 class="font-bold text-4xl">Choose version</h1>
+  </ModalHeader>
+  <ModalBody>
+    <div id="version-list" class="flex flex-col gap-2 text-xl">
+      {releaseNotes.map((note) => (
+        <button
+          aria-label={`Navigate to version ${note.version}`}
+          class="hover:text-coral transition-colors duration-150 w-full text-left"
+          data-version={note.version}
+        >
+          {note.version}
+        </button>
+      ))}
+    </div>
+  </ModalBody>
+</Modal>
 <script>
-  const button = document.getElementById('toggle-notes')
+  import { openModal, closeModal } from 'free-astro-components';
+
+  const scrollTopButton = document.getElementById('scroll-top')
+  const toggleButton = document.getElementById('toggle-notes')
+  const versionButton = document.getElementById('navigate-to-version')
   const container = document.getElementById('release-notes')
+  const modal = document.getElementById('version-modal')
+  const versionList = document.getElementById('version-list')
+
+  const toggleScrollButton = () => {
+    if (!scrollTopButton || !versionButton) return
+
+    const descriptionPosition = versionButton.getBoundingClientRect().bottom
+    if (descriptionPosition < 0) {
+      scrollTopButton.classList.remove('opacity-0')
+      scrollTopButton.classList.add('opacity-100')
+    } else {
+      scrollTopButton.classList.remove('opacity-100')
+      scrollTopButton.classList.add('opacity-0')
+    }
+  }
+
   const toggleNotes = () => {
-    if (!button || !container) return
+    if (!toggleButton || !container) return
 
     const accordionItems = container.getElementsByTagName('details')
-    const isOpen = button.getAttribute('data-open') === 'true'
+    const isOpen = toggleButton.getAttribute('data-open') === 'true'
 
     Array.from(accordionItems).forEach((accordionItem) => {
       if (isOpen) {
@@ -67,8 +120,36 @@ import Button from '../../components/Button.astro'
       }
     })
 
-    button.setAttribute('data-open', (!isOpen).toString())
-    button.textContent = isOpen ? 'Expand all' : 'Collapse all'
+    toggleButton.setAttribute('data-open', (!isOpen).toString())
+    toggleButton.textContent = isOpen ? 'Expand all' : 'Collapse all'
   }
-  button?.addEventListener('click', toggleNotes)
+
+
+  const navigateToVersion = (e: MouseEvent) => {
+    const target = e.target as HTMLElement
+    if (!container || !target?.closest('[data-version]')) return
+
+    const version = target.getAttribute('data-version')
+    if (!version) return
+    window.location.hash = version
+
+    const versionDetails = document.getElementById(version)?.getElementsByTagName('details')
+    if (versionDetails && versionDetails.length > 0) {
+      Array.from(versionDetails).forEach(accordion => {
+        accordion.setAttribute('open', '')
+      });
+    }
+
+    closeModal(modal)
+  }
+
+  const openVersionModal = () => {
+    if (!modal) return
+    openModal(modal)
+  }
+
+  window.addEventListener('scroll', toggleScrollButton)
+  toggleButton?.addEventListener('click', toggleNotes)
+  versionButton?.addEventListener('click', openVersionModal)
+  versionList?.addEventListener('click', navigateToVersion)
 </script>
