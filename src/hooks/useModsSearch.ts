@@ -17,7 +17,7 @@ export function useModsSearch(mods: ZenTheme[]) {
   const [searchParams, setSearchParams] = useState<URLSearchParams>()
   const [state, setState] = useState<ModsSearchState>({
     search: '',
-    createdSort: 'default',
+    createdSort: 'desc',
     updatedSort: 'default',
     page: 1,
     limit: DEFAULT_LIMIT,
