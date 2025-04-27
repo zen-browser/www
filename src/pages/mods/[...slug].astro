@@ -63,10 +63,11 @@ const dates = {
         class="h-full w-full rounded-xl border-2 border-dark object-cover shadow"
       />
       <div class="flex flex-col justify-between gap-2 sm:flex-row">
-        <div class="flex flex-col gap-2 flex-shrink-0 font-normal">
+        <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
           <p>
-            Created by <a href={getAuthorLink(mod.author)} class="font-bold zen-link"
-              >@{mod.author}</a
+            Created by <a
+              href={getAuthorLink(mod.author)}
+              class="zen-link font-bold">@{mod.author}</a
             > • <span class="font-bold">v{mod.version}</span>
           </p>
           <p>Creation date • <b>{dates.createdAt}</b></p>
