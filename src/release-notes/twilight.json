@@ -1,7 +1,41 @@
 {
-  "version": "xxx",
+  "version": "1.12t",
   "image": false,
-  "extra": "",
-  "fixes": [],
-  "features": []
+  "extra": "A nice update that brings some cool new features and fixes!\n\nWe are also exited to announce that we moved into <a href=\"https://floss.social/@zenbrowser\">floss.social</a>!\n\nIn response to recent privacy concerns, we've significantly strengthened Zen's privacy measures. Previously, we only disabled telemetry, but some minimal pings were still being sent. Now, firefox telemetry has been completely stripped out from the core. Additionally, onboarding pages and intial essentials favicons are now served through our own fully private CDN and our website no longer relies on any external services/CDNs.\n\nOnly essential security updates and other non-telemetry-related services remain. As a result, the number of external connections has dropped from 82 to around 13 — factoring in that Zen's site is loaded twice (for the welcome page and privacy policy) and about 10 favicons are fetched from our private CDN.\n\nPsst. With the release of firefox 138, folders are just around the corner!",
+  "fixes": [
+    "Fixed a crash when no loaded tab is present on the ctrl+Tab menu",
+    {
+      "description": "Fixed alert boxes cutoff half way on split view",
+      "issue": 7564
+    },
+    {
+      "description": "Fixed moving split view tabs into other workspaces not working",
+      "issue": 7840
+    },
+    "Fixed Paste-And-Go always navigating in the current tab, even after ctrl+T is pressed",
+    {
+      "description": "Panels UI not rendering addons correctly and overflow outside the screen on linux",
+      "issue": 7633
+    },
+    "Fixed URL bar unfocusing when pressing the newtab button",
+    {
+      "description": "Fixed glance freezing when opening tabs in other worksaces",
+      "issue": 7864
+    },
+    {
+      "description": "Fixed duplicating tabs being stuck on 'New Tab' text",
+      "issue": 7900
+    },
+    "Fixed an empty newtab opening when closing with a pinned tab selected on the previous session"
+  ],
+  "features": [
+    "Updated to Firefox 138.0",
+    "Increased privacy and reduced initial connections at startup",
+    "Added a *really smooth* animation when downloading files. Thanks to @BrielOtero on github!",
+    "New, fully containerized essentials are out! It allows to have different essentials based on your workspace's container. It can be enabled by goign into about:preferences -> tab management -> allow container specific essentials",
+    "Auto-Picture-in-Picture wont activate if the video is muted",
+    "Added homepage button and export/import buttons to the mods page for easier access. Thanks to @Pdzly on github!",
+    "More efficient workspace switching, by only animating what we need and warming up the tabs before switching",
+    "Did internat refactoring to certain components in order to comply with Firefox's new security standards."
+  ]
 }

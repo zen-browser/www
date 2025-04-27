@@ -2,7 +2,11 @@
 import { Accordion, AccordionItem } from 'free-astro-components'
 import { Info } from 'lucide-astro'
 
-import type { ReleaseNote, BreakingChange } from '../release-notes'
+import {
+  type ReleaseNote,
+  type BreakingChange,
+  getReleaseNoteFirefoxVersion,
+} from '../release-notes'
 export type Props = ReleaseNote
 const { isTwilight, ...props } = Astro.props
 
@@ -11,6 +15,8 @@ if (props.date) {
   const [day, month, year] = props.date.split('/')
   date = new Date(Date.parse(`${year}-${month}-${day}`))
 }
+
+const ffVersion = getReleaseNoteFirefoxVersion(props)
 ---
 
 <section
@@ -28,13 +34,20 @@ if (props.date) {
         </a>
       ) : null
     }
-    <h1 class="text-3xl font-bold">
+    <h1 class="flex items-center text-3xl font-bold">
       {
         isTwilight ? (
           <>Twilight changes for {props.version} 🌙</>
         ) : (
           <>Release notes for {props.version} 🎉</>
         )
+      }
+      {
+        ffVersion ? (
+          <div class="!mb-2 ml-6 mt-1 block inline w-fit rounded-full bg-blue-50 px-3 py-1 text-xs text-paper">
+            Firefox {ffVersion}
+          </div>
+        ) : null
       }
     </h1>
     {date && date.toLocaleDateString('en-US', { dateStyle: 'long' })}

@@ -21,23 +21,18 @@ import { ArrowUp } from 'lucide-astro'
         Stay up to date with the latest changes to Zen Browser! Since the <a
           class="zen-link"
           href="#1.0.0-a.1">first release</a
-        > till <a
-          class="zen-link"
-          href={`#${releaseNotes[0].version}`}
+        > till <a class="zen-link" href={`#${releaseNotes[0].version}`}
           >{releaseNotes[0].version}</a
         >, we've been working hard to make Zen Browser the best it can be.
         Thanks everyone for your feedback! ❤️
       </p>
-      <div class="mx-auto sm:mr-0 flex flex-col sm:flex-row w-fit sm:items-center gap-4 mt-8">
+      <div
+        class="mx-auto mt-8 flex w-fit flex-col gap-4 sm:mr-0 sm:flex-row sm:items-center"
+      >
         <Button class="flex" isPrimary href="/donate">
           Give us some support!
         </Button>
-        <Button
-          id="toggle-notes"
-          class="flex"
-          data-open="false"
-          href="#"
-        >
+        <Button id="toggle-notes" class="flex" data-open="false" href="#">
           Expand all
         </Button>
         <Button id="navigate-to-version" href="#" class="flex">
@@ -59,32 +54,34 @@ import { ArrowUp } from 'lucide-astro'
     isPrimary
     class="fixed bottom-8 right-8 opacity-0"
   >
-    <p class="hidden sm:flex items-center gap-2">
-      Back to the top <ArrowUp aria-hidden="true" class="size-4"/>
+    <p class="hidden items-center gap-2 sm:flex">
+      Back to the top <ArrowUp aria-hidden="true" class="size-4" />
     </p>
-    <ArrowUp aria-label="Back to the top" class="sm:hidden size-4" />
+    <ArrowUp aria-label="Back to the top" class="size-4 sm:hidden" />
   </Button>
 </Layout>
-<Modal id="version-modal" class="m-auto !bg-paper border">
+<Modal id="version-modal" class="m-auto border !bg-paper">
   <ModalHeader class="border-b">
-    <h1 class="font-bold text-4xl">Choose version</h1>
+    <h1 class="text-4xl font-bold">Choose version</h1>
   </ModalHeader>
   <ModalBody>
     <div id="version-list" class="flex flex-col gap-2 text-xl">
-      {releaseNotes.map((note) => (
-        <button
-          aria-label={`Navigate to version ${note.version}`}
-          class="hover:text-coral transition-colors duration-150 w-full text-left"
-          data-version={note.version}
-        >
-          {note.version}
-        </button>
-      ))}
+      {
+        releaseNotes.map((note) => (
+          <button
+            aria-label={`Navigate to version ${note.version}`}
+            class="w-full text-left transition-colors duration-150 hover:text-coral"
+            data-version={note.version}
+          >
+            {note.version}
+          </button>
+        ))
+      }
     </div>
   </ModalBody>
 </Modal>
 <script>
-  import { openModal, closeModal } from 'free-astro-components';
+  import { openModal, closeModal } from 'free-astro-components'
 
   const scrollTopButton = document.getElementById('scroll-top')
   const toggleButton = document.getElementById('toggle-notes')
@@ -124,7 +121,6 @@ import { ArrowUp } from 'lucide-astro'
     toggleButton.textContent = isOpen ? 'Expand all' : 'Collapse all'
   }
 
-
   const navigateToVersion = (e: MouseEvent) => {
     const target = e.target as HTMLElement
     if (!container || !target?.closest('[data-version]')) return
@@ -133,11 +129,13 @@ import { ArrowUp } from 'lucide-astro'
     if (!version) return
     window.location.hash = version
 
-    const versionDetails = document.getElementById(version)?.getElementsByTagName('details')
+    const versionDetails = document
+      .getElementById(version)
+      ?.getElementsByTagName('details')
     if (versionDetails && versionDetails.length > 0) {
-      Array.from(versionDetails).forEach(accordion => {
+      Array.from(versionDetails).forEach((accordion) => {
         accordion.setAttribute('open', '')
-      });
+      })
     }
 
     closeModal(modal)
