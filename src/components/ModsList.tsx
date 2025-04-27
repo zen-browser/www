@@ -193,7 +193,7 @@ export default function ModsList({ mods }: ModsListProps) {
               href={`/mods/${mod.id}`}
               className="flex flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
             >
-              <div className="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md lg:h-auto">
+              <div className="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
                 <img
                   src={mod.image}
                   alt={mod.name}
