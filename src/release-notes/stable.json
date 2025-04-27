@@ -2565,7 +2565,7 @@
     "extra": "This update includes a number of bug fixes and performance improvements!",
     "fixes": [
       {
-        "description": "Fixed glance not working on http or file protocols",
+        "description": "Fixed Glance not working on 'http' or 'file' protocols",
         "issue": 7263
       },
       {
@@ -2573,13 +2573,13 @@
         "issue": 7374
       },
       {
-        "description": "Fixed unloaded tabs appearing in the ctrl+tab switcher",
+        "description": "Fixed unloaded tabs appearing in the 'Ctrl+Tab' switcher",
         "issue": 7365
       },
       "Fixed split view not opening a new window when dragging the tab outside",
-      "Fixed enabling Restore pinned tabs to their originally pinned URL on startup setting does not work",
-      "Fixed pinned tabs doing a second GET request on startup instead of using a cached version",
-      "Fixed windows packages not containing redistributable files",
+      "Fixed enabling 'Restore pinned tabs to their originally pinned URL on startup' setting not working",
+      "Fixed pinned tabs doing a second 'GET' request on startup instead of using a cached version",
+      "Fixed Windows packages not containing redistributable files",
       {
         "description": "Fixed 'reset tab' not appearing if only the query parameters changed on the URL",
         "issue": 7614
@@ -2589,25 +2589,25 @@
         "issue": 7295
       },
       {
-        "description": "Inconsistent spacing with the native firefox sidebar on compact mode (multiple toolbars)",
+        "description": "Fixed inconsistent spacing with the native Firefox sidebar on compact mode (multiple toolbars)",
         "issue": 7118
       },
-      "Split views not selected still having the pending attribute",
+      "Fixed de-selected split views still having the pending attribute",
       {
         "description": "Fixed swiping workspaces with Logitech mouse not working",
         "issue": 7274
       },
       {
-        "description": "Fixed performance issue when closing multiple tabs",
+        "description": "Fixed a performance issue when closing multiple tabs",
         "issue": 7507
       },
       {
-        "description": "Window controls not expanding on split views and element separation on 0 also not expanding them",
+        "description": "Fixed window controls not expanding on split views; and element separation on 0 also not expanding them",
         "issue": 7694
       }
     ],
     "features": [
-      "Updated to firefox 137.0.2",
+      "Updated to Firefox 137.0.2",
       "Enabled automatic picture-in-picture by default (`media.videocontrols.picture-in-picture.enable-when-switching-tabs.enabled` in about:config)",
       "Enabled bottom rounded GTK corners on Linux by default"
     ],
