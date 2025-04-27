@@ -29,7 +29,7 @@ export function useModsSearch(mods: ZenTheme[]) {
     setSearchParams(params)
     setState({
       search: params.get('q') || '',
-      createdSort: (params.get('created') as SortOrder) || 'default',
+      createdSort: (params.get('created') as SortOrder) || 'desc',
       updatedSort: (params.get('updated') as SortOrder) || 'default',
       page: Number.parseInt(params.get('page') || '1', 10),
       limit: Number.parseInt(params.get('limit') || String(DEFAULT_LIMIT), 10),
