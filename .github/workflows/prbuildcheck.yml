@@ -1,19 +1,20 @@
 name: PR Build Check
+
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
 
 jobs:
   upload:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: '22'
 
       - name: Verify npm installation
         run: npm --version
