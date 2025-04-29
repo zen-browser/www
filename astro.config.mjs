@@ -12,12 +12,7 @@ export default defineConfig({
     tailwind(),
     preact({ compat: true }),
     sitemap({
-      // TODO: Maybe? Maybe not?
-      //   filter: (page) => !page.includes('mods/'),
     }),
   ],
   site: 'https://zen-browser.app',
-  redirects: {
-    '/themes/[...slug]': '/mods/[...slug]',
-  },
 })
