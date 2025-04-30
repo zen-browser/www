@@ -9,7 +9,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), preact({ compat: true }), sitemap({})],
+  integrations: [preact({ compat: true }), sitemap({})],
   site: 'https://zen-browser.app',
 
   vite: {
