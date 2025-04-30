@@ -31,10 +31,10 @@
   "features": [
     "Updated to Firefox 138.0",
     "Increased privacy and reduced initial connections at startup",
-    "Added a *really smooth* animation when downloading files. Thanks to @BrielOtero on github!",
+    "Added a *really smooth* animation when downloading files. Thanks to @BrielOtero on GitHub!",
     "New, fully containerized essentials are out! It allows having different essentials based on your workspace's container. It can be enabled by going into about:preferences -> tab management -> allow container specific essentials",
     "Auto-Picture-in-Picture wont activate if the video is muted",
-    "Added homepage button and export/import buttons to the mods page for easier access. Thanks to @Pdzly on github!",
+    "Added homepage button and export/import buttons to the mods page for easier access. Thanks to @Pdzly on GitHub!",
     "More efficient workspace switching, by only animating what we need and warming up the tabs before switching",
     "Did internal refactoring to certain components in order to comply with Firefox's new security standards."
   ]

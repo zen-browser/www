@@ -29,7 +29,7 @@ export { default as releaseNotesTwilight } from './release-notes/twilight.json'
 export function getReleaseNoteFirefoxVersion(
   releaseNote: ReleaseNote,
 ): string | null {
-  // Check if "firefox" is on the feature list
+  // Check if "Firefox" is on the feature list
   for (const feature of releaseNote.features || []) {
     if (feature.toLowerCase().includes('firefox')) {
       // may be X or X.X or X.X.X
