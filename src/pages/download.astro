@@ -25,9 +25,9 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 <DownloadScript />
 
 <Layout title="Download Zen">
-  <main class="flex min-h-screen flex-col px-2 data-[os='windows']:bg-zen-blue">
-    <div class="container relative mx-auto max-w-5xl py-12">
-      <div class="mb-6 mt-12 flex flex-col gap-4">
+  <main class="data-[os='windows']:bg-zen-blue flex min-h-screen flex-col px-2">
+    <div class="relative container mx-auto max-w-5xl py-12">
+      <div class="mt-12 mb-6 flex flex-col gap-4">
         <Description id="download-title" class="text-6xl font-bold"
           >Download Zen</Description
         >
@@ -38,11 +38,11 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
         </Description>
         <div
           id="twilight-info"
-          class="hidden max-w-xl items-center justify-center gap-3 text-pretty rounded-xl border border-zen-blue/20 bg-zen-blue/5 p-4 text-left data-[twilight='true']:flex"
+          class="border-zen-blue/20 bg-zen-blue/5 hidden max-w-xl items-center justify-center gap-3 rounded-xl border p-4 text-left text-pretty data-[twilight='true']:flex"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="mt-0.5 h-5 w-5 flex-shrink-0 text-zen-blue"
+            class="text-zen-blue mt-0.5 h-5 w-5 flex-shrink-0"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -55,7 +55,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
             <line x1="12" y1="16" x2="12.01" y2="16"></line>
           </svg>
           <Description>
-            <strong class="font-medium text-zen-blue">Twilight Mode:</strong> You're
+            <strong class="text-zen-blue font-medium">Twilight Mode:</strong> You're
             currently in Twilight mode, this means you're downloading the latest
             experimental features and updates.
           </Description>
@@ -68,7 +68,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
           class="inline-flex rounded-3xl bg-[rgba(255,255,255,0.4)] p-2 shadow-md dark:bg-[rgba(0,0,0,0.3)] dark:shadow-sm"
         >
           <button
-            class="platform-selector rounded-2xl px-5 py-2.5 transition-all duration-200 data-[active='true']:bg-subtle"
+            class="platform-selector data-[active='true']:bg-subtle rounded-2xl px-5 py-2.5 transition-all duration-200"
             data-platform="mac"
           >
             <span class="flex items-center gap-2">
@@ -77,7 +77,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
             </span>
           </button>
           <button
-            class="platform-selector rounded-2xl px-5 py-2.5 transition-all duration-200 data-[active='true']:bg-subtle"
+            class="platform-selector data-[active='true']:bg-subtle rounded-2xl px-5 py-2.5 transition-all duration-200"
             data-platform="windows"
           >
             <span class="flex items-center gap-2">
@@ -86,7 +86,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
             </span>
           </button>
           <button
-            class="platform-selector rounded-2xl px-5 py-2.5 transition-all duration-200 data-[active='true']:bg-subtle"
+            class="platform-selector data-[active='true']:bg-subtle rounded-2xl px-5 py-2.5 transition-all duration-200"
             data-platform="linux"
           >
             <span class="flex items-center gap-2">
@@ -148,10 +148,10 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
                 </p>
               </div>
               <div
-                class="grid aspect-square h-12 w-12 place-items-center rounded-xl border border-subtle transition-all duration-100 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-10"
+                class="border-subtle hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-10 grid aspect-square h-12 w-12 place-items-center rounded-xl border transition-all duration-100"
               >
                 <div
-                  class="text-muted-foreground transition-all duration-200 group-hover:text-coral"
+                  class="text-muted-foreground group-hover:text-coral transition-all duration-200"
                 >
                   <Fragment set:html={githubIcon.html} />
                 </div>
@@ -172,10 +172,10 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
                 </p>
               </div>
               <div
-                class="rounded-xl border border-subtle p-3 transition-all duration-100 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-20"
+                class="border-subtle hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-20 rounded-xl border p-3 transition-all duration-100"
               >
                 <ExternalLink
-                  class="h-5 w-5 transition-all duration-200 group-hover:text-coral"
+                  class="group-hover:text-coral h-5 w-5 transition-all duration-200"
                 />
               </div>
             </div>
@@ -185,9 +185,9 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
       <!-- Security Notice -->
       <div
-        class="bg-opaicty-10 grid grid-cols-[auto,1fr] gap-4 rounded-2xl bg-subtle p-6"
+        class="bg-opaicty-10 bg-subtle grid grid-cols-[auto,1fr] gap-4 rounded-2xl p-6"
       >
-        <div class="h-fit rounded-xl bg-subtle p-3">
+        <div class="bg-subtle h-fit rounded-xl p-3">
           <Lock class="h-5 w-5" />
         </div>
 
@@ -212,7 +212,7 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 <style is:global>
   /* Download card icon */
   .download-card__icon {
-    @apply flex h-10 w-10 items-center justify-center rounded-full bg-subtle p-2 text-coral data-[twilight='true']:text-zen-blue;
+    @apply bg-subtle text-coral data-[twilight='true']:text-zen-blue flex h-10 w-10 items-center justify-center rounded-full p-2;
   }
 
   /* Make FontAwesome icons match size */

@@ -14,7 +14,7 @@ import { ArrowUp } from 'lucide-astro'
   >
     <div
       id="release-notes"
-      class="py-42 flex min-h-screen flex-col justify-center px-10 lg:px-10 xl:px-10 2xl:w-3/5"
+      class="flex min-h-screen flex-col justify-center px-10 py-42 lg:px-10 xl:px-10 2xl:w-3/5"
     >
       <Description class="mt-48 text-4xl font-bold">Release Notes</Description>
       <p class="text-base opacity-55">
@@ -52,7 +52,7 @@ import { ArrowUp } from 'lucide-astro'
     href="#"
     id="scroll-top"
     isPrimary
-    class="fixed bottom-8 right-8 opacity-0"
+    class="fixed right-8 bottom-8 opacity-0"
   >
     <p class="hidden items-center gap-2 sm:flex">
       Back to the top <ArrowUp aria-hidden="true" class="size-4" />
@@ -60,7 +60,7 @@ import { ArrowUp } from 'lucide-astro'
     <ArrowUp aria-label="Back to the top" class="size-4 sm:hidden" />
   </Button>
 </Layout>
-<Modal id="version-modal" class="m-auto border !bg-paper">
+<Modal id="version-modal" class="!bg-paper m-auto border">
   <ModalHeader class="border-b">
     <h1 class="text-4xl font-bold">Choose version</h1>
   </ModalHeader>
@@ -70,7 +70,7 @@ import { ArrowUp } from 'lucide-astro'
         releaseNotes.map((note) => (
           <button
             aria-label={`Navigate to version ${note.version}`}
-            class="w-full text-left transition-colors duration-150 hover:text-coral"
+            class="hover:text-coral w-full text-left transition-colors duration-150"
             data-version={note.version}
           >
             {note.version}

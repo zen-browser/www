@@ -99,7 +99,7 @@ export default function ModsList({ mods }: ModsListProps) {
             type="text"
             value={pageInput}
             onInput={handlePageInputChange}
-            className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
+            className="border-dark w-16 rounded border bg-transparent px-2 py-1 text-center text-sm"
             aria-label="Page number"
           />
           <span className="text-sm">
@@ -128,7 +128,7 @@ export default function ModsList({ mods }: ModsListProps) {
           <input
             type="text"
             id="search"
-            className="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg outline-none"
+            className="border-dark w-full rounded-full border-2 bg-transparent px-6 py-2 text-lg outline-none"
             placeholder="Type to search..."
             value={search}
             onInput={handleSearch}
@@ -174,7 +174,7 @@ export default function ModsList({ mods }: ModsListProps) {
               id="limit"
               value={limit}
               onInput={handleLimitChange}
-              className="rounded border border-dark bg-transparent px-2 py-1 text-sm [&>option]:text-black"
+              className="border-dark rounded border bg-transparent px-2 py-1 text-sm [&>option]:text-black"
             >
               <option value="12">12</option>
               <option value="24">24</option>
@@ -193,7 +193,7 @@ export default function ModsList({ mods }: ModsListProps) {
               href={`/mods/${mod.id}`}
               className="flex flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
             >
-              <div className="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
+              <div className="border-dark relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 object-cover shadow-md">
                 <img
                   src={mod.image}
                   alt={mod.name}

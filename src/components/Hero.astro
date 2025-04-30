@@ -27,7 +27,7 @@ function getHeroTitleAnimation() {
 >
   <div class="flex h-full flex-col items-center justify-center">
     <Title
-      class="relative px-12 text-center !font-normal !leading-8 leading-[108px] md:!text-7xl lg:px-0 lg:!text-9xl"
+      class="relative px-12 text-center !leading-8 leading-[108px] !font-normal md:!text-7xl lg:px-0 lg:!text-9xl"
     >
       <motion.span client:load {...getHeroTitleAnimation()}>
         welcome
@@ -38,7 +38,7 @@ function getHeroTitleAnimation() {
       <motion.span
         client:load
         {...getHeroTitleAnimation()}
-        className="italic text-coral"
+        className="text-coral italic"
       >
         calmer
       </motion.span>

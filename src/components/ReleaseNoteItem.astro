@@ -27,7 +27,7 @@ const ffVersion = getReleaseNoteFirefoxVersion(props)
     {
       isTwilight ? (
         <a
-          class="!mb-2 block w-fit rounded-full bg-coral px-3 py-1 text-xs text-paper"
+          class="bg-coral text-paper !mb-2 block w-fit rounded-full px-3 py-1 text-xs"
           href="/download?twilight"
         >
           Twilight
@@ -44,7 +44,7 @@ const ffVersion = getReleaseNoteFirefoxVersion(props)
       }
       {
         ffVersion ? (
-          <div class="!mb-2 ml-6 mt-1 block inline w-fit rounded-full bg-blue-500 px-3 py-1 text-xs text-paper dark:bg-blue-50">
+          <div class="text-paper mt-1 !mb-2 ml-6 block inline w-fit rounded-full bg-blue-500 px-3 py-1 text-xs dark:bg-blue-50">
             Firefox {ffVersion}
           </div>
         ) : null
@@ -54,7 +54,7 @@ const ffVersion = getReleaseNoteFirefoxVersion(props)
     <div class="mt-2">
       <a
         rel="noopener noreferrer"
-        class="zen-link whitespace-nowrap text-sm opacity-60"
+        class="zen-link text-sm whitespace-nowrap opacity-60"
         target="_blank"
         href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}
         >GitHub Release</a
@@ -65,7 +65,7 @@ const ffVersion = getReleaseNoteFirefoxVersion(props)
             <span class="text-muted-foreground mx-auto">•</span>
             <a
               rel="noopener noreferrer"
-              class="zen-link whitespace-nowrap text-sm opacity-60"
+              class="zen-link text-sm whitespace-nowrap opacity-60"
               target="_blank"
               href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}
             >

@@ -10,7 +10,7 @@ const { label, href } = Astro.props
 
 <a
   href={href}
-  class="download-link group relative flex items-center justify-between overflow-hidden rounded-2xl border border-subtle p-4 transition-all duration-200 hover:border-coral hover:shadow-sm data-[twilight='true']:hover:border-zen-blue dark:hover:shadow-md"
+  class="download-link group border-subtle hover:border-coral data-[twilight='true']:hover:border-zen-blue relative flex items-center justify-between overflow-hidden rounded-2xl border p-4 transition-all duration-200 hover:shadow-sm dark:hover:shadow-md"
   rel="noopener noreferrer"
 >
   <div>
@@ -19,12 +19,12 @@ const { label, href } = Astro.props
   <div class="ml-4 flex flex-col items-end">
     <div class="flex items-center">
       <span
-        class="release-type-tag mr-2 rounded-full bg-coral/10 px-2 py-1 text-xs font-medium text-coral transition-colors duration-200 group-hover:bg-coral/20 data-[twilight='true']:bg-zen-blue/10 data-[twilight='true']:text-zen-blue data-[twilight='true']:group-hover:bg-zen-blue/20"
+        class="release-type-tag bg-coral/10 text-coral group-hover:bg-coral/20 data-[twilight='true']:bg-zen-blue/10 data-[twilight='true']:text-zen-blue data-[twilight='true']:group-hover:bg-zen-blue/20 mr-2 rounded-full px-2 py-1 text-xs font-medium transition-colors duration-200"
       >
         Beta
       </span>
       <div
-        class="download-arrow-icon text-muted-foreground rounded-xl border border-subtle p-2 transition-colors duration-200 group-hover:border-coral group-hover:text-coral data-[twilight='true']:group-hover:border-zen-blue data-[twilight='true']:group-hover:text-zen-blue"
+        class="download-arrow-icon text-muted-foreground border-subtle group-hover:border-coral group-hover:text-coral data-[twilight='true']:group-hover:border-zen-blue data-[twilight='true']:group-hover:text-zen-blue rounded-xl border p-2 transition-colors duration-200"
       >
         <svg
           width="16"
