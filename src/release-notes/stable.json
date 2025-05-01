@@ -2617,10 +2617,10 @@
   {
     "version": "1.11.5b",
     "image": false,
-    "extra": "A small update to fix some issues with the new PiP feature and element-separation 0",
+    "extra": "A small update to fix some issues with the new PiP feature and 'element-separation: 0'",
     "fixes": [
-      "Fixed an issue with element-separation 0 not allowing to access the window controls",
-      "Disabled automatic PiP untill we have a proper settings UI for it once we build own settings panel"
+      "Fixed an issue with 'element-separation: 0' disallowing access to the window controls",
+      "Disabled automatic PiP until we've built a proper settings UI panel of our own"
     ],
     "features": [],
     "workflowId": 14551479492,
