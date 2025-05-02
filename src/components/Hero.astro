@@ -8,6 +8,7 @@ import { ArrowRight } from 'lucide-astro'
 import { motion } from 'motion/react'
 import { getTitleAnimation } from '../animations'
 import Video from './Video.astro'
+import SocialMediaStrip from './SocialMediaStrip.astro'
 
 let titleAnimationCounter = 0
 function getNewAnimationDelay() {
@@ -26,7 +27,7 @@ function getHeroTitleAnimation() {
 >
   <div class="flex h-full flex-col items-center justify-center">
     <Title
-      class="relative px-12 text-center !font-normal leading-[108px] md:!text-7xl lg:px-0 lg:!text-9xl"
+      class="relative px-12 text-center !font-normal !leading-8 leading-[108px] md:!text-7xl lg:px-0 lg:!text-9xl"
     >
       <motion.span client:load {...getHeroTitleAnimation()}>
         welcome
@@ -60,9 +61,16 @@ function getHeroTitleAnimation() {
         </Button>
       </motion.span>
       <motion.span client:load {...getHeroTitleAnimation()}>
-        <Button href="#Features">Explore Zen</Button>
+        <Button href="/donate">Support Us ❤️</Button>
       </motion.span>
     </div>
+    <motion.span
+      client:load
+      {...getHeroTitleAnimation()}
+      class="mx-auto translate-y-16 !transform"
+    >
+      <SocialMediaStrip />
+    </motion.span>
   </div>
 </header>
 <motion.span

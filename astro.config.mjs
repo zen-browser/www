@@ -8,16 +8,6 @@ import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    preact({ compat: true }),
-    sitemap({
-      // TODO: Maybe? Maybe not?
-      //   filter: (page) => !page.includes('mods/'),
-    }),
-  ],
+  integrations: [tailwind(), preact({ compat: true }), sitemap({})],
   site: 'https://zen-browser.app',
-  redirects: {
-    '/themes/[...slug]': '/mods/[...slug]',
-  },
 })
