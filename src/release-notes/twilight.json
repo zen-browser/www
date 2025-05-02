@@ -36,6 +36,9 @@
     "Auto-Picture-in-Picture wont activate if the video is muted",
     "Added homepage button and export/import buttons to the mods page for easier access. Thanks to @Pdzly on github!",
     "More efficient workspace switching, by only animating what we need and warming up the tabs before switching",
+    "New looks for the URL bar!",
+    "Essentials layouts get a nice revamp to better use the space",
+    "Added a search engine selection form for the onboarding page",
     "Did internat refactoring to certain components in order to comply with Firefox's new security standards."
   ]
 }
