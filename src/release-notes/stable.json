@@ -2679,6 +2679,7 @@
       "New looks for the URL bar!",
       "Essentials layouts get a nice revamp to better use the space",
       "Added a search engine selection form for the onboarding page",
+      "Double clicking on the sidebar slider will now reset it's width",
       "Did internat refactoring to certain components in order to comply with Firefox's new security standards."
     ],
     "workflowId": 14803913371,
