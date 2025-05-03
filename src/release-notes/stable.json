@@ -2679,7 +2679,7 @@
       "New looks for the URL bar!",
       "Essentials layouts get a nice revamp to better use the space",
       "Added a search engine selection form for the onboarding page",
-      "Did internat refactoring to certain components in order to comply with Firefox's new security standards."
+      "Did internal refactoring to certain components in order to comply with Firefox's new security standards."
     ],
     "workflowId": 14803913371,
     "date": "03/05/2025"
