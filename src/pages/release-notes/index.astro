@@ -52,20 +52,20 @@ import { ArrowUp } from 'lucide-astro'
     href="#"
     id="scroll-top"
     isPrimary
-    class="fixed bottom-8 right-8 opacity-0"
+    class="fixed bottom-8 right-8"
   >
-    <p class="hidden items-center gap-2 sm:flex">
+    <p class="items-center gap-2 sm:flex">
       Back to the top <ArrowUp aria-hidden="true" class="size-4" />
     </p>
     <ArrowUp aria-label="Back to the top" class="size-4 sm:hidden" />
   </Button>
 </Layout>
-<Modal id="version-modal" class="m-auto border !bg-paper">
-  <ModalHeader class="border-b">
-    <h1 class="text-4xl font-bold">Choose version</h1>
+<Modal id="version-modal" class="m-auto border !bg-paper border-[--zen-dark]">
+  <ModalHeader class="border-b border-[--zen-dark]">
+    <p class="text-4xl font-bold text-dark">Choose version</p>
   </ModalHeader>
   <ModalBody>
-    <div id="version-list" class="flex flex-col gap-2 text-xl">
+    <div id="version-list" class="flex flex-col gap-2 text-xl text-dark">
       {
         releaseNotes.map((note) => (
           <button
@@ -95,11 +95,11 @@ import { ArrowUp } from 'lucide-astro'
 
     const descriptionPosition = versionButton.getBoundingClientRect().bottom
     if (descriptionPosition < 0) {
-      scrollTopButton.classList.remove('opacity-0')
-      scrollTopButton.classList.add('opacity-100')
+      scrollTopButton.classList.remove('hidden')
+      scrollTopButton.classList.add('block')
     } else {
-      scrollTopButton.classList.remove('opacity-100')
-      scrollTopButton.classList.add('opacity-0')
+      scrollTopButton.classList.remove('block')
+      scrollTopButton.classList.add('hidden')
     }
   }
 
@@ -151,3 +151,9 @@ import { ArrowUp } from 'lucide-astro'
   versionButton?.addEventListener('click', openVersionModal)
   versionList?.addEventListener('click', navigateToVersion)
 </script>
+
+<style is:global>
+  #version-modal > * {
+    font-family: 'Bricolage Grotesque', sans-serif !important;
+  }
+</style>
