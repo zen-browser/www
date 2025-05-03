@@ -2641,25 +2641,25 @@
   {
     "version": "1.12b",
     "image": false,
-    "extra": "A nice update that brings some cool new features and fixes!\n\nWe are also excited to announce that we moved into <a href=\"https://floss.social/@zenbrowser\">floss.social</a>!\n\nIn response to recent privacy concerns, we've significantly strengthened Zen's privacy measures. Previously, we only disabled telemetry, but some minimal pings were still being sent. Now, Firefox telemetry has been completely stripped out from the core.\n\nAdditionally, onboarding pages and initial essentials favicons are now locally bundled and our website no longer relies on any external services/CDNs and/or cloudflare services. Initial essentials selected on startup will only be loaded once clicked on the tab as well, meaning connections wont be done until you explicitly enter the tab. We also changed our initial essentials variations to more private/productivity focused sites.\n\nOnly essential security updates and other non-telemetry-related services remain. As a result, the number of external connections has dropped from 82 to around 20-10 \u2014 factoring in that Zen's site is loaded twice (for the welcome page and privacy policy).\n\nPsst. With the release of Firefox 138, folders are just around the corner!",
+    "extra": "A nice update that brings some cool new features and fixes!\n\nWe are also excited to announce that we've joined <a href=\"https://floss.social/@zenbrowser\">floss.social</a>!\n\nIn response to recent privacy concerns, we've significantly strengthened Zen's privacy measures. Previously, we only disabled telemetry, but some minimal pings were still being sent. Now, Firefox telemetry has been completely stripped out from the core.\n\nAdditionally, onboarding pages and initial Essentials favicons are now locally bundled and our website no longer relies on any external services, CDNs, nor Cloudflare services. Initial Essentials selected on startup will only be loaded when the tab is clicked on, so connections won't be established until you explicitly enter the tab. We also changed our onboarding Essentials options to more privacy and productivity focused sites.\n\nOnly critical security updates and other non-telemetry-related services remain. As a result, the number of external connections has dropped from 82 to around 20-10 \u2014 factoring in that Zen's site is loaded twice (for the welcome page and privacy policy).\n\nPsst. With the release of Firefox 138, folders are just around the corner!",
     "fixes": [
-      "Fixed a crash when no loaded tab is present on the ctrl+Tab menu",
+      "Fixed a crash when no loaded tab is present on the 'Ctrl+Tab' menu",
       {
-        "description": "Fixed alert boxes cutoff halfway on split view",
+        "description": "Fixed alert boxes cutting off halfway on split view",
         "issue": 7564
       },
       {
         "description": "Fixed moving split view tabs into other workspaces not working",
         "issue": 7840
       },
-      "Fixed Paste-And-Go always navigating in the current tab, even after ctrl+T is pressed",
+      "Fixed 'Paste-And-Go' always navigating in the current tab, even after 'Ctrl+T' is pressed",
       {
-        "description": "Panels UI not rendering add-ons correctly and overflow outside the screen on linux",
+        "description": "Panels UI not rendering add-ons correctly, and overflowing outside the screen on Linux",
         "issue": 7633
       },
       "Fixed URL bar unfocusing when pressing the newtab button",
       {
-        "description": "Fixed glance freezing when opening tabs in other workspaces",
+        "description": "Fixed Glance freezing when opening tabs in other workspaces",
         "issue": 7864
       },
       {
@@ -2671,15 +2671,15 @@
     "features": [
       "Updated to Firefox 138.1",
       "Increased privacy and reduced initial connections at startup",
-      "Added a *really smooth* animation when downloading files. Thanks to @BrielOtero on github!",
-      "New, fully containerized essentials are out! It allows having different essentials based on your workspace's container. It can be enabled by going into about:preferences -> tab management -> allow container specific essentials",
-      "Auto-Picture-in-Picture wont activate if the video is muted",
-      "Added homepage button and export/import buttons to the mods page for easier access. Thanks to @Pdzly on github!",
+      "Added a *really smooth* animation when downloading files. Thanks to @BrielOtero on Github!",
+      "New, fully containerized Essentials are out! It allows having different Essentials based on your workspace's container. It can be enabled by going into 'about:preferences' -> 'Tab Management' -> 'Enable container-specific Essentials'",
+      "Automatic Picture-in-Picture won't activate if the video is muted",
+      "Added homepage button and export/import buttons to the mods page for easier access. Thanks to @Pdzly on Github!",
       "More efficient workspace switching, by only animating what we need and warming up the tabs before switching",
       "New looks for the URL bar!",
-      "Essentials layouts get a nice revamp to better use the space",
+      "The Essentials layout receives a nice revamp to better use the space",
       "Added a search engine selection form for the onboarding page",
-      "Did internal refactoring to certain components in order to comply with Firefox's new security standards."
+      "Did internal refactoring to certain components in order to comply with Firefox's new security standards"
     ],
     "workflowId": 14803913371,
     "date": "03/05/2025"
