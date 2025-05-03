@@ -363,7 +363,9 @@
     "version": "1.0.0-a.13",
     "date": "05/08/2024",
     "extra": "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
-    "features": ["Allow to remember sidebar width even after collapsing it."],
+    "features": [
+      "Allow to remember sidebar width even after collapsing it."
+    ],
     "fixes": [
       {
         "description": "Task Manager Icon Missing in Flatpak Version",
@@ -919,7 +921,9 @@
     "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-    "features": ["Added a new system for handling keyboard shortcuts"],
+    "features": [
+      "Added a new system for handling keyboard shortcuts"
+    ],
     "fixes": [
       {
         "description": "The New Tab button is not visible",
@@ -976,7 +980,9 @@
       "Enabled container tabs by default",
       "Improved Expand Tabs on Hover layout"
     ],
-    "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
+    "themeChanges": [
+      "Toggle inputs will not use the themed tertiary color"
+    ],
     "breakingChanges": [
       "The keyboard shortcuts will be overriden by the defaults ones in this update"
     ],
@@ -1273,7 +1279,9 @@
         "issue": 2156
       }
     ],
-    "breakingChanges": ["Removed Show Expand Button option from settings"],
+    "breakingChanges": [
+      "Removed Show Expand Button option from settings"
+    ],
     "themeChanges": [
       "The variable '--zen-main-browser-background' will now contain the generated gradient",
       "Added the 'unread' attribute for background tabs that haven't been accessed yet"
@@ -1376,7 +1384,9 @@
         "description": "Fixed wrong aligment on glance action buttons"
       }
     ],
-    "features": ["No new features, sorry"]
+    "features": [
+      "No new features, sorry"
+    ]
   },
   {
     "version": "1.0.1-a.17",
@@ -2446,7 +2456,9 @@
     "version": "1.10.3b",
     "image": false,
     "extra": "Terribly sorry for the frequent updates, this emergency release simply updates Firefox, fixing a critical vulnerability in chromium's sandboxing system. You can read more here:\n\n<a href='https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/'>https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/</a>",
-    "features": ["Updated Firefox to 136.0.4"],
+    "features": [
+      "Updated Firefox to 136.0.4"
+    ],
     "workflowId": 14109635630,
     "date": "27/03/2025"
   },
@@ -2625,5 +2637,51 @@
     "features": [],
     "workflowId": 14551479492,
     "date": "20/04/2025"
+  },
+  {
+    "version": "1.12b",
+    "image": false,
+    "extra": "A nice update that brings some cool new features and fixes!\n\nWe are also excited to announce that we moved into <a href=\"https://floss.social/@zenbrowser\">floss.social</a>!\n\nIn response to recent privacy concerns, we've significantly strengthened Zen's privacy measures. Previously, we only disabled telemetry, but some minimal pings were still being sent. Now, Firefox telemetry has been completely stripped out from the core.\n\nAdditionally, onboarding pages and initial essentials favicons are now locally bundled and our website no longer relies on any external services/CDNs and/or cloudflare services. Initial essentials selected on startup will only be loaded once clicked on the tab as well, meaning connections wont be done until you explicitly enter the tab. We also changed our initial essentials variations to more private/productivity focused sites.\n\nOnly essential security updates and other non-telemetry-related services remain. As a result, the number of external connections has dropped from 82 to around 20-10 \u2014 factoring in that Zen's site is loaded twice (for the welcome page and privacy policy).\n\nPsst. With the release of Firefox 138, folders are just around the corner!",
+    "fixes": [
+      "Fixed a crash when no loaded tab is present on the ctrl+Tab menu",
+      {
+        "description": "Fixed alert boxes cutoff halfway on split view",
+        "issue": 7564
+      },
+      {
+        "description": "Fixed moving split view tabs into other workspaces not working",
+        "issue": 7840
+      },
+      "Fixed Paste-And-Go always navigating in the current tab, even after ctrl+T is pressed",
+      {
+        "description": "Panels UI not rendering add-ons correctly and overflow outside the screen on linux",
+        "issue": 7633
+      },
+      "Fixed URL bar unfocusing when pressing the newtab button",
+      {
+        "description": "Fixed glance freezing when opening tabs in other worksaces",
+        "issue": 7864
+      },
+      {
+        "description": "Fixed duplicating tabs being stuck on 'New Tab' text",
+        "issue": 7900
+      },
+      "Fixed an empty newtab opening when closing with a pinned tab selected on the previous session"
+    ],
+    "features": [
+      "Updated to Firefox 138.1",
+      "Increased privacy and reduced initial connections at startup",
+      "Added a *really smooth* animation when downloading files. Thanks to @BrielOtero on github!",
+      "New, fully containerized essentials are out! It allows having different essentials based on your workspace's container. It can be enabled by going into about:preferences -> tab management -> allow container specific essentials",
+      "Auto-Picture-in-Picture wont activate if the video is muted",
+      "Added homepage button and export/import buttons to the mods page for easier access. Thanks to @Pdzly on github!",
+      "More efficient workspace switching, by only animating what we need and warming up the tabs before switching",
+      "New looks for the URL bar!",
+      "Essentials layouts get a nice revamp to better use the space",
+      "Added a search engine selection form for the onboarding page",
+      "Did internat refactoring to certain components in order to comply with Firefox's new security standards."
+    ],
+    "workflowId": 14803913371,
+    "date": "03/05/2025"
   }
 ]
