@@ -2684,5 +2684,19 @@
     ],
     "workflowId": 14803913371,
     "date": "03/05/2025"
+  },
+  {
+    "version": "1.12.1b",
+    "image": false,
+    "extra": "This is just a small update to fix some bugs with the previous version. Please checkout release notes for 1.12b for more details.",
+    "fixes": [
+      "Fixed sidbar in collapsed, compact mode being too small.",
+      "Fixed jitter on compact mode on windows.",
+      "Fixed duplicate newtabs opening when having 'replace-newtab' disabled.",
+      "Fixed custom colors not being able to be removed."
+    ],
+    "features": [],
+    "workflowId": 14812026286,
+    "date": "04/05/2025"
   }
 ]
