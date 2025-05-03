@@ -2659,7 +2659,7 @@
       },
       "Fixed URL bar unfocusing when pressing the newtab button",
       {
-        "description": "Fixed glance freezing when opening tabs in other worksaces",
+        "description": "Fixed glance freezing when opening tabs in other worksopaces",
         "issue": 7864
       },
       {
