@@ -43,21 +43,6 @@ import DownloadCard from './ButtonCard.astro'
                 </div>
               </div>
               <div>
-                <h4 class="mb-3 text-lg font-medium">AppImage</h4>
-                <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  <DownloadCard
-                    label="x86_64"
-                    href={releases.x86_64.appImage.link}
-                    variant="x86_64"
-                  />
-                  <DownloadCard
-                    label="ARM64"
-                    href={releases.aarch64.appImage.link}
-                    variant="aarch64"
-                  />
-                </div>
-              </div>
-              <div>
                 <h4 class="mb-3 text-lg font-medium">Tarball</h4>
                 <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <DownloadCard
