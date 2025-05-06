@@ -2716,7 +2716,7 @@
       "Added a nice UI for 'switch tab' on the URL bar, thanks to @ferrocyante on GitHub!",
       "(experiemental) MacOS users will now restore tabs correctly, even after closing all windows instead of quitting the app."
     ],
-    "workflowId": 14846398382,
+    "workflowId": 14852263352,
     "date": "05/05/2025"
   }
 ]
