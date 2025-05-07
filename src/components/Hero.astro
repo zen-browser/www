@@ -19,14 +19,6 @@ function getNewAnimationDelay() {
 function getHeroTitleAnimation() {
   return getTitleAnimation(getNewAnimationDelay())
 }
-
-const {
-  title1 = 'welcome',
-  title2 = 'to',
-  title3 = 'a',
-  title4 = 'calmer',
-  title5 = 'internet',
-} = Astro.props
 ---
 
 <header
@@ -38,24 +30,24 @@ const {
       class="relative px-12 text-center !font-normal !leading-8 leading-[108px] md:!text-7xl lg:px-0 lg:!text-9xl"
     >
       <motion.span client:load {...getHeroTitleAnimation()}>
-        {title1}
+        {'welcome'}
       </motion.span>
       <motion.span client:load {...getHeroTitleAnimation()}>
-        {title2}
+        {'to'}
       </motion.span>
       <br class="hidden md:block" />
       <motion.span client:load {...getHeroTitleAnimation()}>
-        {title3}
+        {'a'}
       </motion.span>
       <motion.span
         client:load
         {...getHeroTitleAnimation()}
         className="italic text-coral"
       >
-        {title4}
+        {'calmer'}
       </motion.span>
       <motion.span client:load {...getHeroTitleAnimation()}>
-        {title5}
+        {'internet'}
       </motion.span>
     </Title>
     <motion.span client:load {...getHeroTitleAnimation()}>
