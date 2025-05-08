@@ -2698,5 +2698,19 @@
     "features": [],
     "workflowId": 14812026286,
     "date": "04/05/2025"
+  },
+  {
+    "version": "1.12.3b",
+    "image": false,
+    "extra": "This is just a small update to fix some bugs!",
+    "fixes": [
+      "Fixed toast notifications not aligning when tabs are on the right.",
+      "Fixed restoring previous tab not working on some cases",
+      "Fixed compact mode always showing a background tab has been added",
+      "Other small fixes and improvements"
+    ],
+    "features": [],
+    "workflowId": 14909673572,
+    "date": "08/05/2025"
   }
 ]
