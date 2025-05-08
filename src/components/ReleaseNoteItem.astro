@@ -6,7 +6,8 @@ import {
   type ReleaseNote,
   type BreakingChange,
   getReleaseNoteFirefoxVersion,
-} from '../release-notes'
+} from '../release-notes';
+import { releaseNotes } from '../release-notes'
 export type Props = ReleaseNote
 const { isTwilight, ...props } = Astro.props
 
@@ -16,8 +17,16 @@ if (props.date) {
   date = new Date(Date.parse(`${year}-${month}-${day}`))
 }
 
-const ffVersion = getReleaseNoteFirefoxVersion(props)
----
+const ffVersion = getReleaseNoteFirefoxVersion(props);
+const currentReleaseIndex = releaseNotes.findIndex(
+  (releaseNote: ReleaseNote) => releaseNote.version === props.version
+);
+const prevReleaseNote = releaseNotes[currentReleaseIndex + 1];
+let compareLink = '';
+if (prevReleaseNote && !isTwilight) {
+  compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`;
+}
+--- 
 
 <section
   class="release-note-item relative mt-24 flex flex-col border-t pt-24 lg:flex-row"
@@ -70,6 +79,21 @@ const ffVersion = getReleaseNoteFirefoxVersion(props)
               href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}
             >
               Workflow run
+            </a>
+          </>
+        ) : null
+      }
+      {
+        compareLink !== '' ? (
+          <>
+            <span class="text-muted-foreground mx-auto">•</span>
+            <a
+              rel="noopener noreferrer"
+              class="zen-link whitespace-nowrap text-sm opacity-60"
+              target="_blank"
+              href={compareLink}
+            >
+              Compare changes
             </a>
           </>
         ) : null
