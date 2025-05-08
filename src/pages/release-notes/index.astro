@@ -48,19 +48,14 @@ import { ArrowUp } from 'lucide-astro'
       {releaseNotes.map((notes: any) => <ReleaseNoteItem {...notes} />)}
     </div>
   </main>
-  <Button
-    href="#"
-    id="scroll-top"
-    isPrimary
-    class="fixed bottom-8 right-8"
-  >
+  <Button href="#" id="scroll-top" isPrimary class="fixed bottom-8 right-8">
     <p class="items-center gap-2 sm:flex">
       Back to the top <ArrowUp aria-hidden="true" class="size-4" />
     </p>
     <ArrowUp aria-label="Back to the top" class="size-4 sm:hidden" />
   </Button>
 </Layout>
-<Modal id="version-modal" class="m-auto border !bg-paper border-[--zen-dark]">
+<Modal id="version-modal" class="m-auto border border-[--zen-dark] !bg-paper">
   <ModalHeader class="border-b border-[--zen-dark]">
     <p class="text-4xl font-bold text-dark">Choose version</p>
   </ModalHeader>
