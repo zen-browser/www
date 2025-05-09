@@ -13,8 +13,11 @@ const defaultOgImage = '/share-pic.png';
 import '@fontsource/bricolage-grotesque/400.css'
 import '@fontsource/bricolage-grotesque/500.css'
 import '@fontsource/bricolage-grotesque/600.css'
-import NavBar from '../components/NavBar.astro'
-import Footer from '../components/Footer.astro'
+import NavBar from '@/components/NavBar.astro'
+import Footer from '@/components/Footer.astro'
+import { getLocale } from '@/utils/i18n'
+
+const locale = getLocale(Astro)
 ---
 
 <script is:inline data-cfasync="false">
@@ -37,7 +40,7 @@ import Footer from '../components/Footer.astro'
 </script>
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     {redirect ? <meta http-equiv="refresh" content={`0;url=${redirect}`} /> : null}
