@@ -10,4 +10,11 @@ import sitemap from '@astrojs/sitemap'
 export default defineConfig({
   integrations: [tailwind(), preact({ compat: true }), sitemap({})],
   site: 'https://zen-browser.app',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+    routing: {
+      fallbackType: 'rewrite',
+    }
+  },
 })

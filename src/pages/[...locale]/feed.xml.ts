@@ -1,6 +1,7 @@
 import rss, { type RSSOptions } from '@astrojs/rss'
-import { releaseNotes } from '../release-notes'
-import type { ReleaseNote } from '../release-notes'
+import { releaseNotes } from '@/release-notes'
+import type { ReleaseNote } from '@/release-notes'
+export { getStaticPaths } from '@/utils/i18n'
 
 /** The default number of entries to include in the RSS feed. */
 const RSS_ENTRY_LIMIT = 20
