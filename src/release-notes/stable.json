@@ -2692,19 +2692,19 @@
     "image": false,
     "extra": "Just a small update to fix some bugs and introduce some minor features!",
     "fixes": [
-      "Fixed essentials/pinned tabs not loading if 'reset to default on startup' is enabled.",
-      "Fixed context menu allowing the user to remove the last workspace",
-      "Fixed animations for glance's buttons and unfocusing the URL bar, as well as enter/exit animations for compact mode",
-      "Fixed accessibility issues with the URL bar on light mode. Also centered the URL bar to the screen.",
+      "Fixed Essentials/pinned tabs not loading if 'reset to default on startup' is enabled",
+      "Fixed the context menu allowing the user to remove the last workspace",
+      "Fixed animations for Glance's buttons and unfocusing the URL bar, as well as enter/exit animations for compact mode",
+      "Fixed accessibility issues with the URL bar in light mode. Also centered the URL bar to the screen",
       "Fixed some issues with right side tabs on collapsed mode",
       "Fixed some issues with importing mods"
     ],
     "features": [
-      "Added a new preference in about:preferences -> 'Startup'. Continue where you left off allows you to keep browsing from your last selected tab, whether it's pinned or not.",
-      "Enabled 'auto theme' by default, which will automatically switch between light and dark mode based on the system theme. Only new installs and profiles will have this enabled. (you can enable it in about:addons -> themes)",
+      "Added a new preference in about:preferences -> 'Startup'. Continue where you left off allows you to keep browsing from your last selected tab, whether it's pinned or not",
+      "Enabled 'auto theme' by default, which will automatically switch between light and dark mode based on the system theme. Only new installs and profiles will have this enabled (you can enable it in 'about:addons' -> 'themes')",
       "Added a nice UI for 'switch tab' on the URL bar, thanks to @ferrocyante on GitHub!",
-      "(experimental) MacOS users will now restore tabs correctly, even after closing all windows instead of quitting the app.",
-      "Better toast notifications and added 'opened background tab' toast if compact mode is enabled"
+      "(experimental) MacOS users will now restore tabs correctly, even after closing all windows instead of quitting the app",
+      "Better toast notifications and added an 'opened background tab' toast if compact mode is enabled"
     ],
     "workflowId": 14870461714,
     "date": "05/05/2025"
