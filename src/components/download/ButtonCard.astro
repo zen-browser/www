@@ -23,7 +23,7 @@ const { label, href, checksum } = Astro.props
           <span class="group/checksum relative hidden items-center md:flex">
             <button
               type="button"
-              class="checksum-icon-btn text-muted-foreground flex items-center justify-center rounded-full p-1 hover:text-coral focus:outline-none focus:ring-2 focus:ring-coral data-[twilight='true']:hover:text-zen-blue data-[twilight='true']:focus:ring-zen-blue"
+              class="checksum-icon-btn text-muted-foreground flex items-center justify-center rounded-full p-1 transition-colors duration-150 hover:text-coral focus:outline-none focus:ring-2 focus:ring-coral data-[twilight='true']:hover:text-zen-blue data-[twilight='true']:focus:ring-zen-blue"
               aria-label="Show SHA-256 checksum"
               tabindex="0"
             >
@@ -41,10 +41,10 @@ const { label, href, checksum } = Astro.props
                 <path d="M9 12l2 2 4-4" />
               </svg>
             </button>
-            <span class="absolute -top-10 left-1/2 z-50 hidden min-w-[120px] -translate-x-1/2 select-none whitespace-nowrap rounded-md border border-subtle bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs text-gray-700 shadow group-focus-within/checksum:hidden group-hover/checksum:flex group-focus-within/checksum:group-hover/checksum:hidden dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
+            <span class="absolute -top-10 left-1/2 z-50 hidden min-w-[120px] -translate-x-1/2 select-none whitespace-nowrap rounded-md border border-subtle bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs text-gray-700 opacity-100 shadow transition-opacity duration-150 group-focus-within/checksum:hidden group-hover/checksum:flex group-focus-within/checksum:group-hover/checksum:hidden dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
               Show SHA-256
             </span>
-            <span class="checksum-tooltip popover absolute -left-14 -top-12 z-50 hidden min-w-[220px] items-center gap-2 whitespace-nowrap rounded-md border border-subtle bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs text-gray-700 shadow group-focus-within/checksum:flex dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
+            <span class="checksum-tooltip popover absolute -left-14 -top-12 z-50 hidden min-w-[220px] items-center gap-2 whitespace-nowrap rounded-md border border-subtle bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs text-gray-700 opacity-100 shadow transition-opacity duration-150 group-focus-within/checksum:flex dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
               <span class="flex-1 truncate font-mono text-xs">{checksum}</span>
               <button
                 type="button"
@@ -86,22 +86,6 @@ const { label, href, checksum } = Astro.props
     </div>
   </a>
 </div>
-
-<style>
-  .checksum-expand {
-    transition: all 0.2s;
-    z-index: 100;
-  }
-  .checksum-icon-btn {
-    transition:
-      color 0.15s,
-      background 0.15s;
-  }
-  .checksum-tooltip {
-    transition: opacity 0.15s;
-    opacity: 1;
-  }
-</style>
 
 <script>
   const checksumButtons = document.querySelectorAll(

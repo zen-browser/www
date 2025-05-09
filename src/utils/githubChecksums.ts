@@ -3,13 +3,9 @@
  * Returns a mapping from filename to checksum.
  */
 export async function getChecksums() {
-  const token = import.meta.env.GITHUB_TOKEN;
-  if (!token) throw new Error('GITHUB_TOKEN is not set in environment variables');
-
   const res = await fetch('https://api.github.com/repos/zen-browser/desktop/releases/latest', {
     headers: {
       'Accept': 'application/vnd.github+json',
-      'Authorization': `Bearer ${token}`,
       'X-GitHub-Api-Version': '2022-11-28',
       'User-Agent': 'zen-browser-checksum-fetcher',
     },
