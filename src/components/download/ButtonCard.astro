@@ -113,7 +113,6 @@ const { label, href, checksum } = Astro.props
     setTimeout(() => (btn.innerText = original), 1200)
   }
 
-  // Attach listeners after DOM is ready
   checksumButtons.forEach((btn) => {
     btn.addEventListener('click', stopEvent)
   })
