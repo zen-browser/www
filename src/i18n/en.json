@@ -360,6 +360,11 @@
       "reportIssue": "Report an issue",
       "joinDiscord": "Join our Discord",
       "readFullReleaseNotes": "Read the full release notes"
+    },
+    "notFound": {
+      "title": "Page Not Found",
+      "description": "Sorry, the page you are looking for does not exist or has been moved.",
+      "button": "Go Home"
     }
   },
   "layout": {
