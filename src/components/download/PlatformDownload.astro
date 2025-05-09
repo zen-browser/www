@@ -49,11 +49,13 @@ import DownloadCard from './ButtonCard.astro'
                     label="x86_64"
                     href={releases.x86_64.tarball.link}
                     variant="x86_64"
+                    checksum={releases.x86_64.tarball.checksum}
                   />
                   <DownloadCard
                     label="ARM64"
                     href={releases.aarch64.tarball.link}
                     variant="aarch64"
+                    checksum={releases.aarch64.tarball.checksum}
                   />
                 </div>
               </div>
@@ -65,6 +67,7 @@ import DownloadCard from './ButtonCard.astro'
                   label={releaseNote.label}
                   href={releaseNote.link}
                   variant={variant}
+                  checksum={releaseNote.checksum}
                 />
               ))}
             </div>
