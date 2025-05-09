@@ -2716,6 +2716,7 @@
     "fixes": [
       "Fixed toast notifications not aligning when tabs are on the right.",
       "Fixed restoring previous tab not working on some cases",
+      "Disabled search suggestions by default. Can be enabled again in about:preferences -> 'Search'",
       "Fixed compact mode always showing a background tab has been added",
       "Other small fixes and improvements"
     ],
