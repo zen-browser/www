@@ -2,9 +2,10 @@
 import Description from '../components/Description.astro'
 import Title from '../components/Title.astro'
 import Layout from '../layouts/Layout.astro'
-import { releases } from '../components/download/release-data.astro'
+import { getReleasesWithChecksums } from '../components/download/release-data.astro'
 import PlatformDownload from '../components/download/PlatformDownload.astro'
 import DownloadScript from '../components/download/DownloadScript.astro'
+import { getChecksums } from '../utils/githubChecksums'
 
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -20,6 +21,9 @@ const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
 const linuxIcon = icon({ prefix: 'fab', iconName: 'linux' })
 const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
+
+const checksums = await getChecksums()
+const releases = getReleasesWithChecksums(checksums)
 ---
 
 <DownloadScript />

@@ -3,44 +3,134 @@ interface Props {
   label: string
   href: string
   variant?: string
+  checksum?: string
 }
 
-const { label, href } = Astro.props
+const { label, href, checksum } = Astro.props
 ---
 
-<a
-  href={href}
-  class="download-link group relative flex items-center justify-between overflow-hidden rounded-2xl border border-subtle p-4 transition-all duration-200 hover:border-coral hover:shadow-sm data-[twilight='true']:hover:border-zen-blue dark:hover:shadow-md"
-  rel="noopener noreferrer"
->
-  <div>
-    <p class="text-lg font-medium">{label}</p>
-  </div>
-  <div class="ml-4 flex flex-col items-end">
-    <div class="flex items-center">
-      <span
-        class="release-type-tag mr-2 rounded-full bg-coral/10 px-2 py-1 text-xs font-medium text-coral transition-colors duration-200 group-hover:bg-coral/20 data-[twilight='true']:bg-zen-blue/10 data-[twilight='true']:text-zen-blue data-[twilight='true']:group-hover:bg-zen-blue/20"
-      >
-        Beta
-      </span>
-      <div
-        class="download-arrow-icon text-muted-foreground rounded-xl border border-subtle p-2 transition-colors duration-200 group-hover:border-coral group-hover:text-coral data-[twilight='true']:group-hover:border-zen-blue data-[twilight='true']:group-hover:text-zen-blue"
-      >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="lucide lucide-arrow-up-right"
+<div class="relative flex flex-col">
+  <a
+    href={href}
+    class="download-link group flex flex-1 items-center justify-between rounded-2xl border border-subtle p-4 transition-all duration-200 hover:border-coral hover:shadow-sm data-[twilight='true']:hover:border-zen-blue dark:hover:shadow-md"
+    rel="noopener noreferrer"
+    tabindex="0"
+  >
+    <div class="flex items-center gap-2">
+      <p class="text-lg font-medium">{label}</p>
+      {
+        checksum && (
+          <span class="group/checksum relative hidden items-center md:flex">
+            <button
+              type="button"
+              class="checksum-icon-btn text-muted-foreground flex items-center justify-center rounded-full p-1 transition-colors duration-150 hover:text-coral focus:outline-none focus:ring-2 focus:ring-coral data-[twilight='true']:hover:text-zen-blue data-[twilight='true']:focus:ring-zen-blue"
+              aria-label="Show SHA-256 checksum"
+              tabindex="0"
+            >
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 3l8 4v5c0 5.25-3.5 9.74-8 11-4.5-1.26-8-5.75-8-11V7l8-4z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+            </button>
+            <span class="absolute -top-10 left-1/2 z-50 hidden min-w-[120px] -translate-x-1/2 select-none whitespace-nowrap rounded-md border border-subtle bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs text-gray-700 opacity-100 shadow transition-opacity duration-150 group-focus-within/checksum:hidden group-hover/checksum:flex group-focus-within/checksum:group-hover/checksum:hidden dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
+              Show SHA-256
+            </span>
+            <span class="checksum-tooltip popover absolute -left-14 -top-12 z-50 hidden min-w-[220px] items-center gap-2 whitespace-nowrap rounded-md border border-subtle bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs text-gray-700 opacity-100 shadow transition-opacity duration-150 group-focus-within/checksum:flex dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
+              <span class="flex-1 truncate font-mono text-xs">{checksum}</span>
+              <button
+                type="button"
+                class="copy-btn rounded bg-coral px-2 py-1 text-xs text-white hover:bg-coral/80 data-[twilight='true']:bg-zen-blue data-[twilight='true']:hover:bg-zen-blue/80"
+              >
+                Copy
+              </button>
+            </span>
+          </span>
+        )
+      }
+    </div>
+    <div class="flex flex-col items-end gap-2">
+      <div class="flex items-center gap-2">
+        <span
+          class="release-type-tag rounded-full bg-coral/10 px-2 py-1 text-xs font-medium text-coral transition-colors duration-200 group-hover:bg-coral/20 data-[twilight='true']:bg-zen-blue/10 data-[twilight='true']:text-zen-blue data-[twilight='true']:group-hover:bg-zen-blue/20"
         >
-          <path d="M7 17 17 7"></path>
-          <path d="M7 7h10v10"></path>
-        </svg>
+          Beta
+        </span>
+        <div
+          class="download-arrow-icon text-muted-foreground rounded-xl border border-subtle p-2 transition-colors duration-200 group-hover:border-coral group-hover:text-coral data-[twilight='true']:group-hover:border-zen-blue data-[twilight='true']:group-hover:text-zen-blue"
+        >
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-arrow-up-right"
+          >
+            <path d="M7 17 17 7"></path>
+            <path d="M7 7h10v10"></path>
+          </svg>
+        </div>
       </div>
     </div>
-  </div>
-</a>
+  </a>
+</div>
+
+<script>
+  const checksumButtons = document.querySelectorAll(
+    '.checksum-icon-btn',
+  ) as NodeListOf<HTMLButtonElement>
+  const checksumTooltips = document.querySelectorAll(
+    '.checksum-tooltip',
+  ) as NodeListOf<HTMLDivElement>
+  const copyButtons = document.querySelectorAll(
+    '.copy-btn',
+  ) as NodeListOf<HTMLButtonElement>
+
+  function stopEvent(e: Event) {
+    e.preventDefault?.()
+    e.stopPropagation()
+  }
+
+  function copyChecksum(e: Event, checksum: string) {
+    e.preventDefault()
+    e.stopPropagation()
+    navigator.clipboard.writeText(checksum)
+    const btn = e.currentTarget as HTMLButtonElement
+    const original = btn.innerText
+    btn.innerText = 'Copied!'
+    setTimeout(() => (btn.innerText = original), 1200)
+  }
+
+  checksumButtons.forEach((btn) => {
+    btn.addEventListener('click', stopEvent)
+  })
+  checksumTooltips.forEach((tooltip) => {
+    tooltip.addEventListener('mousedown', stopEvent)
+    tooltip.addEventListener('click', stopEvent)
+  })
+  copyButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) =>
+      copyChecksum(
+        e,
+        (
+          btn
+            .closest('.checksum-tooltip')
+            ?.querySelector('.font-mono') as HTMLSpanElement
+        )?.innerText,
+      ),
+    )
+    btn.addEventListener('mousedown', stopEvent)
+  })
+</script>

@@ -30,20 +30,24 @@ function getHeroTitleAnimation() {
       class="relative px-12 text-center !font-normal !leading-8 leading-[108px] md:!text-7xl lg:px-0 lg:!text-9xl"
     >
       <motion.span client:load {...getHeroTitleAnimation()}>
-        welcome
+        {'welcome'}
       </motion.span>
-      <motion.span client:load {...getHeroTitleAnimation()}> to </motion.span>
+      <motion.span client:load {...getHeroTitleAnimation()}>
+        {'to'}
+      </motion.span>
       <br class="hidden md:block" />
-      <motion.span client:load {...getHeroTitleAnimation()}> a </motion.span>
+      <motion.span client:load {...getHeroTitleAnimation()}>
+        {'a'}
+      </motion.span>
       <motion.span
         client:load
         {...getHeroTitleAnimation()}
         className="italic text-coral"
       >
-        calmer
+        {'calmer'}
       </motion.span>
       <motion.span client:load {...getHeroTitleAnimation()}>
-        internet
+        {'internet'}
       </motion.span>
     </Title>
     <motion.span client:load {...getHeroTitleAnimation()}>
