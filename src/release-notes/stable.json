@@ -1876,7 +1876,7 @@
   },
   {
     "version": "1.6b",
-    "extra": "This new release includes more polishing changes and bug fixes. We are most excited about our latest release schedule. We are now using Firefox's Release Candidates for Twilight, meaning we can test out new Firefox versions before they are released to the public. This will allow us to fix any issues before they are released to the public.\n\nIt may be a bit late, but happy new year! We hope you have a great year ahead!\n\nP.S. We also have a community-made <a href='https://discord.gg/kXRF2478vD' target='_blank'>Discord Server</a> designed to discuss ricing and customizing Zen!",
+    "extra": "This new release includes more polishing changes and bug fixes. We are most excited about our latest release schedule. We are now using Firefox's Release Candidates for Twilight, meaning we can test out new Firefox versions before they are released to the public. This will allow us to fix any issues before they are released to the public.\n\nIt may be a bit late, but happy new year! We hope you have a great year ahead!",
     "fixes": [
       "Fixed compact mode sidebar not hiding fully on some occasions",
       "Fixed context menu checkbox icon aligments for Windows users",
