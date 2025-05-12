@@ -1,12 +1,12 @@
 ---
-import Description from '@/components/Description.astro'
-import Button from '@/components/Button.astro'
+import Description from '~/components/Description.astro'
+import Button from '~/components/Button.astro'
 import { motion } from 'motion/react'
 import { Github, Check } from 'lucide-astro'
-import { getTitleAnimation } from '@/animations'
-import ComImage from '@/assets/ComImage.png'
+import { getTitleAnimation } from '~/animations'
+import ComImage from '~/assets/ComImage.png'
 import Image from 'astro/components/Image.astro'
-import { getLocale, getUI } from '@/utils/i18n'
+import { getLocale, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 

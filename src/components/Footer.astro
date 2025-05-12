@@ -1,11 +1,11 @@
 ---
-import Title from '@/components/Title.astro'
-import Description from '@/components/Description.astro'
-import Button from '@/components/Button.astro'
-import Circles from '@/components/Circles.astro'
-import SocialMediaStrip from '@/components/SocialMediaStrip.astro'
+import Title from '~/components/Title.astro'
+import Description from '~/components/Description.astro'
+import Button from '~/components/Button.astro'
+import Circles from '~/components/Circles.astro'
+import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
 import { ArrowRight } from 'lucide-astro'
-import { getLocale, getPath, getUI } from '@/utils/i18n'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)

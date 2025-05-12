@@ -1,15 +1,13 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import Features from '@/components/Features.astro'
-import { getLocale, getUI } from '@/utils/i18n'
-export { getStaticPaths } from '@/utils/i18n'
+import Layout from '~/layouts/Layout.astro'
+import Features from '~/components/Features.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 
 const {
-  routes: {
-    welcome,
-  }, 
+  routes: { welcome },
   layout,
 } = getUI(locale)
 ---
@@ -18,6 +16,10 @@ const {
   <main
     class="relative mx-auto flex flex-col items-center gap-24 px-6 lg:gap-0 lg:px-24"
   >
-    <Features title1={welcome.title[0]} title2={welcome.title[1]} title3={welcome.title[2]} />
+    <Features
+      title1={welcome.title[0]}
+      title2={welcome.title[1]}
+      title3={welcome.title[2]}
+    />
   </main>
 </Layout>

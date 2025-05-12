@@ -1,15 +1,15 @@
 ---
-import Description from '@/components/Description.astro'
+import Description from '~/components/Description.astro'
 import { motion } from 'motion/react'
-import { getTitleAnimation } from '@/animations'
+import { getTitleAnimation } from '~/animations'
 
-import WorkspacesVideo from '@/assets/Workspaces.webm'
-import GlanceVideo from '@/assets/Glance.webm'
-import CompactModeVideo from '@/assets/CompactMode.webm'
-import SplitViewsVideo from '@/assets/SplitViews.webm'
+import WorkspacesVideo from '~/assets/Workspaces.webm'
+import GlanceVideo from '~/assets/Glance.webm'
+import CompactModeVideo from '~/assets/CompactMode.webm'
+import SplitViewsVideo from '~/assets/SplitViews.webm'
 
 import Video from './Video.astro'
-import { getLocale, getUI } from '@/utils/i18n'
+import { getLocale, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 
@@ -25,7 +25,9 @@ const {
   title3 = features.title3,
 } = Astro.props
 
-const descriptions = Object.values(features.featureTabs).map((tab) => tab.description)
+const descriptions = Object.values(features.featureTabs).map(
+  (tab) => tab.description
+)
 ---
 
 <section
@@ -125,7 +127,11 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
       </div>
 
       <!-- Mobile description -->
-      <div class="feature-description mt-4 lg:hidden" data-descriptions={descriptions}></div>
+      <div
+        class="feature-description mt-4 lg:hidden"
+        data-descriptions={descriptions}
+      >
+      </div>
     </div>
 
     <div class="relative w-full lg:w-3/5">
@@ -173,10 +179,14 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
 </section>
 
 <script>
-  const features = document.querySelectorAll('.feature, .feature-tab') as NodeListOf<HTMLElement>  
-  
+  const features = document.querySelectorAll(
+    '.feature, .feature-tab'
+  ) as NodeListOf<HTMLElement>
+
   // Set initial description
-  const descriptionEl = document.querySelector('.feature-description') as HTMLDivElement
+  const descriptionEl = document.querySelector(
+    '.feature-description'
+  ) as HTMLDivElement
   const descriptions = descriptionEl?.dataset.descriptions?.split(',')
   if (descriptionEl && descriptions) {
     descriptionEl.textContent = descriptions[0]
@@ -209,7 +219,7 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
     }
 
     const videos = document.querySelectorAll(
-      '.feature-video',
+      '.feature-video'
     ) as NodeListOf<HTMLVideoElement>
     videos.forEach((vid, i) => {
       const yOffset = (i - index) * 20

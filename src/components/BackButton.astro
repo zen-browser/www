@@ -1,12 +1,12 @@
 ---
 import { ArrowLeft } from 'lucide-astro'
-import { getLocale, getUI } from '@/utils/i18n'
+import { getLocale, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 
 const {
   routes: {
-    mods: {slug},
+    mods: { slug },
   },
 } = getUI(locale)
 ---

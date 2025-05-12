@@ -1,17 +1,15 @@
 ---
 import { ArrowRight } from 'lucide-astro'
-import Button from '@/components/Button.astro'
-import Description from '@/components/Description.astro'
-import Layout from '@/layouts/Layout.astro'
-import { getLocale, getUI } from '@/utils/i18n'
-export { getStaticPaths } from '@/utils/i18n'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 const {
-  routes: {
-    donate,
-  },
-  layout
+  routes: { donate },
+  layout,
 } = getUI(locale)
 ---
 
@@ -21,9 +19,7 @@ const {
       class="relative flex w-full flex-col items-center justify-center gap-12"
     >
       <div class="px-8 lg:w-2/5 lg:text-center xl:px-0">
-        <Description class="text-6xl font-bold"
-          >{donate.title}</Description
-        >
+        <Description class="text-6xl font-bold">{donate.title}</Description>
         <Description>
           {donate.description}
         </Description>

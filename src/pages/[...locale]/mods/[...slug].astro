@@ -1,36 +1,36 @@
 ---
-import { getAllMods, getAuthorLink, getLocalizedDate } from '@/mods'
-import Layout from '@/layouts/Layout.astro'
-import Description from '@/components/Description.astro'
-import Button from '@/components/Button.astro'
-import BackButton from '@/components/BackButton.astro'
+import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
+import Layout from '~/layouts/Layout.astro'
+import Description from '~/components/Description.astro'
+import Button from '~/components/Button.astro'
+import BackButton from '~/components/BackButton.astro'
 import { ArrowRight, Info } from 'lucide-astro'
-import { getUI } from '@/utils/i18n'
-import { getLocales, getLocale } from '@/utils/i18n'
+import { getUI } from '~/utils/i18n'
+import { getLocales, getLocale } from '~/utils/i18n'
 
 export async function getStaticPaths() {
   const mods = await getAllMods()
   return mods.flatMap((mod) => [
     ...getLocales().map((locale) => ({
-      params: { 
+      params: {
         slug: mod.id,
-        locale: locale
+        locale: locale,
       },
-      props: { 
+      props: {
         ...mod,
-        locale: locale 
+        locale: locale,
       },
     })),
     {
-      params: { 
+      params: {
         slug: mod.id,
-        locale: undefined 
+        locale: undefined,
       },
-      props: { 
+      props: {
         ...mod,
-        locale: undefined 
+        locale: undefined,
       },
-    }
+    },
   ])
 }
 
@@ -47,14 +47,14 @@ const locale = getLocale(Astro)
 
 const {
   routes: {
-    mods: {slug},
+    mods: { slug },
   },
 } = getUI(locale)
 ---
 
 <Layout
-  title={slug.title.replace("{name}", mod.name)}
-  description={slug.description.replace("{name}", mod.name)}
+  title={slug.title.replace('{name}', mod.name)}
+  description={slug.description.replace('{name}', mod.name)}
   ogImage={mod.image}
 >
   <main class="mt-6 2xl:mt-0">
@@ -90,11 +90,23 @@ const {
       />
       <div class="flex flex-col justify-between gap-2 sm:flex-row">
         <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
-          <p set:html={slug.createdBy.replace("{author}", mod.author).replace("{version}", mod.version).replace("{link}", getAuthorLink(mod.author))} />
-          <p set:html={slug.creationDate.replace("{createdAt}", dates.createdAt)} />
+          <p
+            set:html={slug.createdBy
+              .replace('{author}', mod.author)
+              .replace('{version}', mod.version)
+              .replace('{link}', getAuthorLink(mod.author))}
+          />
+          <p
+            set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)}
+          />
           {
             dates.createdAt !== dates.updatedAt && (
-              <p set:html={slug.latestUpdate.replace("{updatedAt}", dates.updatedAt)} />
+              <p
+                set:html={slug.latestUpdate.replace(
+                  '{updatedAt}',
+                  dates.updatedAt
+                )}
+              />
             )
           }
           {

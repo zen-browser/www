@@ -1,11 +1,11 @@
 ---
-import Description from '@/components/Description.astro'
-import Layout from '@/layouts/Layout.astro'
-import { getReleasesWithChecksums } from '@/components/download/release-data.astro'
-import PlatformDownload from '@/components/download/PlatformDownload.astro'
-import DownloadScript from '@/components/download/DownloadScript.astro'
-import { getChecksums } from '@/utils/githubChecksums'
-import { getLocale, getUI } from '@/utils/i18n'
+import Description from '~/components/Description.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getReleasesWithChecksums } from '~/components/download/release-data.astro'
+import PlatformDownload from '~/components/download/PlatformDownload.astro'
+import DownloadScript from '~/components/download/DownloadScript.astro'
+import { getChecksums } from '~/utils/githubChecksums'
+import { getLocale, getUI } from '~/utils/i18n'
 
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -16,7 +16,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { Lock, ExternalLink } from 'lucide-astro'
 
-export { getStaticPaths } from '@/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 const {

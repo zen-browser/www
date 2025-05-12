@@ -6,9 +6,9 @@ import {
   type ReleaseNote,
   type BreakingChange,
   getReleaseNoteFirefoxVersion,
-} from '../release-notes';
+} from '../release-notes'
 import { releaseNotes as releaseNotesData } from '../release-notes'
-import { getLocale, getUI, getPath } from '@/utils/i18n'
+import { getLocale, getUI, getPath } from '~/utils/i18n'
 export type Props = ReleaseNote
 const { isTwilight, ...props } = Astro.props
 
@@ -17,9 +17,7 @@ const getLocalePath = getPath(locale)
 const {
   routes: {
     releaseNotes: {
-      components: {
-        releaseNoteItem,
-      }
+      components: { releaseNoteItem },
     },
   },
 } = getUI(locale)
@@ -30,16 +28,16 @@ if (props.date) {
   date = new Date(Date.parse(`${year}-${month}-${day}`))
 }
 
-const ffVersion = getReleaseNoteFirefoxVersion(props);
+const ffVersion = getReleaseNoteFirefoxVersion(props)
 const currentReleaseIndex = releaseNotesData.findIndex(
   (releaseNote: ReleaseNote) => releaseNote.version === props.version
-);
-const prevReleaseNote = releaseNotesData[currentReleaseIndex + 1];
-let compareLink = '';
+)
+const prevReleaseNote = releaseNotesData[currentReleaseIndex + 1]
+let compareLink = ''
 if (prevReleaseNote && !isTwilight) {
-  compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`;
+  compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`
 }
---- 
+---
 
 <section
   class="release-note-item relative mt-24 flex flex-col border-t pt-24 lg:flex-row"
@@ -50,7 +48,7 @@ if (prevReleaseNote && !isTwilight) {
       isTwilight ? (
         <a
           class="!mb-2 block w-fit rounded-full bg-coral px-3 py-1 text-xs text-paper"
-          href={getLocalePath("/download?twilight")}
+          href={getLocalePath('/download?twilight')}
         >
           {releaseNoteItem.twilight}
         </a>
@@ -59,9 +57,13 @@ if (prevReleaseNote && !isTwilight) {
     <h1 class="flex items-center text-3xl font-bold">
       {
         isTwilight ? (
-          <>{releaseNoteItem.twilightChanges} {props.version} 🌙</>
+          <>
+            {releaseNoteItem.twilightChanges} {props.version} 🌙
+          </>
         ) : (
-          <>{releaseNoteItem.releaseChanges} {props.version} 🎉</>
+          <>
+            {releaseNoteItem.releaseChanges} {props.version} 🎉
+          </>
         )
       }
       {
@@ -115,13 +117,7 @@ if (prevReleaseNote && !isTwilight) {
     <div class="text-muted-forground mt-6 flex text-sm opacity-70">
       {isTwilight ? <Info class="mx-4 my-0 size-6 text-yellow-500" /> : null}
       <p class="m-0">
-        {
-          isTwilight ? (
-            <>
-              {releaseNoteItem.twilightWarning}
-            </>
-          ) : null
-        }
+        {isTwilight ? <>{releaseNoteItem.twilightWarning}</> : null}
         <span set:html={releaseNoteItem.reportIssues} />
       </p>
     </div>
@@ -154,7 +150,10 @@ if (prevReleaseNote && !isTwilight) {
                             href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
                             rel="noopener noreferrer"
                             target="_blank"
-                            aria-label={releaseNoteItem.viewIssue.replace('{issue}', fix.issue)}
+                            aria-label={releaseNoteItem.viewIssue.replace(
+                              '{issue}',
+                              fix.issue
+                            )}
                           >
                             #{fix.issue}
                           </a>
@@ -206,7 +205,9 @@ if (prevReleaseNote && !isTwilight) {
                         href={breakingChange.link}
                         rel="noopener noreferrer"
                         target="_blank"
-                        aria-label={releaseNoteItem.sections.breakingChanges.description}
+                        aria-label={
+                          releaseNoteItem.sections.breakingChanges.description
+                        }
                       >
                         {releaseNoteItem.learnMore}
                       </a>

@@ -5,7 +5,7 @@
     "jsxImportSource": "preact",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
+      "~/*": [
         "./src/*"
       ]
     }

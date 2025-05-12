@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'preact/hooks'
-import type { ZenTheme } from '@/mods'
+import type { ZenTheme } from '~/mods'
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons'
-import { useModsSearch } from '@/hooks/useModsSearch'
-import { getUI, type Locale } from '@/utils/i18n'
+import { useModsSearch } from '~/hooks/useModsSearch'
+import { getUI, type Locale } from '~/utils/i18n'
 
 // Add icons to the library
 library.add(faSort, faSortUp, faSortDown)
@@ -80,7 +80,9 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     window.scrollTo(0, 0)
   }
 
-  const { routes: { mods } } = getUI(locale)
+  const {
+    routes: { mods },
+  } = getUI(locale)
 
   function renderPagination() {
     if (totalPages <= 1) return null
@@ -98,26 +100,26 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           &lt;
         </button>
         <form onSubmit={handlePageSubmit} className="flex items-center gap-2">
-          {
-            mods.pagination.pagination.split('{input}').map((value, index) => {
-              if (index === 0) {
-                return (
-                  <input
-                    type="text"
-                    value={pageInput}
-                    onInput={handlePageInputChange}
-                    className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
-                    aria-label="Page number"
-                  />
-                )
-              }
+          {mods.pagination.pagination.split('{input}').map((value, index) => {
+            if (index === 0) {
               return (
-                <span className="text-sm">
-                  {value.replace('{totalPages}', totalPages.toString()).replace('{totalItems}', totalItems.toString())}
-                </span>
+                <input
+                  type="text"
+                  value={pageInput}
+                  onInput={handlePageInputChange}
+                  className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
+                  aria-label="Page number"
+                />
               )
-            })
-          }
+            }
+            return (
+              <span className="text-sm">
+                {value
+                  .replace('{totalPages}', totalPages.toString())
+                  .replace('{totalItems}', totalItems.toString())}
+              </span>
+            )
+          })}
         </form>
         <button
           type="button"
@@ -228,9 +230,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         ) : (
           <div className="col-span-4 grid place-items-center gap-4 place-self-center px-8 text-center">
             <h2 className="text-lg font-bold">{mods.noResults}</h2>
-            <p className="text-sm font-thin">
-              {mods.noResultsDescription}
-            </p>
+            <p className="text-sm font-thin">{mods.noResultsDescription}</p>
           </div>
         )}
       </div>

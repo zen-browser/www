@@ -1,21 +1,22 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import Hero from '@/components/Hero.astro'
-import Community from '@/components/Community.astro'
-import Features from '@/components/Features.astro'
-import Sponsors from '@/components/Sponsors.astro'
-import { getLocale, getUI } from '@/utils/i18n'
-export { getStaticPaths } from '@/utils/i18n'
+import Layout from '~/layouts/Layout.astro'
+import Hero from '~/components/Hero.astro'
+import Community from '~/components/Community.astro'
+import Features from '~/components/Features.astro'
+import Sponsors from '~/components/Sponsors.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 
-const {
-  layout,
-} = getUI(locale)
-
+const { layout } = getUI(locale)
 ---
 
-<Layout title={layout.index.title} description={layout.index.description} isHome>
+<Layout
+  title={layout.index.title}
+  description={layout.index.description}
+  isHome
+>
   <main>
     <Hero />
     <Features />

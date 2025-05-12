@@ -1,12 +1,12 @@
 ---
-import Description from '@/components/Description.astro'
+import Description from '~/components/Description.astro'
 import { motion } from 'motion/react'
-import { getTitleAnimation } from '@/animations'
-import { getLocale, getUI } from '@/utils/i18n'
+import { getTitleAnimation } from '~/animations'
+import { getLocale, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 
-import tutaLogo from '@/assets/tuta-logo.png'
+import tutaLogo from '~/assets/tuta-logo.png'
 
 import Image from 'astro/components/Image.astro'
 const { showSponsors = true } = Astro.props
@@ -31,7 +31,11 @@ const {
     <div class="relative mt-8 flex items-center justify-center">
       <motion.span client:load {...getTitleAnimation(0.6)}>
         <a href={sponsors.sponsors['tuta'].url} target="_blank" class="w-fit">
-          <Image src={tutaLogo} alt={sponsors.sponsors['tuta'].name} class="h-16 w-fit object-contain" />
+          <Image
+            src={tutaLogo}
+            alt={sponsors.sponsors['tuta'].name}
+            class="h-16 w-fit object-contain"
+          />
         </a>
       </motion.span>
     </div>

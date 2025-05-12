@@ -1,13 +1,13 @@
 ---
 import { motion } from 'motion/react'
-import Button from '@/components/Button.astro'
+import Button from '~/components/Button.astro'
 import { Astronav, MenuItems, Dropdown, DropdownItems } from 'astro-navbar'
 import { ArrowRight, ChevronDown, Download, Menu } from 'lucide-astro'
 import Logo from './Logo.astro'
 import { getTitleAnimation } from '../animations.ts'
 import ThemeSwitch from './ThemeSwitch.astro'
 import MobileMenu from './MobileMenu.astro'
-import { getLocale, getPath, getUI } from '@/utils/i18n'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)

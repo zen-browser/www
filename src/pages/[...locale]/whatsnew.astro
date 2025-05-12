@@ -1,16 +1,16 @@
 ---
 import { ArrowRight } from 'lucide-astro'
-import Button from '@/components/Button.astro'
-import Description from '@/components/Description.astro'
-import SocialMediaStrip from '@/components/SocialMediaStrip.astro'
-import Layout from '@/layouts/Layout.astro'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
+import Layout from '~/layouts/Layout.astro'
 
-import { releaseNotes } from '@/release-notes'
-import whatsNewText from '@/release-notes/whats-new.json'
-import Video from '@/components/Video.astro'
-import { getLocale, getUI } from '@/utils/i18n'
-import whatsNewVideo from '@/assets/whats-new.mp4'
-export { getStaticPaths } from '@/utils/i18n'
+import { releaseNotes } from '~/release-notes'
+import whatsNewText from '~/release-notes/whats-new.json'
+import Video from '~/components/Video.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+import whatsNewVideo from '~/assets/whats-new.mp4'
+export { getStaticPaths } from '~/utils/i18n'
 
 const latestVersion = releaseNotes[0]
 
@@ -33,7 +33,7 @@ if (
 <Layout
   title={layout.whatsNew.title.replace(
     '{latestVersion.version}',
-    latestVersion.version,
+    latestVersion.version
   )}
 >
   <main
@@ -45,7 +45,7 @@ if (
           >{
             whatsNew.title.replace(
               '{latestVersion.version}',
-              latestVersion.version,
+              latestVersion.version
             )
           }</Description
         >
