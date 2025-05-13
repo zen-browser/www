@@ -1,10 +1,17 @@
 ---
-import Title from '../components/Title.astro'
-import Description from '../components/Description.astro'
-import Button from '../components/Button.astro'
-import Circles from '../components/Circles.astro'
-import SocialMediaStrip from '../components/SocialMediaStrip.astro'
+import Title from '~/components/Title.astro'
+import Description from '~/components/Description.astro'
+import Button from '~/components/Button.astro'
+import Circles from '~/components/Circles.astro'
+import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
 import { ArrowRight } from 'lucide-astro'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
+
+const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
+const {
+  components: { footer },
+} = getUI(locale)
 ---
 
 <footer
@@ -18,10 +25,9 @@ import { ArrowRight } from 'lucide-astro'
       class="w-full text-center lg:w-1/2 lg:text-left"
       aria-labelledby="footer-title"
     >
-      <Title id="footer-title" class="!text-paper">Zen Browser</Title>
+      <Description id="footer-title" class="!text-paper text-6xl font-bold">{footer.title}</Title>
       <Description class="mx-auto max-w-xl lg:mx-0">
-        Beautifully designed, privacy-focused, and packed with features. We care
-        about your experience, not your data.
+        {footer.description}
       </Description>
     </section>
     <section class="grid gap-10 place-self-center lg:place-self-start">
@@ -29,9 +35,9 @@ import { ArrowRight } from 'lucide-astro'
         href="/download"
         isPrimary
         class="h-fit w-fit bg-paper !text-dark"
-        aria-label="Download Zen Browser"
+        aria-label={footer.download}
       >
-        Download
+        {footer.download}
         <ArrowRight class="size-4" aria-hidden="true" />
       </Button>
     </section>
@@ -50,7 +56,7 @@ import { ArrowRight } from 'lucide-astro'
             aria-labelledby="follow-us-heading"
           >
             <h2 id="follow-us-heading" class="text-base !font-semibold">
-              Follow Us
+              {footer.followUs}
             </h2>
             <SocialMediaStrip />
           </section>
@@ -59,16 +65,18 @@ import { ArrowRight } from 'lucide-astro'
             aria-labelledby="about-us-heading"
           >
             <h2 id="about-us-heading" class="text-base !font-semibold">
-              About Us
+              {footer.aboutUs}
             </h2>
             <nav aria-label="About navigation">
               <ul class="grid gap-2 opacity-80">
                 <li>
-                  <a href="/about" class="font-normal">Team & Contributors</a>
+                  <a href={getLocalePath('/about')} class="font-normal"
+                    >{footer.teamAndContributors}</a
+                  >
                 </li>
                 <li>
-                  <a href="/privacy-policy" class="font-normal"
-                    >Privacy Policy</a
+                  <a href={getLocalePath('/privacy-policy')} class="font-normal"
+                    >{footer.privacyPolicy}</a
                   >
                 </li>
               </ul>
@@ -77,42 +85,50 @@ import { ArrowRight } from 'lucide-astro'
         </div>
         <nav class="flex flex-col gap-2" aria-labelledby="get-started-heading">
           <h2 id="get-started-heading" class="text-base !font-semibold">
-            Get Started
+            {footer.getStarted}
           </h2>
           <ul class="grid gap-2 opacity-80">
             <li>
               <a href="https://docs.zen-browser.app/" class="font-normal"
-                >Documentation</a
+                >{footer.documentation}</a
               >
             </li>
-            <li><a href="/mods" class="font-normal">Zen Mods</a></li>
             <li>
-              <a href="/release-notes" class="font-normal">Release Notes</a>
+              <a href={getLocalePath('/mods')} class="font-normal"
+                >{footer.zenMods}</a
+              >
             </li>
             <li>
-              <a href="/download?twilight" class="font-normal">Twilight</a>
+              <a href={getLocalePath('/release-notes')} class="font-normal"
+                >{footer.releaseNotes}</a
+              >
+            </li>
+            <li>
+              <a href={getLocalePath('/download?twilight')} class="font-normal"
+                >{footer.twilight}</a
+              >
             </li>
           </ul>
         </nav>
         <nav class="flex flex-col gap-2" aria-labelledby="get-help-heading">
           <h2 id="get-help-heading" class="text-base !font-semibold">
-            Get Help
+            {footer.getHelp}
           </h2>
           <ul class="grid gap-2 opacity-80">
             <li>
               <a href="https://discord.gg/zen-browser" class="font-normal"
-                >Discord</a
+                >{footer.discord}</a
               >
             </li>
             <li>
               <a href="https://uptime.zen-browser.app/" class="font-normal"
-                >Uptime Status</a
+                >{footer.uptimeStatus}</a
               >
             </li>
             <li>
               <a
                 href="https://github.com/zen-browser/desktop/issues/new/choose"
-                class="font-normal">Report an Issue</a
+                class="font-normal">{footer.reportAnIssue}</a
               >
             </li>
           </ul>
@@ -123,12 +139,10 @@ import { ArrowRight } from 'lucide-astro'
       class="grid w-full grid-cols-[1fr_auto] items-center gap-2"
       aria-label="Copyright information"
     >
-      <p class="flex justify-center gap-2 lg:justify-start">
-        Made with <span aria-label="love">❤️</span> by the <a
-          href="/about"
-          class="zen-link inline-block font-bold">Zen Team</a
-        >
-      </p>
+      <p
+        class="flex justify-center gap-2 lg:justify-start"
+        set:html={footer.madeWith.replace('{link}', getLocalePath('/about'))}
+      />
     </section>
     <section class="absolute bottom-0 right-0">
       <Circles

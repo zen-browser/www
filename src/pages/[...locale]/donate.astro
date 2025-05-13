@@ -1,32 +1,34 @@
 ---
-import { ArrowRight, ChevronRight } from 'lucide-astro'
-import Button from '../components/Button.astro'
-import Description from '../components/Description.astro'
-import Title from '../components/Title.astro'
-import Layout from '../layouts/Layout.astro'
+import { ArrowRight } from 'lucide-astro'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
+
+const locale = getLocale(Astro)
+const {
+  routes: { donate },
+  layout,
+} = getUI(locale)
 ---
 
-<Layout title="Donate - Zen Browser">
+<Layout title={layout.donate.title} description={layout.donate.description}>
   <main class="pb-52 pt-36">
     <div
       class="relative flex w-full flex-col items-center justify-center gap-12"
     >
       <div class="px-8 lg:w-2/5 lg:text-center xl:px-0">
-        <Description class="text-6xl font-bold"
-          >Help us build <br class="hidden lg:block" />a better browser!</Description
-        >
+        <Description class="text-6xl font-bold">{donate.title}</Description>
         <Description>
-          We are a small team of developers working hard to bring you the best
-          browsing experience. If you like what we do, please consider
-          supporting us.
+          {donate.description}
         </Description>
       </div>
       <div class="flex w-full flex-col items-center justify-center lg:flex-row">
         <div class="flex flex-col p-8 lg:w-1/3 lg:pr-24">
-          <div class="text-6xl font-bold">Patreon</div>
+          <div class="text-6xl font-bold">{donate.patreon.title}</div>
           <Description>
-            Patreon allows you to support us with a monthly donation. You can
-            choose the level of support that works best for you.
+            {donate.patreon.description}
           </Description>
           <div class="mt-6">
             <Button
@@ -41,11 +43,9 @@ import Layout from '../layouts/Layout.astro'
         </div>
         <div class="hidden h-72 w-[1px] bg-dark opacity-15 lg:block"></div>
         <div class="flex flex-col p-8 lg:w-1/3 lg:pl-24">
-          <div class="text-6xl font-bold">Ko-fi</div>
+          <div class="text-6xl font-bold">{donate.koFi.title}</div>
           <Description>
-            Ko-fi allows you to support us with a one-time donation. You can
-            choose the amount that works best for you. Monthly donations are
-            also available.
+            {donate.koFi.description}
           </Description>
           <div class="mt-6">
             <Button
@@ -53,7 +53,7 @@ import Layout from '../layouts/Layout.astro'
               isPrimary
               class="w-fit"
             >
-              Go to Ko-fi
+              {donate.koFi.button}
               <ArrowRight class="size-4" />
             </Button>
           </div>

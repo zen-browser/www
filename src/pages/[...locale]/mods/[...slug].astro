@@ -1,19 +1,37 @@
 ---
-import { getAbsoluteLocaleUrl } from 'astro:i18n'
-import { getAllMods, getAuthorLink, getLocalizedDate } from '../../mods'
-import Layout from '../../layouts/Layout.astro'
-import Title from '../../components/Title.astro'
-import Description from '../../components/Description.astro'
-import Button from '../../components/Button.astro'
-import BackButton from '../../components/BackButton.astro'
+import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
+import Layout from '~/layouts/Layout.astro'
+import Description from '~/components/Description.astro'
+import Button from '~/components/Button.astro'
+import BackButton from '~/components/BackButton.astro'
 import { ArrowRight, Info } from 'lucide-astro'
+import { getUI } from '~/utils/i18n'
+import { getLocales, getLocale } from '~/utils/i18n'
 
 export async function getStaticPaths() {
   const mods = await getAllMods()
-  return mods.map((mod) => ({
-    params: { slug: mod.id },
-    props: { ...mod },
-  }))
+  return mods.flatMap((mod) => [
+    ...getLocales().map((locale) => ({
+      params: {
+        slug: mod.id,
+        locale: locale,
+      },
+      props: {
+        ...mod,
+        locale: locale,
+      },
+    })),
+    {
+      params: {
+        slug: mod.id,
+        locale: undefined,
+      },
+      props: {
+        ...mod,
+        locale: undefined,
+      },
+    },
+  ])
 }
 
 // https://github.com/TeaClientMC/Website/blob/7faacc9f8b2c79c74f711d413b155c84faafc00d/src/pages/news/%5B...slug%5D.astro
@@ -24,11 +42,19 @@ const dates = {
   createdAt: getLocalizedDate(mod.createdAt),
   updatedAt: getLocalizedDate(mod.updatedAt),
 }
+
+const locale = getLocale(Astro)
+
+const {
+  routes: {
+    mods: { slug },
+  },
+} = getUI(locale)
 ---
 
 <Layout
-  title={`${mod.name} - Zen Mods`}
-  description={`Learn more about ${mod.name} mod available on Zen Browser`}
+  title={slug.title.replace('{name}', mod.name)}
+  description={slug.description.replace('{name}', mod.name)}
   ogImage={mod.image}
 >
   <main class="mt-6 2xl:mt-0">
@@ -40,7 +66,7 @@ const dates = {
         <div class="flex items-center gap-2 text-center md:text-left">
           <Info />
           <p class="text-sm">
-            You need to have Zen Browser installed to install this theme.{' '}
+            {slug.alert.description}
           </p>
         </div>
         <Button
@@ -48,7 +74,7 @@ const dates = {
           class="inline-flex flex-shrink-0 whitespace-nowrap !rounded-lg bg-red-300 dark:bg-red-800"
           isAlert
         >
-          Download now!
+          {slug.alert.button}
           <ArrowRight class="size-4" />
         </Button>
       </div>
@@ -64,18 +90,23 @@ const dates = {
       />
       <div class="flex flex-col justify-between gap-2 sm:flex-row">
         <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
-          <p>
-            Created by <a
-              href={getAuthorLink(mod.author)}
-              class="zen-link font-bold">@{mod.author}</a
-            > • <span class="font-bold">v{mod.version}</span>
-          </p>
-          <p>Creation date • <b>{dates.createdAt}</b></p>
+          <p
+            set:html={slug.createdBy
+              .replace('{author}', mod.author)
+              .replace('{version}', mod.version)
+              .replace('{link}', getAuthorLink(mod.author))}
+          />
+          <p
+            set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)}
+          />
           {
             dates.createdAt !== dates.updatedAt && (
-              <p>
-                Latest update • <b>{dates.updatedAt}</b>
-              </p>
+              <p
+                set:html={slug.latestUpdate.replace(
+                  '{updatedAt}',
+                  dates.updatedAt
+                )}
+              />
             )
           }
           {
@@ -86,7 +117,7 @@ const dates = {
                 rel="noopener noreferrer"
                 class="zen-link"
               >
-                Visit mod homepage
+                {slug.visitModHomepage}
               </a>
             )
           }
@@ -98,7 +129,7 @@ const dates = {
             extra={{ 'zen-theme-id': mod.id }}
             isPrimary
           >
-            Install Theme 🎉
+            {slug.installMod}
           </Button>
           <Button
             class="hidden"
@@ -106,7 +137,7 @@ const dates = {
             extra={{ 'zen-theme-id': mod.id }}
             isPrimary
           >
-            Uninstall Theme
+            {slug.uninstallMod}
           </Button>
         </div>
       </div>
