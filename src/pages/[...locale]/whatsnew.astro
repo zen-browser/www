@@ -1,39 +1,39 @@
 ---
-import { ArrowRight } from "lucide-astro";
-import Button from "~/components/Button.astro";
-import Description from "~/components/Description.astro";
-import SocialMediaStrip from "~/components/SocialMediaStrip.astro";
-import Layout from "~/layouts/Layout.astro";
+import { ArrowRight } from 'lucide-astro'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
+import Layout from '~/layouts/Layout.astro'
 
-import whatsNewVideo from "~/assets/whats-new.mp4";
-import Video from "~/components/Video.astro";
-import { releaseNotes } from "~/release-notes";
-import whatsNewText from "~/release-notes/whats-new.json";
-import { getLocale, getUI } from "~/utils/i18n";
-export { getStaticPaths } from "~/utils/i18n";
+import whatsNewVideo from '~/assets/whats-new.mp4'
+import Video from '~/components/Video.astro'
+import { releaseNotes } from '~/release-notes'
+import whatsNewText from '~/release-notes/whats-new.json'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
-const latestVersion = releaseNotes[0];
+const latestVersion = releaseNotes[0]
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 
 const {
-	routes: { whatsNew },
-	layout,
-} = getUI(locale);
+  routes: { whatsNew },
+  layout,
+} = getUI(locale)
 
 // Just redirect to the release notes if we are in a patch version
 if (
-	latestVersion.version.split(".").length > 2 &&
-	whatsNewText[1] !== latestVersion.version
+  latestVersion.version.split('.').length > 2 &&
+  whatsNewText[1] !== latestVersion.version
 ) {
-	return Astro.redirect(`/release-notes#${latestVersion.version}`);
+  return Astro.redirect(`/release-notes#${latestVersion.version}`)
 }
 ---
 
 <Layout
   title={layout.whatsNew.title.replace(
     '{latestVersion.version}',
-    latestVersion.version
+    latestVersion.version,
   )}
 >
   <main
@@ -45,7 +45,7 @@ if (
           >{
             whatsNew.title.replace(
               '{latestVersion.version}',
-              latestVersion.version
+              latestVersion.version,
             )
           }</Description
         >

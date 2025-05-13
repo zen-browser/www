@@ -1,15 +1,15 @@
 ---
-import Title from "~/components/Title.astro";
-import Layout from "~/layouts/Layout.astro";
-import { getLocale, getUI } from "~/utils/i18n";
-export { getStaticPaths } from "~/utils/i18n";
+import Title from '~/components/Title.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 
 const {
-	routes: { privacyPolicy },
-	layout,
-} = getUI(locale);
+  routes: { privacyPolicy },
+  layout,
+} = getUI(locale)
 ---
 
 <Layout

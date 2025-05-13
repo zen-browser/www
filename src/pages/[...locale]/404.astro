@@ -1,16 +1,16 @@
 ---
-import Button from "~/components/Button.astro";
-import Description from "~/components/Description.astro";
-import Title from "~/components/Title.astro";
-import Layout from "~/layouts/Layout.astro";
-import { getLocale, getPath, getUI } from "~/utils/i18n";
-export { getStaticPaths } from "~/utils/i18n";
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import Title from '~/components/Title.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
-const locale = getLocale(Astro);
-const getLocalePath = getPath(locale);
+const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
 const {
-	routes: { notFound },
-} = getUI(locale);
+  routes: { notFound },
+} = getUI(locale)
 ---
 
 <Layout title={notFound.title}>

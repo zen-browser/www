@@ -1,20 +1,20 @@
 ---
-import Image from "astro/components/Image.astro";
-import { Check, Github } from "lucide-astro";
-import { motion } from "motion/react";
-import { getTitleAnimation } from "~/animations";
-import ComImage from "~/assets/ComImage.png";
-import Button from "~/components/Button.astro";
-import Description from "~/components/Description.astro";
-import { getLocale, getUI } from "~/utils/i18n";
+import Image from 'astro/components/Image.astro'
+import { Check, Github } from 'lucide-astro'
+import { motion } from 'motion/react'
+import { getTitleAnimation } from '~/animations'
+import ComImage from '~/assets/ComImage.png'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import { getLocale, getUI } from '~/utils/i18n'
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 
 const {
-	routes: {
-		index: { community },
-	},
-} = getUI(locale);
+  routes: {
+    index: { community },
+  },
+} = getUI(locale)
 ---
 
 <section

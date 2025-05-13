@@ -1,55 +1,55 @@
 ---
-import { ArrowRight, Info } from "lucide-astro";
-import BackButton from "~/components/BackButton.astro";
-import Button from "~/components/Button.astro";
-import Description from "~/components/Description.astro";
-import Layout from "~/layouts/Layout.astro";
-import { getAllMods, getAuthorLink, getLocalizedDate } from "~/mods";
-import { getUI } from "~/utils/i18n";
-import { getLocale, getOtherLocales } from "~/utils/i18n";
+import { ArrowRight, Info } from 'lucide-astro'
+import BackButton from '~/components/BackButton.astro'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
+import { getUI } from '~/utils/i18n'
+import { getLocale, getOtherLocales } from '~/utils/i18n'
 
 export async function getStaticPaths() {
-	const mods = await getAllMods();
-	return mods.flatMap((mod) => [
-		...getOtherLocales().map((locale) => ({
-			params: {
-				slug: mod.id,
-				locale: locale,
-			},
-			props: {
-				...mod,
-				locale: locale,
-			},
-		})),
-		{
-			params: {
-				slug: mod.id,
-				locale: undefined,
-			},
-			props: {
-				...mod,
-				locale: undefined,
-			},
-		},
-	]);
+  const mods = await getAllMods()
+  return mods.flatMap((mod) => [
+    ...getOtherLocales().map((locale) => ({
+      params: {
+        slug: mod.id,
+        locale: locale,
+      },
+      props: {
+        ...mod,
+        locale: locale,
+      },
+    })),
+    {
+      params: {
+        slug: mod.id,
+        locale: undefined,
+      },
+      props: {
+        ...mod,
+        locale: undefined,
+      },
+    },
+  ])
 }
 
 // https://github.com/TeaClientMC/Website/blob/7faacc9f8b2c79c74f711d413b155c84faafc00d/src/pages/news/%5B...slug%5D.astro
 
-const mod = Astro.props;
+const mod = Astro.props
 
 const dates = {
-	createdAt: getLocalizedDate(mod.createdAt),
-	updatedAt: getLocalizedDate(mod.updatedAt),
-};
+  createdAt: getLocalizedDate(mod.createdAt),
+  updatedAt: getLocalizedDate(mod.updatedAt),
+}
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 
 const {
-	routes: {
-		mods: { slug },
-	},
-} = getUI(locale);
+  routes: {
+    mods: { slug },
+  },
+} = getUI(locale)
 ---
 
 <Layout
@@ -104,7 +104,7 @@ const {
               <p
                 set:html={slug.latestUpdate.replace(
                   '{updatedAt}',
-                  dates.updatedAt
+                  dates.updatedAt,
                 )}
               />
             )

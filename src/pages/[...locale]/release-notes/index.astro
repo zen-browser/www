@@ -1,23 +1,23 @@
 ---
-import { Modal, ModalBody, ModalHeader } from "free-astro-components";
-import { ArrowUp } from "lucide-astro";
-import Button from "~/components/Button.astro";
-import Description from "~/components/Description.astro";
-import ReleaseNoteItem from "~/components/ReleaseNoteItem.astro";
-import Layout from "~/layouts/Layout.astro";
+import { Modal, ModalBody, ModalHeader } from 'free-astro-components'
+import { ArrowUp } from 'lucide-astro'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import ReleaseNoteItem from '~/components/ReleaseNoteItem.astro'
+import Layout from '~/layouts/Layout.astro'
 import {
-	releaseNotes as releaseNotesData,
-	releaseNotesTwilight,
-} from "~/release-notes";
-import { getLocale, getUI } from "~/utils/i18n";
-export { getStaticPaths } from "~/utils/i18n";
+  releaseNotes as releaseNotesData,
+  releaseNotesTwilight,
+} from '~/release-notes'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 
 const {
-	routes: { releaseNotes },
-	layout,
-} = getUI(locale);
+  routes: { releaseNotes },
+  layout,
+} = getUI(locale)
 ---
 
 <Layout title={layout.releaseNotes.title}>
@@ -33,7 +33,7 @@ const {
         class="text-base opacity-55"
         set:html={releaseNotes.topSection.description.replaceAll(
           '{latestVersion}',
-          releaseNotesData[0].version
+          releaseNotesData[0].version,
         )}
       />
       <div
