@@ -1,0 +1,41 @@
+---
+import Community from "~/components/Community.astro";
+import Features from "~/components/Features.astro";
+import Hero from "~/components/Hero.astro";
+import Sponsors from "~/components/Sponsors.astro";
+import Layout from "~/layouts/Layout.astro";
+import { getLocale, getUI } from "~/utils/i18n";
+export { getStaticPaths } from "~/utils/i18n";
+
+const locale = getLocale(Astro);
+
+const { layout } = getUI(locale);
+---
+
+<Layout
+  title={layout.index.title}
+  description={layout.index.description}
+  isHome
+>
+  <main>
+    <Hero />
+    <Features />
+    <Sponsors showSponsors />
+    <Community />
+  </main>
+</Layout>
+<style>
+  @keyframes headerSlideIn {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  #header-browser-image {
+    animation: headerSlideIn 0.5s ease-in-out;
+  }
+</style>
+<script></script>

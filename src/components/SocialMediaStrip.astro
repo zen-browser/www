@@ -1,21 +1,21 @@
 ---
-const { gap = 4 } = Astro.props
+const { gap = 4 } = Astro.props;
 
-import { library, icon } from '@fortawesome/fontawesome-svg-core'
+import { icon, library } from "@fortawesome/fontawesome-svg-core";
 import {
-  faMastodon,
-  faBluesky,
-  faGithub,
-  faXTwitter,
-  faReddit,
-} from '@fortawesome/free-brands-svg-icons'
+	faBluesky,
+	faGithub,
+	faMastodon,
+	faReddit,
+	faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 
-library.add(faMastodon, faBluesky, faGithub, faXTwitter, faReddit)
-const Mastodon = icon({ prefix: 'fab', iconName: 'mastodon' })
-const Bluesky = icon({ prefix: 'fab', iconName: 'bluesky' })
-const Github = icon({ prefix: 'fab', iconName: 'github' })
-const XTwitter = icon({ prefix: 'fab', iconName: 'x-twitter' })
-const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
+library.add(faMastodon, faBluesky, faGithub, faXTwitter, faReddit);
+const Mastodon = icon({ prefix: "fab", iconName: "mastodon" });
+const Bluesky = icon({ prefix: "fab", iconName: "bluesky" });
+const Github = icon({ prefix: "fab", iconName: "github" });
+const XTwitter = icon({ prefix: "fab", iconName: "x-twitter" });
+const Reddit = icon({ prefix: "fab", iconName: "reddit" });
 ---
 
 <ul class={`flex items-center opacity-80 gap-${gap}`}>

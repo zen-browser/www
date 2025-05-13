@@ -1,14 +1,26 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import ReleaseNoteItem from '../../components/ReleaseNoteItem.astro'
-import { releaseNotes, releaseNotesTwilight } from '../../release-notes'
-import Description from '../../components/Description.astro'
-import Button from '../../components/Button.astro'
-import { Modal, ModalBody, ModalHeader } from 'free-astro-components'
-import { ArrowUp } from 'lucide-astro'
+import { Modal, ModalBody, ModalHeader } from "free-astro-components";
+import { ArrowUp } from "lucide-astro";
+import Button from "~/components/Button.astro";
+import Description from "~/components/Description.astro";
+import ReleaseNoteItem from "~/components/ReleaseNoteItem.astro";
+import Layout from "~/layouts/Layout.astro";
+import {
+	releaseNotes as releaseNotesData,
+	releaseNotesTwilight,
+} from "~/release-notes";
+import { getLocale, getUI } from "~/utils/i18n";
+export { getStaticPaths } from "~/utils/i18n";
+
+const locale = getLocale(Astro);
+
+const {
+	routes: { releaseNotes },
+	layout,
+} = getUI(locale);
 ---
 
-<Layout title="Release Notes - Zen Browser">
+<Layout title={layout.releaseNotes.title}>
   <main
     class="flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4"
   >
@@ -17,26 +29,24 @@ import { ArrowUp } from 'lucide-astro'
       class="py-42 flex min-h-screen flex-col justify-center px-10 lg:px-10 xl:px-10 2xl:w-3/5"
     >
       <Description class="mt-48 text-4xl font-bold">Release Notes</Description>
-      <p class="text-base opacity-55">
-        Stay up to date with the latest changes to Zen Browser! Since the <a
-          class="zen-link"
-          href="#1.0.0-a.1">first release</a
-        > till <a class="zen-link" href={`#${releaseNotes[0].version}`}
-          >{releaseNotes[0].version}</a
-        >, we've been working hard to make Zen Browser the best it can be.
-        Thanks everyone for your feedback! ❤️
-      </p>
+      <p
+        class="text-base opacity-55"
+        set:html={releaseNotes.topSection.description.replaceAll(
+          '{latestVersion}',
+          releaseNotesData[0].version
+        )}
+      />
       <div
         class="mx-auto mt-8 flex w-fit flex-col gap-4 sm:mr-0 sm:flex-row sm:items-center"
       >
         <Button class="flex" isPrimary href="/donate">
-          Give us some support!
+          {releaseNotes.list.support}
         </Button>
         <Button id="toggle-notes" class="flex" data-open="false" href="#">
-          Expand all
+          {releaseNotes.list.expandAll}
         </Button>
         <Button id="navigate-to-version" href="#" class="flex">
-          Navigate to version...
+          {releaseNotes.list.navigateToVersion}
         </Button>
       </div>
       {
@@ -45,29 +55,25 @@ import { ArrowUp } from 'lucide-astro'
           <ReleaseNoteItem {...releaseNotesTwilight} isTwilight />
         ) : null
       }
-      {releaseNotes.map((notes: any) => <ReleaseNoteItem {...notes} />)}
+      {releaseNotesData.map((notes: any) => <ReleaseNoteItem {...notes} />)}
     </div>
   </main>
-  <Button
-    href="#"
-    id="scroll-top"
-    isPrimary
-    class="fixed bottom-8 right-8"
-  >
+  <Button href="#" id="scroll-top" isPrimary class="fixed bottom-8 right-8">
     <p class="hidden items-center gap-2 sm:flex">
-      Back to the top <ArrowUp aria-hidden="true" class="size-4" />
+      {releaseNotes.backToTop}
+      <ArrowUp aria-hidden="true" class="size-4" />
     </p>
     <ArrowUp aria-label="Back to the top" class="size-4 sm:hidden" />
   </Button>
 </Layout>
 <Modal id="version-modal" class="m-auto border border-[--zen-dark] !bg-paper">
   <ModalHeader class="border-b border-[--zen-dark]">
-    <p class="text-4xl font-bold text-dark">Choose version</p>
+    <p class="text-4xl font-bold text-dark">{releaseNotes.chooseVersion}</p>
   </ModalHeader>
   <ModalBody>
     <div id="version-list" class="flex flex-col gap-2 text-xl text-dark">
       {
-        releaseNotes.map((note) => (
+        releaseNotesData.map((note) => (
           <button
             aria-label={`Navigate to version ${note.version}`}
             class="w-full text-left transition-colors duration-150 hover:text-coral"

@@ -1,12 +1,21 @@
 ---
-import Description from '../components/Description.astro'
-import { motion } from 'motion/react'
-import { getTitleAnimation } from '../animations'
+import { motion } from "motion/react";
+import { getTitleAnimation } from "~/animations";
+import Description from "~/components/Description.astro";
+import { getLocale, getUI } from "~/utils/i18n";
 
-import tutaLogo from '../assets/tuta-logo.png'
+const locale = getLocale(Astro);
 
-import Image from 'astro/components/Image.astro'
-const { showSponsors = true } = Astro.props
+import tutaLogo from "~/assets/tuta-logo.png";
+
+import Image from "astro/components/Image.astro";
+const { showSponsors = true } = Astro.props;
+
+const {
+	routes: {
+		index: { sponsors },
+	},
+} = getUI(locale);
 ---
 
 <section id="sponsors" class:list={['mb-32 px-4', !showSponsors && 'hidden']}>
@@ -17,18 +26,16 @@ const { showSponsors = true } = Astro.props
       >
     </motion.span>
     <motion.span client:load {...getTitleAnimation(0.4)}>
-      <Description>
-        We are grateful to our sponsors for their support. They help us to keep
-        the project alive.<br />You can also be part of this journey by <a
-          href="/donate"
-          class="zen-link">donating us directly</a
-        >!
-      </Description>
+      <Description set:html={sponsors.description} />
     </motion.span>
     <div class="relative mt-8 flex items-center justify-center">
       <motion.span client:load {...getTitleAnimation(0.6)}>
-        <a href="https://tuta.com/" target="_blank" class="w-fit">
-          <Image src={tutaLogo} alt="Tuta" class="h-16 w-fit object-contain" />
+        <a href={sponsors.sponsors['tuta'].url} target="_blank" class="w-fit">
+          <Image
+            src={tutaLogo}
+            alt={sponsors.sponsors['tuta'].name}
+            class="h-16 w-fit object-contain"
+          />
         </a>
       </motion.span>
     </div>

@@ -1,12 +1,21 @@
 ---
-import { motion } from 'motion/react'
-import Button from '../components/Button.astro'
-import { Astronav, MenuItems, Dropdown, DropdownItems } from 'astro-navbar'
-import { ArrowRight, ChevronDown, Download, Menu } from 'lucide-astro'
-import Logo from './Logo.astro'
-import { getTitleAnimation } from '../animations.ts'
-import ThemeSwitch from './ThemeSwitch.astro'
-import MobileMenu from './MobileMenu.astro'
+import { Astronav, Dropdown, DropdownItems, MenuItems } from "astro-navbar";
+import { ArrowRight, ChevronDown, Download, Menu } from "lucide-astro";
+import { motion } from "motion/react";
+import Button from "~/components/Button.astro";
+import { getLocale, getPath, getUI } from "~/utils/i18n";
+import { getTitleAnimation } from "../animations.ts";
+import Logo from "./Logo.astro";
+import MobileMenu from "./MobileMenu.astro";
+import ThemeSwitch from "./ThemeSwitch.astro";
+
+const locale = getLocale(Astro);
+const getLocalePath = getPath(locale);
+const {
+	components: {
+		nav: { brand, menu },
+	},
+} = getUI(locale);
 ---
 
 <!-- Desktop Navigation -->
@@ -14,16 +23,19 @@ import MobileMenu from './MobileMenu.astro'
   <MenuItems
     class="relative z-20 mx-auto grid w-full grid-cols-2 items-center gap-2 bg-paper px-4 py-3 lg:grid lg:min-w-fit lg:grid-cols-[auto_1fr_auto] lg:p-6 xl:w-3/4"
   >
-    <a class="flex items-center gap-2 text-lg font-bold" href="/">
+    <a
+      class="flex items-center gap-2 text-lg font-bold"
+      href={getLocalePath('/')}
+    >
       <Logo class="text-coral" />
-      <span>zen browser</span>
+      <span>{brand}</span>
     </a>
     <div
       class="hidden items-center gap-6 place-self-center text-xs sm:text-sm lg:flex lg:text-base"
     >
       <Dropdown class="group">
         <button class="flex items-center">
-          <span>Getting Started</span>
+          <span>{menu.gettingStarted}</span>
           <ChevronDown
             class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
           />
@@ -34,26 +46,29 @@ import MobileMenu from './MobileMenu.astro'
             {...getTitleAnimation(0, 0.3, false)}
             client:load
           >
-            <a class="dropdown-item bg-dark/5 row-span-2" href="/mods">
-              <div class="dropdown-title">Zen Mods</div>
+            <a
+              class="dropdown-item bg-dark/5 row-span-2"
+              href={getLocalePath('/mods')}
+            >
+              <div class="dropdown-title">{menu.zenMods}</div>
               <div class="dropdown-description">
-                Customize your browsing experience with Zen Mods.
+                {menu.zenModsDesc}
               </div>
               <Button isPrimary class="mt-auto">
-                Try Zen Mods
+                {menu.tryZenMods}
                 <ArrowRight class="size-4" />
               </Button>
             </a>
-            <a class="dropdown-item" href="/release-notes">
-              <div class="dropdown-title">Release Notes</div>
+            <a class="dropdown-item" href={getLocalePath('/release-notes')}>
+              <div class="dropdown-title">{menu.releaseNotes}</div>
               <div class="dropdown-description">
-                Stay up to date with the latest features and improvements.
+                {menu.releaseNotesDesc}
               </div>
             </a>
             <a class="dropdown-item" href="https://discord.gg/zen-browser">
-              <div class="dropdown-title">Discord</div>
+              <div class="dropdown-title">{menu.discord}</div>
               <div class="dropdown-description">
-                Join our community on Discord to chat with other Zen users!
+                {menu.discordDesc}
               </div>
             </a>
           </motion.div>
@@ -61,7 +76,7 @@ import MobileMenu from './MobileMenu.astro'
       </Dropdown>
       <Dropdown class="group">
         <button class="flex items-center">
-          <span>Useful Links</span>
+          <span>{menu.usefulLinks}</span>
           <ChevronDown
             class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
           />
@@ -72,22 +87,22 @@ import MobileMenu from './MobileMenu.astro'
             {...getTitleAnimation(0, 0.3, false)}
             client:load
           >
-            <a class="dropdown-item" href="/donate">
-              <div class="dropdown-title">Donate ❤️</div>
+            <a class="dropdown-item" href={getLocalePath('/donate')}>
+              <div class="dropdown-title">{menu.donate}</div>
               <div class="dropdown-description">
-                Support the development of Zen Browser with a donation.
+                {menu.donateDesc}
               </div>
             </a>
-            <a class="dropdown-item" href="/about">
-              <div class="dropdown-title">About Us 🌟</div>
+            <a class="dropdown-item" href={getLocalePath('/about')}>
+              <div class="dropdown-title">{menu.aboutUs}</div>
               <div class="dropdown-description">
-                Learn more about the team behind Zen Browser.
+                {menu.aboutUsDesc}
               </div>
             </a>
             <a class="dropdown-item" href="https://docs.zen-browser.app">
-              <div class="dropdown-title">Documentation</div>
+              <div class="dropdown-title">{menu.documentation}</div>
               <div class="dropdown-description">
-                Learn how to use Zen Browser with our documentation.
+                {menu.documentationDesc}
               </div>
             </a>
             <a
@@ -95,16 +110,16 @@ import MobileMenu from './MobileMenu.astro'
               href="https://github.com/zen-browser"
               target="_blank"
             >
-              <div class="dropdown-title">GitHub</div>
+              <div class="dropdown-title">{menu.github}</div>
               <div class="dropdown-description">
-                Contribute to the development of Zen Browser on GitHub.
+                {menu.githubDesc}
               </div>
             </a>
           </motion.div>
         </DropdownItems>
       </Dropdown>
-      <a class="hidden items-center lg:block" href="/mods">
-        <span>Mods</span>
+      <a class="hidden items-center lg:block" href={getLocalePath('/mods')}>
+        <span>{menu.mods}</span>
       </a>
     </div>
     <div class="flex items-center gap-2 place-self-end lg:gap-4">
@@ -113,7 +128,7 @@ import MobileMenu from './MobileMenu.astro'
       </div>
       <Button href="/download" class="hidden lg:flex" isPrimary>
         <span class="hidden items-center gap-2 lg:flex">
-          Download
+          {menu.download}
           <ArrowRight class="size-4" />
         </span>
         <span class="flex items-center gap-2 lg:hidden">

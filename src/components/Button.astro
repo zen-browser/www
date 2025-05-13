@@ -1,13 +1,17 @@
 ---
+import { getLocale, getPath } from "~/utils/i18n";
+
+const locale = getLocale(Astro);
+const getLocalePath = getPath(locale);
 const {
-  class: className,
-  isPrimary,
-  isAlert,
-  isBordered,
-  href,
-  id,
-  extra,
-} = Astro.props
+	class: className,
+	isPrimary,
+	isAlert,
+	isBordered,
+	href,
+	id,
+	extra,
+} = Astro.props;
 ---
 
 {
@@ -15,7 +19,7 @@ const {
     <a
       id={id}
       {...extra}
-      href={href}
+      href={getLocalePath(href)}
       class:list={[
         'transition-bg flex items-center justify-center gap-2 rounded-xl px-6 py-4 transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]',
         className,
