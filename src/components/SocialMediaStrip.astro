@@ -6,15 +6,15 @@ import {
   faMastodon,
   faBluesky,
   faGithub,
-  faTwitter,
+  faXTwitter,
   faReddit,
 } from '@fortawesome/free-brands-svg-icons'
 
-library.add(faMastodon, faBluesky, faGithub, faTwitter, faReddit)
+library.add(faMastodon, faBluesky, faGithub, faXTwitter, faReddit)
 const Mastodon = icon({ prefix: 'fab', iconName: 'mastodon' })
 const Bluesky = icon({ prefix: 'fab', iconName: 'bluesky' })
 const Github = icon({ prefix: 'fab', iconName: 'github' })
-const Twitter = icon({ prefix: 'fab', iconName: 'twitter' })
+const XTwitter = icon({ prefix: 'fab', iconName: 'x-twitter' })
 const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
 ---
 
@@ -31,12 +31,12 @@ const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
   </li>
   <li>
     <a
-      href="https://twitter.com/zen_browser"
+      href="https://x.com/zen_browser"
       target="_blank"
       class="font-normal"
-      aria-label="Visit Zen Browser on Twitter"
+      aria-label="Visit Zen Browser on X"
     >
-      <Fragment set:html={Twitter.html} />
+      <Fragment set:html={XTwitter.html} />
     </a>
   </li>
   <li>
