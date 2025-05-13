@@ -1,20 +1,28 @@
 ---
-import Description from '../components/Description.astro'
-import Title from '../components/Title.astro'
-import Layout from '../layouts/Layout.astro'
-import { getReleasesWithChecksums } from '../components/download/release-data.astro'
-import PlatformDownload from '../components/download/PlatformDownload.astro'
-import DownloadScript from '../components/download/DownloadScript.astro'
-import { getChecksums } from '../utils/githubChecksums'
+import Description from '~/components/Description.astro'
+import DownloadScript from '~/components/download/DownloadScript.astro'
+import PlatformDownload from '~/components/download/PlatformDownload.astro'
+import { getReleasesWithChecksums } from '~/components/download/release-data.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getChecksums } from '~/utils/githubChecksums'
+import { getLocale, getUI } from '~/utils/i18n'
 
-import { library, icon } from '@fortawesome/fontawesome-svg-core'
+import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faWindows,
-  faLinux,
   faApple,
   faGithub,
+  faLinux,
+  faWindows,
 } from '@fortawesome/free-brands-svg-icons'
-import { Lock, ExternalLink } from 'lucide-astro'
+import { ExternalLink, Lock } from 'lucide-astro'
+
+export { getStaticPaths } from '~/utils/i18n'
+
+const locale = getLocale(Astro)
+const {
+  routes: { download },
+  layout,
+} = getUI(locale)
 
 library.add(faWindows, faLinux, faApple, faGithub)
 const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
@@ -24,21 +32,22 @@ const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
 const checksums = await getChecksums()
 const releases = getReleasesWithChecksums(checksums)
+
+const platformNames = download.platformNames
+const platformDescriptions = download.platformDescriptions
 ---
 
 <DownloadScript />
 
-<Layout title="Download Zen">
-  <main class="flex min-h-screen flex-col px-2 data-[os='windows']:bg-zen-blue">
+<Layout title={layout.download.title} description={layout.download.description}>
+  <main class="flex min-h-screen flex-col px-6 data-[os='windows']:bg-zen-blue">
     <div class="container relative mx-auto max-w-5xl py-12">
       <div class="mb-6 mt-12 flex flex-col gap-4">
         <Description id="download-title" class="text-6xl font-bold"
-          >Download Zen</Description
+          >{download.title}</Description
         >
         <Description class="max-w-xl text-pretty">
-          Download Zen Browser for your platform and experience a more mindful
-          internet browsing experience. All downloads include SHA256 checksums
-          for verification.
+          {download.description}
         </Description>
         <div
           id="twilight-info"
@@ -58,11 +67,7 @@ const releases = getReleasesWithChecksums(checksums)
             <line x1="12" y1="8" x2="12" y2="12"></line>
             <line x1="12" y1="16" x2="12.01" y2="16"></line>
           </svg>
-          <Description>
-            <strong class="font-medium text-zen-blue">Twilight Mode:</strong> You're
-            currently in Twilight mode, this means you're downloading the latest
-            experimental features and updates.
-          </Description>
+          <Description set:html={download.alertInfo.description} />
         </div>
       </div>
 
@@ -77,7 +82,7 @@ const releases = getReleasesWithChecksums(checksums)
           >
             <span class="flex items-center gap-2">
               <Fragment set:html={appleIcon.html} />
-              <span>macOS</span>
+              <span>{platformNames.mac}</span>
             </span>
           </button>
           <button
@@ -86,7 +91,7 @@ const releases = getReleasesWithChecksums(checksums)
           >
             <span class="flex items-center gap-2">
               <Fragment set:html={windowsIcon.html} />
-              <span>Windows</span>
+              <span>{platformNames.windows}</span>
             </span>
           </button>
           <button
@@ -95,7 +100,7 @@ const releases = getReleasesWithChecksums(checksums)
           >
             <span class="flex items-center gap-2">
               <Fragment set:html={linuxIcon.html} />
-              <span>Linux</span>
+              <span>{platformNames.linux}</span>
             </span>
           </button>
         </div>
@@ -109,16 +114,16 @@ const releases = getReleasesWithChecksums(checksums)
         <PlatformDownload
           platform="mac"
           icon={appleIcon.html}
-          title="MacOS Download"
-          description="Works on both new Apple (M-Series) and older Intel Macs.<br />Requires macOS 11.0 or later."
+          title={platformNames.macDownload}
+          description={platformDescriptions.mac}
           releases={releases.macos}
         />
         <!-- Windows Download -->
         <PlatformDownload
           platform="windows"
           icon={windowsIcon.html}
-          title="Windows Download"
-          description="Works on Windows 10 and Windows 11.<br />Not sure which version to get? Most people should choose the 64-bit installer."
+          title={platformNames.windowsDownload}
+          description={platformDescriptions.windows}
           releases={releases.windows}
         />
 
@@ -126,16 +131,16 @@ const releases = getReleasesWithChecksums(checksums)
         <PlatformDownload
           platform="linux"
           icon={linuxIcon.html}
-          title="Linux Download"
-          description="Works with many Linux versions.<br />Pick the download that matches your system."
+          title={platformNames.linuxDownload}
+          description={platformDescriptions.linux}
           releases={releases.linux}
         />
       </div>
 
       <!-- Additional resources -->
       <section class="mb-16">
-        <h2 class="mb-4 text-3xl font-bold font-medium">
-          Additional Resources
+        <h2 class="mb-4 text-3xl font-semibold">
+          {download.additionalResources.title}
         </h2>
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -145,10 +150,11 @@ const releases = getReleasesWithChecksums(checksums)
           >
             <div class="flex items-start justify-between">
               <div>
-                <h3 class="mb-2 text-xl font-medium">Source Code</h3>
+                <h3 class="mb-2 text-xl font-medium">
+                  {download.additionalResources.sourceCode.title}
+                </h3>
                 <p class="text-muted-foreground">
-                  Explore Zen Browser's source code on GitHub. Contribute to the
-                  project or build your own version.
+                  {download.additionalResources.sourceCode.description}
                 </p>
               </div>
               <div
@@ -169,10 +175,11 @@ const releases = getReleasesWithChecksums(checksums)
           >
             <div class="flex items-start justify-between">
               <div>
-                <h3 class="mb-2 text-xl font-medium">Documentation</h3>
+                <h3 class="mb-2 text-xl font-medium">
+                  {download.additionalResources.documentation.title}
+                </h3>
                 <p class="text-muted-foreground">
-                  Access comprehensive documentation, guides, and tutorials for
-                  Zen Browser.
+                  {download.additionalResources.documentation.description}
                 </p>
               </div>
               <div
@@ -196,17 +203,13 @@ const releases = getReleasesWithChecksums(checksums)
         </div>
 
         <div>
-          <h3 class="mb-2 text-lg font-medium">Verified & Secure Downloads</h3>
-          <p class="text-muted-foreground">
-            All Zen downloads are signed and verified for your security. We
-            recommend downloading directly from our official website or GitHub
-            repository. If your download seems broken or gets flagged by your
-            antivirus, please
-            <a
-              href="https://github.com/zen-browser/desktop/issues/new/choose"
-              class="text-accent zen-link ml-1">report it to us</a
-            >.
-          </p>
+          <h3 class="mb-2 text-lg font-medium">
+            {download.securityNotice.title}
+          </h3>
+          <p
+            class="text-muted-foreground"
+            set:html={download.securityNotice.description}
+          />
         </div>
       </div>
     </div>

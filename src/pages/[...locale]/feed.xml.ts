@@ -1,6 +1,7 @@
 import rss, { type RSSOptions } from '@astrojs/rss'
-import { releaseNotes } from '../release-notes'
-import type { ReleaseNote } from '../release-notes'
+import { releaseNotes } from '~/release-notes'
+import type { ReleaseNote } from '~/release-notes'
+export { getStaticPaths } from '~/utils/i18n'
 
 /** The default number of entries to include in the RSS feed. */
 const RSS_ENTRY_LIMIT = 20
@@ -73,14 +74,14 @@ function formatRssDate(dateStr: string) {
  */
 function formatReleaseNote(releaseNote: ReleaseNote) {
   let content = `<p>
-        If you encounter any issues, please report them on <a href="https://github.com/zen-browser/desktop/issues/">the issues page</a>. 
+        If you encounter any issues, please report them on <a href="https://github.com/zen-browser/desktop/issues/">the issues page</a>.
         Thanks everyone for your feedback! ❤️
     </p>`
 
   if (releaseNote.image) {
-    content += `<img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/releases/${releaseNote.version}.png" 
-                         alt="Release Image for version ${releaseNote.version}" 
-                         style="max-width: 30em; width: 100%; border-radius: 0.5rem;" 
+    content += `<img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/releases/${releaseNote.version}.png"
+                         alt="Release Image for version ${releaseNote.version}"
+                         style="max-width: 30em; width: 100%; border-radius: 0.5rem;"
                     />`
   }
 

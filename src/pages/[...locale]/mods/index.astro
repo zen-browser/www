@@ -1,0 +1,40 @@
+---
+import Description from '~/components/Description.astro'
+import ModsList from '~/components/ModsList'
+import { CONSTANT } from '~/constants'
+import Layout from '~/layouts/Layout.astro'
+import { getAllMods } from '~/mods'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
+
+const locale = getLocale(Astro)
+
+const {
+  routes: { mods },
+  layout,
+} = getUI(locale)
+
+const allMods = (await getAllMods()) || []
+---
+
+<Layout title={layout.mods.title}>
+  <main class="mx-auto mt-32 max-w-[120rem] 2xl:mt-0">
+    <header class="mb-10 mt-32 flex w-full flex-col justify-center border-dark">
+      <div class="mx-auto flex flex-col gap-6 px-8 lg:w-1/2">
+        <div>
+          <Description class="text-6xl font-bold">{mods.title}</Description>
+          <Description>
+            {mods.description}
+          </Description>
+        </div>
+      </div>
+    </header>
+
+    <!-- Importing ModList component -->
+    <ModsList
+      allMods={allMods}
+      locale={locale ?? CONSTANT.I18N.DEFAULT_LOCALE}
+      client:load
+    />
+  </main>
+</Layout>
