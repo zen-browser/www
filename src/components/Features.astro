@@ -1,33 +1,20 @@
 ---
-import Description from '~/components/Description.astro'
+import Description from '../components/Description.astro'
 import { motion } from 'motion/react'
-import { getTitleAnimation } from '~/animations'
+import { getTitleAnimation } from '../animations'
 
-import WorkspacesVideo from '~/assets/Workspaces.webm'
-import GlanceVideo from '~/assets/Glance.webm'
-import CompactModeVideo from '~/assets/CompactMode.webm'
-import SplitViewsVideo from '~/assets/SplitViews.webm'
+import WorkspacesVideo from '../assets/Workspaces.webm'
+import GlanceVideo from '../assets/Glance.webm'
+import CompactModeVideo from '../assets/CompactMode.webm'
+import SplitViewsVideo from '../assets/SplitViews.webm'
 
 import Video from './Video.astro'
-import { getLocale, getUI } from '~/utils/i18n'
-
-const locale = getLocale(Astro)
 
 const {
-  routes: {
-    index: { features },
-  },
-} = getUI(locale)
-
-const {
-  title1 = features.title1,
-  title2 = features.title2,
-  title3 = features.title3,
+  title1 = 'Productivity',
+  title2 = 'at',
+  title3 = 'its best',
 } = Astro.props
-
-const descriptions = Object.values(features.featureTabs).map(
-  (tab) => tab.description
-)
 ---
 
 <section
@@ -46,7 +33,9 @@ const descriptions = Object.values(features.featureTabs).map(
     </motion.span>
   </Description>
   <motion.p client:load {...getTitleAnimation(0.6)} className="lg:w-1/2">
-    {features.description}
+    Zen Browser is packed with features that help you stay productive and
+    focused. Browsers should be tools that help you get things done, not
+    distractions that keep you from your work.
   </motion.p>
   <div
     class="mb-12 mt-6 flex flex-col gap-6 lg:flex-row lg:justify-between lg:gap-2"
@@ -60,28 +49,28 @@ const descriptions = Object.values(features.featureTabs).map(
           class="feature-tab whitespace-nowrap"
           data-active="true"
         >
-          {features.featureTabs.workspaces.title}
+          Workspaces
         </motion.button>
         <motion.button
           client:load
           {...getTitleAnimation(0.2)}
           class="feature-tab whitespace-nowrap"
         >
-          {features.featureTabs.compactMode.title}
+          Compact Mode
         </motion.button>
         <motion.button
           client:load
           {...getTitleAnimation(0.4)}
           class="feature-tab whitespace-nowrap"
         >
-          {features.featureTabs.glance.title}
+          Glance
         </motion.button>
         <motion.button
           client:load
           {...getTitleAnimation(0.6)}
           class="feature-tab whitespace-nowrap"
         >
-          {features.featureTabs.splitView.title}
+          Split View
         </motion.button>
       </div>
 
@@ -93,45 +82,37 @@ const descriptions = Object.values(features.featureTabs).map(
           className="feature"
           data-active="true"
         >
-          <Description class="text-2xl font-bold">
-            {features.featureTabs.workspaces.title}
-          </Description>
+          <Description class="text-2xl font-bold">Workspaces</Description>
           <Description>
-            {features.featureTabs.workspaces.description}
+            Organize your tabs into Workspaces to keep your projects separate
+            and organized, and switch between them with ease.
           </Description>
         </motion.div>
         <motion.div client:load {...getTitleAnimation(1)} className="feature">
-          <Description class="text-2xl font-bold">
-            {features.featureTabs.compactMode.title}
-          </Description>
+          <Description class="text-2xl font-bold">Compact Mode</Description>
           <Description>
-            {features.featureTabs.compactMode.description}
+            Zen's Compact Mode gives you more screen real estate by hiding the
+            tab bar when you don't need it, and showing it when you do.
           </Description>
         </motion.div>
         <motion.div client:load {...getTitleAnimation(1.2)} className="feature">
-          <Description class="text-2xl font-bold">
-            {features.featureTabs.glance.title}
-          </Description>
+          <Description class="text-2xl font-bold">Glance</Description>
           <Description>
-            {features.featureTabs.glance.description}
+            Zen's Glance lets you preview tabs without switching to them, so you
+            can quickly find the page you're looking for.
           </Description>
         </motion.div>
         <motion.div client:load {...getTitleAnimation(1.4)} className="feature">
-          <Description class="text-2xl font-bold">
-            {features.featureTabs.splitView.title}
-          </Description>
+          <Description class="text-2xl font-bold">Split View</Description>
           <Description>
-            {features.featureTabs.splitView.description}
+            Zen's Split View lets you view up to 4 tabs side by side, so you can
+            compare information or multitask easily.
           </Description>
         </motion.div>
       </div>
 
       <!-- Mobile description -->
-      <div
-        class="feature-description mt-4 lg:hidden"
-        data-descriptions={descriptions}
-      >
-      </div>
+      <div class="feature-description mt-4 lg:hidden"></div>
     </div>
 
     <div class="relative w-full lg:w-3/5">
@@ -179,16 +160,17 @@ const descriptions = Object.values(features.featureTabs).map(
 </section>
 
 <script>
-  const features = document.querySelectorAll(
-    '.feature, .feature-tab'
-  ) as NodeListOf<HTMLElement>
+  const features = document.querySelectorAll('.feature, .feature-tab')
+  const descriptions = [
+    'Organize your tabs into Workspaces to keep your projects separate and organized, and switch between them with ease.',
+    "Zen's Compact Mode gives you more screen real estate by hiding the tab bar when you don't need it, and showing it when you do.",
+    "Zen's Glance lets you preview tabs without switching to them, so you can quickly find the page you're looking for.",
+    "Zen's Split View lets you view up to 4 tabs side by side, so you can compare information or multitask easily.",
+  ]
 
   // Set initial description
-  const descriptionEl = document.querySelector(
-    '.feature-description'
-  ) as HTMLDivElement
-  const descriptions = descriptionEl?.dataset.descriptions?.split(',')
-  if (descriptionEl && descriptions) {
+  const descriptionEl = document.querySelector('.feature-description')
+  if (descriptionEl) {
     descriptionEl.textContent = descriptions[0]
   }
 
@@ -214,12 +196,12 @@ const descriptions = Object.values(features.featureTabs).map(
 
     // Update mobile description
     const descriptionEl = document.querySelector('.feature-description')
-    if (descriptionEl && descriptions) {
+    if (descriptionEl) {
       descriptionEl.textContent = descriptions[index]
     }
 
     const videos = document.querySelectorAll(
-      '.feature-video'
+      '.feature-video',
     ) as NodeListOf<HTMLVideoElement>
     videos.forEach((vid, i) => {
       const yOffset = (i - index) * 20

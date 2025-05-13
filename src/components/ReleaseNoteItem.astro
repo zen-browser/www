@@ -6,21 +6,10 @@ import {
   type ReleaseNote,
   type BreakingChange,
   getReleaseNoteFirefoxVersion,
-} from '../release-notes'
-import { releaseNotes as releaseNotesData } from '~/release-notes'
-import { getLocale, getUI, getPath } from '~/utils/i18n'
+} from '../release-notes';
+import { releaseNotes } from '../release-notes'
 export type Props = ReleaseNote
 const { isTwilight, ...props } = Astro.props
-
-const locale = getLocale(Astro)
-const getLocalePath = getPath(locale)
-const {
-  routes: {
-    releaseNotes: {
-      components: { releaseNoteItem },
-    },
-  },
-} = getUI(locale)
 
 let date
 if (props.date) {
@@ -28,16 +17,16 @@ if (props.date) {
   date = new Date(Date.parse(`${year}-${month}-${day}`))
 }
 
-const ffVersion = getReleaseNoteFirefoxVersion(props)
-const currentReleaseIndex = releaseNotesData.findIndex(
+const ffVersion = getReleaseNoteFirefoxVersion(props);
+const currentReleaseIndex = releaseNotes.findIndex(
   (releaseNote: ReleaseNote) => releaseNote.version === props.version
-)
-const prevReleaseNote = releaseNotesData[currentReleaseIndex + 1]
-let compareLink = ''
+);
+const prevReleaseNote = releaseNotes[currentReleaseIndex + 1];
+let compareLink = '';
 if (prevReleaseNote && !isTwilight) {
-  compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`
+  compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`;
 }
----
+--- 
 
 <section
   class="release-note-item relative mt-24 flex flex-col border-t pt-24 lg:flex-row"
@@ -48,28 +37,24 @@ if (prevReleaseNote && !isTwilight) {
       isTwilight ? (
         <a
           class="!mb-2 block w-fit rounded-full bg-coral px-3 py-1 text-xs text-paper"
-          href={getLocalePath('/download?twilight')}
+          href="/download?twilight"
         >
-          {releaseNoteItem.twilight}
+          Twilight
         </a>
       ) : null
     }
     <h1 class="flex items-center text-3xl font-bold">
       {
         isTwilight ? (
-          <>
-            {releaseNoteItem.twilightChanges} {props.version} 🌙
-          </>
+          <>Twilight changes for {props.version} 🌙</>
         ) : (
-          <>
-            {releaseNoteItem.releaseChanges} {props.version} 🎉
-          </>
+          <>Release notes for {props.version} 🎉</>
         )
       }
       {
         ffVersion ? (
           <div class="!mb-2 ml-6 mt-1 block inline w-fit rounded-full bg-blue-500 px-3 py-1 text-xs text-paper dark:bg-blue-50">
-            {releaseNoteItem.firefoxVersion.replace('{version}', ffVersion)}
+            Firefox {ffVersion}
           </div>
         ) : null
       }
@@ -81,7 +66,7 @@ if (prevReleaseNote && !isTwilight) {
         class="zen-link whitespace-nowrap text-sm opacity-60"
         target="_blank"
         href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}
-        >{releaseNoteItem.githubRelease}</a
+        >GitHub Release</a
       >
       {
         !isTwilight ? (
@@ -93,7 +78,7 @@ if (prevReleaseNote && !isTwilight) {
               target="_blank"
               href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}
             >
-              {releaseNoteItem.workflowRun}
+              Workflow run
             </a>
           </>
         ) : null
@@ -108,7 +93,7 @@ if (prevReleaseNote && !isTwilight) {
               target="_blank"
               href={compareLink}
             >
-              {releaseNoteItem.compareChanges}
+              Compare changes
             </a>
           </>
         ) : null
@@ -117,8 +102,20 @@ if (prevReleaseNote && !isTwilight) {
     <div class="text-muted-forground mt-6 flex text-sm opacity-70">
       {isTwilight ? <Info class="mx-4 my-0 size-6 text-yellow-500" /> : null}
       <p class="m-0">
-        {isTwilight ? <>{releaseNoteItem.twilightWarning}</> : null}
-        <span set:html={releaseNoteItem.reportIssues} />
+        {
+          isTwilight ? (
+            <>
+              Please note that Twilight is a pre-release version of Zen Browser.
+              It may contain bugs and unfinished features.
+            </>
+          ) : null
+        }
+        If you encounter any issues, please report them on <a
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://github.com/zen-browser/desktop/issues/"
+          class="zen-link">the issues page</a
+        >.
       </p>
     </div>
 
@@ -150,10 +147,7 @@ if (prevReleaseNote && !isTwilight) {
                             href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
                             rel="noopener noreferrer"
                             target="_blank"
-                            aria-label={releaseNoteItem.viewIssue.replace(
-                              '{issue}',
-                              fix.issue
-                            )}
+                            aria-label={`View issue number ${fix.issue} on GitHub`}
                           >
                             #{fix.issue}
                           </a>
@@ -169,7 +163,7 @@ if (prevReleaseNote && !isTwilight) {
       }
       {
         props.features?.length ? (
-          <AccordionItem title={releaseNoteItem.sections.features}>
+          <AccordionItem title="Features">
             <ul class="list-inside list-disc">
               {props.features.map((feature: string) => (
                 <li class="text-md text-muted-foreground">{feature}</li>
@@ -180,7 +174,7 @@ if (prevReleaseNote && !isTwilight) {
       }
       {
         props.themeChanges?.length ? (
-          <AccordionItem title={releaseNoteItem.sections.themeChanges}>
+          <AccordionItem title="Theme Changes">
             <ul class="list-inside list-disc">
               {props.themeChanges.map((themeChange: string) => (
                 <li class="text-md text-muted-foreground">{themeChange}</li>
@@ -191,7 +185,7 @@ if (prevReleaseNote && !isTwilight) {
       }
       {
         props.breakingChanges?.length ? (
-          <AccordionItem title={releaseNoteItem.sections.breakingChanges.title}>
+          <AccordionItem title="Breaking Changes">
             <ul class="list-inside list-disc">
               {props.breakingChanges.map((breakingChange: BreakingChange) => (
                 <li class="text-md text-muted-foreground">
@@ -205,11 +199,9 @@ if (prevReleaseNote && !isTwilight) {
                         href={breakingChange.link}
                         rel="noopener noreferrer"
                         target="_blank"
-                        aria-label={
-                          releaseNoteItem.sections.breakingChanges.description
-                        }
+                        aria-label={`View breaking change on GitHub`}
                       >
-                        {releaseNoteItem.learnMore}
+                        Learn more
                       </a>
                     </>
                   )}

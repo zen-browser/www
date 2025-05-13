@@ -1,14 +1,5 @@
 ---
 import { ArrowLeft } from 'lucide-astro'
-import { getLocale, getUI } from '~/utils/i18n'
-
-const locale = getLocale(Astro)
-
-const {
-  routes: {
-    mods: { slug },
-  },
-} = getUI(locale)
 ---
 
 <button
@@ -16,5 +7,5 @@ const {
   class="mb-8 flex w-min items-center gap-2"
 >
   <ArrowLeft class="size-4" />
-  {slug.back}
+  Back
 </button>

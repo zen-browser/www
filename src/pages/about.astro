@@ -1,0 +1,142 @@
+---
+import Button from '../components/Button.astro'
+import Description from '../components/Description.astro'
+import Title from '../components/Title.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title="About - Zen Browser"
+  description="We are simply a group of developers and designers who care about your experience on the web. We believe that the internet should be a place where you can explore, learn, and connect without worrying about your data being collected."
+>
+  <main
+    class="relative flex min-h-screen flex-col items-center justify-center py-24"
+  >
+    <div class="mb-24 p-4 text-center lg:w-1/2">
+      <Description class="text-6xl font-bold">About Us</Description>
+      <Description>
+        We are simply a group of developers and designers who care about your
+        experience on the web. We believe that the internet should be a place
+        where you can explore, learn, and connect without worrying about your
+        data being collected.
+      </Description>
+      <Button href="/donate" class="mx-auto mt-4 w-fit" isPrimary
+        >A little help?</Button
+      >
+    </div>
+    <div
+      class="relative flex w-full flex-col items-center justify-center lg:flex-row"
+    >
+      <div class="flex flex-col p-8 lg:w-1/3 lg:pr-24">
+        <div class="text-4xl font-bold lg:text-6xl">Main Team</div>
+        <Description>
+          This list shows the main team members who are working hard to bring
+          you the best browsing experience.
+        </Description>
+        <div class="mt-4">
+          <ul>
+            <li class="text-sm">
+              <a href="https://cheff.dev/"
+                ><strong class="zen-link font-bold">Mauro B.</strong></a
+              ><span class="opacity-60"> : Creator, Main Developer</span>
+            </li>
+            <li class="mt-2 text-sm">
+              <strong class="font-bold">Oscar Gonzalez</strong><span
+                class="opacity-60"
+              >
+                : Site Reliability Engineer (SRE) and code signing.</span
+              >
+            </li>
+            <li class="mt-2 text-sm">
+              <a href="https://janheres.eu/"
+                ><strong class="zen-link font-bold">Jan Heres</strong></a
+              ><span class="opacity-60">
+                : Active contributor and helps with MacOS builds</span
+              >
+            </li>
+            <li class="mt-2 text-sm">
+              <a href="https://github.com/BrhmDev"
+                ><strong class="zen-link font-bold">BrhmDev</strong></a
+              ><span class="opacity-60">
+                : Active contributor with great contributions</span
+              >
+            </li>
+            <li class="mt-2 text-sm">
+              <a href="https://thatcanoa.org/"
+                ><strong class="zen-link font-bold">Canoa</strong></a
+              ><span class="opacity-60">
+                : Active contributor, and very active in issue handling and
+                website management</span
+              >
+            </li>
+            <li class="mt-2 text-sm">
+              <a href="https://cybrneon.xyz/"
+                ><strong class="zen-link font-bold">Adam</strong></a
+              ><span class="opacity-60"> : Branding and design</span>
+            </li>
+            <li class="mt-2 text-sm">
+              <a href="https://github.com/kristijanribaric"
+                ><strong class="zen-link font-bold">kristijanribaric</strong></a
+              ><span class="opacity-60"> : Active contributor</span>
+            </li>
+            <li class="mt-2 text-sm">
+              <a href="https://github.com/n7itro"
+                ><strong class="zen-link font-bold">n7itro</strong></a
+              ><span class="opacity-60">
+                : Active contributor and release notes writer</span
+              >
+            </li>
+            <li class="mt-2 text-sm">
+              <a href="https://josuegalre.netlify.app/"
+                ><strong class="zen-link font-bold">Bryan Galdámez</strong></a
+              ><span class="opacity-60">
+                : Huge contributor on theme functionalities</span
+              >
+            </li>
+            <li class="mt-2 text-sm">
+              <a href="https://iamjafeth.com/"
+                ><strong class="zen-link font-bold">Jafeth Garro</strong></a
+              ><span class="opacity-60"> : Documentation writer</span>
+            </li>
+            <li class="mt-2 text-sm">
+              <a href="https://github.com/LarveyOfficial/"
+                ><strong class="zen-link font-bold">Larvey</strong></a
+              ><span class="opacity-60"> : AUR maintainer</span>
+            </li>
+            <li class="mt-2 text-sm">
+              <strong class="font-bold">Daniel García</strong><span
+                class="opacity-60"
+              >
+                : MacOS certificate and app notarization maintainer</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="absolute hidden h-full w-[1px] bg-dark opacity-15 lg:block">
+      </div>
+      <div class="flex flex-col p-8 lg:w-1/3 lg:pl-24">
+        <div class="text-4xl font-bold lg:text-6xl">Contributors</div>
+        <Description>
+          Here are all the wonderful people that decided to contribute to the
+          project! The first set of images are from the desktop repository, and
+          the second set is from the website repository.
+        </Description>
+        <a href="https://github.com/zen-browser/desktop/graphs/contributors"
+          ><img
+            src="https://contributors-img.web.app/image?repo=zen-browser/desktop"
+            alt="Contributors"
+            class="mt-8"
+          /></a
+        >
+        <a href="https://github.com/zen-browser/www/graphs/contributors"
+          ><img
+            src="https://contributors-img.web.app/image?repo=zen-browser/www"
+            alt="Contributors (website)"
+            class="mt-8"
+          /></a
+        >
+      </div>
+    </div>
+  </main>
+</Layout>

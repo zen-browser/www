@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'preact/hooks'
-import type { ZenTheme } from '~/mods'
+import type { ZenTheme } from '../mods'
 import { library, icon } from '@fortawesome/fontawesome-svg-core'
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons'
-import { useModsSearch } from '~/hooks/useModsSearch'
-import { getUI, type Locale } from '~/utils/i18n'
+import { useModsSearch } from '../hooks/useModsSearch'
 
 // Add icons to the library
 library.add(faSort, faSortUp, faSortDown)
@@ -14,11 +13,10 @@ const ascSortIcon = icon({ prefix: 'fas', iconName: 'sort-up' })
 const descSortIcon = icon({ prefix: 'fas', iconName: 'sort-down' })
 
 interface ModsListProps {
-  allMods: ZenTheme[]
-  locale: Locale
+  mods: ZenTheme[]
 }
 
-export default function ModsList({ allMods, locale }: ModsListProps) {
+export default function ModsList({ mods }: ModsListProps) {
   const {
     search,
     createdSort,
@@ -34,7 +32,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     setLimit,
     mods: paginatedMods,
     searchParams,
-  } = useModsSearch(allMods)
+  } = useModsSearch(mods)
 
   const [pageInput, setPageInput] = useState(page.toString())
 
@@ -80,10 +78,6 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     window.scrollTo(0, 0)
   }
 
-  const {
-    routes: { mods },
-  } = getUI(locale)
-
   function renderPagination() {
     if (totalPages <= 1) return null
     return (
@@ -100,26 +94,17 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           &lt;
         </button>
         <form onSubmit={handlePageSubmit} className="flex items-center gap-2">
-          {mods.pagination.pagination.split('{input}').map((value, index) => {
-            if (index === 0) {
-              return (
-                <input
-                  type="text"
-                  value={pageInput}
-                  onInput={handlePageInputChange}
-                  className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
-                  aria-label="Page number"
-                />
-              )
-            }
-            return (
-              <span className="text-sm">
-                {value
-                  .replace('{totalPages}', totalPages.toString())
-                  .replace('{totalItems}', totalItems.toString())}
-              </span>
-            )
-          })}
+          <span className="text-sm">Page</span>
+          <input
+            type="text"
+            value={pageInput}
+            onInput={handlePageInputChange}
+            className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
+            aria-label="Page number"
+          />
+          <span className="text-sm">
+            of {totalPages} ({totalItems} items)
+          </span>
         </form>
         <button
           type="button"
@@ -144,7 +129,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
             type="text"
             id="search"
             className="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg outline-none"
-            placeholder={mods.search}
+            placeholder="Type to search..."
             value={search}
             onInput={handleSearch}
           />
@@ -157,7 +142,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
               onClick={toggleCreatedSort}
               className="text-md flex items-center gap-2 px-4 py-2 font-semibold"
             >
-              {mods.sort.lastCreated}
+              Last created
               <span
                 dangerouslySetInnerHTML={{
                   __html: getSortIcon(createdSort).html[0],
@@ -172,7 +157,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
               onClick={toggleUpdatedSort}
               className="text-md flex items-center gap-2 px-4 py-2 font-semibold"
             >
-              {mods.sort.lastUpdated}
+              Last updated
               <span
                 dangerouslySetInnerHTML={{
                   __html: getSortIcon(updatedSort).html[0],
@@ -183,7 +168,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
 
           <div className="flex items-center gap-2 px-4 py-2">
             <label htmlFor="limit" className="text-md font-semibold">
-              {mods.sort.perPage}
+              Per page:
             </label>
             <select
               id="limit"
@@ -229,8 +214,10 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           ))
         ) : (
           <div className="col-span-4 grid place-items-center gap-4 place-self-center px-8 text-center">
-            <h2 className="text-lg font-bold">{mods.noResults}</h2>
-            <p className="text-sm font-thin">{mods.noResultsDescription}</p>
+            <h2 className="text-lg font-bold">No results found</h2>
+            <p className="text-sm font-thin">
+              Try searching for a different term or check back later.
+            </p>
           </div>
         )}
       </div>
