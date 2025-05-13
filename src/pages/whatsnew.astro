@@ -1,25 +1,17 @@
 ---
 import { ArrowRight } from 'lucide-astro'
-import Button from '~/components/Button.astro'
-import Description from '~/components/Description.astro'
-import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
-import Layout from '~/layouts/Layout.astro'
+import Button from '../components/Button.astro'
+import Description from '../components/Description.astro'
+import SocialMediaStrip from '../components/SocialMediaStrip.astro'
+import Layout from '../layouts/Layout.astro'
 
-import { releaseNotes } from '~/release-notes'
-import whatsNewText from '~/release-notes/whats-new.json'
-import Video from '~/components/Video.astro'
-import { getLocale, getUI } from '~/utils/i18n'
-import whatsNewVideo from '~/assets/whats-new.mp4'
-export { getStaticPaths } from '~/utils/i18n'
+import { releaseNotes } from '../release-notes'
+import whatsNewText from '../release-notes/whats-new.json'
+import Video from '../components/Video.astro'
+
+import whatsNewVideo from '../assets/whats-new.mp4'
 
 const latestVersion = releaseNotes[0]
-
-const locale = getLocale(Astro)
-
-const {
-  routes: { whatsNew },
-  layout,
-} = getUI(locale)
 
 // Just redirect to the release notes if we are in a patch version
 if (
@@ -30,24 +22,14 @@ if (
 }
 ---
 
-<Layout
-  title={layout.whatsNew.title.replace(
-    '{latestVersion.version}',
-    latestVersion.version
-  )}
->
+<Layout title="What's New - Zen Browser">
   <main
     class="relative mx-auto flex flex-col items-center gap-24 px-6 pb-52 pt-36 lg:px-24 xl:flex-row"
   >
     <div class="flex flex-col gap-8">
       <div>
         <Description class="text-5xl font-bold md:text-6xl"
-          >{
-            whatsNew.title.replace(
-              '{latestVersion.version}',
-              latestVersion.version
-            )
-          }</Description
+          >What's New in {latestVersion.version}!</Description
         >
         <Description>{latestVersion.date}</Description>
       </div>
@@ -61,14 +43,14 @@ if (
         >
           <li class="ml-3 list-disc">
             <Description class="text-base font-bold"
-              >{whatsNew.reportIssue}</Description
+              >Report an issue</Description
             >
           </li>
         </a>
         <a href="https://discord.gg/zen-browser" target="_blank">
           <li class="ml-3 list-disc">
             <Description class="text-base font-bold"
-              >{whatsNew.joinDiscord}</Description
+              >Join our Discord</Description
             >
           </li>
         </a>
@@ -79,7 +61,7 @@ if (
           isPrimary
           class="flex w-fit items-center gap-2"
         >
-          <span>{whatsNew.readFullReleaseNotes}</span>
+          <span>Read the full release notes</span>
           <ArrowRight />
         </Button>
         <SocialMediaStrip gap="6" />

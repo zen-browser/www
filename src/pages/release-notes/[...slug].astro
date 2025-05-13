@@ -1,0 +1,25 @@
+---
+import { releaseNotes } from '../../release-notes'
+import Layout from '../../layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  return [
+    ...releaseNotes.map((release: any) => ({
+      params: { slug: release.version },
+      props: { ...release },
+    })),
+    {
+      params: { slug: 'latest' },
+      props: { ...releaseNotes[0] },
+    },
+  ]
+}
+
+const release = Astro.props
+---
+
+<Layout title="Release notes" redirect={`/release-notes#${release.version}`}>
+  <main class="flex flex-col items-center pb-52 pt-36">
+    Redirecting to release notes for version {release.version}...
+  </main>
+</Layout>

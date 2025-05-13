@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'preact/hooks'
-import type { ZenTheme } from '~/mods'
+import type { ZenTheme } from '../mods'
 
 type SortOrder = 'default' | 'asc' | 'desc'
 
