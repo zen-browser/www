@@ -2669,7 +2669,7 @@
       "Fixed an empty newtab opening when closing with a pinned tab selected on the previous session"
     ],
     "features": [
-      "Updated to Firefox 138.1",
+      "Updated to Firefox 138.0.1",
       "Increased privacy and reduced initial connections at startup",
       "Added a *really smooth* animation when downloading files. Thanks to @BrielOtero on Github!",
       "New, fully containerized Essentials are out! It allows having different Essentials based on your workspace's container. It can be enabled by going into 'about:preferences' -> 'Tab Management' -> 'Enable container-specific Essentials'",
