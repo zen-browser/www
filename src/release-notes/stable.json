@@ -2765,5 +2765,17 @@
     ],
     "workflowId": 15003870178,
     "date": "14/05/2025"
+  },
+  {
+    "version": "1.12.5b",
+    "image": false,
+    "extra": "",
+    "fixes": [
+      "Fixed a weird shadow with the URL bar.",
+      "Fixed all tabs button appearing unexpectedly."
+    ],
+    "features": [],
+    "workflowId": 15024223699,
+    "date": "14/05/2025"
   }
 ]
