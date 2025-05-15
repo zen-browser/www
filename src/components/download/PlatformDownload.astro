@@ -85,12 +85,22 @@ import DownloadCard from './ButtonCard.astro'
                     checksum={releases.universal.checksum}
                   />
                 )}
-                {releases.x86_64 && 'tarball' in releases.x86_64 && releases.x86_64.tarball && releases.x86_64.tarball.label && (
-                  <DownloadCard
-                    label={releases.x86_64.tarball.label}
-                    href={releases.x86_64.tarball.link}
-                    checksum={releases.x86_64.tarball.checksum}
-                  />
+                {releases.x86_64 && (
+                  'tarball' in releases.x86_64 
+                    ? releases.x86_64.tarball.label && (
+                      <DownloadCard
+                        label={releases.x86_64.tarball.label}
+                        href={releases.x86_64.tarball.link}
+                        checksum={releases.x86_64.tarball.checksum}
+                      />
+                    )
+                    : releases.x86_64.label && (
+                      <DownloadCard
+                        label={releases.x86_64.label}
+                        href={releases.x86_64.link}
+                        checksum={releases.x86_64.checksum}
+                      />
+                    )
                 )}
                 {releases.arm64 && releases.arm64.label && (
                   <DownloadCard
