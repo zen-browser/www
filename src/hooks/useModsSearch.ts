@@ -70,9 +70,7 @@ export function useModsSearch(mods: ZenTheme[]) {
       searchParams.delete('limit')
     }
 
-    const newUrl = `${window.location.pathname}${
-      searchParams.toString() ? `?${searchParams.toString()}` : ''
-    }`
+    const newUrl = `${window.location.pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`
 
     if (state.page > 1) {
       window.history.pushState({}, '', newUrl)
@@ -128,8 +126,7 @@ export function useModsSearch(mods: ZenTheme[]) {
   const toggleCreatedSort = () => {
     setState((prev) => ({
       ...prev,
-      createdSort:
-        prev.createdSort === 'default' ? 'asc' : prev.createdSort === 'asc' ? 'desc' : 'default',
+      createdSort: prev.createdSort === 'default' ? 'asc' : prev.createdSort === 'asc' ? 'desc' : 'default',
       page: 1, // Reset page when sort changes
     }))
   }
@@ -137,8 +134,7 @@ export function useModsSearch(mods: ZenTheme[]) {
   const toggleUpdatedSort = () => {
     setState((prev) => ({
       ...prev,
-      updatedSort:
-        prev.updatedSort === 'default' ? 'asc' : prev.updatedSort === 'asc' ? 'desc' : 'default',
+      updatedSort: prev.updatedSort === 'default' ? 'asc' : prev.updatedSort === 'asc' ? 'desc' : 'default',
       page: 1, // Reset page when sort changes
     }))
   }

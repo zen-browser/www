@@ -2,13 +2,7 @@
 const { gap = 4 } = Astro.props
 
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
-import {
-  faBluesky,
-  faGithub,
-  faMastodon,
-  faReddit,
-  faXTwitter,
-} from '@fortawesome/free-brands-svg-icons'
+import { faBluesky, faGithub, faMastodon, faReddit, faXTwitter } from '@fortawesome/free-brands-svg-icons'
 
 library.add(faMastodon, faBluesky, faGithub, faXTwitter, faReddit)
 const Mastodon = icon({ prefix: 'fab', iconName: 'mastodon' })

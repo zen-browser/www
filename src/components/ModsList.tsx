@@ -91,9 +91,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         <button
           type="button"
           onClick={() => navigatePage(page - 1)}
-          className={`px-3 py-2 ${
-            page === 1 ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'
-          }`}
+          className={`px-3 py-2 ${page === 1 ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'}`}
         >
           &lt;
         </button>
@@ -112,9 +110,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
             }
             return (
               <span key={value} className="text-sm">
-                {value
-                  .replace('{totalPages}', totalPages.toString())
-                  .replace('{totalItems}', totalItems.toString())}
+                {value.replace('{totalPages}', totalPages.toString()).replace('{totalItems}', totalItems.toString())}
               </span>
             )
           })}
@@ -122,11 +118,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         <button
           type="button"
           onClick={() => navigatePage(page + 1)}
-          className={`px-3 py-2 ${
-            page === totalPages
-              ? 'pointer-events-none text-gray-400'
-              : 'text-dark hover:text-gray-600'
-          }`}
+          className={`px-3 py-2 ${page === totalPages ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'}`}
         >
           &gt;
         </button>

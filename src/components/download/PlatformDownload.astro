@@ -57,7 +57,7 @@ import DownloadCard from './ButtonCard.astro'
                   />
                 </div>
               </div>}
-              {releases.x86_64 && 'tarball' in releases.x86_64 && <div>
+              {releases.x86_64 && Object.hasOwn(releases.x86_64, 'tarball') && <div>
                 <h4 class="mb-3 text-lg font-medium">Tarball</h4>
                 <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <DownloadCard
@@ -85,7 +85,7 @@ import DownloadCard from './ButtonCard.astro'
                     checksum={releases.universal.checksum}
                   />
                 )}
-                {releases.x86_64 && 'tarball' in releases.x86_64 && releases.x86_64.tarball && releases.x86_64.tarball.label && (
+                {releases.x86_64 && Object.hasOwn(releases.x86_64, 'tarball') && releases.x86_64.tarball && releases.x86_64.tarball.label && (
                   <DownloadCard
                     label={releases.x86_64.tarball.label}
                     href={releases.x86_64.tarball.link}

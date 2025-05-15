@@ -44,9 +44,7 @@ export const locales = CONSTANT.I18N.LOCALES.map(({ value }) => value)
  * List of locales excluding the default locale
  * @type {Locale[]}
  */
-const otherLocales = CONSTANT.I18N.LOCALES.filter(
-  ({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE,
-)
+const otherLocales = CONSTANT.I18N.LOCALES.filter(({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE)
 
 /**
  * Retrieves locales other than the default locale
@@ -108,10 +106,7 @@ export const getUI = (locale?: Locale | string): UI => {
         typeof overrideValue === 'object'
       ) {
         // Type assertion to handle nested merging
-        ;(result as Record<keyof T, unknown>)[key] = deepMerge(
-          defaultValue as object,
-          overrideValue as Partial<object>,
-        )
+        ;(result as Record<keyof T, unknown>)[key] = deepMerge(defaultValue as object, overrideValue as Partial<object>)
       } else if (overrideValue !== undefined) {
         // Override with the new value if it exists
         ;(result as Record<keyof T, unknown>)[key] = overrideValue
@@ -142,14 +137,12 @@ export const getStaticPaths = (() => {
       params: { locale: undefined },
       props: { locale: CONSTANT.I18N.DEFAULT_LOCALE },
     },
-    ...CONSTANT.I18N.LOCALES.filter(({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE).map(
-      ({ value }) => ({
-        params: { locale: value },
-        props: {
-          locale: value,
-        },
-      }),
-    ),
+    ...CONSTANT.I18N.LOCALES.filter(({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE).map(({ value }) => ({
+      params: { locale: value },
+      props: {
+        locale: value,
+      },
+    })),
   ]
 }) satisfies GetStaticPaths
 

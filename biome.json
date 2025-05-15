@@ -16,7 +16,7 @@
     "enabled": true,
     "indentStyle": "space",
     "indentWidth": 2,
-    "lineWidth": 100,
+    "lineWidth": 128,
     "useEditorconfig": true
   },
   "files": {
