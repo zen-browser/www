@@ -1,8 +1,8 @@
 ---
-import { ArrowRight } from 'lucide-astro'
 import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
 import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
+import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
 import Layout from '~/layouts/Layout.astro'
 
 import whatsNewVideo from '~/assets/whats-new.mp4'
@@ -34,7 +34,7 @@ if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVer
   )}
 >
   <main
-    class="relative mx-auto flex flex-col items-center gap-24 px-6 pb-52 pt-36 lg:px-24 xl:flex-row"
+    class="xl:mt-22 container flex flex-col gap-12 py-12 xl:grid xl:min-h-[calc(100vh-12rem)] xl:grid-cols-[2fr_3fr]"
   >
     <div class="flex flex-col gap-8">
       <div>
@@ -51,37 +51,38 @@ if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVer
       <div>
         <Fragment set:html={whatsNewText[0].replace(/\n/g, '<br>')} />
       </div>
-      <ul class="hidden flex-col gap-2 md:flex">
+      <ul class="hidden list-disc flex-col gap-2 xl:container xl:flex">
         <a
           href="https://github.com/zen-browser/desktop/issues/new/choose"
           target="_blank"
         >
-          <li class="ml-3 list-disc">
-            <Description class="text-base font-bold"
-              >{whatsNew.reportIssue}</Description
-            >
+          <li>
+            <Description class="text-base font-bold">
+              {whatsNew.reportIssue}
+            </Description>
           </li>
         </a>
         <a href="https://discord.gg/zen-browser" target="_blank">
-          <li class="ml-3 list-disc">
-            <Description class="text-base font-bold"
-              >{whatsNew.joinDiscord}</Description
-            >
+          <li>
+            <Description class="text-base font-bold">
+              {whatsNew.joinDiscord}
+            </Description>
           </li>
         </a>
       </ul>
-      <div class="flex flex-col gap-8 md:flex-row">
+      <div class="flex flex-wrap gap-8 place-self-start xl:place-self-center">
         <Button
           href={`/release-notes#${latestVersion.version}`}
           isPrimary
           class="flex w-fit items-center gap-2"
         >
           <span>{whatsNew.readFullReleaseNotes}</span>
-          <ArrowRight />
+          <ArrowRightIcon />
         </Button>
         <SocialMediaStrip gap="6" />
       </div>
     </div>
+
     <Video
       src={whatsNewVideo}
       autoplay
@@ -89,7 +90,7 @@ if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVer
       muted
       playsinline
       preload="none"
-      class="w-full rounded-3xl object-cover shadow-lg"
+      class="rounded-3xl object-cover shadow-lg"
     />
   </main>
 </Layout>

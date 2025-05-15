@@ -10,7 +10,7 @@
     "wrangler": "wrangler",
     "astro": "astro",
     "lint": "biome lint ./src",
-    "format": "biome format ./src --write",
+    "format": "biome format ./src",
     "prepare": "husky"
   },
   "dependencies": {
@@ -45,8 +45,6 @@
     "wrangler": "^3.94.0"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx,astro,js,jsx}": [
-      "biome check --write ./src"
-    ]
+    "src/**/*.{ts,tsx,astro,js,jsx}": ["biome check --write ./src"]
   }
 }

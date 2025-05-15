@@ -20,16 +20,26 @@
     "useEditorconfig": true
   },
   "files": {
-    "ignore": [
-      "node_modules",
-      ".git",
-      "dist"
-    ]
+    "ignore": ["node_modules", ".git", "dist"]
   },
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
       "semicolons": "asNeeded"
     }
+  },
+  "assists": {
+    "actions": {
+      "source": {
+        "sortJsxProps": "on"
+      }
+    }
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "defaultBranch": "main",
+    "root": ".",
+    "useIgnoreFile": true
   }
 }

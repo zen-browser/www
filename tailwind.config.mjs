@@ -3,6 +3,32 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
+    container: {
+      screens: {
+        sm: '100%',
+        md: '100%',
+        lg: '1024px',
+        xl: '1280px',
+      },
+      padding: {
+        DEFAULT: '1rem',
+        sm: '1.5rem',
+        md: '1.5rem',
+        lg: '1.5rem',
+        xl: '2rem',
+      },
+      center: true,
+    },
+    fontFamily: {
+      junicode: [
+        'Junicode, serif',
+        {
+          fontFeatureSettings: {
+            swsh: 1,
+          },
+        },
+      ],
+    },
     extend: {
       screens: {
         '-sm': '@media (max-width: 639px)',

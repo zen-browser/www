@@ -9,7 +9,8 @@ import { getLocale, getUI } from '~/utils/i18n'
 
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import { faApple, faGithub, faLinux, faWindows } from '@fortawesome/free-brands-svg-icons'
-import { ExternalLink, Lock } from 'lucide-astro'
+import ExternalLinkIcon from '~/icons/ExternalLink.astro'
+import LockIcon from '~/icons/LockIcon.astro'
 
 export { getStaticPaths } from '~/utils/i18n'
 
@@ -36,7 +37,7 @@ const platformDescriptions = download.platformDescriptions
 
 <Layout title={layout.download.title} description={layout.download.description}>
   <main class="flex min-h-screen flex-col px-6 data-[os='windows']:bg-zen-blue">
-    <div class="container relative mx-auto max-w-5xl py-12">
+    <div class="container relative mx-auto py-12">
       <div class="mb-6 mt-12 flex flex-col gap-4">
         <Description id="download-title" class="text-6xl font-bold"
           >{download.title}</Description
@@ -180,7 +181,7 @@ const platformDescriptions = download.platformDescriptions
               <div
                 class="rounded-xl border border-subtle p-3 transition-all duration-100 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-20"
               >
-                <ExternalLink
+                <ExternalLinkIcon
                   class="h-5 w-5 transition-all duration-200 group-hover:text-coral"
                 />
               </div>
@@ -194,7 +195,7 @@ const platformDescriptions = download.platformDescriptions
         class="bg-opaicty-10 grid grid-cols-[auto,1fr] gap-4 rounded-2xl bg-subtle p-6"
       >
         <div class="h-fit rounded-xl bg-subtle p-3">
-          <Lock class="h-5 w-5" />
+          <LockIcon class="h-5 w-5" />
         </div>
 
         <div>

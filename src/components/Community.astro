@@ -1,11 +1,12 @@
 ---
 import Image from 'astro/components/Image.astro'
-import { Check, Github } from 'lucide-astro'
 import { motion } from 'motion/react'
 import { getTitleAnimation } from '~/animations'
 import ComImage from '~/assets/ComImage.png'
 import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
+import CheckIcon from '~/icons/CheckIcon.astro'
+import GitHubIcon from '~/icons/GitHubIcon.astro'
 import { getLocale, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
@@ -19,9 +20,9 @@ const {
 
 <section
   id="Community"
-  class="relative flex w-full flex-col items-center px-4 text-start md:px-0 md:text-center lg:pt-36"
+  class="relative flex w-full flex-col items-center gap-6 py-12 text-start md:text-center lg:py-36"
 >
-  <Description class="mb-2 px-4 text-6xl font-bold">
+  <Description class="mb-2 text-6xl font-bold">
     <motion.span client:load {...getTitleAnimation(0.2)}>
       {community.title[0]}
     </motion.span>
@@ -35,16 +36,14 @@ const {
   <motion.p
     client:load
     {...getTitleAnimation(0.6)}
-    className="px-4 md:px-24 lg:w-1/2 lg:px-0"
+    className="lg:w-1/2 lg:px-0"
   >
     {community.description}
   </motion.p>
-  <div
-    class="mt-6 flex w-full flex-wrap gap-3 px-4 sm:gap-10 sm:px-0 md:justify-center"
-  >
+  <div class="flex w-full flex-wrap gap-3 sm:gap-10 md:justify-center">
     <motion.span client:load {...getTitleAnimation(0.8)}>
       <Button class:list={['px-4']} href="https://github.com/zen-browser">
-        <Github class="size-4" />
+        <GitHubIcon class="size-4" />
         <span>{community.lists.freeAndOpenSource.title}</span>
       </Button>
     </motion.span>
@@ -53,7 +52,7 @@ const {
       {...getTitleAnimation(1)}
       className="flex items-center gap-4"
     >
-      <Check class="size-4" />
+      <CheckIcon class="size-4" />
       <span>{community.lists.simpleYetPowerful.title}</span>
     </motion.div>
     <motion.div
@@ -61,19 +60,19 @@ const {
       {...getTitleAnimation(1.2)}
       className="flex items-center gap-4"
     >
-      <Check class="size-4" />
+      <CheckIcon class="size-4" />
       <span>{community.lists.privateAndAlwaysUpToDate.title}</span>
     </motion.div>
   </div>
   <motion.span
-    className="flex max-w-full px-8 lg:max-w-none lg:flex-none lg:px-0"
+    className="flex max-w-full lg:max-w-none lg:flex-none"
     client:load
     {...getTitleAnimation(1.4)}
   >
     <Image
       src={ComImage}
       alt={community.images.community.alt}
-      class="my-24 rounded-3xl shadow-md lg:mx-auto lg:w-3/4 dark:opacity-80"
+      class="rounded-3xl shadow-md lg:mx-auto dark:opacity-80"
     />
   </motion.span>
 </section>
