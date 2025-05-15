@@ -19,15 +19,9 @@ const {
   },
 } = getUI(locale)
 
-const {
-  title1 = features.title1,
-  title2 = features.title2,
-  title3 = features.title3,
-} = Astro.props
+const { title1 = features.title1, title2 = features.title2, title3 = features.title3 } = Astro.props
 
-const descriptions = Object.values(features.featureTabs).map(
-  (tab) => tab.description,
-)
+const descriptions = Object.values(features.featureTabs).map((tab) => tab.description)
 ---
 
 <section

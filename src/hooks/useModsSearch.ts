@@ -70,9 +70,7 @@ export function useModsSearch(mods: ZenTheme[]) {
       searchParams.delete('limit')
     }
 
-    const newUrl = `${window.location.pathname}${
-      searchParams.toString() ? `?${searchParams.toString()}` : ''
-    }`
+    const newUrl = `${window.location.pathname}${searchParams.toString() ? `?${searchParams.toString()}` : ''}`
 
     if (state.page > 1) {
       window.history.pushState({}, '', newUrl)
@@ -92,16 +90,14 @@ export function useModsSearch(mods: ZenTheme[]) {
           mod.name.toLowerCase().includes(searchTerm) ||
           mod.description.toLowerCase().includes(searchTerm) ||
           mod.author.toLowerCase().includes(searchTerm) ||
-          (mod.tags?.some((tag) => tag.toLowerCase().includes(searchTerm)) ??
-            false),
+          (mod.tags?.some((tag) => tag.toLowerCase().includes(searchTerm)) ?? false),
       )
     }
 
     // Sort by createdAt if chosen
     if (state.createdSort !== 'default') {
       filtered.sort((a, b) => {
-        const diff =
-          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        const diff = new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
         return state.createdSort === 'asc' ? diff : -diff
       })
     }
@@ -109,8 +105,7 @@ export function useModsSearch(mods: ZenTheme[]) {
     // Sort by updatedAt if chosen
     if (state.updatedSort !== 'default') {
       filtered.sort((a, b) => {
-        const diff =
-          new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
+        const diff = new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
         return state.updatedSort === 'asc' ? diff : -diff
       })
     }
@@ -131,12 +126,7 @@ export function useModsSearch(mods: ZenTheme[]) {
   const toggleCreatedSort = () => {
     setState((prev) => ({
       ...prev,
-      createdSort:
-        prev.createdSort === 'default'
-          ? 'asc'
-          : prev.createdSort === 'asc'
-            ? 'desc'
-            : 'default',
+      createdSort: prev.createdSort === 'default' ? 'asc' : prev.createdSort === 'asc' ? 'desc' : 'default',
       page: 1, // Reset page when sort changes
     }))
   }
@@ -144,12 +134,7 @@ export function useModsSearch(mods: ZenTheme[]) {
   const toggleUpdatedSort = () => {
     setState((prev) => ({
       ...prev,
-      updatedSort:
-        prev.updatedSort === 'default'
-          ? 'asc'
-          : prev.updatedSort === 'asc'
-            ? 'desc'
-            : 'default',
+      updatedSort: prev.updatedSort === 'default' ? 'asc' : prev.updatedSort === 'asc' ? 'desc' : 'default',
       page: 1, // Reset page when sort changes
     }))
   }

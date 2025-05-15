@@ -91,11 +91,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         <button
           type="button"
           onClick={() => navigatePage(page - 1)}
-          className={`px-3 py-2 ${
-            page === 1
-              ? 'pointer-events-none text-gray-400'
-              : 'text-dark hover:text-gray-600'
-          }`}
+          className={`px-3 py-2 ${page === 1 ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'}`}
         >
           &lt;
         </button>
@@ -113,10 +109,8 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
               )
             }
             return (
-              <span className="text-sm">
-                {value
-                  .replace('{totalPages}', totalPages.toString())
-                  .replace('{totalItems}', totalItems.toString())}
+              <span key={value} className="text-sm">
+                {value.replace('{totalPages}', totalPages.toString()).replace('{totalItems}', totalItems.toString())}
               </span>
             )
           })}
@@ -124,11 +118,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         <button
           type="button"
           onClick={() => navigatePage(page + 1)}
-          className={`px-3 py-2 ${
-            page === totalPages
-              ? 'pointer-events-none text-gray-400'
-              : 'text-dark hover:text-gray-600'
-          }`}
+          className={`px-3 py-2 ${page === totalPages ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'}`}
         >
           &gt;
         </button>
@@ -155,10 +145,11 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
             <button
               type="button"
               onClick={toggleCreatedSort}
-              className="text-md flex items-center gap-2 px-4 py-2 font-semibold"
+              className="flex items-center gap-2 px-4 py-2 font-semibold text-md"
             >
               {mods.sort.lastCreated}
               <span
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: Icons are safe
                 dangerouslySetInnerHTML={{
                   __html: getSortIcon(createdSort).html[0],
                 }}
@@ -170,10 +161,11 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
             <button
               type="button"
               onClick={toggleUpdatedSort}
-              className="text-md flex items-center gap-2 px-4 py-2 font-semibold"
+              className="flex items-center gap-2 px-4 py-2 font-semibold text-md"
             >
               {mods.sort.lastUpdated}
               <span
+                // biome-ignore lint/security/noDangerouslySetInnerHtml: Icons are safe
                 dangerouslySetInnerHTML={{
                   __html: getSortIcon(updatedSort).html[0],
                 }}
@@ -182,7 +174,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           </div>
 
           <div className="flex items-center gap-2 px-4 py-2">
-            <label htmlFor="limit" className="text-md font-semibold">
+            <label htmlFor="limit" className="font-semibold text-md">
               {mods.sort.perPage}
             </label>
             <select
@@ -217,20 +209,17 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
                 />
               </div>
               <div>
-                <h2 className="text-lg font-bold">
-                  {mod.name}{' '}
-                  <span className="ml-1 text-sm font-normal">
-                    by @{mod.author}
-                  </span>
+                <h2 className="font-bold text-lg">
+                  {mod.name} <span className="ml-1 font-normal text-sm">by @{mod.author}</span>
                 </h2>
-                <p className="text-sm font-thin">{mod.description}</p>
+                <p className="font-thin text-sm">{mod.description}</p>
               </div>
             </a>
           ))
         ) : (
           <div className="col-span-4 grid place-items-center gap-4 place-self-center px-8 text-center">
-            <h2 className="text-lg font-bold">{mods.noResults}</h2>
-            <p className="text-sm font-thin">{mods.noResultsDescription}</p>
+            <h2 className="font-bold text-lg">{mods.noResults}</h2>
+            <p className="font-thin text-sm">{mods.noResultsDescription}</p>
           </div>
         )}
       </div>
