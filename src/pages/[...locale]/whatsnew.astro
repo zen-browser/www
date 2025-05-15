@@ -37,7 +37,7 @@ if (
   )}
 >
   <main
-    class="container flex xl:min-h-[calc(100vh-12rem)] xl:mt-22 flex-col gap-12 py-12 xl:grid xl:grid-cols-[2fr_3fr]"
+    class="xl:mt-22 container flex flex-col gap-12 py-12 xl:grid xl:min-h-[calc(100vh-12rem)] xl:grid-cols-[2fr_3fr]"
   >
     <div class="flex flex-col gap-8">
       <div>
@@ -54,7 +54,7 @@ if (
       <div>
         <Fragment set:html={whatsNewText[0].replace(/\n/g, '<br>')} />
       </div>
-      <ul class="hidden list-disc flex-col gap-2 xl:flex xl:container">
+      <ul class="hidden list-disc flex-col gap-2 xl:container xl:flex">
         <a
           href="https://github.com/zen-browser/desktop/issues/new/choose"
           target="_blank"
@@ -85,15 +85,15 @@ if (
         <SocialMediaStrip gap="6" />
       </div>
     </div>
-    
+
     <Video
-    src={whatsNewVideo}
-    autoplay
-    loop
-    muted
-    playsinline
-    preload="none"
-    class="rounded-3xl object-cover shadow-lg"
-  />
+      src={whatsNewVideo}
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="none"
+      class="rounded-3xl object-cover shadow-lg"
+    />
   </main>
 </Layout>

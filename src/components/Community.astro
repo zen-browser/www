@@ -19,7 +19,7 @@ const {
 
 <section
   id="Community"
-  class="relative flex w-full flex-col items-center text-start md:text-center lg:py-36 gap-6 py-12"
+  class="relative flex w-full flex-col items-center gap-6 py-12 text-start md:text-center lg:py-36"
 >
   <Description class="mb-2 text-6xl font-bold">
     <motion.span client:load {...getTitleAnimation(0.2)}>
@@ -39,9 +39,7 @@ const {
   >
     {community.description}
   </motion.p>
-  <div
-    class="flex w-full flex-wrap gap-3 sm:gap-10 md:justify-center"
-  >
+  <div class="flex w-full flex-wrap gap-3 sm:gap-10 md:justify-center">
     <motion.span client:load {...getTitleAnimation(0.8)}>
       <Button class:list={['px-4']} href="https://github.com/zen-browser">
         <Github class="size-4" />

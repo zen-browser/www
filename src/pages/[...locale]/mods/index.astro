@@ -18,12 +18,12 @@ const allMods = (await getAllMods()) || []
 ---
 
 <Layout title={layout.mods.title}>
-  <main class="mt-32 container 2xl:mt-32 flex flex-col gap-10">
-    <header class="flex w-full flex-col border-dark gap-8">
-          <Description class="text-6xl font-bold">{mods.title}</Description>
-          <Description class="max-w-3xl">
-            {mods.description}
-          </Description>
+  <main class="container mt-32 flex flex-col gap-10 2xl:mt-32">
+    <header class="flex w-full flex-col gap-8 border-dark">
+      <Description class="text-6xl font-bold">{mods.title}</Description>
+      <Description class="max-w-3xl">
+        {mods.description}
+      </Description>
     </header>
 
     <!-- Importing ModList component -->

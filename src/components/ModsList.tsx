@@ -200,13 +200,13 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 w-full place-items-start gap-12 md:grid-cols-2 xl:grid-cols-3 py-6">
+      <div className="grid w-full grid-cols-1 place-items-start gap-12 py-6 md:grid-cols-2 xl:grid-cols-3">
         {paginatedMods.length > 0 ? (
           paginatedMods.map((mod) => (
             <a
               key={mod.id}
               href={`/mods/${mod.id}`}
-              className="flex flex-col w-full gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
+              className="flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
             >
               <div className="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
                 <img
