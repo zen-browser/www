@@ -18,10 +18,10 @@ const {
 } = getUI(locale)
 ---
 
-<section id="sponsors" class:list={['mb-32 px-4', !showSponsors && 'hidden']}>
-  <div class="mx-auto flex flex-col px-6 text-center">
+<section id="sponsors" class:list={['py-12', !showSponsors && 'hidden']}>
+  <div class="mx-auto flex flex-col text-center">
     <motion.span client:load {...getTitleAnimation(0.2)}>
-      <Description class="mb-2 px-4 text-6xl font-bold"
+      <Description class="mb-2 text-6xl font-bold"
         >Our Sponsors</Description
       >
     </motion.span>

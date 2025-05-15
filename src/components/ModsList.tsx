@@ -138,8 +138,8 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
 
   return (
     <div>
-      <div className="mx-auto flex flex-col items-start gap-4 px-8 lg:w-1/2">
-        <div className="flex w-full flex-col items-center gap-6">
+      <div className="flex flex-col items-center gap-4">
+        <div className="flex w-full flex-col items-center justify-center gap-6">
           <input
             type="text"
             id="search"
@@ -200,13 +200,13 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         </div>
       </div>
 
-      <div className="mx-auto grid grid-cols-1 place-items-start gap-12 p-10 md:grid-cols-2 lg:grid-cols-3 lg:p-24 lg:px-24 2xl:grid-cols-4">
+      <div className="grid grid-cols-1 w-full place-items-start gap-12 md:grid-cols-2 xl:grid-cols-3 py-6">
         {paginatedMods.length > 0 ? (
           paginatedMods.map((mod) => (
             <a
               key={mod.id}
               href={`/mods/${mod.id}`}
-              className="flex flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
+              className="flex flex-col w-full gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
             >
               <div className="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
                 <img

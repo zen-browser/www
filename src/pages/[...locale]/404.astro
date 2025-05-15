@@ -15,17 +15,19 @@ const {
 
 <Layout title={notFound.title}>
   <main
-    class="flex min-h-[70vh] flex-col items-center justify-center py-24 text-center"
+    class="flex min-h-[70vh] container flex-col items-center justify-center gap-6 py-24 text-center"
   >
-    <Title class="mb-4 text-7xl font-bold text-coral md:text-9xl">404</Title>
-    <Description class="mb-6 text-xl md:text-2xl">
-      {notFound.title}
-    </Description>
-    <p class="mb-8 max-w-xl text-lg text-gray-500 dark:text-gray-400">
-      {notFound.description}
-    </p>
-    <Button href={getLocalePath('/')} isPrimary>
-      {notFound.button}
-    </Button>
+    <Title class="text-7xl font-bold text-coral md:text-9xl">404</Title>
+    <div class="flex flex-col gap-4 items-center">
+      <Description class="text-xl md:text-2xl">
+        {notFound.title}
+      </Description>
+      <p class="max-w-xl text-lg text-gray-500 dark:text-gray-400">
+        {notFound.description}
+      </p>
+      <Button href={getLocalePath('/')} isPrimary class="w-fit">
+        {notFound.button}
+      </Button>
+    </div>
   </main>
 </Layout>

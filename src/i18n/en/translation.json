@@ -144,7 +144,7 @@
       }
     },
     "about": {
-      "title": "About - Zen Browser",
+      "title": "About - Zen",
       "description": "We are simply a group of developers and designers who care about your experience on the web. We believe that the internet should be a place where you can explore, learn, and connect without worrying about your data being collected.",
       "littleHelp": "A little help?",
       "mainTeam": {
@@ -223,7 +223,8 @@
       "description": "We are a small team of developers working hard to bring you the best browsing experience. If you like what we do, please consider supporting us.",
       "patreon": {
         "title": "Patreon",
-        "description": "Patreon allows you to support us with a monthly donation. You can choose the level of support that works best for you."
+        "description": "Patreon allows you to support us with a monthly donation. You can choose the level of support that works best for you.",
+        "button": "Go to Patreon"
       },
       "koFi": {
         "title": "Ko-fi",
