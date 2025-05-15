@@ -2,6 +2,18 @@
 const { class: className } = Astro.props
 ---
 
-<h1 class:list={['text-dark leading-[0.9] mb-[0.4rem] font-junicode font-semibold text-5xl xl:text-6xl', className]}>
+<h1 class:list={['title text-dark', className]}>
   <slot />
 </h1>
+<style>
+  .title {
+    line-height: 0.9;
+    margin-bottom: 0.4rem;
+    font-family: 'Junicode', serif;
+    font-weight: 600;
+    font-style: normal;
+    font-feature-settings: 'swsh' 1;
+
+    @apply text-5xl xl:text-6xl;
+  }
+</style>
