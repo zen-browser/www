@@ -19,6 +19,13 @@ export default {
       },
       center: true,
     },
+    fontFamily: {
+      junicode: ['Junicode, serif', {
+        fontFeatureSettings: {
+          'swsh': 1
+        }
+      }],
+    },
     extend: {
       screens: {
         '-sm': '@media (max-width: 639px)',

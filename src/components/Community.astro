@@ -1,11 +1,12 @@
 ---
 import Image from 'astro/components/Image.astro'
-import { Check, Github } from 'lucide-astro'
 import { motion } from 'motion/react'
 import { getTitleAnimation } from '~/animations'
 import ComImage from '~/assets/ComImage.png'
 import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
+import CheckIcon from '~/icons/CheckIcon.astro'
+import GitHubIcon from '~/icons/GitHubIcon.astro'
 import { getLocale, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
@@ -42,7 +43,7 @@ const {
   <div class="flex w-full flex-wrap gap-3 sm:gap-10 md:justify-center">
     <motion.span client:load {...getTitleAnimation(0.8)}>
       <Button class:list={['px-4']} href="https://github.com/zen-browser">
-        <Github class="size-4" />
+        <GitHubIcon class="size-4" />
         <span>{community.lists.freeAndOpenSource.title}</span>
       </Button>
     </motion.span>
@@ -51,7 +52,7 @@ const {
       {...getTitleAnimation(1)}
       className="flex items-center gap-4"
     >
-      <Check class="size-4" />
+      <CheckIcon class="size-4" />
       <span>{community.lists.simpleYetPowerful.title}</span>
     </motion.div>
     <motion.div
@@ -59,7 +60,7 @@ const {
       {...getTitleAnimation(1.2)}
       className="flex items-center gap-4"
     >
-      <Check class="size-4" />
+      <CheckIcon class="size-4" />
       <span>{community.lists.privateAndAlwaysUpToDate.title}</span>
     </motion.div>
   </div>

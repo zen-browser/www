@@ -1,9 +1,9 @@
 ---
 import { Modal, ModalBody, ModalHeader } from 'free-astro-components'
-import { ArrowUp } from 'lucide-astro'
 import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
 import ReleaseNoteItem from '~/components/ReleaseNoteItem.astro'
+import ArrowUpIcon from '~/icons/ArrowUp.astro'
 import Layout from '~/layouts/Layout.astro'
 import { releaseNotes as releaseNotesData, releaseNotesTwilight } from '~/release-notes'
 import { getLocale, getUI } from '~/utils/i18n'
@@ -58,9 +58,9 @@ const {
   <Button href="#" id="scroll-top" isPrimary class="fixed bottom-8 right-8">
     <p class="hidden items-center gap-2 sm:flex">
       {releaseNotes.backToTop}
-      <ArrowUp aria-hidden="true" class="size-4" />
+      <ArrowUpIcon aria-hidden="true" class="size-4" />
     </p>
-    <ArrowUp aria-label="Back to the top" class="size-4 sm:hidden" />
+    <ArrowUpIcon aria-label="Back to the top" class="size-4 sm:hidden" />
   </Button>
 </Layout>
 <Modal id="version-modal" class="m-auto border border-[--zen-dark] !bg-paper">

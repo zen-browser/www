@@ -1,8 +1,11 @@
 ---
 import { Astronav, Dropdown, DropdownItems, MenuItems } from 'astro-navbar'
-import { ArrowRight, ChevronDown, Download, Menu } from 'lucide-astro'
 import { motion } from 'motion/react'
 import Button from '~/components/Button.astro'
+import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
+import ChevronDownIcon from '~/icons/ChevronDownIcon.astro'
+import DownloadIcon from '~/icons/DownloadIcon.astro'
+import MenuIcon from '~/icons/MenuIcon.astro'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
 import { getTitleAnimation } from '../animations.ts'
 import Logo from './Logo.astro'
@@ -36,7 +39,7 @@ const {
       <Dropdown class="group">
         <button class="flex items-center">
           <span>{menu.gettingStarted}</span>
-          <ChevronDown
+          <ChevronDownIcon
             class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
           />
         </button>
@@ -56,7 +59,7 @@ const {
               </div>
               <Button isPrimary class="mt-auto">
                 {menu.tryZenMods}
-                <ArrowRight class="size-4" />
+                <ArrowRightIcon class="size-4" />
               </Button>
             </a>
             <a class="dropdown-item" href={getLocalePath('/release-notes')}>
@@ -77,7 +80,7 @@ const {
       <Dropdown class="group">
         <button class="flex items-center">
           <span>{menu.usefulLinks}</span>
-          <ChevronDown
+          <ChevronDownIcon
             class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
           />
         </button>
@@ -129,10 +132,10 @@ const {
       <Button href="/download" class="hidden lg:flex" isPrimary>
         <span class="hidden items-center gap-2 lg:flex">
           {menu.download}
-          <ArrowRight class="size-4" />
+          <ArrowRightIcon class="size-4" />
         </span>
         <span class="flex items-center gap-2 lg:hidden">
-          <Download class="size-4" />
+          <DownloadIcon class="size-4" />
         </span>
       </Button>
       <label
@@ -140,7 +143,7 @@ const {
         class="cursor-pointer p-2 text-dark lg:hidden"
         aria-label="Open menu"
       >
-        <Menu class="h-6 w-6" />
+        <MenuIcon class="h-6 w-6" />
       </label>
     </div>
   </MenuItems>

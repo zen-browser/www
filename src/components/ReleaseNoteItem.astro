@@ -1,6 +1,6 @@
 ---
 import { Accordion, AccordionItem } from 'free-astro-components'
-import { Info } from 'lucide-astro'
+import InfoIcon from '~/icons/InfoIcon.astro'
 
 import { releaseNotes as releaseNotesData } from '~/release-notes'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
@@ -112,7 +112,7 @@ if (prevReleaseNote && !isTwilight) {
       }
     </div>
     <div class="text-muted-forground mt-6 flex text-sm opacity-70">
-      {isTwilight ? <Info class="mx-4 my-0 size-6 text-yellow-500" /> : null}
+      {isTwilight ? <InfoIcon class="mx-4 my-0 size-6 text-yellow-500" /> : null}
       <p class="m-0">
         {isTwilight ? <>{releaseNoteItem.twilightWarning}</> : null}
         <span set:html={releaseNoteItem.reportIssues} />

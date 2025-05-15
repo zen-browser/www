@@ -9,7 +9,8 @@ import { getLocale, getUI } from '~/utils/i18n'
 
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import { faApple, faGithub, faLinux, faWindows } from '@fortawesome/free-brands-svg-icons'
-import { ExternalLink, Lock } from 'lucide-astro'
+import ExternalLinkIcon from '~/icons/ExternalLink.astro'
+import LockIcon from '~/icons/LockIcon.astro'
 
 export { getStaticPaths } from '~/utils/i18n'
 
@@ -180,7 +181,7 @@ const platformDescriptions = download.platformDescriptions
               <div
                 class="rounded-xl border border-subtle p-3 transition-all duration-100 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-20"
               >
-                <ExternalLink
+                <ExternalLinkIcon
                   class="h-5 w-5 transition-all duration-200 group-hover:text-coral"
                 />
               </div>
@@ -194,7 +195,7 @@ const platformDescriptions = download.platformDescriptions
         class="bg-opaicty-10 grid grid-cols-[auto,1fr] gap-4 rounded-2xl bg-subtle p-6"
       >
         <div class="h-fit rounded-xl bg-subtle p-3">
-          <Lock class="h-5 w-5" />
+          <LockIcon class="h-5 w-5" />
         </div>
 
         <div>

@@ -1,9 +1,10 @@
 ---
-import Button from '~/components/Button.astro'
+import { Image } from 'astro:assets'
 import Description from '~/components/Description.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getLocale, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
+import Button from '~/components/Button.astro'
 
 const locale = getLocale(Astro)
 
@@ -18,63 +19,67 @@ const {
   description={layout.about.description}
 >
   <main
-    class="flex min-h-screen flex-col items-center justify-center py-24 container w-full gap-24"
+    class="flex min-h-screen flex-col py-24 container w-full gap-24"
   >
-    <div class="text-center w-full flex flex-col gap-4">
+    <div class="w-full flex flex-col gap-6">
       <Description class="text-6xl font-bold leading-none">{about.title}</Description>
-      <Description class="max-w-3xl mx-auto">
+      <Description class="max-w-4xl">
         {about.description}
       </Description>
-      <Button href="/donate" class="mx-auto w-fit" isPrimary
+      <Button href="/donate" class="w-fit" isPrimary
         >{about.littleHelp}</Button
       >
     </div>
-    <div
-      class="grid lg:grid-cols-[1fr_1px_1fr] gap-6"
-    >
-      <div class="flex flex-col gap-4">
-        <div class="text-4xl font-bold lg:text-6xl leading-none">{about.mainTeam.title}</div>
+      <div class="flex flex-col gap-4 w-full">
+        <div class="text-4xl lg:text-5xl font-bold leading-none">{about.mainTeam.title}</div>
         <Description>
           {about.mainTeam.description}
         </Description>
-        <div>
-          <ul class="flex flex-col gap-2">
-            {Object.entries(about.mainTeam.members).map(([_key, member]) => (
-              <li class="text-sm">
-                {member.link ? (
-                  <a href={member.link === true ? '' : member.link}>
-                    <strong class="zen-link font-bold">{member.name}</strong>
-                  </a>
-                  <span class="opacity-80"> : {member.description}</span>
-                ) : (
-                  <strong class="font-bold">{member.name}</strong>
-                  <span class="opacity-80"> : {member.description}</span>
-                )}
-              </li>
-            ))}
-          </ul>
+        <div class="flex flex-col gap-6">
+          {Object.entries(about.mainTeam.members).map(([team, members]) => (
+            <div class="flex flex-col gap-2">
+              <div class="text-3xl font-semibold">{team.charAt(0).toUpperCase() + team.slice(1)} Team</div>
+              <ul class="flex flex-col gap-2">
+                {Object.entries(members).map(([_key, member]) => (
+                  <li class="text-sm">
+                    {member.link && typeof member.link === 'string' ? (
+                      <a href={member.link}>
+                        <strong class="zen-link font-bold">{member.name}</strong>
+                      </a>
+                    ) : (
+                      <strong class="font-bold">{member.name}</strong>
+                    )}
+                    <span class="opacity-80"> : {member.description}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
-      <hr class="hidden h-full w-[1px] bg-dark opacity-15 lg:block" />
-      <div class="flex flex-col gap-4">
-        <div class="text-4xl font-bold lg:text-6xl leading-none">{about.contributors.title}</div>
+      <div class="flex flex-col gap-4 w-full">
+        <div class="text-4xl lg:text-5xl font-bold leading-none">{about.contributors.title}</div>
         <Description>
           {about.contributors.description}
         </Description>
-        <div class="flex flex-col gap-4"><a href="https://github.com/zen-browser/desktop/graphs/contributors"
-          ><img
+          <div class="flex flex-col gap-4 w-fit"><Description class="text-3xl font-semibold lg:text-4xl">{about.contributors.browser}</Description>
+          <a href="https://github.com/zen-browser/desktop/graphs/contributors"
+          ><Image
             src="https://contributors-img.web.app/image?repo=zen-browser/desktop"
             alt="Contributors"
-          /></a
-        >
-        <a href="https://github.com/zen-browser/www/graphs/contributors"
-          ><img
-            src="https://contributors-img.web.app/image?repo=zen-browser/www"
-            alt="Contributors (website)"
+            width={500}
+            height={500}
           /></a
         ></div>
+        <div class="flex flex-col gap-4 w-fit"><Description class="text-3xl font-semibold lg:text-4xl">{about.contributors.website}</Description>
+        <a href="https://github.com/zen-browser/www/graphs/contributors"
+          ><Image
+            src="https://contributors-img.web.app/image?repo=zen-browser/www"
+            alt="Contributors (website)"
+            width={500}
+            height={500}
+          /></a
+        ></div></div>
 
-      </div>
-    </div>
   </main>
 </Layout>

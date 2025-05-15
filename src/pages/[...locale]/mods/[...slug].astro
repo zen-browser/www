@@ -1,8 +1,9 @@
 ---
-import { ArrowRight, Info } from 'lucide-astro'
 import BackButton from '~/components/BackButton.astro'
 import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
+import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
+import InfoIcon from '~/icons/InfoIcon.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
 import { getUI } from '~/utils/i18n'
@@ -64,7 +65,7 @@ const {
         class="flex flex-col items-center justify-center gap-2 rounded-xl bg-red-200 p-2 px-4 md:flex-row md:justify-between dark:bg-red-700"
       >
         <div class="flex items-center gap-2 text-center md:text-left">
-          <Info />
+          <InfoIcon />
           <p class="text-sm">
             {slug.alert.description}
           </p>
@@ -75,7 +76,7 @@ const {
           isAlert
         >
           {slug.alert.button}
-          <ArrowRight class="size-4" />
+          <ArrowRightIcon class="size-4" />
         </Button>
       </div>
       <BackButton />
