@@ -2693,25 +2693,25 @@
     "fixes": [
       "Fixed issues with toast notifications not being hidden after a timeout and displaying when they shouldn't",
       {
-        "description": "Fixed macos close buttons being misaligned on collapsed sidebar",
+        "description": "Fixed MacOS close buttons being misaligned on the collapsed sidebar",
         "issue": 7129
       },
       {
-        "description": "Fixed the download animation appearing on all the windows",
+        "description": "Fixed the download animation appearing on all windows",
         "issue": 8247
       },
       {
-        "description": "When using Tabs on the Right, the Glance controls are on the wrong side",
+        "description": "Fixed Glance controls appearing on the wrong side when 'Tabs on the Right' was used",
         "issue": 7910
       },
-      "Fixed various issues with the urlbar on double toolbar mode",
+      "Fixed various issues with the URL bar on double toolbar mode",
       "Fixed some issues with restoring the previous session"
     ],
     "features": [
-      "Updated firefox 138.0.3",
-      "For macos users, dragging tabs and changing the texture for the workspace's background now provides haptic feedback (zen.haptic-feedback.enabled)",
-      "The 'copy current url' toast now displays a share icon (only on windows and macos)",
-      "The urlbar now can search through renamed pinned tabs"
+      "Updated to Firefox 138.0.3",
+      "For MacOS users, dragging tabs and changing the texture for the workspace's background now provides haptic feedback (zen.haptic-feedback.enabled)",
+      "The 'copy current url' toast now displays a share icon (only on windows and MacOS)",
+      "The URL bar can now search through renamed pinned tabs"
     ],
     "workflowId": 15003870178,
     "date": "14/05/2025"
