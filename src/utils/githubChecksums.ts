@@ -3,6 +3,13 @@
  * Returns a mapping from filename to checksum.
  */
 export async function getChecksums() {
+  if (import.meta.env.DEV) {
+    return {
+      'zen.macos-universal.dmg': 'macsum',
+      'zen.installer.exe': 'winsum',
+      'zen.installer-arm64.exe': 'winarmsum',
+    }
+  }
   const res = await fetch('https://api.github.com/repos/zen-browser/desktop/releases/latest', {
     headers: {
       Accept: 'application/vnd.github+json',
