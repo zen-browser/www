@@ -31,5 +31,19 @@
       "quoteStyle": "single",
       "semicolons": "asNeeded"
     }
+  },
+  "assists": {
+    "actions": {
+      "source": {
+        "sortJsxProps": "on"
+      }
+    }
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "defaultBranch": "main",
+    "root": ".",
+    "useIgnoreFile": true
   }
 }
