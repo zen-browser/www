@@ -43,7 +43,7 @@ const dates = {
   updatedAt: getLocalizedDate(mod.updatedAt),
 }
 
-const locale = getLocale(Astro)
+const locale = getLocale(Astro as { params: { locale?: string } })
 
 const {
   routes: {

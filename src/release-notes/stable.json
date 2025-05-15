@@ -31,10 +31,7 @@
     "version": "1.0.0-a.2",
     "date": "12/07/2024",
     "extra": "This release is the second alpha release of the 1.0.0-alpha series. It includes a lot of bug fixes and improvements given the feedback we received from the first alpha release. This release is still not considered stable, but it's a big step towards the first stable release.",
-    "features": [
-      "Added support for macOS aaarch64!",
-      "Some performance improvements"
-    ],
+    "features": ["Added support for macOS aaarch64!", "Some performance improvements"],
     "fixes": [
       {
         "description": "Fixed rounded corners of browser views for some websites",
@@ -49,18 +46,13 @@
         "issue": 50
       }
     ],
-    "breakingChanges": [
-      "Removed support window's stub installer. It's under development."
-    ]
+    "breakingChanges": ["Removed support window's stub installer. It's under development."]
   },
   {
     "version": "1.0.0-a.3",
     "date": "14/07/2024",
     "extra": "This release is the third alpha release of the 1.0.0-alpha series. One big feature of this release is the new workspaces feature. This feature allows you to create different workspaces with different tabs and configurations. This release also includes a lot of bug fixes and improvements.",
-    "features": [
-      "Added support for workspaces (Experimental)",
-      "Better support for macOS aarch64"
-    ],
+    "features": ["Added support for workspaces (Experimental)", "Better support for macOS aarch64"],
     "fixes": [
       {
         "description": "Fixed subwindows not being displayed correctly",
@@ -262,9 +254,7 @@
         "issue": 89
       }
     ],
-    "breakingChanges": [
-      "Changed the ID for flatpak to io.github.zen_browser.zen"
-    ]
+    "breakingChanges": ["Changed the ID for flatpak to io.github.zen_browser.zen"]
   },
   {
     "version": "1.0.0-a.11",
@@ -310,9 +300,7 @@
         "issue": 124
       }
     ],
-    "breakingChanges": [
-      "Changed the ID for AppImage to io.github.zen_browser.zen"
-    ]
+    "breakingChanges": ["Changed the ID for AppImage to io.github.zen_browser.zen"]
   },
   {
     "version": "1.0.0-a.12",
@@ -363,9 +351,7 @@
     "version": "1.0.0-a.13",
     "date": "05/08/2024",
     "extra": "This is a smaller release to fix some bugs and improve some small details.\n\nIm going to try doing more frequent releases from now on, see how it goes.",
-    "features": [
-      "Allow to remember sidebar width even after collapsing it."
-    ],
+    "features": ["Allow to remember sidebar width even after collapsing it."],
     "fixes": [
       {
         "description": "Task Manager Icon Missing in Flatpak Version",
@@ -615,10 +601,7 @@
     "version": "1.0.0-a.30",
     "date": "26/08/2024",
     "extra": "This release is the thirtieth alpha release of the 1.0.0-alpha series.",
-    "features": [
-      "Added support for 24 more languages!",
-      "Update installed mods from the browser settings"
-    ],
+    "features": ["Added support for 24 more languages!", "Update installed mods from the browser settings"],
     "fixes": [
       {
         "description": "Letterboxing option is missing",
@@ -906,10 +889,7 @@
         "description": "Fixed Mods not being applied to every single window opened"
       }
     ],
-    "breakingChanges": [
-      "Removed Galaxy and Dream mods",
-      "Removed the 'legacy-toolbar' preference"
-    ],
+    "breakingChanges": ["Removed Galaxy and Dream mods", "Removed the 'legacy-toolbar' preference"],
     "themeChanges": [
       "Themes will now be able to have string and number values",
       "The configuration schema for mods has been updated. All current mods have been updated automatically."
@@ -921,9 +901,7 @@
     "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
-    "features": [
-      "Added a new system for handling keyboard shortcuts"
-    ],
+    "features": ["Added a new system for handling keyboard shortcuts"],
     "fixes": [
       {
         "description": "The New Tab button is not visible",
@@ -951,11 +929,7 @@
     "image": false,
     "workflowId": 11020784612,
     "extra": "This update is a small patch to fix some issues that weren't addressed in the previous release!",
-    "features": [
-      "Moved application menu button to the right",
-      "Added new shortcuts",
-      "Collapsed tab sidebar is now smaller"
-    ],
+    "features": ["Moved application menu button to the right", "Added new shortcuts", "Collapsed tab sidebar is now smaller"],
     "fixes": [
       {
         "description": "Fixed issue with hovering over window control buttons (macOS)"
@@ -980,12 +954,8 @@
       "Enabled container tabs by default",
       "Improved Expand Tabs on Hover layout"
     ],
-    "themeChanges": [
-      "Toggle inputs will not use the themed tertiary color"
-    ],
-    "breakingChanges": [
-      "The keyboard shortcuts will be overriden by the defaults ones in this update"
-    ],
+    "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
+    "breakingChanges": ["The keyboard shortcuts will be overriden by the defaults ones in this update"],
     "fixes": [
       {
         "description": "Fixed Firefox add-ons not updating",
@@ -1161,10 +1131,7 @@
         "description": "Fixed about page linking 'global Community' to a Mozilla page"
       }
     ],
-    "features": [
-      "About page will now display the Firefox version used",
-      "Disabled forcing container grouping for workspaces"
-    ]
+    "features": ["About page will now display the Firefox version used", "Disabled forcing container grouping for workspaces"]
   },
   {
     "version": "1.0.1-a.11",
@@ -1279,9 +1246,7 @@
         "issue": 2156
       }
     ],
-    "breakingChanges": [
-      "Removed Show Expand Button option from settings"
-    ],
+    "breakingChanges": ["Removed Show Expand Button option from settings"],
     "themeChanges": [
       "The variable '--zen-main-browser-background' will now contain the generated gradient",
       "Added the 'unread' attribute for background tabs that haven't been accessed yet"
@@ -1307,9 +1272,7 @@
         "description": "Fixed sidebar webpanels being in a darker contrast"
       }
     ],
-    "features": [
-      "Added a confirmation dialog when the gradient generator has successfully saved the gradient"
-    ]
+    "features": ["Added a confirmation dialog when the gradient generator has successfully saved the gradient"]
   },
   {
     "version": "1.0.1-a.15",
@@ -1355,9 +1318,7 @@
         "issue": 2413
       }
     ],
-    "breakingChanges": [
-      "Changed the default layout of the customizable UI buttons"
-    ],
+    "breakingChanges": ["Changed the default layout of the customizable UI buttons"],
     "features": [
       "Added Zen Glance!",
       "Updated to the latest stable version of Firefox (132.0)",
@@ -1384,9 +1345,7 @@
         "description": "Fixed wrong aligment on glance action buttons"
       }
     ],
-    "features": [
-      "No new features, sorry"
-    ]
+    "features": ["No new features, sorry"]
   },
   {
     "version": "1.0.1-a.17",
@@ -2169,10 +2128,7 @@
     "date": "30/01/2025",
     "workflowId": 13062083313,
     "extra": "Quick fix for a critical bug that was introduced in the previous release.",
-    "fixes": [
-      "Fixed the browser not opening when having multiple windows",
-      "Fixed macos fullscreen having a weird shadow"
-    ]
+    "fixes": ["Fixed the browser not opening when having multiple windows", "Fixed macos fullscreen having a weird shadow"]
   },
   {
     "version": "1.7.5b",
@@ -2231,9 +2187,7 @@
       "Fixed opening glance tabs on essentials messing up the sidebar",
       "Fixed pinned tabs appearing on normal container after a restart"
     ],
-    "features": [
-      "Tabs can now be dragged into pinned tabs by dragging them into the workspace indicator"
-    ],
+    "features": ["Tabs can now be dragged into pinned tabs by dragging them into the workspace indicator"],
     "workflowId": 13209591935,
     "date": "08/02/2025"
   },
@@ -2325,9 +2279,7 @@
       "Fixed pinning a tab adding them to the essentials container",
       "Other small fixes for compact mode not animating properly"
     ],
-    "features": [
-      "localhost and http URL will no longer be trimmed in single toolbar layout"
-    ],
+    "features": ["localhost and http URL will no longer be trimmed in single toolbar layout"],
     "workflowId": 13530880093,
     "date": "25/02/2025"
   },
@@ -2456,9 +2408,7 @@
     "version": "1.10.3b",
     "image": false,
     "extra": "Terribly sorry for the frequent updates, this emergency release simply updates Firefox, fixing a critical vulnerability in chromium's sandboxing system. You can read more here:\n\n<a href='https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/'>https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/</a>",
-    "features": [
-      "Updated Firefox to 136.0.4"
-    ],
+    "features": ["Updated Firefox to 136.0.4"],
     "workflowId": 14109635630,
     "date": "27/03/2025"
   },
@@ -2770,10 +2720,7 @@
     "version": "1.12.5b",
     "image": false,
     "extra": "",
-    "fixes": [
-      "Fixed a weird shadow with the URL bar",
-      "Fixed the 'all tabs' button appearing unexpectedly"
-    ],
+    "fixes": ["Fixed a weird shadow with the URL bar.", "Fixed all tabs button appearing unexpectedly."],
     "features": [],
     "workflowId": 15024223699,
     "date": "14/05/2025"

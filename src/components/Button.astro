@@ -3,15 +3,7 @@ import { getLocale, getPath } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
-const {
-  class: className,
-  isPrimary,
-  isAlert,
-  isBordered,
-  href,
-  id,
-  extra,
-} = Astro.props
+const { class: className, isPrimary, isAlert, isBordered, href, id, extra } = Astro.props
 ---
 
 {

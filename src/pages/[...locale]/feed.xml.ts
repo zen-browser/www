@@ -10,12 +10,9 @@ const RSS_ENTRY_LIMIT = 20
  * Handles the GET request for the `feed.xml` endpoint.
  * @returns The RSS feed for the Zen Browser release notes.
  */
-export function GET(context: any) {
+export function GET(context: { url: URL }) {
   // Just in case the release notes array is empty for whatever reason.
-  const latestDate =
-    releaseNotes.length > 0
-      ? formatRssDate(releaseNotes[0].date as string)
-      : new Date()
+  const latestDate = releaseNotes.length > 0 ? formatRssDate(releaseNotes[0].date as string) : new Date()
 
   const rssData: RSSOptions = {
     title: 'Zen Browser Release Notes',
@@ -89,14 +86,8 @@ function formatReleaseNote(releaseNote: ReleaseNote) {
     content += `<p>${releaseNote.extra.replace(/(\n)/g, '<br />')}</p>`
   }
 
-  content += addReleaseNoteSection(
-    '⚠️ Breaking changes',
-    releaseNote.breakingChanges?.map(breakingChangeToReleaseNote),
-  )
-  content += addReleaseNoteSection(
-    '✓ Fixes',
-    releaseNote.fixes?.map(fixToReleaseNote),
-  )
+  content += addReleaseNoteSection('⚠️ Breaking changes', releaseNote.breakingChanges?.map(breakingChangeToReleaseNote))
+  content += addReleaseNoteSection('✓ Fixes', releaseNote.fixes?.map(fixToReleaseNote))
   content += addReleaseNoteSection('🖌 Theme Changes', releaseNote.themeChanges)
   content += addReleaseNoteSection('⭐ Features', releaseNote.features)
 
@@ -109,19 +100,17 @@ function addReleaseNoteSection(title: string, items?: string[]): string {
   }
 
   let content = `<h2>${title}</h2>`
-  content += `<ul>`
+  content += '<ul>'
   for (const item of items) {
     if (item && item.length > 0) {
       content += `<li>${item}</li>`
     }
   }
-  content += `</ul>`
+  content += '</ul>'
   return content
 }
 
-function fixToReleaseNote(
-  fix?: Exclude<ReleaseNote['fixes'], undefined>[number],
-) {
+function fixToReleaseNote(fix?: Exclude<ReleaseNote['fixes'], undefined>[number]) {
   if (typeof fix === 'string') {
     return fix
   }
@@ -137,18 +126,12 @@ function fixToReleaseNote(
   return note
 }
 
-function breakingChangeToReleaseNote(
-  breakingChange?: Exclude<ReleaseNote['breakingChanges'], undefined>[number],
-) {
+function breakingChangeToReleaseNote(breakingChange?: Exclude<ReleaseNote['breakingChanges'], undefined>[number]) {
   if (typeof breakingChange === 'string') {
     return breakingChange
   }
 
-  if (
-    !breakingChange ||
-    !breakingChange.description ||
-    breakingChange.description.length === 0
-  ) {
+  if (!breakingChange || !breakingChange.description || breakingChange.description.length === 0) {
     return ''
   }
 
@@ -156,19 +139,12 @@ function breakingChangeToReleaseNote(
 }
 
 function pubDate(date?: Date) {
-  date ??= new Date()
+  const newDate = date ?? new Date()
 
-  const pieces = date.toString().split(' ')
+  const pieces = newDate.toString().split(' ')
   const offsetTime = pieces[5].match(/[-+]\d{4}/)
   const offset = offsetTime ? offsetTime : pieces[5]
-  const parts = [
-    pieces[0] + ',',
-    pieces[2],
-    pieces[1],
-    pieces[3],
-    pieces[4],
-    offset,
-  ]
+  const parts = [`${pieces[0]},`, pieces[2], pieces[1], pieces[3], pieces[4], offset]
 
   return parts.join(' ')
 }

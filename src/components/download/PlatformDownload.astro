@@ -1,10 +1,25 @@
 ---
+interface ReleaseInfo {
+  label?: string
+  link: string
+  checksum?: string
+}
+
+interface PlatformReleases {
+  universal?: ReleaseInfo
+  all?: ReleaseInfo
+  tarball?: ReleaseInfo
+  x86_64?: { tarball: ReleaseInfo } | ReleaseInfo
+  arm64?: ReleaseInfo
+  flathub?: { all: ReleaseInfo }
+}
+
 interface Props {
   platform: 'mac' | 'windows' | 'linux'
   icon: string[]
   title: string
   description: string
-  releases: Record<string, any>
+  releases: PlatformReleases
 }
 
 const { platform, icon, title, description, releases } = Astro.props
@@ -32,7 +47,7 @@ import DownloadCard from './ButtonCard.astro'
         {
           platform === 'linux' ? (
             <>
-              <div>
+              {releases.flathub && releases.flathub.all.label && <div>
                 <h4 class="mb-3 text-lg font-medium">Package Managers</h4>
                 <div class="space-y-3">
                   <DownloadCard
@@ -41,8 +56,8 @@ import DownloadCard from './ButtonCard.astro'
                     variant="flathub"
                   />
                 </div>
-              </div>
-              <div>
+              </div>}
+              {releases.x86_64 && 'tarball' in releases.x86_64 && <div>
                 <h4 class="mb-3 text-lg font-medium">Tarball</h4>
                 <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <DownloadCard
@@ -53,23 +68,38 @@ import DownloadCard from './ButtonCard.astro'
                   />
                   <DownloadCard
                     label="ARM64"
-                    href={releases.aarch64.tarball.link}
+                    href={releases.x86_64.tarball.link}
                     variant="aarch64"
-                    checksum={releases.aarch64.tarball.checksum}
+                    checksum={releases.x86_64.tarball.checksum}
                   />
                 </div>
-              </div>
+              </div>}
             </>
           ) : (
             <div class="space-y-4">
-              {Object.entries(releases).map(([variant, releaseNote]) => (
-                <DownloadCard
-                  label={releaseNote.label}
-                  href={releaseNote.link}
-                  variant={variant}
-                  checksum={releaseNote.checksum}
-                />
-              ))}
+              <div class="space-y-3">
+                {releases.universal && releases.universal.label && (
+                  <DownloadCard
+                    label={releases.universal.label}
+                    href={releases.universal.link}
+                    checksum={releases.universal.checksum}
+                  />
+                )}
+                {releases.x86_64 && 'tarball' in releases.x86_64 && releases.x86_64.tarball && releases.x86_64.tarball.label && (
+                  <DownloadCard
+                    label={releases.x86_64.tarball.label}
+                    href={releases.x86_64.tarball.link}
+                    checksum={releases.x86_64.tarball.checksum}
+                  />
+                )}
+                {releases.arm64 && releases.arm64.label && (
+                  <DownloadCard
+                    label={releases.arm64.label}
+                    href={releases.arm64.link}
+                    checksum={releases.arm64.checksum}
+                  />
+                )}
+              </div>
             </div>
           )
         }

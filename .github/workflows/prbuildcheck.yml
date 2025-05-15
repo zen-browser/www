@@ -21,5 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm install --no-frozen-lockfile
 
+      - name: Run Biome check
+        run: npx biome check ./src
+
       - name: Build project
         run: npm run build

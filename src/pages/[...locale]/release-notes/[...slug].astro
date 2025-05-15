@@ -15,7 +15,7 @@ export async function getStaticPaths() {
   const i18nPaths = getI18nPaths()
 
   return i18nPaths.flatMap(({ params: { locale } }) => [
-    ...releaseNotes.map((release: any) => ({
+    ...releaseNotes.map((release) => ({
       params: { slug: release.version, locale },
       props: { ...release },
     })),

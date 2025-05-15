@@ -26,9 +26,7 @@ export interface ReleaseNote {
 export const releaseNotes: ReleaseNote[] = releaseNotesStable.reverse()
 export { default as releaseNotesTwilight } from './release-notes/twilight.json'
 
-export function getReleaseNoteFirefoxVersion(
-  releaseNote: ReleaseNote,
-): string | null {
+export function getReleaseNoteFirefoxVersion(releaseNote: ReleaseNote): string | null {
   // Check if "firefox" is on the feature list
   for (const feature of releaseNote.features || []) {
     if (feature.toLowerCase().includes('firefox')) {
