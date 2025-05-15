@@ -46,7 +46,7 @@
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,astro,js,jsx}": [
-      "biome lint --apply"
+      "biome check --write ./src"
     ]
   }
 }

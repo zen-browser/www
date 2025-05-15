@@ -2,8 +2,8 @@ import type { GetStaticPaths } from "astro";
 import { CONSTANT } from "~/constants";
 import UI_EN from "~/i18n/en/translation.json";
 
-/** 
- * Represents the available locales in the application 
+/**
+ * Represents the available locales in the application
  * @typedef {string} Locale
  */
 export type Locale = (typeof locales)[number];
@@ -34,14 +34,14 @@ export const getLocale = (Astro: { params?: { locale?: string } }) => {
   return CONSTANT.I18N.DEFAULT_LOCALE as Locale;
 };
 
-/** 
- * List of all supported locales 
+/**
+ * List of all supported locales
  * @type {Locale[]}
  */
 export const locales = CONSTANT.I18N.LOCALES.map(({ value }) => value);
 
-/** 
- * List of locales excluding the default locale 
+/**
+ * List of locales excluding the default locale
  * @type {Locale[]}
  */
 const otherLocales = CONSTANT.I18N.LOCALES.filter(
@@ -54,14 +54,14 @@ const otherLocales = CONSTANT.I18N.LOCALES.filter(
  */
 export const getOtherLocales = () => otherLocales;
 
-/** 
- * Type definition for UI translations based on the English translation 
+/**
+ * Type definition for UI translations based on the English translation
  * @typedef {Object} UI
  */
 export type UI = typeof UI_EN;
 
-/** 
- * Mapping of locales to their UI translation objects 
+/**
+ * Mapping of locales to their UI translation objects
  * @type {Object.<Locale, UI>}
  */
 export const ui = { en: UI_EN };
@@ -78,7 +78,7 @@ export const getUI = (locale?: Locale | string): UI => {
 
   /**
    * Recursively merges two objects, with the override object taking precedence
-   * @template T 
+   * @template T
    * @param {T} defaultObj - The default object to merge from
    * @param {Partial<T>} overrideObj - The object to merge over the default
    * @returns {T} The deeply merged object
