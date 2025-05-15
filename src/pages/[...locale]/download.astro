@@ -1,5 +1,6 @@
 ---
 import Description from '~/components/Description.astro'
+import DownloadScript from '~/components/download/DownloadScript.astro'
 import PlatformDownload from '~/components/download/PlatformDownload.astro'
 import { getReleasesWithChecksums } from '~/components/download/release-data.astro'
 import Layout from '~/layouts/Layout.astro'
@@ -31,6 +32,8 @@ const releases = getReleasesWithChecksums(checksums)
 const platformNames = download.platformNames
 const platformDescriptions = download.platformDescriptions
 ---
+
+<DownloadScript />
 
 <Layout title={layout.download.title} description={layout.download.description}>
   <main class="flex min-h-screen flex-col px-6 data-[os='windows']:bg-zen-blue">
@@ -228,109 +231,3 @@ const platformDescriptions = download.platformDescriptions
     width: 3rem;
   }
 </style>
-
-<script>
-  // Handle platform selection
-  const platformButtons = document.querySelectorAll('.platform-selector')
-  const platformSections = document.querySelectorAll('.platform-section')
-
-  // Function to detect OS and select appropriate platform
-  function detectOS() {
-    const userAgent = window.navigator.userAgent
-    let detectedOS = 'mac' // Default to macOS
-
-    if (userAgent.indexOf('Windows') !== -1) {
-      detectedOS = 'windows'
-    } else if (userAgent.indexOf('Linux') !== -1) {
-      detectedOS = 'linux'
-    }
-
-    return detectedOS
-  }
-
-  // Initialize platform based on user's OS
-  async function initializePlatform() {
-    const detectedOS = detectOS()
-    selectPlatform(detectedOS)
-  }
-
-  // Function to select a platform
-  async function selectPlatform(platform: string) {
-    // Update button styling
-    platformButtons.forEach((button) => {
-      const buttonPlatform = button.getAttribute('data-platform')
-      if (buttonPlatform === platform) {
-        button.setAttribute('data-active', 'true')
-      } else {
-        button.setAttribute('data-active', 'false')
-      }
-    })
-
-    // Show/hide platform sections
-    platformSections.forEach((section) => {
-      if (section.id === `${platform}-downloads`) {
-        section.setAttribute('data-active', 'true')
-      } else {
-        section.setAttribute('data-active', 'false')
-      }
-    })
-  }
-
-  // Handle platform button clicks
-  platformButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const platform = button.getAttribute('data-platform') ?? ''
-      selectPlatform(platform)
-    })
-  })
-
-  // Check for twilight mode
-  async function checkTwilightMode() {
-    const urlParams = new URLSearchParams(window.location.search)
-    const isTwilight = urlParams.has('twilight')
-
-    if (isTwilight) {
-      const twilightInfoElem = document.getElementById('twilight-info')
-      twilightInfoElem?.setAttribute('data-twilight', 'true')
-
-      // Update UI to show twilight mode with animation
-      const titleElem = document.getElementById('download-title')
-      if (titleElem) {
-        const zenText = titleElem.innerHTML
-        titleElem.innerHTML = zenText.replace('Zen', 'Twilight')
-      }
-
-      const tags = document.querySelectorAll('.release-type-tag')
-      tags.forEach((tag) => {
-        tag.innerHTML = tag.innerHTML.replace('Beta', 'Twilight')
-      })
-
-      // Apply twilight mode to all relevant elements
-      const coralElements = document.querySelectorAll(
-        '.download-browser-logo, .release-type-tag, .decorative-gradient, .download-link, .download-arrow-icon, .download-card__icon, .checksum-icon-btn, .copy-btn',
-      )
-      coralElements.forEach((element) => {
-        element.setAttribute('data-twilight', 'true')
-      })
-
-      // Replace all download links with twilight versions
-      const downloadLinks = document.querySelectorAll('a.download-link')
-      downloadLinks.forEach((link) => {
-        if (!link.id.includes('beta')) {
-          const href = link.getAttribute('href')
-          if (href && href.includes('/latest/download/')) {
-            const twilightHref = href.replace(
-              '/latest/download/',
-              '/download/twilight/',
-            )
-            link.setAttribute('href', twilightHref)
-          }
-        }
-      })
-    }
-  }
-
-  // Initialize the page
-  initializePlatform()
-  checkTwilightMode()
-</script>
