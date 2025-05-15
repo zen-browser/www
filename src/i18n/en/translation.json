@@ -150,7 +150,12 @@
       "mainTeam": {
         "title": "Main Team",
         "description": "This list shows the main team members who are working hard to bring you the best browsing experience.",
+        "subTitle": {
+            "browser": "Browser",
+            "website": "Website and Branding"
+          },
         "members": {
+          
           "browser": {
             "mauro": {
               "name": "Mauro B.",
@@ -201,7 +206,7 @@
             },
             "jace": {
               "name": "Jace",
-              "description": "Website and branding",
+              "description": "Contributes to website design and branding",
               "link": "https://x.com/JaceThings"
             },
             "canoa": {
