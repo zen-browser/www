@@ -10,7 +10,7 @@
     "wrangler": "wrangler",
     "astro": "astro",
     "lint": "biome lint ./src",
-    "format": "biome format ./src --write",
+    "format": "biome format ./src",
     "prepare": "husky"
   },
   "dependencies": {
