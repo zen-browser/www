@@ -153,7 +153,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
             <button
               type="button"
               onClick={toggleCreatedSort}
-              className="text-md flex items-center gap-2 px-4 py-2 font-semibold"
+              className="flex items-center gap-2 px-4 py-2 font-semibold text-md"
             >
               {mods.sort.lastCreated}
               <span
@@ -169,7 +169,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
             <button
               type="button"
               onClick={toggleUpdatedSort}
-              className="text-md flex items-center gap-2 px-4 py-2 font-semibold"
+              className="flex items-center gap-2 px-4 py-2 font-semibold text-md"
             >
               {mods.sort.lastUpdated}
               <span
@@ -182,7 +182,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           </div>
 
           <div className="flex items-center gap-2 px-4 py-2">
-            <label htmlFor="limit" className="text-md font-semibold">
+            <label htmlFor="limit" className="font-semibold text-md">
               {mods.sort.perPage}
             </label>
             <select
@@ -217,17 +217,17 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
                 />
               </div>
               <div>
-                <h2 className="text-lg font-bold">
-                  {mod.name} <span className="ml-1 text-sm font-normal">by @{mod.author}</span>
+                <h2 className="font-bold text-lg">
+                  {mod.name} <span className="ml-1 font-normal text-sm">by @{mod.author}</span>
                 </h2>
-                <p className="text-sm font-thin">{mod.description}</p>
+                <p className="font-thin text-sm">{mod.description}</p>
               </div>
             </a>
           ))
         ) : (
           <div className="col-span-4 grid place-items-center gap-4 place-self-center px-8 text-center">
-            <h2 className="text-lg font-bold">{mods.noResults}</h2>
-            <p className="text-sm font-thin">{mods.noResultsDescription}</p>
+            <h2 className="font-bold text-lg">{mods.noResults}</h2>
+            <p className="font-thin text-sm">{mods.noResultsDescription}</p>
           </div>
         )}
       </div>
