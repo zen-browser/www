@@ -1,15 +1,15 @@
 ---
-import { ArrowRight, Info } from "lucide-astro";
-import BackButton from "~/components/BackButton.astro";
-import Button from "~/components/Button.astro";
-import Description from "~/components/Description.astro";
-import Layout from "~/layouts/Layout.astro";
-import { getAllMods, getAuthorLink, getLocalizedDate } from "~/mods";
-import { getUI } from "~/utils/i18n";
-import { getLocale, getOtherLocales } from "~/utils/i18n";
+import { ArrowRight, Info } from 'lucide-astro'
+import BackButton from '~/components/BackButton.astro'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
+import { getUI } from '~/utils/i18n'
+import { getLocale, getOtherLocales } from '~/utils/i18n'
 
 export async function getStaticPaths() {
-  const mods = await getAllMods();
+  const mods = await getAllMods()
   return mods.flatMap((mod) => [
     ...getOtherLocales().map((locale) => ({
       params: {
@@ -31,25 +31,25 @@ export async function getStaticPaths() {
         locale: undefined,
       },
     },
-  ]);
+  ])
 }
 
 // https://github.com/TeaClientMC/Website/blob/7faacc9f8b2c79c74f711d413b155c84faafc00d/src/pages/news/%5B...slug%5D.astro
 
-const mod = Astro.props;
+const mod = Astro.props
 
 const dates = {
   createdAt: getLocalizedDate(mod.createdAt),
   updatedAt: getLocalizedDate(mod.updatedAt),
-};
+}
 
-const locale = getLocale(Astro as { params: { locale?: string } });
+const locale = getLocale(Astro as { params: { locale?: string } })
 
 const {
   routes: {
     mods: { slug },
   },
-} = getUI(locale);
+} = getUI(locale)
 ---
 
 <Layout

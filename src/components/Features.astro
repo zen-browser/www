@@ -1,31 +1,27 @@
 ---
-import { motion } from "motion/react";
-import { getTitleAnimation } from "~/animations";
-import Description from "~/components/Description.astro";
+import { motion } from 'motion/react'
+import { getTitleAnimation } from '~/animations'
+import Description from '~/components/Description.astro'
 
-import CompactModeVideo from "~/assets/CompactMode.webm";
-import GlanceVideo from "~/assets/Glance.webm";
-import SplitViewsVideo from "~/assets/SplitViews.webm";
-import WorkspacesVideo from "~/assets/Workspaces.webm";
+import CompactModeVideo from '~/assets/CompactMode.webm'
+import GlanceVideo from '~/assets/Glance.webm'
+import SplitViewsVideo from '~/assets/SplitViews.webm'
+import WorkspacesVideo from '~/assets/Workspaces.webm'
 
-import { getLocale, getUI } from "~/utils/i18n";
-import Video from "./Video.astro";
+import { getLocale, getUI } from '~/utils/i18n'
+import Video from './Video.astro'
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 
 const {
   routes: {
     index: { features },
   },
-} = getUI(locale);
+} = getUI(locale)
 
-const {
-  title1 = features.title1,
-  title2 = features.title2,
-  title3 = features.title3,
-} = Astro.props;
+const { title1 = features.title1, title2 = features.title2, title3 = features.title3 } = Astro.props
 
-const descriptions = Object.values(features.featureTabs).map((tab) => tab.description);
+const descriptions = Object.values(features.featureTabs).map((tab) => tab.description)
 ---
 
 <section

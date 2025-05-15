@@ -21,5 +21,11 @@
       ".git",
       "dist"
     ]
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "asNeeded"
+    }
   }
 }

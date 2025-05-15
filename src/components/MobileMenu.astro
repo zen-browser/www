@@ -1,13 +1,13 @@
 ---
-import { getLocale, getPath, getUI } from "~/utils/i18n";
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 
-const locale = getLocale(Astro);
-const getLocalePath = getPath(locale);
+const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
 const {
   components: {
     nav: { menu },
   },
-} = getUI(locale);
+} = getUI(locale)
 ---
 
 <!-- Hidden checkbox for menu toggle -->

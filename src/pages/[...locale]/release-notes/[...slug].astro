@@ -1,18 +1,18 @@
 ---
-import Layout from "~/layouts/Layout.astro";
-import { releaseNotes } from "~/release-notes";
-import { getStaticPaths as getI18nPaths, getLocale, getUI } from "~/utils/i18n";
+import Layout from '~/layouts/Layout.astro'
+import { releaseNotes } from '~/release-notes'
+import { getStaticPaths as getI18nPaths, getLocale, getUI } from '~/utils/i18n'
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 
 const {
   routes: {
     releaseNotes: { slug },
   },
-} = getUI(locale);
+} = getUI(locale)
 
 export async function getStaticPaths() {
-  const i18nPaths = getI18nPaths();
+  const i18nPaths = getI18nPaths()
 
   return i18nPaths.flatMap(({ params: { locale } }) => [
     ...releaseNotes.map((release) => ({
@@ -20,13 +20,13 @@ export async function getStaticPaths() {
       props: { ...release },
     })),
     {
-      params: { slug: "latest", locale },
+      params: { slug: 'latest', locale },
       props: { ...releaseNotes[0] },
     },
-  ]);
+  ])
 }
 
-const release = Astro.props;
+const release = Astro.props
 ---
 
 <Layout title={slug.title} redirect={`/release-notes#${release.version}`}>

@@ -1,32 +1,32 @@
 ---
 interface ReleaseInfo {
-  label?: string;
-  link: string;
-  checksum?: string;
+  label?: string
+  link: string
+  checksum?: string
 }
 
 interface PlatformReleases {
-  universal?: ReleaseInfo;
-  all?: ReleaseInfo;
-  tarball?: ReleaseInfo;
-  x86_64?: { tarball: ReleaseInfo } | ReleaseInfo;
-  arm64?: ReleaseInfo;
-  flathub?: { all: ReleaseInfo };
+  universal?: ReleaseInfo
+  all?: ReleaseInfo
+  tarball?: ReleaseInfo
+  x86_64?: { tarball: ReleaseInfo } | ReleaseInfo
+  arm64?: ReleaseInfo
+  flathub?: { all: ReleaseInfo }
 }
 
 interface Props {
-  platform: "mac" | "windows" | "linux";
-  icon: string[];
-  title: string;
-  description: string;
-  releases: PlatformReleases;
+  platform: 'mac' | 'windows' | 'linux'
+  icon: string[]
+  title: string
+  description: string
+  releases: PlatformReleases
 }
 
-const { platform, icon, title, description, releases } = Astro.props;
-import { Image } from "astro:assets";
-import AppIconDark from "../../assets/app-icon-dark.png";
-import AppIconLight from "../../assets/app-icon-light.png";
-import DownloadCard from "./ButtonCard.astro";
+const { platform, icon, title, description, releases } = Astro.props
+import { Image } from 'astro:assets'
+import AppIconDark from '../../assets/app-icon-dark.png'
+import AppIconLight from '../../assets/app-icon-light.png'
+import DownloadCard from './ButtonCard.astro'
 ---
 
 <div

@@ -1,34 +1,34 @@
 ---
-import { ArrowRight } from "lucide-astro";
-import { motion } from "motion/react";
-import { getTitleAnimation } from "~/animations";
-import HomePageVideo from "~/assets/HomePageVideo.webm";
-import Button from "~/components/Button.astro";
-import Description from "~/components/Description.astro";
-import Title from "~/components/Title.astro";
-import { getLocale, getPath, getUI } from "~/utils/i18n";
-import SocialMediaStrip from "./SocialMediaStrip.astro";
-import Video from "./Video.astro";
+import { ArrowRight } from 'lucide-astro'
+import { motion } from 'motion/react'
+import { getTitleAnimation } from '~/animations'
+import HomePageVideo from '~/assets/HomePageVideo.webm'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import Title from '~/components/Title.astro'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
+import SocialMediaStrip from './SocialMediaStrip.astro'
+import Video from './Video.astro'
 
-let titleAnimationCounter = 0;
+let titleAnimationCounter = 0
 function getNewAnimationDelay() {
-  titleAnimationCounter++;
-  return titleAnimationCounter * 0.15;
+  titleAnimationCounter++
+  return titleAnimationCounter * 0.15
 }
 
 function getHeroTitleAnimation() {
-  return getTitleAnimation(getNewAnimationDelay());
+  return getTitleAnimation(getNewAnimationDelay())
 }
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 
-const getLocalePath = getPath(locale);
+const getLocalePath = getPath(locale)
 
 const {
   routes: {
     index: { hero },
   },
-} = getUI(locale);
+} = getUI(locale)
 ---
 
 <header

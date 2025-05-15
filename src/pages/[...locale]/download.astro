@@ -1,35 +1,35 @@
 ---
-import Description from "~/components/Description.astro";
-import DownloadScript from "~/components/download/DownloadScript.astro";
-import PlatformDownload from "~/components/download/PlatformDownload.astro";
-import { getReleasesWithChecksums } from "~/components/download/release-data.astro";
-import Layout from "~/layouts/Layout.astro";
-import { getChecksums } from "~/utils/githubChecksums";
-import { getLocale, getUI } from "~/utils/i18n";
+import Description from '~/components/Description.astro'
+import DownloadScript from '~/components/download/DownloadScript.astro'
+import PlatformDownload from '~/components/download/PlatformDownload.astro'
+import { getReleasesWithChecksums } from '~/components/download/release-data.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getChecksums } from '~/utils/githubChecksums'
+import { getLocale, getUI } from '~/utils/i18n'
 
-import { icon, library } from "@fortawesome/fontawesome-svg-core";
-import { faApple, faGithub, faLinux, faWindows } from "@fortawesome/free-brands-svg-icons";
-import { ExternalLink, Lock } from "lucide-astro";
+import { icon, library } from '@fortawesome/fontawesome-svg-core'
+import { faApple, faGithub, faLinux, faWindows } from '@fortawesome/free-brands-svg-icons'
+import { ExternalLink, Lock } from 'lucide-astro'
 
-export { getStaticPaths } from "~/utils/i18n";
+export { getStaticPaths } from '~/utils/i18n'
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 const {
   routes: { download },
   layout,
-} = getUI(locale);
+} = getUI(locale)
 
-library.add(faWindows, faLinux, faApple, faGithub);
-const windowsIcon = icon({ prefix: "fab", iconName: "windows" });
-const linuxIcon = icon({ prefix: "fab", iconName: "linux" });
-const appleIcon = icon({ prefix: "fab", iconName: "apple" });
-const githubIcon = icon({ prefix: "fab", iconName: "github" });
+library.add(faWindows, faLinux, faApple, faGithub)
+const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
+const linuxIcon = icon({ prefix: 'fab', iconName: 'linux' })
+const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
+const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
-const checksums = await getChecksums();
-const releases = getReleasesWithChecksums(checksums);
+const checksums = await getChecksums()
+const releases = getReleasesWithChecksums(checksums)
 
-const platformNames = download.platformNames;
-const platformDescriptions = download.platformDescriptions;
+const platformNames = download.platformNames
+const platformDescriptions = download.platformDescriptions
 ---
 
 <DownloadScript />

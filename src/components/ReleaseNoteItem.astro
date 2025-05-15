@@ -1,41 +1,41 @@
 ---
-import { Accordion, AccordionItem } from "free-astro-components";
-import { Info } from "lucide-astro";
+import { Accordion, AccordionItem } from 'free-astro-components'
+import { Info } from 'lucide-astro'
 
-import { releaseNotes as releaseNotesData } from "~/release-notes";
-import { getLocale, getPath, getUI } from "~/utils/i18n";
+import { releaseNotes as releaseNotesData } from '~/release-notes'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 import {
   type BreakingChange,
   type ReleaseNote,
   getReleaseNoteFirefoxVersion,
-} from "../release-notes";
-export type Props = ReleaseNote;
-const { isTwilight, ...props } = Astro.props;
+} from '../release-notes'
+export type Props = ReleaseNote
+const { isTwilight, ...props } = Astro.props
 
-const locale = getLocale(Astro);
-const getLocalePath = getPath(locale);
+const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
 const {
   routes: {
     releaseNotes: {
       components: { releaseNoteItem },
     },
   },
-} = getUI(locale);
+} = getUI(locale)
 
-let date: Date | undefined;
+let date: Date | undefined
 if (props.date) {
-  const [day, month, year] = props.date.split("/");
-  date = new Date(Date.parse(`${year}-${month}-${day}`));
+  const [day, month, year] = props.date.split('/')
+  date = new Date(Date.parse(`${year}-${month}-${day}`))
 }
 
-const ffVersion = getReleaseNoteFirefoxVersion(props);
+const ffVersion = getReleaseNoteFirefoxVersion(props)
 const currentReleaseIndex = releaseNotesData.findIndex(
   (releaseNote: ReleaseNote) => releaseNote.version === props.version,
-);
-const prevReleaseNote = releaseNotesData[currentReleaseIndex + 1];
-let compareLink = "";
+)
+const prevReleaseNote = releaseNotesData[currentReleaseIndex + 1]
+let compareLink = ''
 if (prevReleaseNote && !isTwilight) {
-  compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`;
+  compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`
 }
 ---
 

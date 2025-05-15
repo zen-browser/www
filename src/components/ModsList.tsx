@@ -1,21 +1,21 @@
-import { icon, library } from "@fortawesome/fontawesome-svg-core";
-import { faSort, faSortDown, faSortUp } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useState } from "preact/hooks";
-import { useModsSearch } from "~/hooks/useModsSearch";
-import type { ZenTheme } from "~/mods";
-import { type Locale, getUI } from "~/utils/i18n";
+import { icon, library } from '@fortawesome/fontawesome-svg-core'
+import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState } from 'preact/hooks'
+import { useModsSearch } from '~/hooks/useModsSearch'
+import type { ZenTheme } from '~/mods'
+import { type Locale, getUI } from '~/utils/i18n'
 
 // Add icons to the library
-library.add(faSort, faSortUp, faSortDown);
+library.add(faSort, faSortUp, faSortDown)
 
 // Create icon objects
-const defaultSortIcon = icon({ prefix: "fas", iconName: "sort" });
-const ascSortIcon = icon({ prefix: "fas", iconName: "sort-up" });
-const descSortIcon = icon({ prefix: "fas", iconName: "sort-down" });
+const defaultSortIcon = icon({ prefix: 'fas', iconName: 'sort' })
+const ascSortIcon = icon({ prefix: 'fas', iconName: 'sort-up' })
+const descSortIcon = icon({ prefix: 'fas', iconName: 'sort-down' })
 
 interface ModsListProps {
-  allMods: ZenTheme[];
-  locale: Locale;
+  allMods: ZenTheme[]
+  locale: Locale
 }
 
 export default function ModsList({ allMods, locale }: ModsListProps) {
@@ -34,71 +34,71 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     setLimit,
     mods: paginatedMods,
     // searchParams,
-  } = useModsSearch(allMods);
+  } = useModsSearch(allMods)
 
-  const [pageInput, setPageInput] = useState(page.toString());
+  const [pageInput, setPageInput] = useState(page.toString())
 
   // Keep page input in sync with actual page
   useEffect(() => {
-    setPageInput(page.toString());
-  }, [page]);
+    setPageInput(page.toString())
+  }, [page])
 
-  function getSortIcon(state: "default" | "asc" | "desc") {
-    if (state === "asc") return ascSortIcon;
-    if (state === "desc") return descSortIcon;
-    return defaultSortIcon;
+  function getSortIcon(state: 'default' | 'asc' | 'desc') {
+    if (state === 'asc') return ascSortIcon
+    if (state === 'desc') return descSortIcon
+    return defaultSortIcon
   }
 
   function handleSearch(e: Event) {
-    const target = e.target as HTMLInputElement;
-    setSearch(target.value);
+    const target = e.target as HTMLInputElement
+    setSearch(target.value)
   }
 
   function handleLimitChange(e: Event) {
-    const target = e.target as HTMLSelectElement;
-    setLimit(Number.parseInt(target.value, 10));
+    const target = e.target as HTMLSelectElement
+    setLimit(Number.parseInt(target.value, 10))
   }
 
   function handlePageSubmit(e: Event) {
-    e.preventDefault();
-    const newPage = Number.parseInt(pageInput, 10);
+    e.preventDefault()
+    const newPage = Number.parseInt(pageInput, 10)
     if (!Number.isNaN(newPage) && newPage >= 1 && newPage <= totalPages) {
-      setPage(newPage);
-      window.scrollTo(0, 0);
+      setPage(newPage)
+      window.scrollTo(0, 0)
     } else {
-      setPageInput(page.toString());
+      setPageInput(page.toString())
     }
   }
 
   function handlePageInputChange(e: Event) {
-    const target = e.target as HTMLInputElement;
-    setPageInput(target.value);
+    const target = e.target as HTMLInputElement
+    setPageInput(target.value)
   }
 
   function navigatePage(pageNum: number) {
-    setPage(pageNum);
-    window.scrollTo(0, 0);
+    setPage(pageNum)
+    window.scrollTo(0, 0)
   }
 
   const {
     routes: { mods },
-  } = getUI(locale);
+  } = getUI(locale)
 
   function renderPagination() {
-    if (totalPages <= 1) return null;
+    if (totalPages <= 1) return null
     return (
       <div className="mx-auto mb-12 flex items-center justify-center gap-4 px-8">
         <button
           type="button"
           onClick={() => navigatePage(page - 1)}
           className={`px-3 py-2 ${
-            page === 1 ? "pointer-events-none text-gray-400" : "text-dark hover:text-gray-600"
+            page === 1 ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'
           }`}
         >
           &lt;
         </button>
         <form onSubmit={handlePageSubmit} className="flex items-center gap-2">
-          {mods.pagination.pagination.split("{input}").map((value, index) => {
+          {mods.pagination.pagination.split('{input}').map((value, index) => {
             if (index === 0) {
               return (
                 <input
@@ -108,15 +108,15 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
                   className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
                   aria-label="Page number"
                 />
-              );
+              )
             }
             return (
               <span key={value} className="text-sm">
                 {value
-                  .replace("{totalPages}", totalPages.toString())
-                  .replace("{totalItems}", totalItems.toString())}
+                  .replace('{totalPages}', totalPages.toString())
+                  .replace('{totalItems}', totalItems.toString())}
               </span>
-            );
+            )
           })}
         </form>
         <button
@@ -124,14 +124,14 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           onClick={() => navigatePage(page + 1)}
           className={`px-3 py-2 ${
             page === totalPages
-              ? "pointer-events-none text-gray-400"
-              : "text-dark hover:text-gray-600"
+              ? 'pointer-events-none text-gray-400'
+              : 'text-dark hover:text-gray-600'
           }`}
         >
           &gt;
         </button>
       </div>
-    );
+    )
   }
 
   return (
@@ -234,5 +234,5 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
 
       {renderPagination()}
     </div>
-  );
+  )
 }

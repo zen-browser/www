@@ -1,20 +1,20 @@
 ---
-import Description from "~/components/Description.astro";
-import ModsList from "~/components/ModsList";
-import { CONSTANT } from "~/constants";
-import Layout from "~/layouts/Layout.astro";
-import { getAllMods } from "~/mods";
-import { getLocale, getUI } from "~/utils/i18n";
-export { getStaticPaths } from "~/utils/i18n";
+import Description from '~/components/Description.astro'
+import ModsList from '~/components/ModsList'
+import { CONSTANT } from '~/constants'
+import Layout from '~/layouts/Layout.astro'
+import { getAllMods } from '~/mods'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
-const locale = getLocale(Astro);
+const locale = getLocale(Astro)
 
 const {
   routes: { mods },
   layout,
-} = getUI(locale);
+} = getUI(locale)
 
-const allMods = (await getAllMods()) || [];
+const allMods = (await getAllMods()) || []
 ---
 
 <Layout title={layout.mods.title}>
