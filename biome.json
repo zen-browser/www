@@ -20,11 +20,7 @@
     "useEditorconfig": true
   },
   "files": {
-    "ignore": [
-      "node_modules",
-      ".git",
-      "dist"
-    ]
+    "ignore": ["node_modules", ".git", "dist"]
   },
   "javascript": {
     "formatter": {

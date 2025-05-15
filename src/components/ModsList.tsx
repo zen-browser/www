@@ -89,36 +89,36 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     return (
       <div className="mx-auto mb-12 flex items-center justify-center gap-4 px-8">
         <button
-          type="button"
-          onClick={() => navigatePage(page - 1)}
           className={`px-3 py-2 ${page === 1 ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'}`}
+          onClick={() => navigatePage(page - 1)}
+          type="button"
         >
           &lt;
         </button>
-        <form onSubmit={handlePageSubmit} className="flex items-center gap-2">
+        <form className="flex items-center gap-2" onSubmit={handlePageSubmit}>
           {mods.pagination.pagination.split('{input}').map((value, index) => {
             if (index === 0) {
               return (
                 <input
+                  aria-label="Page number"
+                  className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
+                  onInput={handlePageInputChange}
                   type="text"
                   value={pageInput}
-                  onInput={handlePageInputChange}
-                  className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
-                  aria-label="Page number"
                 />
               )
             }
             return (
-              <span key={value} className="text-sm">
+              <span className="text-sm" key={value}>
                 {value.replace('{totalPages}', totalPages.toString()).replace('{totalItems}', totalItems.toString())}
               </span>
             )
           })}
         </form>
         <button
-          type="button"
-          onClick={() => navigatePage(page + 1)}
           className={`px-3 py-2 ${page === totalPages ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'}`}
+          onClick={() => navigatePage(page + 1)}
+          type="button"
         >
           &gt;
         </button>
@@ -131,21 +131,21 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
       <div className="flex flex-col items-center gap-4">
         <div className="flex w-full flex-col items-center justify-center gap-6">
           <input
-            type="text"
-            id="search"
             className="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg outline-none"
-            placeholder={mods.search}
-            value={search}
+            id="search"
             onInput={handleSearch}
+            placeholder={mods.search}
+            type="text"
+            value={search}
           />
         </div>
 
         <div className="grid w-full grid-cols-2 place-items-center gap-4 sm:grid-cols-3">
           <div className="flex flex-col items-start gap-2">
             <button
-              type="button"
-              onClick={toggleCreatedSort}
               className="flex items-center gap-2 px-4 py-2 font-semibold text-md"
+              onClick={toggleCreatedSort}
+              type="button"
             >
               {mods.sort.lastCreated}
               <span
@@ -159,9 +159,9 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
 
           <div className="flex flex-col items-center gap-2">
             <button
-              type="button"
-              onClick={toggleUpdatedSort}
               className="flex items-center gap-2 px-4 py-2 font-semibold text-md"
+              onClick={toggleUpdatedSort}
+              type="button"
             >
               {mods.sort.lastUpdated}
               <span
@@ -174,14 +174,14 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           </div>
 
           <div className="flex items-center gap-2 px-4 py-2">
-            <label htmlFor="limit" className="font-semibold text-md">
+            <label className="font-semibold text-md" htmlFor="limit">
               {mods.sort.perPage}
             </label>
             <select
-              id="limit"
-              value={limit}
-              onInput={handleLimitChange}
               className="rounded border border-dark bg-transparent px-2 py-1 text-sm [&>option]:text-black"
+              id="limit"
+              onInput={handleLimitChange}
+              value={limit}
             >
               <option value="12">12</option>
               <option value="24">24</option>
@@ -196,16 +196,16 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         {paginatedMods.length > 0 ? (
           paginatedMods.map((mod) => (
             <a
-              key={mod.id}
-              href={`/mods/${mod.id}`}
               className="flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
+              href={`/mods/${mod.id}`}
+              key={mod.id}
             >
               <div className="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
                 <img
-                  src={mod.image}
                   alt={mod.name}
-                  loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-100 hover:scale-105"
+                  loading="lazy"
+                  src={mod.image}
                 />
               </div>
               <div>
