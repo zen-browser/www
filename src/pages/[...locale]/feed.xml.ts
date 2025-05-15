@@ -1,25 +1,23 @@
-import rss, { type RSSOptions } from '@astrojs/rss'
-import { releaseNotes } from '~/release-notes'
-import type { ReleaseNote } from '~/release-notes'
-export { getStaticPaths } from '~/utils/i18n'
+import rss, { type RSSOptions } from "@astrojs/rss";
+import { releaseNotes } from "~/release-notes";
+import type { ReleaseNote } from "~/release-notes";
+export { getStaticPaths } from "~/utils/i18n";
 
 /** The default number of entries to include in the RSS feed. */
-const RSS_ENTRY_LIMIT = 20
+const RSS_ENTRY_LIMIT = 20;
 
 /**
  * Handles the GET request for the `feed.xml` endpoint.
  * @returns The RSS feed for the Zen Browser release notes.
  */
-export function GET(context: any) {
+export function GET(context: { url: URL }) {
   // Just in case the release notes array is empty for whatever reason.
   const latestDate =
-    releaseNotes.length > 0
-      ? formatRssDate(releaseNotes[0].date as string)
-      : new Date()
+    releaseNotes.length > 0 ? formatRssDate(releaseNotes[0].date as string) : new Date();
 
   const rssData: RSSOptions = {
-    title: 'Zen Browser Release Notes',
-    description: 'Release Notes for the Zen Browser',
+    title: "Zen Browser Release Notes",
+    description: "Release Notes for the Zen Browser",
     site: context.url,
     items: [],
     customData: `
@@ -33,7 +31,7 @@ export function GET(context: any) {
                 <link>https://www.zen-browser.app</link>
             </image>
         `,
-  }
+  };
 
   for (const releaseNote of releaseNotes.slice(0, RSS_ENTRY_LIMIT)) {
     rssData.items.push({
@@ -42,10 +40,10 @@ export function GET(context: any) {
       pubDate: formatRssDate(releaseNote.date as string),
       description: releaseNote.extra,
       content: formatReleaseNote(releaseNote),
-    })
+    });
   }
 
-  return rss(rssData)
+  return rss(rssData);
 }
 
 /**
@@ -56,15 +54,15 @@ export function GET(context: any) {
  * @returns The passed in date string as a Date object.
  */
 function formatRssDate(dateStr: string) {
-  const splitDate = dateStr.split('/')
+  const splitDate = dateStr.split("/");
   if (splitDate.length !== 3) {
-    throw new Error('Invalid date format')
+    throw new Error("Invalid date format");
   }
 
-  const day = Number(splitDate[0])
-  const month = Number(splitDate[1]) - 1
-  const year = Number(splitDate[2])
-  return new Date(year, month, day)
+  const day = Number(splitDate[0]);
+  const month = Number(splitDate[1]) - 1;
+  const year = Number(splitDate[2]);
+  return new Date(year, month, day);
 }
 
 /**
@@ -76,99 +74,83 @@ function formatReleaseNote(releaseNote: ReleaseNote) {
   let content = `<p>
         If you encounter any issues, please report them on <a href="https://github.com/zen-browser/desktop/issues/">the issues page</a>.
         Thanks everyone for your feedback! ❤️
-    </p>`
+    </p>`;
 
   if (releaseNote.image) {
     content += `<img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/releases/${releaseNote.version}.png"
                          alt="Release Image for version ${releaseNote.version}"
                          style="max-width: 30em; width: 100%; border-radius: 0.5rem;"
-                    />`
+                    />`;
   }
 
   if (releaseNote.extra) {
-    content += `<p>${releaseNote.extra.replace(/(\n)/g, '<br />')}</p>`
+    content += `<p>${releaseNote.extra.replace(/(\n)/g, "<br />")}</p>`;
   }
 
   content += addReleaseNoteSection(
-    '⚠️ Breaking changes',
+    "⚠️ Breaking changes",
     releaseNote.breakingChanges?.map(breakingChangeToReleaseNote),
-  )
-  content += addReleaseNoteSection(
-    '✓ Fixes',
-    releaseNote.fixes?.map(fixToReleaseNote),
-  )
-  content += addReleaseNoteSection('🖌 Theme Changes', releaseNote.themeChanges)
-  content += addReleaseNoteSection('⭐ Features', releaseNote.features)
+  );
+  content += addReleaseNoteSection("✓ Fixes", releaseNote.fixes?.map(fixToReleaseNote));
+  content += addReleaseNoteSection("🖌 Theme Changes", releaseNote.themeChanges);
+  content += addReleaseNoteSection("⭐ Features", releaseNote.features);
 
-  return content
+  return content;
 }
 
 function addReleaseNoteSection(title: string, items?: string[]): string {
   if (!items) {
-    return ''
+    return "";
   }
 
-  let content = `<h2>${title}</h2>`
-  content += `<ul>`
+  let content = `<h2>${title}</h2>`;
+  content += "<ul>";
   for (const item of items) {
     if (item && item.length > 0) {
-      content += `<li>${item}</li>`
+      content += `<li>${item}</li>`;
     }
   }
-  content += `</ul>`
-  return content
+  content += "</ul>";
+  return content;
 }
 
-function fixToReleaseNote(
-  fix?: Exclude<ReleaseNote['fixes'], undefined>[number],
-) {
-  if (typeof fix === 'string') {
-    return fix
+function fixToReleaseNote(fix?: Exclude<ReleaseNote["fixes"], undefined>[number]) {
+  if (typeof fix === "string") {
+    return fix;
   }
 
   if (!fix || !fix.description || fix.description.length === 0) {
-    return ''
+    return "";
   }
 
-  let note = fix.description
+  let note = fix.description;
   if (fix.issue) {
-    note += ` (<a href="https://github.com/zen-browser/desktop/issues/${fix.issue}" target="_blank">#${fix.issue}</a>)`
+    note += ` (<a href="https://github.com/zen-browser/desktop/issues/${fix.issue}" target="_blank">#${fix.issue}</a>)`;
   }
-  return note
+  return note;
 }
 
 function breakingChangeToReleaseNote(
-  breakingChange?: Exclude<ReleaseNote['breakingChanges'], undefined>[number],
+  breakingChange?: Exclude<ReleaseNote["breakingChanges"], undefined>[number],
 ) {
-  if (typeof breakingChange === 'string') {
-    return breakingChange
+  if (typeof breakingChange === "string") {
+    return breakingChange;
   }
 
-  if (
-    !breakingChange ||
-    !breakingChange.description ||
-    breakingChange.description.length === 0
-  ) {
-    return ''
+  if (!breakingChange || !breakingChange.description || breakingChange.description.length === 0) {
+    return "";
   }
 
-  return `${breakingChange.description} (<a href="${breakingChange.link}" target="_blank">Learn more</a>)`
+  return `${breakingChange.description} (<a href="${breakingChange.link}" target="_blank">Learn more</a>)`;
 }
 
 function pubDate(date?: Date) {
-  date ??= new Date()
+  const newDate = date ?? new Date();
 
-  const pieces = date.toString().split(' ')
-  const offsetTime = pieces[5].match(/[-+]\d{4}/)
-  const offset = offsetTime ? offsetTime : pieces[5]
-  const parts = [
-    pieces[0] + ',',
-    pieces[2],
-    pieces[1],
-    pieces[3],
-    pieces[4],
-    offset,
-  ]
+  const pieces = newDate.toString().split(" ");
+  const offsetTime = pieces[5].match(/[-+]\d{4}/);
+  const offset = offsetTime ? offsetTime : pieces[5];
+  const parts = [`${pieces[0]},`, pieces[2], pieces[1], pieces[3], pieces[4], offset];
 
-  return parts.join(' ')
+  return parts.join(" ");
 }

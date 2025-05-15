@@ -1,21 +1,21 @@
 ---
-import { motion } from 'motion/react'
-import { getTitleAnimation } from '~/animations'
-import Description from '~/components/Description.astro'
-import { getLocale, getUI } from '~/utils/i18n'
+import { motion } from "motion/react";
+import { getTitleAnimation } from "~/animations";
+import Description from "~/components/Description.astro";
+import { getLocale, getUI } from "~/utils/i18n";
 
-const locale = getLocale(Astro)
+const locale = getLocale(Astro);
 
-import tutaLogo from '~/assets/tuta-logo.png'
+import tutaLogo from "~/assets/tuta-logo.png";
 
-import Image from 'astro/components/Image.astro'
-const { showSponsors = true } = Astro.props
+import Image from "astro/components/Image.astro";
+const { showSponsors = true } = Astro.props;
 
 const {
   routes: {
     index: { sponsors },
   },
-} = getUI(locale)
+} = getUI(locale);
 ---
 
 <section id="sponsors" class:list={['mb-32 px-4', !showSponsors && 'hidden']}>

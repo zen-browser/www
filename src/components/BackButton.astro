@@ -1,14 +1,14 @@
 ---
-import { ArrowLeft } from 'lucide-astro'
-import { getLocale, getUI } from '~/utils/i18n'
+import { ArrowLeft } from "lucide-astro";
+import { getLocale, getUI } from "~/utils/i18n";
 
-const locale = getLocale(Astro)
+const locale = getLocale(Astro);
 
 const {
   routes: {
     mods: { slug },
   },
-} = getUI(locale)
+} = getUI(locale);
 ---
 
 <button

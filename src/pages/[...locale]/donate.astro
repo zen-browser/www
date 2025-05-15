@@ -1,16 +1,16 @@
 ---
-import { ArrowRight } from 'lucide-astro'
-import Button from '~/components/Button.astro'
-import Description from '~/components/Description.astro'
-import Layout from '~/layouts/Layout.astro'
-import { getLocale, getUI } from '~/utils/i18n'
-export { getStaticPaths } from '~/utils/i18n'
+import { ArrowRight } from "lucide-astro";
+import Button from "~/components/Button.astro";
+import Description from "~/components/Description.astro";
+import Layout from "~/layouts/Layout.astro";
+import { getLocale, getUI } from "~/utils/i18n";
+export { getStaticPaths } from "~/utils/i18n";
 
-const locale = getLocale(Astro)
+const locale = getLocale(Astro);
 const {
   routes: { donate },
   layout,
-} = getUI(locale)
+} = getUI(locale);
 ---
 
 <Layout title={layout.donate.title} description={layout.donate.description}>

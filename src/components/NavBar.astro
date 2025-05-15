@@ -1,21 +1,21 @@
 ---
-import { Astronav, Dropdown, DropdownItems, MenuItems } from 'astro-navbar'
-import { ArrowRight, ChevronDown, Download, Menu } from 'lucide-astro'
-import { motion } from 'motion/react'
-import Button from '~/components/Button.astro'
-import { getLocale, getPath, getUI } from '~/utils/i18n'
-import { getTitleAnimation } from '../animations.ts'
-import Logo from './Logo.astro'
-import MobileMenu from './MobileMenu.astro'
-import ThemeSwitch from './ThemeSwitch.astro'
+import { Astronav, Dropdown, DropdownItems, MenuItems } from "astro-navbar";
+import { ArrowRight, ChevronDown, Download, Menu } from "lucide-astro";
+import { motion } from "motion/react";
+import Button from "~/components/Button.astro";
+import { getLocale, getPath, getUI } from "~/utils/i18n";
+import { getTitleAnimation } from "../animations.ts";
+import Logo from "./Logo.astro";
+import MobileMenu from "./MobileMenu.astro";
+import ThemeSwitch from "./ThemeSwitch.astro";
 
-const locale = getLocale(Astro)
-const getLocalePath = getPath(locale)
+const locale = getLocale(Astro);
+const getLocalePath = getPath(locale);
 const {
   components: {
     nav: { brand, menu },
   },
-} = getUI(locale)
+} = getUI(locale);
 ---
 
 <!-- Desktop Navigation -->

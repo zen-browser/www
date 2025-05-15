@@ -1,15 +1,15 @@
 ---
 interface Props {
-	title: string;
-	description?: string;
-	ogImage?: string;
-	isHome?: boolean;
-	redirect?: string;
+  title: string;
+  description?: string;
+  ogImage?: string;
+  isHome?: boolean;
+  redirect?: string;
 }
 
 const { title, description, ogImage, isHome, redirect } = Astro.props;
 const defaultDescription =
-	"Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features.";
+  "Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features.";
 const defaultOgImage = "/share-pic.png";
 import "@fontsource/bricolage-grotesque/400.css";
 import "@fontsource/bricolage-grotesque/500.css";
