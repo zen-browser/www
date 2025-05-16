@@ -1,17 +1,13 @@
 ---
+import { cn } from '~/utils/merge'
 const { class: className } = Astro.props
 ---
 
-<h1 class:list={['title text-dark', className]}>
+<h1
+  class={cn(
+    "text-dark leading-[0.9] mb-[0.4rem] font-junicode font-semibold text-5xl",
+    className,
+  )}
+>
   <slot />
 </h1>
-<style>
-  .title {
-    line-height: 0.9;
-    margin-bottom: 0.4rem;
-    font-family: 'Junicode', serif;
-    font-weight: 600;
-    font-style: normal;
-    font-feature-settings: 'swsh' 1;
-  }
-</style>
