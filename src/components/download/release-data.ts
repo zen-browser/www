@@ -30,22 +30,12 @@ export function getReleasesWithChecksums(checksums: Record<string, string>) {
           label: 'Tarball',
           checksum: checksums['zen.linux-x86_64.tar.xz'],
         },
-        appImage: {
-          link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen-x86_64.AppImage',
-          label: 'AppImage',
-          checksum: checksums['zen-x86_64.AppImage'],
-        },
       },
       aarch64: {
         tarball: {
           link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-aarch64.tar.xz',
           label: 'Tarball',
           checksum: checksums['zen.linux-aarch64.tar.xz'],
-        },
-        appImage: {
-          link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen-aarch64.AppImage',
-          label: 'AppImage',
-          checksum: checksums['zen-aarch64.AppImage'],
         },
       },
       flathub: {

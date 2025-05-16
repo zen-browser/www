@@ -5,12 +5,8 @@
     "jsxImportSource": "preact",
     "baseUrl": ".",
     "paths": {
-      "~/*": [
-        "./src/*"
-      ]
+      "~/*": ["./src/*"]
     },
-    "types": [
-      "@vitest/browser/providers/playwright"
-    ]
+    "types": ["@vitest/browser/providers/playwright"]
   }
 }

@@ -81,13 +81,7 @@ test.describe('Download page download links', () => {
     return {
       mac: [releases.macos.universal],
       windows: [releases.windows.x86_64, releases.windows.arm64],
-      linux: [
-        releases.linux.x86_64.tarball,
-        releases.linux.x86_64.appImage,
-        releases.linux.aarch64.tarball,
-        releases.linux.aarch64.appImage,
-        releases.linux.flathub.all,
-      ],
+      linux: [releases.linux.x86_64.tarball, releases.linux.aarch64.tarball, releases.linux.flathub.all],
     }
   }
 

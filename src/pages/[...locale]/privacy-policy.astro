@@ -17,9 +17,9 @@ const {
   description={layout.privacyPolicy.description}
 >
   <main class="mx-auto mt-52 w-1/2 pb-24">
-    <Title id="privacy-policy">{privacyPolicy.title}</Title>
+    <Title id="privacy-policy" class="xl:text-6xl">{privacyPolicy.title}</Title>
     <div class="ml-4 font-bold">{privacyPolicy.lastUpdated}</div>
-    <Title class="mt-16 !text-4xl font-bold" id="introduction">
+    <Title class="mt-16 text-4xl font-bold" id="introduction">
       {privacyPolicy.sections.introduction.title}
     </Title>
     <p>{privacyPolicy.sections.introduction.body}</p>
@@ -27,44 +27,44 @@ const {
       {privacyPolicy.sections.introduction.summary}
     </div>
     <Title
-      class="mt-16 !text-4xl font-bold"
+      class="mt-16 text-4xl font-bold"
       id="1-information-we-do-not-collect"
     >
       {privacyPolicy.sections.noCollect.title}
     </Title>
     <p>{privacyPolicy.sections.noCollect.body}</p>
-    <h3 class="mt-4 text-xl !font-bold" id="-1-1-no-telemetry-">
+    <h3 class="mt-4 text-xl font-bold" id="-1-1-no-telemetry-">
       <strong class="font-bold"
         >{privacyPolicy.sections.noTelemetry.title}</strong
       >
     </h3>
     <p>{privacyPolicy.sections.noTelemetry.body}</p>
     <p>{privacyPolicy.sections.noTelemetry.body2}</p>
-    <h3 class="mt-4 text-xl !font-bold" id="-1-2-no-personal-data-collection-">
+    <h3 class="mt-4 text-xl font-bold" id="-1-2-no-personal-data-collection-">
       <strong class="font-bold"
         >{privacyPolicy.sections.noPersonalData.title}</strong
       >
     </h3>
     <p>{privacyPolicy.sections.noPersonalData.body}</p>
-    <h3 class="mt-4 text-xl !font-bold" id="-1-4-no-third-party-tracking-">
+    <h3 class="mt-4 text-xl font-bold" id="-1-4-no-third-party-tracking-">
       <strong class="font-bold"
         >{privacyPolicy.sections.noThirdParty.title}</strong
       >
     </h3>
     <p>{privacyPolicy.sections.noThirdParty.body}</p>
-    <h3 class="mt-4 text-xl !font-bold" id="-1-3-no-third-party-tracking-">
+    <h3 class="mt-4 text-xl font-bold" id="-1-3-no-third-party-tracking-">
       <strong class="font-bold"
         >{privacyPolicy.sections.externalConnections.title}</strong
       >
     </h3>
     <p>{privacyPolicy.sections.externalConnections.body}</p>
     <Title
-      class="mt-16 !text-4xl font-bold"
+      class="mt-16 text-4xl font-bold"
       id="2-information-stored-locally-on-your-device"
     >
       {privacyPolicy.sections.localStorage.title}
     </Title>
-    <h3 class="mt-4 text-xl !font-bold" id="-2-1-browsing-data-">
+    <h3 class="mt-4 text-xl font-bold" id="-2-1-browsing-data-">
       <strong class="font-bold"
         >{privacyPolicy.sections.browsingData.title}</strong
       >
@@ -81,11 +81,11 @@ const {
         }
       </li>
     </ul>
-    <h3 class="mt-4 text-xl !font-bold" id="-2-2-settings-and-preferences-">
+    <h3 class="mt-4 text-xl font-bold" id="-2-2-settings-and-preferences-">
       <strong class="font-bold">{privacyPolicy.sections.settings.title}</strong>
     </h3>
     <p>{privacyPolicy.sections.settings.body}</p>
-    <Title class="mt-16 !text-4xl font-bold" id="3-sync-feature">
+    <Title class="mt-16 text-4xl font-bold" id="3-sync-feature">
       {privacyPolicy.sections.sync.title}
     </Title>
     <p>{privacyPolicy.sections.sync.body}</p>
@@ -105,38 +105,38 @@ const {
         >
       </li>
     </ul>
-    <Title class="mt-16 !text-4xl font-bold" id="4-add-ons-and-mods">
+    <Title class="mt-16 text-4xl font-bold" id="4-add-ons-and-mods">
       {privacyPolicy.sections.addons.title}
     </Title>
     <p>{privacyPolicy.sections.addons.body}</p>
-    <Title class="mt-16 !text-4xl font-bold" id="5-data-security">
+    <Title class="mt-16 text-4xl font-bold" id="5-data-security">
       {privacyPolicy.sections.security.title}
     </Title>
     <p>{privacyPolicy.sections.security.body}</p>
     <ul>
       <li>{privacyPolicy.sections.security.note}</li>
     </ul>
-    <Title class="mt-16 !text-4xl font-bold" id="6-your-control">
+    <Title class="mt-16 text-4xl font-bold" id="6-your-control">
       {privacyPolicy.sections.control.title}
     </Title>
-    <h3 class="mt-4 text-xl !font-bold" id="-6-1-data-deletion-">
+    <h3 class="mt-4 text-xl font-bold" id="-6-1-data-deletion-">
       <strong class="font-bold"
         >{privacyPolicy.sections.control.deletionTitle}</strong
       >
     </h3>
     <p>{privacyPolicy.sections.control.deletionBody}</p>
-    <Title class="mt-16 !text-4xl font-bold" id="7-our-website-and-services">
+    <Title class="mt-16 text-4xl font-bold" id="7-our-website-and-services">
       {privacyPolicy.sections.website.title}
     </Title>
     <p>{privacyPolicy.sections.website.body}</p>
-    <h3 class="mt-4 text-xl !font-bold" id="-7-1-external-links-">
+    <h3 class="mt-4 text-xl font-bold" id="-7-1-external-links-">
       <strong class="font-bold"
         >{privacyPolicy.sections.website.externalLinksTitle}</strong
       >
     </h3>
     <p>{privacyPolicy.sections.website.externalLinksBody}</p>
     <Title
-      class="mt-16 !text-4xl font-bold"
+      class="mt-16 text-4xl font-bold"
       id="8-changes-to-this-privacy-policy"
     >
       {privacyPolicy.sections.changes.title}
@@ -145,7 +145,7 @@ const {
       {privacyPolicy.sections.changes.body}
     </p>
     <Title
-      class="mt-16 !text-4xl font-bold"
+      class="mt-16 text-4xl font-bold"
       id="9-other-telemetry-done-by-mozilla-firefox"
     >
       {privacyPolicy.sections.otherTelemetry.title}
@@ -163,7 +163,7 @@ const {
         {privacyPolicy.sections.otherTelemetry.forMoreInformation}
       </li>
     </ul>
-    <Title class="mt-16 !text-4xl font-bold" id="10-contact-us">
+    <Title class="mt-16 text-4xl font-bold" id="10-contact-us">
       {privacyPolicy.sections.contact.title}
     </Title>
     <p>
