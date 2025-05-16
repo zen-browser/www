@@ -71,8 +71,14 @@ describe('<PlatformDownload />', () => {
   it('renders linux platform with all branches', async () => {
     const linuxReleases = {
       flathub: { all: { label: 'Flathub', link: '/flathub' } },
-      x86_64: { tarball: { label: 'Tarball x86_64', link: '/tarball-x86_64', checksum: 'sha256' } },
-      aarch64: { tarball: { label: 'Tarball ARM64', link: '/tarball-arm64', checksum: 'sha256-arm64' } },
+      x86_64: {
+        tarball: { label: 'Tarball x86_64', link: '/tarball-x86_64', checksum: 'sha256' },
+        appImage: { label: 'AppImage x86_64', link: '/appimage-x86_64', checksum: 'sha256-appimage' },
+      },
+      aarch64: {
+        tarball: { label: 'Tarball ARM64', link: '/tarball-arm64', checksum: 'sha256-arm64' },
+        appImage: { label: 'AppImage ARM64', link: '/appimage-arm64', checksum: 'sha256-appimage-arm64' },
+      },
     }
     const result = await container.renderToString(PlatformDownload, {
       props: {
@@ -83,6 +89,31 @@ describe('<PlatformDownload />', () => {
         releases: linuxReleases,
       },
     })
+
+    // Test basic content
+    expect(result).toContain('Linux Title')
+    expect(result).toContain('Linux Desc')
+
+    // Test Flathub section
+    expect(result).toContain('Flathub')
+    expect(result).toContain('/flathub')
+
+    // Test x86_64 section
+    expect(result).toContain('x86_64')
+    expect(result).toContain('Tarball x86_64')
+    expect(result).toContain('/tarball-x86_64')
+    expect(result).toContain('sha256')
+    expect(result).toContain('AppImage x86_64')
+    expect(result).toContain('/appimage-x86_64')
+    expect(result).toContain('sha256-appimage')
+
+    // Test ARM64 section
     expect(result).toContain('ARM64')
+    expect(result).toContain('Tarball ARM64')
+    expect(result).toContain('/tarball-arm64')
+    expect(result).toContain('sha256-arm64')
+    expect(result).toContain('AppImage ARM64')
+    expect(result).toContain('/appimage-arm64')
+    expect(result).toContain('sha256-appimage-arm64')
   })
 })
