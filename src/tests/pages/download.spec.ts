@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test'
 import type { BrowserContextOptions, Page } from '@playwright/test'
+import { getReleasesWithChecksums } from '~/components/download/release-data'
+import { CONSTANT } from '~/constants'
 
 // Helper to get the platform section by id
 const getPlatformSection = (page: Page, platform: string) =>
@@ -8,6 +10,10 @@ const getPlatformSection = (page: Page, platform: string) =>
 // Helper to get the platform tab button
 const getPlatformButton = (page: Page, platform: string) =>
   page.locator(`button.platform-selector[data-platform='${platform}']`)
+
+// Helper to get the platform download link
+const getPlatformDownloadLink = (page: Page, platform: string, label: string) =>
+  page.locator(`#${platform}-downloads .download-link:has-text('${label}')`)
 
 const platformConfigs: { name: string; userAgent: string; platform: string }[] = [
   {
@@ -29,25 +35,27 @@ const platformConfigs: { name: string; userAgent: string; platform: string }[] =
   },
 ]
 
-for (const { name, userAgent, platform } of platformConfigs) {
-  test(`shows correct default tab for ${name} platform`, async ({ browser }) => {
-    const context = await browser.newContext({
-      userAgent,
-      locale: 'en-US',
-      platform,
-    } as BrowserContextOptions)
-    const page = await context.newPage()
-    await page.goto('/download')
-    await expect(getPlatformSection(page, name)).toBeVisible()
-    await expect(getPlatformButton(page, name)).toHaveAttribute('data-active', 'true')
-    // Other platforms should not be active
-    for (const other of platformConfigs.filter((p) => p.name !== name)) {
-      await expect(getPlatformSection(page, other.name)).toBeHidden()
-      await expect(getPlatformButton(page, other.name)).not.toHaveAttribute('data-active', 'true')
-    }
-    await context.close()
-  })
-}
+test.describe('Download page default tab per platform', () => {
+  for (const { name, userAgent, platform } of platformConfigs) {
+    test(`shows correct default tab for ${name} platform`, async ({ browser }) => {
+      const context = await browser.newContext({
+        userAgent,
+        locale: 'en-US',
+        platform,
+      } as BrowserContextOptions)
+      const page = await context.newPage()
+      await page.goto('/download')
+      await expect(getPlatformSection(page, name)).toBeVisible()
+      await expect(getPlatformButton(page, name)).toHaveAttribute('data-active', 'true')
+      // Other platforms should not be active
+      for (const other of platformConfigs.filter((p) => p.name !== name)) {
+        await expect(getPlatformSection(page, other.name)).toBeHidden()
+        await expect(getPlatformButton(page, other.name)).not.toHaveAttribute('data-active', 'true')
+      }
+      await context.close()
+    })
+  }
+})
 
 test.describe('Download page platform detection and tab switching', () => {
   test('shows correct platform section and tab when switching platforms', async ({ page }) => {
@@ -61,6 +69,39 @@ test.describe('Download page platform detection and tab switching', () => {
       for (const otherPlatform of platforms.filter((p) => p !== platform)) {
         await expect(getPlatformSection(page, otherPlatform)).toBeHidden()
         await expect(getPlatformButton(page, otherPlatform)).not.toHaveAttribute('data-active', 'true')
+      }
+    }
+  })
+})
+
+test.describe('Download page download links', () => {
+  const releases = getReleasesWithChecksums(CONSTANT.CHECKSUMS)
+
+  function getPlatformLinks(releases: ReturnType<typeof getReleasesWithChecksums>) {
+    return {
+      mac: [releases.macos.universal],
+      windows: [releases.windows.x86_64, releases.windows.arm64],
+      linux: [
+        releases.linux.x86_64.tarball,
+        releases.linux.x86_64.appImage,
+        releases.linux.aarch64.tarball,
+        releases.linux.aarch64.appImage,
+        releases.linux.flathub.all,
+      ],
+    }
+  }
+
+  test('all platform download links are correct', async ({ page }) => {
+    const platforms = ['windows', 'mac', 'linux']
+    const platformLinkSelectors = getPlatformLinks(releases)
+    await page.goto('/download')
+    await page.waitForLoadState('domcontentloaded')
+    for (const platform of platforms) {
+      await getPlatformButton(page, platform).click()
+      for (const { label, link } of platformLinkSelectors[platform as keyof typeof platformLinkSelectors]) {
+        const downloadLink = page.locator(`#${platform}-downloads .download-link[href="${link}"]`)
+        await expect(downloadLink).toContainText(label)
+        await expect(downloadLink).toHaveAttribute('href', link)
       }
     }
   })

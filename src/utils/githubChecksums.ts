@@ -1,14 +1,12 @@
+import { CONSTANT } from '~/constants'
+
 /**
  * Fetches the latest release notes from GitHub and parses the SHA-256 checksums.
  * Returns a mapping from filename to checksum.
  */
 export async function getChecksums() {
   if (import.meta.env.DEV) {
-    return {
-      'zen.macos-universal.dmg': 'macsum',
-      'zen.installer.exe': 'winsum',
-      'zen.installer-arm64.exe': 'winarmsum',
-    }
+    return CONSTANT.CHECKSUMS
   }
   const res = await fetch('https://api.github.com/repos/zen-browser/desktop/releases/latest', {
     headers: {

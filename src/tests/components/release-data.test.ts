@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { getReleasesWithChecksums } from '~/components/download/release-data.astro'
+import { getReleasesWithChecksums } from '~/components/download/release-data'
 
 describe('getReleasesWithChecksums', () => {
   it('returns correct structure with checksums', () => {

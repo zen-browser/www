@@ -13,7 +13,8 @@
     "format": "biome format ./src",
     "prepare": "husky",
     "test": "npx vitest run",
-    "test:coverage": "npx vitest --coverage"
+    "test:coverage": "npx vitest --coverage",
+    "test:playwright": "npx playwright test"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
