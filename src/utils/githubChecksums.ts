@@ -1,8 +1,13 @@
+import { CONSTANT } from '~/constants'
+
 /**
  * Fetches the latest release notes from GitHub and parses the SHA-256 checksums.
  * Returns a mapping from filename to checksum.
  */
 export async function getChecksums() {
+  if (import.meta.env.DEV) {
+    return CONSTANT.CHECKSUMS
+  }
   const res = await fetch('https://api.github.com/repos/zen-browser/desktop/releases/latest', {
     headers: {
       Accept: 'application/vnd.github+json',
