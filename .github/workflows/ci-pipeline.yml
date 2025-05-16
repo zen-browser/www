@@ -75,6 +75,12 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
       - name: Build project
         run: npm run build
+      - name: Upload build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: |
+            dist
 
   playwright:
     runs-on: ubuntu-latest
@@ -96,7 +102,10 @@ jobs:
         run: npm ci
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-      - name: Build project
-        run: npm run build
+      - name: Download build output
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: dist
       - name: Run Playwright tests
         run: npx playwright test
