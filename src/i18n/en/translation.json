@@ -3,7 +3,14 @@
     "index": {
       "title": "Zen Browser",
       "hero": {
-        "title": ["welcome", "to", "a", "calmer", "internet"],
+        "title": [
+          { "text": "welcome ", "highlight": false },
+          { "text": "to ", "highlight": false },
+          { "text": "\n", "highlight": false },
+          { "text": "a ", "highlight": false },
+          { "text": "calmer ", "highlight": true },
+          { "text": "internet", "highlight": false }
+        ],
         "description": [
           "Beautifully designed, privacy-focused, and packed with features.",
           "We care about your experience, not your data."

@@ -1,0 +1,495 @@
+{
+  "routes": {
+    "index": {
+      "title": "Zenブラウザ",
+      "hero": {
+        "title": [
+          { "text": "ようこそ", "highlight": false },
+          { "text": "\n", "highlight": false },
+          { "text": "静かな", "highlight": true },
+          { "text": "\n", "highlight": false },
+          { "text": "インターネット", "highlight": false },
+          { "text": "へ", "highlight": false }
+        ],
+        "description": [
+          "美しいデザイン、プライバシー重視、機能満載。",
+          "私たちはあなたの体験を大切にし、データには関心がありません。"
+        ],
+        "buttons": {
+          "beta": "ベータ版が利用可能です！",
+          "support": "サポートする ❤️"
+        }
+      },
+      "features": {
+        "title1": "生産性",
+        "title2": "の",
+        "title3": "極み",
+        "description": "Zenブラウザは、生産性と集中力を高める機能が満載です。ブラウザは作業を助けるツールであり、邪魔するものではありません。",
+        "featureTabs": {
+          "workspaces": {
+            "title": "ワークスペース",
+            "description": "タブをワークスペースごとに整理し、プロジェクトを分けて管理。簡単に切り替え可能です。"
+          },
+          "compactMode": {
+            "title": "コンパクトモード",
+            "description": "コンパクトモードでタブバーを必要な時だけ表示し、画面を広く使えます。"
+          },
+          "glance": {
+            "title": "グランス",
+            "description": "よく使うタブに素早く切り替え。履歴をスクロールする必要はありません。"
+          },
+          "splitView": {
+            "title": "スプリットビュー",
+            "description": "2つのタブを並べて表示し、比較や切り替えが簡単に。"
+          }
+        }
+      },
+      "sponsors": {
+        "title": "スポンサー",
+        "description": "ご支援いただいているスポンサーに感謝します。<br />あなたも<a href=\"/donate\" class=\"zen-link\">直接寄付</a>でこの旅に参加できます！",
+        "sponsors": {
+          "tuta": {
+            "name": "Tuta",
+            "url": "https://tuta.com/"
+          }
+        }
+      },
+      "community": {
+        "title": ["私たちの", "コア", "バリュー"],
+        "description": "Zenは美しさ、パフォーマンス、プライバシーのバランスを最優先にしています。最高の体験を妥協せずに提供します。",
+        "lists": {
+          "freeAndOpenSource": {
+            "title": "無料・オープンソース",
+            "description": "Zenは無料でオープンソース。誰でも自由に使い、カスタマイズできます。"
+          },
+          "simpleYetPowerful": {
+            "title": "シンプルで強力",
+            "description": "Zenは使いやすく、日常の作業もパワフルにこなせます。"
+          },
+          "privateAndAlwaysUpToDate": {
+            "title": "プライベート＆常に最新",
+            "description": "Zenはプライバシー重視、常に最新。自由に使い、カスタマイズできます。"
+          }
+        },
+        "images": {
+          "community": {
+            "alt": "コミュニティ"
+          }
+        }
+      }
+    },
+    "mods": {
+      "title": "Zen Mods",
+      "description": "Zenブラウザ用の多彩なMod（プラグイン・テーマ）を探そう。気分やニーズに合ったカスタマイズを始めましょう！",
+      "pagination": {
+        "pagination": "{input} / {totalPages}（全{totalItems}件）"
+      },
+      "search": "検索ワードを入力...",
+      "sort": {
+        "lastCreated": "新着順",
+        "lastUpdated": "更新順",
+        "perPage": "表示件数"
+      },
+      "noResults": "結果が見つかりません",
+      "noResultsDescription": "別のキーワードで検索するか、後でもう一度お試しください。",
+      "slug": {
+        "title": "{name} - Zen Mods",
+        "description": "{name} Modの詳細（Zenブラウザ用）",
+        "alert": {
+          "description": "このテーマをインストールするにはZenブラウザが必要です。",
+          "button": "今すぐダウンロード！"
+        },
+        "createdBy": "<a href={link} class=\"zen-link font-bold\">{author}</a> 作成 • <span class=\"font-bold\">v{version}</span>",
+        "creationDate": "作成日 • <b>{createdAt}</b>",
+        "latestUpdate": "最終更新 • <b>{updatedAt}</b>",
+        "visitModHomepage": "Modのホームページへ",
+        "installMod": "Modをインストール 🎉",
+        "uninstallMod": "Modをアンインストール",
+        "back": "戻る"
+      }
+    },
+    "releaseNotes": {
+      "title": "リリースノート - Zen",
+      "topSection": {
+        "title": "リリースノート",
+        "description": "Zenブラウザの最新情報はこちら！<a class=\"zen-link\" href=\"#1.0.0-a.1\">最初のリリース</a>から<a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>まで、常に進化しています。ご意見ありがとうございます！❤️"
+      },
+      "list": {
+        "support": "応援してください！",
+        "expandAll": "すべて展開",
+        "navigateToVersion": "バージョンへ移動..."
+      },
+      "backToTop": "トップへ戻る",
+      "chooseVersion": "バージョンを選択",
+      "components": {
+        "releaseNoteItem": {
+          "twilight": "Twilight",
+          "twilightChanges": "{version} のTwilight変更 🌙",
+          "releaseChanges": "{version} のリリースノート 🎉",
+          "firefoxVersion": "Firefox {version}",
+          "githubRelease": "GitHubリリース",
+          "workflowRun": "ワークフロー実行",
+          "compareChanges": "変更を比較",
+          "twilightWarning": "Twilightはプレリリース版です。不具合や未完成機能が含まれる場合があります。",
+          "reportIssues": " 問題があれば<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">こちら</a>からご報告ください。",
+          "sections": {
+            "fixes": "修正",
+            "features": "新機能",
+            "themeChanges": "テーマ変更",
+            "breakingChanges": {
+              "title": "互換性のない変更",
+              "description": "GitHubで詳細を見る"
+            }
+          },
+          "learnMore": "詳細を見る",
+          "viewIssue": "GitHubの課題番号{issue}を見る"
+        }
+      },
+      "slug": {
+        "title": "リリースノート",
+        "redirect": "バージョン{version}のリリースノートにリダイレクト中..."
+      }
+    },
+    "about": {
+      "title": "Zenについて",
+      "description": "私たちはウェブ体験を大切にする開発者・デザイナーの集まりです。インターネットは安心して学び、つながる場所であるべきだと信じています。",
+      "littleHelp": "お困りですか？",
+      "mainTeam": {
+        "title": "メインチーム",
+        "description": "最高のブラウジング体験を提供するために努力しているメンバーです。",
+        "subTitle": {
+          "browser": "ブラウザ",
+          "website": "ウェブサイト・ブランディング"
+        },
+        "members": {
+          "browser": {
+            "mauro": {
+              "name": "Mauro B.",
+              "description": "創設者・メイン開発者",
+              "link": "https://cheff.dev/"
+            },
+            "jan": {
+              "name": "Jan Heres",
+              "description": "MacOSビルド担当・貢献者",
+              "link": "https://janheres.eu/"
+            },
+            "bryan": {
+              "name": "Bryan Galdámez",
+              "description": "テーマ機能の大貢献者",
+              "link": "https://josuegalre.netlify.app/"
+            },
+            "oscar": {
+              "name": "Oscar Gonzalez",
+              "description": "SRE・コード署名担当",
+              "link": false
+            },
+            "daniel": {
+              "name": "Daniel García",
+              "description": "MacOS証明書・公証管理",
+              "link": false
+            },
+            "brhm": {
+              "name": "BrhmDev",
+              "description": "多大な貢献者",
+              "link": "https://github.com/BrhmDev"
+            },
+            "kristijanribaric": {
+              "name": "Kristijan Ribaric",
+              "description": "積極的な貢献者",
+              "link": "https://github.com/kristijanribaric"
+            },
+            "larvey": {
+              "name": "Larvey",
+              "description": "AUR管理者",
+              "link": "https://github.com/LarveyOfficial/"
+            }
+          },
+          "website": {
+            "taroj1205": {
+              "name": "Shintaro Jokagi",
+              "description": "ウェブサイト設計・リファクタリング主導",
+              "link": "https://github.com/taroj1205"
+            },
+            "jace": {
+              "name": "Jace",
+              "description": "デザイン・ブランディング担当",
+              "link": "https://x.com/JaceThings"
+            },
+            "canoa": {
+              "name": "Canoa",
+              "description": "課題対応・ウェブ管理の貢献者",
+              "link": "https://thatcanoa.org/"
+            },
+            "adam": {
+              "name": "Adam",
+              "description": "ブランディング・デザイン",
+              "link": "https://cybrneon.xyz/"
+            },
+            "n7itro": {
+              "name": "n7itro",
+              "description": "リリースノート執筆・貢献者",
+              "link": "https://github.com/n7itro"
+            },
+            "jafeth": {
+              "name": "Jafeth Garro",
+              "description": "ドキュメント執筆",
+              "link": "https://iamjafeth.com/"
+            }
+          }
+        }
+      },
+      "contributors": {
+        "title": "貢献者",
+        "description": "Zenブラウザの発展に貢献してくれた方々です。",
+        "browser": "ブラウザ",
+        "website": "ウェブサイト"
+      }
+    },
+    "donate": {
+      "title": "寄付",
+      "description": "私たちは少人数の開発チームです。ご支援いただけると幸いです。",
+      "patreon": {
+        "title": "Patreon",
+        "description": "Patreonで月額支援が可能です。ご都合に合わせてご支援ください。",
+        "button": "Patreonへ"
+      },
+      "koFi": {
+        "title": "Ko-fi",
+        "description": "Ko-fiで一度きりの寄付も可能です。金額は自由。月額支援も選べます。",
+        "button": "Ko-fiへ"
+      }
+    },
+    "download": {
+      "title": "ダウンロード",
+      "description": "お使いのプラットフォーム向けZenブラウザをダウンロード。すべてのダウンロードにSHA256チェックサム付き。",
+      "twilightInfo": "現在Twilightモードです。最新の実験的機能をダウンロードしています。",
+      "alertInfo": {
+        "description": "<strong class='font-medium text-zen-blue'>Twilightモード:</strong> 現在Twilightモードで最新の実験的機能をダウンロードしています。"
+      },
+      "platformSelector": {
+        "title": "プラットフォーム選択",
+        "description": "ダウンロードするプラットフォームを選択してください。"
+      },
+      "additionalResources": {
+        "title": "追加リソース",
+        "sourceCode": {
+          "title": "ソースコード",
+          "description": "GitHubでZenブラウザのソースコードを閲覧・貢献できます。"
+        },
+        "documentation": {
+          "title": "ドキュメント",
+          "description": "Zenブラウザの包括的なドキュメント・ガイド・チュートリアル。"
+        }
+      },
+      "securityNotice": {
+        "title": "検証済み・安全なダウンロード",
+        "description": "すべてのZenダウンロードは署名・検証済みです。公式サイトまたはGitHubからのダウンロードを推奨します。問題があれば<a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>ご報告ください</a>。"
+      },
+      "platformNames": {
+        "mac": "macOS",
+        "windows": "Windows",
+        "linux": "Linux",
+        "macDownload": "MacOSダウンロード",
+        "windowsDownload": "Windowsダウンロード",
+        "linuxDownload": "Linuxダウンロード"
+      },
+      "platformDescriptions": {
+        "mac": "Apple（Mシリーズ）・Intel両対応。<br />macOS 11.0以降が必要です。",
+        "windows": "Windows 10・11対応。<br />ほとんどの方は64bit版を選択してください。",
+        "linux": "多くのLinuxディストリビューションで動作。お使いの環境に合ったものを選んでください。"
+      }
+    },
+    "privacyPolicy": {
+      "title": "プライバシーポリシー",
+      "lastUpdated": "最終更新: 2025-02-5",
+      "sections": {
+        "introduction": {
+          "title": "はじめに",
+          "body": "Zenブラウザへようこそ！あなたのプライバシーは最優先です。本ポリシーでは収集する情報、利用方法、保護策について説明します。",
+          "summary": "データ販売なし・収集なし・追跡なし"
+        },
+        "noCollect": {
+          "title": "1. 収集しない情報",
+          "body": "Zenブラウザはプライバシー重視。個人データを一切収集・保存・共有しません。"
+        },
+        "noTelemetry": {
+          "title": "1.1. テレメトリーなし",
+          "body": "テレメトリーデータやクラッシュレポートは収集しません。",
+          "body2": "Mozilla Firefoxに組み込まれていたテレメトリーも削除済みです。"
+        },
+        "noPersonalData": {
+          "title": "1.2. 個人データの収集なし",
+          "body": "IPアドレス、閲覧履歴、検索クエリ、フォームデータなど一切収集しません。"
+        },
+        "noThirdParty": {
+          "title": "1.3. サードパーティ追跡なし",
+          "body": "サードパーティのトラッカーや解析ツールは一切許可していません。Mozillaはベースですが第三者ではありません。"
+        },
+        "externalConnections": {
+          "title": "1.4. 起動時の外部接続",
+          "body": "Zenブラウザは起動時にアップデート確認やプラグイン・アドオンの更新、接続性・位置情報・プッシュ通知のため外部接続を行う場合があります。これらの接続でデータは収集しませんが、第三者サービスや訪問先サイトで記録される場合があります。これらは機能維持のためで、追跡やプロファイリング目的ではありません。about:configで無効化可能です。"
+        },
+        "localStorage": {
+          "title": "2. デバイスに保存される情報"
+        },
+        "browsingData": {
+          "title": "2.1. 閲覧データ",
+          "body": "Zenブラウザは体験向上のため一部データをローカル保存します。"
+        },
+        "cookies": {
+          "title": "クッキー",
+          "body": "クッキーはローカル保存され、Zenや第三者に送信されません。管理は設定から可能です。"
+        },
+        "cache": {
+          "title": "キャッシュ・一時ファイル",
+          "body": "パフォーマンス向上のためキャッシュや一時データを保存します。設定からいつでも削除可能です。"
+        },
+        "settings": {
+          "title": "2.2. 設定・プリファレンス",
+          "body": "カスタマイズや設定はすべてローカル保存。私たちはアクセスできません。"
+        },
+        "sync": {
+          "title": "3. 同期機能",
+          "body": "ZenブラウザはMozilla FirefoxのSync機能を利用し、ブックマークや履歴、パスワード等を複数端末で同期できます。データは暗号化されMozillaのサーバーに保存されます。私たちは閲覧できません。",
+          "link1": "Mozilla Firefox Sync",
+          "link2": "パスワードの保存方法"
+        },
+        "addons": {
+          "title": "4. アドオン・Mod",
+          "body": "addons.mozilla.orgからアドオンをインストール可能。定期的にアップデートを確認します。zen-browser.app/modsからModもインストールできます。これらは静的コンテンツでデータ収集はありません。"
+        },
+        "security": {
+          "title": "5. データセキュリティ",
+          "body": "Zenブラウザはデータを収集しませんが、ローカルやMozillaサーバー上の暗号化データの保護に努めています。安全なパスワード、端末暗号化、ソフトウェアの定期更新を推奨します。",
+          "note": "多くのセキュリティ対策はMozilla Firefoxが担っています。"
+        },
+        "control": {
+          "title": "6. ユーザーの管理",
+          "deletionTitle": "6.1. データ削除",
+          "deletionBody": "Zenブラウザが保存するすべてのローカルデータは、設定からいつでも削除できます。"
+        },
+        "website": {
+          "title": "7. ウェブサイト・サービス",
+          "body": "Zenブラウザのウェブサイト・サービスは第三者の解析やCDNを使用しません。Cloudflareでホストされていますが、解析・追跡は無効化されています。HTTPリクエストの一部データはセキュリティ・パフォーマンス向上のため収集されますが、個人情報とは紐付けられません。",
+          "externalLinksTitle": "7.1. 外部リンク",
+          "externalLinksBody": "Zenブラウザには外部サイトへのリンクが含まれる場合があります。内容やプライバシー方針は各サイトをご確認ください。"
+        },
+        "changes": {
+          "title": "8. プライバシーポリシーの変更",
+          "body": "運用や法的要件の変更に応じて本ポリシーを更新する場合があります。重要な変更は日付を更新して通知します。継続利用は新しい条件への同意となります。"
+        },
+        "otherTelemetry": {
+          "title": "9. Mozilla Firefoxによるその他のテレメトリー",
+          "body": "Zenブラウザではすべてのテレメトリー無効化を目指していますが、見落としがある場合もあります。詳細は下記リンクをご参照ください。",
+          "firefoxPrivacyNotice": "Firefoxプライバシー通知",
+          "forMoreInformation": "詳細はこちら。"
+        },
+        "contact": {
+          "title": "10. お問い合わせ",
+          "body": "本ポリシーやZenブラウザに関するご質問は下記までご連絡ください：",
+          "discord": "Discord: ",
+          "discordLink": "ZenブラウザDiscord",
+          "github": "GitHub: ",
+          "githubLink": "Organization"
+        }
+      }
+    },
+    "welcome": {
+      "title": ["ようこそ", "Zen", "へ！"]
+    },
+    "whatsNew": {
+      "title": "{latestVersion.version}の新着情報！",
+      "reportIssue": "問題を報告",
+      "joinDiscord": "Discordに参加",
+      "readFullReleaseNotes": "全リリースノートを読む"
+    },
+    "notFound": {
+      "title": "ページが見つかりません",
+      "description": "お探しのページは存在しないか、移動されました。",
+      "button": "ホームへ戻る"
+    }
+  },
+  "layout": {
+    "index": {
+      "title": "Zenブラウザ",
+      "description": "美しいデザイン、プライバシー重視、機能満載。"
+    },
+    "mods": {
+      "title": "Zen Mods",
+      "description": "Zenブラウザ用の多彩なMod（プラグイン・テーマ）を探そう。気分やニーズに合ったカスタマイズを始めましょう！"
+    },
+    "releaseNotes": {
+      "title": "リリースノート - Zen",
+      "description": "Zenブラウザの最新情報はこちら！最初のリリースから{latestVersion}まで、常に進化しています。ご意見ありがとうございます！❤️"
+    },
+    "about": {
+      "title": "Zenについて",
+      "description": "私たちはウェブ体験を大切にする開発者・デザイナーの集まりです。インターネットは安心して学び、つながる場所であるべきだと信じています。"
+    },
+    "donate": {
+      "title": "寄付 - Zen",
+      "description": "私たちは少人数の開発チームです。ご支援いただけると幸いです。"
+    },
+    "download": {
+      "title": "ダウンロード - Zen",
+      "description": "お使いのプラットフォーム向けZenブラウザをダウンロード。すべてのダウンロードにSHA256チェックサム付き。"
+    },
+    "privacyPolicy": {
+      "title": "プライバシーポリシー - Zen",
+      "description": "あなたのプライバシーは最優先です。本ポリシーでは収集する情報、利用方法、保護策について説明します。"
+    },
+    "welcome": {
+      "title": "ようこそ！",
+      "description": "Zenへようこそ！"
+    },
+    "whatsNew": {
+      "title": "{latestVersion.version}の新着情報！"
+    }
+  },
+  "components": {
+    "footer": {
+      "title": "Zenブラウザ",
+      "description": "美しいデザイン、プライバシー重視、機能満載。私たちはあなたの体験を大切にし、データには関心がありません。",
+      "download": "ダウンロード",
+      "followUs": "フォローする",
+      "aboutUs": "私たちについて",
+      "teamAndContributors": "チーム・貢献者",
+      "privacyPolicy": "プライバシーポリシー",
+      "getStarted": "はじめに",
+      "documentation": "ドキュメント",
+      "zenMods": "Zen Mods",
+      "releaseNotes": "リリースノート",
+      "getHelp": "ヘルプ",
+      "discord": "Discord",
+      "uptimeStatus": "稼働状況",
+      "reportAnIssue": "問題を報告",
+      "twilight": "Twilight",
+      "madeWith": "<span aria-label='love'>❤️</span> <a href='{link}' class='zen-link inline-block font-bold'>Zenチーム</a>の手で作られました"
+    },
+    "nav": {
+      "brand": "Zenブラウザ",
+      "menu": {
+        "gettingStarted": "はじめに",
+        "usefulLinks": "便利なリンク",
+        "mods": "Mods",
+        "download": "ダウンロード",
+        "discord": "Discord",
+        "releaseNotes": "リリースノート",
+        "zenMods": "Zen Mods",
+        "tryZenMods": "Zen Modsを試す",
+        "zenModsDesc": "Zen Modsでブラウザ体験をカスタマイズ。",
+        "releaseNotesDesc": "最新機能・改善情報はこちら。",
+        "discordDesc": "Discordコミュニティで他のユーザーと交流！",
+        "donate": "寄付 ❤️",
+        "donateDesc": "Zenブラウザ開発を寄付でサポート。",
+        "aboutUs": "私たちについて 🌟",
+        "aboutUsDesc": "Zenブラウザのチームについて知る。",
+        "documentation": "ドキュメント",
+        "documentationDesc": "Zenブラウザの使い方を学ぶ。",
+        "github": "GitHub",
+        "githubDesc": "GitHubで開発に参加。",
+        "menu": "メニュー"
+      }
+    }
+  }
+}
