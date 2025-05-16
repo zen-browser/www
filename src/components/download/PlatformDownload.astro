@@ -9,7 +9,14 @@ interface PlatformReleases {
   universal?: ReleaseInfo
   all?: ReleaseInfo
   tarball?: ReleaseInfo
-  x86_64?: { tarball: ReleaseInfo } | ReleaseInfo
+  x86_64?:
+    | {
+        tarball?: ReleaseInfo
+      }
+    | ReleaseInfo
+  aarch64?: {
+    tarball?: ReleaseInfo
+  }
   arm64?: ReleaseInfo
   flathub?: { all: ReleaseInfo }
 }
@@ -27,11 +34,15 @@ import { Image } from 'astro:assets'
 import AppIconDark from '../../assets/app-icon-dark.png'
 import AppIconLight from '../../assets/app-icon-light.png'
 import DownloadCard from './ButtonCard.astro'
+
+function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
+  return !!obj && typeof obj === 'object' && 'link' in obj
+}
 ---
 
 <div
   id={`${platform}-downloads`}
-  data-active={platform === 'mac'}
+  data-active={platform === "mac"}
   class="platform-section data-[active='false']:hidden"
 >
   <div class="items-center gap-8 md:flex">
@@ -45,39 +56,76 @@ import DownloadCard from './ButtonCard.astro'
       <p class="text-muted-foreground mb-6" set:html={description} />
       <div class="space-y-6">
         {
-          platform === 'linux' ? (
+          platform === "linux" ? (
             <>
-              {releases.flathub && releases.flathub.all.label && <div>
-                <h4 class="mb-3 text-lg font-medium">Package Managers</h4>
-                <div class="space-y-3">
-                  <DownloadCard
-                    label={releases.flathub.all.label}
-                    href={releases.flathub.all.link}
-                    variant="flathub"
-                  />
+              {releases.flathub && releases.flathub.all.label && (
+                <div>
+                  <h4 class="mb-3 text-lg font-medium">Package Managers</h4>
+                  <div class="space-y-3">
+                    <DownloadCard
+                      label={releases.flathub.all.label}
+                      href={releases.flathub.all.link}
+                      variant="flathub"
+                    />
+                  </div>
                 </div>
-              </div>}
-              {releases.x86_64 && 'tarball' in releases.x86_64 && <div>
-                <h4 class="mb-3 text-lg font-medium">Tarball</h4>
-                <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-                  <DownloadCard
-                    label="x86_64"
-                    href={releases.x86_64.tarball.link}
-                    variant="x86_64"
-                    checksum={releases.x86_64.tarball.checksum}
-                  />
-                  <DownloadCard
-                    label="ARM64"
-                    href={releases.x86_64.tarball.link}
-                    variant="aarch64"
-                    checksum={releases.x86_64.tarball.checksum}
-                  />
-                </div>
-              </div>}
+              )}
+              {releases.x86_64 &&
+                typeof releases.x86_64 === "object" &&
+                "tarball" in releases.x86_64 &&
+                (releases.x86_64.tarball) && (
+                  <div>
+                    <h4 class="mb-3 text-lg font-medium">x86_64</h4>
+                    <div class="">
+                      {releases.x86_64.tarball && (
+                        <DownloadCard
+                          label={
+                            releases.x86_64.tarball.label
+                              ? releases.x86_64.tarball.label
+                              : ""
+                          }
+                          href={
+                            releases.x86_64.tarball.link
+                              ? releases.x86_64.tarball.link
+                              : ""
+                          }
+                          variant="x86_64"
+                          checksum={releases.x86_64.tarball.checksum}
+                        />
+                      )}
+                    </div>
+                  </div>
+                )}
+              {releases.aarch64 &&
+                typeof releases.aarch64 === "object" &&
+                "tarball" in releases.aarch64 &&
+                (releases.aarch64.tarball) && (
+                  <div>
+                    <h4 class="mb-3 text-lg font-medium">ARM64</h4>
+                    <div class="gap-3">
+                      {releases.aarch64.tarball && (
+                        <DownloadCard
+                          label={
+                            releases.aarch64.tarball.label
+                              ? releases.aarch64.tarball.label
+                              : ""
+                          }
+                          href={
+                            releases.aarch64.tarball.link
+                              ? releases.aarch64.tarball.link
+                              : ""
+                          }
+                          variant="aarch64"
+                          checksum={releases.aarch64.tarball.checksum}
+                        />
+                      )}
+                    </div>
+                  </div>
+                )}
             </>
           ) : (
-            <div class="space-y-4">
-              <div class="space-y-3">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-col gap-3">
                 {releases.universal && releases.universal.label && (
                   <DownloadCard
                     label={releases.universal.label}
@@ -85,23 +133,15 @@ import DownloadCard from './ButtonCard.astro'
                     checksum={releases.universal.checksum}
                   />
                 )}
-                {releases.x86_64 && (
-                  'tarball' in releases.x86_64 
-                    ? releases.x86_64.tarball.label && (
-                      <DownloadCard
-                        label={releases.x86_64.tarball.label}
-                        href={releases.x86_64.tarball.link}
-                        checksum={releases.x86_64.tarball.checksum}
-                      />
-                    )
-                    : releases.x86_64.label && (
-                      <DownloadCard
-                        label={releases.x86_64.label}
-                        href={releases.x86_64.link}
-                        checksum={releases.x86_64.checksum}
-                      />
-                    )
-                )}
+                {releases.x86_64 &&
+                  isFlatReleaseInfo(releases.x86_64) &&
+                  releases.x86_64.label && (
+                    <DownloadCard
+                      label={releases.x86_64.label}
+                      href={releases.x86_64.link}
+                      checksum={releases.x86_64.checksum}
+                    />
+                  )}
                 {releases.arm64 && releases.arm64.label && (
                   <DownloadCard
                     label={releases.arm64.label}

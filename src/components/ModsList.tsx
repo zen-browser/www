@@ -196,7 +196,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         {paginatedMods.length > 0 ? (
           paginatedMods.map((mod) => (
             <a
-              className="flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
+              className="mod-card flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
               href={`/mods/${mod.id}`}
               key={mod.id}
             >

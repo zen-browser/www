@@ -1,4 +1,3 @@
----
 /**
  * Returns the releases object, injecting checksums dynamically.
  * @param checksums Record<string, string> mapping filenames to SHA-256 hashes
@@ -28,25 +27,15 @@ export function getReleasesWithChecksums(checksums: Record<string, string>) {
       x86_64: {
         tarball: {
           link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-x86_64.tar.xz',
-          label: 'Tarball x86_64',
+          label: 'Tarball',
           checksum: checksums['zen.linux-x86_64.tar.xz'],
-        },
-        appImage: {
-          link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen-x86_64.AppImage',
-          label: 'AppImage x86_64',
-          checksum: checksums['zen-x86_64.AppImage'],
         },
       },
       aarch64: {
         tarball: {
           link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-aarch64.tar.xz',
-          label: 'Tarball aarch64',
+          label: 'Tarball',
           checksum: checksums['zen.linux-aarch64.tar.xz'],
-        },
-        appImage: {
-          link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen-aarch64.AppImage',
-          label: 'AppImage aarch64',
-          checksum: checksums['zen-aarch64.AppImage'],
         },
       },
       flathub: {
@@ -58,4 +47,3 @@ export function getReleasesWithChecksums(checksums: Record<string, string>) {
     },
   }
 }
----
