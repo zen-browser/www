@@ -12,12 +12,10 @@ interface PlatformReleases {
   x86_64?:
     | {
         tarball?: ReleaseInfo
-        appImage?: ReleaseInfo
       }
     | ReleaseInfo
   aarch64?: {
     tarball?: ReleaseInfo
-    appImage?: ReleaseInfo
   }
   arm64?: ReleaseInfo
   flathub?: { all: ReleaseInfo }
@@ -75,10 +73,10 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
               {releases.x86_64 &&
                 typeof releases.x86_64 === "object" &&
                 "tarball" in releases.x86_64 &&
-                (releases.x86_64.tarball || releases.x86_64.appImage) && (
+                (releases.x86_64.tarball) && (
                   <div>
                     <h4 class="mb-3 text-lg font-medium">x86_64</h4>
-                    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <div class="">
                       {releases.x86_64.tarball && (
                         <DownloadCard
                           label={
@@ -95,32 +93,16 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                           checksum={releases.x86_64.tarball.checksum}
                         />
                       )}
-                      {releases.x86_64.appImage && (
-                        <DownloadCard
-                          label={
-                            releases.x86_64.appImage.label
-                              ? releases.x86_64.appImage.label
-                              : ""
-                          }
-                          href={
-                            releases.x86_64.appImage.link
-                              ? releases.x86_64.appImage.link
-                              : ""
-                          }
-                          variant="x86_64"
-                          checksum={releases.x86_64.appImage.checksum}
-                        />
-                      )}
                     </div>
                   </div>
                 )}
               {releases.aarch64 &&
                 typeof releases.aarch64 === "object" &&
                 "tarball" in releases.aarch64 &&
-                (releases.aarch64.tarball || releases.aarch64.appImage) && (
+                (releases.aarch64.tarball) && (
                   <div>
                     <h4 class="mb-3 text-lg font-medium">ARM64</h4>
-                    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <div class="gap-3">
                       {releases.aarch64.tarball && (
                         <DownloadCard
                           label={
@@ -135,22 +117,6 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                           }
                           variant="aarch64"
                           checksum={releases.aarch64.tarball.checksum}
-                        />
-                      )}
-                      {releases.aarch64.appImage && (
-                        <DownloadCard
-                          label={
-                            releases.aarch64.appImage.label
-                              ? releases.aarch64.appImage.label
-                              : ""
-                          }
-                          href={
-                            releases.aarch64.appImage.link
-                              ? releases.aarch64.appImage.link
-                              : ""
-                          }
-                          variant="aarch64"
-                          checksum={releases.aarch64.appImage.checksum}
                         />
                       )}
                     </div>
