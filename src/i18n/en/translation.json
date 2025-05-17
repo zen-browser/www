@@ -227,6 +227,11 @@
               "name": "Jafeth Garro",
               "description": "Documentation writer",
               "link": "https://iamjafeth.com/"
+            },
+            {
+              "name": "Studio Movie Girl",
+              "description": "Big contributor with the gradient generator and helped with macOS development on the early days",
+              "link": "https://github.com/neurokitti"
             }
           }
         }
