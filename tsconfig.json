@@ -9,5 +9,5 @@
     },
     "types": ["@vitest/browser/providers/playwright"]
   },
-  "suppressImplicitAnyIndexErrors": true,
+  "suppressImplicitAnyIndexErrors": true
 }

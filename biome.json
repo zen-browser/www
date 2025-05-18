@@ -9,6 +9,9 @@
       "recommended": true,
       "nursery": {
         "useSortedClasses": "info"
+      },
+      "suspicious": {
+        "noExplicitAny": "warn"
       }
     }
   },

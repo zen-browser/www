@@ -35,13 +35,12 @@ if (prevReleaseNote && !isTwilight) {
 const isLatest = currentReleaseIndex === 0
 
 const listItems = {} as any
-// biome-ignore lint/suspicious/noExplicitAny:
 const generateItems = (items: any, type: string) => {
   if (!items) return
   if (!listItems[type]) {
     listItems[type] = []
   }
-  // biome-ignore lint/complexity/noForEach:
+  // biome-ignore lint/complexity/noForEach: We dont need to use a for loop here
   items.forEach((item: any) => {
     switch (type) {
       case 'feature':
@@ -68,7 +67,7 @@ const generateItems = (items: any, type: string) => {
         listItems[type].push({
           type: 'security',
           link: {
-            text: 'Security Advisory',
+            text: 'Various security fixes',
             href: item,
           },
         })
