@@ -75,13 +75,6 @@ function formatReleaseNote(releaseNote: ReleaseNote) {
         Thanks everyone for your feedback! ❤️
     </p>`
 
-  if (releaseNote.image) {
-    content += `<img src="https://cdn.jsdelivr.net/gh/zen-browser/www/public/releases/${releaseNote.version}.png"
-                         alt="Release Image for version ${releaseNote.version}"
-                         style="max-width: 30em; width: 100%; border-radius: 0.5rem;"
-                    />`
-  }
-
   if (releaseNote.extra) {
     content += `<p>${releaseNote.extra.replace(/(\n)/g, '<br />')}</p>`
   }

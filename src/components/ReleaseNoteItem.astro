@@ -34,7 +34,7 @@ if (prevReleaseNote && !isTwilight) {
 
 const isLatest = currentReleaseIndex === 0
 
-const listItems = {}
+const listItems = {} as any
 // biome-ignore lint/suspicious/noExplicitAny:
 const generateItems = (items: any, type: string) => {
   if (!items) return
@@ -42,7 +42,7 @@ const generateItems = (items: any, type: string) => {
     listItems[type] = []
   }
   // biome-ignore lint/complexity/noForEach:
-  items.forEach((item) => {
+  items.forEach((item: any) => {
     switch (type) {
       case 'feature':
         listItems[type].push({

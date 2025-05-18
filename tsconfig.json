@@ -8,5 +8,6 @@
       "~/*": ["./src/*"]
     },
     "types": ["@vitest/browser/providers/playwright"]
-  }
+  },
+  "suppressImplicitAnyIndexErrors": true,
 }
