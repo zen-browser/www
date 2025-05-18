@@ -41,5 +41,18 @@
     "defaultBranch": "main",
     "root": ".",
     "useIgnoreFile": true
-  }
+  },
+  "overrides": [
+    {
+      "include": ["*.astro"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ]
 }

@@ -23,9 +23,9 @@ const {
   >
     <div
       id="release-notes"
-      class="py-42 flex min-h-screen w-full flex-col justify-center"
+      class="py-42 flex min-h-screen gap-8 w-full flex-col justify-center"
     >
-      <Description class="mt-48 text-4xl font-bold">Release Notes</Description>
+      <Description class="mt-48 text-6xl font-bold">Changelog</Description>
       <p
         class="text-base opacity-55"
         set:html={releaseNotes.topSection.description.replaceAll(
@@ -34,13 +34,10 @@ const {
         )}
       />
       <div
-        class="mx-auto mt-8 flex w-fit flex-col gap-4 sm:mr-0 sm:flex-row sm:items-center"
+        class="mt-8 flex w-fit flex-col gap-4 sm:mr-0 sm:flex-row sm:items-center"
       >
         <Button class="flex" isPrimary href="/donate">
           {releaseNotes.list.support}
-        </Button>
-        <Button id="toggle-notes" class="flex" data-open="false" href="#">
-          {releaseNotes.list.expandAll}
         </Button>
         <Button id="navigate-to-version" href="#" class="flex">
           {releaseNotes.list.navigateToVersion}
@@ -87,7 +84,6 @@ const {
   import { openModal, closeModal } from 'free-astro-components'
 
   const scrollTopButton = document.getElementById('scroll-top')
-  const toggleButton = document.getElementById('toggle-notes')
   const versionButton = document.getElementById('navigate-to-version')
   const container = document.getElementById('release-notes')
   const modal = document.getElementById('version-modal')
@@ -104,24 +100,6 @@ const {
       scrollTopButton.classList.remove('block')
       scrollTopButton.classList.add('hidden')
     }
-  }
-
-  const toggleNotes = () => {
-    if (!toggleButton || !container) return
-
-    const accordionItems = container.getElementsByTagName('details')
-    const isOpen = toggleButton.getAttribute('data-open') === 'true'
-
-    Array.from(accordionItems).forEach((accordionItem) => {
-      if (isOpen) {
-        accordionItem.removeAttribute('open')
-      } else {
-        accordionItem.setAttribute('open', '')
-      }
-    })
-
-    toggleButton.setAttribute('data-open', (!isOpen).toString())
-    toggleButton.textContent = isOpen ? 'Expand all' : 'Collapse all'
   }
 
   const navigateToVersion = (e: MouseEvent) => {
@@ -150,7 +128,6 @@ const {
   }
 
   window.addEventListener('scroll', toggleScrollButton)
-  toggleButton?.addEventListener('click', toggleNotes)
   versionButton?.addEventListener('click', openVersionModal)
   versionList?.addEventListener('click', navigateToVersion)
 </script>

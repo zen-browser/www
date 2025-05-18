@@ -13,8 +13,9 @@ export interface ReleaseNote {
   version: string
   date?: string // optional for twilight
   extra?: string
-  image?: boolean
   fixes?: Fix[]
+  security?: string
+  knownIssues?: string[]
   features?: string[]
   breakingChanges?: BreakingChange[]
   themeChanges?: string[]

@@ -50,7 +50,13 @@ describe('<PlatformDownload />', () => {
   it('renders linux platform with flathub and tarball', async () => {
     const linuxReleases = {
       flathub: { all: { label: 'Flathub', link: '/flathub' } },
-      x86_64: { tarball: { label: 'Tarball x86_64', link: '/tarball-x86_64', checksum: 'sha256' } },
+      x86_64: {
+        tarball: {
+          label: 'Tarball x86_64',
+          link: '/tarball-x86_64',
+          checksum: 'sha256',
+        },
+      },
     }
     const result = await container.renderToString(PlatformDownload, {
       props: {
@@ -72,10 +78,18 @@ describe('<PlatformDownload />', () => {
     const linuxReleases = {
       flathub: { all: { label: 'Flathub', link: '/flathub' } },
       x86_64: {
-        tarball: { label: 'Tarball x86_64', link: '/tarball-x86_64', checksum: 'sha256' },
+        tarball: {
+          label: 'Tarball x86_64',
+          link: '/tarball-x86_64',
+          checksum: 'sha256',
+        },
       },
       aarch64: {
-        tarball: { label: 'Tarball ARM64', link: '/tarball-arm64', checksum: 'sha256-arm64' },
+        tarball: {
+          label: 'Tarball ARM64',
+          link: '/tarball-arm64',
+          checksum: 'sha256-arm64',
+        },
       },
     }
     const result = await container.renderToString(PlatformDownload, {

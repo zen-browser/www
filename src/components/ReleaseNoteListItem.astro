@@ -1,0 +1,50 @@
+---
+import { getLocale, getPath, getUI } from '~/utils/i18n'
+
+const { type, content, link } = Astro.props as {
+  type: 'security' | 'feature' | 'fix' | 'theme' | 'break' | 'known'
+  content: string
+  link?: {
+    text: string
+    href: string
+  } | null
+}
+
+const locale = getLocale(Astro)
+
+const {
+  routes: {
+    releaseNotes: { itemType },
+  },
+} = getUI(locale)
+---
+
+<li class="flex gap-2">
+  <div
+    class:list={[
+  (type === 'security' && 'text-[#e3401f]') ||
+    (type === 'feature' && 'text-[#bf3316] dark:text-[#ffb1a1]') ||
+    (type === 'fix' && 'text-[#fe846b]') ||
+    (type === 'theme' && 'text-[#f76f53]') ||
+    (type === 'break' && 'text-[#471308]') || ''
+, 'opacity-80 font-bold min-w-16']}
+>
+    {itemType[type]}
+  </div>
+  <div>
+  {content && (
+    <span
+      class="text-base opacity-80"
+      set:html={content}
+    />
+  )}
+  {link && (
+    <a
+      href={link.href}
+      class="text-base text-blue inline-block underline"
+    >
+      {link.text}
+    </a>
+  )}
+  </div>
+</li>
