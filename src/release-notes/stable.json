@@ -2689,7 +2689,7 @@
     "themeChanges": [
       "Changed the layout of workspaces and their icons internally to provide a more stable layout that doesn't require floating elements. We finally manage to get it how we wanted it to be, meaning it will change less in the future."
     ],
-    "workflowId": 15101210312,
+    "workflowId": 15107068418,
     "image": false,
     "date": "19/05/2025"
   }
