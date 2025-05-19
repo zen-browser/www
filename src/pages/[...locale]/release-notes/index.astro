@@ -130,6 +130,14 @@ const {
   window.addEventListener('scroll', toggleScrollButton)
   versionButton?.addEventListener('click', openVersionModal)
   versionList?.addEventListener('click', navigateToVersion)
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.hasAttribute('open')) {
+      closeModal(modal)
+      // Remove scroll lock if present
+      document.body.style.overflow = ''
+    }
+  })
 </script>
 
 <style is:global>
