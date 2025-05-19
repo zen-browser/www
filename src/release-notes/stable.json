@@ -2680,7 +2680,8 @@
       "Tabs not being able to unload after closing glance.",
       "An issue with updating invalid mods clearing the mod list.",
       "An accessibility issue with the scrollbar on the sidebar.",
-      "Fixed opening a new link as split view while having glance open."
+      "Fixed opening a new link as split view while having glance open.",
+      "Fixed all-tabs menu not showing any text when collapsed toolbar is enabled."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-36/",
     "features": ["Updated to Firefox 138.0.4", "Better compact mode support for multiple toolbars."],
