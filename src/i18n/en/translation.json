@@ -4,7 +4,7 @@
       "title": "Zen Browser",
       "hero": {
         "title": [
-          { "text": "welcome ", "highlight": false },
+          { "text": "Welcome ", "highlight": false },
           { "text": "to ", "highlight": false },
           { "text": "\n", "highlight": false },
           { "text": "a ", "highlight": false },
