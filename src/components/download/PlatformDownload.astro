@@ -59,7 +59,7 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
           platform === "linux" ? (
             <>
               {releases.flathub && releases.flathub.all.label && (
-                <div>
+                <article class="flathub-download data-[twilight='true']:hidden">
                   <h4 class="mb-3 text-lg font-medium">Package Managers</h4>
                   <div class="space-y-3">
                     <DownloadCard
@@ -68,13 +68,13 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                       variant="flathub"
                     />
                   </div>
-                </div>
+                </article>
               )}
               {releases.x86_64 &&
                 typeof releases.x86_64 === "object" &&
                 "tarball" in releases.x86_64 &&
                 (releases.x86_64.tarball) && (
-                  <div>
+                  <article>
                     <h4 class="mb-3 text-lg font-medium">x86_64</h4>
                     <div class="">
                       {releases.x86_64.tarball && (
@@ -94,13 +94,13 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                         />
                       )}
                     </div>
-                  </div>
+                  </article>
                 )}
               {releases.aarch64 &&
                 typeof releases.aarch64 === "object" &&
                 "tarball" in releases.aarch64 &&
                 (releases.aarch64.tarball) && (
-                  <div>
+                  <article>
                     <h4 class="mb-3 text-lg font-medium">ARM64</h4>
                     <div class="gap-3">
                       {releases.aarch64.tarball && (
@@ -120,7 +120,7 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                         />
                       )}
                     </div>
-                  </div>
+                  </article>
                 )}
             </>
           ) : (
