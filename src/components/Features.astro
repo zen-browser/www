@@ -126,45 +126,47 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
       </div>
     </div>
 
-    <div class="relative w-full lg:w-3/5">
-      <div class="video-stack relative h-full w-full">
-        <Video
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="none"
-          class="feature-video"
-          src={WorkspacesVideo}
-          data-active="true"
-        />
-        <Video
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="none"
-          class="feature-video"
-          src={CompactModeVideo}
-        />
-        <Video
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="none"
-          class="feature-video"
-          src={GlanceVideo}
-        />
-        <Video
-          autoplay
-          loop
-          muted
-          playsinline
-          preload="none"
-          class="feature-video"
-          src={SplitViewsVideo}
-        />
+    <div class="sticky top-6 w-full lg:w-3/5 h-fit">
+      <div class="relative w-full">
+        <div class="video-stack relative h-full w-full">
+          <Video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="none"
+            class="feature-video"
+            src={WorkspacesVideo}
+            data-active="true"
+          />
+          <Video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="none"
+            class="feature-video"
+            src={CompactModeVideo}
+          />
+          <Video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="none"
+            class="feature-video"
+            src={GlanceVideo}
+          />
+          <Video
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="none"
+            class="feature-video"
+            src={SplitViewsVideo}
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -271,8 +273,6 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
     @apply aspect-video;
     perspective: 2000px;
     transform-style: preserve-3d;
-    position: sticky;
-    top: 0;
   }
 
   .feature-video {
