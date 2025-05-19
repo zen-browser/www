@@ -2657,7 +2657,7 @@
     "features": [
       "Updated to Firefox 138.0.3",
       "For MacOS users, dragging tabs and changing the texture for the workspace's background now provides haptic feedback (zen.haptic-feedback.enabled)",
-      "The 'copy current url' toast now displays a share icon (only on windows and MacOS)",
+      "The 'copy current url' toast now displays a share icon (only on Windows and MacOS)",
       "The URL bar can now search through renamed pinned tabs"
     ],
     "workflowId": 15003870178,
@@ -2666,30 +2666,30 @@
   {
     "version": "1.12.5b",
     "extra": "",
-    "fixes": ["Fixed a weird shadow with the URL bar.", "Fixed all tabs button appearing unexpectedly."],
+    "fixes": ["A weird shadow with the URL bar.", "'All tabs' button appearing unexpectedly."],
     "features": [],
     "workflowId": 15024223699,
     "date": "14/05/2025"
   },
   {
     "version": "1.12.6b",
-    "extra": "This new release updates firefox to the latest version which fixes various security issues.",
+    "extra": "This new release updates Firefox to the latest version which fixes various security issues.",
     "fixes": [
-      "Compact mode appearing 'tab openned in the background' when having multiple toolbars.",
+      "Compact mode showing 'tab opened in the background' when having multiple toolbars.",
       "An issue with GTK popups having low contrast.",
-      "Tabs not being able to unload after closing glance.",
+      "Tabs not being able to unload after closing Glance.",
       "An issue with updating invalid mods clearing the mod list.",
       "An accessibility issue with the scrollbar on the sidebar.",
-      "Fixed opening a new link as split view while having glance open.",
-      "Fixed all-tabs menu not showing any text when collapsed toolbar is enabled."
+      "Opening a new link in split view while having Glance open.",
+      "'All tabs' menu not showing any text when collapsed toolbar is enabled."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-36/",
     "features": ["Updated to Firefox 138.0.4", "Better compact mode support for multiple toolbars."],
     "knownIssues": ["Selecting a tab on private mode doesn't scroll to make the tab visible."],
     "themeChanges": [
-      "Changed the layout of workspaces and their icons internally to provide a more stable layout that doesn't require floating elements. We finally manage to get it how we wanted it to be, meaning it will change less in the future."
+      "Changed the layout of workspaces and their icons internally to provide a more stable layout that doesn't require floating elements. We finally managed to get it to how we wanted it to be, so it will change less in the future."
     ],
-    "workflowId": 15107068418,
+    "workflowId": 15124722267,
     "image": false,
     "date": "19/05/2025"
   }

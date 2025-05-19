@@ -26,32 +26,32 @@
   // Function to select a platform
   async function selectPlatform(platform: string) {
     // Update button styling
-    platformButtons.forEach((button) => {
+    for (const button of platformButtons) {
       const buttonPlatform = button.getAttribute('data-platform')
       if (buttonPlatform === platform) {
         button.setAttribute('data-active', 'true')
       } else {
         button.setAttribute('data-active', 'false')
       }
-    })
+    }
 
     // Show/hide platform sections
-    platformSections.forEach((section) => {
+    for (const section of platformSections) {
       if (section.id === `${platform}-downloads`) {
         section.setAttribute('data-active', 'true')
       } else {
         section.setAttribute('data-active', 'false')
       }
-    })
+    }
   }
 
   // Handle platform button clicks
-  platformButtons.forEach((button) => {
+  for (const button of platformButtons) {
     button.addEventListener('click', () => {
       const platform = button.getAttribute('data-platform') ?? ''
       selectPlatform(platform)
     })
-  })
+  }
 
   // Check for twilight mode
   async function checkTwilightMode() {
@@ -70,21 +70,21 @@
       }
 
       const tags = document.querySelectorAll('.release-type-tag')
-      tags.forEach((tag) => {
+      for (const tag of tags) {
         tag.innerHTML = tag.innerHTML.replace('Beta', 'Twilight')
-      })
+      }
 
       // Apply twilight mode to all relevant elements
       const coralElements = document.querySelectorAll(
-        '.download-browser-logo, .release-type-tag, .decorative-gradient, .download-link, .download-arrow-icon, .download-card__icon, .checksum-icon-btn, .copy-btn',
+        '.download-browser-logo, .release-type-tag, .decorative-gradient, .download-link, .download-arrow-icon, .download-card__icon, .checksum-icon-btn, .copy-btn, .flathub-download',
       )
-      coralElements.forEach((element) => {
+      for (const element of coralElements) {
         element.setAttribute('data-twilight', 'true')
-      })
+      }
 
       // Replace all download links with twilight versions
       const downloadLinks = document.querySelectorAll('a.download-link')
-      downloadLinks.forEach((link) => {
+      for (const link of downloadLinks) {
         if (!link.id.includes('beta')) {
           const href = link.getAttribute('href')
           if (href && href.includes('/latest/download/')) {
@@ -95,7 +95,7 @@
             link.setAttribute('href', twilightHref)
           }
         }
-      })
+      }
     }
   }
 
