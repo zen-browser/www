@@ -44,7 +44,6 @@ def main():
         with open(TWILIGHT_RELEASE_NOTES, "w") as f:
             json.dump({
                 "version": "xxx",
-                "image": False,
                 "extra": "",
                 "fixes": [],
                 "features": [],

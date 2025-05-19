@@ -112,35 +112,33 @@
       "title": "Release notes - Zen Browser",
       "topSection": {
         "title": "Release Notes",
-        "description": "Stay up to date with the latest changes to Zen Browser! Since the <a class=\"zen-link\" href=\"#1.0.0-a.1\">first release</a> till <a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>, we've been working hard to make Zen Browser the best it can be. Thanks everyone for your feedback! ❤️"
+        "description": "Stay up to date with the latest changes to Zen! Since the <a class=\"zen-link\" href=\"#1.0.0-a.1\">first release</a> till <a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>, we've been working hard to make Zen Browser the best it can be. Thanks everyone for your feedback! ❤️"
       },
       "list": {
         "support": "Give us some support!",
-        "expandAll": "Expand all",
         "navigateToVersion": "Navigate to version..."
+      },
+      "itemType": {
+        "fix": "Fixed",
+        "feature": "Added",
+        "known": "Known",
+        "break": "Breaking",
+        "theme": "Theme",
+        "security": "Security"
       },
       "backToTop": "Back to the top",
       "chooseVersion": "Choose version",
       "components": {
         "releaseNoteItem": {
           "twilight": "Twilight",
-          "twilightChanges": "Twilight changes for {version} 🌙",
-          "releaseChanges": "Release notes for {version} 🎉",
+          "twilightChanges": "Twilight changes",
+          "releaseChanges": "v{version}",
           "firefoxVersion": "Firefox {version}",
           "githubRelease": "GitHub Release",
           "workflowRun": "Workflow run",
           "compareChanges": "Compare changes",
           "twilightWarning": "Please note that Twilight is a pre-release version of Zen Browser. It may contain bugs and unfinished features.",
           "reportIssues": " If you encounter any issues, please report them on <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">the issues page</a>.",
-          "sections": {
-            "fixes": "Fixes",
-            "features": "Features",
-            "themeChanges": "Theme Changes",
-            "breakingChanges": {
-              "title": "Breaking Changes",
-              "description": "View breaking changes on GitHub"
-            }
-          },
           "learnMore": "Learn more",
           "viewIssue": "View issue number {issue} on GitHub"
         }
@@ -195,13 +193,18 @@
             },
             "kristijanribaric": {
               "name": "Kristijan Ribaric",
-              "description": "Active contributor",
+              "description": "Active contributor with split views / workspaces",
               "link": "https://github.com/kristijanribaric"
             },
             "larvey": {
               "name": "Larvey",
               "description": "AUR maintainer",
               "link": "https://github.com/LarveyOfficial/"
+            },
+            "studio": {
+              "name": "Studio Movie Girl",
+              "description": "Big contributor with the gradient generator",
+              "link": "https://github.com/neurokitti"
             }
           },
           "website": {

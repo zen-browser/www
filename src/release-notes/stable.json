@@ -729,7 +729,6 @@
     "version": "1.0.1-a",
     "date": "15/09/2024",
     "workflowId": 10911842349,
-    "image": true,
     "extra": "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for mods, improved overal UX and added an a better theme support (Now called Zen Mods)!",
     "features": [
       "Added verified digital signature to Windows builds",
@@ -770,7 +769,6 @@
   {
     "version": "1.0.1-a.2",
     "date": "17/09/2024",
-    "image": true,
     "workflowId": 10966772761,
     "extra": "This release could be considered a hotfix release for the previous version.\n\nSince we've started doing pretty big UI changes in order to gain more stability, it's normal that we may encounter some bugs... But not that many!\n\nThis release fixes some of the most important bugs that were introduced in the previous version and adds some small improvements.",
     "features": [
@@ -826,7 +824,6 @@
   {
     "version": "1.0.1-a.3",
     "date": "22/09/2024",
-    "image": true,
     "workflowId": 10984599633,
     "extra": "We are thrilled to announce that this release marks a significant leap forward for Zen Browser.\n\nSince the last version (1.0.1-a.2), we've implemented numerous improvements and addressed key bug fixes, all aimed at enhancing your browsing experience.\n\nWe've made significant changes to the UI, including a new compact mode design, improved tab management, and a more intuitive user interface. We've also added new features, such as the ability to customize the tab bar and a new compact mode design.\n\nWe hope you enjoy this release and look forward to your feedback!",
     "features": [
@@ -898,7 +895,6 @@
   {
     "version": "1.0.1-a.4",
     "date": "23/09/2024",
-    "image": true,
     "workflowId": 11000317603,
     "extra": "This update addresses some significant issues with the previous release.\n\nWe appreciate your patience and support!",
     "features": ["Added a new system for handling keyboard shortcuts"],
@@ -926,7 +922,6 @@
   {
     "version": "1.0.1-a.5",
     "date": "24/09/2024",
-    "image": false,
     "workflowId": 11020784612,
     "extra": "This update is a small patch to fix some issues that weren't addressed in the previous release!",
     "features": ["Moved application menu button to the right", "Added new shortcuts", "Collapsed tab sidebar is now smaller"],
@@ -943,7 +938,6 @@
   {
     "version": "1.0.1-a.6",
     "date": "29/09/2024",
-    "image": true,
     "workflowId": 11095257662,
     "extra": "This release fixes a few critical bugs and introduces Tab Unloading! Unused tabs will free up memory with this new feature",
     "features": [
@@ -992,7 +986,6 @@
   {
     "version": "1.0.1-a.7",
     "date": "01/10/2024",
-    "image": false,
     "workflowId": 11108707060,
     "extra": "This release is a really small release to fix a very important bug that was introduced in the previous release.",
     "fixes": [
@@ -1007,7 +1000,6 @@
   {
     "version": "1.0.1-a.8",
     "date": "10/10/2024",
-    "image": true,
     "workflowId": 11279059812,
     "extra": "This release brings Zen to Firefox v131.0.2, which patches a significant security vulnerability.\n\nThis update improves the split view and pinned tabs features.\nWe have also released Zen Twilight; automated unstable builds where you can test out the latest features!",
     "features": [
@@ -1052,7 +1044,6 @@
   {
     "version": "1.0.1-a.9",
     "date": "14/10/2024",
-    "image": true,
     "workflowId": 11333793682,
     "extra": "This update brings further refinements to Zen Browser, focusing on stability improvements and new features for session management.\n\nWe've also enhanced pinned tab handling and workspaces to improve the user experience. Thanks everyone!",
     "features": [
@@ -1110,7 +1101,6 @@
   {
     "version": "1.0.1-a.10",
     "date": "15/10/2024",
-    "image": false,
     "workflowId": 11349525400,
     "extra": "This release is a small patch to fix some issues on keyboard shortcuts that were introduced in the previous release.",
     "fixes": [
@@ -1136,7 +1126,6 @@
   {
     "version": "1.0.1-a.11",
     "date": "19/10/2024",
-    "image": true,
     "workflowId": 11412027026,
     "extra": "This release brings some quality of life improvements and new features to Workspaces.",
     "fixes": [
@@ -1187,7 +1176,6 @@
   {
     "version": "1.0.1-a.12",
     "date": "19/10/2024",
-    "image": false,
     "workflowId": 11419764479,
     "extra": "This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
     "features": [
@@ -1212,7 +1200,6 @@
   {
     "version": "1.0.1-a.13",
     "date": "27/10/2024",
-    "image": true,
     "workflowId": 11540529505,
     "extra": "This update brings custom gradient themes to workspaces!",
     "features": [
@@ -1255,7 +1242,6 @@
   {
     "version": "1.0.1-a.14",
     "date": "27/10/2024",
-    "image": false,
     "workflowId": 32129331813,
     "extra": "This release is a small patch to fix some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
     "fixes": [
@@ -1277,7 +1263,6 @@
   {
     "version": "1.0.1-a.15",
     "date": "31/10/2024",
-    "image": true,
     "workflowId": 11600705444,
     "extra": "This release introduces Zen Glance, a new convenient way to preview links!\n\nZen Glance allows you to open a link preview in a small window, without leaving the current page. This feature is perfect for quickly checking links without losing your place.\n\nWe've also updated to the latest stable version of Firefox (what a mess, everything got broken!), and we can already start to see some early stages of tab groups!\n\nStart using Zen Glance today my 'ctrl+clic' or 'alt+click' on macos on any link and experience this new way of browsing!",
     "fixes": [
@@ -1331,7 +1316,6 @@
   {
     "version": "1.0.1-a.16",
     "date": "31/10/2024",
-    "image": false,
     "workflowId": 11603948220,
     "extra": "This release is a small patch to fix some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
     "fixes": [
@@ -1350,7 +1334,6 @@
   {
     "version": "1.0.1-a.17",
     "date": "01/11/2024",
-    "image": false,
     "workflowId": 11620213140,
     "extra": "This was another release with the sole purpose of fixing some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
     "fixes": [
@@ -1387,7 +1370,6 @@
   {
     "version": "1.0.1-a.18",
     "date": "09/11/2024",
-    "image": true,
     "workflowId": 11758612771,
     "extra": "This release brings some quality of life improvements and new features to Zen Browser! First thing you would notice, pinned tabs look like normal tabs now. Why? Because we added 'essentials'.\n\nEssentials are a new way to manage your tabs, workspaces and pinned tabs. You can now have pinned tabs your workspace, and essentials will be the only tabs that are not workspace specific.\n\nWe've also started to experiment with new layouts and designs for the browser, and we've added a more native look to the browser!",
     "features": [
@@ -1506,7 +1488,6 @@
   {
     "version": "1.0.1-a.19",
     "date": "10/11/2024",
-    "image": false,
     "workflowId": 11767769200,
     "extra": "This release is a small patch to fix some issues that were introduced in the previous release. Thanks everyone for the quick feedback!",
     "fixes": [
@@ -1558,7 +1539,6 @@
   {
     "version": "1.0.2-b.0",
     "date": "10/12/2024",
-    "image": true,
     "workflowId": 12246343549,
     "extra": "This release introduces a new stage for Zen Browser, the beta stage! This means that we are getting closer to a stable release, and we are now focusing on fixing bugs and improving the overall experience.\n\nWe've made some significant changes to the UI, including a new layout for the browser called single toolbar and much more!",
     "fixes": [
@@ -1644,7 +1624,6 @@
   {
     "version": "1.0.2-b.1",
     "date": "11/12/2024",
-    "image": false,
     "workflowId": 12280896272,
     "extra": "This release brings some commong bug fixes and improvements to the browser. Thanks everyone for the feedback!",
     "fixes": [
@@ -1679,7 +1658,6 @@
   {
     "version": "1.0.2-b.2",
     "date": "15/12/2024",
-    "image": false,
     "workflowId": 12333272353,
     "extra": "This release is a small patch to fix some issues and improve overall stability. Thanks everyone for the feedback!",
     "fixes": [
@@ -1730,7 +1708,6 @@
   {
     "version": "1.0.2-b.3",
     "date": "19/12/2024",
-    "image": true,
     "workflowId": 12419745635,
     "extra": "This release brings more bug fixing and ovcerall stability while also including some small polishing features/details. Our goal during the beta phase is to get everything as stable and ready for our stable release!\n\nNote: We will be hosting a hall-of-fame event, where top 20 zen rices will be featured in the website!\n\nMerry Christmas everyone!",
     "fixes": [
@@ -1774,7 +1751,6 @@
   {
     "version": "1.0.2-b.4",
     "date": "22/12/2024",
-    "image": false,
     "workflowId": 12453824612,
     "extra": "This release includes many more bug fixes and improvements to the browser. We've also added an <a href='https://github.com/zen-browser/desktop/tree/dev/docs/issue-metrics' target='_blank'>issue metrics</a> file too see how many issues we've fixed each month!",
     "fixes": [
@@ -1830,7 +1806,6 @@
   {
     "version": "1.0.2-b.5",
     "date": "26/12/2024",
-    "image": false,
     "workflowId": 12481117227,
     "extra": "This release is just a small patch to fix a really annoying issue with extension popups not working correctly.",
     "fixes": [
@@ -1965,12 +1940,10 @@
       "Removed option to disable workspaces. Workspaces are now a core feature of Zen, and it can be really easy to ignore them (they are hidden if you have just one workspace) if you don't want to use them. Most of Zen's functionality is built around workspaces, so we decided to make them a core feature. They were an option before because they were experimental."
     ],
     "workflowId": 12700507897,
-    "image": false,
     "date": "07/01/2025"
   },
   {
     "version": "1.7b",
-    "image": false,
     "extra": "This is a small update, but it brings some nice improvements to the workspace and the overall experience.\n\n<strong><u>IMPORTANT FOR FLATPAK USERS</u>:</strong> The app id has changed, please see <a href='https://www.reddit.com/r/zen_browser/comments/1i2cspi/comment/m7di8z1/' target='_blank'>this post</a> for instructions on how to migrate",
     "fixes": [
       "Fixed wrong spacing when using right side tabs",
@@ -2014,7 +1987,6 @@
   },
   {
     "version": "1.7.1b",
-    "image": false,
     "extra": "<u>We are back again with yet another stability update!</u>\n\nThis update focused on finally fixing the main issues people have with essentials/pinned tabs and improving the experience and UI.\n\nWe've improved the browser's overall UI and feel, added new optimized and *bouncy* animations, made some quality-of-life improvements, and are having a great time!\n\nOne thing to expect in future releases is the implementation of a new settings window, where all Zen-specific features can be easily customized and toggled.",
     "fixes": [
       "Fixed essentials and pinned tabs not being correctly restored when using multiple windows",
@@ -2053,7 +2025,6 @@
   },
   {
     "version": "1.7.2b",
-    "image": false,
     "extra": "Another stability update, where we've fixed a few more bugs and improved the overall feel of the app.\n\nThis is a small update, released primarily to keep Firefox up to date while we work on the next big update.",
     "fixes": [
       "Fixed firefox sidebar spacings",
@@ -2078,7 +2049,6 @@
   },
   {
     "version": "1.7.3b",
-    "image": false,
     "extra": "In this release, more stability and performance improvements have been made.",
     "fixes": [
       "Fixed essentials background having the wrong border radius",
@@ -2124,7 +2094,6 @@
   },
   {
     "version": "1.7.4b",
-    "image": false,
     "date": "30/01/2025",
     "workflowId": 13062083313,
     "extra": "Quick fix for a critical bug that was introduced in the previous release.",
@@ -2132,7 +2101,6 @@
   },
   {
     "version": "1.7.5b",
-    "image": false,
     "extra": "Another stability update while we are figuring big changes out!\n\nThis update has been focused on adding some cool new features such as removing the need of new tabs and a better glance experience. We have also fixed a lot of bugs that have been reported by the community, thank you for your feedback!",
     "fixes": [
       "Fixed double clicking the sidebar not opening a new tab",
@@ -2173,7 +2141,6 @@
   },
   {
     "version": "1.7.6b",
-    "image": false,
     "extra": "This release is a small one, but it brings a few fixes and a new feature.",
     "fixes": [
       "Fixed sidebar icons all looking the same",
@@ -2193,7 +2160,6 @@
   },
   {
     "version": "1.8b",
-    "image": false,
     "extra": "Huge update filled with improvements and QoL features.\n\nP.S. Check out this cool site! https://doeszenhavedrmyet.com/",
     "fixes": [
       "Fixed weird text generation when rendering PDFs/Google Docs on some websites, without the need to disable hardware acceleration",
@@ -2254,7 +2220,6 @@
   },
   {
     "version": "1.8.1b",
-    "image": false,
     "extra": "Small update with some bug fixes and improvements.",
     "fixes": [
       "Fixed updating from older versions not showing tabs from other workspaces at startup",
@@ -2269,7 +2234,6 @@
   },
   {
     "version": "1.8.2b",
-    "image": false,
     "extra": "Another update with many bug fixes!",
     "fixes": [
       "Fixed pinned tabs re-ordering on startup",
@@ -2285,7 +2249,6 @@
   },
   {
     "version": "1.9b",
-    "image": false,
     "extra": "Another nice update for Zen! This time, we've added a new feature that allows you to drag-and-drop tabs into the browser to split them!",
     "fixes": [
       "Fixed pinned tabs being subject to appearing on the essentials container",
@@ -2323,7 +2286,6 @@
   },
   {
     "version": "1.9.1b",
-    "image": false,
     "extra": "Another update with stability improvements.",
     "fixes": [
       "Fixed new tabs opening where Essentials are in some cases",
@@ -2344,7 +2306,6 @@
   },
   {
     "version": "1.10b",
-    "image": false,
     "extra": "This small but mighty update includes some exciting new features and improvements to Zen, such as passkey support for MacOS, and a media player controller that's fully integrated with Picture-in-Picture mode.",
     "fixes": [
       "Glance should no longer close if 'onbeforeunload' is triggered",
@@ -2368,7 +2329,6 @@
   },
   {
     "version": "1.10.1b",
-    "image": false,
     "extra": "A small update with some bug fixes and improvements. We've also added a feature many of you have been asking for: a minimize button for Picture-in-Picture mode!",
     "fixes": [
       "Fixed media player having low contrast on automatic theme",
@@ -2389,7 +2349,6 @@
   },
   {
     "version": "1.10.2b",
-    "image": false,
     "extra": "Just a small update to improve stability while we work on much bigger things like: tab folders, a new workspace management UI, a new settings panel, and more. Sorry!",
     "fixes": [
       "Fixed the media player's playback rate and overflow not being updated correctly",
@@ -2406,7 +2365,6 @@
   },
   {
     "version": "1.10.3b",
-    "image": false,
     "extra": "Terribly sorry for the frequent updates, this emergency release simply updates Firefox, fixing a critical vulnerability in chromium's sandboxing system. You can read more here:\n\n<a href='https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/'>https://cyberinsider.com/firefox-says-its-vulnerable-to-chromes-zero-day-used-in-espionage-attacks/</a>",
     "features": ["Updated Firefox to 136.0.4"],
     "workflowId": 14109635630,
@@ -2414,7 +2372,6 @@
   },
   {
     "version": "1.11b",
-    "image": false,
     "extra": "This update brings in some new QoL improvements that we think you'll love, and more stability!",
     "fixes": [
       "Fixed dialogs in Glance tabs shrinking",
@@ -2457,7 +2414,6 @@
   },
   {
     "version": "1.11.1b",
-    "image": false,
     "extra": "This small update brings some nice fixes and stability improvements to Zen",
     "fixes": [
       "Fixed Glance not becoming it's own tab when expanding",
@@ -2469,7 +2425,6 @@
   },
   {
     "version": "1.11.2b",
-    "image": false,
     "extra": "Another stability update for Zen, while we prepare some cool new features for the future! Clue: it starts with an 'F'",
     "fixes": [
       {
@@ -2498,7 +2453,6 @@
   },
   {
     "version": "1.11.3b",
-    "image": false,
     "extra": "We are back with some nice QoL improvements and bug fixes. We decided that the release of Firefox 138 will be the defining moment for Zen, allowing stable enough groups for us to release tab folders! We are also working on something called 'Zen Library'!",
     "fixes": [
       "Fixed Glance occasionally acting weird when cycling tabs with the keyboard",
@@ -2523,7 +2477,6 @@
   },
   {
     "version": "1.11.4b",
-    "image": false,
     "extra": "This update includes a number of bug fixes and performance improvements!",
     "fixes": [
       {
@@ -2578,7 +2531,6 @@
   },
   {
     "version": "1.11.5b",
-    "image": false,
     "extra": "A small update to fix some issues with the new PiP feature and 'element-separation: 0'",
     "fixes": [
       "Fixed an issue with 'element-separation: 0' disallowing access to the window controls",
@@ -2590,7 +2542,6 @@
   },
   {
     "version": "1.12b",
-    "image": false,
     "extra": "A nice update that brings some cool new features and fixes!\n\nWe are also excited to announce that we've joined <a href=\"https://floss.social/@zenbrowser\">floss.social</a>!\n\nIn response to recent privacy concerns, we've significantly strengthened Zen's privacy measures. Previously, we only disabled telemetry, but some minimal pings were still being sent. Now, Firefox telemetry has been completely stripped out from the core.\n\nAdditionally, onboarding pages and initial Essentials favicons are now locally bundled and our website no longer relies on any external services, CDNs, nor Cloudflare services. Initial Essentials selected on startup will only be loaded when the tab is clicked on, so connections won't be established until you explicitly enter the tab. We also changed our onboarding Essentials options to more privacy and productivity focused sites.\n\nOnly critical security updates and other non-telemetry-related services remain. As a result, the number of external connections has dropped from 82 to around 20-10 \u2014 factoring in that Zen's site is loaded twice (for the welcome page and privacy policy).\n\nPsst. With the release of Firefox 138, folders are just around the corner!",
     "fixes": [
       "Fixed a crash when no loaded tab is present on the 'Ctrl+Tab' menu",
@@ -2637,7 +2588,6 @@
   },
   {
     "version": "1.12.1b",
-    "image": false,
     "extra": "This is just a small update to fix some bugs with the previous version. Please check out the release notes for 1.12b for more details.",
     "fixes": [
       "Fixed sidebar in collapsed and compact modes being too small",
@@ -2651,7 +2601,6 @@
   },
   {
     "version": "1.12.2b",
-    "image": false,
     "extra": "Just a small update to fix some bugs and introduce some minor features!",
     "fixes": [
       "Fixed Essentials/pinned tabs not loading if 'reset to default on startup' is enabled",
@@ -2673,8 +2622,7 @@
   },
   {
     "version": "1.12.3b",
-    "image": false,
-    "extra": "This is just a small update to fix some bugs!",
+    "extra": "",
     "fixes": [
       "Fixed the toast notifications not aligning when tabs are on the right",
       "Fixed restoring previous tabs not working in some cases",
@@ -2688,8 +2636,7 @@
   },
   {
     "version": "1.12.4b",
-    "image": false,
-    "extra": "In this version we have added some tiny new improvements and fixed some bugs.",
+    "extra": "",
     "fixes": [
       "Fixed issues with toast notifications not being hidden after a timeout and displaying when they shouldn't",
       {
@@ -2718,11 +2665,32 @@
   },
   {
     "version": "1.12.5b",
-    "image": false,
     "extra": "",
     "fixes": ["Fixed a weird shadow with the URL bar.", "Fixed all tabs button appearing unexpectedly."],
     "features": [],
     "workflowId": 15024223699,
     "date": "14/05/2025"
+  },
+  {
+    "version": "1.12.6b",
+    "extra": "This new release updates firefox to the latest version which fixes various security issues.",
+    "fixes": [
+      "Compact mode appearing 'tab openned in the background' when having multiple toolbars.",
+      "An issue with GTK popups having low contrast.",
+      "Tabs not being able to unload after closing glance.",
+      "An issue with updating invalid mods clearing the mod list.",
+      "An accessibility issue with the scrollbar on the sidebar.",
+      "Fixed opening a new link as split view while having glance open.",
+      "Fixed all-tabs menu not showing any text when collapsed toolbar is enabled."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-36/",
+    "features": ["Updated to Firefox 138.0.4", "Better compact mode support for multiple toolbars."],
+    "knownIssues": ["Selecting a tab on private mode doesn't scroll to make the tab visible."],
+    "themeChanges": [
+      "Changed the layout of workspaces and their icons internally to provide a more stable layout that doesn't require floating elements. We finally manage to get it how we wanted it to be, meaning it will change less in the future."
+    ],
+    "workflowId": 15107068418,
+    "image": false,
+    "date": "19/05/2025"
   }
 ]

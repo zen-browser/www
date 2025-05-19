@@ -1,10 +1,10 @@
 ---
-import { Accordion, AccordionItem } from 'free-astro-components'
 import InfoIcon from '~/icons/InfoIcon.astro'
 
 import { releaseNotes as releaseNotesData } from '~/release-notes'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
-import { type BreakingChange, type ReleaseNote, getReleaseNoteFirefoxVersion } from '../release-notes'
+import { type ReleaseNote, getReleaseNoteFirefoxVersion } from '../release-notes'
+import ReleaseNoteListItem from './ReleaseNoteListItem.astro'
 export type Props = ReleaseNote
 const { isTwilight, ...props } = Astro.props
 
@@ -31,13 +31,75 @@ let compareLink = ''
 if (prevReleaseNote && !isTwilight) {
   compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`
 }
+
+const isLatest = currentReleaseIndex === 0
+
+const listItems = {} as any
+const generateItems = (items: any, type: string) => {
+  if (!items) return
+  if (!listItems[type]) {
+    listItems[type] = []
+  }
+  // biome-ignore lint/complexity/noForEach: We dont need to use a for loop here
+  items.forEach((item: any) => {
+    switch (type) {
+      case 'feature':
+        listItems[type].push({
+          type: 'feature',
+          content: item,
+        })
+        break
+      case 'fix':
+        listItems[type].push({
+          type: 'fix',
+          content: item.description ?? item,
+          ...(item.issue
+            ? {
+                link: {
+                  text: `Issue #${item.issue}`,
+                  href: `https://github.com/zen-browser/desktop/issues/${item.issue}`,
+                },
+              }
+            : {}),
+        })
+        break
+      case 'security':
+        listItems[type].push({
+          type: 'security',
+          link: {
+            text: 'Various security fixes.',
+            href: item,
+          },
+        })
+        break
+      case 'theme':
+        listItems[type].push({
+          type: 'theme',
+          content: item,
+        })
+        break
+      case 'break':
+        listItems[type].push({
+          type: 'break',
+          content: item,
+        })
+        break
+    }
+  })
+}
+generateItems(props.security ? [props.security] : null, 'security')
+generateItems(props.fixes, 'fix')
+generateItems(props.features, 'feature')
+generateItems(props.themeChanges, 'theme')
+generateItems(props.breakingChanges, 'break')
+generateItems(props.knownIssues, 'known')
 ---
 
 <section
-  class="release-note-item relative mt-24 flex flex-col border-t pt-24 lg:flex-row"
+  class="release-note-item relative mt-12 flex flex-col pt-24 lg:flex-row"
   id={props.version}
 >
-  <div class="px-5 md:px-10 md:pr-32">
+  <div class="px-5 md:px-10 md:pr-32 w-full gap-2 flex flex-col">
     {
       isTwilight ? (
         <a
@@ -48,11 +110,15 @@ if (prevReleaseNote && !isTwilight) {
         </a>
       ) : null
     }
-    <h1 class="flex items-center text-3xl font-bold">
+    <div class="w-full sm:flex justify-between">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0 text-sm font-bold opacity-80">
       {
         isTwilight ? (
           <>
-            {releaseNoteItem.twilightChanges} {props.version} 🌙
+            {releaseNoteItem.twilightChanges} {props.version.replaceAll(
+              '{version}',
+              props.version,
+            )}
           </>
         ) : (
           <>
@@ -63,19 +129,18 @@ if (prevReleaseNote && !isTwilight) {
           </>
         )
       }
-      {
+            {
         ffVersion ? (
-          <div class="!mb-2 ml-6 mt-1 block inline w-fit rounded-full bg-blue-500 px-3 py-1 text-xs text-paper dark:bg-blue-50">
+          <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
+          <a               rel="noopener noreferrer"class="text-xs underline decoration-wavy text-coral opacity-80" href={`https://www.mozilla.org/en-US/firefox/${ffVersion}/releasenotes/`} target="_blank" rel="noopener noreferrer">
             {releaseNoteItem.firefoxVersion.replace('{version}', ffVersion)}
-          </div>
+          </a>
         ) : null
       }
-    </h1>
-    {date && date.toLocaleDateString('en-US', { dateStyle: 'long' })}
-    <div class="mt-2">
-      <a
+      <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
+            <a
         rel="noopener noreferrer"
-        class="zen-link whitespace-nowrap text-sm opacity-60"
+        class="zen-link whitespace-nowrap !no-underline text-xs opacity-80"
         target="_blank"
         href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}
         >{releaseNoteItem.githubRelease}</a
@@ -83,10 +148,10 @@ if (prevReleaseNote && !isTwilight) {
       {
         !isTwilight ? (
           <>
-            <span class="text-muted-foreground mx-auto">•</span>
+            <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
             <a
               rel="noopener noreferrer"
-              class="zen-link whitespace-nowrap text-sm opacity-60"
+              class="zen-link whitespace-nowrap !no-underline text-xs opacity-80"
               target="_blank"
               href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}
             >
@@ -98,10 +163,10 @@ if (prevReleaseNote && !isTwilight) {
       {
         compareLink !== '' ? (
           <>
-            <span class="text-muted-foreground mx-auto">•</span>
+            <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
             <a
               rel="noopener noreferrer"
-              class="zen-link whitespace-nowrap text-sm opacity-60"
+              class="zen-link whitespace-nowrap !no-underline text-xs opacity-80"
               target="_blank"
               href={compareLink}
             >
@@ -111,112 +176,46 @@ if (prevReleaseNote && !isTwilight) {
         ) : null
       }
     </div>
-    <div class="text-muted-forground mt-6 flex text-sm opacity-70">
+    <div class="text-xs opacity-80 font-bold">
+      {date && date.toLocaleDateString('en-US', { dateStyle: 'long' })}
+    </div>
+    </div>
+    {
+      props.extra?.length ? (
+        <p class="text-md text-muted-foreground extra mt-2">
+          <Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
+        </p>
+      ) : null
+    }
+    {isTwilight || isLatest ? (
+      
+    <div class="text-muted-forground flex text-sm opacity-70">
       {isTwilight ? <InfoIcon class="mx-4 my-0 size-6 text-yellow-500" /> : null}
       <p class="m-0">
         {isTwilight ? <>{releaseNoteItem.twilightWarning}</> : null}
         <span set:html={releaseNoteItem.reportIssues} />
       </p>
     </div>
-
+    ) : null}
+    <div class="gap-8 flex flex-col mt-4">
     {
-      props.extra ? (
-        <p class="text-md text-muted-foreground extra mt-2">
-          <Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
-        </p>
-      ) : null
-    }
-    <div class="mt-8" data-orientation="vertical"></div>
-    <Accordion>
-      {
-        props.fixes?.length ? (
-          <AccordionItem title="Fixes">
-            <ul class="list-inside list-disc">
-              {props.fixes.map((fix: any) => (
-                <li class="text-md text-muted-foreground">
-                  {typeof fix === 'string' ? (
-                    fix
-                  ) : (
-                    <>
-                      {fix.description}
-                      {fix.issue ? (
-                        <>
-                          {' '}
-                          <a
-                            class="zen-link"
-                            href={`https://github.com/zen-browser/desktop/issues/${fix.issue}`}
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            aria-label={releaseNoteItem.viewIssue.replace(
-                              '{issue}',
-                              fix.issue,
-                            )}
-                          >
-                            #{fix.issue}
-                          </a>
-                        </>
-                      ) : null}
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </AccordionItem>
-        ) : null
-      }
-      {
-        props.features?.length ? (
-          <AccordionItem title={releaseNoteItem.sections.features}>
-            <ul class="list-inside list-disc">
-              {props.features.map((feature: string) => (
-                <li class="text-md text-muted-foreground">{feature}</li>
-              ))}
-            </ul>
-          </AccordionItem>
-        ) : null
-      }
-      {
-        props.themeChanges?.length ? (
-          <AccordionItem title={releaseNoteItem.sections.themeChanges}>
-            <ul class="list-inside list-disc">
-              {props.themeChanges.map((themeChange: string) => (
-                <li class="text-md text-muted-foreground">{themeChange}</li>
-              ))}
-            </ul>
-          </AccordionItem>
-        ) : null
-      }
-      {
-        props.breakingChanges?.length ? (
-          <AccordionItem title={releaseNoteItem.sections.breakingChanges.title}>
-            <ul class="list-inside list-disc">
-              {props.breakingChanges.map((breakingChange: BreakingChange) => (
-                <li class="text-md text-muted-foreground">
-                  {typeof breakingChange === 'string' ? (
-                    <Fragment set:html={breakingChange} />
-                  ) : (
-                    <>
-                      {breakingChange.description}
-                      <a
-                        class="zen-link"
-                        href={breakingChange.link}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                        aria-label={
-                          releaseNoteItem.sections.breakingChanges.description
-                        }
-                      >
-                        {releaseNoteItem.learnMore}
-                      </a>
-                    </>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </AccordionItem>
-        ) : null
-      }
-    </Accordion>
+      Object.keys(listItems).map((type) => {
+        const items = listItems[type];
+        if (items.length === 0) return null;
+        return (
+          <ul class="gap-1 flex flex-col">
+      {items.map((item: any) => (
+        <ReleaseNoteListItem 
+          type={item.type}
+          content={item.content}
+          link={item.link}
+        />
+      ))}
+    </ul>
+        );
+    </div>
+    })
+  }
   </div>
   <style is:global>
     .ac-accordion-item-title {
