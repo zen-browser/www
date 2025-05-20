@@ -46,7 +46,7 @@ const featureList = [
 ---
 
 <section
-  class="relative flex w-full flex-col items-center gap-12 py-12 text-start md:text-center lg:py-36"
+  class="relative flex w-full flex-col items-center gap-12 py-12 text-center lg:py-36"
 >
   <Description class="mb-2 text-4xl sm:text-6xl font-bold">
     <motion.span client:load {...getTitleAnimation(0.2)}>
@@ -75,15 +75,15 @@ const featureList = [
         <Description class="flex items-center justify-center max-w-xl text-center">
           {feature.description}
         </Description>
-          <Video
-            src={feature.video}
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="none"
-            class="w-full rounded-3xl  max-w-3xl shadow-md dark:opacity-80"
-          />
+        <Video
+          src={feature.video}
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          class="w-full rounded-3xl max-w-3xl shadow-md dark:opacity-80"
+        />
       </motion.div>
     ))}
   </div>
