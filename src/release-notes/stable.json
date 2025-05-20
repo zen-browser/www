@@ -2689,6 +2689,9 @@
     "themeChanges": [
       "Changed the layout of workspaces and their icons internally to provide a more stable layout that doesn't require floating elements. We finally managed to get it to how we wanted it to be, so it will change less in the future."
     ],
+    "breakingChanges": [
+      "The customizable UI on the tab strip (located between the top and bottom icons) has been discontinued due to the way the internal layout functions—buttons placed in that area are automatically removed. While it’s possible to re-enable this feature by doing some hacky CSS, doing so may lead to instability or breakage, and is not officially supported."
+    ]
     "workflowId": 15124722267,
     "image": false,
     "date": "19/05/2025"
