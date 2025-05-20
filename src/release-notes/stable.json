@@ -2691,8 +2691,8 @@
     ],
     "breakingChanges": [
       "The customizable UI on the tab strip (located between the top and bottom icons) has been discontinued due to the way the internal layout functions—buttons placed in that area are automatically removed. While it’s possible to re-enable this feature by doing some hacky CSS, doing so may lead to instability or breakage, and is not officially supported."
-    ]
-    "workflowId": 15124722267,
+    ],
+    "workflowId": 15130878592,
     "image": false,
     "date": "19/05/2025"
   }
