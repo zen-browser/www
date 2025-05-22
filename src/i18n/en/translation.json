@@ -21,8 +21,8 @@
         }
       },
       "features": {
-        "titles": ["Productivity", "at", "its best"],
-        "description": "Zen Browser is packed with features that help you stay productive and focused. Browsers should be tools that help you get things done, not distractions that keep you from your work.",
+        "titles": ["Productivity ", "at ", "its best"],
+        "description": "Zen is packed with features that help you stay productive and focused. Browsers should be tools that help you get things done, not distractions that keep you from your work.",
         "featureTabs": {
           "workspaces": {
             "title": "Workspaces",
