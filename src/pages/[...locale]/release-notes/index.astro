@@ -25,7 +25,7 @@ const {
       id="release-notes"
       class="py-42 flex min-h-screen gap-8 w-full flex-col justify-center"
     >
-      <Description class="mt-48 text-6xl font-bold">Changelog</Description>
+      <Description class="mt-48 text-6xl font-bold">{releaseNotes.topSection.title}</Description>
       <p
         class="text-base opacity-55"
         set:html={releaseNotes.topSection.description.replaceAll(
@@ -39,7 +39,7 @@ const {
         <Button class="flex" isPrimary href="/donate">
           {releaseNotes.list.support}
         </Button>
-        <Button id="navigate-to-version" href="#" class="flex">
+        <Button id="navigate-to-version" href="#" class="flex" localePath={false}>
           {releaseNotes.list.navigateToVersion}
         </Button>
       </div>
@@ -52,7 +52,7 @@ const {
       {releaseNotesData.map((notes: any) => <ReleaseNoteItem {...notes} />)}
     </div>
   </main>
-  <Button href="#" id="scroll-top" isPrimary class="fixed bottom-8 right-8">
+  <Button id="scroll-top" isPrimary class="fixed bottom-8 right-8" onclick="window.scrollTo(0, 0)">
     <p class="hidden items-center gap-2 sm:flex">
       {releaseNotes.backToTop}
       <ArrowUpIcon aria-hidden="true" class="size-4" />

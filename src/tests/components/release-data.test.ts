@@ -10,7 +10,7 @@ describe('getReleasesWithChecksums', () => {
       'zen.linux-x86_64.tar.xz': 'linx86sum',
       'zen.linux-aarch64.tar.xz': 'linaarchsum',
     }
-    const releases = getReleasesWithChecksums(checksums)
+    const releases = getReleasesWithChecksums('en')(checksums)
     expect(releases.macos.universal.checksum).toBe('macsum')
     expect(releases.windows.x86_64.checksum).toBe('winsum')
     expect(releases.windows.arm64.checksum).toBe('winarmsum')

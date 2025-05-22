@@ -4,7 +4,7 @@ import ModsList from '~/components/ModsList'
 import { CONSTANT } from '~/constants'
 import Layout from '~/layouts/Layout.astro'
 import { getAllMods } from '~/mods'
-import { getLocale, getUI } from '~/utils/i18n'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
@@ -30,6 +30,7 @@ const allMods = (await getAllMods()) || []
     <ModsList
       allMods={allMods}
       locale={locale ?? CONSTANT.I18N.DEFAULT_LOCALE}
+      translations={mods}
       client:load
     />
   </main>

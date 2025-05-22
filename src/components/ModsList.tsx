@@ -2,8 +2,9 @@ import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'preact/hooks'
 import { useModsSearch } from '~/hooks/useModsSearch'
+import type EN_UI from '~/i18n/en/translation.json'
 import type { ZenTheme } from '~/mods'
-import { type Locale, getUI } from '~/utils/i18n'
+import type { Locale } from '~/utils/i18n'
 
 // Add icons to the library
 library.add(faSort, faSortUp, faSortDown)
@@ -16,9 +17,19 @@ const descSortIcon = icon({ prefix: 'fas', iconName: 'sort-down' })
 interface ModsListProps {
   allMods: ZenTheme[]
   locale: Locale
+  translations: typeof EN_UI.routes.mods
 }
 
-export default function ModsList({ allMods, locale }: ModsListProps) {
+export const getPath = (locale?: Locale) => (path: string) => {
+  if (locale && locale !== 'en' && !path.startsWith(`/${locale}`)) {
+    return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`
+  }
+  return path
+}
+
+export default function ModsList({ allMods, locale, translations }: ModsListProps) {
+  const getLocalePath = getPath(locale)
+
   const {
     search,
     createdSort,
@@ -33,7 +44,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     setPage,
     setLimit,
     mods: paginatedMods,
-    // searchParams,
+    searchParams,
   } = useModsSearch(allMods)
 
   const [pageInput, setPageInput] = useState(page.toString())
@@ -80,10 +91,6 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     window.scrollTo(0, 0)
   }
 
-  const {
-    routes: { mods },
-  } = getUI(locale)
-
   function renderPagination() {
     if (totalPages <= 1) return null
     return (
@@ -96,7 +103,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           &lt;
         </button>
         <form className="flex items-center gap-2" onSubmit={handlePageSubmit}>
-          {mods.pagination.pagination.split('{input}').map((value, index) => {
+          {translations.pagination.pagination.split('{input}').map((value, index) => {
             if (index === 0) {
               return (
                 <input
@@ -134,7 +141,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
             className="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg outline-none"
             id="search"
             onInput={handleSearch}
-            placeholder={mods.search}
+            placeholder={translations.search}
             type="text"
             value={search}
           />
@@ -147,7 +154,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
               onClick={toggleCreatedSort}
               type="button"
             >
-              {mods.sort.lastCreated}
+              {translations.sort.lastCreated}
               <span
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: Icons are safe
                 dangerouslySetInnerHTML={{
@@ -163,7 +170,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
               onClick={toggleUpdatedSort}
               type="button"
             >
-              {mods.sort.lastUpdated}
+              {translations.sort.lastUpdated}
               <span
                 // biome-ignore lint/security/noDangerouslySetInnerHtml: Icons are safe
                 dangerouslySetInnerHTML={{
@@ -175,10 +182,10 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
 
           <div className="flex items-center gap-2 px-4 py-2">
             <label className="font-semibold text-md" htmlFor="limit">
-              {mods.sort.perPage}
+              {translations.sort.perPage}
             </label>
             <select
-              className="rounded border border-dark bg-transparent px-2 py-1 text-sm [&>option]:text-black"
+              className="rounded border border-dark px-2 py-1 text-sm dark:bg-paper"
               id="limit"
               onInput={handleLimitChange}
               value={limit}
@@ -197,7 +204,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           paginatedMods.map((mod) => (
             <a
               className="mod-card flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
-              href={`/mods/${mod.id}`}
+              href={getLocalePath(`/mods/${mod.id}${searchParams ? `?${searchParams}` : ''}`)}
               key={mod.id}
             >
               <div className="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
@@ -218,8 +225,8 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           ))
         ) : (
           <div className="col-span-4 grid place-items-center gap-4 place-self-center px-8 text-center">
-            <h2 className="font-bold text-lg">{mods.noResults}</h2>
-            <p className="font-thin text-sm">{mods.noResultsDescription}</p>
+            <h2 className="font-bold text-lg">{translations.noResults}</h2>
+            <p className="font-thin text-sm">{translations.noResultsDescription}</p>
           </div>
         )}
       </div>
