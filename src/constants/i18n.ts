@@ -13,7 +13,7 @@ export const i18n = {
  * Type definition for UI translations based on the English translation
  * @typedef {Object} UIProps
  */
-export type UIProps = typeof UI_EN
+export type UIProps = typeof UI_EN | typeof UI_JA
 
 export const getIntlLocale = (locale: string) => {
   return i18n.LOCALES.find((l) => l.value === locale)?.intl

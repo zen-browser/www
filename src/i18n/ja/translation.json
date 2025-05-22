@@ -21,9 +21,7 @@
         }
       },
       "features": {
-        "title1": "生産性",
-        "title2": "の",
-        "title3": "極み",
+        "titles": ["生産性", "の", "極み"],
         "description": "Zenは、生産性と集中力を高める機能が満載です。ブラウザーは作業の妨げではなく、作業を助けるツールであるべきです。",
         "featureTabs": {
           "workspaces": {
