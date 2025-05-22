@@ -2758,12 +2758,12 @@
     "version": "1.12.7b",
     "extra": "",
     "fixes": [
-      "Fixed window control buttons not appearing on hover",
-      "Fixed double click on the tab strip not opening a new tab",
-      "Fixed dragging tabs with glance open acting weird"
+      "Window control buttons not appearing on hover.",
+      "Double clicking on the tab strip not opening a new tab.",
+      "Dragging tabs with Glance open acting weird."
     ],
     "features": [
-      "A much better transition between workspaces gradients"
+      "A much better transition between workspaces gradients."
     ],
     "workflowId": 15164169941,
     "image": false,
