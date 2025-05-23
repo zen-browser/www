@@ -2768,5 +2768,20 @@
     "workflowId": 15164169941,
     "image": false,
     "date": "21/05/2025"
+  },
+  {
+    "version": "1.12.8b",
+    "extra": "",
+    "fixes": [
+      "Issues with custom colors on the gradient generator.",
+      "Site notifications not appearing unless hovering on the top part of the screen.",
+      "Some issues with glance + split view"
+    ],
+    "features": [
+      "Private windows will not have 'private spaces'"
+    ],
+    "workflowId": 15193769814,
+    "image": false,
+    "date": "23/05/2025"
   }
 ]
