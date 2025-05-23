@@ -9,12 +9,20 @@ const {
     mods: { slug },
   },
 } = getUI(locale)
+
+const { href, ...props } = Astro.props
+
+if (!href) {
+  console.error('BackButton: href is required')
+}
 ---
 
-<button
-  onclick="window.history.back()"
-  class="mb-8 flex w-min items-center gap-2"
+<a
+  href={href}
+  class="mb-8 flex w-fit items-center gap-2"
+  {...props}
+  data-testid="back-button"
 >
   <ArrowLeftIcon class="size-4" />
   {slug.back}
-</button>
+</a>

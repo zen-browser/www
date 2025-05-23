@@ -1,9 +1,10 @@
 ---
 import Layout from '~/layouts/Layout.astro'
 import { releaseNotes } from '~/release-notes'
-import { getStaticPaths as getI18nPaths, getLocale, getUI } from '~/utils/i18n'
+import { getStaticPaths as getI18nPaths, getLocale, getPath, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
 
 const {
   routes: {
@@ -29,7 +30,7 @@ export async function getStaticPaths() {
 const release = Astro.props
 ---
 
-<Layout title={slug.title} redirect={`/release-notes#${release.version}`}>
+<Layout title={slug.title} redirect={getLocalePath(`/release-notes#${release.version}`)}>
   <main class="flex flex-col items-center pb-52 pt-36">
     {slug.redirect.replaceAll('{version}', release.version)}
   </main>

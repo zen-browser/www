@@ -19,7 +19,11 @@ const {
   },
 } = getUI(locale)
 
-const { title1 = features.title1, title2 = features.title2, title3 = features.title3 } = Astro.props
+interface Props {
+  titles?: string[]
+}
+
+const { titles } = Astro.props
 
 const descriptions = Object.values(features.featureTabs).map((tab) => tab.description)
 ---
@@ -29,15 +33,18 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
   class="relative flex w-full flex-col py-12 text-start lg:py-36"
 >
   <Description class="mb-2 text-4xl sm:text-6xl font-bold">
-    <motion.span client:load {...getTitleAnimation(0.2)}>
-      {title1}
-    </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.4)}>
-      {title2}
-    </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.6)}>
-      {title3}
-    </motion.span>
+    {(titles || features.titles).map((title, index) => (
+      title !== '\n' ? (
+        <motion.span
+          client:load
+          {...getTitleAnimation(0.2 + index * 0.2)}
+        >
+          {title}
+        </motion.span>
+      ) : (
+        <br class="hidden md:block" />
+      )
+    ))}
   </Description>
   <motion.p client:load {...getTitleAnimation(0.6)} className="lg:w-1/2">
     {features.description}

@@ -26,6 +26,7 @@ export function useModsSearch(mods: ZenTheme[]) {
   // Initialize search params
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
+    console.log(params)
     setSearchParams(params)
     setState({
       search: params.get('q') || '',

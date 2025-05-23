@@ -1,6 +1,7 @@
 ---
 import InfoIcon from '~/icons/InfoIcon.astro'
 
+import { getIntlLocale } from '~/constants/i18n'
 import { releaseNotes as releaseNotesData } from '~/release-notes'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
 import { type ReleaseNote, getReleaseNoteFirefoxVersion } from '../release-notes'
@@ -177,7 +178,7 @@ generateItems(props.knownIssues, 'known')
       }
     </div>
     <div class="text-xs opacity-80 font-bold">
-      {date && date.toLocaleDateString('en-US', { dateStyle: 'long' })}
+      {date && date.toLocaleDateString(getIntlLocale(locale), { dateStyle: 'long' })}
     </div>
     </div>
     {

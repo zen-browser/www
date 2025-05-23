@@ -1,4 +1,13 @@
 ---
+import { getLocale, getUI } from '~/utils/i18n'
+
+const locale = getLocale(Astro)
+const {
+  routes: {
+    download: { buttonCard },
+  },
+} = getUI(locale)
+
 interface Props {
   label: string
   href: string
@@ -42,7 +51,7 @@ const { label, href, checksum } = Astro.props
               </svg>
             </button>
             <span class="absolute -top-10 left-1/2 z-50 hidden min-w-[120px] -translate-x-1/2 select-none whitespace-nowrap rounded-md border border-subtle bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs text-gray-700 opacity-100 shadow transition-opacity duration-150 group-focus-within/checksum:hidden group-hover/checksum:flex group-focus-within/checksum:group-hover/checksum:hidden dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
-              Show SHA-256
+              {buttonCard.showChecksum}
             </span>
             <span class="checksum-tooltip popover absolute -left-14 -top-12 z-50 hidden min-w-[220px] items-center gap-2 whitespace-nowrap rounded-md border border-subtle bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs text-gray-700 opacity-100 shadow transition-opacity duration-150 group-focus-within/checksum:flex dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
               <span class="flex-1 truncate font-mono text-xs">{checksum}</span>
@@ -50,7 +59,7 @@ const { label, href, checksum } = Astro.props
                 type="button"
                 class="copy-btn rounded bg-coral px-2 py-1 text-xs text-white hover:bg-coral/80 data-[twilight='true']:bg-zen-blue data-[twilight='true']:hover:bg-zen-blue/80"
               >
-                Copy
+                {buttonCard.copy}
               </button>
             </span>
           </span>
@@ -62,7 +71,7 @@ const { label, href, checksum } = Astro.props
         <span
           class="release-type-tag rounded-full bg-coral/10 px-2 py-1 text-xs font-medium text-coral transition-colors duration-200 group-hover:bg-coral/20 data-[twilight='true']:bg-zen-blue/10 data-[twilight='true']:text-zen-blue data-[twilight='true']:group-hover:bg-zen-blue/20"
         >
-          Beta
+          {buttonCard.beta}
         </span>
         <div
           class="download-arrow-icon text-muted-foreground rounded-xl border border-subtle p-2 transition-colors duration-200 group-hover:border-coral group-hover:text-coral data-[twilight='true']:group-hover:border-zen-blue data-[twilight='true']:group-hover:text-zen-blue"

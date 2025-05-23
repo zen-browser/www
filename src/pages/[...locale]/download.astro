@@ -27,7 +27,7 @@ const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
 const checksums = await getChecksums()
-const releases = getReleasesWithChecksums(checksums)
+const releases = getReleasesWithChecksums(locale)(checksums)
 
 const platformNames = download.platformNames
 const platformDescriptions = download.platformDescriptions

@@ -6,7 +6,7 @@ import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
 import InfoIcon from '~/icons/InfoIcon.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
-import { getUI } from '~/utils/i18n'
+import { getPath, getUI } from '~/utils/i18n'
 import { getLocale, getOtherLocales } from '~/utils/i18n'
 
 export async function getStaticPaths() {
@@ -46,6 +46,8 @@ const dates = {
 
 const locale = getLocale(Astro as { params: { locale?: string } })
 
+const getLocalePath = getPath(locale)
+
 const {
   routes: {
     mods: { slug },
@@ -79,7 +81,7 @@ const {
           <ArrowRightIcon class="size-4" />
         </Button>
       </div>
-      <BackButton />
+      <BackButton id="back-button" href={getLocalePath('/mods')} />
       <div>
         <Description class="text-6xl font-bold">{mod.name}</Description>
         <Description>{mod.description}</Description>
@@ -149,3 +151,11 @@ const {
     <div></div>
   </main></Layout
 >
+
+<script>
+  const backButton = document.getElementById('back-button') as HTMLAnchorElement
+  const search = window.location.search
+  const searchParams = new URLSearchParams(search.length > 0 ? search : "created=desc")
+  const backLink = `${backButton.href}?${searchParams.toString()}`
+  backButton.href = backLink
+</script>

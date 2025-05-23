@@ -75,9 +75,10 @@ test.describe('Download page platform detection and tab switching', () => {
 })
 
 test.describe('Download page download links', () => {
-  const releases = getReleasesWithChecksums(CONSTANT.CHECKSUMS)
+  const releases = getReleasesWithChecksums('en')(CONSTANT.CHECKSUMS)
 
-  function getPlatformLinks(releases: ReturnType<typeof getReleasesWithChecksums>) {
+  type Releases = ReturnType<ReturnType<typeof getReleasesWithChecksums>>
+  function getPlatformLinks(releases: Releases) {
     return {
       mac: [releases.macos.universal],
       windows: [releases.windows.x86_64, releases.windows.arm64],
