@@ -2778,7 +2778,7 @@
       "Some issues with glance + split view"
     ],
     "features": [
-      "Private windows will not have 'private spaces'"
+      "Private windows will now have 'private spaces'"
     ],
     "workflowId": 15193769814,
     "image": false,
