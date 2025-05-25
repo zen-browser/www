@@ -1,12 +1,12 @@
-name: Biome Auto-fix on Master
+name: Biome Auto-fix on Main
 
 on:
   push:
     branches:
-      - master
+      - main
     paths-ignore:
-        - '**.md'
-        - '.gitignore'
+      - "**.md"
+      - ".gitignore"
 
 jobs:
   biome-autofix:
@@ -18,10 +18,10 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Reset working directory to match origin/master
+      - name: Reset working directory to match origin/main
         run: |
-          git fetch origin master
-          git reset --hard origin/master
+          git fetch origin main
+          git reset --hard origin/main
           git clean -fdx
 
       - name: Setup Node.js
@@ -47,20 +47,20 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B biome-fix/master
+          git checkout -B biome-fix/main
           git add .
           git commit -m "chore(biome): auto-fix style issues [bot]" || echo "No changes to commit"
-          git push -u origin biome-fix/master --force
+          git push -u origin biome-fix/main --force
 
       - name: Create or update PR with fixes
         if: ${{ steps.biome_check.outcome == 'failure' }}
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: biome-fix/master
-          base: master
+          branch: biome-fix/main
+          base: main
           title: "chore(biome): auto-fix style issues"
           body: |
-            This PR was automatically created by a workflow to fix Biome style issues on master.
+            This PR was automatically created by a workflow to fix Biome style issues on main.
           commit-message: "chore(biome): auto-fix style issues [bot]"
           author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
