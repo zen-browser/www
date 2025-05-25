@@ -8,6 +8,10 @@ on:
       - "**.md"
       - ".gitignore"
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   biome-autofix:
     runs-on: ubuntu-latest
