@@ -18,6 +18,12 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Reset working directory to match origin/master
+        run: |
+          git fetch origin master
+          git reset --hard origin/master
+          git clean -fdx
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
