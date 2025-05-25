@@ -1,0 +1,57 @@
+name: Biome Auto-fix on Master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  biome-autofix:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Biome check
+        id: biome_check
+        run: |
+          npx biome check .
+        continue-on-error: true
+
+      - name: Run Biome auto-fix if needed
+        if: ${{ steps.biome_check.outcome == 'failure' }}
+        run: npx biome check --write .
+
+      - name: Commit and push fixes
+        if: ${{ steps.biome_check.outcome == 'failure' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B biome-fix/master
+          git add .
+          git commit -m "chore(biome): auto-fix style issues [bot]" || echo "No changes to commit"
+          git push -u origin biome-fix/master --force
+
+      - name: Create or update PR with fixes
+        if: ${{ steps.biome_check.outcome == 'failure' }}
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: biome-fix/master
+          base: master
+          title: "chore(biome): auto-fix style issues"
+          body: |
+            This PR was automatically created by a workflow to fix Biome style issues on master.
+          commit-message: "chore(biome): auto-fix style issues [bot]"
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>" 
