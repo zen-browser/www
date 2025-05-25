@@ -57,4 +57,4 @@ jobs:
           body: |
             This PR was automatically created by a workflow to fix Biome style issues on master.
           commit-message: "chore(biome): auto-fix style issues [bot]"
-          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>" 
+          author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
