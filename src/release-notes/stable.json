@@ -2759,7 +2759,7 @@
     "extra": "",
     "fixes": [
       "Window control buttons not appearing on hover.",
-      "Double clicking on the tab strip not opening a new tab.",
+      "Double-clicking on the tab strip not opening a new tab.",
       "Dragging tabs with Glance open acting weird."
     ],
     "features": [
@@ -2775,7 +2775,7 @@
     "fixes": [
       "Issues with custom colors on the gradient generator.",
       "Site notifications not appearing unless hovering on the top part of the screen.",
-      "Some issues with glance + split view"
+      "Some issues when using Glance and split view simultaneously."
     ],
     "features": [
       "Private windows will now have 'private spaces'"
