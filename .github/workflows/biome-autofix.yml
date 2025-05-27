@@ -46,16 +46,6 @@ jobs:
         if: ${{ steps.biome_check.outcome == 'failure' }}
         run: npx biome check --write .
 
-      - name: Commit and push fixes
-        if: ${{ steps.biome_check.outcome == 'failure' }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -B biome-fix/main
-          git add .
-          git commit -m "chore(biome): auto-fix style issues [bot]" || echo "No changes to commit"
-          git push -u origin biome-fix/main --force
-
       - name: Create or update PR with fixes
         if: ${{ steps.biome_check.outcome == 'failure' }}
         uses: peter-evans/create-pull-request@v7
@@ -66,5 +56,9 @@ jobs:
           title: "chore(biome): auto-fix style issues"
           body: |
             This PR was automatically created by a workflow to fix Biome style issues on main.
+
+            Changes made:
+            - Applied Biome auto-fixes to resolve style issues
           commit-message: "chore(biome): auto-fix style issues [bot]"
           author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
+          delete-branch: true
