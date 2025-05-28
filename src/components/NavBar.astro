@@ -1,14 +1,14 @@
 ---
-import { Astronav, Dropdown, DropdownItems, MenuItems } from "astro-navbar"
-import Button from "~/components/Button.astro"
-import ArrowRightIcon from "~/icons/ArrowRightIcon.astro"
-import ChevronDownIcon from "~/icons/ChevronDownIcon.astro"
-import DownloadIcon from "~/icons/DownloadIcon.astro"
-import MenuIcon from "~/icons/MenuIcon.astro"
-import { getLocale, getPath, getUI } from "~/utils/i18n"
-import Logo from "./Logo.astro"
-import MobileMenu from "./MobileMenu.astro"
-import ThemeSwitch from "./ThemeSwitch.astro"
+import { Astronav, Dropdown, DropdownItems, MenuItems } from 'astro-navbar'
+import Button from '~/components/Button.astro'
+import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
+import ChevronDownIcon from '~/icons/ChevronDownIcon.astro'
+import DownloadIcon from '~/icons/DownloadIcon.astro'
+import MenuIcon from '~/icons/MenuIcon.astro'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
+import Logo from './Logo.astro'
+import MobileMenu from './MobileMenu.astro'
+import ThemeSwitch from './ThemeSwitch.astro'
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
@@ -24,7 +24,7 @@ const {
   <MenuItems
     class="container relative z-20 grid w-full grid-cols-2 items-center gap-2 bg-paper py-3 lg:grid lg:grid-cols-[auto_1fr_auto] lg:py-6"
   >
-    <a class="flex items-center gap-2 text-lg font-bold" href={getLocalePath("/")}>
+    <a class="flex items-center gap-2 text-lg font-bold" href={getLocalePath('/')}>
       <Logo class="text-coral" />
       <span>{brand}</span>
     </a>
@@ -40,7 +40,7 @@ const {
         </button>
         <DropdownItems>
           <div class="navbar-dropdown">
-            <a class="dropdown-item bg-dark/5 row-span-2" href={getLocalePath("/mods")}>
+            <a class="dropdown-item bg-dark/5 row-span-2" href={getLocalePath('/mods')}>
               <div class="dropdown-title">{menu.zenMods}</div>
               <div class="dropdown-description">
                 {menu.zenModsDesc}
@@ -50,7 +50,7 @@ const {
                 <ArrowRightIcon class="size-4" />
               </Button>
             </a>
-            <a class="dropdown-item" href={getLocalePath("/release-notes")}>
+            <a class="dropdown-item" href={getLocalePath('/release-notes')}>
               <div class="dropdown-title">{menu.releaseNotes}</div>
               <div class="dropdown-description">
                 {menu.releaseNotesDesc}
@@ -74,13 +74,13 @@ const {
         </button>
         <DropdownItems>
           <div class="navbar-dropdown !grid-cols-1 gap-1">
-            <a class="dropdown-item" href={getLocalePath("/donate")}>
+            <a class="dropdown-item" href={getLocalePath('/donate')}>
               <div class="dropdown-title">{menu.donate}</div>
               <div class="dropdown-description">
                 {menu.donateDesc}
               </div>
             </a>
-            <a class="dropdown-item" href={getLocalePath("/about")}>
+            <a class="dropdown-item" href={getLocalePath('/about')}>
               <div class="dropdown-title">{menu.aboutUs}</div>
               <div class="dropdown-description">
                 {menu.aboutUsDesc}
@@ -101,7 +101,7 @@ const {
           </div>
         </DropdownItems>
       </Dropdown>
-      <a class="hidden items-center lg:block" href={getLocalePath("/mods")}>
+      <a class="hidden items-center lg:block" href={getLocalePath('/mods')}>
         <span>{menu.mods}</span>
       </a>
     </div>

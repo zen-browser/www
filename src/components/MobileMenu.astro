@@ -1,5 +1,5 @@
 ---
-import { getLocale, getPath, getUI } from "~/utils/i18n"
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
@@ -46,12 +46,12 @@ const {
         <div class="mb-2 font-bold">{menu.gettingStarted}</div>
         <ul class="ml-4 space-y-2">
           <li>
-            <a href={getLocalePath("/mods")} class="block text-dark hover:text-coral"
+            <a href={getLocalePath('/mods')} class="block text-dark hover:text-coral"
               >{menu.zenMods}</a
             >
           </li>
           <li>
-            <a href={getLocalePath("/release-notes")} class="block text-dark hover:text-coral"
+            <a href={getLocalePath('/release-notes')} class="block text-dark hover:text-coral"
               >{menu.releaseNotes}</a
             >
           </li>
@@ -67,12 +67,12 @@ const {
         <div class="mb-2 font-bold">{menu.usefulLinks}</div>
         <ul class="ml-4 space-y-2">
           <li>
-            <a href={getLocalePath("/donate")} class="block text-dark hover:text-coral"
+            <a href={getLocalePath('/donate')} class="block text-dark hover:text-coral"
               >{menu.donate}</a
             >
           </li>
           <li>
-            <a href={getLocalePath("/about")} class="block text-dark hover:text-coral"
+            <a href={getLocalePath('/about')} class="block text-dark hover:text-coral"
               >{menu.aboutUs}</a
             >
           </li>
@@ -92,12 +92,12 @@ const {
       </li>
       <!-- Extra Links -->
       <li>
-        <a href={getLocalePath("/mods")} class="block font-bold text-dark hover:text-coral"
+        <a href={getLocalePath('/mods')} class="block font-bold text-dark hover:text-coral"
           >{menu.mods}</a
         >
       </li>
       <li>
-        <a href={getLocalePath("/download")} class="block font-bold text-dark hover:text-coral"
+        <a href={getLocalePath('/download')} class="block font-bold text-dark hover:text-coral"
           >{menu.download}</a
         >
       </li>

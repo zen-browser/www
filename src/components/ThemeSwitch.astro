@@ -4,14 +4,14 @@ interface Props {
   className?: string
 }
 
-const { label, className = "" } = Astro.props
+const { label, className = '' } = Astro.props
 ---
 
 <button
   type="button"
-  class:list={["inline-flex h-8 w-8 cursor-pointer items-center justify-center", className]}
+  class:list={['inline-flex h-8 w-8 cursor-pointer items-center justify-center', className]}
   id="theme-switcher"
-  aria-label={label || "Toggle theme"}
+  aria-label={label || 'Toggle theme'}
 >
   <svg class="hidden h-5 w-5 dark:block" viewBox="0 0 24 24">
     <path
@@ -26,24 +26,24 @@ const { label, className = "" } = Astro.props
 </button>
 
 <script>
-  const themeSwitch = document.getElementById("theme-switcher") as HTMLButtonElement
+  const themeSwitch = document.getElementById('theme-switcher') as HTMLButtonElement
 
   const resolveTheme = () => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme") ?? "light"
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme') ?? 'light'
     }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark"
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
     }
-    return "light"
+    return 'light'
   }
 
   const html = document.documentElement
 
-  themeSwitch.addEventListener("click", () => {
-    const newTheme = resolveTheme() === "light" ? "dark" : "light"
-    html.setAttribute("data-theme", newTheme)
-    html.classList.toggle("dark", newTheme === "dark")
-    localStorage.setItem("theme", newTheme)
+  themeSwitch.addEventListener('click', () => {
+    const newTheme = resolveTheme() === 'light' ? 'dark' : 'light'
+    html.setAttribute('data-theme', newTheme)
+    html.classList.toggle('dark', newTheme === 'dark')
+    localStorage.setItem('theme', newTheme)
   })
 </script>

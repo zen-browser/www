@@ -1,4 +1,4 @@
-import { CONSTANT } from "~/constants"
+import { CONSTANT } from '~/constants'
 
 /**
  * Fetches the latest release notes from GitHub and parses the SHA-256 checksums.
@@ -8,11 +8,11 @@ export async function getChecksums() {
   if (import.meta.env.DEV) {
     return CONSTANT.CHECKSUMS
   }
-  const res = await fetch("https://api.github.com/repos/zen-browser/desktop/releases/latest", {
+  const res = await fetch('https://api.github.com/repos/zen-browser/desktop/releases/latest', {
     headers: {
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "zen-browser-checksum-fetcher",
+      Accept: 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      'User-Agent': 'zen-browser-checksum-fetcher',
     },
   })
   if (!res.ok) throw new Error(`Failed to fetch GitHub release: ${res.statusText}`)
@@ -23,7 +23,7 @@ export async function getChecksums() {
   const match = body.match(/File Checksums \(SHA-256\)[\s\S]*?```([\s\S]*?)```/)
   const checksums: Record<string, string> = {}
   if (match?.[1]) {
-    for (const line of match[1].split("\n")) {
+    for (const line of match[1].split('\n')) {
       const [hash, filename] = line.trim().split(/\s+/, 2)
       if (hash && filename) checksums[filename] = hash
     }

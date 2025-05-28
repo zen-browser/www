@@ -1,7 +1,7 @@
-import { type GetStaticPaths } from "astro"
+import { type GetStaticPaths } from 'astro'
 
-import { CONSTANT } from "~/constants"
-import UI_EN from "~/i18n/en/translation.json"
+import { CONSTANT } from '~/constants'
+import UI_EN from '~/i18n/en/translation.json'
 
 /**
  * Represents the available locales in the application
@@ -16,7 +16,7 @@ export type Locale = (typeof locales)[number]
  */
 export const getPath = (locale?: Locale) => (path: string) => {
   if (locale && locale !== CONSTANT.I18N.DEFAULT_LOCALE && !path.startsWith(`/${locale}`)) {
-    return `/${locale}${path.startsWith("/") ? "" : "/"}${path}`
+    return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`
   }
   return path
 }
@@ -86,10 +86,10 @@ export const getUI = (locale?: Locale | string): UI => {
    */
   function deepMerge<T extends object>(defaultObj: T, overrideObj: Partial<T>): T {
     // Handle non-object cases
-    if (typeof defaultObj !== "object" || defaultObj === null) {
+    if (typeof defaultObj !== 'object' || defaultObj === null) {
       return (overrideObj ?? defaultObj) as T
     }
-    if (typeof overrideObj !== "object" || overrideObj === null) {
+    if (typeof overrideObj !== 'object' || overrideObj === null) {
       return (overrideObj ?? defaultObj) as T
     }
 
@@ -105,8 +105,8 @@ export const getUI = (locale?: Locale | string): UI => {
       if (
         defaultValue !== null &&
         overrideValue !== null &&
-        typeof defaultValue === "object" &&
-        typeof overrideValue === "object"
+        typeof defaultValue === 'object' &&
+        typeof overrideValue === 'object'
       ) {
         // Type assertion to handle nested merging
         ;(result as Record<keyof T, unknown>)[key] = deepMerge(

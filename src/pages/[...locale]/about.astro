@@ -1,10 +1,10 @@
 ---
-import { Image } from "astro:assets"
-import Description from "~/components/Description.astro"
-import Layout from "~/layouts/Layout.astro"
-import { getLocale, getUI } from "~/utils/i18n"
-export { getStaticPaths } from "~/utils/i18n"
-import Button from "~/components/Button.astro"
+import { Image } from 'astro:assets'
+import Description from '~/components/Description.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
+import Button from '~/components/Button.astro'
 
 const locale = getLocale(Astro)
 
@@ -38,7 +38,7 @@ const {
               <ul class="flex flex-col gap-2">
                 {Object.entries(members).map(([_key, member]) => (
                   <li class="text-sm">
-                    {member.link && typeof member.link === "string" ? (
+                    {member.link && typeof member.link === 'string' ? (
                       <a href={member.link}>
                         <strong class="zen-link font-bold">{member.name}</strong>
                       </a>

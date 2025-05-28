@@ -22,7 +22,7 @@ interface PlatformReleases {
 }
 
 interface Props {
-  platform: "mac" | "windows" | "linux"
+  platform: 'mac' | 'windows' | 'linux'
   icon: string[]
   title: string
   description: string
@@ -30,19 +30,19 @@ interface Props {
 }
 
 const { platform, icon, title, description, releases } = Astro.props
-import { Image } from "astro:assets"
-import AppIconDark from "../../assets/app-icon-dark.png"
-import AppIconLight from "../../assets/app-icon-light.png"
-import DownloadCard from "./ButtonCard.astro"
+import { Image } from 'astro:assets'
+import AppIconDark from '../../assets/app-icon-dark.png'
+import AppIconLight from '../../assets/app-icon-light.png'
+import DownloadCard from './ButtonCard.astro'
 
 function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
-  return !!obj && typeof obj === "object" && "link" in obj
+  return !!obj && typeof obj === 'object' && 'link' in obj
 }
 ---
 
 <div
   id={`${platform}-downloads`}
-  data-active={platform === "mac"}
+  data-active={platform === 'mac'}
   class="platform-section data-[active='false']:hidden"
 >
   <div class="items-center gap-8 md:flex">
@@ -56,7 +56,7 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
       <p class="text-muted-foreground mb-6" set:html={description} />
       <div class="space-y-6">
         {
-          platform === "linux" ? (
+          platform === 'linux' ? (
             <>
               {releases.flathub && releases.flathub.all.label && (
                 <article class="flathub-download data-[twilight='true']:hidden">
@@ -71,16 +71,16 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                 </article>
               )}
               {releases.x86_64 &&
-                typeof releases.x86_64 === "object" &&
-                "tarball" in releases.x86_64 &&
+                typeof releases.x86_64 === 'object' &&
+                'tarball' in releases.x86_64 &&
                 releases.x86_64.tarball && (
                   <article>
                     <h4 class="mb-3 text-lg font-medium">x86_64</h4>
                     <div class="">
                       {releases.x86_64.tarball && (
                         <DownloadCard
-                          label={releases.x86_64.tarball.label ? releases.x86_64.tarball.label : ""}
-                          href={releases.x86_64.tarball.link ? releases.x86_64.tarball.link : ""}
+                          label={releases.x86_64.tarball.label ? releases.x86_64.tarball.label : ''}
+                          href={releases.x86_64.tarball.link ? releases.x86_64.tarball.link : ''}
                           variant="x86_64"
                           checksum={releases.x86_64.tarball.checksum}
                         />
@@ -89,8 +89,8 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                   </article>
                 )}
               {releases.aarch64 &&
-                typeof releases.aarch64 === "object" &&
-                "tarball" in releases.aarch64 &&
+                typeof releases.aarch64 === 'object' &&
+                'tarball' in releases.aarch64 &&
                 releases.aarch64.tarball && (
                   <article>
                     <h4 class="mb-3 text-lg font-medium">ARM64</h4>
@@ -98,9 +98,9 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                       {releases.aarch64.tarball && (
                         <DownloadCard
                           label={
-                            releases.aarch64.tarball.label ? releases.aarch64.tarball.label : ""
+                            releases.aarch64.tarball.label ? releases.aarch64.tarball.label : ''
                           }
-                          href={releases.aarch64.tarball.link ? releases.aarch64.tarball.link : ""}
+                          href={releases.aarch64.tarball.link ? releases.aarch64.tarball.link : ''}
                           variant="aarch64"
                           checksum={releases.aarch64.tarball.checksum}
                         />

@@ -1,8 +1,8 @@
 ---
-import { getLocale, getPath, getUI } from "~/utils/i18n"
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 
 const { type, content, link } = Astro.props as {
-  type: "security" | "feature" | "fix" | "theme" | "break" | "known"
+  type: 'security' | 'feature' | 'fix' | 'theme' | 'break' | 'known'
   content: string
   link?: {
     text: string
@@ -22,13 +22,13 @@ const {
 <li class="flex gap-2">
   <div
     class:list={[
-      (type === "security" && "text-[#e3401f]") ||
-        (type === "feature" && "text-[#bf3316] dark:text-[#ffb1a1]") ||
-        (type === "fix" && "text-[#fe846b]") ||
-        (type === "theme" && "text-[#f76f53]") ||
-        (type === "break" && "text-[#471308] dark:text-[#D02908]") ||
-        "",
-      "min-w-16 font-bold opacity-80",
+      (type === 'security' && 'text-[#e3401f]') ||
+        (type === 'feature' && 'text-[#bf3316] dark:text-[#ffb1a1]') ||
+        (type === 'fix' && 'text-[#fe846b]') ||
+        (type === 'theme' && 'text-[#f76f53]') ||
+        (type === 'break' && 'text-[#471308] dark:text-[#D02908]') ||
+        '',
+      'min-w-16 font-bold opacity-80',
     ]}
   >
     {itemType[type]}

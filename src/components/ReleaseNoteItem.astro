@@ -1,10 +1,10 @@
 ---
-import InfoIcon from "~/icons/InfoIcon.astro"
+import InfoIcon from '~/icons/InfoIcon.astro'
 
-import { releaseNotes as releaseNotesData } from "~/release-notes"
-import { getLocale, getPath, getUI } from "~/utils/i18n"
-import { type ReleaseNote, getReleaseNoteFirefoxVersion } from "../release-notes"
-import ReleaseNoteListItem from "./ReleaseNoteListItem.astro"
+import { releaseNotes as releaseNotesData } from '~/release-notes'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
+import { type ReleaseNote, getReleaseNoteFirefoxVersion } from '../release-notes'
+import ReleaseNoteListItem from './ReleaseNoteListItem.astro'
 export type Props = ReleaseNote
 const { isTwilight, ...props } = Astro.props
 
@@ -20,7 +20,7 @@ const {
 
 let date: Date | undefined
 if (props.date) {
-  const [day, month, year] = props.date.split("/")
+  const [day, month, year] = props.date.split('/')
   date = new Date(Date.parse(`${year}-${month}-${day}`))
 }
 
@@ -29,7 +29,7 @@ const currentReleaseIndex = releaseNotesData.findIndex(
   (releaseNote: ReleaseNote) => releaseNote.version === props.version
 )
 const prevReleaseNote = releaseNotesData[currentReleaseIndex + 1]
-let compareLink = ""
+let compareLink = ''
 if (prevReleaseNote && !isTwilight) {
   compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`
 }
@@ -47,15 +47,15 @@ const generateItems = (items: any, type: string) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   items.forEach((item: any) => {
     switch (type) {
-      case "feature":
+      case 'feature':
         listItems[type].push({
-          type: "feature",
+          type: 'feature',
           content: item,
         })
         break
-      case "fix":
+      case 'fix':
         listItems[type].push({
-          type: "fix",
+          type: 'fix',
           content: item.description ?? item,
           ...(item.issue
             ? {
@@ -67,36 +67,36 @@ const generateItems = (items: any, type: string) => {
             : {}),
         })
         break
-      case "security":
+      case 'security':
         listItems[type].push({
-          type: "security",
+          type: 'security',
           link: {
-            text: "Various security fixes.",
+            text: 'Various security fixes.',
             href: item,
           },
         })
         break
-      case "theme":
+      case 'theme':
         listItems[type].push({
-          type: "theme",
+          type: 'theme',
           content: item,
         })
         break
-      case "break":
+      case 'break':
         listItems[type].push({
-          type: "break",
+          type: 'break',
           content: item,
         })
         break
     }
   })
 }
-generateItems(props.security ? [props.security] : null, "security")
-generateItems(props.fixes, "fix")
-generateItems(props.features, "feature")
-generateItems(props.themeChanges, "theme")
-generateItems(props.breakingChanges, "break")
-generateItems(props.knownIssues, "known")
+generateItems(props.security ? [props.security] : null, 'security')
+generateItems(props.fixes, 'fix')
+generateItems(props.features, 'feature')
+generateItems(props.themeChanges, 'theme')
+generateItems(props.breakingChanges, 'break')
+generateItems(props.knownIssues, 'known')
 ---
 
 <section
@@ -108,7 +108,7 @@ generateItems(props.knownIssues, "known")
       isTwilight ? (
         <a
           class="!mb-2 block w-fit rounded-full bg-coral px-3 py-1 text-xs text-paper"
-          href={getLocalePath("/download?twilight")}
+          href={getLocalePath('/download?twilight')}
         >
           {releaseNoteItem.twilight}
         </a>
@@ -121,11 +121,11 @@ generateItems(props.knownIssues, "known")
         {
           isTwilight ? (
             <>
-              {releaseNoteItem.twilightChanges}{" "}
-              {props.version.replaceAll("{version}", props.version)}
+              {releaseNoteItem.twilightChanges}{' '}
+              {props.version.replaceAll('{version}', props.version)}
             </>
           ) : (
-            <>{releaseNoteItem.releaseChanges.replaceAll("{version}", props.version)}</>
+            <>{releaseNoteItem.releaseChanges.replaceAll('{version}', props.version)}</>
           )
         }
         {
@@ -139,7 +139,7 @@ generateItems(props.knownIssues, "known")
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {releaseNoteItem.firefoxVersion.replace("{version}", ffVersion)}
+                {releaseNoteItem.firefoxVersion.replace('{version}', ffVersion)}
               </a>
             </>
           ) : null
@@ -149,7 +149,7 @@ generateItems(props.knownIssues, "known")
           rel="noopener noreferrer"
           class="zen-link whitespace-nowrap text-xs !no-underline opacity-80"
           target="_blank"
-          href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? "twilight" : props.version}`}
+          href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}
           >{releaseNoteItem.githubRelease}</a
         >
         {
@@ -168,7 +168,7 @@ generateItems(props.knownIssues, "known")
           ) : null
         }
         {
-          compareLink !== "" ? (
+          compareLink !== '' ? (
             <>
               <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
               <a
@@ -184,13 +184,13 @@ generateItems(props.knownIssues, "known")
         }
       </div>
       <div class="text-xs font-bold opacity-80">
-        {date && date.toLocaleDateString("en-US", { dateStyle: "long" })}
+        {date && date.toLocaleDateString('en-US', { dateStyle: 'long' })}
       </div>
     </div>
     {
       props.extra?.length ? (
         <p class="text-md text-muted-foreground extra mt-2">
-          <Fragment set:html={props.extra.replace(/\n/g, "<br />")} />
+          <Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
         </p>
       ) : null
     }

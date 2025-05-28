@@ -1,10 +1,10 @@
 ---
-import Button from "~/components/Button.astro"
-import Description from "~/components/Description.astro"
-import Title from "~/components/Title.astro"
-import Layout from "~/layouts/Layout.astro"
-import { getLocale, getPath, getUI } from "~/utils/i18n"
-export { getStaticPaths } from "~/utils/i18n"
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import Title from '~/components/Title.astro'
+import Layout from '~/layouts/Layout.astro'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
@@ -25,7 +25,7 @@ const {
       <p class="max-w-xl text-lg text-gray-500 dark:text-gray-400">
         {notFound.description}
       </p>
-      <Button href={getLocalePath("/")} isPrimary class="w-fit">
+      <Button href={getLocalePath('/')} isPrimary class="w-fit">
         {notFound.button}
       </Button>
     </div>

@@ -1,18 +1,18 @@
-import { icon, library } from "@fortawesome/fontawesome-svg-core"
-import { faSort, faSortDown, faSortUp } from "@fortawesome/free-solid-svg-icons"
-import { useEffect, useState, type FormEvent } from "react"
+import { icon, library } from '@fortawesome/fontawesome-svg-core'
+import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState, type FormEvent } from 'react'
 
-import { useModsSearch } from "~/hooks/useModsSearch"
-import { type ZenTheme } from "~/mods"
-import { getUI, type Locale } from "~/utils/i18n"
+import { useModsSearch } from '~/hooks/useModsSearch'
+import { type ZenTheme } from '~/mods'
+import { getUI, type Locale } from '~/utils/i18n'
 
 // Add icons to the library
 library.add(faSort, faSortUp, faSortDown)
 
 // Create icon objects
-const defaultSortIcon = icon({ prefix: "fas", iconName: "sort" })
-const ascSortIcon = icon({ prefix: "fas", iconName: "sort-up" })
-const descSortIcon = icon({ prefix: "fas", iconName: "sort-down" })
+const defaultSortIcon = icon({ prefix: 'fas', iconName: 'sort' })
+const ascSortIcon = icon({ prefix: 'fas', iconName: 'sort-up' })
+const descSortIcon = icon({ prefix: 'fas', iconName: 'sort-down' })
 
 type ModsListProps = {
   allMods: ZenTheme[]
@@ -44,9 +44,9 @@ const ModsList = ({ allMods, locale }: ModsListProps) => {
     setPageInput(page.toString())
   }, [page])
 
-  function getSortIcon(state: "default" | "asc" | "desc") {
-    if (state === "asc") return ascSortIcon
-    if (state === "desc") return descSortIcon
+  function getSortIcon(state: 'default' | 'asc' | 'desc') {
+    if (state === 'asc') return ascSortIcon
+    if (state === 'desc') return descSortIcon
     return defaultSortIcon
   }
 
@@ -90,14 +90,14 @@ const ModsList = ({ allMods, locale }: ModsListProps) => {
     return (
       <div className="mx-auto mb-12 flex items-center justify-center gap-4 px-8">
         <button
-          className={`px-3 py-2 ${page === 1 ? "pointer-events-none text-gray-400" : "text-dark hover:text-gray-600"}`}
+          className={`px-3 py-2 ${page === 1 ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'}`}
           onClick={() => navigatePage(page - 1)}
           type="button"
         >
           &lt;
         </button>
         <form className="flex items-center gap-2" onSubmit={handlePageSubmit}>
-          {mods.pagination.pagination.split("{input}").map((value, index) => {
+          {mods.pagination.pagination.split('{input}').map((value, index) => {
             if (index === 0) {
               return (
                 <input
@@ -113,14 +113,14 @@ const ModsList = ({ allMods, locale }: ModsListProps) => {
             return (
               <span className="text-sm" key={value}>
                 {value
-                  .replace("{totalPages}", totalPages.toString())
-                  .replace("{totalItems}", totalItems.toString())}
+                  .replace('{totalPages}', totalPages.toString())
+                  .replace('{totalItems}', totalItems.toString())}
               </span>
             )
           })}
         </form>
         <button
-          className={`px-3 py-2 ${page === totalPages ? "pointer-events-none text-gray-400" : "text-dark hover:text-gray-600"}`}
+          className={`px-3 py-2 ${page === totalPages ? 'pointer-events-none text-gray-400' : 'text-dark hover:text-gray-600'}`}
           onClick={() => navigatePage(page + 1)}
           type="button"
         >

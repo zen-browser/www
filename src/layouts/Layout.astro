@@ -9,32 +9,32 @@ interface Props {
 
 const { title, description, ogImage, isHome, redirect } = Astro.props
 const defaultDescription =
-  "Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features."
-const defaultOgImage = "/share-pic.png"
-import "@fontsource/bricolage-grotesque/400.css"
-import "@fontsource/bricolage-grotesque/500.css"
-import "@fontsource/bricolage-grotesque/600.css"
-import Footer from "~/components/Footer.astro"
-import NavBar from "~/components/NavBar.astro"
-import { getLocale } from "~/utils/i18n"
+  'Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features.'
+const defaultOgImage = '/share-pic.png'
+import '@fontsource/bricolage-grotesque/400.css'
+import '@fontsource/bricolage-grotesque/500.css'
+import '@fontsource/bricolage-grotesque/600.css'
+import Footer from '~/components/Footer.astro'
+import NavBar from '~/components/NavBar.astro'
+import { getLocale } from '~/utils/i18n'
 const locale = getLocale(Astro)
 ---
 
 <script is:inline data-cfasync="false">
   const theme = (() => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme") ?? "light"
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme') ?? 'light'
     }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark"
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
     }
-    return "light"
+    return 'light'
   })()
 
-  if (theme === "light") {
-    document.documentElement.setAttribute("data-theme", "light")
+  if (theme === 'light') {
+    document.documentElement.setAttribute('data-theme', 'light')
   } else {
-    document.documentElement.setAttribute("data-theme", "dark")
+    document.documentElement.setAttribute('data-theme', 'dark')
   }
 </script>
 
@@ -55,10 +55,10 @@ const locale = getLocale(Astro)
             is:inline
             type="application/ld+json"
             set:html={JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Zen Browser",
-              url: "https://zen-browser.app/",
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Zen Browser',
+              url: 'https://zen-browser.app/',
             })}
           />
         </>
@@ -91,7 +91,7 @@ const locale = getLocale(Astro)
     <script>
       // eslint-disable-next-line no-console
       console.log(
-        "%c✌️ Zen-Browser%c\nWelcome to a calmer internet!",
+        '%c✌️ Zen-Browser%c\nWelcome to a calmer internet!',
         'filter: invert(1); font-size: 28px; font-weight: bolder; font-family: "Rubik"; margin-top: 20px; margin-bottom: 8px;',
         'color: #f76f53; font-size: 16px; font-family: "Rubik"; margin-bottom: 20px;'
       )
@@ -105,14 +105,14 @@ const locale = getLocale(Astro)
 </html>
 <style is:global>
   @font-face {
-    font-family: "Junicode";
-    src: url("/fonts/JunicodeVF-Roman-subset.woff2") format("woff2");
+    font-family: 'Junicode';
+    src: url('/fonts/JunicodeVF-Roman-subset.woff2') format('woff2');
     font-display: swap;
   }
 
   @font-face {
-    font-family: "Junicode-Italic";
-    src: url("/fonts/JunicodeVF-Italic-subset.woff2") format("woff2");
+    font-family: 'Junicode-Italic';
+    src: url('/fonts/JunicodeVF-Italic-subset.woff2') format('woff2');
     font-display: swap;
   }
 
@@ -128,7 +128,7 @@ const locale = getLocale(Astro)
     --zen-muted: rgba(0, 0, 0, 0.05);
     --zen-subtle: rgba(0, 0, 0, 0.05);
 
-    &[data-theme="dark"] {
+    &[data-theme='dark'] {
       --zen-paper: #1f1f1f;
       --zen-dark: #d1cfc0;
       --zen-muted: rgba(255, 255, 255, 0.05);
@@ -142,17 +142,17 @@ const locale = getLocale(Astro)
 
   body,
   body > * {
-    font-family: "Bricolage Grotesque", sans-serif;
+    font-family: 'Bricolage Grotesque', sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-weight: 500;
-    font-variation-settings: "wdth" 100;
+    font-variation-settings: 'wdth' 100;
   }
 
   h1 .italic {
-    font-family: "Junicode-Italic", serif;
+    font-family: 'Junicode-Italic', serif;
     font-weight: 400;
-    font-feature-settings: "swsh" 0;
+    font-feature-settings: 'swsh' 0;
     font-style: normal;
   }
 

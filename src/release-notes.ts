@@ -1,4 +1,4 @@
-import releaseNotesStable from "./release-notes/stable.json"
+import releaseNotesStable from './release-notes/stable.json'
 
 type FixWithIssue = {
   description: string
@@ -25,12 +25,12 @@ export type ReleaseNote = {
 }
 
 export const releaseNotes: ReleaseNote[] = releaseNotesStable.reverse()
-export { default as releaseNotesTwilight } from "./release-notes/twilight.json"
+export { default as releaseNotesTwilight } from './release-notes/twilight.json'
 
 export function getReleaseNoteFirefoxVersion(releaseNote: ReleaseNote): string | null {
   // Check if "firefox" is on the feature list
   for (const feature of releaseNote.features || []) {
-    if (feature.toLowerCase().includes("firefox")) {
+    if (feature.toLowerCase().includes('firefox')) {
       // may be X or X.X or X.X.X
       const match = feature.match(/(\d+(\.\d+){0,2})/)
       if (match) {

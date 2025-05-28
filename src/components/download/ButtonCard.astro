@@ -89,12 +89,12 @@ const { label, href, checksum } = Astro.props
 
 <script>
   const checksumButtons = document.querySelectorAll(
-    ".checksum-icon-btn"
+    '.checksum-icon-btn'
   ) as NodeListOf<HTMLButtonElement>
   const checksumTooltips = document.querySelectorAll(
-    ".checksum-tooltip"
+    '.checksum-tooltip'
   ) as NodeListOf<HTMLDivElement>
-  const copyButtons = document.querySelectorAll(".copy-btn") as NodeListOf<HTMLButtonElement>
+  const copyButtons = document.querySelectorAll('.copy-btn') as NodeListOf<HTMLButtonElement>
 
   function stopEvent(e: Event) {
     e.preventDefault?.()
@@ -107,25 +107,25 @@ const { label, href, checksum } = Astro.props
     navigator.clipboard.writeText(checksum)
     const btn = e.currentTarget as HTMLButtonElement
     const original = btn.innerText
-    btn.innerText = "Copied!"
+    btn.innerText = 'Copied!'
     setTimeout(() => (btn.innerText = original), 1200)
   }
 
   checksumButtons.forEach(btn => {
-    btn.addEventListener("click", stopEvent)
+    btn.addEventListener('click', stopEvent)
   })
   checksumTooltips.forEach(tooltip => {
-    tooltip.addEventListener("mousedown", stopEvent)
-    tooltip.addEventListener("click", stopEvent)
+    tooltip.addEventListener('mousedown', stopEvent)
+    tooltip.addEventListener('click', stopEvent)
   })
   copyButtons.forEach(btn => {
-    btn.addEventListener("click", e =>
+    btn.addEventListener('click', e =>
       copyChecksum(
         e,
-        (btn.closest(".checksum-tooltip")?.querySelector(".font-mono") as HTMLSpanElement)
+        (btn.closest('.checksum-tooltip')?.querySelector('.font-mono') as HTMLSpanElement)
           ?.innerText
       )
     )
-    btn.addEventListener("mousedown", stopEvent)
+    btn.addEventListener('mousedown', stopEvent)
   })
 </script>

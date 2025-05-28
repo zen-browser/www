@@ -1,16 +1,16 @@
 ---
-import Button from "~/components/Button.astro"
-import Description from "~/components/Description.astro"
-import SocialMediaStrip from "~/components/SocialMediaStrip.astro"
-import ArrowRightIcon from "~/icons/ArrowRightIcon.astro"
-import Layout from "~/layouts/Layout.astro"
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
+import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
+import Layout from '~/layouts/Layout.astro'
 
-import whatsNewVideo from "~/assets/whats-new.mp4"
-import Video from "~/components/Video.astro"
-import { releaseNotes } from "~/release-notes"
-import whatsNewText from "~/release-notes/whats-new.json"
-import { getLocale, getUI } from "~/utils/i18n"
-export { getStaticPaths } from "~/utils/i18n"
+import whatsNewVideo from '~/assets/whats-new.mp4'
+import Video from '~/components/Video.astro'
+import { releaseNotes } from '~/release-notes'
+import whatsNewText from '~/release-notes/whats-new.json'
+import { getLocale, getUI } from '~/utils/i18n'
+export { getStaticPaths } from '~/utils/i18n'
 
 const latestVersion = releaseNotes[0]
 
@@ -22,24 +22,24 @@ const {
 } = getUI(locale)
 
 // Just redirect to the release notes if we are in a patch version
-if (latestVersion.version.split(".").length > 2 && whatsNewText[1] !== latestVersion.version) {
+if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVersion.version) {
   return Astro.redirect(`/release-notes#${latestVersion.version}`)
 }
 ---
 
-<Layout title={layout.whatsNew.title.replace("{latestVersion.version}", latestVersion.version)}>
+<Layout title={layout.whatsNew.title.replace('{latestVersion.version}', latestVersion.version)}>
   <main
     class="xl:mt-22 container flex flex-col gap-12 py-12 xl:grid xl:min-h-[calc(100vh-12rem)] xl:grid-cols-[2fr_3fr]"
   >
     <div class="flex flex-col gap-8">
       <div>
         <Description class="text-5xl font-bold md:text-6xl"
-          >{whatsNew.title.replace("{latestVersion.version}", latestVersion.version)}</Description
+          >{whatsNew.title.replace('{latestVersion.version}', latestVersion.version)}</Description
         >
         <Description>{latestVersion.date}</Description>
       </div>
       <div>
-        <Fragment set:html={whatsNewText[0].replace(/\n/g, "<br>")} />
+        <Fragment set:html={whatsNewText[0].replace(/\n/g, '<br>')} />
       </div>
       <ul class="hidden list-disc flex-col gap-2 xl:container xl:flex">
         <a href="https://github.com/zen-browser/desktop/issues/new/choose" target="_blank">

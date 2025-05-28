@@ -1,14 +1,14 @@
 ---
-import { motion } from "motion/react"
-import { getTitleAnimation } from "~/animations"
-import HomePageVideo from "~/assets/HomePageVideo.webm"
-import Button from "~/components/Button.astro"
-import Description from "~/components/Description.astro"
-import Title from "~/components/Title.astro"
-import ArrowRightIcon from "~/icons/ArrowRightIcon.astro"
-import { getLocale, getPath, getUI } from "~/utils/i18n"
-import SocialMediaStrip from "./SocialMediaStrip.astro"
-import Video from "./Video.astro"
+import { motion } from 'motion/react'
+import { getTitleAnimation } from '~/animations'
+import HomePageVideo from '~/assets/HomePageVideo.webm'
+import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
+import Title from '~/components/Title.astro'
+import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
+import SocialMediaStrip from './SocialMediaStrip.astro'
+import Video from './Video.astro'
 
 let titleAnimationCounter = 0
 function getNewAnimationDelay() {
@@ -63,13 +63,13 @@ const {
     </motion.span>
     <div class="mt-6 flex w-2/3 flex-col gap-3 sm:gap-6 md:w-fit md:flex-row">
       <motion.span client:load {...getHeroTitleAnimation()}>
-        <Button class="w-full" href={getLocalePath("/download")} isPrimary>
+        <Button class="w-full" href={getLocalePath('/download')} isPrimary>
           {hero.buttons.beta}
           <ArrowRightIcon class="size-4" />
         </Button>
       </motion.span>
       <motion.span client:load {...getHeroTitleAnimation()}>
-        <Button href={getLocalePath("/donate")}>{hero.buttons.support}</Button>
+        <Button href={getLocalePath('/donate')}>{hero.buttons.support}</Button>
       </motion.span>
     </div>
     <motion.span

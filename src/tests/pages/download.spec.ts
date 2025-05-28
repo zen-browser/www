@@ -1,7 +1,7 @@
-import { expect, test, type BrowserContextOptions, type Page } from "@playwright/test"
+import { expect, test, type BrowserContextOptions, type Page } from '@playwright/test'
 
-import { getReleasesWithChecksums } from "~/components/download/release-data"
-import { CONSTANT } from "~/constants"
+import { getReleasesWithChecksums } from '~/components/download/release-data'
+import { CONSTANT } from '~/constants'
 
 // Helper to get the platform section by id
 const getPlatformSection = (page: Page, platform: string) =>
@@ -17,68 +17,68 @@ const _ = (page: Page, platform: string, label: string) =>
 
 const platformConfigs: { name: string; userAgent: string; platform: string }[] = [
   {
-    name: "windows",
+    name: 'windows',
     userAgent:
-      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    platform: "Win32",
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    platform: 'Win32',
   },
   {
-    name: "mac",
+    name: 'mac',
     userAgent:
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15",
-    platform: "MacIntel",
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15',
+    platform: 'MacIntel',
   },
   {
-    name: "linux",
+    name: 'linux',
     userAgent:
-      "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-    platform: "Linux x86_64",
+      'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    platform: 'Linux x86_64',
   },
 ]
 
-test.describe("Download page default tab per platform", () => {
+test.describe('Download page default tab per platform', () => {
   for (const { name, userAgent, platform } of platformConfigs) {
     test(`shows correct default tab for ${name} platform`, async ({ browser }) => {
       const context = await browser.newContext({
         userAgent,
-        locale: "en-US",
+        locale: 'en-US',
         platform,
       } as BrowserContextOptions)
       const page = await context.newPage()
-      await page.goto("/download")
+      await page.goto('/download')
       await expect(getPlatformSection(page, name)).toBeVisible()
-      await expect(getPlatformButton(page, name)).toHaveAttribute("data-active", "true")
+      await expect(getPlatformButton(page, name)).toHaveAttribute('data-active', 'true')
       // Other platforms should not be active
       for (const other of platformConfigs.filter(p => p.name !== name)) {
         await expect(getPlatformSection(page, other.name)).toBeHidden()
-        await expect(getPlatformButton(page, other.name)).not.toHaveAttribute("data-active", "true")
+        await expect(getPlatformButton(page, other.name)).not.toHaveAttribute('data-active', 'true')
       }
       await context.close()
     })
   }
 })
 
-test.describe("Download page platform detection and tab switching", () => {
-  test("shows correct platform section and tab when switching platforms", async ({ page }) => {
-    await page.goto("/download")
-    const platforms = ["windows", "mac", "linux"]
+test.describe('Download page platform detection and tab switching', () => {
+  test('shows correct platform section and tab when switching platforms', async ({ page }) => {
+    await page.goto('/download')
+    const platforms = ['windows', 'mac', 'linux']
     for (const platform of platforms) {
       await getPlatformButton(page, platform).click()
       await expect(getPlatformSection(page, platform)).toBeVisible()
-      await expect(getPlatformButton(page, platform)).toHaveAttribute("data-active", "true")
+      await expect(getPlatformButton(page, platform)).toHaveAttribute('data-active', 'true')
       // other platform sections should be hidden
       for (const otherPlatform of platforms.filter(p => p !== platform)) {
         await expect(getPlatformSection(page, otherPlatform)).toBeHidden()
         await expect(getPlatformButton(page, otherPlatform)).not.toHaveAttribute(
-          "data-active",
-          "true"
+          'data-active',
+          'true'
         )
       }
     }
   })
 })
 
-test.describe("Download page download links", () => {
+test.describe('Download page download links', () => {
   const releases = getReleasesWithChecksums(CONSTANT.CHECKSUMS)
 
   function getPlatformLinks(releases: ReturnType<typeof getReleasesWithChecksums>) {
@@ -93,11 +93,11 @@ test.describe("Download page download links", () => {
     }
   }
 
-  test("all platform download links are correct", async ({ page }) => {
-    const platforms = ["windows", "mac", "linux"]
+  test('all platform download links are correct', async ({ page }) => {
+    const platforms = ['windows', 'mac', 'linux']
     const platformLinkSelectors = getPlatformLinks(releases)
-    await page.goto("/download")
-    await page.waitForLoadState("domcontentloaded")
+    await page.goto('/download')
+    await page.waitForLoadState('domcontentloaded')
     for (const platform of platforms) {
       await getPlatformButton(page, platform).click()
       for (const { label, link } of platformLinkSelectors[
@@ -105,7 +105,7 @@ test.describe("Download page download links", () => {
       ]) {
         const downloadLink = page.locator(`#${platform}-downloads .download-link[href="${link}"]`)
         await expect(downloadLink).toContainText(label)
-        await expect(downloadLink).toHaveAttribute("href", link)
+        await expect(downloadLink).toHaveAttribute('href', link)
       }
     }
   })

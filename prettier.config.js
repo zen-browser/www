@@ -7,7 +7,7 @@ export default {
   tabWidth: 2,
   useTabs: false,
   semi: false,
-  singleQuote: false,
+  singleQuote: true,
   quoteProps: "as-needed",
   trailingComma: "es5",
   bracketSpacing: true,

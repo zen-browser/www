@@ -1,10 +1,10 @@
 ---
-import Button from "~/components/Button.astro"
-import Circles from "~/components/Circles.astro"
-import Description from "~/components/Description.astro"
-import SocialMediaStrip from "~/components/SocialMediaStrip.astro"
-import ArrowRightIcon from "~/icons/ArrowRightIcon.astro"
-import { getLocale, getPath, getUI } from "~/utils/i18n"
+import Button from '~/components/Button.astro'
+import Circles from '~/components/Circles.astro'
+import Description from '~/components/Description.astro'
+import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
+import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
@@ -61,12 +61,12 @@ const {
             <nav aria-label="About navigation">
               <ul class="grid gap-2 opacity-80">
                 <li>
-                  <a href={getLocalePath("/about")} class="font-normal"
+                  <a href={getLocalePath('/about')} class="font-normal"
                     >{footer.teamAndContributors}</a
                   >
                 </li>
                 <li>
-                  <a href={getLocalePath("/privacy-policy")} class="font-normal"
+                  <a href={getLocalePath('/privacy-policy')} class="font-normal"
                     >{footer.privacyPolicy}</a
                   >
                 </li>
@@ -83,14 +83,14 @@ const {
               <a href="https://docs.zen-browser.app/" class="font-normal">{footer.documentation}</a>
             </li>
             <li>
-              <a href={getLocalePath("/mods")} class="font-normal">{footer.zenMods}</a>
+              <a href={getLocalePath('/mods')} class="font-normal">{footer.zenMods}</a>
             </li>
             <li>
-              <a href={getLocalePath("/release-notes")} class="font-normal">{footer.releaseNotes}</a
+              <a href={getLocalePath('/release-notes')} class="font-normal">{footer.releaseNotes}</a
               >
             </li>
             <li>
-              <a href={getLocalePath("/download?twilight")} class="font-normal">{footer.twilight}</a
+              <a href={getLocalePath('/download?twilight')} class="font-normal">{footer.twilight}</a
               >
             </li>
           </ul>
@@ -122,7 +122,7 @@ const {
     >
       <p
         class="flex justify-center gap-2 lg:justify-start"
-        set:html={footer.madeWith.replace("{link}", getLocalePath("/about"))}
+        set:html={footer.madeWith.replace('{link}', getLocalePath('/about'))}
       />
     </section>
     <section class="absolute bottom-0 right-0">

@@ -1,5 +1,5 @@
 ---
-import { getLocale, getPath } from "~/utils/i18n"
+import { getLocale, getPath } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
@@ -13,15 +13,15 @@ const { class: className, isPrimary, isAlert, isBordered, href, id, extra } = As
       {...extra}
       href={getLocalePath(href)}
       class:list={[
-        "transition-bg flex items-center justify-center gap-2 rounded-xl px-6 py-4 transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]",
+        'transition-bg flex items-center justify-center gap-2 rounded-xl px-6 py-4 transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]',
         className,
         isPrimary
-          ? "border-dark bg-dark text-paper shadow-lg"
+          ? 'border-dark bg-dark text-paper shadow-lg'
           : isAlert
-            ? "bg-red-300 text-dark"
+            ? 'bg-red-300 text-dark'
             : !isBordered
-              ? "bg-subtle"
-              : "!transition-bg border-2 border-dark hover:bg-dark hover:text-paper hover:shadow-sm",
+              ? 'bg-subtle'
+              : '!transition-bg border-2 border-dark hover:bg-dark hover:text-paper hover:shadow-sm',
       ]}
     >
       <slot />
@@ -31,15 +31,15 @@ const { class: className, isPrimary, isAlert, isBordered, href, id, extra } = As
       id={id}
       {...extra}
       class:list={[
-        "transition-bg flex items-center justify-center gap-2 rounded-lg px-6 py-3 transition-transform duration-150 hover:scale-[1.02]",
+        'transition-bg flex items-center justify-center gap-2 rounded-lg px-6 py-3 transition-transform duration-150 hover:scale-[1.02]',
         className,
         isPrimary
-          ? "border-dark bg-dark text-paper shadow-md"
+          ? 'border-dark bg-dark text-paper shadow-md'
           : isAlert
-            ? "bg-red-300 text-dark"
+            ? 'bg-red-300 text-dark'
             : !isBordered
-              ? ""
-              : "!transition-bg border-2 border-dark hover:bg-dark hover:text-paper hover:shadow-sm",
+              ? ''
+              : '!transition-bg border-2 border-dark hover:bg-dark hover:text-paper hover:shadow-sm',
       ]}
     >
       <slot />
