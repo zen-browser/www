@@ -1,6 +1,6 @@
 ---
 import Description from '~/components/Description.astro'
-import ModsList from '~/components/ModsList'
+import ModsList from '~/components/ModsList.astro'
 import { CONSTANT } from '~/constants'
 import Layout from '~/layouts/Layout.astro'
 import { getAllMods } from '~/mods'
@@ -27,6 +27,10 @@ const allMods = (await getAllMods()) || []
     </header>
 
     <!-- Importing ModList component -->
-    <ModsList allMods={allMods} locale={locale ?? CONSTANT.I18N.DEFAULT_LOCALE} client:load />
+    <ModsList
+      allMods={allMods}
+      locale={locale ?? CONSTANT.I18N.DEFAULT_LOCALE}
+      translations={mods}
+    />
   </main>
 </Layout>

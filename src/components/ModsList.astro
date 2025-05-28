@@ -1,0 +1,587 @@
+---
+import { icon, library } from '@fortawesome/fontawesome-svg-core'
+import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
+import { type ZenTheme } from '~/mods'
+import { getPath, type Locale } from '~/utils/i18n'
+
+// Add icons to the library
+library.add(faSort, faSortUp, faSortDown)
+
+// Create icon objects
+const defaultSortIcon = icon({ prefix: 'fas', iconName: 'sort' })
+const ascSortIcon = icon({ prefix: 'fas', iconName: 'sort-up' })
+const descSortIcon = icon({ prefix: 'fas', iconName: 'sort-down' })
+
+interface ModsListProps {
+  allMods: ZenTheme[]
+  locale: Locale
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  translations: any
+}
+
+const { allMods, locale, translations } = Astro.props as ModsListProps
+
+const getLocalePath = getPath(locale)
+
+// Server-side rendering setup
+const defaultLimit = 12
+const defaultPage = 1
+const initialMods = allMods.slice(0, defaultLimit)
+const totalPages = Math.ceil(allMods.length / defaultLimit)
+---
+
+<div id="mods-list-container" class="flex flex-1 flex-col">
+  <div class="flex flex-col items-center gap-4">
+    <div class="flex w-full flex-col items-center justify-center gap-6">
+      <input
+        class="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg outline-none"
+        id="search"
+        placeholder={translations.search}
+        type="text"
+      />
+    </div>
+
+    <div class="grid w-full grid-cols-2 place-items-center gap-4 sm:grid-cols-3">
+      <div class="flex flex-col items-start gap-2">
+        <button
+          class="text-md flex items-center gap-2 px-4 py-2 font-semibold"
+          id="created-sort"
+          type="button"
+        >
+          {translations.sort.lastCreated}
+          <span class="relative">
+            <span id="created-sort-default" class="" set:html={defaultSortIcon.html[0]} />
+            <span id="created-sort-asc" class="hidden" set:html={ascSortIcon.html[0]} />
+            <span id="created-sort-desc" class="hidden" set:html={descSortIcon.html[0]} />
+          </span>
+        </button>
+      </div>
+
+      <div class="flex flex-col items-center gap-2">
+        <button
+          class="text-md flex items-center gap-2 px-4 py-2 font-semibold"
+          id="updated-sort"
+          type="button"
+        >
+          {translations.sort.lastUpdated}
+          <span class="relative">
+            <span id="updated-sort-default" class="" set:html={defaultSortIcon.html[0]} />
+            <span id="updated-sort-asc" class="hidden" set:html={ascSortIcon.html[0]} />
+            <span id="updated-sort-desc" class="hidden" set:html={descSortIcon.html[0]} />
+          </span>
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2 px-4 py-2">
+        <label class="text-md font-semibold" for="limit">
+          {translations.sort.perPage}
+        </label>
+        <select class="rounded border border-dark px-2 py-1 text-sm dark:bg-paper" id="limit">
+          <option value="12">12</option>
+          <option value="24">24</option>
+          <option value="48">48</option>
+          <option value="96">96</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div
+    id="mods-grid"
+    class="grid w-full grid-cols-1 place-items-start gap-12 py-6 md:grid-cols-2 xl:grid-cols-3"
+  >
+    {
+      initialMods.map(mod => (
+        <a
+          class="mod-card flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
+          href={getLocalePath(`/mods/${mod.id}`)}
+        >
+          <div class="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
+            <img
+              alt={mod.name}
+              class="h-full w-full object-cover transition-transform duration-100 hover:scale-105"
+              loading="lazy"
+              src={mod.image}
+            />
+          </div>
+          <div>
+            <h2 class="text-lg font-bold">
+              {mod.name} <span class="ml-1 text-sm font-normal">by @{mod.author}</span>
+            </h2>
+            <p class="line-clamp-2 text-sm font-thin">{mod.description}</p>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+  <div
+    id="no-results"
+    class="hidden h-full flex-col justify-center gap-4 place-self-center text-center"
+  >
+    <h2 class="text-lg font-bold">{translations.noResults}</h2>
+    <p class="text-sm font-thin">{translations.noResultsDescription}</p>
+  </div>
+  <div id="pagination" class="mx-auto mb-12 hidden items-center justify-center gap-4 px-8">
+    {
+      totalPages > 1 && (
+        <>
+          <span class="pointer-events-none px-3 py-2 text-gray-400">&lt;</span>
+          <form class="flex items-center gap-2" id="page-form">
+            <input
+              id="page-input"
+              aria-label="Page number"
+              class="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
+              type="text"
+              value="1"
+            />
+            <span class="text-sm">
+              {translations.pagination.pagination
+                .replace('{totalPages}', totalPages.toString())
+                .replace('{totalItems}', allMods.length.toString())
+                .replace('{input}', '')}
+            </span>
+          </form>
+          <a
+            class="px-3 py-2 text-dark hover:text-gray-600"
+            href={getLocalePath('/mods?page=2')}
+            data-page="2"
+          >
+            &gt;
+          </a>
+        </>
+      )
+    }
+  </div>
+</div>
+
+<script define:vars={{ allMods, translations, locale }} is:inline>
+  class ModsSearch {
+    constructor() {
+      this.allMods = allMods
+      this.translations = translations
+      this.locale = locale // State
+      this.state = {
+        search: '',
+        createdSort: 'default',
+        updatedSort: 'default',
+        page: 1,
+        limit: 12,
+      }
+
+      // Track if content has been dynamically modified
+      this.hasBeenModified = false
+
+      // Performance optimizations
+      this.searchTimeout = null
+      this.isRendering = false
+      this.lastFilteredMods = null
+      this.lastRenderState = null
+
+      this.initializeFromURL()
+      this.bindEvents()
+      this.renderMods()
+    }
+
+    getLocalePath(path) {
+      if (this.locale && this.locale !== 'en' && !path.startsWith(`/${this.locale}`)) {
+        return `/${this.locale}${path.startsWith('/') ? '' : '/'}${path}`
+      }
+      return path
+    } // Validation helpers - similar to Zod
+    validateSortOrder(value, defaultValue = 'default') {
+      const validSortOrders = ['default', 'asc', 'desc']
+      return validSortOrders.includes(value) ? value : defaultValue
+    }
+
+    validateLimit(value, defaultValue = 12) {
+      const validLimits = [12, 24, 48, 96]
+      const parsed = parseInt(value, 10)
+      return validLimits.includes(parsed) ? parsed : defaultValue
+    }
+
+    validatePage(value, defaultValue = 1) {
+      const parsed = parseInt(value, 10)
+      return !isNaN(parsed) && parsed >= 1 ? parsed : defaultValue
+    }
+    initializeFromURL() {
+      const params = new URLSearchParams(window.location.search)
+
+      // Validate and sanitize URL parameters with fallbacks
+      const rawCreatedSort = params.get('created')
+      const rawUpdatedSort = params.get('updated')
+      const rawPage = params.get('page')
+      const rawLimit = params.get('limit')
+
+      this.state = {
+        search: params.get('q') || '',
+        createdSort: this.validateSortOrder(rawCreatedSort, 'default'),
+        updatedSort: this.validateSortOrder(rawUpdatedSort, 'default'),
+        page: this.validatePage(rawPage, 1),
+        limit: this.validateLimit(rawLimit, 12),
+      }
+
+      // Set form values
+      document.getElementById('search').value = this.state.search
+      document.getElementById('limit').value = this.state.limit.toString()
+    }
+    bindEvents() {
+      // Search input with debouncing
+      document.getElementById('search').addEventListener('input', e => {
+        // Clear existing timeout
+        if (this.searchTimeout) {
+          clearTimeout(this.searchTimeout)
+        }
+
+        // Set new timeout for debounced search
+        this.searchTimeout = setTimeout(() => {
+          this.setState({ search: e.target.value, page: 1 })
+        }, 300) // 300ms debounce
+      })
+
+      // Sort buttons
+      document.getElementById('created-sort').addEventListener('click', () => {
+        this.toggleCreatedSort()
+      })
+
+      document.getElementById('updated-sort').addEventListener('click', () => {
+        this.toggleUpdatedSort()
+      }) // Limit select
+      document.getElementById('limit').addEventListener('change', e => {
+        const newLimit = this.validateLimit(e.target.value, this.state.limit)
+        this.setState({ limit: newLimit, page: 1 })
+      })
+    }
+    setState(newState) {
+      // Prevent multiple renders
+      if (this.isRendering) return
+
+      // Validate new state values before setting
+      const validatedState = { ...newState }
+
+      if ('createdSort' in validatedState) {
+        validatedState.createdSort = this.validateSortOrder(
+          validatedState.createdSort,
+          this.state.createdSort
+        )
+      }
+      if ('updatedSort' in validatedState) {
+        validatedState.updatedSort = this.validateSortOrder(
+          validatedState.updatedSort,
+          this.state.updatedSort
+        )
+      }
+
+      if ('page' in validatedState) {
+        validatedState.page = this.validatePage(validatedState.page, this.state.page)
+      }
+
+      if ('limit' in validatedState) {
+        validatedState.limit = this.validateLimit(validatedState.limit, this.state.limit)
+      }
+
+      // Determine if this is a search/filter operation (should replace URL)
+      // vs pagination navigation (should push to history)
+      const isSearchOrFilter =
+        'search' in validatedState ||
+        'createdSort' in validatedState ||
+        'updatedSort' in validatedState ||
+        'limit' in validatedState ||
+        ('page' in validatedState && validatedState.page === 1)
+
+      this.state = { ...this.state, ...validatedState }
+      this.updateURL(isSearchOrFilter)
+      this.updateSortIcons()
+      this.renderMods()
+    }
+    toggleCreatedSort() {
+      const newSort =
+        this.state.createdSort === 'default'
+          ? 'asc'
+          : this.state.createdSort === 'asc'
+            ? 'desc'
+            : 'default'
+      this.setState({ createdSort: newSort, updatedSort: 'default', page: 1 })
+    }
+
+    toggleUpdatedSort() {
+      const newSort =
+        this.state.updatedSort === 'default'
+          ? 'asc'
+          : this.state.updatedSort === 'asc'
+            ? 'desc'
+            : 'default'
+      this.setState({ updatedSort: newSort, createdSort: 'default', page: 1 })
+    }
+    updateSortIcons() {
+      // Update created sort icons
+      document
+        .getElementById('created-sort-default')
+        .classList.toggle('hidden', this.state.createdSort !== 'default')
+      document
+        .getElementById('created-sort-asc')
+        .classList.toggle('hidden', this.state.createdSort !== 'asc')
+      document
+        .getElementById('created-sort-desc')
+        .classList.toggle('hidden', this.state.createdSort !== 'desc')
+
+      // Update updated sort icons
+      document
+        .getElementById('updated-sort-default')
+        .classList.toggle('hidden', this.state.updatedSort !== 'default')
+      document
+        .getElementById('updated-sort-asc')
+        .classList.toggle('hidden', this.state.updatedSort !== 'asc')
+      document
+        .getElementById('updated-sort-desc')
+        .classList.toggle('hidden', this.state.updatedSort !== 'desc')
+    }
+    updateURL(isSearchOrFilter = false) {
+      const params = new URLSearchParams()
+
+      if (this.state.search) params.set('q', this.state.search)
+      if (this.state.createdSort !== 'default') params.set('created', this.state.createdSort)
+      if (this.state.updatedSort !== 'default') params.set('updated', this.state.updatedSort)
+      if (this.state.page > 1) params.set('page', this.state.page.toString())
+      if (this.state.limit !== 12) params.set('limit', this.state.limit.toString())
+
+      const newUrl = `${window.location.pathname}${params.toString() ? `?${params.toString()}` : ''}`
+
+      // Only push to history for pagination navigation, replace for search/filtering
+      if (!isSearchOrFilter && this.state.page > 1) {
+        window.history.pushState({}, '', newUrl)
+      } else {
+        window.history.replaceState({}, '', newUrl)
+      }
+    }
+
+    getFilteredMods() {
+      let filtered = [...this.allMods]
+
+      // Filter by search
+      const searchTerm = this.state.search.toLowerCase()
+      if (searchTerm) {
+        filtered = filtered.filter(
+          mod =>
+            mod.name.toLowerCase().includes(searchTerm) ||
+            mod.description.toLowerCase().includes(searchTerm) ||
+            mod.author.toLowerCase().includes(searchTerm) ||
+            (mod.tags?.some(tag => tag.toLowerCase().includes(searchTerm)) ?? false)
+        )
+      }
+
+      // Sort by createdAt if chosen
+      if (this.state.createdSort !== 'default') {
+        filtered.sort((a, b) => {
+          const diff = new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+          return this.state.createdSort === 'asc' ? diff : -diff
+        })
+      }
+
+      // Sort by updatedAt if chosen
+      if (this.state.updatedSort !== 'default') {
+        filtered.sort((a, b) => {
+          const diff = new Date(a.updatedAt).getTime() - new Date(b.updatedAt).getTime()
+          return this.state.updatedSort === 'asc' ? diff : -diff
+        })
+      }
+
+      return filtered
+    }
+    renderMods() {
+      // Prevent concurrent renders
+      if (this.isRendering) return
+      this.isRendering = true
+
+      // Use requestAnimationFrame for smoother rendering
+      requestAnimationFrame(() => {
+        try {
+          const filteredMods = this.getFilteredMods()
+          const totalPages = Math.ceil(filteredMods.length / this.state.limit)
+          const startIndex = (this.state.page - 1) * this.state.limit
+          const endIndex = startIndex + this.state.limit
+          const paginatedMods = filteredMods.slice(startIndex, endIndex)
+
+          const modsGrid = document.getElementById('mods-grid')
+          const noResults = document.getElementById('no-results')
+
+          if (paginatedMods.length > 0) {
+            noResults.classList.add('hidden')
+            modsGrid.classList.remove('hidden')
+
+            // Check if we're in the default state
+            const isDefaultState =
+              this.state.search === '' &&
+              this.state.createdSort === 'default' &&
+              this.state.updatedSort === 'default' &&
+              this.state.page === 1 &&
+              this.state.limit === 12
+
+            // Re-render if: not in default state, OR we've been modified and need to restore default
+            if (!isDefaultState || this.hasBeenModified) {
+              // Create document fragment for better performance
+              const fragment = document.createDocumentFragment()
+              const tempDiv = document.createElement('div')
+
+              tempDiv.innerHTML = paginatedMods
+                .map(
+                  mod => `
+                <a
+                  class="mod-card flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
+                  href="${this.getLocalePath(`/mods/${mod.id}${this.buildSearchParams()}`)}"
+                >
+                  <div class="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
+                    <img
+                      alt="${mod.name}"
+                      class="h-full w-full object-cover transition-transform duration-100 hover:scale-105"
+                      loading="lazy"
+                      src="${mod.image}"
+                    />
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-bold">
+                      ${mod.name} <span class="ml-1 text-sm font-normal">by @${mod.author}</span>
+                    </h2>
+                    <p class="text-sm font-thin line-clamp-2">${mod.description}</p>
+                  </div>
+                </a>
+              `
+                )
+                .join('')
+
+              // Move all children to fragment
+              while (tempDiv.firstChild) {
+                fragment.appendChild(tempDiv.firstChild)
+              }
+
+              // Clear and append fragment (single reflow)
+              modsGrid.innerHTML = ''
+              modsGrid.appendChild(fragment)
+
+              // Track that we've modified the content
+              this.hasBeenModified = !isDefaultState
+            }
+          } else {
+            modsGrid.classList.add('hidden')
+            noResults.classList.replace('hidden', 'flex')
+            this.hasBeenModified = true
+          }
+
+          this.renderPagination(totalPages, filteredMods.length)
+        } finally {
+          this.isRendering = false
+        }
+      })
+    }
+
+    buildSearchParams() {
+      const params = new URLSearchParams()
+      if (this.state.search) params.set('q', this.state.search)
+      if (this.state.createdSort !== 'default') params.set('created', this.state.createdSort)
+      if (this.state.updatedSort !== 'default') params.set('updated', this.state.updatedSort)
+      if (this.state.page > 1) params.set('page', this.state.page.toString())
+      if (this.state.limit !== 12) params.set('limit', this.state.limit.toString())
+      return params.toString() ? `?${params.toString()}` : ''
+    }
+
+    buildPaginationUrl(targetPage) {
+      const params = new URLSearchParams(this.buildSearchParams())
+      if (targetPage > 1) {
+        params.set('page', targetPage.toString())
+      } else {
+        params.delete('page')
+      }
+      return `/mods?${params.toString()}`
+    }
+    navigatePage(pageNum) {
+      // Validate page number
+      const validatedPage = this.validatePage(pageNum, this.state.page)
+
+      // Update state without going through setState to handle URL properly
+      this.state = { ...this.state, page: validatedPage }
+
+      // For pagination navigation, push to history if page > 1, otherwise replace
+      this.updateURL(false) // false = this is navigation, not search/filter
+      this.updateSortIcons()
+      this.renderMods()
+      window.scrollTo(0, 0)
+    }
+
+    renderPagination(totalPages, totalItems) {
+      const pagination = document.getElementById('pagination')
+
+      if (totalPages <= 1) {
+        pagination.innerHTML = ''
+        pagination.classList.add('hidden')
+        return
+      }
+
+      const prevButton =
+        this.state.page > 1
+          ? `<a
+          class="px-3 py-2 text-dark hover:text-gray-600"
+          href="${this.getLocalePath(this.buildPaginationUrl(this.state.page - 1))}"
+          data-page="${this.state.page - 1}"
+        >
+          &lt;
+        </a>`
+          : `<span class="pointer-events-none px-3 py-2 text-gray-400">&lt;</span>`
+
+      const nextButton =
+        this.state.page < totalPages
+          ? `<a
+          class="px-3 py-2 text-dark hover:text-gray-600"
+          href="${this.getLocalePath(this.buildPaginationUrl(this.state.page + 1))}"
+          data-page="${this.state.page + 1}"
+        >
+          &gt;
+        </a>`
+          : `<span class="pointer-events-none px-3 py-2 text-gray-400">&gt;</span>`
+
+      const paginationText = this.translations.pagination.pagination
+        .replace('{totalPages}', totalPages.toString())
+        .replace('{totalItems}', totalItems.toString())
+
+      pagination.innerHTML = `
+        ${prevButton}
+        <form class="flex items-center gap-2" id="page-form">
+          <input
+            id="page-input"
+            aria-label="Page number"
+            class="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
+            type="text"
+            value="${this.state.page}"
+          />
+          <span class="text-sm">${paginationText.replace('{input}', '')}</span>
+        </form>
+        ${nextButton}
+      ` // Bind pagination events
+      pagination.classList.replace('hidden', 'flex')
+      const pageForm = document.getElementById('page-form')
+      const pageInput = document.getElementById('page-input')
+
+      pageForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const inputValue = pageInput.value
+        const newPage = this.validatePage(inputValue, this.state.page)
+
+        // Additional validation for page range
+        if (newPage >= 1 && newPage <= totalPages) {
+          this.navigatePage(newPage)
+        } else {
+          // Reset to current page if out of range
+          pageInput.value = this.state.page.toString()
+        }
+      })
+
+      // Bind navigation links
+      pagination.addEventListener('click', e => {
+        if (e.target.tagName === 'A' && e.target.dataset.page) {
+          e.preventDefault()
+          this.navigatePage(parseInt(e.target.dataset.page, 10))
+        }
+      })
+    }
+  }
+
+  // Initialize the mods search
+  new ModsSearch()
+</script>

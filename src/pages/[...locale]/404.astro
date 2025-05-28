@@ -7,6 +7,7 @@ import { getLocale, getPath, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
+console.log(Astro.currentLocale)
 const getLocalePath = getPath(locale)
 const {
   routes: { notFound },

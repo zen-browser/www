@@ -16,7 +16,7 @@
     "prepare": "husky",
     "test": "npx vitest run",
     "test:coverage": "npx vitest --coverage",
-    "test:playwright": "npx playwright test"
+    "test:playwright": "npx playwright test --reporter=list"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
