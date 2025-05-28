@@ -1,10 +1,10 @@
 ---
-import Button from '~/components/Button.astro'
-import Circles from '~/components/Circles.astro'
-import Description from '~/components/Description.astro'
-import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
-import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
-import { getLocale, getPath, getUI } from '~/utils/i18n'
+import Button from "~/components/Button.astro"
+import Circles from "~/components/Circles.astro"
+import Description from "~/components/Description.astro"
+import SocialMediaStrip from "~/components/SocialMediaStrip.astro"
+import ArrowRightIcon from "~/icons/ArrowRightIcon.astro"
+import { getLocale, getPath, getUI } from "~/utils/i18n"
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
@@ -19,13 +19,8 @@ const {
   role="contentinfo"
   aria-label="Site footer"
 >
-  <div
-    class="container flex w-full flex-col items-start justify-between gap-12"
-  >
-    <section
-      class="w-full text-center lg:w-1/2 lg:text-left"
-      aria-labelledby="footer-title"
-    >
+  <div class="container flex w-full flex-col items-start justify-between gap-12">
+    <section class="w-full text-center lg:w-1/2 lg:text-left" aria-labelledby="footer-title">
       <Description id="footer-title" class="text-6xl font-bold !text-paper"
         >{footer.title}</Description
       >
@@ -48,12 +43,8 @@ const {
       class="grid w-full max-w-5xl place-items-center gap-12 text-center sm:text-left"
       aria-label="Footer navigation and links"
     >
-      <div
-        class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:w-full"
-      >
-        <div
-          class="grid gap-8 sm:col-span-2 sm:grid-cols-2 md:col-span-1 md:grid-cols-1"
-        >
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:w-full">
+        <div class="grid gap-8 sm:col-span-2 sm:grid-cols-2 md:col-span-1 md:grid-cols-1">
           <section
             class="flex flex-col items-center gap-2 sm:items-start"
             aria-labelledby="follow-us-heading"
@@ -63,22 +54,19 @@ const {
             </h2>
             <SocialMediaStrip />
           </section>
-          <section
-            class="flex flex-col gap-2"
-            aria-labelledby="about-us-heading"
-          >
+          <section class="flex flex-col gap-2" aria-labelledby="about-us-heading">
             <h2 id="about-us-heading" class="text-base !font-semibold">
               {footer.aboutUs}
             </h2>
             <nav aria-label="About navigation">
               <ul class="grid gap-2 opacity-80">
                 <li>
-                  <a href={getLocalePath('/about')} class="font-normal"
+                  <a href={getLocalePath("/about")} class="font-normal"
                     >{footer.teamAndContributors}</a
                   >
                 </li>
                 <li>
-                  <a href={getLocalePath('/privacy-policy')} class="font-normal"
+                  <a href={getLocalePath("/privacy-policy")} class="font-normal"
                     >{footer.privacyPolicy}</a
                   >
                 </li>
@@ -92,23 +80,17 @@ const {
           </h2>
           <ul class="grid gap-2 opacity-80">
             <li>
-              <a href="https://docs.zen-browser.app/" class="font-normal"
-                >{footer.documentation}</a
+              <a href="https://docs.zen-browser.app/" class="font-normal">{footer.documentation}</a>
+            </li>
+            <li>
+              <a href={getLocalePath("/mods")} class="font-normal">{footer.zenMods}</a>
+            </li>
+            <li>
+              <a href={getLocalePath("/release-notes")} class="font-normal">{footer.releaseNotes}</a
               >
             </li>
             <li>
-              <a href={getLocalePath('/mods')} class="font-normal"
-                >{footer.zenMods}</a
-              >
-            </li>
-            <li>
-              <a href={getLocalePath('/release-notes')} class="font-normal"
-                >{footer.releaseNotes}</a
-              >
-            </li>
-            <li>
-              <a href={getLocalePath('/download?twilight')} class="font-normal"
-                >{footer.twilight}</a
+              <a href={getLocalePath("/download?twilight")} class="font-normal">{footer.twilight}</a
               >
             </li>
           </ul>
@@ -119,19 +101,15 @@ const {
           </h2>
           <ul class="grid gap-2 opacity-80">
             <li>
-              <a href="https://discord.gg/zen-browser" class="font-normal"
-                >{footer.discord}</a
+              <a href="https://discord.gg/zen-browser" class="font-normal">{footer.discord}</a>
+            </li>
+            <li>
+              <a href="https://uptime.zen-browser.app/" class="font-normal">{footer.uptimeStatus}</a
               >
             </li>
             <li>
-              <a href="https://uptime.zen-browser.app/" class="font-normal"
-                >{footer.uptimeStatus}</a
-              >
-            </li>
-            <li>
-              <a
-                href="https://github.com/zen-browser/desktop/issues/new/choose"
-                class="font-normal">{footer.reportAnIssue}</a
+              <a href="https://github.com/zen-browser/desktop/issues/new/choose" class="font-normal"
+                >{footer.reportAnIssue}</a
               >
             </li>
           </ul>
@@ -144,15 +122,11 @@ const {
     >
       <p
         class="flex justify-center gap-2 lg:justify-start"
-        set:html={footer.madeWith.replace('{link}', getLocalePath('/about'))}
+        set:html={footer.madeWith.replace("{link}", getLocalePath("/about"))}
       />
     </section>
     <section class="absolute bottom-0 right-0">
-      <Circles
-        white
-        multiplier={0.7}
-        class="mb-[-100px] ml-auto mr-[-80px] hidden lg:block"
-      />
+      <Circles white multiplier={0.7} class="mb-[-100px] ml-auto mr-[-80px] hidden lg:block" />
     </section>
   </div>
 </footer>

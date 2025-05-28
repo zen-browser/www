@@ -1,10 +1,11 @@
-import { includeIgnoreFile } from "@eslint/compat";
-import type { TSESLint } from "@typescript-eslint/utils";
-import prettierConfig from "eslint-config-prettier";
-import astro from "eslint-plugin-astro";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import tseslint from "typescript-eslint";
+
+import { includeIgnoreFile } from "@eslint/compat";
+import { type TSESLint } from "@typescript-eslint/utils";
+import prettierConfig from "eslint-config-prettier";
+import astro from "eslint-plugin-astro";
+import tseslint, { configs } from "typescript-eslint";
 
 // Import modular configurations
 import { astroConfig } from "./.eslint/astro";
@@ -63,8 +64,8 @@ const config: TSESLint.FlatConfig.ConfigArray = tseslint.config(
   ignoresConfig,
   baseConfig,
   // TypeScript ecosystem
-  ...tseslint.configs.strict,
-  ...tseslint.configs.stylistic,
+  ...configs.strict,
+  ...configs.stylistic,
   createTypescriptConfig(tsConfigPath),
 
   // Import management

@@ -1,21 +1,21 @@
-import tailwind from '@astrojs/tailwind'
+import tailwind from "@astrojs/tailwind";
 // @ts-check
-import { defineConfig } from 'astro/config'
+import { defineConfig } from "astro/config";
 
-import preact from '@astrojs/preact'
+import react from "@astrojs/react";
 
-import sitemap from '@astrojs/sitemap'
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), preact({ compat: true }), sitemap()],
-  site: 'https://zen-browser.app',
+  integrations: [tailwind(), react(), sitemap()],
+  site: "https://zen-browser.app",
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
     routing: {
-      fallbackType: 'rewrite',
+      fallbackType: "rewrite",
       prefixDefaultLocale: false,
     },
   },
-})
+});

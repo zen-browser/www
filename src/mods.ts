@@ -1,6 +1,6 @@
-import { format } from 'date-fns'
+import { format } from "date-fns"
 
-export interface ZenTheme {
+export type ZenTheme = {
   name: string
   description: string
   image: string
@@ -17,14 +17,14 @@ export interface ZenTheme {
   updatedAt: Date
 }
 
-const THEME_API = 'https://zen-browser.github.io/theme-store/themes.json'
+const THEME_API = "https://zen-browser.github.io/theme-store/themes.json"
 
 export async function getAllMods(): Promise<ZenTheme[]> {
   try {
     const res = await fetch(THEME_API)
     const json = await res.json()
     // convert dict to array
-    const mods = Object.keys(json).map((key) => json[key])
+    const mods = Object.keys(json).map(key => json[key])
     return mods
   } catch (error) {
     console.error(error)
@@ -37,5 +37,5 @@ export function getAuthorLink(author: string): string {
 }
 
 export function getLocalizedDate(date: Date): string {
-  return format(date, 'PP')
+  return format(date, "PP")
 }

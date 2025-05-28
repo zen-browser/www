@@ -1,11 +1,12 @@
-import type { Linter } from "eslint";
+import { type Linter } from 'eslint'
 // @ts-expect-error - no types available
-import importPlugin from "eslint-plugin-import";
-import { sharedFiles } from "./shared";
+import importPlugin from 'eslint-plugin-import'
+
+import { sharedFiles } from './shared'
 
 export const importConfigArray: Linter.Config[] = [
   {
-    name: "eslint/import",
+    name: 'eslint/import',
     files: sharedFiles,
     plugins: {
       import: importPlugin,
@@ -14,50 +15,50 @@ export const importConfigArray: Linter.Config[] = [
       ...importPlugin.configs.recommended.rules,
       ...importPlugin.configs.typescript.rules,
 
-      "import/order": [
-        "error",
+      'import/order': [
+        'error',
         {
           groups: [
-            "builtin",
-            "external",
-            "internal",
-            ["parent", "sibling"],
-            "index",
-            "object",
-            "type",
+            'builtin',
+            'external',
+            'internal',
+            ['parent', 'sibling'],
+            'index',
+            'object',
+            'type',
           ],
-          "newlines-between": "always",
+          'newlines-between': 'always',
           alphabetize: {
-            order: "asc",
+            order: 'asc',
             caseInsensitive: true,
           },
           pathGroups: [
             {
-              pattern: "@/**",
-              group: "internal",
-              position: "before",
+              pattern: '@/**',
+              group: 'internal',
+              position: 'before',
             },
           ],
-          pathGroupsExcludedImportTypes: ["builtin"],
+          pathGroupsExcludedImportTypes: ['builtin'],
         },
       ],
-      "import/no-unresolved": "off", // TypeScript handles this
-      "import/no-duplicates": ["error", { "prefer-inline": true }],
-      "import/consistent-type-specifier-style": ["error", "prefer-inline"],
-      "import/first": "error",
-      "import/newline-after-import": "error",
-      "import/no-default-export": "off", // Allow default exports
+      'import/no-unresolved': 'off', // TypeScript handles this
+      'import/no-duplicates': ['error', { 'prefer-inline': true }],
+      'import/consistent-type-specifier-style': ['error', 'prefer-inline'],
+      'import/first': 'error',
+      'import/newline-after-import': 'error',
+      'import/no-default-export': 'off', // Allow default exports
     },
     settings: {
-      "import/resolver": {
+      'import/resolver': {
         typescript: {
           alwaysTryTypes: true,
         },
         node: true,
       },
-      "import/parsers": {
-        "@typescript-eslint/parser": [".ts", ".tsx"],
+      'import/parsers': {
+        '@typescript-eslint/parser': ['.ts', '.tsx'],
       },
     },
   },
-];
+]

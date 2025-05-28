@@ -1,15 +1,15 @@
 ---
-import { motion } from 'motion/react'
-import { getTitleAnimation } from '~/animations'
-import Description from '~/components/Description.astro'
+import { motion } from "motion/react"
+import { getTitleAnimation } from "~/animations"
+import Description from "~/components/Description.astro"
 
-import CompactModeVideo from '~/assets/CompactMode.webm'
-import GlanceVideo from '~/assets/Glance.webm'
-import SplitViewsVideo from '~/assets/SplitViews.webm'
-import WorkspacesVideo from '~/assets/Workspaces.webm'
+import CompactModeVideo from "~/assets/CompactMode.webm"
+import GlanceVideo from "~/assets/Glance.webm"
+import SplitViewsVideo from "~/assets/SplitViews.webm"
+import WorkspacesVideo from "~/assets/Workspaces.webm"
 
-import { getLocale, getUI } from '~/utils/i18n'
-import Video from './Video.astro'
+import { getLocale, getUI } from "~/utils/i18n"
+import Video from "./Video.astro"
 
 const locale = getLocale(Astro)
 
@@ -21,14 +21,11 @@ const {
 
 const { title1 = features.title1, title2 = features.title2, title3 = features.title3 } = Astro.props
 
-const descriptions = Object.values(features.featureTabs).map((tab) => tab.description)
+const descriptions = Object.values(features.featureTabs).map(tab => tab.description)
 ---
 
-<section
-  id="Features"
-  class="relative flex w-full flex-col py-12 text-start lg:py-36"
->
-  <Description class="mb-2 text-4xl sm:text-6xl font-bold">
+<section id="Features" class="relative flex w-full flex-col py-12 text-start lg:py-36">
+  <Description class="mb-2 text-4xl font-bold sm:text-6xl">
     <motion.span client:load {...getTitleAnimation(0.2)}>
       {title1}
     </motion.span>
@@ -49,7 +46,7 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
         <motion.button
           client:load
           {...getTitleAnimation()}
-          class="feature-tab whitespace-nowrap"
+          className="feature-tab whitespace-nowrap"
           data-active="true"
         >
           {features.featureTabs.workspaces.title}
@@ -57,21 +54,21 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
         <motion.button
           client:load
           {...getTitleAnimation(0.2)}
-          class="feature-tab whitespace-nowrap"
+          className="feature-tab whitespace-nowrap"
         >
           {features.featureTabs.compactMode.title}
         </motion.button>
         <motion.button
           client:load
           {...getTitleAnimation(0.4)}
-          class="feature-tab whitespace-nowrap"
+          className="feature-tab whitespace-nowrap"
         >
           {features.featureTabs.glance.title}
         </motion.button>
         <motion.button
           client:load
           {...getTitleAnimation(0.6)}
-          class="feature-tab whitespace-nowrap"
+          className="feature-tab whitespace-nowrap"
         >
           {features.featureTabs.splitView.title}
         </motion.button>
@@ -79,12 +76,7 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
 
       <!-- Desktop features list -->
       <div id="features-list" class="hidden lg:flex lg:flex-col lg:gap-3">
-        <motion.div
-          client:load
-          {...getTitleAnimation(0.8)}
-          className="feature"
-          data-active="true"
-        >
+        <motion.div client:load {...getTitleAnimation(0.8)} className="feature" data-active="true">
           <Description class="text-2xl font-bold">
             {features.featureTabs.workspaces.title}
           </Description>
@@ -119,14 +111,10 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
       </div>
 
       <!-- Mobile description -->
-      <div
-        class="feature-description mt-4 lg:hidden"
-        data-descriptions={descriptions}
-      >
-      </div>
+      <div class="feature-description mt-4 lg:hidden" data-descriptions={descriptions}></div>
     </div>
 
-    <div class="sticky top-6 w-full lg:w-3/5 h-fit">
+    <div class="sticky top-6 h-fit w-full lg:w-3/5">
       <div class="relative w-full">
         <div class="video-stack relative h-full w-full">
           <Video
@@ -173,25 +161,17 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
 </section>
 
 <script>
-  const features = document.querySelectorAll(
-    '.feature, .feature-tab',
-  ) as NodeListOf<HTMLElement>
+  const features = document.querySelectorAll(".feature, .feature-tab") as NodeListOf<HTMLElement>
 
   // Set initial description
-  const descriptionEl = document.querySelector(
-    '.feature-description',
-  ) as HTMLDivElement
-  const descriptions = descriptionEl?.dataset.descriptions?.split(',')
+  const descriptionEl = document.querySelector(".feature-description") as HTMLDivElement
+  const descriptions = descriptionEl?.dataset.descriptions?.split(",")
   if (descriptionEl && descriptions) {
     descriptionEl.textContent = descriptions[0]
   }
 
-  function changeToFeature({
-    target,
-  }: {
-    target: HTMLElement | undefined | null
-  }) {
-    target = target?.closest('.feature, .feature-tab')
+  function changeToFeature({ target }: { target: HTMLElement | undefined | null }) {
+    target = target?.closest(".feature, .feature-tab")
     if (!target) return
 
     const index = Array.from(features).indexOf(target) % 4
@@ -200,21 +180,19 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
     // Update both mobile and desktop elements
     features.forEach((f, i) => {
       if (i % 4 === index) {
-        f.setAttribute('data-active', 'true')
+        f.setAttribute("data-active", "true")
       } else {
-        f.removeAttribute('data-active')
+        f.removeAttribute("data-active")
       }
     })
 
     // Update mobile description
-    const descriptionEl = document.querySelector('.feature-description')
+    const descriptionEl = document.querySelector(".feature-description")
     if (descriptionEl && descriptions) {
       descriptionEl.textContent = descriptions[index]
     }
 
-    const videos = document.querySelectorAll(
-      '.feature-video',
-    ) as NodeListOf<HTMLVideoElement>
+    const videos = document.querySelectorAll(".feature-video") as NodeListOf<HTMLVideoElement>
     videos.forEach((vid, i) => {
       const yOffset = (i - index) * 20
       const zOffset = i === index ? 0 : -100 - Math.abs(i - index) * 50
@@ -222,14 +200,14 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
       const rotation = (i - index) * 3
 
       if (i === index) {
-        vid.setAttribute('data-active', 'true')
-        vid.style.opacity = '1'
+        vid.setAttribute("data-active", "true")
+        vid.style.opacity = "1"
         vid.style.transform = `translate3d(-50%, 0, 0) scale(${scale})`
-        vid.style.zIndex = '10'
+        vid.style.zIndex = "10"
         vid.currentTime = 0
         vid.play()
       } else {
-        vid.removeAttribute('data-active')
+        vid.removeAttribute("data-active")
         vid.style.transform = `translate3d(-50%, ${yOffset}px, ${zOffset}px)
                              rotate3d(1, 0, 0, ${rotation}deg)
                              scale(${scale})`
@@ -240,9 +218,11 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
   }
 
   for (const feature of features) {
-    feature.addEventListener('click', changeToFeature as any)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    feature.addEventListener("click", changeToFeature as any)
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   changeToFeature({ target: features[0] as any })
 </script>
 
@@ -251,7 +231,7 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
     @apply w-full cursor-pointer select-none rounded-lg p-4 opacity-0 hover:bg-subtle;
     transition: background 0.2s ease-in-out;
 
-    &[data-active='true'] {
+    &[data-active="true"] {
       @apply bg-subtle;
     }
   }
@@ -260,7 +240,7 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
     @apply rounded-lg px-4 py-2 text-lg font-medium opacity-0 hover:bg-subtle;
     transition: background 0.2s ease-in-out;
 
-    &[data-active='true'] {
+    &[data-active="true"] {
       @apply bg-subtle;
     }
   }
@@ -299,7 +279,7 @@ const descriptions = Object.values(features.featureTabs).map((tab) => tab.descri
       display: none;
       object-fit: cover;
 
-      &[data-active='true'] {
+      &[data-active="true"] {
         display: block;
         opacity: 1;
       }

@@ -1,8 +1,8 @@
 ---
-import Features from '~/components/Features.astro'
-import Layout from '~/layouts/Layout.astro'
-import { getLocale, getUI } from '~/utils/i18n'
-export { getStaticPaths } from '~/utils/i18n'
+import Features from "~/components/Features.astro"
+import Layout from "~/layouts/Layout.astro"
+import { getLocale, getUI } from "~/utils/i18n"
+export { getStaticPaths } from "~/utils/i18n"
 
 const locale = getLocale(Astro)
 
@@ -14,10 +14,6 @@ const {
 
 <Layout title={layout.welcome.title} description={layout.welcome.description}>
   <main class="container">
-    <Features
-      title1={welcome.title[0]}
-      title2={welcome.title[1]}
-      title3={welcome.title[2]}
-    />
+    <Features title1={welcome.title[0]} title2={welcome.title[1]} title3={welcome.title[2]} />
   </main>
 </Layout>

@@ -1,18 +1,18 @@
 ---
-import BackButton from '~/components/BackButton.astro'
-import Button from '~/components/Button.astro'
-import Description from '~/components/Description.astro'
-import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
-import InfoIcon from '~/icons/InfoIcon.astro'
-import Layout from '~/layouts/Layout.astro'
-import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
-import { getUI } from '~/utils/i18n'
-import { getLocale, getOtherLocales } from '~/utils/i18n'
+import BackButton from "~/components/BackButton.astro"
+import Button from "~/components/Button.astro"
+import Description from "~/components/Description.astro"
+import ArrowRightIcon from "~/icons/ArrowRightIcon.astro"
+import InfoIcon from "~/icons/InfoIcon.astro"
+import Layout from "~/layouts/Layout.astro"
+import { getAllMods, getAuthorLink, getLocalizedDate } from "~/mods"
+import { getUI } from "~/utils/i18n"
+import { getLocale, getOtherLocales } from "~/utils/i18n"
 
 export async function getStaticPaths() {
   const mods = await getAllMods()
-  return mods.flatMap((mod) => [
-    ...getOtherLocales().map((locale) => ({
+  return mods.flatMap(mod => [
+    ...getOtherLocales().map(locale => ({
       params: {
         slug: mod.id,
         locale: locale,
@@ -54,8 +54,8 @@ const {
 ---
 
 <Layout
-  title={slug.title.replace('{name}', mod.name)}
-  description={slug.description.replace('{name}', mod.name)}
+  title={slug.title.replace("{name}", mod.name)}
+  description={slug.description.replace("{name}", mod.name)}
   ogImage={mod.image}
 >
   <main class="mt-6 2xl:mt-0">
@@ -93,49 +93,32 @@ const {
         <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
           <p
             set:html={slug.createdBy
-              .replace('{author}', mod.author)
-              .replace('{version}', mod.version)
-              .replace('{link}', getAuthorLink(mod.author))}
+              .replace("{author}", mod.author)
+              .replace("{version}", mod.version)
+              .replace("{link}", getAuthorLink(mod.author))}
           />
-          <p
-            set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)}
-          />
+          <p set:html={slug.creationDate.replace("{createdAt}", dates.createdAt)} />
           {
             dates.createdAt !== dates.updatedAt && (
-              <p
-                set:html={slug.latestUpdate.replace(
-                  '{updatedAt}',
-                  dates.updatedAt,
-                )}
-              />
+              <p set:html={slug.latestUpdate.replace("{updatedAt}", dates.updatedAt)} />
             )
           }
           {
             mod.homepage && (
-              <a
-                href={mod.homepage}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="zen-link"
-              >
+              <a href={mod.homepage} target="_blank" rel="noopener noreferrer" class="zen-link">
                 {slug.visitModHomepage}
               </a>
             )
           }
         </div>
         <div class="flex flex-col sm:items-end">
-          <Button
-            class="hidden"
-            id="install-theme"
-            extra={{ 'zen-theme-id': mod.id }}
-            isPrimary
-          >
+          <Button class="hidden" id="install-theme" extra={{ "zen-theme-id": mod.id }} isPrimary>
             {slug.installMod}
           </Button>
           <Button
             class="hidden"
             id="install-theme-uninstall"
-            extra={{ 'zen-theme-id': mod.id }}
+            extra={{ "zen-theme-id": mod.id }}
             isPrimary
           >
             {slug.uninstallMod}

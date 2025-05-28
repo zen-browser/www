@@ -1,4 +1,5 @@
-import type { Linter } from "eslint";
+import { type Linter } from "eslint";
+
 import { configFiles } from "./shared";
 
 export const configFilesConfig: Linter.Config = {
@@ -8,6 +9,7 @@ export const configFilesConfig: Linter.Config = {
     "no-console": "off",
     "@typescript-eslint/no-var-requires": "off",
     "import/no-default-export": "off",
+    "import/default": "off", // Allow missing default exports in config files
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-unsafe-member-access": "off",
     "@typescript-eslint/no-unsafe-call": "off",

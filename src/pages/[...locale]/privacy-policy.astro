@@ -1,8 +1,8 @@
 ---
-import Title from '~/components/Title.astro'
-import Layout from '~/layouts/Layout.astro'
-import { getLocale, getUI } from '~/utils/i18n'
-export { getStaticPaths } from '~/utils/i18n'
+import Title from "~/components/Title.astro"
+import Layout from "~/layouts/Layout.astro"
+import { getLocale, getUI } from "~/utils/i18n"
+export { getStaticPaths } from "~/utils/i18n"
 
 const locale = getLocale(Astro)
 
@@ -12,10 +12,7 @@ const {
 } = getUI(locale)
 ---
 
-<Layout
-  title={layout.privacyPolicy.title}
-  description={layout.privacyPolicy.description}
->
+<Layout title={layout.privacyPolicy.title} description={layout.privacyPolicy.description}>
   <main class="mx-auto mt-52 w-1/2 pb-24">
     <Title id="privacy-policy" class="xl:text-6xl">{privacyPolicy.title}</Title>
     <div class="ml-4 font-bold">{privacyPolicy.lastUpdated}</div>
@@ -26,54 +23,39 @@ const {
     <div class="mx-12 my-12 flex gap-4 font-bold">
       {privacyPolicy.sections.introduction.summary}
     </div>
-    <Title
-      class="mt-16 text-4xl font-bold"
-      id="1-information-we-do-not-collect"
-    >
+    <Title class="mt-16 text-4xl font-bold" id="1-information-we-do-not-collect">
       {privacyPolicy.sections.noCollect.title}
     </Title>
     <p>{privacyPolicy.sections.noCollect.body}</p>
     <h3 class="mt-4 text-xl font-bold" id="-1-1-no-telemetry-">
-      <strong class="font-bold"
-        >{privacyPolicy.sections.noTelemetry.title}</strong
-      >
+      <strong class="font-bold">{privacyPolicy.sections.noTelemetry.title}</strong>
     </h3>
     <p>{privacyPolicy.sections.noTelemetry.body}</p>
     <p>{privacyPolicy.sections.noTelemetry.body2}</p>
     <h3 class="mt-4 text-xl font-bold" id="-1-2-no-personal-data-collection-">
-      <strong class="font-bold"
-        >{privacyPolicy.sections.noPersonalData.title}</strong
-      >
+      <strong class="font-bold">{privacyPolicy.sections.noPersonalData.title}</strong>
     </h3>
     <p>{privacyPolicy.sections.noPersonalData.body}</p>
     <h3 class="mt-4 text-xl font-bold" id="-1-4-no-third-party-tracking-">
-      <strong class="font-bold"
-        >{privacyPolicy.sections.noThirdParty.title}</strong
-      >
+      <strong class="font-bold">{privacyPolicy.sections.noThirdParty.title}</strong>
     </h3>
     <p>{privacyPolicy.sections.noThirdParty.body}</p>
     <h3 class="mt-4 text-xl font-bold" id="-1-3-no-third-party-tracking-">
-      <strong class="font-bold"
-        >{privacyPolicy.sections.externalConnections.title}</strong
-      >
+      <strong class="font-bold">{privacyPolicy.sections.externalConnections.title}</strong>
     </h3>
     <p>{privacyPolicy.sections.externalConnections.body}</p>
-    <Title
-      class="mt-16 text-4xl font-bold"
-      id="2-information-stored-locally-on-your-device"
-    >
+    <Title class="mt-16 text-4xl font-bold" id="2-information-stored-locally-on-your-device">
       {privacyPolicy.sections.localStorage.title}
     </Title>
     <h3 class="mt-4 text-xl font-bold" id="-2-1-browsing-data-">
-      <strong class="font-bold"
-        >{privacyPolicy.sections.browsingData.title}</strong
-      >
+      <strong class="font-bold">{privacyPolicy.sections.browsingData.title}</strong>
     </h3>
     <p>{privacyPolicy.sections.browsingData.body}</p>
     <ul>
       <li>
-        <strong class="font-bold">{privacyPolicy.sections.cookies.title}</strong
-        >: {privacyPolicy.sections.cookies.body}
+        <strong class="font-bold">{privacyPolicy.sections.cookies.title}</strong>: {
+          privacyPolicy.sections.cookies.body
+        }
       </li>
       <li>
         <strong class="font-bold">{privacyPolicy.sections.cache.title}</strong>: {
@@ -91,9 +73,7 @@ const {
     <p>{privacyPolicy.sections.sync.body}</p>
     <ul>
       <li>
-        <a
-          class="zen-link"
-          href="https://www.mozilla.org/en-US/privacy/mozilla-accounts/"
+        <a class="zen-link" href="https://www.mozilla.org/en-US/privacy/mozilla-accounts/"
           >{privacyPolicy.sections.sync.link1}</a
         >
       </li>
@@ -120,9 +100,7 @@ const {
       {privacyPolicy.sections.control.title}
     </Title>
     <h3 class="mt-4 text-xl font-bold" id="-6-1-data-deletion-">
-      <strong class="font-bold"
-        >{privacyPolicy.sections.control.deletionTitle}</strong
-      >
+      <strong class="font-bold">{privacyPolicy.sections.control.deletionTitle}</strong>
     </h3>
     <p>{privacyPolicy.sections.control.deletionBody}</p>
     <Title class="mt-16 text-4xl font-bold" id="7-our-website-and-services">
@@ -130,24 +108,16 @@ const {
     </Title>
     <p>{privacyPolicy.sections.website.body}</p>
     <h3 class="mt-4 text-xl font-bold" id="-7-1-external-links-">
-      <strong class="font-bold"
-        >{privacyPolicy.sections.website.externalLinksTitle}</strong
-      >
+      <strong class="font-bold">{privacyPolicy.sections.website.externalLinksTitle}</strong>
     </h3>
     <p>{privacyPolicy.sections.website.externalLinksBody}</p>
-    <Title
-      class="mt-16 text-4xl font-bold"
-      id="8-changes-to-this-privacy-policy"
-    >
+    <Title class="mt-16 text-4xl font-bold" id="8-changes-to-this-privacy-policy">
       {privacyPolicy.sections.changes.title}
     </Title>
     <p>
       {privacyPolicy.sections.changes.body}
     </p>
-    <Title
-      class="mt-16 text-4xl font-bold"
-      id="9-other-telemetry-done-by-mozilla-firefox"
-    >
+    <Title class="mt-16 text-4xl font-bold" id="9-other-telemetry-done-by-mozilla-firefox">
       {privacyPolicy.sections.otherTelemetry.title}
     </Title>
     <p>
@@ -155,9 +125,7 @@ const {
     </p>
     <ul>
       <li>
-        Please check <a
-          class="zen-link"
-          href="https://www.mozilla.org/en-US/privacy/"
+        Please check <a class="zen-link" href="https://www.mozilla.org/en-US/privacy/"
           >{privacyPolicy.sections.otherTelemetry.firefoxPrivacyNotice}</a
         >
         {privacyPolicy.sections.otherTelemetry.forMoreInformation}

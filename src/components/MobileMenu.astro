@@ -1,5 +1,5 @@
 ---
-import { getLocale, getPath, getUI } from '~/utils/i18n'
+import { getLocale, getPath, getUI } from "~/utils/i18n"
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
@@ -11,12 +11,7 @@ const {
 ---
 
 <!-- Hidden checkbox for menu toggle -->
-<input
-  type="checkbox"
-  id="mobile-menu-toggle"
-  class="peer sr-only lg:hidden"
-  aria-hidden="true"
-/>
+<input type="checkbox" id="mobile-menu-toggle" class="peer sr-only lg:hidden" aria-hidden="true" />
 
 <!-- Mobile Slide Menu -->
 <div
@@ -25,17 +20,16 @@ const {
 >
   <div class="flex items-center justify-between border-b border-dark px-4 py-2">
     <div class="text-lg font-bold">{menu.menu}</div>
-    <label
-      for="mobile-menu-toggle"
-      class="cursor-pointer p-2 text-dark"
-      aria-label="Close menu"
-    >
+    {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+    <label for="mobile-menu-toggle" class="cursor-pointer p-2 text-dark">
+      <span class="sr-only">Close menu</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-6 w-6"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
+        aria-hidden="true"
       >
         <path
           stroke-linecap="round"
@@ -52,21 +46,18 @@ const {
         <div class="mb-2 font-bold">{menu.gettingStarted}</div>
         <ul class="ml-4 space-y-2">
           <li>
-            <a
-              href={getLocalePath('/mods')}
-              class="block text-dark hover:text-coral">{menu.zenMods}</a
+            <a href={getLocalePath("/mods")} class="block text-dark hover:text-coral"
+              >{menu.zenMods}</a
             >
           </li>
           <li>
-            <a
-              href={getLocalePath('/release-notes')}
-              class="block text-dark hover:text-coral">{menu.releaseNotes}</a
+            <a href={getLocalePath("/release-notes")} class="block text-dark hover:text-coral"
+              >{menu.releaseNotes}</a
             >
           </li>
           <li>
-            <a
-              href="https://discord.gg/zen-browser"
-              class="block text-dark hover:text-coral">{menu.discord}</a
+            <a href="https://discord.gg/zen-browser" class="block text-dark hover:text-coral"
+              >{menu.discord}</a
             >
           </li>
         </ul>
@@ -76,21 +67,18 @@ const {
         <div class="mb-2 font-bold">{menu.usefulLinks}</div>
         <ul class="ml-4 space-y-2">
           <li>
-            <a
-              href={getLocalePath('/donate')}
-              class="block text-dark hover:text-coral">{menu.donate}</a
+            <a href={getLocalePath("/donate")} class="block text-dark hover:text-coral"
+              >{menu.donate}</a
             >
           </li>
           <li>
-            <a
-              href={getLocalePath('/about')}
-              class="block text-dark hover:text-coral">{menu.aboutUs}</a
+            <a href={getLocalePath("/about")} class="block text-dark hover:text-coral"
+              >{menu.aboutUs}</a
             >
           </li>
           <li>
-            <a
-              href="https://docs.zen-browser.app"
-              class="block text-dark hover:text-coral">{menu.documentation}</a
+            <a href="https://docs.zen-browser.app" class="block text-dark hover:text-coral"
+              >{menu.documentation}</a
             >
           </li>
           <li>
@@ -104,15 +92,13 @@ const {
       </li>
       <!-- Extra Links -->
       <li>
-        <a
-          href={getLocalePath('/mods')}
-          class="block font-bold text-dark hover:text-coral">{menu.mods}</a
+        <a href={getLocalePath("/mods")} class="block font-bold text-dark hover:text-coral"
+          >{menu.mods}</a
         >
       </li>
       <li>
-        <a
-          href={getLocalePath('/download')}
-          class="block font-bold text-dark hover:text-coral">{menu.download}</a
+        <a href={getLocalePath("/download")} class="block font-bold text-dark hover:text-coral"
+          >{menu.download}</a
         >
       </li>
     </ul>
@@ -120,6 +106,7 @@ const {
 </div>
 
 <!-- Overlay for Mobile Menu -->
+{/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
 <label
   for="mobile-menu-toggle"
   class="pointer-events-none fixed inset-0 z-30 bg-black opacity-0 transition-opacity duration-300 peer-checked:pointer-events-auto peer-checked:opacity-50"

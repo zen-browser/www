@@ -1,10 +1,10 @@
 ---
-import Button from '~/components/Button.astro'
-import Description from '~/components/Description.astro'
-import Title from '~/components/Title.astro'
-import Layout from '~/layouts/Layout.astro'
-import { getLocale, getPath, getUI } from '~/utils/i18n'
-export { getStaticPaths } from '~/utils/i18n'
+import Button from "~/components/Button.astro"
+import Description from "~/components/Description.astro"
+import Title from "~/components/Title.astro"
+import Layout from "~/layouts/Layout.astro"
+import { getLocale, getPath, getUI } from "~/utils/i18n"
+export { getStaticPaths } from "~/utils/i18n"
 
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
@@ -17,9 +17,7 @@ const {
   <main
     class="container flex min-h-[70vh] flex-col items-center justify-center gap-6 py-24 text-center"
   >
-    <Title class="text-7xl font-bold text-coral md:text-9xl xl:text-9xl">
-      404
-    </Title>
+    <Title class="text-7xl font-bold text-coral md:text-9xl xl:text-9xl"> 404 </Title>
     <div class="flex flex-col items-center gap-6">
       <Description class="text-xl md:text-2xl">
         {notFound.title}

@@ -1,10 +1,10 @@
 ---
-import InfoIcon from '~/icons/InfoIcon.astro'
+import InfoIcon from "~/icons/InfoIcon.astro"
 
-import { releaseNotes as releaseNotesData } from '~/release-notes'
-import { getLocale, getPath, getUI } from '~/utils/i18n'
-import { type ReleaseNote, getReleaseNoteFirefoxVersion } from '../release-notes'
-import ReleaseNoteListItem from './ReleaseNoteListItem.astro'
+import { releaseNotes as releaseNotesData } from "~/release-notes"
+import { getLocale, getPath, getUI } from "~/utils/i18n"
+import { type ReleaseNote, getReleaseNoteFirefoxVersion } from "../release-notes"
+import ReleaseNoteListItem from "./ReleaseNoteListItem.astro"
 export type Props = ReleaseNote
 const { isTwilight, ...props } = Astro.props
 
@@ -20,38 +20,42 @@ const {
 
 let date: Date | undefined
 if (props.date) {
-  const [day, month, year] = props.date.split('/')
+  const [day, month, year] = props.date.split("/")
   date = new Date(Date.parse(`${year}-${month}-${day}`))
 }
 
 const ffVersion = getReleaseNoteFirefoxVersion(props)
-const currentReleaseIndex = releaseNotesData.findIndex((releaseNote: ReleaseNote) => releaseNote.version === props.version)
+const currentReleaseIndex = releaseNotesData.findIndex(
+  (releaseNote: ReleaseNote) => releaseNote.version === props.version
+)
 const prevReleaseNote = releaseNotesData[currentReleaseIndex + 1]
-let compareLink = ''
+let compareLink = ""
 if (prevReleaseNote && !isTwilight) {
   compareLink = `https://github.com/zen-browser/desktop/compare/${prevReleaseNote.version}...${props.version}`
 }
 
 const isLatest = currentReleaseIndex === 0
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const listItems = {} as any
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const generateItems = (items: any, type: string) => {
   if (!items) return
   if (!listItems[type]) {
     listItems[type] = []
   }
-  // biome-ignore lint/complexity/noForEach: We dont need to use a for loop here
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   items.forEach((item: any) => {
     switch (type) {
-      case 'feature':
+      case "feature":
         listItems[type].push({
-          type: 'feature',
+          type: "feature",
           content: item,
         })
         break
-      case 'fix':
+      case "fix":
         listItems[type].push({
-          type: 'fix',
+          type: "fix",
           content: item.description ?? item,
           ...(item.issue
             ? {
@@ -63,159 +67,160 @@ const generateItems = (items: any, type: string) => {
             : {}),
         })
         break
-      case 'security':
+      case "security":
         listItems[type].push({
-          type: 'security',
+          type: "security",
           link: {
-            text: 'Various security fixes.',
+            text: "Various security fixes.",
             href: item,
           },
         })
         break
-      case 'theme':
+      case "theme":
         listItems[type].push({
-          type: 'theme',
+          type: "theme",
           content: item,
         })
         break
-      case 'break':
+      case "break":
         listItems[type].push({
-          type: 'break',
+          type: "break",
           content: item,
         })
         break
     }
   })
 }
-generateItems(props.security ? [props.security] : null, 'security')
-generateItems(props.fixes, 'fix')
-generateItems(props.features, 'feature')
-generateItems(props.themeChanges, 'theme')
-generateItems(props.breakingChanges, 'break')
-generateItems(props.knownIssues, 'known')
+generateItems(props.security ? [props.security] : null, "security")
+generateItems(props.fixes, "fix")
+generateItems(props.features, "feature")
+generateItems(props.themeChanges, "theme")
+generateItems(props.breakingChanges, "break")
+generateItems(props.knownIssues, "known")
 ---
 
 <section
   class="release-note-item relative mt-12 flex flex-col pt-24 lg:flex-row"
   id={props.version}
 >
-  <div class="px-5 md:px-10 md:pr-32 w-full gap-2 flex flex-col">
+  <div class="flex w-full flex-col gap-2 px-5 md:px-10 md:pr-32">
     {
       isTwilight ? (
         <a
           class="!mb-2 block w-fit rounded-full bg-coral px-3 py-1 text-xs text-paper"
-          href={getLocalePath('/download?twilight')}
+          href={getLocalePath("/download?twilight")}
         >
           {releaseNoteItem.twilight}
         </a>
       ) : null
     }
-    <div class="w-full sm:flex justify-between">
-    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0 text-sm font-bold opacity-80">
-      {
-        isTwilight ? (
-          <>
-            {releaseNoteItem.twilightChanges} {props.version.replaceAll(
-              '{version}',
-              props.version,
-            )}
-          </>
-        ) : (
-          <>
-            {releaseNoteItem.releaseChanges.replaceAll(
-              '{version}',
-              props.version,
-            )}
-          </>
-        )
-      }
-            {
-        ffVersion ? (
-          <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
-          <a               rel="noopener noreferrer"class="text-xs underline decoration-wavy text-coral opacity-80" href={`https://www.mozilla.org/en-US/firefox/${ffVersion}/releasenotes/`} target="_blank" rel="noopener noreferrer">
-            {releaseNoteItem.firefoxVersion.replace('{version}', ffVersion)}
-          </a>
-        ) : null
-      }
-      <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
-            <a
-        rel="noopener noreferrer"
-        class="zen-link whitespace-nowrap !no-underline text-xs opacity-80"
-        target="_blank"
-        href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight' : props.version}`}
-        >{releaseNoteItem.githubRelease}</a
+    <div class="w-full justify-between sm:flex">
+      <div
+        class="flex flex-col gap-1 text-sm font-bold opacity-80 sm:flex-row sm:items-center sm:gap-0"
       >
-      {
-        !isTwilight ? (
-          <>
-            <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
-            <a
-              rel="noopener noreferrer"
-              class="zen-link whitespace-nowrap !no-underline text-xs opacity-80"
-              target="_blank"
-              href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}
-            >
-              {releaseNoteItem.workflowRun}
-            </a>
-          </>
-        ) : null
-      }
-      {
-        compareLink !== '' ? (
-          <>
-            <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
-            <a
-              rel="noopener noreferrer"
-              class="zen-link whitespace-nowrap !no-underline text-xs opacity-80"
-              target="_blank"
-              href={compareLink}
-            >
-              {releaseNoteItem.compareChanges}
-            </a>
-          </>
-        ) : null
-      }
-    </div>
-    <div class="text-xs opacity-80 font-bold">
-      {date && date.toLocaleDateString('en-US', { dateStyle: 'long' })}
-    </div>
+        {
+          isTwilight ? (
+            <>
+              {releaseNoteItem.twilightChanges}{" "}
+              {props.version.replaceAll("{version}", props.version)}
+            </>
+          ) : (
+            <>{releaseNoteItem.releaseChanges.replaceAll("{version}", props.version)}</>
+          )
+        }
+        {
+          ffVersion ? (
+            <>
+              <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
+              <a
+                rel="noopener noreferrer"
+                class="text-xs text-coral underline decoration-wavy opacity-80"
+                href={`https://www.mozilla.org/en-US/firefox/${ffVersion}/releasenotes/`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {releaseNoteItem.firefoxVersion.replace("{version}", ffVersion)}
+              </a>
+            </>
+          ) : null
+        }
+        <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
+        <a
+          rel="noopener noreferrer"
+          class="zen-link whitespace-nowrap text-xs !no-underline opacity-80"
+          target="_blank"
+          href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? "twilight" : props.version}`}
+          >{releaseNoteItem.githubRelease}</a
+        >
+        {
+          !isTwilight ? (
+            <>
+              <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
+              <a
+                rel="noopener noreferrer"
+                class="zen-link whitespace-nowrap text-xs !no-underline opacity-80"
+                target="_blank"
+                href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}
+              >
+                {releaseNoteItem.workflowRun}
+              </a>
+            </>
+          ) : null
+        }
+        {
+          compareLink !== "" ? (
+            <>
+              <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
+              <a
+                rel="noopener noreferrer"
+                class="zen-link whitespace-nowrap text-xs !no-underline opacity-80"
+                target="_blank"
+                href={compareLink}
+              >
+                {releaseNoteItem.compareChanges}
+              </a>
+            </>
+          ) : null
+        }
+      </div>
+      <div class="text-xs font-bold opacity-80">
+        {date && date.toLocaleDateString("en-US", { dateStyle: "long" })}
+      </div>
     </div>
     {
       props.extra?.length ? (
         <p class="text-md text-muted-foreground extra mt-2">
-          <Fragment set:html={props.extra.replace(/\n/g, '<br />')} />
+          <Fragment set:html={props.extra.replace(/\n/g, "<br />")} />
         </p>
       ) : null
     }
-    {isTwilight || isLatest ? (
-      
-    <div class="text-muted-forground flex text-sm opacity-70">
-      {isTwilight ? <InfoIcon class="mx-4 my-0 size-6 text-yellow-500" /> : null}
-      <p class="m-0">
-        {isTwilight ? <>{releaseNoteItem.twilightWarning}</> : null}
-        <span set:html={releaseNoteItem.reportIssues} />
-      </p>
-    </div>
-    ) : null}
-    <div class="gap-8 flex flex-col mt-4">
     {
-      Object.keys(listItems).map((type) => {
-        const items = listItems[type];
-        if (items.length === 0) return null;
-        return (
-          <ul class="gap-1 flex flex-col">
-      {items.map((item: any) => (
-        <ReleaseNoteListItem 
-          type={item.type}
-          content={item.content}
-          link={item.link}
-        />
-      ))}
-    </ul>
-        );
+      isTwilight || isLatest ? (
+        <div class="text-muted-forground flex text-sm opacity-70">
+          {isTwilight ? <InfoIcon class="mx-4 my-0 size-6 text-yellow-500" /> : null}
+          <p class="m-0">
+            {isTwilight ? <>{releaseNoteItem.twilightWarning}</> : null}
+            <span set:html={releaseNoteItem.reportIssues} />
+          </p>
+        </div>
+      ) : null
+    }
+    <div class="mt-4 flex flex-col gap-8">
+      {
+        Object.keys(listItems).map(type => {
+          const items = listItems[type]
+          if (items.length === 0) return null
+          return (
+            <ul class="flex flex-col gap-1">
+              {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+              {items.map((item: any) => (
+                <ReleaseNoteListItem type={item.type} content={item.content} link={item.link} />
+              ))}
+            </ul>
+          )
+        })
+      }
     </div>
-    })
-  }
   </div>
   <style is:global>
     .ac-accordion-item-title {
@@ -241,10 +246,7 @@ generateItems(props.knownIssues, 'known')
     .ac-accordion {
       &.ac-accordion--light {
         > * + * {
-          border-color: light-dark(
-            rgba(0, 0, 0, 0.1),
-            rgba(255, 255, 255, 0.1)
-          ) !important;
+          border-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1)) !important;
           width: 100%;
         }
       }

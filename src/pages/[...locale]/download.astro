@@ -1,18 +1,18 @@
 ---
-import Description from '~/components/Description.astro'
-import DownloadScript from '~/components/download/DownloadScript.astro'
-import PlatformDownload from '~/components/download/PlatformDownload.astro'
-import { getReleasesWithChecksums } from '~/components/download/release-data'
-import Layout from '~/layouts/Layout.astro'
-import { getChecksums } from '~/utils/githubChecksums'
-import { getLocale, getUI } from '~/utils/i18n'
+import Description from "~/components/Description.astro"
+import DownloadScript from "~/components/download/DownloadScript.astro"
+import PlatformDownload from "~/components/download/PlatformDownload.astro"
+import { getReleasesWithChecksums } from "~/components/download/release-data"
+import Layout from "~/layouts/Layout.astro"
+import { getChecksums } from "~/utils/githubChecksums"
+import { getLocale, getUI } from "~/utils/i18n"
 
-import { icon, library } from '@fortawesome/fontawesome-svg-core'
-import { faApple, faGithub, faLinux, faWindows } from '@fortawesome/free-brands-svg-icons'
-import ExternalLinkIcon from '~/icons/ExternalLink.astro'
-import LockIcon from '~/icons/LockIcon.astro'
+import { icon, library } from "@fortawesome/fontawesome-svg-core"
+import { faApple, faGithub, faLinux, faWindows } from "@fortawesome/free-brands-svg-icons"
+import ExternalLinkIcon from "~/icons/ExternalLink.astro"
+import LockIcon from "~/icons/LockIcon.astro"
 
-export { getStaticPaths } from '~/utils/i18n'
+export { getStaticPaths } from "~/utils/i18n"
 
 const locale = getLocale(Astro)
 const {
@@ -21,10 +21,10 @@ const {
 } = getUI(locale)
 
 library.add(faWindows, faLinux, faApple, faGithub)
-const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
-const linuxIcon = icon({ prefix: 'fab', iconName: 'linux' })
-const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
-const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
+const windowsIcon = icon({ prefix: "fab", iconName: "windows" })
+const linuxIcon = icon({ prefix: "fab", iconName: "linux" })
+const appleIcon = icon({ prefix: "fab", iconName: "apple" })
+const githubIcon = icon({ prefix: "fab", iconName: "github" })
 
 const checksums = await getChecksums()
 const releases = getReleasesWithChecksums(checksums)
@@ -39,9 +39,7 @@ const platformDescriptions = download.platformDescriptions
   <main class="flex min-h-screen flex-col px-6 data-[os='windows']:bg-zen-blue">
     <div class="container relative mx-auto py-12">
       <div class="mb-6 mt-12 flex flex-col gap-4">
-        <Description id="download-title" class="text-6xl font-bold"
-          >{download.title}</Description
-        >
+        <Description id="download-title" class="text-6xl font-bold">{download.title}</Description>
         <Description class="max-w-xl text-pretty">
           {download.description}
         </Description>
@@ -191,9 +189,7 @@ const platformDescriptions = download.platformDescriptions
       </section>
 
       <!-- Security Notice -->
-      <div
-        class="bg-opaicty-10 grid grid-cols-[auto,1fr] gap-4 rounded-2xl bg-subtle p-6"
-      >
+      <div class="bg-opaicty-10 grid grid-cols-[auto,1fr] gap-4 rounded-2xl bg-subtle p-6">
         <div class="h-fit rounded-xl bg-subtle p-3">
           <LockIcon class="h-5 w-5" />
         </div>
@@ -202,10 +198,7 @@ const platformDescriptions = download.platformDescriptions
           <h3 class="mb-2 text-lg font-medium">
             {download.securityNotice.title}
           </h3>
-          <p
-            class="text-muted-foreground"
-            set:html={download.securityNotice.description}
-          />
+          <p class="text-muted-foreground" set:html={download.securityNotice.description} />
         </div>
       </div>
     </div>

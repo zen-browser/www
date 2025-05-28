@@ -1,13 +1,13 @@
 ---
-import { Modal, ModalBody, ModalHeader } from 'free-astro-components'
-import Button from '~/components/Button.astro'
-import Description from '~/components/Description.astro'
-import ReleaseNoteItem from '~/components/ReleaseNoteItem.astro'
-import ArrowUpIcon from '~/icons/ArrowUp.astro'
-import Layout from '~/layouts/Layout.astro'
-import { releaseNotes as releaseNotesData, releaseNotesTwilight } from '~/release-notes'
-import { getLocale, getUI } from '~/utils/i18n'
-export { getStaticPaths } from '~/utils/i18n'
+import { Modal, ModalBody, ModalHeader } from "free-astro-components"
+import Button from "~/components/Button.astro"
+import Description from "~/components/Description.astro"
+import ReleaseNoteItem from "~/components/ReleaseNoteItem.astro"
+import ArrowUpIcon from "~/icons/ArrowUp.astro"
+import Layout from "~/layouts/Layout.astro"
+import { releaseNotes as releaseNotesData, releaseNotesTwilight } from "~/release-notes"
+import { getLocale, getUI } from "~/utils/i18n"
+export { getStaticPaths } from "~/utils/i18n"
 
 const locale = getLocale(Astro)
 
@@ -21,21 +21,16 @@ const {
   <main
     class="container flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4"
   >
-    <div
-      id="release-notes"
-      class="py-42 flex min-h-screen gap-8 w-full flex-col justify-center"
-    >
+    <div id="release-notes" class="py-42 flex min-h-screen w-full flex-col justify-center gap-8">
       <Description class="mt-48 text-6xl font-bold">Changelog</Description>
       <p
         class="text-base opacity-55"
         set:html={releaseNotes.topSection.description.replaceAll(
-          '{latestVersion}',
-          releaseNotesData[0].version,
+          "{latestVersion}",
+          releaseNotesData[0].version
         )}
       />
-      <div
-        class="mt-8 flex w-fit flex-col gap-4 sm:mr-0 sm:flex-row sm:items-center"
-      >
+      <div class="mt-8 flex w-fit flex-col gap-4 sm:mr-0 sm:flex-row sm:items-center">
         <Button class="flex" isPrimary href="/donate">
           {releaseNotes.list.support}
         </Button>
@@ -44,12 +39,11 @@ const {
         </Button>
       </div>
       {
-        releaseNotesTwilight.features.length ||
-        releaseNotesTwilight.fixes.length ? (
+        releaseNotesTwilight.features.length || releaseNotesTwilight.fixes.length ? (
           <ReleaseNoteItem {...releaseNotesTwilight} isTwilight />
         ) : null
       }
-      {releaseNotesData.map((notes: any) => <ReleaseNoteItem {...notes} />)}
+      {releaseNotesData.map(notes => <ReleaseNoteItem {...notes} />)}
     </div>
   </main>
   <Button href="#" id="scroll-top" isPrimary class="fixed bottom-8 right-8">
@@ -67,7 +61,7 @@ const {
   <ModalBody>
     <div id="version-list" class="flex flex-col gap-2 text-xl text-dark">
       {
-        releaseNotesData.map((note) => (
+        releaseNotesData.map(note => (
           <button
             aria-label={`Navigate to version ${note.version}`}
             class="w-full text-left transition-colors duration-150 hover:text-coral"
@@ -81,41 +75,39 @@ const {
   </ModalBody>
 </Modal>
 <script>
-  import { openModal, closeModal } from 'free-astro-components'
+  import { closeModal, openModal } from "free-astro-components"
 
-  const scrollTopButton = document.getElementById('scroll-top')
-  const versionButton = document.getElementById('navigate-to-version')
-  const container = document.getElementById('release-notes')
-  const modal = document.getElementById('version-modal')
-  const versionList = document.getElementById('version-list')
+  const scrollTopButton = document.getElementById("scroll-top")
+  const versionButton = document.getElementById("navigate-to-version")
+  const container = document.getElementById("release-notes")
+  const modal = document.getElementById("version-modal")
+  const versionList = document.getElementById("version-list")
 
   const toggleScrollButton = () => {
     if (!scrollTopButton || !versionButton) return
 
     const descriptionPosition = versionButton.getBoundingClientRect().bottom
     if (descriptionPosition < 0) {
-      scrollTopButton.classList.remove('hidden')
-      scrollTopButton.classList.add('block')
+      scrollTopButton.classList.remove("hidden")
+      scrollTopButton.classList.add("block")
     } else {
-      scrollTopButton.classList.remove('block')
-      scrollTopButton.classList.add('hidden')
+      scrollTopButton.classList.remove("block")
+      scrollTopButton.classList.add("hidden")
     }
   }
 
   const navigateToVersion = (e: MouseEvent) => {
     const target = e.target as HTMLElement
-    if (!container || !target?.closest('[data-version]')) return
+    if (!container || !target?.closest("[data-version]")) return
 
-    const version = target.getAttribute('data-version')
+    const version = target.getAttribute("data-version")
     if (!version) return
     window.location.hash = version
 
-    const versionDetails = document
-      .getElementById(version)
-      ?.getElementsByTagName('details')
+    const versionDetails = document.getElementById(version)?.getElementsByTagName("details")
     if (versionDetails && versionDetails.length > 0) {
-      Array.from(versionDetails).forEach((accordion) => {
-        accordion.setAttribute('open', '')
+      Array.from(versionDetails).forEach(accordion => {
+        accordion.setAttribute("open", "")
       })
     }
 
@@ -127,21 +119,21 @@ const {
     openModal(modal)
   }
 
-  window.addEventListener('scroll', toggleScrollButton)
-  versionButton?.addEventListener('click', openVersionModal)
-  versionList?.addEventListener('click', navigateToVersion)
+  window.addEventListener("scroll", toggleScrollButton)
+  versionButton?.addEventListener("click", openVersionModal)
+  versionList?.addEventListener("click", navigateToVersion)
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal?.hasAttribute('open')) {
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal?.hasAttribute("open")) {
       closeModal(modal)
       // Remove scroll lock if present
-      document.body.style.overflow = ''
+      document.body.style.overflow = ""
     }
   })
 </script>
 
 <style is:global>
   #version-modal > * {
-    font-family: 'Bricolage Grotesque', sans-serif !important;
+    font-family: "Bricolage Grotesque", sans-serif !important;
   }
 </style>

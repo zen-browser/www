@@ -1,5 +1,7 @@
-import type { Linter } from "eslint";
+import { type Linter } from "eslint";
 import react from "eslint-plugin-react";
+import * as reactHooks from "eslint-plugin-react-hooks";
+
 import { javascriptFiles, typescriptFiles } from "./shared";
 
 export const reactConfig: Linter.Config = {
@@ -14,7 +16,7 @@ export const reactConfig: Linter.Config = {
   rules: {
     ...react.configs.recommended.rules,
 
-    "react/react-in-jsx-scope": "off", // Not needed in modern React/Preact
+    "react/react-in-jsx-scope": "off", // Not needed in React 17+
     "react/prop-types": "off", // Using TypeScript
     "react/jsx-uses-react": "off",
     "react/jsx-uses-vars": "error",
@@ -37,12 +39,10 @@ export const reactConfig: Linter.Config = {
   },
   settings: {
     react: {
-      version: "detect",
+      version: "18.2", // React version
     },
   },
 };
-
-import reactHooks from "eslint-plugin-react-hooks";
 
 export const reactHooksConfig: Linter.Config = {
   name: "eslint/react-hooks",

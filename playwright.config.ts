@@ -15,7 +15,7 @@ export default defineConfig({
   testDir: './src/tests',
   testIgnore: ['**.test.ts'],
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
+  forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,

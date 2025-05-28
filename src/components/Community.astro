@@ -1,13 +1,13 @@
 ---
-import Image from 'astro/components/Image.astro'
-import { motion } from 'motion/react'
-import { getTitleAnimation } from '~/animations'
-import ComImage from '~/assets/ComImage.png'
-import Button from '~/components/Button.astro'
-import Description from '~/components/Description.astro'
-import CheckIcon from '~/icons/CheckIcon.astro'
-import GitHubIcon from '~/icons/GitHubIcon.astro'
-import { getLocale, getUI } from '~/utils/i18n'
+import Image from "astro/components/Image.astro"
+import { motion } from "motion/react"
+import { getTitleAnimation } from "~/animations"
+import ComImage from "~/assets/ComImage.png"
+import Button from "~/components/Button.astro"
+import Description from "~/components/Description.astro"
+import CheckIcon from "~/icons/CheckIcon.astro"
+import GitHubIcon from "~/icons/GitHubIcon.astro"
+import { getLocale, getUI } from "~/utils/i18n"
 
 const locale = getLocale(Astro)
 
@@ -33,33 +33,21 @@ const {
       {community.title[2]}
     </motion.span>
   </Description>
-  <motion.p
-    client:load
-    {...getTitleAnimation(0.6)}
-    className="lg:w-1/2 lg:px-0"
-  >
+  <motion.p client:load {...getTitleAnimation(0.6)} className="lg:w-1/2 lg:px-0">
     {community.description}
   </motion.p>
   <div class="flex w-full flex-wrap gap-3 sm:gap-10 md:justify-center">
     <motion.span client:load {...getTitleAnimation(0.8)}>
-      <Button class:list={['px-4']} href="https://github.com/zen-browser">
+      <Button class:list={["px-4"]} href="https://github.com/zen-browser">
         <GitHubIcon class="size-4" />
         <span>{community.lists.freeAndOpenSource.title}</span>
       </Button>
     </motion.span>
-    <motion.div
-      client:load
-      {...getTitleAnimation(1)}
-      className="flex items-center gap-4"
-    >
+    <motion.div client:load {...getTitleAnimation(1)} className="flex items-center gap-4">
       <CheckIcon class="size-4" />
       <span>{community.lists.simpleYetPowerful.title}</span>
     </motion.div>
-    <motion.div
-      client:load
-      {...getTitleAnimation(1.2)}
-      className="flex items-center gap-4"
-    >
+    <motion.div client:load {...getTitleAnimation(1.2)} className="flex items-center gap-4">
       <CheckIcon class="size-4" />
       <span>{community.lists.privateAndAlwaysUpToDate.title}</span>
     </motion.div>

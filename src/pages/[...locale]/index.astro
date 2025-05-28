@@ -1,22 +1,18 @@
 ---
-import Community from '~/components/Community.astro'
-import Features from '~/components/Features.astro'
-import Hero from '~/components/Hero.astro'
-import Sponsors from '~/components/Sponsors.astro'
-import Layout from '~/layouts/Layout.astro'
-import { getLocale, getUI } from '~/utils/i18n'
-export { getStaticPaths } from '~/utils/i18n'
+import Community from "~/components/Community.astro"
+import Features from "~/components/Features.astro"
+import Hero from "~/components/Hero.astro"
+import Sponsors from "~/components/Sponsors.astro"
+import Layout from "~/layouts/Layout.astro"
+import { getLocale, getUI } from "~/utils/i18n"
+export { getStaticPaths } from "~/utils/i18n"
 
 const locale = getLocale(Astro)
 
 const { layout } = getUI(locale)
 ---
 
-<Layout
-  title={layout.index.title}
-  description={layout.index.description}
-  isHome
->
+<Layout title={layout.index.title} description={layout.index.description} isHome>
   <main class="container">
     <Hero />
     <Features />
