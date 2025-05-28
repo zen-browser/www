@@ -43,7 +43,7 @@ jobs:
           path: |
             node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-      - name: Run Biome check
+      - name: Run Eslint check
         run: npm run lint
 
   prettier:
