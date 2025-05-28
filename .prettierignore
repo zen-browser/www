@@ -1,0 +1,47 @@
+# Build outputs
+dist/
+build/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Generated files
+coverage/
+.nyc_output/
+
+# Test outputs
+playwright-report/
+test-results/
+
+# Package files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Config files that should maintain their format
+wrangler.toml
+
+# Binary files
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.woff
+*.woff2
+*.ttf
+*.eot
+
+# IDE and OS
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Static assets
+public/fonts/
+public/favicon.ico
+public/favicon.svg
