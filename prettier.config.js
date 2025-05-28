@@ -26,13 +26,14 @@ export default {
       files: ["*.json", "*.jsonc"],
       options: {
         trailingComma: "none",
+        singleQuote: false,
       },
     },
     {
       files: ["*.md", "*.mdx"],
       options: {
         printWidth: 80,
-        proseWrap: "always",
+        proseWrap: "never",
       },
     },
     {
