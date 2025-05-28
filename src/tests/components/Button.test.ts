@@ -1,5 +1,6 @@
 import { experimental_AstroContainer as AstroContainer } from 'astro/container'
 import { beforeEach, describe, expect, it } from 'vitest'
+
 import Button from '~/components/Button.astro'
 
 describe('<Button />', () => {

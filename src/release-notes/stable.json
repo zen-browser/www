@@ -601,7 +601,10 @@
     "version": "1.0.0-a.30",
     "date": "26/08/2024",
     "extra": "This release is the thirtieth alpha release of the 1.0.0-alpha series.",
-    "features": ["Added support for 24 more languages!", "Update installed mods from the browser settings"],
+    "features": [
+      "Added support for 24 more languages!",
+      "Update installed mods from the browser settings"
+    ],
     "fixes": [
       {
         "description": "Letterboxing option is missing",
@@ -924,7 +927,11 @@
     "date": "24/09/2024",
     "workflowId": 11020784612,
     "extra": "This update is a small patch to fix some issues that weren't addressed in the previous release!",
-    "features": ["Moved application menu button to the right", "Added new shortcuts", "Collapsed tab sidebar is now smaller"],
+    "features": [
+      "Moved application menu button to the right",
+      "Added new shortcuts",
+      "Collapsed tab sidebar is now smaller"
+    ],
     "fixes": [
       {
         "description": "Fixed issue with hovering over window control buttons (macOS)"
@@ -949,7 +956,9 @@
       "Improved Expand Tabs on Hover layout"
     ],
     "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
-    "breakingChanges": ["The keyboard shortcuts will be overriden by the defaults ones in this update"],
+    "breakingChanges": [
+      "The keyboard shortcuts will be overriden by the defaults ones in this update"
+    ],
     "fixes": [
       {
         "description": "Fixed Firefox add-ons not updating",
@@ -1121,7 +1130,10 @@
         "description": "Fixed about page linking 'global Community' to a Mozilla page"
       }
     ],
-    "features": ["About page will now display the Firefox version used", "Disabled forcing container grouping for workspaces"]
+    "features": [
+      "About page will now display the Firefox version used",
+      "Disabled forcing container grouping for workspaces"
+    ]
   },
   {
     "version": "1.0.1-a.11",
@@ -1258,7 +1270,9 @@
         "description": "Fixed sidebar webpanels being in a darker contrast"
       }
     ],
-    "features": ["Added a confirmation dialog when the gradient generator has successfully saved the gradient"]
+    "features": [
+      "Added a confirmation dialog when the gradient generator has successfully saved the gradient"
+    ]
   },
   {
     "version": "1.0.1-a.15",
@@ -2097,7 +2111,10 @@
     "date": "30/01/2025",
     "workflowId": 13062083313,
     "extra": "Quick fix for a critical bug that was introduced in the previous release.",
-    "fixes": ["Fixed the browser not opening when having multiple windows", "Fixed macos fullscreen having a weird shadow"]
+    "fixes": [
+      "Fixed the browser not opening when having multiple windows",
+      "Fixed macos fullscreen having a weird shadow"
+    ]
   },
   {
     "version": "1.7.5b",
@@ -2154,7 +2171,9 @@
       "Fixed opening glance tabs on essentials messing up the sidebar",
       "Fixed pinned tabs appearing on normal container after a restart"
     ],
-    "features": ["Tabs can now be dragged into pinned tabs by dragging them into the workspace indicator"],
+    "features": [
+      "Tabs can now be dragged into pinned tabs by dragging them into the workspace indicator"
+    ],
     "workflowId": 13209591935,
     "date": "08/02/2025"
   },
@@ -2684,7 +2703,10 @@
       "'All tabs' menu not showing any text when collapsed toolbar is enabled."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-36/",
-    "features": ["Updated to Firefox 138.0.4", "Better compact mode support for multiple toolbars."],
+    "features": [
+      "Updated to Firefox 138.0.4",
+      "Better compact mode support for multiple toolbars."
+    ],
     "knownIssues": ["Selecting a tab on private mode doesn't scroll to make the tab visible."],
     "themeChanges": [
       "Changed the layout of workspaces and their icons internally to provide a more stable layout that doesn't require floating elements. We finally managed to get it to how we wanted it to be, so it will change less in the future."

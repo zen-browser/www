@@ -1,9 +1,10 @@
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
-import { useEffect, useState } from 'preact/hooks'
+import { useEffect, useState, type FormEvent } from 'react'
+
 import { useModsSearch } from '~/hooks/useModsSearch'
-import type { ZenTheme } from '~/mods'
-import { type Locale, getUI } from '~/utils/i18n'
+import { type ZenTheme } from '~/mods'
+import { getUI, type Locale } from '~/utils/i18n'
 
 // Add icons to the library
 library.add(faSort, faSortUp, faSortDown)
@@ -13,12 +14,12 @@ const defaultSortIcon = icon({ prefix: 'fas', iconName: 'sort' })
 const ascSortIcon = icon({ prefix: 'fas', iconName: 'sort-up' })
 const descSortIcon = icon({ prefix: 'fas', iconName: 'sort-down' })
 
-interface ModsListProps {
+type ModsListProps = {
   allMods: ZenTheme[]
   locale: Locale
 }
 
-export default function ModsList({ allMods, locale }: ModsListProps) {
+const ModsList = ({ allMods, locale }: ModsListProps) => {
   const {
     search,
     createdSort,
@@ -49,17 +50,17 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     return defaultSortIcon
   }
 
-  function handleSearch(e: Event) {
+  function handleSearch(e: FormEvent<HTMLInputElement>) {
     const target = e.target as HTMLInputElement
     setSearch(target.value)
   }
 
-  function handleLimitChange(e: Event) {
+  function handleLimitChange(e: FormEvent<HTMLSelectElement>) {
     const target = e.target as HTMLSelectElement
     setLimit(Number.parseInt(target.value, 10))
   }
 
-  function handlePageSubmit(e: Event) {
+  function handlePageSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const newPage = Number.parseInt(pageInput, 10)
     if (!Number.isNaN(newPage) && newPage >= 1 && newPage <= totalPages) {
@@ -70,7 +71,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     }
   }
 
-  function handlePageInputChange(e: Event) {
+  function handlePageInputChange(e: FormEvent<HTMLInputElement>) {
     const target = e.target as HTMLInputElement
     setPageInput(target.value)
   }
@@ -100,6 +101,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
             if (index === 0) {
               return (
                 <input
+                  key={index}
                   aria-label="Page number"
                   className="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
                   onInput={handlePageInputChange}
@@ -110,7 +112,9 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
             }
             return (
               <span className="text-sm" key={value}>
-                {value.replace('{totalPages}', totalPages.toString()).replace('{totalItems}', totalItems.toString())}
+                {value
+                  .replace('{totalPages}', totalPages.toString())
+                  .replace('{totalItems}', totalItems.toString())}
               </span>
             )
           })}
@@ -143,7 +147,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
         <div className="grid w-full grid-cols-2 place-items-center gap-4 sm:grid-cols-3">
           <div className="flex flex-col items-start gap-2">
             <button
-              className="flex items-center gap-2 px-4 py-2 font-semibold text-md"
+              className="text-md flex items-center gap-2 px-4 py-2 font-semibold"
               onClick={toggleCreatedSort}
               type="button"
             >
@@ -159,7 +163,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
 
           <div className="flex flex-col items-center gap-2">
             <button
-              className="flex items-center gap-2 px-4 py-2 font-semibold text-md"
+              className="text-md flex items-center gap-2 px-4 py-2 font-semibold"
               onClick={toggleUpdatedSort}
               type="button"
             >
@@ -174,7 +178,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
           </div>
 
           <div className="flex items-center gap-2 px-4 py-2">
-            <label className="font-semibold text-md" htmlFor="limit">
+            <label className="text-md font-semibold" htmlFor="limit">
               {mods.sort.perPage}
             </label>
             <select
@@ -194,7 +198,7 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
 
       <div className="grid w-full grid-cols-1 place-items-start gap-12 py-6 md:grid-cols-2 xl:grid-cols-3">
         {paginatedMods.length > 0 ? (
-          paginatedMods.map((mod) => (
+          paginatedMods.map(mod => (
             <a
               className="mod-card flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
               href={`/mods/${mod.id}`}
@@ -209,17 +213,17 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
                 />
               </div>
               <div>
-                <h2 className="font-bold text-lg">
-                  {mod.name} <span className="ml-1 font-normal text-sm">by @{mod.author}</span>
+                <h2 className="text-lg font-bold">
+                  {mod.name} <span className="ml-1 text-sm font-normal">by @{mod.author}</span>
                 </h2>
-                <p className="font-thin text-sm">{mod.description}</p>
+                <p className="text-sm font-thin">{mod.description}</p>
               </div>
             </a>
           ))
         ) : (
           <div className="col-span-4 grid place-items-center gap-4 place-self-center px-8 text-center">
-            <h2 className="font-bold text-lg">{mods.noResults}</h2>
-            <p className="font-thin text-sm">{mods.noResultsDescription}</p>
+            <h2 className="text-lg font-bold">{mods.noResults}</h2>
+            <p className="text-sm font-thin">{mods.noResultsDescription}</p>
           </div>
         )}
       </div>
@@ -228,3 +232,5 @@ export default function ModsList({ allMods, locale }: ModsListProps) {
     </div>
   )
 }
+
+export default ModsList

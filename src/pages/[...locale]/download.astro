@@ -39,9 +39,7 @@ const platformDescriptions = download.platformDescriptions
   <main class="flex min-h-screen flex-col px-6 data-[os='windows']:bg-zen-blue">
     <div class="container relative mx-auto py-12">
       <div class="mb-6 mt-12 flex flex-col gap-4">
-        <Description id="download-title" class="text-6xl font-bold"
-          >{download.title}</Description
-        >
+        <Description id="download-title" class="text-6xl font-bold">{download.title}</Description>
         <Description class="max-w-xl text-pretty">
           {download.description}
         </Description>
@@ -191,9 +189,7 @@ const platformDescriptions = download.platformDescriptions
       </section>
 
       <!-- Security Notice -->
-      <div
-        class="bg-opaicty-10 grid grid-cols-[auto,1fr] gap-4 rounded-2xl bg-subtle p-6"
-      >
+      <div class="bg-opaicty-10 grid grid-cols-[auto,1fr] gap-4 rounded-2xl bg-subtle p-6">
         <div class="h-fit rounded-xl bg-subtle p-3">
           <LockIcon class="h-5 w-5" />
         </div>
@@ -202,10 +198,7 @@ const platformDescriptions = download.platformDescriptions
           <h3 class="mb-2 text-lg font-medium">
             {download.securityNotice.title}
           </h3>
-          <p
-            class="text-muted-foreground"
-            set:html={download.securityNotice.description}
-          />
+          <p class="text-muted-foreground" set:html={download.securityNotice.description} />
         </div>
       </div>
     </div>

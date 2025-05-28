@@ -3,19 +3,13 @@ const { src, class: className, ...rest } = Astro.props
 const type = src.split('.').pop() || 'webm'
 ---
 
-<video
-  class:list={['w-fit', className]}
-  data-src={src}
-  preload="none"
-  {...rest}
->
+{/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+<video class:list={['w-fit', className]} data-src={src} preload="none" {...rest}>
   <source src="" type={`video/${type}`} />
 </video>
 
 <script>
-  const videos = document.querySelectorAll(
-    'video[data-src]',
-  ) as NodeListOf<HTMLVideoElement>
+  const videos = document.querySelectorAll('video[data-src]') as NodeListOf<HTMLVideoElement>
 
   const loadVideo = (video: HTMLVideoElement) => {
     const source = video.querySelector('source')

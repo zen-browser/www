@@ -76,7 +76,7 @@
 
       // Apply twilight mode to all relevant elements
       const coralElements = document.querySelectorAll(
-        '.download-browser-logo, .release-type-tag, .decorative-gradient, .download-link, .download-arrow-icon, .download-card__icon, .checksum-icon-btn, .copy-btn, .flathub-download',
+        '.download-browser-logo, .release-type-tag, .decorative-gradient, .download-link, .download-arrow-icon, .download-card__icon, .checksum-icon-btn, .copy-btn, .flathub-download'
       )
       for (const element of coralElements) {
         element.setAttribute('data-twilight', 'true')
@@ -88,10 +88,7 @@
         if (!link.id.includes('beta')) {
           const href = link.getAttribute('href')
           if (href && href.includes('/latest/download/')) {
-            const twilightHref = href.replace(
-              '/latest/download/',
-              '/download/twilight/',
-            )
+            const twilightHref = href.replace('/latest/download/', '/download/twilight/')
             link.setAttribute('href', twilightHref)
           }
         }

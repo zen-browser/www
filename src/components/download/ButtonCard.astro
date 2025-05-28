@@ -45,7 +45,7 @@ const { label, href, checksum } = Astro.props
               Show SHA-256
             </span>
             <span class="checksum-tooltip popover absolute -left-14 -top-12 z-50 hidden min-w-[220px] items-center gap-2 whitespace-nowrap rounded-md border border-subtle bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs text-gray-700 opacity-100 shadow transition-opacity duration-150 group-focus-within/checksum:flex dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
-              <span class="flex-1 truncate font-mono text-xs">{checksum}</span>
+              <span class="font-mono flex-1 truncate text-xs">{checksum}</span>
               <button
                 type="button"
                 class="copy-btn rounded bg-coral px-2 py-1 text-xs text-white hover:bg-coral/80 data-[twilight='true']:bg-zen-blue data-[twilight='true']:hover:bg-zen-blue/80"
@@ -89,14 +89,12 @@ const { label, href, checksum } = Astro.props
 
 <script>
   const checksumButtons = document.querySelectorAll(
-    '.checksum-icon-btn',
+    '.checksum-icon-btn'
   ) as NodeListOf<HTMLButtonElement>
   const checksumTooltips = document.querySelectorAll(
-    '.checksum-tooltip',
+    '.checksum-tooltip'
   ) as NodeListOf<HTMLDivElement>
-  const copyButtons = document.querySelectorAll(
-    '.copy-btn',
-  ) as NodeListOf<HTMLButtonElement>
+  const copyButtons = document.querySelectorAll('.copy-btn') as NodeListOf<HTMLButtonElement>
 
   function stopEvent(e: Event) {
     e.preventDefault?.()
@@ -113,23 +111,20 @@ const { label, href, checksum } = Astro.props
     setTimeout(() => (btn.innerText = original), 1200)
   }
 
-  checksumButtons.forEach((btn) => {
+  checksumButtons.forEach(btn => {
     btn.addEventListener('click', stopEvent)
   })
-  checksumTooltips.forEach((tooltip) => {
+  checksumTooltips.forEach(tooltip => {
     tooltip.addEventListener('mousedown', stopEvent)
     tooltip.addEventListener('click', stopEvent)
   })
-  copyButtons.forEach((btn) => {
-    btn.addEventListener('click', (e) =>
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', e =>
       copyChecksum(
         e,
-        (
-          btn
-            .closest('.checksum-tooltip')
-            ?.querySelector('.font-mono') as HTMLSpanElement
-        )?.innerText,
-      ),
+        (btn.closest('.checksum-tooltip')?.querySelector('.font-mono') as HTMLSpanElement)
+          ?.innerText
+      )
     )
     btn.addEventListener('mousedown', stopEvent)
   })

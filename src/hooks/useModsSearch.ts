@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'preact/hooks'
-import type { ZenTheme } from '../mods'
+import { useEffect, useState } from 'react'
+
+import { type ZenTheme } from '../mods'
 
 type SortOrder = 'default' | 'asc' | 'desc'
 
-interface ModsSearchState {
+type ModsSearchState = {
   search: string
   createdSort: SortOrder
   updatedSort: SortOrder
@@ -86,11 +87,11 @@ export function useModsSearch(mods: ZenTheme[]) {
     const searchTerm = state.search.toLowerCase()
     if (searchTerm) {
       filtered = filtered.filter(
-        (mod) =>
+        mod =>
           mod.name.toLowerCase().includes(searchTerm) ||
           mod.description.toLowerCase().includes(searchTerm) ||
           mod.author.toLowerCase().includes(searchTerm) ||
-          (mod.tags?.some((tag) => tag.toLowerCase().includes(searchTerm)) ?? false),
+          (mod.tags?.some(tag => tag.toLowerCase().includes(searchTerm)) ?? false)
       )
     }
 
@@ -120,34 +121,36 @@ export function useModsSearch(mods: ZenTheme[]) {
   const paginatedMods = filteredMods.slice(startIndex, endIndex)
 
   const setSearch = (search: string) => {
-    setState((prev) => ({ ...prev, search, page: 1 })) // Reset page when search changes
+    setState(prev => ({ ...prev, search, page: 1 })) // Reset page when search changes
   }
 
   const toggleCreatedSort = () => {
-    setState((prev) => ({
+    setState(prev => ({
       ...prev,
-      createdSort: prev.createdSort === 'default' ? 'asc' : prev.createdSort === 'asc' ? 'desc' : 'default',
+      createdSort:
+        prev.createdSort === 'default' ? 'asc' : prev.createdSort === 'asc' ? 'desc' : 'default',
       page: 1, // Reset page when sort changes
     }))
   }
 
   const toggleUpdatedSort = () => {
-    setState((prev) => ({
+    setState(prev => ({
       ...prev,
-      updatedSort: prev.updatedSort === 'default' ? 'asc' : prev.updatedSort === 'asc' ? 'desc' : 'default',
+      updatedSort:
+        prev.updatedSort === 'default' ? 'asc' : prev.updatedSort === 'asc' ? 'desc' : 'default',
       page: 1, // Reset page when sort changes
     }))
   }
 
   const setPage = (page: number) => {
-    setState((prev) => ({
+    setState(prev => ({
       ...prev,
       page: Math.max(1, Math.min(page, totalPages)),
     }))
   }
 
   const setLimit = (limit: number) => {
-    setState((prev) => ({ ...prev, limit, page: 1 })) // Reset page when limit changes
+    setState(prev => ({ ...prev, limit, page: 1 })) // Reset page when limit changes
   }
 
   return {

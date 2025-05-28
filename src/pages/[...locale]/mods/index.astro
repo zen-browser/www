@@ -27,10 +27,6 @@ const allMods = (await getAllMods()) || []
     </header>
 
     <!-- Importing ModList component -->
-    <ModsList
-      allMods={allMods}
-      locale={locale ?? CONSTANT.I18N.DEFAULT_LOCALE}
-      client:load
-    />
+    <ModsList allMods={allMods} locale={locale ?? CONSTANT.I18N.DEFAULT_LOCALE} client:load />
   </main>
 </Layout>

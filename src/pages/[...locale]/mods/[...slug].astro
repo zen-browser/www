@@ -11,8 +11,8 @@ import { getLocale, getOtherLocales } from '~/utils/i18n'
 
 export async function getStaticPaths() {
   const mods = await getAllMods()
-  return mods.flatMap((mod) => [
-    ...getOtherLocales().map((locale) => ({
+  return mods.flatMap(mod => [
+    ...getOtherLocales().map(locale => ({
       params: {
         slug: mod.id,
         locale: locale,
@@ -97,39 +97,22 @@ const {
               .replace('{version}', mod.version)
               .replace('{link}', getAuthorLink(mod.author))}
           />
-          <p
-            set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)}
-          />
+          <p set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)} />
           {
             dates.createdAt !== dates.updatedAt && (
-              <p
-                set:html={slug.latestUpdate.replace(
-                  '{updatedAt}',
-                  dates.updatedAt,
-                )}
-              />
+              <p set:html={slug.latestUpdate.replace('{updatedAt}', dates.updatedAt)} />
             )
           }
           {
             mod.homepage && (
-              <a
-                href={mod.homepage}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="zen-link"
-              >
+              <a href={mod.homepage} target="_blank" rel="noopener noreferrer" class="zen-link">
                 {slug.visitModHomepage}
               </a>
             )
           }
         </div>
         <div class="flex flex-col sm:items-end">
-          <Button
-            class="hidden"
-            id="install-theme"
-            extra={{ 'zen-theme-id': mod.id }}
-            isPrimary
-          >
+          <Button class="hidden" id="install-theme" extra={{ 'zen-theme-id': mod.id }} isPrimary>
             {slug.installMod}
           </Button>
           <Button

@@ -22,29 +22,25 @@ const {
 <li class="flex gap-2">
   <div
     class:list={[
-  (type === 'security' && 'text-[#e3401f]') ||
-    (type === 'feature' && 'text-[#bf3316] dark:text-[#ffb1a1]') ||
-    (type === 'fix' && 'text-[#fe846b]') ||
-    (type === 'theme' && 'text-[#f76f53]') ||
-    (type === 'break' && 'text-[#471308] dark:text-[#D02908]') || ''
-, 'opacity-80 font-bold min-w-16']}
->
+      (type === 'security' && 'text-[#e3401f]') ||
+        (type === 'feature' && 'text-[#bf3316] dark:text-[#ffb1a1]') ||
+        (type === 'fix' && 'text-[#fe846b]') ||
+        (type === 'theme' && 'text-[#f76f53]') ||
+        (type === 'break' && 'text-[#471308] dark:text-[#D02908]') ||
+        '',
+      'min-w-16 font-bold opacity-80',
+    ]}
+  >
     {itemType[type]}
   </div>
   <div>
-  {content && (
-    <span
-      class="text-base opacity-80"
-      set:html={content}
-    />
-  )}
-  {link && (
-    <a
-      href={link.href}
-      class="text-base text-blue inline-block underline"
-    >
-      {link.text}
-    </a>
-  )}
+    {content && <span class="text-base opacity-80" set:html={content} />}
+    {
+      link && (
+        <a href={link.href} class="text-blue inline-block text-base underline">
+          {link.text}
+        </a>
+      )
+    }
   </div>
 </li>

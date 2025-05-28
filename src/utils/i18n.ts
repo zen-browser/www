@@ -1,4 +1,5 @@
-import type { GetStaticPaths } from 'astro'
+import { type GetStaticPaths } from 'astro'
+
 import { CONSTANT } from '~/constants'
 import UI_EN from '~/i18n/en/translation.json'
 
@@ -44,7 +45,9 @@ export const locales = CONSTANT.I18N.LOCALES.map(({ value }) => value)
  * List of locales excluding the default locale
  * @type {Locale[]}
  */
-const otherLocales = CONSTANT.I18N.LOCALES.filter(({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE)
+const otherLocales = CONSTANT.I18N.LOCALES.filter(
+  ({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE
+)
 
 /**
  * Retrieves locales other than the default locale
@@ -94,7 +97,7 @@ export const getUI = (locale?: Locale | string): UI => {
     const result = Array.isArray(defaultObj) ? [...defaultObj] : { ...defaultObj }
 
     // Merge properties from the default object
-    for (const key of Object.keys(defaultObj) as Array<keyof T>) {
+    for (const key of Object.keys(defaultObj) as (keyof T)[]) {
       const defaultValue = defaultObj[key]
       const overrideValue = overrideObj[key]
 
@@ -106,7 +109,10 @@ export const getUI = (locale?: Locale | string): UI => {
         typeof overrideValue === 'object'
       ) {
         // Type assertion to handle nested merging
-        ;(result as Record<keyof T, unknown>)[key] = deepMerge(defaultValue as object, overrideValue as Partial<object>)
+        ;(result as Record<keyof T, unknown>)[key] = deepMerge(
+          defaultValue as object,
+          overrideValue as Partial<object>
+        )
       } else if (overrideValue !== undefined) {
         // Override with the new value if it exists
         ;(result as Record<keyof T, unknown>)[key] = overrideValue
@@ -114,7 +120,7 @@ export const getUI = (locale?: Locale | string): UI => {
     }
 
     // Add any new properties from overrideObj
-    for (const key of Object.keys(overrideObj) as Array<keyof T>) {
+    for (const key of Object.keys(overrideObj) as (keyof T)[]) {
       if (!(key in defaultObj)) {
         ;(result as Record<keyof T, unknown>)[key] = overrideObj[key]
       }
@@ -137,12 +143,14 @@ export const getStaticPaths = (() => {
       params: { locale: undefined },
       props: { locale: CONSTANT.I18N.DEFAULT_LOCALE },
     },
-    ...CONSTANT.I18N.LOCALES.filter(({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE).map(({ value }) => ({
-      params: { locale: value },
-      props: {
-        locale: value,
-      },
-    })),
+    ...CONSTANT.I18N.LOCALES.filter(({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE).map(
+      ({ value }) => ({
+        params: { locale: value },
+        props: {
+          locale: value,
+        },
+      })
+    ),
   ]
 }) satisfies GetStaticPaths
 
