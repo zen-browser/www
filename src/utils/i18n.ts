@@ -5,7 +5,6 @@ import { type UIProps } from '~/constants/i18n'
 
 /**
  * Represents the available locales in the application
- * @typedef {string} Locale
  */
 export type Locale = (typeof locales)[number]
 
@@ -14,12 +13,14 @@ export type Locale = (typeof locales)[number]
  * @param {Locale} [locale] - The current locale
  * @returns {function(string): string} A function that transforms paths based on the locale
  */
-export const getPath = (locale?: Locale) => (path: string) => {
-  if (locale && locale !== CONSTANT.I18N.DEFAULT_LOCALE && !path.startsWith(`/${locale}`)) {
-    return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`
+export const getPath =
+  (locale?: Locale): ((arg0: string) => string) =>
+  (path: string) => {
+    if (locale && locale !== CONSTANT.I18N.DEFAULT_LOCALE && !path.startsWith(`/${locale}`)) {
+      return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`
+    }
+    return path
   }
-  return path
-}
 
 /**
  * Retrieves the current locale from the Astro object.
@@ -34,13 +35,11 @@ export const getLocale = (Astro: AstroGlobal): Locale => {
 
 /**
  * List of all supported locales
- * @type {Locale[]}
  */
 export const locales = CONSTANT.I18N.LOCALES.map(({ value }) => value)
 
 /**
  * List of locales excluding the default locale
- * @type {Locale[]}
  */
 const otherLocales = CONSTANT.I18N.LOCALES.filter(
   ({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE
@@ -129,7 +128,6 @@ export const getUI = (locale?: Locale | string): UIProps => {
 
 /**
  * Generates static paths for internationalization
- * @type {GetStaticPaths}
  * @returns {Array} An array of static paths for different locales
  */
 export const getStaticPaths = (() => {
@@ -153,6 +151,6 @@ export const getStaticPaths = (() => {
  * Retrieves all available locales, including both default and non-default
  * @returns {Locale[]} Combined array of all locales
  */
-export const getLocales = () => {
+export const getLocales = (): Locale[] => {
   return [...locales, ...otherLocales]
 }

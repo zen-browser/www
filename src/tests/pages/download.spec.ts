@@ -11,10 +11,6 @@ const getPlatformSection = (page: Page, platform: string) =>
 const getPlatformButton = (page: Page, platform: string) =>
   page.locator(`button.platform-selector[data-platform='${platform}']`)
 
-// Helper to get the platform download link
-const _ = (page: Page, platform: string, label: string) =>
-  page.locator(`#${platform}-downloads .download-link:has-text('${label}')`)
-
 const platformConfigs: { name: string; userAgent: string; platform: string }[] = [
   {
     name: 'windows',
