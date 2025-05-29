@@ -98,7 +98,7 @@
           "description": "このテーマをインストールするにはZenが必要です。",
           "button": "今すぐダウンロード！"
         },
-        "createdBy": "作者：{author} (v{version})",
+        "createdBy": "作者：{author} • <b>v{version}</b>",
         "creationDate": "作成日：<b>{createdAt}</b>",
         "latestUpdate": "最終更新：<b>{updatedAt}</b>",
         "visitModHomepage": "Modのホームページへ",

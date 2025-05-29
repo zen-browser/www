@@ -98,7 +98,7 @@
           "description": "You need to have Zen Browser installed to install this theme.",
           "button": "Download now!"
         },
-        "createdBy": "Created by {author} (v{version})",
+        "createdBy": "Created by {author} • <b>v{version}</b>",
         "creationDate": "Creation date: <b>{createdAt}</b>",
         "latestUpdate": "Latest update: <b>{updatedAt}</b>",
         "visitModHomepage": "Visit mod homepage",
