@@ -22,16 +22,18 @@ const {
   id="Community"
   class="relative flex w-full flex-col items-center gap-6 py-12 text-start md:text-center lg:py-36"
 >
-  <Description class="mb-2 text-6xl font-bold">
-    <motion.span client:load {...getTitleAnimation(0.2)}>
-      {community.title[0]}
-    </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.4)}>
-      {community.title[1]}
-    </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.6)}>
-      {community.title[2]}
-    </motion.span>
+  <Description class="mb-2 text-4xl font-bold sm:text-6xl">
+    {
+      community.title.map((title, index) =>
+        title !== '\n' ? (
+          <motion.span client:load {...getTitleAnimation(0.2 + index * 0.2)}>
+            {title}
+          </motion.span>
+        ) : (
+          <br class="hidden md:block" />
+        )
+      )
+    }
   </Description>
   <motion.p client:load {...getTitleAnimation(0.6)} className="lg:w-1/2 lg:px-0">
     {community.description}

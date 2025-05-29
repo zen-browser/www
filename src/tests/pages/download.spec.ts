@@ -11,10 +11,6 @@ const getPlatformSection = (page: Page, platform: string) =>
 const getPlatformButton = (page: Page, platform: string) =>
   page.locator(`button.platform-selector[data-platform='${platform}']`)
 
-// Helper to get the platform download link
-const _ = (page: Page, platform: string, label: string) =>
-  page.locator(`#${platform}-downloads .download-link:has-text('${label}')`)
-
 const platformConfigs: { name: string; userAgent: string; platform: string }[] = [
   {
     name: 'windows',
@@ -79,9 +75,10 @@ test.describe('Download page platform detection and tab switching', () => {
 })
 
 test.describe('Download page download links', () => {
-  const releases = getReleasesWithChecksums(CONSTANT.CHECKSUMS)
+  const releases = getReleasesWithChecksums('en')(CONSTANT.CHECKSUMS)
 
-  function getPlatformLinks(releases: ReturnType<typeof getReleasesWithChecksums>) {
+  type Releases = ReturnType<ReturnType<typeof getReleasesWithChecksums>>
+  function getPlatformLinks(releases: Releases) {
     return {
       mac: [releases.macos.universal],
       windows: [releases.windows.x86_64, releases.windows.arm64],
