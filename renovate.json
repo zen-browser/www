@@ -4,8 +4,7 @@
     "config:recommended",
     ":dependencyDashboard",
     ":semanticCommits",
-    ":automergeDigests",
-    ":automergeBranch"
+    "config:js-app"
   ],
   "timezone": "UTC",
   "schedule": ["before 9am on Monday"],
