@@ -1,7 +1,7 @@
 ---
-import { getLocale, getPath, getUI } from '~/utils/i18n'
+import { getLocale, getUI } from '~/utils/i18n'
 
-const { type, content, link } = Astro.props as {
+interface Props {
   type: 'security' | 'feature' | 'fix' | 'theme' | 'break' | 'known'
   content: string
   link?: {
@@ -9,6 +9,8 @@ const { type, content, link } = Astro.props as {
     href: string
   } | null
 }
+
+const { type, content, link } = Astro.props
 
 const locale = getLocale(Astro)
 

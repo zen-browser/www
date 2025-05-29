@@ -97,7 +97,9 @@ const locale = getLocale(Astro)
       )
     </script>
   </head>
-  <body class="overflow-x-hidden text-balance bg-paper font-['bricolage-grotesque'] text-dark">
+  <body
+    class="min-h-[max(100dvh,_64rem)] overflow-x-hidden text-balance bg-paper font-['bricolage-grotesque'] text-dark"
+  >
     <NavBar />
     <slot />
     <Footer />
