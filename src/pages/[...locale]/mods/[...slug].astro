@@ -95,9 +95,11 @@ const {
         <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
           <p
             set:html={slug.createdBy
-              .replace('{author}', mod.author)
-              .replace('{version}', mod.version)
-              .replace('{link}', getAuthorLink(mod.author))}
+              .replace(
+                '{author}',
+                `<a href="${getAuthorLink(mod.author)}" class="zen-link font-bold">${mod.author}</a>`
+              )
+              .replace('{version}', mod.version)}
           />
           <p set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)} />
           {

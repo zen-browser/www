@@ -83,6 +83,7 @@
         "pagination": "{input} / {totalPages}（全{totalItems}件）"
       },
       "search": "検索ワードを入力...",
+      "by": "作者",
       "sort": {
         "lastCreated": "新着順",
         "lastUpdated": "更新順",
@@ -97,9 +98,9 @@
           "description": "このテーマをインストールするにはZenが必要です。",
           "button": "今すぐダウンロード！"
         },
-        "createdBy": "作成者：<a href={link} class=\"zen-link font-bold\">{author}</a> • <span class=\"font-bold\">v{version}</span>",
-        "creationDate": "作成日 • <b>{createdAt}</b>",
-        "latestUpdate": "最終更新 • <b>{updatedAt}</b>",
+        "createdBy": "作者：{author} (v{version})",
+        "creationDate": "作成日：<b>{createdAt}</b>",
+        "latestUpdate": "最終更新：<b>{updatedAt}</b>",
         "visitModHomepage": "Modのホームページへ",
         "installMod": "Modをインストール 🎉",
         "uninstallMod": "Modをアンインストール",

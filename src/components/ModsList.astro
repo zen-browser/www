@@ -104,7 +104,10 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           </div>
           <div>
             <h2 class="text-lg font-bold">
-              {mod.name} <span class="ml-1 text-sm font-normal">by @{mod.author}</span>
+              {mod.name}{' '}
+              <span class="ml-1 text-sm font-normal">
+                {translations.by} @{mod.author}
+              </span>
             </h2>
             <p class="line-clamp-2 text-sm font-thin">{mod.description}</p>
           </div>
@@ -514,7 +517,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
                   </div>
                   <div>
                     <h2 class="text-lg font-bold">
-                      ${mod.name} <span class="ml-1 text-sm font-normal">by @${mod.author}</span>
+                      ${mod.name} <span class="ml-1 text-sm font-normal">${this.translations.by} @${mod.author}</span>
                     </h2>
                     <p class="text-sm font-thin line-clamp-2">${mod.description}</p>
                   </div>

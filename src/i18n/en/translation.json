@@ -83,6 +83,7 @@
         "pagination": "{input} of {totalPages} ({totalItems} items)"
       },
       "search": "Type to search...",
+      "by": "by",
       "sort": {
         "lastCreated": "Last created",
         "lastUpdated": "Last updated",
@@ -97,9 +98,9 @@
           "description": "You need to have Zen Browser installed to install this theme.",
           "button": "Download now!"
         },
-        "createdBy": "Created by <a href={link} class=\"zen-link font-bold\">{author}</a> • <span class=\"font-bold\">v{version}</span>",
-        "creationDate": "Creation date • <b>{createdAt}</b>",
-        "latestUpdate": "Latest update • <b>{updatedAt}</b>",
+        "createdBy": "Created by {author} (v{version})",
+        "creationDate": "Creation date: <b>{createdAt}</b>",
+        "latestUpdate": "Latest update: <b>{updatedAt}</b>",
         "visitModHomepage": "Visit mod homepage",
         "installMod": "Install Mod 🎉",
         "uninstallMod": "Uninstall Mod",
