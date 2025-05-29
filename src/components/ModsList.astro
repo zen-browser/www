@@ -12,14 +12,14 @@ const defaultSortIcon = icon({ prefix: 'fas', iconName: 'sort' })
 const ascSortIcon = icon({ prefix: 'fas', iconName: 'sort-up' })
 const descSortIcon = icon({ prefix: 'fas', iconName: 'sort-down' })
 
-interface ModsListProps {
+interface Props {
   allMods: ZenTheme[]
   locale: Locale
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   translations: any
 }
 
-const { allMods, locale, translations } = Astro.props as ModsListProps
+const { allMods, locale, translations } = Astro.props
 
 const getLocalePath = getPath(locale)
 
