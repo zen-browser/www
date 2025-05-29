@@ -2,7 +2,6 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
-    ":dependencyDashboard",
     ":semanticCommits",
     "config:js-app"
   ],
@@ -10,7 +9,6 @@
   "schedule": ["before 9am on Monday"],
   "labels": ["dependencies"],
   "assignees": ["@me"],
-  "rangeStrategy": "bump",
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
   "lockFileMaintenance": {
@@ -121,17 +119,17 @@
     }
   ],
   "vulnerabilityAlerts": {
-    "enabled": true,
+    "enabled": false,
     "labels": ["security", "dependencies"],
     "automerge": false,
     "schedule": ["at any time"]
   },
   "osvVulnerabilityAlerts": true,
-  "dependencyDashboard": true,
+  "dependencyDashboard": false,
   "dependencyDashboardTitle": "Dependency Dashboard",
   "dependencyDashboardHeader": "This issue lists Renovate updates and detected dependencies. Read the [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) docs to learn more.",
   "dependencyDashboardFooter": "Configure Renovate in `renovate.json`",
   "configMigration": true,
-  "platformAutomerge": true,
+  "platformAutomerge": false,
   "automergeStrategy": "squash"
 }
