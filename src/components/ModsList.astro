@@ -71,7 +71,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         </button>
       </div>
 
-      <div class="flex items-center gap-2 px-4 py-2">
+      <div class="col-span-2 flex items-center gap-2 px-4 py-2 sm:grid-cols-1">
         <label class="text-md font-semibold" for="limit">
           {translations.sort.perPage}
         </label>
@@ -117,7 +117,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
   </div>
   <div
     id="no-results"
-    class="hidden h-full flex-col justify-center gap-4 place-self-center text-center"
+    class="hidden h-full min-h-96 flex-col justify-center gap-4 place-self-center text-center"
   >
     <h2 class="text-lg font-bold">{translations.noResults}</h2>
     <p class="text-sm font-thin">{translations.noResultsDescription}</p>
