@@ -49,7 +49,7 @@ const otherLocales = CONSTANT.I18N.LOCALES.filter(
  * Retrieves locales other than the default locale
  * @returns {Locale[]} Array of non-default locales
  */
-export const getOtherLocales = () => otherLocales
+export const getOtherLocales = (): Locale[] => otherLocales
 
 /**
  * Retrieves UI translations for a given locale, merging with default translations
