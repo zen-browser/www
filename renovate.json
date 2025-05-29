@@ -1,0 +1,138 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":automergeDigests",
+    ":automergeBranch"
+  ],
+  "timezone": "UTC",
+  "schedule": ["before 9am on Monday"],
+  "labels": ["dependencies"],
+  "assignees": ["@me"],
+  "rangeStrategy": "bump",
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": false,
+    "schedule": ["before 9am on Monday"]
+  },
+  "packageRules": [
+    {
+      "description": "Astro and React ecosystem packages",
+      "matchPackagePatterns": ["^@astrojs/", "^astro", "^react", "^@types/react"],
+      "groupName": "Astro and React core",
+      "schedule": ["before 9am on Monday"],
+      "automerge": false,
+      "reviewersFromCodeOwners": true
+    },
+    {
+      "description": "Development dependencies",
+      "matchDepTypes": ["devDependencies"],
+      "groupName": "Dev dependencies",
+      "schedule": ["before 9am on Monday"],
+      "automerge": false,
+      "automergeType": "pr",
+      "minimumReleaseAge": "3 days"
+    },
+    {
+      "description": "Testing packages",
+      "matchPackagePatterns": [
+        "^@testing-library/",
+        "^@playwright/",
+        "^vitest",
+        "^@vitest/",
+        "^jsdom"
+      ],
+      "groupName": "Testing packages",
+      "schedule": ["before 9am on Monday"],
+      "automerge": false,
+      "automergeType": "pr"
+    },
+    {
+      "description": "ESLint and TypeScript packages",
+      "matchPackagePatterns": ["^@typescript-eslint/", "^eslint", "^typescript", "^@types/"],
+      "excludePackagePatterns": ["^@types/react"],
+      "groupName": "TypeScript and ESLint",
+      "schedule": ["before 9am on Monday"],
+      "automerge": false,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Formatting and code quality tools",
+      "matchPackageNames": [
+        "prettier",
+        "prettier-plugin-astro",
+        "prettier-plugin-tailwindcss",
+        "husky",
+        "lint-staged"
+      ],
+      "groupName": "Code formatting tools",
+      "schedule": ["before 9am on Monday"],
+      "automerge": false,
+      "automergeType": "pr"
+    },
+    {
+      "description": "TailwindCSS ecosystem",
+      "matchPackagePatterns": ["^tailwind", "^@tailwindcss/"],
+      "matchPackageNames": ["autoprefixer", "postcss", "clsx", "tailwind-merge"],
+      "groupName": "TailwindCSS ecosystem",
+      "schedule": ["before 9am on Monday"],
+      "automerge": false
+    },
+    {
+      "description": "FontAwesome packages",
+      "matchPackagePatterns": ["^@fortawesome/"],
+      "groupName": "FontAwesome packages",
+      "schedule": ["before 9am on Monday"],
+      "automerge": false,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Lucide icon packages",
+      "matchPackagePatterns": ["^lucide-"],
+      "groupName": "Lucide icons",
+      "schedule": ["before 9am on Monday"],
+      "automerge": false,
+      "automergeType": "pr"
+    },
+    {
+      "description": "Major updates require manual review",
+      "matchUpdateTypes": ["major"],
+      "automerge": false,
+      "schedule": ["before 9am on Monday"],
+      "labels": ["dependencies", "major-update"],
+      "reviewersFromCodeOwners": true
+    },
+    {
+      "description": "Pin Node.js to LTS versions",
+      "matchPackageNames": ["node"],
+      "allowedVersions": "/^(18|20|22)\\./",
+      "automerge": false
+    },
+    {
+      "description": "Cloudflare Workers and Wrangler",
+      "matchPackageNames": ["wrangler", "@astrojs/cloudflare"],
+      "groupName": "Cloudflare ecosystem",
+      "schedule": ["before 9am on Monday"],
+      "automerge": false,
+      "reviewersFromCodeOwners": true
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "labels": ["security", "dependencies"],
+    "automerge": false,
+    "schedule": ["at any time"]
+  },
+  "osvVulnerabilityAlerts": true,
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "Dependency Dashboard",
+  "dependencyDashboardHeader": "This issue lists Renovate updates and detected dependencies. Read the [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) docs to learn more.",
+  "dependencyDashboardFooter": "Configure Renovate in `renovate.json`",
+  "configMigration": true,
+  "platformAutomerge": true,
+  "automergeStrategy": "squash"
+}
