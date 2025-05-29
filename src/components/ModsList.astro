@@ -175,9 +175,50 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       this.lastFilteredMods = null
       this.lastRenderState = null
 
+      // Cache DOM elements for better performance and intellisense
+      this.elements = this.cacheElements()
+
       this.initializeFromURL()
       this.bindEvents()
       this.renderMods()
+    }
+
+    cacheElements() {
+      const searchInput = document.getElementById('search')
+      const limitSelect = document.getElementById('limit')
+      const createdSortButton = document.getElementById('created-sort')
+      const updatedSortButton = document.getElementById('updated-sort')
+      const modsGrid = document.getElementById('mods-grid')
+      const noResults = document.getElementById('no-results')
+      const pagination = document.getElementById('pagination')
+
+      // Sort icon elements
+      const createdSortDefault = document.getElementById('created-sort-default')
+      const createdSortAsc = document.getElementById('created-sort-asc')
+      const createdSortDesc = document.getElementById('created-sort-desc')
+      const updatedSortDefault = document.getElementById('updated-sort-default')
+      const updatedSortAsc = document.getElementById('updated-sort-asc')
+      const updatedSortDesc = document.getElementById('updated-sort-desc')
+
+      return {
+        searchInput: searchInput instanceof HTMLInputElement ? searchInput : null,
+        limitSelect: limitSelect instanceof HTMLSelectElement ? limitSelect : null,
+        createdSortButton:
+          createdSortButton instanceof HTMLButtonElement ? createdSortButton : null,
+        updatedSortButton:
+          updatedSortButton instanceof HTMLButtonElement ? updatedSortButton : null,
+        modsGrid: modsGrid instanceof HTMLDivElement ? modsGrid : null,
+        noResults: noResults instanceof HTMLDivElement ? noResults : null,
+        pagination: pagination instanceof HTMLDivElement ? pagination : null,
+        sortIcons: {
+          createdDefault: createdSortDefault instanceof HTMLSpanElement ? createdSortDefault : null,
+          createdAsc: createdSortAsc instanceof HTMLSpanElement ? createdSortAsc : null,
+          createdDesc: createdSortDesc instanceof HTMLSpanElement ? createdSortDesc : null,
+          updatedDefault: updatedSortDefault instanceof HTMLSpanElement ? updatedSortDefault : null,
+          updatedAsc: updatedSortAsc instanceof HTMLSpanElement ? updatedSortAsc : null,
+          updatedDesc: updatedSortDesc instanceof HTMLSpanElement ? updatedSortDesc : null,
+        },
+      }
     }
 
     getLocalePath(path) {
@@ -185,7 +226,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         return `/${this.locale}${path.startsWith('/') ? '' : '/'}${path}`
       }
       return path
-    } // Validation helpers - similar to Zod
+    }
     validateSortOrder(value, defaultValue = 'default') {
       const validSortOrders = ['default', 'asc', 'desc']
       return validSortOrders.includes(value) ? value : defaultValue
@@ -204,7 +245,6 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
     initializeFromURL() {
       const params = new URLSearchParams(window.location.search)
 
-      // Validate and sanitize URL parameters with fallbacks
       const rawCreatedSort = params.get('created')
       const rawUpdatedSort = params.get('updated')
       const rawPage = params.get('page')
@@ -218,36 +258,54 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         limit: this.validateLimit(rawLimit, 12),
       }
 
-      // Set form values
-      document.getElementById('search').value = this.state.search
-      document.getElementById('limit').value = this.state.limit.toString()
+      // Set form values using cached elements
+      if (this.elements.searchInput) {
+        this.elements.searchInput.value = this.state.search
+      }
+      if (this.elements.limitSelect) {
+        this.elements.limitSelect.value = this.state.limit.toString()
+      }
     }
     bindEvents() {
       // Search input with debouncing
-      document.getElementById('search').addEventListener('input', e => {
-        // Clear existing timeout
-        if (this.searchTimeout) {
-          clearTimeout(this.searchTimeout)
-        }
+      if (this.elements.searchInput) {
+        this.elements.searchInput.addEventListener('input', e => {
+          // Clear existing timeout
+          if (this.searchTimeout) {
+            clearTimeout(this.searchTimeout)
+          }
 
-        // Set new timeout for debounced search
-        this.searchTimeout = setTimeout(() => {
-          this.setState({ search: e.target.value, page: 1 })
-        }, 300) // 300ms debounce
-      })
+          // Set new timeout for debounced search
+          this.searchTimeout = setTimeout(() => {
+            if (e.target instanceof HTMLInputElement) {
+              this.setState({ search: e.target.value, page: 1 })
+            }
+          }, 300) // 300ms debounce
+        })
+      }
 
       // Sort buttons
-      document.getElementById('created-sort').addEventListener('click', () => {
-        this.toggleCreatedSort()
-      })
+      if (this.elements.createdSortButton) {
+        this.elements.createdSortButton.addEventListener('click', () => {
+          this.toggleCreatedSort()
+        })
+      }
 
-      document.getElementById('updated-sort').addEventListener('click', () => {
-        this.toggleUpdatedSort()
-      }) // Limit select
-      document.getElementById('limit').addEventListener('change', e => {
-        const newLimit = this.validateLimit(e.target.value, this.state.limit)
-        this.setState({ limit: newLimit, page: 1 })
-      })
+      if (this.elements.updatedSortButton) {
+        this.elements.updatedSortButton.addEventListener('click', () => {
+          this.toggleUpdatedSort()
+        })
+      }
+
+      // Limit select
+      if (this.elements.limitSelect) {
+        this.elements.limitSelect.addEventListener('change', e => {
+          if (e.target instanceof HTMLSelectElement) {
+            const newLimit = this.validateLimit(e.target.value, this.state.limit)
+            this.setState({ limit: newLimit, page: 1 })
+          }
+        })
+      }
     }
     setState(newState) {
       // Prevent multiple renders
@@ -311,27 +369,45 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       this.setState({ updatedSort: newSort, createdSort: 'default', page: 1 })
     }
     updateSortIcons() {
-      // Update created sort icons
-      document
-        .getElementById('created-sort-default')
-        .classList.toggle('hidden', this.state.createdSort !== 'default')
-      document
-        .getElementById('created-sort-asc')
-        .classList.toggle('hidden', this.state.createdSort !== 'asc')
-      document
-        .getElementById('created-sort-desc')
-        .classList.toggle('hidden', this.state.createdSort !== 'desc')
+      // Update created sort icons using cached elements
+      if (this.elements.sortIcons.createdDefault) {
+        this.elements.sortIcons.createdDefault.classList.toggle(
+          'hidden',
+          this.state.createdSort !== 'default'
+        )
+      }
+      if (this.elements.sortIcons.createdAsc) {
+        this.elements.sortIcons.createdAsc.classList.toggle(
+          'hidden',
+          this.state.createdSort !== 'asc'
+        )
+      }
+      if (this.elements.sortIcons.createdDesc) {
+        this.elements.sortIcons.createdDesc.classList.toggle(
+          'hidden',
+          this.state.createdSort !== 'desc'
+        )
+      }
 
-      // Update updated sort icons
-      document
-        .getElementById('updated-sort-default')
-        .classList.toggle('hidden', this.state.updatedSort !== 'default')
-      document
-        .getElementById('updated-sort-asc')
-        .classList.toggle('hidden', this.state.updatedSort !== 'asc')
-      document
-        .getElementById('updated-sort-desc')
-        .classList.toggle('hidden', this.state.updatedSort !== 'desc')
+      // Update updated sort icons using cached elements
+      if (this.elements.sortIcons.updatedDefault) {
+        this.elements.sortIcons.updatedDefault.classList.toggle(
+          'hidden',
+          this.state.updatedSort !== 'default'
+        )
+      }
+      if (this.elements.sortIcons.updatedAsc) {
+        this.elements.sortIcons.updatedAsc.classList.toggle(
+          'hidden',
+          this.state.updatedSort !== 'asc'
+        )
+      }
+      if (this.elements.sortIcons.updatedDesc) {
+        this.elements.sortIcons.updatedDesc.classList.toggle(
+          'hidden',
+          this.state.updatedSort !== 'desc'
+        )
+      }
     }
     updateURL(isSearchOrFilter = false) {
       const params = new URLSearchParams()
@@ -399,12 +475,13 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           const endIndex = startIndex + this.state.limit
           const paginatedMods = filteredMods.slice(startIndex, endIndex)
 
-          const modsGrid = document.getElementById('mods-grid')
-          const noResults = document.getElementById('no-results')
-
           if (paginatedMods.length > 0) {
-            noResults.classList.add('hidden')
-            modsGrid.classList.remove('hidden')
+            if (this.elements.noResults) {
+              this.elements.noResults.classList.add('hidden')
+            }
+            if (this.elements.modsGrid) {
+              this.elements.modsGrid.classList.remove('hidden')
+            }
 
             // Check if we're in the default state
             const isDefaultState =
@@ -452,15 +529,21 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
               }
 
               // Clear and append fragment (single reflow)
-              modsGrid.innerHTML = ''
-              modsGrid.appendChild(fragment)
+              if (this.elements.modsGrid) {
+                this.elements.modsGrid.innerHTML = ''
+                this.elements.modsGrid.appendChild(fragment)
+              }
 
               // Track that we've modified the content
               this.hasBeenModified = !isDefaultState
             }
           } else {
-            modsGrid.classList.add('hidden')
-            noResults.classList.replace('hidden', 'flex')
+            if (this.elements.modsGrid) {
+              this.elements.modsGrid.classList.add('hidden')
+            }
+            if (this.elements.noResults) {
+              this.elements.noResults.classList.replace('hidden', 'flex')
+            }
             this.hasBeenModified = true
           }
 
@@ -505,11 +588,13 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
     }
 
     renderPagination(totalPages, totalItems) {
-      const pagination = document.getElementById('pagination')
+      const paginationElement = this.elements.pagination
+
+      if (!paginationElement) return
 
       if (totalPages <= 1) {
-        pagination.innerHTML = ''
-        pagination.classList.add('hidden')
+        paginationElement.innerHTML = ''
+        paginationElement.classList.add('hidden')
         return
       }
 
@@ -539,7 +624,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         .replace('{totalPages}', totalPages.toString())
         .replace('{totalItems}', totalItems.toString())
 
-      pagination.innerHTML = `
+      paginationElement.innerHTML = `
         ${prevButton}
         <form class="flex items-center gap-2" id="page-form">
           <input
@@ -552,28 +637,33 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           <span class="text-sm">${paginationText.replace('{input}', '')}</span>
         </form>
         ${nextButton}
-      ` // Bind pagination events
-      pagination.classList.replace('hidden', 'flex')
+      `
+
+      // Bind pagination events
+      paginationElement.classList.replace('hidden', 'flex')
+
       const pageForm = document.getElementById('page-form')
       const pageInput = document.getElementById('page-input')
 
-      pageForm.addEventListener('submit', e => {
-        e.preventDefault()
-        const inputValue = pageInput.value
-        const newPage = this.validatePage(inputValue, this.state.page)
+      if (pageForm && pageInput instanceof HTMLInputElement) {
+        pageForm.addEventListener('submit', e => {
+          e.preventDefault()
+          const inputValue = pageInput.value
+          const newPage = this.validatePage(inputValue, this.state.page)
 
-        // Additional validation for page range
-        if (newPage >= 1 && newPage <= totalPages) {
-          this.navigatePage(newPage)
-        } else {
-          // Reset to current page if out of range
-          pageInput.value = this.state.page.toString()
-        }
-      })
+          // Additional validation for page range
+          if (newPage >= 1 && newPage <= totalPages) {
+            this.navigatePage(newPage)
+          } else {
+            // Reset to current page if out of range
+            pageInput.value = this.state.page.toString()
+          }
+        })
+      }
 
       // Bind navigation links
-      pagination.addEventListener('click', e => {
-        if (e.target.tagName === 'A' && e.target.dataset.page) {
+      paginationElement.addEventListener('click', e => {
+        if (e.target instanceof HTMLAnchorElement && e.target.dataset.page) {
           e.preventDefault()
           this.navigatePage(parseInt(e.target.dataset.page, 10))
         }
