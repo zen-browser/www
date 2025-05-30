@@ -22,6 +22,7 @@ export interface ReleaseNote {
   inProgress?: boolean
   workflowId?: number
   isTwilight?: boolean
+  changes?: string[]
 }
 
 export const releaseNotes: ReleaseNote[] = releaseNotesStable.reverse()

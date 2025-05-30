@@ -117,7 +117,8 @@
         "known": "Known",
         "break": "Breaking",
         "theme": "Theme",
-        "security": "Security"
+        "security": "Security",
+        "change": "Changed"
       },
       "backToTop": "Back to the top",
       "chooseVersion": "Choose version",

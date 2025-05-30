@@ -2783,5 +2783,28 @@
     "workflowId": 15193769814,
     "image": false,
     "date": "23/05/2025"
+  },
+  {
+    "version": "1.12.9b",
+    "extra": "This update includes some fixes, security updates, and a few changes! We've included both the updates for firefox 139.0 and 139.0.1 into the same release, since firefox 139.0 had some rendering issues on windows for NVIDIA users, we've waiting a day to release this update to ensure that the issues were resolved.",
+    "fixes": [
+      "Pinned and essential tabs not restoring their icons correctly",
+      "Other issues with split views and glance"
+    ],
+    "changes": [
+      "Unloaded tabs won't be dimmed unless they are explicitly discarded",
+      "Context menu icons have been removed to provide a cleaner look and feel"
+    ],
+    "features": [
+      "Updated to firefox 139.0 and 139.0.1",
+      "Added automatic updates for mods",
+      "Auto tab unloader will now use firefox's default tab discarding feature, which is based on time and memory usage, instead of the previous method which was simply based on time",
+      "Improved performance on rounded corner rendering for the webview",
+      "Enabled the browser to start having to prioritize processes that are more important once zen is under memory pressure on MacOS",
+      "Context menu item 'Search <text> on <search engine>' now opens glance instead of a new tab"
+    ],
+    "workflowId": 15352407839,
+    "image": false,
+    "date": "30/05/2025"
   }
 ]
