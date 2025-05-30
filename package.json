@@ -59,8 +59,6 @@
     "wrangler": "^3.114.8"
   },
   "lint-staged": {
-    "src/**/*.{ts,tsx,astro,js,jsx}": [
-      "biome check --write ."
-    ]
+    "src/**/*.{ts,tsx,astro,js,jsx}": ["biome check --write ."]
   }
 }
