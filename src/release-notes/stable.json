@@ -2765,6 +2765,7 @@
       "Unloaded tabs won't be dimmed unless they are explicitly discarded",
       "Context menu icons have been removed to provide a cleaner look and feel"
     ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-42/",
     "features": [
       "Updated to firefox 139.0 and 139.0.1",
       "Added automatic updates for mods",

@@ -100,8 +100,8 @@ const generateItems = (items: any, type: string) => {
 }
 generateItems(props.security ? [props.security] : null, 'security')
 generateItems(props.fixes, 'fix')
-generateItems(props.changes, 'change')
 generateItems(props.features, 'feature')
+generateItems(props.changes, 'change')
 generateItems(props.themeChanges, 'theme')
 generateItems(props.breakingChanges, 'break')
 generateItems(props.knownIssues, 'known')
