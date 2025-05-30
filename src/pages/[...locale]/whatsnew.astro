@@ -27,24 +27,14 @@ if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVer
 }
 ---
 
-<Layout
-  title={layout.whatsNew.title.replace(
-    '{latestVersion.version}',
-    latestVersion.version,
-  )}
->
+<Layout title={layout.whatsNew.title.replace('{latestVersion.version}', latestVersion.version)}>
   <main
     class="xl:mt-22 container flex flex-col gap-12 py-12 xl:grid xl:min-h-[calc(100vh-12rem)] xl:grid-cols-[2fr_3fr]"
   >
     <div class="flex flex-col gap-8">
       <div>
         <Description class="text-5xl font-bold md:text-6xl"
-          >{
-            whatsNew.title.replace(
-              '{latestVersion.version}',
-              latestVersion.version,
-            )
-          }</Description
+          >{whatsNew.title.replace('{latestVersion.version}', latestVersion.version)}</Description
         >
         <Description>{latestVersion.date}</Description>
       </div>
@@ -52,10 +42,7 @@ if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVer
         <Fragment set:html={whatsNewText[0].replace(/\n/g, '<br>')} />
       </div>
       <ul class="hidden list-disc flex-col gap-2 xl:container xl:flex">
-        <a
-          href="https://github.com/zen-browser/desktop/issues/new/choose"
-          target="_blank"
-        >
+        <a href="https://github.com/zen-browser/desktop/issues/new/choose" target="_blank">
           <li>
             <Description class="text-base font-bold">
               {whatsNew.reportIssue}

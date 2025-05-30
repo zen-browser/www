@@ -12,11 +12,7 @@ const locale = getLocale(Astro)
 const { layout } = getUI(locale)
 ---
 
-<Layout
-  title={layout.index.title}
-  description={layout.index.description}
-  isHome
->
+<Layout title={layout.index.title} description={layout.index.description} isHome>
   <main class="container">
     <Hero />
     <Features />

@@ -1,5 +1,5 @@
-import { expect, test } from '@playwright/test'
-import type { BrowserContextOptions, Page } from '@playwright/test'
+import { expect, test, type BrowserContextOptions, type Page } from '@playwright/test'
+
 import { getReleasesWithChecksums } from '~/components/download/release-data'
 import { CONSTANT } from '~/constants'
 
@@ -10,10 +10,6 @@ const getPlatformSection = (page: Page, platform: string) =>
 // Helper to get the platform tab button
 const getPlatformButton = (page: Page, platform: string) =>
   page.locator(`button.platform-selector[data-platform='${platform}']`)
-
-// Helper to get the platform download link
-const getPlatformDownloadLink = (page: Page, platform: string, label: string) =>
-  page.locator(`#${platform}-downloads .download-link:has-text('${label}')`)
 
 const platformConfigs: { name: string; userAgent: string; platform: string }[] = [
   {
@@ -30,7 +26,8 @@ const platformConfigs: { name: string; userAgent: string; platform: string }[] =
   },
   {
     name: 'linux',
-    userAgent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    userAgent:
+      'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     platform: 'Linux x86_64',
   },
 ]
@@ -48,7 +45,7 @@ test.describe('Download page default tab per platform', () => {
       await expect(getPlatformSection(page, name)).toBeVisible()
       await expect(getPlatformButton(page, name)).toHaveAttribute('data-active', 'true')
       // Other platforms should not be active
-      for (const other of platformConfigs.filter((p) => p.name !== name)) {
+      for (const other of platformConfigs.filter(p => p.name !== name)) {
         await expect(getPlatformSection(page, other.name)).toBeHidden()
         await expect(getPlatformButton(page, other.name)).not.toHaveAttribute('data-active', 'true')
       }
@@ -66,22 +63,30 @@ test.describe('Download page platform detection and tab switching', () => {
       await expect(getPlatformSection(page, platform)).toBeVisible()
       await expect(getPlatformButton(page, platform)).toHaveAttribute('data-active', 'true')
       // other platform sections should be hidden
-      for (const otherPlatform of platforms.filter((p) => p !== platform)) {
+      for (const otherPlatform of platforms.filter(p => p !== platform)) {
         await expect(getPlatformSection(page, otherPlatform)).toBeHidden()
-        await expect(getPlatformButton(page, otherPlatform)).not.toHaveAttribute('data-active', 'true')
+        await expect(getPlatformButton(page, otherPlatform)).not.toHaveAttribute(
+          'data-active',
+          'true'
+        )
       }
     }
   })
 })
 
 test.describe('Download page download links', () => {
-  const releases = getReleasesWithChecksums(CONSTANT.CHECKSUMS)
+  const releases = getReleasesWithChecksums('en')(CONSTANT.CHECKSUMS)
 
-  function getPlatformLinks(releases: ReturnType<typeof getReleasesWithChecksums>) {
+  type Releases = ReturnType<ReturnType<typeof getReleasesWithChecksums>>
+  function getPlatformLinks(releases: Releases) {
     return {
       mac: [releases.macos.universal],
       windows: [releases.windows.x86_64, releases.windows.arm64],
-      linux: [releases.linux.x86_64.tarball, releases.linux.aarch64.tarball, releases.linux.flathub.all],
+      linux: [
+        releases.linux.x86_64.tarball,
+        releases.linux.aarch64.tarball,
+        releases.linux.flathub.all,
+      ],
     }
   }
 
@@ -92,7 +97,9 @@ test.describe('Download page download links', () => {
     await page.waitForLoadState('domcontentloaded')
     for (const platform of platforms) {
       await getPlatformButton(page, platform).click()
-      for (const { label, link } of platformLinkSelectors[platform as keyof typeof platformLinkSelectors]) {
+      for (const { label, link } of platformLinkSelectors[
+        platform as keyof typeof platformLinkSelectors
+      ]) {
         const downloadLink = page.locator(`#${platform}-downloads .download-link[href="${link}"]`)
         await expect(downloadLink).toContainText(label)
         await expect(downloadLink).toHaveAttribute('href', link)

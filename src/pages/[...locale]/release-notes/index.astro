@@ -21,38 +21,32 @@ const {
   <main
     class="container flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4"
   >
-    <div
-      id="release-notes"
-      class="py-42 flex min-h-screen gap-8 w-full flex-col justify-center"
-    >
-      <Description class="mt-48 text-6xl font-bold">Changelog</Description>
+    <div id="release-notes" class="py-42 flex min-h-screen w-full flex-col justify-center gap-8">
+      <Description class="mt-48 text-6xl font-bold">{releaseNotes.topSection.title}</Description>
       <p
         class="text-base opacity-55"
         set:html={releaseNotes.topSection.description.replaceAll(
           '{latestVersion}',
-          releaseNotesData[0].version,
+          releaseNotesData[0].version
         )}
       />
-      <div
-        class="mt-8 flex w-fit flex-col gap-4 sm:mr-0 sm:flex-row sm:items-center"
-      >
+      <div class="mt-8 flex w-fit flex-col gap-4 sm:mr-0 sm:flex-row sm:items-center">
         <Button class="flex" isPrimary href="/donate">
           {releaseNotes.list.support}
         </Button>
-        <Button id="navigate-to-version" href="#" class="flex">
+        <Button id="navigate-to-version" href="#" class="flex" localePath={false}>
           {releaseNotes.list.navigateToVersion}
         </Button>
       </div>
       {
-        releaseNotesTwilight.features.length ||
-        releaseNotesTwilight.fixes.length ? (
+        releaseNotesTwilight.features.length || releaseNotesTwilight.fixes.length ? (
           <ReleaseNoteItem {...releaseNotesTwilight} isTwilight />
         ) : null
       }
-      {releaseNotesData.map((notes: any) => <ReleaseNoteItem {...notes} />)}
+      {releaseNotesData.map(notes => <ReleaseNoteItem {...notes} />)}
     </div>
   </main>
-  <Button href="#" id="scroll-top" isPrimary class="fixed bottom-8 right-8">
+  <Button id="scroll-top" isPrimary class="fixed bottom-8 right-8" onclick="window.scrollTo(0, 0)">
     <p class="hidden items-center gap-2 sm:flex">
       {releaseNotes.backToTop}
       <ArrowUpIcon aria-hidden="true" class="size-4" />
@@ -67,7 +61,7 @@ const {
   <ModalBody>
     <div id="version-list" class="flex flex-col gap-2 text-xl text-dark">
       {
-        releaseNotesData.map((note) => (
+        releaseNotesData.map(note => (
           <button
             aria-label={`Navigate to version ${note.version}`}
             class="w-full text-left transition-colors duration-150 hover:text-coral"
@@ -81,7 +75,7 @@ const {
   </ModalBody>
 </Modal>
 <script>
-  import { openModal, closeModal } from 'free-astro-components'
+  import { closeModal, openModal } from 'free-astro-components'
 
   const scrollTopButton = document.getElementById('scroll-top')
   const versionButton = document.getElementById('navigate-to-version')
@@ -110,11 +104,9 @@ const {
     if (!version) return
     window.location.hash = version
 
-    const versionDetails = document
-      .getElementById(version)
-      ?.getElementsByTagName('details')
+    const versionDetails = document.getElementById(version)?.getElementsByTagName('details')
     if (versionDetails && versionDetails.length > 0) {
-      Array.from(versionDetails).forEach((accordion) => {
+      Array.from(versionDetails).forEach(accordion => {
         accordion.setAttribute('open', '')
       })
     }
@@ -131,7 +123,7 @@ const {
   versionButton?.addEventListener('click', openVersionModal)
   versionList?.addEventListener('click', navigateToVersion)
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && modal?.hasAttribute('open')) {
       closeModal(modal)
       // Remove scroll lock if present

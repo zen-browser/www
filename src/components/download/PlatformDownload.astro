@@ -42,7 +42,7 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
 
 <div
   id={`${platform}-downloads`}
-  data-active={platform === "mac"}
+  data-active={platform === 'mac'}
   class="platform-section data-[active='false']:hidden"
 >
   <div class="items-center gap-8 md:flex">
@@ -56,7 +56,7 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
       <p class="text-muted-foreground mb-6" set:html={description} />
       <div class="space-y-6">
         {
-          platform === "linux" ? (
+          platform === 'linux' ? (
             <>
               {releases.flathub && releases.flathub.all.label && (
                 <article class="flathub-download data-[twilight='true']:hidden">
@@ -71,24 +71,16 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                 </article>
               )}
               {releases.x86_64 &&
-                typeof releases.x86_64 === "object" &&
-                "tarball" in releases.x86_64 &&
-                (releases.x86_64.tarball) && (
+                typeof releases.x86_64 === 'object' &&
+                'tarball' in releases.x86_64 &&
+                releases.x86_64.tarball && (
                   <article>
                     <h4 class="mb-3 text-lg font-medium">x86_64</h4>
                     <div class="">
                       {releases.x86_64.tarball && (
                         <DownloadCard
-                          label={
-                            releases.x86_64.tarball.label
-                              ? releases.x86_64.tarball.label
-                              : ""
-                          }
-                          href={
-                            releases.x86_64.tarball.link
-                              ? releases.x86_64.tarball.link
-                              : ""
-                          }
+                          label={releases.x86_64.tarball.label ? releases.x86_64.tarball.label : ''}
+                          href={releases.x86_64.tarball.link ? releases.x86_64.tarball.link : ''}
                           variant="x86_64"
                           checksum={releases.x86_64.tarball.checksum}
                         />
@@ -97,24 +89,18 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                   </article>
                 )}
               {releases.aarch64 &&
-                typeof releases.aarch64 === "object" &&
-                "tarball" in releases.aarch64 &&
-                (releases.aarch64.tarball) && (
+                typeof releases.aarch64 === 'object' &&
+                'tarball' in releases.aarch64 &&
+                releases.aarch64.tarball && (
                   <article>
                     <h4 class="mb-3 text-lg font-medium">ARM64</h4>
                     <div class="gap-3">
                       {releases.aarch64.tarball && (
                         <DownloadCard
                           label={
-                            releases.aarch64.tarball.label
-                              ? releases.aarch64.tarball.label
-                              : ""
+                            releases.aarch64.tarball.label ? releases.aarch64.tarball.label : ''
                           }
-                          href={
-                            releases.aarch64.tarball.link
-                              ? releases.aarch64.tarball.link
-                              : ""
-                          }
+                          href={releases.aarch64.tarball.link ? releases.aarch64.tarball.link : ''}
                           variant="aarch64"
                           checksum={releases.aarch64.tarball.checksum}
                         />
@@ -133,15 +119,13 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
                     checksum={releases.universal.checksum}
                   />
                 )}
-                {releases.x86_64 &&
-                  isFlatReleaseInfo(releases.x86_64) &&
-                  releases.x86_64.label && (
-                    <DownloadCard
-                      label={releases.x86_64.label}
-                      href={releases.x86_64.link}
-                      checksum={releases.x86_64.checksum}
-                    />
-                  )}
+                {releases.x86_64 && isFlatReleaseInfo(releases.x86_64) && releases.x86_64.label && (
+                  <DownloadCard
+                    label={releases.x86_64.label}
+                    href={releases.x86_64.link}
+                    checksum={releases.x86_64.checksum}
+                  />
+                )}
                 {releases.arm64 && releases.arm64.label && (
                   <DownloadCard
                     label={releases.arm64.label}
@@ -158,11 +142,7 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
     <div
       class="download-browser-logo flex justify-center text-coral transition-colors data-[twilight='true']:text-zen-blue md:w-1/3"
     >
-      <Image
-        src={AppIconDark}
-        alt="Zen Browser"
-        class="w-32 translate-y-6 transform dark:hidden"
-      />
+      <Image src={AppIconDark} alt="Zen Browser" class="w-32 translate-y-6 transform dark:hidden" />
       <Image
         src={AppIconLight}
         alt="Zen Browser"

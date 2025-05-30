@@ -1,6 +1,6 @@
 import releaseNotesStable from './release-notes/stable.json'
 
-interface FixWithIssue {
+type FixWithIssue = {
   description: string
   issue?: number
 }
@@ -9,7 +9,7 @@ type Fix = string | FixWithIssue
 
 export type BreakingChange = string | { description: string; link: string }
 
-export interface ReleaseNote {
+export type ReleaseNote = {
   version: string
   date?: string // optional for twilight
   extra?: string

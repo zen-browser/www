@@ -7,7 +7,7 @@ export function getTitleAnimation(delay = 0, duration = 0.3, once = true) {
       filter: 'blur(0px)',
       transition: { duration, delay },
     },
-    viewport: { once: once },
+    viewport: { once },
   }
 }
 

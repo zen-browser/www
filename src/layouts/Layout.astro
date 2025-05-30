@@ -31,7 +31,6 @@ const locale = getLocale(Astro)
     return 'light'
   })()
 
-
   if (theme === 'light') {
     document.documentElement.setAttribute('data-theme', 'light')
   } else {
@@ -39,27 +38,32 @@ const locale = getLocale(Astro)
   }
 </script>
 
-<!doctype html>
 <html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     {redirect ? <meta http-equiv="refresh" content={`0;url=${redirect}`} /> : null}
     <meta name="description" content={description ?? defaultDescription} />
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-0.xml" />
 
-    {isHome && (
-      // @prettier-ignore
-      <!-- Injecting schema to homepage only (for SEO) -->
-      <script is:inline type="application/ld+json">
-      {
-        "@context":"https://schema.org",
-        "@type":"WebSite",
-        "name":"Zen Browser",
-        "url":"https://zen-browser.app/"
-      }
-      </script>)}
+    {
+      isHome && (
+        <>
+          {/* Injecting schema to homepage only (for SEO) */}
+          <script
+            is:inline
+            type="application/ld+json"
+            set:html={JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'Zen Browser',
+              url: 'https://zen-browser.app/',
+            })}
+          />
+        </>
+      )
+    }
 
     <!-- ICO favicon as a fallback for browsers that don't support SVG favicons (Safari) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -72,10 +76,7 @@ const locale = getLocale(Astro)
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={ogImage ?? defaultOgImage} />
-    <meta
-      property="og:description"
-      content={description ?? defaultDescription}
-    />
+    <meta property="og:description" content={description ?? defaultDescription} />
     <meta property="og:color" content="#da755b" />
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -88,16 +89,16 @@ const locale = getLocale(Astro)
     />
 
     <script>
+      // eslint-disable-next-line no-console
       console.log(
         '%c✌️ Zen-Browser%c\nWelcome to a calmer internet!',
         'filter: invert(1); font-size: 28px; font-weight: bolder; font-family: "Rubik"; margin-top: 20px; margin-bottom: 8px;',
         'color: #f76f53; font-size: 16px; font-family: "Rubik"; margin-bottom: 20px;'
-      );
+      )
     </script>
-
   </head>
   <body
-    class="overflow-x-hidden bg-paper font-['bricolage-grotesque'] text-dark text-balance"
+    class="min-h-[max(100dvh,_64rem)] overflow-x-hidden text-balance bg-paper font-['bricolage-grotesque'] text-dark"
   >
     <NavBar />
     <slot />
@@ -127,13 +128,13 @@ const locale = getLocale(Astro)
     --zen-paper: #f2f0e3;
     --zen-dark: #2e2e2e;
     --zen-muted: rgba(0, 0, 0, 0.05);
-    --zen-subtle: rgba(0,0,0,0.05);
+    --zen-subtle: rgba(0, 0, 0, 0.05);
 
     &[data-theme='dark'] {
       --zen-paper: #1f1f1f;
       --zen-dark: #d1cfc0;
       --zen-muted: rgba(255, 255, 255, 0.05);
-      --zen-subtle: rgba(255,255,255,0.1);
+      --zen-subtle: rgba(255, 255, 255, 0.1);
     }
   }
 

@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
 
-export interface ZenTheme {
+export type ZenTheme = {
   name: string
   description: string
   image: string
@@ -24,7 +24,7 @@ export async function getAllMods(): Promise<ZenTheme[]> {
     const res = await fetch(THEME_API)
     const json = await res.json()
     // convert dict to array
-    const mods = Object.keys(json).map((key) => json[key])
+    const mods = Object.keys(json).map(key => json[key])
     return mods
   } catch (error) {
     console.error(error)

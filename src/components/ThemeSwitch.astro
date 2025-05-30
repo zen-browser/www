@@ -9,10 +9,7 @@ const { label, className = '' } = Astro.props
 
 <button
   type="button"
-  class:list={[
-    'inline-flex h-8 w-8 cursor-pointer items-center justify-center',
-    className,
-  ]}
+  class:list={['inline-flex h-8 w-8 cursor-pointer items-center justify-center', className]}
   id="theme-switcher"
   aria-label={label || 'Toggle theme'}
 >
@@ -29,9 +26,7 @@ const { label, className = '' } = Astro.props
 </button>
 
 <script>
-  const themeSwitch = document.getElementById(
-    'theme-switcher',
-  ) as HTMLButtonElement
+  const themeSwitch = document.getElementById('theme-switcher') as HTMLButtonElement
 
   const resolveTheme = () => {
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {

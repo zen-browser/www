@@ -4,10 +4,7 @@ const { class: className } = Astro.props
 ---
 
 <h1
-  class={cn(
-    "text-dark leading-[0.9] mb-[0.4rem] font-junicode font-semibold text-5xl",
-    className,
-  )}
+  class={cn('mb-[0.4rem] font-junicode text-5xl font-semibold leading-[0.9] text-dark', className)}
 >
   <slot />
 </h1>

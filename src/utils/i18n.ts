@@ -1,10 +1,10 @@
-import type { GetStaticPaths } from 'astro'
+import { type AstroGlobal, type GetStaticPaths } from 'astro'
+
 import { CONSTANT } from '~/constants'
-import UI_EN from '~/i18n/en/translation.json'
+import { type UIProps } from '~/constants/i18n'
 
 /**
  * Represents the available locales in the application
- * @typedef {string} Locale
  */
 export type Locale = (typeof locales)[number]
 
@@ -13,122 +13,121 @@ export type Locale = (typeof locales)[number]
  * @param {Locale} [locale] - The current locale
  * @returns {function(string): string} A function that transforms paths based on the locale
  */
-export const getPath = (locale?: Locale) => (path: string) => {
-  if (locale && locale !== CONSTANT.I18N.DEFAULT_LOCALE && !path.startsWith(`/${locale}`)) {
-    return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`
+export const getPath =
+  (locale?: Locale): ((arg0: string) => string) =>
+  (path: string) => {
+    if (locale && locale !== CONSTANT.I18N.DEFAULT_LOCALE && !path.startsWith(`/${locale}`)) {
+      return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`
+    }
+    return path
   }
-  return path
-}
 
 /**
- * Extracts the current locale from Astro's params, defaulting to the default locale
- * @param {Object} Astro - Astro's context object
- * @param {Object} [Astro.params] - Routing parameters
- * @param {string} [Astro.params.locale] - The current locale parameter
- * @returns {Locale} The determined locale
+ * Retrieves the current locale from the Astro object.
+ *
+ * @param Astro - The Astro object containing the current locale information
+ * @param Astro.currentLocale - The current locale string from Astro
+ * @returns The current locale cast as a Locale type
  */
-export const getLocale = (Astro: { params?: { locale?: string } }) => {
-  if (Astro.params?.locale) {
-    return Astro.params.locale as Locale
-  }
-  return CONSTANT.I18N.DEFAULT_LOCALE as Locale
+export const getLocale = (Astro: AstroGlobal): Locale => {
+  return Astro.currentLocale as Locale
 }
 
 /**
  * List of all supported locales
- * @type {Locale[]}
  */
 export const locales = CONSTANT.I18N.LOCALES.map(({ value }) => value)
 
 /**
  * List of locales excluding the default locale
- * @type {Locale[]}
  */
-const otherLocales = CONSTANT.I18N.LOCALES.filter(({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE)
+const otherLocales = CONSTANT.I18N.LOCALES.filter(
+  ({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE
+).map(({ value }) => value)
 
 /**
  * Retrieves locales other than the default locale
  * @returns {Locale[]} Array of non-default locales
  */
-export const getOtherLocales = () => otherLocales
-
-/**
- * Type definition for UI translations based on the English translation
- * @typedef {Object} UI
- */
-export type UI = typeof UI_EN
-
-/**
- * Mapping of locales to their UI translation objects
- * @type {Object.<Locale, UI>}
- */
-export const ui = { en: UI_EN }
+export const getOtherLocales = (): Locale[] => otherLocales
 
 /**
  * Retrieves UI translations for a given locale, merging with default translations
  * @param {Locale} [locale] - The target locale for translations
  * @returns {UI} Merged UI translations
  */
-export const getUI = (locale?: Locale | string): UI => {
+export const getUI = (locale?: Locale | string): UIProps => {
   const validLocale = locales.includes(locale as Locale) ? locale : CONSTANT.I18N.DEFAULT_LOCALE
-  const defaultUI = ui[CONSTANT.I18N.DEFAULT_LOCALE]
-  const localeUI = ui[validLocale as Locale]
+  const defaultUI = CONSTANT.I18N.LOCALES.find(
+    ({ value }) => value === CONSTANT.I18N.DEFAULT_LOCALE
+  )?.ui
+  const localeUI = CONSTANT.I18N.LOCALES.find(({ value }) => value === validLocale)?.ui
 
-  /**
-   * Recursively merges two objects, with the override object taking precedence
-   * @template T
-   * @param {T} defaultObj - The default object to merge from
-   * @param {Partial<T>} overrideObj - The object to merge over the default
-   * @returns {T} The deeply merged object
-   */
-  function deepMerge<T extends object>(defaultObj: T, overrideObj: Partial<T>): T {
-    // Handle non-object cases
-    if (typeof defaultObj !== 'object' || defaultObj === null) {
-      return (overrideObj ?? defaultObj) as T
-    }
-    if (typeof overrideObj !== 'object' || overrideObj === null) {
-      return (overrideObj ?? defaultObj) as T
-    }
-
-    // Create a new object or array based on the default object's type
-    const result = Array.isArray(defaultObj) ? [...defaultObj] : { ...defaultObj }
-
-    // Merge properties from the default object
-    for (const key of Object.keys(defaultObj) as Array<keyof T>) {
-      const defaultValue = defaultObj[key]
-      const overrideValue = overrideObj[key]
-
-      // Recursively merge nested objects
-      if (
-        defaultValue !== null &&
-        overrideValue !== null &&
-        typeof defaultValue === 'object' &&
-        typeof overrideValue === 'object'
+  // Helper to recursively check for missing keys
+  function checkMismatch(
+    defaultObj: UIProps,
+    localeObj: Partial<UIProps> = {},
+    path: string[] = []
+  ): void {
+    if (typeof defaultObj !== 'object' || defaultObj === null) return
+    for (const key of Object.keys(defaultObj) as (keyof UIProps)[]) {
+      if (!(key in localeObj)) {
+        console.error(
+          `[i18n] Missing translation key: ${[...path, key as string].join('.')} in locale '\x1b[1m${validLocale}\x1b[0m'. See src/i18n/${validLocale}/translation.json`
+        )
+      } else if (
+        typeof defaultObj[key] === 'object' &&
+        defaultObj[key] !== null &&
+        typeof localeObj[key] === 'object' &&
+        localeObj[key] !== null
       ) {
-        // Type assertion to handle nested merging
-        ;(result as Record<keyof T, unknown>)[key] = deepMerge(defaultValue as object, overrideValue as Partial<object>)
-      } else if (overrideValue !== undefined) {
-        // Override with the new value if it exists
-        ;(result as Record<keyof T, unknown>)[key] = overrideValue
+        // @ts-expect-error: recursive structure
+        checkMismatch(defaultObj[key], localeObj[key], [...path, key as string])
       }
     }
-
-    // Add any new properties from overrideObj
-    for (const key of Object.keys(overrideObj) as Array<keyof T>) {
-      if (!(key in defaultObj)) {
-        ;(result as Record<keyof T, unknown>)[key] = overrideObj[key]
-      }
-    }
-
-    return result as T
   }
 
-  return deepMerge(defaultUI, localeUI)
+  // Deep merge: localeUI overrides defaultUI, fallback to defaultUI for missing keys
+  function deepMerge(defaultObj: UIProps, localeObj: Partial<UIProps> = {}): UIProps {
+    if (typeof defaultObj !== 'object' || defaultObj === null) return defaultObj
+    if (typeof localeObj !== 'object' || localeObj === null) return defaultObj
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const result: any = Array.isArray(defaultObj) ? [...defaultObj] : { ...defaultObj }
+    for (const key of Object.keys(defaultObj) as (keyof UIProps)[]) {
+      if (key in localeObj) {
+        if (
+          typeof defaultObj[key] === 'object' &&
+          defaultObj[key] !== null &&
+          typeof localeObj[key] === 'object' &&
+          localeObj[key] !== null
+        ) {
+          // @ts-expect-error: recursive structure
+          result[key] = deepMerge(defaultObj[key], localeObj[key])
+        } else {
+          result[key] = localeObj[key]
+        }
+      } else {
+        result[key] = defaultObj[key]
+      }
+    }
+    return result
+  }
+
+  if (!defaultUI) {
+    throw new Error('Default UI translation is missing!')
+  }
+
+  if (localeUI && validLocale !== CONSTANT.I18N.DEFAULT_LOCALE) {
+    checkMismatch(defaultUI, localeUI)
+    return deepMerge(defaultUI, localeUI) as UIProps
+  }
+
+  // If localeUI is undefined or locale is default, just return defaultUI
+  return defaultUI
 }
 
 /**
  * Generates static paths for internationalization
- * @type {GetStaticPaths}
  * @returns {Array} An array of static paths for different locales
  */
 export const getStaticPaths = (() => {
@@ -137,12 +136,14 @@ export const getStaticPaths = (() => {
       params: { locale: undefined },
       props: { locale: CONSTANT.I18N.DEFAULT_LOCALE },
     },
-    ...CONSTANT.I18N.LOCALES.filter(({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE).map(({ value }) => ({
-      params: { locale: value },
-      props: {
-        locale: value,
-      },
-    })),
+    ...CONSTANT.I18N.LOCALES.filter(({ value }) => value !== CONSTANT.I18N.DEFAULT_LOCALE).map(
+      ({ value }) => ({
+        params: { locale: value },
+        props: {
+          locale: value,
+        },
+      })
+    ),
   ]
 }) satisfies GetStaticPaths
 
@@ -150,6 +151,6 @@ export const getStaticPaths = (() => {
  * Retrieves all available locales, including both default and non-default
  * @returns {Locale[]} Combined array of all locales
  */
-export const getLocales = () => {
+export const getLocales = (): Locale[] => {
   return [...locales, ...otherLocales]
 }

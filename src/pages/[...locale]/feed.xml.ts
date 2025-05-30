@@ -1,6 +1,7 @@
 import rss, { type RSSOptions } from '@astrojs/rss'
-import { releaseNotes } from '~/release-notes'
-import type { ReleaseNote } from '~/release-notes'
+
+import { releaseNotes, type ReleaseNote } from '~/release-notes'
+
 export { getStaticPaths } from '~/utils/i18n'
 
 /** The default number of entries to include in the RSS feed. */
@@ -12,7 +13,8 @@ const RSS_ENTRY_LIMIT = 20
  */
 export function GET(context: { url: URL }) {
   // Just in case the release notes array is empty for whatever reason.
-  const latestDate = releaseNotes.length > 0 ? formatRssDate(releaseNotes[0].date as string) : new Date()
+  const latestDate =
+    releaseNotes.length > 0 ? formatRssDate(releaseNotes[0].date as string) : new Date()
 
   const rssData: RSSOptions = {
     title: 'Zen Browser Release Notes',
@@ -79,7 +81,10 @@ function formatReleaseNote(releaseNote: ReleaseNote) {
     content += `<p>${releaseNote.extra.replace(/(\n)/g, '<br />')}</p>`
   }
 
-  content += addReleaseNoteSection('⚠️ Breaking changes', releaseNote.breakingChanges?.map(breakingChangeToReleaseNote))
+  content += addReleaseNoteSection(
+    '⚠️ Breaking changes',
+    releaseNote.breakingChanges?.map(breakingChangeToReleaseNote)
+  )
   content += addReleaseNoteSection('✓ Fixes', releaseNote.fixes?.map(fixToReleaseNote))
   content += addReleaseNoteSection('🖌 Theme Changes', releaseNote.themeChanges)
   content += addReleaseNoteSection('⭐ Features', releaseNote.features)
@@ -119,7 +124,9 @@ function fixToReleaseNote(fix?: Exclude<ReleaseNote['fixes'], undefined>[number]
   return note
 }
 
-function breakingChangeToReleaseNote(breakingChange?: Exclude<ReleaseNote['breakingChanges'], undefined>[number]) {
+function breakingChangeToReleaseNote(
+  breakingChange?: Exclude<ReleaseNote['breakingChanges'], undefined>[number]
+) {
   if (typeof breakingChange === 'string') {
     return breakingChange
   }

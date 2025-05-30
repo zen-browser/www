@@ -6,13 +6,13 @@ import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
 import InfoIcon from '~/icons/InfoIcon.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
-import { getUI } from '~/utils/i18n'
+import { getPath, getUI } from '~/utils/i18n'
 import { getLocale, getOtherLocales } from '~/utils/i18n'
 
 export async function getStaticPaths() {
   const mods = await getAllMods()
-  return mods.flatMap((mod) => [
-    ...getOtherLocales().map((locale) => ({
+  return mods.flatMap(mod => [
+    ...getOtherLocales().map(locale => ({
       params: {
         slug: mod.id,
         locale: locale,
@@ -44,7 +44,9 @@ const dates = {
   updatedAt: getLocalizedDate(mod.updatedAt),
 }
 
-const locale = getLocale(Astro as { params: { locale?: string } })
+const locale = getLocale(Astro)
+
+const getLocalePath = getPath(locale)
 
 const {
   routes: {
@@ -58,8 +60,8 @@ const {
   description={slug.description.replace('{name}', mod.name)}
   ogImage={mod.image}
 >
-  <main class="mt-6 2xl:mt-0">
-    <div class="mx-auto mb-24 mt-12 flex flex-col gap-6 px-8 lg:mt-32 lg:w-1/2">
+  <main class="container mt-6 2xl:mt-0">
+    <div class="mx-auto mb-24 mt-12 flex flex-col gap-6 lg:mt-32">
       <div
         id="install-theme-error"
         class="flex flex-col items-center justify-center gap-2 rounded-xl bg-red-200 p-2 pl-4 md:flex-row md:justify-between dark:bg-red-700"
@@ -79,7 +81,7 @@ const {
           <ArrowRightIcon class="size-4" />
         </Button>
       </div>
-      <BackButton />
+      <BackButton id="back-button" href={getLocalePath('/mods')} />
       <div>
         <Description class="text-6xl font-bold">{mod.name}</Description>
         <Description>{mod.description}</Description>
@@ -93,43 +95,28 @@ const {
         <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
           <p
             set:html={slug.createdBy
-              .replace('{author}', mod.author)
-              .replace('{version}', mod.version)
-              .replace('{link}', getAuthorLink(mod.author))}
+              .replace(
+                '{author}',
+                `<a href="${getAuthorLink(mod.author)}" class="zen-link font-bold">${mod.author}</a>`
+              )
+              .replace('{version}', mod.version)}
           />
-          <p
-            set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)}
-          />
+          <p set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)} />
           {
             dates.createdAt !== dates.updatedAt && (
-              <p
-                set:html={slug.latestUpdate.replace(
-                  '{updatedAt}',
-                  dates.updatedAt,
-                )}
-              />
+              <p set:html={slug.latestUpdate.replace('{updatedAt}', dates.updatedAt)} />
             )
           }
           {
             mod.homepage && (
-              <a
-                href={mod.homepage}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="zen-link"
-              >
+              <a href={mod.homepage} target="_blank" rel="noopener noreferrer" class="zen-link">
                 {slug.visitModHomepage}
               </a>
             )
           }
         </div>
         <div class="flex flex-col sm:items-end">
-          <Button
-            class="hidden"
-            id="install-theme"
-            extra={{ 'zen-theme-id': mod.id }}
-            isPrimary
-          >
+          <Button class="hidden" id="install-theme" extra={{ 'zen-theme-id': mod.id }} isPrimary>
             {slug.installMod}
           </Button>
           <Button
@@ -149,3 +136,13 @@ const {
     <div></div>
   </main></Layout
 >
+
+<script>
+  const backButton = document.getElementById('back-button') as HTMLAnchorElement
+  const search = window.location.search
+  if (search.length > 0) {
+    const searchParams = new URLSearchParams(search)
+    const backLink = `${backButton.href}?${searchParams.toString()}`
+    backButton.href = backLink
+  }
+</script>
