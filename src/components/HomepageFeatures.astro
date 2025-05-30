@@ -1,0 +1,79 @@
+---
+import { getLocale, getUI } from '~/utils/i18n'
+import HomepageFeature from './HomepageFeature.astro'
+const locale = getLocale(Astro)
+
+import CompactModeVideo from '~/assets/CompactMode.webm'
+import GlanceVideo from '~/assets/Glance.webm'
+import SplitViewsVideo from '~/assets/SplitViews.webm'
+import WorkspacesVideo from '~/assets/Workspaces.webm'
+
+const {
+  routes: {
+    index: { features },
+  },
+} = getUI(locale)
+---
+
+<HomepageFeature 
+  {...features.featureTabs.workspaces}
+  video={WorkspacesVideo}
+  id="workspaces"
+  />
+<HomepageFeature 
+  {...features.featureTabs.compactMode}
+  video={CompactModeVideo}
+  id="compactMode"
+  />
+<HomepageFeature 
+  {...features.featureTabs.splitView}
+  video={SplitViewsVideo}
+  id="splitView"
+  />
+<HomepageFeature 
+  {...features.featureTabs.glance}
+  video={GlanceVideo}
+  id="glance"
+  />
+
+<script>
+  const ids = ['workspaces', 'compactMode', 'splitView', 'glance'];
+  const videos = ids.map(id => document.getElementById(`video-${id}`)).filter(Boolean) as HTMLVideoElement[];
+
+  function isElementVisible(el: HTMLElement) {
+    var rect     = el.getBoundingClientRect(),
+        vWidth   = window.innerWidth || document.documentElement.clientWidth,
+        vHeight  = window.innerHeight || document.documentElement.clientHeight,
+        efp      = function (x: number, y: number) { return document.elementFromPoint(x, y) };     
+
+    // Return false if it's not in the viewport
+    if (rect.right < 0 || rect.bottom < 0 
+        || rect.left > vWidth || rect.top > vHeight)
+      return false;
+
+    // Return true if any of its four corners are visible
+    return (
+          el.contains(efp(rect.left,  rect.top))
+      ||  el.contains(efp(rect.right, rect.top))
+      ||  el.contains(efp(rect.right, rect.bottom))
+      ||  el.contains(efp(rect.left,  rect.bottom))
+    );
+  }
+
+  function checkVideoSrolls() {
+    videos.forEach(video => {
+      // Check if the video is in the viewport. But it doesn't have to be fully in the viewport.
+      // This is to prevent the video from playing when the user scrolls down and the video is not fully in the viewport.
+      if (isElementVisible(video.parentNode?.parentNode as HTMLElement)) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+  }
+
+  // Play videos on scroll
+  window.addEventListener('scroll', checkVideoSrolls);
+  window.addEventListener('DOMContentLoaded', checkVideoSrolls);
+</script>
+

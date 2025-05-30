@@ -1,7 +1,7 @@
 ---
 import Community from '~/components/Community.astro'
-import Features from '~/components/Features.astro'
 import Hero from '~/components/Hero.astro'
+import HomepageFeatures from '~/components/HomepageFeatures.astro'
 import Sponsors from '~/components/Sponsors.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getLocale, getUI } from '~/utils/i18n'
@@ -19,7 +19,7 @@ const { layout } = getUI(locale)
 >
   <main class="container">
     <Hero />
-    <Features />
+    <HomepageFeatures />
     <Sponsors showSponsors />
     <Community />
   </main>

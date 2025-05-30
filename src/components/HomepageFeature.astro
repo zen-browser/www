@@ -1,0 +1,45 @@
+
+---
+import { motion } from 'motion/react'
+import { getTitleAnimation } from '~/animations'
+import Description from './Description.astro'
+import Video from './Video.astro'
+
+const { title, video, description, alt, id } = Astro.props
+---
+
+<section
+  id={id}
+  class="relative flex w-full flex-col items-center gap-12 py-12 text-start md:text-center lg:py-36"
+>
+  <div class="flex w-full flex-col items-center">
+    <Description class="text-6xl font-bold">
+    <motion.span client:load {...getTitleAnimation(0.2)}>
+      {title}
+    </motion.span>
+  </Description>
+  <motion.p
+    client:load
+    {...getTitleAnimation(0.4)}
+    className="lg:w-1/2 lg:px-0 text-center text-wrap"
+  >
+    {description}
+  </motion.p>
+  </div>
+  <motion.span
+    className="flex max-w-full lg:max-w-none lg:flex-none"
+    client:load
+    {...getTitleAnimation(0.8)}
+  >
+    <Video
+      src={video}
+      alt={alt}
+      class="rounded-3xl shadow-md lg:mx-auto dark:opacity-80"
+      loop
+      muted
+      playsinline
+      preload="none"
+      id=`video-${id}`
+    />
+  </motion.span>
+</section>
