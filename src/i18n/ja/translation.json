@@ -122,7 +122,8 @@
         "known": "既知",
         "break": "重大",
         "theme": "テーマ",
-        "security": "セキュリティ"
+        "security": "セキュリティ",
+        "change": "変更"
       },
       "backToTop": "トップへ戻る",
       "chooseVersion": "バージョンを選択",

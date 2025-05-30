@@ -2772,9 +2772,9 @@
       "Auto tab unloader will now use firefox's default tab discarding feature, which is based on time and memory usage, instead of the previous method which was simply based on time",
       "Improved performance on rounded corner rendering for the webview",
       "Enabled the browser to start having to prioritize processes that are more important once zen is under memory pressure on MacOS",
-      "Context menu item 'Search <text> on <search engine>' now opens glance instead of a new tab"
+      "Context menu item 'Search text on search engine' now opens glance instead of a new tab"
     ],
-    "workflowId": 15352407839,
+    "workflowId": 15356890243,
     "image": false,
     "date": "30/05/2025"
   }
