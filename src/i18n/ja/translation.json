@@ -34,7 +34,7 @@
           },
           "glance": {
             "title": "Glance",
-           "description": "Glanceを使えば、履歴をスクロールしなくても、よく使うタブに素早く切り替えられます。"
+            "description": "Glanceを使えば、履歴をスクロールしなくても、よく使うタブに素早く切り替えられます。"
           },
           "splitView": {
             "title": "Split View",

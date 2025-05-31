@@ -2756,11 +2756,11 @@
   },
   {
     "version": "1.12.9b",
-    "extra": "This update includes some fixes, security updates, and a few changes! We've included both the updates for firefox 139.0 and 139.0.1 into the same release, since firefox 139.0 had some rendering issues on windows for NVIDIA users, we've waiting a day to release this update to ensure that the issues were resolved.",
+    "extra": "This update includes several fixes, security updates, and a few changes! We've bundled the updates for Firefox 139.0 and 139.0.1 into the same release. Since Firefox 139.0 had some rendering issues on Windows for NVIDIA users, we waited an extra day to release this update to ensure the issues were resolved.",
     "fixes": [
       "Pinned and essential tabs not restoring their icons correctly",
-      "Other issues with split views and glance",
-      "Compact mode should now correctly work after closing the window, please let us know if you still experience issues with it"
+      "Other issues with split views and Glance",
+      "Compact mode should now work correctly after closing the window — please let us know if you still experience issues"
     ],
     "changes": [
       "Unloaded tabs won't be dimmed unless they are explicitly discarded (browser.tabs.fadeOutUnloadedTabs)",
@@ -2768,12 +2768,12 @@
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-42/",
     "features": [
-      "Updated to firefox 139.0 and 139.0.1",
+      "Updated to Firefox 139.0 and 139.0.1",
       "Added automatic updates for mods",
-      "Auto tab unloader will now use firefox's default tab discarding feature, which is based on time and memory usage, instead of the previous method which was simply based on time",
-      "Improved performance on rounded corner rendering for the webview",
-      "Enabled the browser to start having to prioritize processes that are more important once zen is under memory pressure on MacOS",
-      "Context menu item 'Search text on search engine' now opens glance instead of a new tab"
+      "Auto tab unloader now uses Firefox's default tab discarding feature, which is based on time and memory usage, instead of the previous time-only method",
+      "Improved performance for rendering rounded corners in the webview",
+      "Enabled the browser to prioritize more important processes when Zen is under memory pressure on macOS",
+      "The context menu item 'Search text on search engine' now opens Glance instead of a new tab"
     ],
     "workflowId": 15356890243,
     "image": false,
