@@ -1,8 +1,13 @@
 import { CONSTANT } from '~/constants'
 
+type GitHubAsset = {
+  name: string
+  digest: string
+}
+
 /**
- * Fetches the latest release notes from GitHub and parses the SHA-256 checksums.
- * Returns a mapping from filename to checksum.
+ * Fetches the latest release assets from GitHub and extracts their checksums.
+ * Returns a mapping from asset name to digest.
  */
 export async function getChecksums() {
   if (import.meta.env.DEV) {
@@ -17,16 +22,11 @@ export async function getChecksums() {
   })
   if (!res.ok) throw new Error(`Failed to fetch GitHub release: ${res.statusText}`)
   const data = await res.json()
-  const body = data.body as string
+  const assets = data.assets as GitHubAsset[]
 
-  // Extract the checksum block
-  const match = body.match(/File Checksums \(SHA-256\)[\s\S]*?```([\s\S]*?)```/)
   const checksums: Record<string, string> = {}
-  if (match?.[1]) {
-    for (const line of match[1].split('\n')) {
-      const [hash, filename] = line.trim().split(/\s+/, 2)
-      if (hash && filename) checksums[filename] = hash
-    }
+  for (const asset of assets) {
+    checksums[asset.name] = asset.digest
   }
   return checksums
 }
