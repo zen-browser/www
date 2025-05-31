@@ -2759,7 +2759,8 @@
     "extra": "This update includes some fixes, security updates, and a few changes! We've included both the updates for firefox 139.0 and 139.0.1 into the same release, since firefox 139.0 had some rendering issues on windows for NVIDIA users, we've waiting a day to release this update to ensure that the issues were resolved.",
     "fixes": [
       "Pinned and essential tabs not restoring their icons correctly",
-      "Other issues with split views and glance"
+      "Other issues with split views and glance",
+      "Compact mode should now correctly work after closing the window, please let us know if you still experience issues with it"
     ],
     "changes": [
       "Unloaded tabs won't be dimmed unless they are explicitly discarded (browser.tabs.fadeOutUnloadedTabs)",
