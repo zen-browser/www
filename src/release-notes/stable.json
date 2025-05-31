@@ -2762,7 +2762,7 @@
       "Other issues with split views and glance"
     ],
     "changes": [
-      "Unloaded tabs won't be dimmed unless they are explicitly discarded",
+      "Unloaded tabs won't be dimmed unless they are explicitly discarded (browser.tabs.fadeOutUnloadedTabs)",
       "Context menu icons have been removed to provide a cleaner look and feel"
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-42/",
