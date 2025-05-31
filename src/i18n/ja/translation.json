@@ -1,7 +1,7 @@
 {
   "routes": {
     "index": {
-      "title": "Zenブラウザー",
+      "title": "Zen Browser",
       "hero": {
         "title": [
           { "text": "ようこそ", "highlight": false },
@@ -13,7 +13,7 @@
         ],
         "description": [
           "美しいデザイン、プライバシー重視、機能満載。",
-          "私たちはあなたの体験を大切にし、データには関心がありません。"
+          "私たちが大切にしているのは、あなたのデータではなく、あなたの体験です。"
         ],
         "buttons": {
           "beta": "ベータ版が利用可能です！",
@@ -22,29 +22,29 @@
       },
       "features": {
         "titles": ["生産性", "の", "極み"],
-        "description": "Zenは、生産性と集中力を高める機能が満載です。ブラウザーは作業の妨げではなく、作業を助けるツールであるべきです。",
+        "description": "Zenは、生産性と集中力を高める機能が満載です。ブラウザは作業の妨げではなく、作業を助けるツールであるべきです。",
         "featureTabs": {
           "workspaces": {
-            "title": "ワークスペース",
+            "title": "Workspaces",
             "description": "タブをワークスペースごとに整理し、プロジェクトごとに分けて管理。簡単に切り替え可能です。"
           },
           "compactMode": {
-            "title": "コンパクトモード",
-            "description": "Zenのコンパクトモードは、必要ないときにタブバーを隠し、必要なときに表示して画面を広く使えます。"
+            "title": "Compact Mode",
+            "description": "Zenのコンパクトモードは、必要ないときにタブバーを隠して画面スペースを広く使い、必要なときに表示します。"
           },
           "glance": {
-            "title": "覗き見",
-            "description": "覗き見機能で、よく使うタブを素早く切り替え。履歴をスクロールする必要はありません。"
+            "title": "Glance",
+           "description": "Glanceを使えば、履歴をスクロールしなくても、よく使うタブに素早く切り替えられます。"
           },
           "splitView": {
-            "title": "画面分割",
-            "description": "画面分割機能で、2つのタブを並べて表示。比較や切り替えが簡単です。"
+            "title": "Split View",
+            "description": "画面分割機能で、2つのタブを並べて表示し、比較や切り替えが簡単になります。"
           }
         }
       },
       "sponsors": {
         "title": "スポンサー",
-        "description": "ご支援いただいているスポンサーの皆様に感謝します。<br />あなたも<a href=\"/donate\" class=\"zen-link\">直接寄付</a>でこの旅に参加できます！",
+        "description": "ご支援いただいているスポンサーの皆様に感謝します。<br />あなたも<a href=\"/donate\" class=\"zen-link\">直接寄付する</a>ことでこの旅に参加できます！",
         "sponsors": {
           "tuta": {
             "name": "Tuta",
@@ -78,7 +78,7 @@
     },
     "mods": {
       "title": "Zen Mods",
-      "description": "Zen Browser用の多彩なMod（プラグイン・テーマ）を探そう。気分やニーズに合ったテーマやプラグインで、ブラウザー体験をカスタマイズ！",
+      "description": "Zen Browser用の多彩なMod（プラグイン・テーマ）を探そう。気分やニーズに合ったテーマやプラグインで、ブラウザ体験をカスタマイズ！",
       "pagination": {
         "pagination": "{input} / {totalPages}（全{totalItems}件）"
       },
@@ -110,7 +110,7 @@
     "releaseNotes": {
       "topSection": {
         "title": "変更履歴",
-        "description": "Zenの最新情報はこちら！<a class=\"zen-link\" href=\"#1.0.0-a.1\">最初のリリース</a>から<a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>まで、最高のブラウザーを目指して努力しています。ご意見ありがとうございます！❤️"
+        "description": "Zenの最新情報はこちら！<a class=\"zen-link\" href=\"#1.0.0-a.1\">最初のリリース</a>から<a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>まで、最高のブラウザを目指して努力しています。ご意見ありがとうございます！❤️"
       },
       "list": {
         "support": "応援してください！",
@@ -155,7 +155,7 @@
         "title": "メインチーム",
         "description": "最高のブラウジング体験を提供するために努力しているメンバーです。",
         "subTitle": {
-          "browser": "ブラウザー",
+          "browser": "ブラウザ",
           "website": "ウェブサイト・ブランディング"
         },
         "members": {
@@ -243,7 +243,7 @@
       "contributors": {
         "title": "コントリビューター",
         "description": "Zenの発展に貢献してくださった皆様です。",
-        "browser": "ブラウザー",
+        "browser": "ブラウザ",
         "website": "ウェブサイト"
       }
     },
@@ -263,7 +263,7 @@
     },
     "download": {
       "title": "Zenをダウンロードする",
-      "description": "お使いのプラットフォーム向けにZenをダウンロード。すべてのダウンロードにはSHA256チェックサムが付属しています。",
+      "description": "お使いのプラットフォーム向けにZenをダウンロード。すべてのダウンロードにはSHA256チェックサムが含まれています",
       "twilightInfo": "現在Twilightモードです。最新の実験的機能とアップデートをダウンロードしています。",
       "alertInfo": {
         "description": "<strong class='font-medium text-zen-blue'>Twilightモード:</strong> 現在Twilightモードで、最新の実験的機能とアップデートをダウンロードしています。"
@@ -305,7 +305,7 @@
           "universal": "ユニバーサル"
         },
         "windows": {
-          "64bit": "64-ビット（推奨）",
+          "64bit": "64-bit（推奨）",
           "ARM64": "ARM64"
         },
         "linux": {
@@ -359,7 +359,7 @@
         },
         "cookies": {
           "title": "クッキー",
-          "body": "クッキーはローカルに保存され、Zenや第三者と共有されません。管理はブラウザー設定から可能です。"
+          "body": "クッキーはローカルに保存され、Zenや第三者と共有されません。管理はブラウザ設定から可能です。"
         },
         "cache": {
           "title": "キャッシュ・一時ファイル",
@@ -432,7 +432,7 @@
   },
   "layout": {
     "index": {
-      "title": "Zenブラウザー",
+      "title": "Zen Browser",
       "description": "美しいデザイン、プライバシー重視、機能満載。"
     },
     "mods": {
@@ -469,7 +469,7 @@
   },
   "components": {
     "footer": {
-      "title": "Zenブラウザー",
+      "title": "Zen Browser",
       "description": "美しいデザイン、プライバシー重視、機能満載。私たちはあなたのデータではなく、体験を大切にします。",
       "download": "ダウンロード",
       "followUs": "フォローする",
@@ -488,7 +488,7 @@
       "madeWith": "<span aria-label='love'>❤️</span>と共に<a href='{link}' class='zen-link inline-block font-bold'>Zenチーム</a>が作りました"
     },
     "nav": {
-      "brand": "Zenブラウザー",
+      "brand": "Zen Browser",
       "menu": {
         "gettingStarted": "はじめに",
         "usefulLinks": "便利なリンク",
