@@ -5,7 +5,6 @@ import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
 import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
 import Layout from '~/layouts/Layout.astro'
 
-import whatsNewVideo from '~/assets/whats-new.mp4'
 import Video from '~/components/Video.astro'
 import { releaseNotes } from '~/release-notes'
 import whatsNewText from '~/release-notes/whats-new.json'
@@ -71,7 +70,7 @@ if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVer
     </div>
 
     <Video
-      src={whatsNewVideo}
+      name="whats-new"
       autoplay
       loop
       muted
