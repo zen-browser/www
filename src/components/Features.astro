@@ -1,13 +1,14 @@
 ---
 import { motion } from 'motion/react'
 import { getTitleAnimation } from '~/animations'
-import Description from '~/components/Description.astro'
-import CompactModeVideo from '~/assets/media/CompactMode.webm'
-import GlanceVideo from '~/assets/media/Glance.webm'
-import SplitViewsVideo from '~/assets/media/SplitViews.webm'
-import WorkspacesVideo from '~/assets/media/Workspaces.webm'
 import { getLocale, getUI } from '~/utils/i18n'
+import Description from './Description.astro'
+
 import Video from './Video.astro'
+import CompactModeVideo from '~/assets/media/compact-mode/video.webm'
+import GlanceVideo from '~/assets/media/glance/video.webm'
+import SplitViewsVideo from '~/assets/media/split-views/video.webm'
+import WorkspacesVideo from '~/assets/media/workspaces/video.webm'
 
 const locale = getLocale(Astro)
 
