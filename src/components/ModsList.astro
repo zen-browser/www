@@ -48,7 +48,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           id="created-sort"
           type="button"
         >
-          <span>{translations.sort.lastCreated}</span>
+          {translations.sort.lastCreated}
           <span class="relative">
             <span id="created-sort-default" class="" set:html={defaultSortIcon.html[0]} />
             <span id="created-sort-asc" class="hidden" set:html={ascSortIcon.html[0]} />
@@ -60,7 +60,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           id="updated-sort"
           type="button"
         >
-          <span>{translations.sort.lastUpdated}</span>
+          {translations.sort.lastUpdated}
           <span class="relative">
             <span id="updated-sort-default" class="" set:html={defaultSortIcon.html[0]} />
             <span id="updated-sort-asc" class="hidden" set:html={ascSortIcon.html[0]} />
