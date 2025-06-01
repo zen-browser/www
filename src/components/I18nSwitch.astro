@@ -1,0 +1,66 @@
+---
+import { Dropdown, DropdownItems } from 'astro-navbar'
+import LanguagesIcon from '~/icons/Languages.astro'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
+
+const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
+
+const {
+  components: {
+    nav: { menu },
+  },
+} = getUI(locale)
+
+interface Props {
+  label?: string
+  className?: string
+}
+
+const { label, className = '' } = Astro.props
+---
+
+<Dropdown class="group">
+  <button
+    type="button"
+    class:list={['inline-flex h-8 w-8 cursor-pointer items-center justify-center', className]}
+    id="i18n-switcher"
+    aria-label={label || 'Toggle i18n'}
+  >
+    <LanguagesIcon />
+  </button>
+  <DropdownItems>
+    <div class="navbar-dropdown !grid-cols-1 gap-1">
+      <a class="dropdown-item" href={Astro.url.pathname.replace(/^\/ja\//, '/')}>
+        <div class="dropdown-title">English</div>
+      </a>
+      <a
+        class="dropdown-item"
+        href={Astro.url.pathname.startsWith('/ja')
+          ? Astro.url.pathname
+          : `/ja${Astro.url.pathname}`}
+      >
+        <div class="dropdown-title">日本語</div>
+      </a>
+    </div>
+  </DropdownItems>
+</Dropdown>
+
+<script></script>
+
+<style>
+  .navbar-dropdown {
+    @apply absolute mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border-2 border-dark bg-paper p-3 shadow-sm;
+    & .dropdown-item {
+      @apply flex cursor-pointer select-none flex-col gap-1 rounded-lg p-3 pl-8 transition-colors duration-200;
+
+      &:hover {
+        @apply bg-muted;
+      }
+
+      & .dropdown-title {
+        @apply text-right font-bold;
+      }
+    }
+  }
+</style>

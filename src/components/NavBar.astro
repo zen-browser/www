@@ -6,6 +6,7 @@ import ChevronDownIcon from '~/icons/ChevronDownIcon.astro'
 import DownloadIcon from '~/icons/DownloadIcon.astro'
 import MenuIcon from '~/icons/MenuIcon.astro'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
+import I18nSwitch from './I18nSwitch.astro'
 import Logo from './Logo.astro'
 import MobileMenu from './MobileMenu.astro'
 import ThemeSwitch from './ThemeSwitch.astro'
@@ -106,6 +107,9 @@ const {
       </a>
     </div>
     <div class="flex items-center gap-2 place-self-end lg:gap-4">
+      <div id="i18n-switcher">
+        <I18nSwitch label="Toggle i18n" />
+      </div>
       <div id="theme-switcher">
         <ThemeSwitch label="Toggle theme" />
       </div>

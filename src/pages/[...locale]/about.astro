@@ -1,10 +1,10 @@
 ---
 import { Image } from 'astro:assets'
+import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getLocale, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
-import Button from '~/components/Button.astro'
 
 const locale = getLocale(Astro)
 
