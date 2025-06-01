@@ -1,7 +1,6 @@
 ---
 import { motion } from 'motion/react'
 import { getTitleAnimation } from '~/animations'
-import HomePageVideo from '~/assets/HomePageVideo.webm'
 import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
 import Title from '~/components/Title.astro'
@@ -86,7 +85,7 @@ const {
   {...getHeroTitleAnimation()}
 >
   <Video
-    src={HomePageVideo}
+    name="hero-video"
     autoplay
     loop
     muted
