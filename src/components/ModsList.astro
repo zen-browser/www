@@ -41,10 +41,8 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       />
     </div>
 
-    <div
-      class="grid w-full auto-cols-max grid-cols-[auto,auto,1fr] place-items-center gap-4 sm:grid-cols-[auto,auto,1fr]"
-    >
-      <div class="flex flex-col items-start gap-2">
+    <div class="my-1 flex w-full items-center justify-between gap-4 sm:my-2">
+      <div class="flex items-start gap-4">
         <button
           class="flex items-center gap-2 rounded-full border border-subtle px-5 py-1 text-sm font-semibold shadow-sm transition-colors hover:bg-muted focus:bg-coral/10 sm:text-base"
           id="created-sort"
@@ -57,9 +55,6 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
             <span id="created-sort-desc" class="hidden" set:html={descSortIcon.html[0]} />
           </span>
         </button>
-      </div>
-
-      <div class="flex flex-col items-start gap-2">
         <button
           class="flex items-center gap-2 rounded-full border border-subtle px-5 py-1 text-sm font-semibold shadow-sm transition-colors hover:bg-muted focus:bg-coral/10 sm:text-base"
           id="updated-sort"
@@ -74,42 +69,16 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         </button>
       </div>
 
-      <div class="hidden items-center gap-2 sm:block">
-        <label class="text-md text-md font-semibold" for="limit-button">
+      <div class="col-span-2 flex items-center gap-2 px-4 py-2 sm:col-span-1">
+        <label class="text-md font-semibold" for="limit">
           {translations.sort.perPage}
         </label>
-        <div class="relative inline-block">
-          <button
-            id="limit-button"
-            type="button"
-            class="group flex min-w-[60px] items-center justify-between rounded border border-dark bg-paper px-2 py-1 text-sm dark:bg-paper"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <span id="limit-value">12</span>
-            <ChevronDownIcon
-              class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
-            />
-          </button>
-          <div
-            id="limit-dropdown"
-            class="absolute right-0 mt-1 hidden w-full rounded border border-dark bg-paper py-1 shadow-lg"
-            role="menu"
-          >
-            {
-              [12, 24, 48, 96].map(value => (
-                <button
-                  type="button"
-                  class="block w-full px-2 py-1 text-left text-sm hover:bg-muted"
-                  role="menuitem"
-                  data-value={value}
-                >
-                  {value}
-                </button>
-              ))
-            }
-          </div>
-        </div>
+        <select class="rounded border border-dark bg-paper px-2 py-1 text-sm" id="limit">
+          <option value="12">12</option>
+          <option value="24">24</option>
+          <option value="48">48</option>
+          <option value="96">96</option>
+        </select>
       </div>
     </div>
   </div>
@@ -338,13 +307,6 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           }
         })
       }
-
-      document.addEventListener('limit-changed', e => {
-        if (e instanceof CustomEvent) {
-          const newLimit = e.detail.value
-          this.setState({ limit: newLimit, page: 1 })
-        }
-      })
     }
     setState(newState) {
       // Prevent multiple renders
@@ -712,60 +674,4 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
 
   // Initialize the mods search
   new ModsSearch()
-
-  class CustomDropdown {
-    constructor() {
-      this.button = document.getElementById('limit-button')
-      this.dropdown = document.getElementById('limit-dropdown')
-      this.valueSpan = document.getElementById('limit-value')
-
-      if (!this.button || !this.dropdown || !this.valueSpan) return
-
-      this.button.addEventListener('click', () => this.toggle())
-      this.dropdown.addEventListener('click', e => this.handleOptionClick(e))
-
-      // Close dropdown when clicking outside
-      document.addEventListener('click', e => {
-        if (!this.button?.contains(e.target) && !this.dropdown?.contains(e.target)) {
-          this.close()
-        }
-      })
-    }
-
-    toggle() {
-      const isExpanded = this.button?.getAttribute('aria-expanded') === 'true'
-      if (isExpanded) {
-        this.close()
-      } else {
-        this.open()
-      }
-    }
-
-    open() {
-      this.button?.setAttribute('aria-expanded', 'true')
-      this.dropdown?.classList.remove('hidden')
-    }
-
-    close() {
-      this.button?.setAttribute('aria-expanded', 'false')
-      this.dropdown?.classList.add('hidden')
-    }
-
-    handleOptionClick(e) {
-      const target = e.target
-      if (target instanceof HTMLButtonElement && target.dataset.value) {
-        const value = target.dataset.value
-        if (this.valueSpan) {
-          this.valueSpan.textContent = value
-        }
-        // Trigger change event for ModsSearch
-        const event = new CustomEvent('limit-changed', { detail: { value: parseInt(value, 10) } })
-        document.dispatchEvent(event)
-        this.close()
-      }
-    }
-  }
-
-  // Initialize the custom dropdown
-  new CustomDropdown()
 </script>
