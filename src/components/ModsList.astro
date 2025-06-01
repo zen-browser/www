@@ -41,7 +41,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       />
     </div>
 
-    <div class="my-1 flex w-full items-center justify-between gap-4 sm:my-2">
+    <div class="mb-1 flex w-full items-center justify-between gap-4 sm:mb-2">
       <div class="flex items-start gap-4">
         <button
           class="flex items-center gap-2 rounded-full border border-subtle px-5 py-1 text-sm font-semibold shadow-sm transition-colors hover:bg-muted focus:bg-coral/10 sm:text-base"
@@ -69,7 +69,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         </button>
       </div>
 
-      <div class="col-span-2 flex items-center gap-2 px-4 py-2 sm:col-span-1">
+      <div class="hidden items-center gap-2 px-4 py-2 sm:flex">
         <label class="text-md font-semibold" for="limit">
           {translations.sort.perPage}
         </label>
