@@ -2749,7 +2749,7 @@
     "fixes": [
       "Pinned- and essential tabs not restoring their icons correctly.",
       "Other issues with split views and Glance.",
-      "Compact mode should now work correctly after closing the window — please let us know if you still experience issues."
+      "Compact mode should now work correctly after closing the window \u2014 please let us know if you still experience issues."
     ],
     "changes": [
       "Unloaded tabs won't be dimmed unless they are explicitly discarded (browser.tabs.fadeOutUnloadedTabs).",
@@ -2767,5 +2767,19 @@
     "workflowId": 15356890243,
     "image": false,
     "date": "30/05/2025"
+  },
+  {
+    "version": "1.12.10b",
+    "extra": "",
+    "fixes": [
+      "An issue with migration that leaded to unexpected behavior when starting up zen, leading to some services being unavailable.",
+      "Unloading pinned tabs using the wrong favicon instead of the cached one.",
+      "Gradients not showing when restoring multiple windows at once",
+      "Restoring previously closed pinned tabs being on the wrong container."
+    ],
+    "features": [],
+    "workflowId": 15368185273,
+    "image": false,
+    "date": "01/06/2025"
   }
 ]
