@@ -52,7 +52,7 @@ jobs:
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Eslint check
-        run: turbo run lint
+        run: pnpm exec turbo run lint
 
   prettier:
     runs-on: ubuntu-latest
@@ -73,7 +73,7 @@ jobs:
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Prettier check
-        run: turbo run format
+        run: pnpm exec turbo run format
 
   cspell:
     runs-on: ubuntu-latest
@@ -94,7 +94,7 @@ jobs:
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run cspell check
-        run: turbo run spell
+        run: pnpm exec turbo run spell
 
   vitest:
     runs-on: ubuntu-latest
@@ -115,7 +115,7 @@ jobs:
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Vitest tests
-        run: turbo vitest run
+        run: pnpm exec turbo vitest run
 
   build:
     runs-on: ubuntu-latest
@@ -136,7 +136,7 @@ jobs:
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Build project
-        run: turbo run build
+        run: pnpm exec turbo run build
       - name: Upload build output
         uses: actions/upload-artifact@v4
         with:
@@ -164,8 +164,6 @@ jobs:
             .turbo
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
       - name: Download build output
@@ -174,4 +172,4 @@ jobs:
           name: build
           path: dist
       - name: Run Playwright tests
-        run: turbo run test:playwright
+        run: pnpm exec turbo run test:playwright
