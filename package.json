@@ -21,7 +21,8 @@
     "commitlint": "commitlint --edit",
     "test": "vitest run",
     "test:coverage": "vitest --coverage",
-    "test:playwright": "playwright test --reporter=list"
+    "test:playwright": "playwright test --reporter=list",
+    "prepare": "lefthook install"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
@@ -43,6 +44,7 @@
     "date-fns": "4.1.0",
     "free-astro-components": "1.2.0",
     "jiti": "^2.4.2",
+    "lefthook": "^1.11.13",
     "motion": "^12.15.0",
     "postcss": "8.5.1",
     "react": "^19.1.0",
