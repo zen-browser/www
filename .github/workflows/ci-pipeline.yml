@@ -25,7 +25,9 @@ jobs:
           path: |
             .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Verify pnpm installation
         run: pnpm --version
       - name: Install dependencies
@@ -50,7 +52,9 @@ jobs:
           path: |
             .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Run Eslint check
         run: pnpm exec turbo run lint
 
@@ -71,7 +75,9 @@ jobs:
           path: |
             .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Run Prettier check
         run: pnpm exec turbo run format
 
@@ -92,7 +98,9 @@ jobs:
           path: |
             .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Run cspell check
         run: pnpm exec turbo run spell
 
@@ -113,7 +121,9 @@ jobs:
           path: |
             .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Run Vitest tests
         run: pnpm exec turbo test
 
@@ -134,7 +144,9 @@ jobs:
           path: |
             .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Build project
         run: pnpm exec turbo run build
       - name: Upload build output
@@ -163,7 +175,9 @@ jobs:
           path: |
             .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
       - name: Download build output
