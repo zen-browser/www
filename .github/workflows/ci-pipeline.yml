@@ -23,6 +23,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Verify pnpm installation
@@ -47,10 +48,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Eslint check
-        run: pnpm run lint
+        run: turbo run lint
 
   prettier:
     runs-on: ubuntu-latest
@@ -67,10 +69,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Prettier check
-        run: pnpm run format:check
+        run: turbo run format
 
   cspell:
     runs-on: ubuntu-latest
@@ -87,10 +90,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run cspell check
-        run: pnpm run spell
+        run: turbo run spell
 
   vitest:
     runs-on: ubuntu-latest
@@ -107,10 +111,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Vitest tests
-        run: pnpm vitest run
+        run: turbo vitest run
 
   build:
     runs-on: ubuntu-latest
@@ -127,10 +132,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Build project
-        run: pnpm run build
+        run: turbo run build
       - name: Upload build output
         uses: actions/upload-artifact@v4
         with:
@@ -155,6 +161,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Install dependencies
@@ -167,4 +174,4 @@ jobs:
           name: build
           path: dist
       - name: Run Playwright tests
-        run: pnpm run test:playwright
+        run: turbo run test:playwright

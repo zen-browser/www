@@ -33,3 +33,5 @@ npm-debug.log*
 
 # cache
 .eslintcache
+# Turborepo
+.turbo
