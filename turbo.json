@@ -18,7 +18,7 @@
     },
     "build": {
       "cache": true,
-      "outputs": [".dist/**"]
+      "outputs": ["dist/**"]
     },
     "test": {
       "cache": true,
