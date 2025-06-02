@@ -45,3 +45,9 @@ wrangler.toml
 public/fonts/
 public/favicon.ico
 public/favicon.svg
+
+# GitHub Markdown files
+.github/ISSUE_TEMPLATE/
+.github/PULL_REQUEST_TEMPLATE/
+CONTRIBUTING.md
+README.md
