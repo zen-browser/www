@@ -1,52 +1,37 @@
 ---
 import { Dropdown, DropdownItems } from 'astro-navbar'
+import { i18n } from '~/constants/i18n'
 import LanguagesIcon from '~/icons/Languages.astro'
-import { getLocale, getPath, getUI } from '~/utils/i18n'
 
-const locale = getLocale(Astro)
-const getLocalePath = getPath(locale)
-
-const {
-  components: {
-    nav: { menu },
-  },
-} = getUI(locale)
-
-interface Props {
-  label?: string
-  className?: string
+function getHref(locale: string) {
+  if (locale === 'en') return Astro.url.pathname.replace(/^\/ja\//, '/')
+  if (locale === 'ja')
+    return Astro.url.pathname.startsWith('/ja') ? Astro.url.pathname : `/ja${Astro.url.pathname}`
+  return Astro.url.pathname
 }
-
-const { label, className = '' } = Astro.props
 ---
 
 <Dropdown class="group">
   <button
     type="button"
-    class:list={['inline-flex h-8 w-8 cursor-pointer items-center justify-center', className]}
+    class:list={['inline-flex h-8 w-8 cursor-pointer items-center justify-center']}
     id="i18n-switcher"
-    aria-label={label || 'Toggle i18n'}
+    aria-label={'Toggle i18n'}
   >
     <LanguagesIcon />
   </button>
   <DropdownItems>
     <div class="navbar-dropdown !grid-cols-1 gap-1">
-      <a class="dropdown-item" href={Astro.url.pathname.replace(/^\/ja\//, '/')}>
-        <div class="dropdown-title">English</div>
-      </a>
-      <a
-        class="dropdown-item"
-        href={Astro.url.pathname.startsWith('/ja')
-          ? Astro.url.pathname
-          : `/ja${Astro.url.pathname}`}
-      >
-        <div class="dropdown-title">日本語</div>
-      </a>
+      {
+        i18n.LOCALES.map(locale => (
+          <a class="dropdown-item" href={getHref(locale.value)} aria-label={locale.label}>
+            <div class="dropdown-title">{locale.label}</div>
+          </a>
+        ))
+      }
     </div>
   </DropdownItems>
 </Dropdown>
-
-<script></script>
 
 <style>
   .navbar-dropdown {
