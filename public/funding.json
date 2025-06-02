@@ -49,7 +49,7 @@
         "guid": "licenses-and-hosting",
         "status": "active",
         "name": "Licenses and hosting",
-        "description": "Help me pay for the licenses and hosting of the project. This includes self-hosting build servers, cloudflare services, and software lienses.",
+        "description": "Help me pay for the licenses and hosting of the project. This includes self-hosting build servers, cloudflare services, and software licenses.",
         "amount": 420,
         "currency": "EUR",
         "frequency": "yearly",

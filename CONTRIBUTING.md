@@ -28,8 +28,8 @@ git checkout -b <BRANCH_NAME>
 5. Start the development environment.
 
 ```bash
-npm install # or your favorite package manager
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 6. Make your changes.
@@ -38,7 +38,7 @@ npm run dev
 
 ```bash
 git add .
-git commit -m "Your commit message"
+git commit -m "feat: add new feature description"
 ```
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Commits must be signed. You can learn more about [Commit Signing][] here.
 ### Commit Message Guidelines
 
 - Commit messages must include a "type" as described in Conventional Commits
-- Commit messages **must** start with a capital letter
+- Commit messages **must** start with a lowercase letter
 - Commit messages **must not** end with a period `.`
 - Commit messages **must** be in English _sorry for the constraint_
 

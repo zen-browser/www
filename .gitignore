@@ -30,3 +30,6 @@ npm-debug.log*
 /playwright/.cache/
 
 /coverage
+
+# cache
+.eslintcache
