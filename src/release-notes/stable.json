@@ -2772,7 +2772,7 @@
     "version": "1.12.10b",
     "extra": "",
     "fixes": [
-      "An issue with migration that leaded to unexpected behavior when starting up zen, leading to some services being unavailable.",
+      "An issue with migration that led to unexpected behavior when starting up zen, leading to some services being unavailable.",
       "Unloading pinned tabs using the wrong favicon instead of the cached one.",
       "Gradients not showing when restoring multiple windows at once",
       "Restoring previously closed pinned tabs being on the wrong container."
