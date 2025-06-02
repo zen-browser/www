@@ -1,0 +1,81 @@
+pre-commit:
+  piped: true
+  commands:
+    prettier:
+      priority: 1
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,md,mdx,yaml,yml,json,html,css,astro}"
+      run: |
+        pnpm prettier {staged_files} --write
+      stage_fixed: true
+
+    eslint:
+      priority: 2
+      run: |
+        pnpm lefthook run eslint
+
+    cspell:
+      priority: 3
+      run: |
+        pnpm lefthook run cspell
+
+eslint:
+  parallel: true
+  commands:
+    base:
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro}"
+      exclude:
+        - public/**
+        - dist/**
+        - playwright-report/**
+        - test-results/**
+      run: |
+        pnpm eslint {staged_files} --max-warnings=0 --fix --cache
+      stage_fixed: true
+
+    src:
+      root: src/
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro}"
+      run: |
+        pnpm eslint {staged_files} --max-warnings=0 --fix --cache
+      stage_fixed: true
+
+    scripts:
+      root: scripts/
+      glob: "*.{js,ts,py}"
+      run: |
+        pnpm eslint {staged_files} --max-warnings=0 --fix --cache
+      stage_fixed: true
+
+cspell:
+  commands:
+    base:
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
+      run: |
+        pnpm cspell {staged_files}
+      stage_fixed: true
+
+    src:
+      root: src/
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
+      run: |
+        pnpm cspell {staged_files}
+      stage_fixed: true
+
+    scripts:
+      root: scripts/
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,json,yaml,yml,md,mdx}"
+      run: |
+        pnpm cspell {staged_files}
+      stage_fixed: true
+
+commit-msg:
+  commands:
+    commitlint:
+      run: |
+        pnpm commitlint --edit {1}
+
+post-merge:
+  commands:
+    pnpm:
+      glob: "{package.json,pnpm-lock.yaml}"
+      run: pnpm install

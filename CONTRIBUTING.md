@@ -41,8 +41,7 @@ git add .
 git commit -m "Your commit message"
 ```
 
-> [!NOTE]
-> Please follow the commit guidelines described below.
+> [!NOTE] Please follow the commit guidelines described below.
 
 ## Commit Guidelines
 
