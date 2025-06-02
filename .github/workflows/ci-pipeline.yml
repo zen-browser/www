@@ -15,17 +15,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
       - name: Cache node_modules
         id: cache-deps
         uses: actions/cache@v4
         with:
           path: |
             node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-      - name: Verify npm installation
-        run: npm --version
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+      - name: Verify pnpm installation
+        run: pnpm --version
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
   eslint:
     runs-on: ubuntu-latest
@@ -37,14 +40,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
           path: |
             node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Eslint check
-        run: npm run lint
+        run: pnpm run lint
 
   prettier:
     runs-on: ubuntu-latest
@@ -54,14 +60,37 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
           path: |
             node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Prettier check
-        run: npm run format:check
+        run: pnpm run format:check
+
+  cspell:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
+      - name: Restore node_modules from cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+      - name: Run cspell check
+        run: pnpm run spell
 
   vitest:
     runs-on: ubuntu-latest
@@ -71,14 +100,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
           path: |
             node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Vitest tests
-        run: npx vitest run
+        run: pnpm vitest run
 
   build:
     runs-on: ubuntu-latest
@@ -88,14 +120,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
           path: |
             node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Build project
-        run: npm run build
+        run: pnpm run build
       - name: Upload build output
         uses: actions/upload-artifact@v4
         with:
@@ -113,20 +148,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
           path: |
             node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: pnpm exec playwright install --with-deps
       - name: Download build output
         uses: actions/download-artifact@v4
         with:
           name: build
           path: dist
       - name: Run Playwright tests
-        run: npx playwright test
+        run: pnpm run test:playwright
