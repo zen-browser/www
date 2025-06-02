@@ -40,10 +40,10 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       />
     </div>
 
-    <div class="grid w-full grid-cols-2 place-items-center gap-4 sm:grid-cols-3">
-      <div class="flex flex-col items-start gap-2">
+    <div class="mb-1 flex w-full items-center justify-between gap-4 sm:mb-2">
+      <div class="flex items-start gap-4">
         <button
-          class="text-md flex items-center gap-2 px-4 py-2 font-semibold"
+          class="flex items-center gap-2 rounded-full border border-subtle px-5 py-1 text-sm font-semibold shadow-sm transition-colors hover:bg-muted focus:bg-coral/10 sm:text-base"
           id="created-sort"
           type="button"
         >
@@ -54,11 +54,8 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
             <span id="created-sort-desc" class="hidden" set:html={descSortIcon.html[0]} />
           </span>
         </button>
-      </div>
-
-      <div class="flex flex-col items-center gap-2">
         <button
-          class="text-md flex items-center gap-2 px-4 py-2 font-semibold"
+          class="flex items-center gap-2 rounded-full border border-subtle px-5 py-1 text-sm font-semibold shadow-sm transition-colors hover:bg-muted focus:bg-coral/10 sm:text-base"
           id="updated-sort"
           type="button"
         >
@@ -71,11 +68,11 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         </button>
       </div>
 
-      <div class="col-span-2 flex items-center gap-2 px-4 py-2 sm:col-span-1">
+      <div class="hidden items-center gap-2 px-4 py-2 sm:flex">
         <label class="text-md font-semibold" for="limit">
           {translations.sort.perPage}
         </label>
-        <select class="rounded border border-dark px-2 py-1 text-sm dark:bg-paper" id="limit">
+        <select class="rounded border border-dark bg-paper px-2 py-1 text-sm" id="limit">
           <option value="12">12</option>
           <option value="24">24</option>
           <option value="48">48</option>
