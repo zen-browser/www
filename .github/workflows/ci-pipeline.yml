@@ -17,7 +17,7 @@ jobs:
           node-version: lts/*
       - uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: 10.11.0
       - name: Cache node_modules
         id: cache-deps
         uses: actions/cache@v4
@@ -42,7 +42,7 @@ jobs:
           node-version: 22
       - uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
@@ -62,7 +62,7 @@ jobs:
           node-version: lts/*
       - uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
@@ -82,7 +82,7 @@ jobs:
           node-version: lts/*
       - uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
@@ -102,7 +102,7 @@ jobs:
           node-version: lts/*
       - uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
@@ -122,7 +122,7 @@ jobs:
           node-version: lts/*
       - uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
@@ -150,7 +150,7 @@ jobs:
           node-version: lts/*
       - uses: pnpm/action-setup@v4
         with:
-          version: latest
+          version: 10.11.0
       - name: Restore node_modules from cache
         uses: actions/cache@v4
         with:
