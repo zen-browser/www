@@ -47,6 +47,7 @@ eslint:
       stage_fixed: true
 
 cspell:
+  parallel: true
   commands:
     base:
       glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
