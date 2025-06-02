@@ -1,6 +1,7 @@
 ---
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons'
+import Xmark from '~/icons/XmarkIcon.astro'
 import { type ZenTheme } from '~/mods'
 import { getPath, type Locale } from '~/utils/i18n'
 
@@ -31,13 +32,24 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
 
 <div id="mods-list-container" class="flex flex-1 flex-col">
   <div class="flex flex-col items-center gap-4">
-    <div class="flex w-full flex-col items-center justify-center gap-6">
+    <div
+      class="flex w-full flex-row items-center justify-center gap-4 rounded-full border-2 border-dark px-6 py-2"
+    >
       <input
-        class="w-full rounded-full border-2 border-dark bg-transparent px-6 py-2 text-lg outline-none"
+        class="w-full bg-transparent text-lg outline-none"
         id="search"
         placeholder={translations.search}
         type="text"
       />
+      <button
+        id="clear-search"
+        title="Clear search"
+        class="hidden rounded-full p-1 transition-colors duration-150 hover:bg-subtle"
+        aria-label="Clear search"
+        tabindex="0"
+      >
+        <Xmark />
+      </button>
     </div>
 
     <div class="mb-1 flex w-full items-center justify-between gap-4 sm:mb-2">
@@ -68,7 +80,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         </button>
       </div>
 
-      <div class="hidden items-center gap-2 px-4 py-2 sm:flex">
+      <div class="hidden items-center gap-2 px-4 py-1 sm:flex">
         <label class="text-md font-semibold" for="limit">
           {translations.sort.perPage}
         </label>
@@ -191,6 +203,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       const modsGrid = document.getElementById('mods-grid')
       const noResults = document.getElementById('no-results')
       const pagination = document.getElementById('pagination')
+      const clearSearchButton = document.getElementById('clear-search')
 
       // Sort icon elements
       const createdSortDefault = document.getElementById('created-sort-default')
@@ -218,6 +231,8 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           updatedAsc: updatedSortAsc instanceof HTMLSpanElement ? updatedSortAsc : null,
           updatedDesc: updatedSortDesc instanceof HTMLSpanElement ? updatedSortDesc : null,
         },
+        clearSearchButton:
+          clearSearchButton instanceof HTMLButtonElement ? clearSearchButton : null,
       }
     }
 
@@ -282,6 +297,21 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
             }
           }, 300) // 300ms debounce
         })
+        if (this.elements.clearSearchButton) {
+          this.elements.searchInput.addEventListener('input', () => {
+            if (this.elements.searchInput.value.trim() === '') {
+              this.elements.clearSearchButton.classList.add('hidden')
+            } else {
+              this.elements.clearSearchButton.classList.remove('hidden')
+            }
+          })
+
+          this.elements.clearSearchButton.addEventListener('click', () => {
+            this.elements.searchInput.value = ''
+            this.setState({ search: '', page: 1 })
+            this.elements.clearSearchButton.classList.add('hidden') // Add this line
+          })
+        }
       }
 
       // Sort buttons
