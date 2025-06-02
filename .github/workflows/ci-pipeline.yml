@@ -115,7 +115,7 @@ jobs:
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run Vitest tests
-        run: pnpm exec turbo vitest run
+        run: pnpm exec turbo test
 
   build:
     runs-on: ubuntu-latest
