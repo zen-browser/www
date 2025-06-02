@@ -1,0 +1,40 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "outputs": []
+    },
+    "lint": {
+      "cache": true,
+      "inputs": ["**/*{ts,tsx,js,jsx,astro}"],
+      "outputs": []
+    },
+    "format": {
+      "cache": true,
+      "inputs": ["**/*.{ts,tsx,js,jsx,astro,json,yml,yaml}"],
+      "outputs": []
+    },
+    "build": {
+      "cache": true,
+      "outputs": ["dist/**"]
+    },
+    "test": {
+      "cache": true,
+      "inputs": ["**/*.{ts,tsx,js,jsx}"],
+      "outputs": []
+    },
+    "spell": {
+      "cache": true,
+      "inputs": ["src/**/*.{ts,tsx,js,jsx,astro,md,json,yml,yaml}"],
+      "outputs": []
+    },
+    "test:playwright": {
+      "cache": true,
+      "inputs": ["**/*.{ts,tsx,js,jsx}"],
+      "outputs": ["playwright-report/**", "test-results/**"]
+    }
+  },
+  "ui": "tui"
+}
