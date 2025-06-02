@@ -90,7 +90,7 @@ jobs:
             node_modules
           key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
       - name: Run cspell check
-        run: pnpm run cspell
+        run: pnpm run spell
 
   vitest:
     runs-on: ubuntu-latest
