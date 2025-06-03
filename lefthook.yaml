@@ -3,7 +3,7 @@ pre-commit:
   commands:
     prettier:
       priority: 1
-      glob: "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,md,mdx,yaml,yml,json,html,css,astro}"
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,md,mdx,yaml,yml,json,html,css,astro}"
       run: |
         pnpm prettier {staged_files} --write --list-different
       stage_fixed: true
@@ -21,7 +21,7 @@ pre-commit:
 eslint:
   commands:
     base:
-      glob: "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro}"
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro}"
       exclude:
         - public/**
         - dist/**
@@ -34,7 +34,7 @@ eslint:
 cspell:
   commands:
     base:
-      glob: "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
+      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
       run: |
         pnpm cspell {staged_files}
       stage_fixed: true
