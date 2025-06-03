@@ -23,8 +23,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Verify pnpm installation
         run: pnpm --version
       - name: Install dependencies
@@ -47,10 +50,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Run Eslint check
-        run: pnpm run lint
+        run: pnpm exec turbo run lint
 
   prettier:
     runs-on: ubuntu-latest
@@ -67,10 +73,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Run Prettier check
-        run: pnpm run format:check
+        run: pnpm exec turbo run format
 
   cspell:
     runs-on: ubuntu-latest
@@ -87,10 +96,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Run cspell check
-        run: pnpm run spell
+        run: pnpm exec turbo run spell
 
   vitest:
     runs-on: ubuntu-latest
@@ -107,10 +119,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Run Vitest tests
-        run: pnpm vitest run
+        run: pnpm exec turbo test
 
   build:
     runs-on: ubuntu-latest
@@ -127,10 +142,13 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Build project
-        run: pnpm run build
+        run: pnpm exec turbo run build
       - name: Upload build output
         uses: actions/upload-artifact@v4
         with:
@@ -155,10 +173,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
+            .turbo
             node_modules
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
       - name: Download build output
@@ -167,4 +186,4 @@ jobs:
           name: build
           path: dist
       - name: Run Playwright tests
-        run: pnpm run test:playwright
+        run: pnpm exec turbo run test:playwright
