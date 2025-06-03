@@ -3,9 +3,9 @@ pre-commit:
   commands:
     prettier:
       priority: 1
-      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,md,mdx,yaml,yml,json,html,css,astro}"
+      glob: "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,md,mdx,yaml,yml,json,html,css,astro}"
       run: |
-        pnpm prettier {staged_files} --write
+        pnpm prettier {staged_files} --write --list-different
       stage_fixed: true
 
     eslint:
@@ -19,10 +19,9 @@ pre-commit:
         pnpm lefthook run cspell
 
 eslint:
-  parallel: true
   commands:
     base:
-      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro}"
+      glob: "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro}"
       exclude:
         - public/**
         - dist/**
@@ -32,39 +31,10 @@ eslint:
         pnpm eslint {staged_files} --max-warnings=0 --fix --cache
       stage_fixed: true
 
-    src:
-      root: src/
-      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro}"
-      run: |
-        pnpm eslint {staged_files} --max-warnings=0 --fix --cache
-      stage_fixed: true
-
-    scripts:
-      root: scripts/
-      glob: "*.{js,ts,py}"
-      run: |
-        pnpm eslint {staged_files} --max-warnings=0 --fix --cache
-      stage_fixed: true
-
 cspell:
-  parallel: true
   commands:
     base:
-      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
-      run: |
-        pnpm cspell {staged_files}
-      stage_fixed: true
-
-    src:
-      root: src/
-      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
-      run: |
-        pnpm cspell {staged_files}
-      stage_fixed: true
-
-    scripts:
-      root: scripts/
-      glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,json,yaml,yml,md,mdx}"
+      glob: "**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
       run: |
         pnpm cspell {staged_files}
       stage_fixed: true

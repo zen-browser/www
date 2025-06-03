@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
-  "language": "en",
+  "language": "en,es",
   "files": ["**/*.{ts,js,astro,html,css,json,yml,yaml,md}"],
   "words": [
     "createdDefault",
@@ -50,7 +50,19 @@
     "Briel",
     "Otero",
     "Pdzly",
-    "ferrocyante"
+    "ferrocyante",
+    "testid",
+    "linuxsum",
+    "linuxarmsum",
+    "bryan",
+    "oscar",
+    "daniel",
+    "Kristijan",
+    "adam",
+    "mozilla",
+    "patreon",
+    "theming",
+    "linaarchsum"
   ],
   "flagWords": [],
   "ignorePaths": [
@@ -69,13 +81,14 @@
     "pnpm-lock.yaml"
   ],
   "allowCompoundWords": true,
-  "dictionaries": ["typescript", "node", "html", "css", "bash", "npm"],
+  "dictionaries": ["typescript", "node", "html", "css", "bash", "npm", "es-es"],
   "import": [
     "@cspell/dict-typescript/cspell-ext.json",
     "@cspell/dict-node/cspell-ext.json",
     "@cspell/dict-html/cspell-ext.json",
     "@cspell/dict-css/cspell-ext.json",
     "@cspell/dict-bash/cspell-ext.json",
-    "@cspell/dict-npm/cspell-ext.json"
+    "@cspell/dict-npm/cspell-ext.json",
+    "@cspell/dict-es-es/cspell-ext.json"
   ]
 }
