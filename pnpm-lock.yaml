@@ -105,6 +105,9 @@ importers:
       '@cspell/dict-css':
         specifier: ^4.0.17
         version: 4.0.17
+      '@cspell/dict-es-es':
+        specifier: ^3.0.3
+        version: 3.0.3
       '@cspell/dict-html':
         specifier: ^4.0.11
         version: 4.0.11
@@ -578,6 +581,9 @@ packages:
 
   '@cspell/dict-en_us@4.4.9':
     resolution: {integrity: sha512-5gjqpUwhE+qP9A9wxD1+MGGJ3DNqTgSpiOsS10cGJfV4p/Z194XkDUZrUrJsnJA/3fsCZHAzcNWh8m0bw1v++A==}
+
+  '@cspell/dict-es-es@3.0.3':
+    resolution: {integrity: sha512-hROLoJ/aBcK43drDqHVnZhtUS9cUQtTZFJl4k9ih3lBoeRhCZIQDg1qARfEFTEwX8LN+FrERjnahndrZcxuaGw==}
 
   '@cspell/dict-filetypes@3.0.12':
     resolution: {integrity: sha512-+ds5wgNdlUxuJvhg8A1TjuSpalDFGCh7SkANCWvIplg6QZPXL4j83lqxP7PgjHpx7PsBUS7vw0aiHPjZy9BItw==}
@@ -5632,6 +5638,8 @@ snapshots:
   '@cspell/dict-en-gb-mit@3.0.7': {}
 
   '@cspell/dict-en_us@4.4.9': {}
+
+  '@cspell/dict-es-es@3.0.3': {}
 
   '@cspell/dict-filetypes@3.0.12': {}
 

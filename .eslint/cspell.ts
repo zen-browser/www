@@ -14,7 +14,9 @@ export const cspellConfig: Linter.Config = {
       'warn',
       {
         configFile: new URL('../cspell.json', import.meta.url).toString(),
-        cspell: {},
+        cspell: {
+          language: 'en,es',
+        },
       },
     ],
   },
