@@ -15,7 +15,7 @@
     "astro": "astro",
     "lint": "eslint . --max-warnings=0 --cache",
     "lint:fix": "eslint . --fix",
-    "spell": "cspell \"src/**/*.{ts,tsx,js,jsx,astro,md,json,yml,yaml}\"",
+    "spell": "cspell \"**/*.{ts,tsx,js,jsx,astro,md,json,yml,yaml}\"",
     "format": "prettier . --check --cache",
     "format:fix": "prettier . --write --cache --list-different",
     "commitlint": "commitlint --edit",
