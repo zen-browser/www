@@ -1067,7 +1067,7 @@
       "Allow VAAPI/FMPEG APIs only for Linux",
       "Twilight will now display the proper name on .desktop files",
       "Added a better icon selection for workspaces, enhancing more icons",
-      "Created a \"Force container workspace\" option. Basically, force each container to belong to acertain workspace.",
+      "Created a \"Force container workspace\" option. Basically, force each container to belong to a certain workspace.",
       "Bookmarks are now opened in the workspace's default container",
       "Allow tab unloader to ignore picture-in-picture tabs"
     ],
@@ -1121,7 +1121,7 @@
         "description": "Fixed handling of corrupted mod files"
       },
       {
-        "description": "Fixed reseting shortcuts not working"
+        "description": "Fixed resetting shortcuts not working"
       },
       {
         "description": "Fixed settings UI when night theme is enabled while having a light website displayed"
@@ -1430,7 +1430,7 @@
         "description": "Fixed opening panel animation, making the popup view look weird while animating"
       },
       {
-        "description": "Fixed web panels being reloaded when unpining them"
+        "description": "Fixed web panels being reloaded when unpinning them"
       },
       {
         "description": "Fixed not making a default workspace when creating a new profile on specific conditions"
@@ -1656,7 +1656,7 @@
         "description": "Fixed an 'all-tabs' buttons appearing always and not being able to remove it"
       },
       {
-        "description": "Fixed overlaping top toolbar in compact mode when having multiple toolbars enabled"
+        "description": "Fixed overlapping top toolbar in compact mode when having multiple toolbars enabled"
       },
       {
         "description": "Fixed gradient generator overflowing the dialog on some displays"
@@ -1684,7 +1684,7 @@
         "description": "Fixed macos window control when changing right side tabs to normal tabs"
       },
       {
-        "description": "Fixed compact mode overlaping site when having bookmarks bar enabled"
+        "description": "Fixed compact mode overlapping site when having bookmarks bar enabled"
       },
       {
         "description": "Fixed entering into customize mode while having collapsed tabs"
@@ -1856,7 +1856,7 @@
         "issue": 4050
       },
       {
-        "description": "Fixed weird colouring for toggle inputs",
+        "description": "Fixed weird coloring for toggle inputs",
         "issue": 4047
       },
       "Update application identifier for Zen Browser to align with new naming conventions (MacOS)",
