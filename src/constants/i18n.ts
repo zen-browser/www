@@ -9,7 +9,7 @@ export const i18n = {
     { label: '日本語', value: 'ja', ui: UI_JA, intl: 'ja-JP' },
     { label: 'Español', value: 'es', ui: UI_ES, intl: 'es-ES' },
   ],
-}
+} as const
 
 /**
  * Type definition for UI translations based on the English translation

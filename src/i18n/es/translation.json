@@ -93,9 +93,9 @@
       "noResultsDescription": "Intenta buscar un término diferente o vuelve más tarde.",
       "slug": {
         "title": "{name} - Zen Mods",
-        "description": "Aprende más sobre el mod {name} disponible en Zen Browser",
+        "description": "Aprende más sobre el mod {name} disponible en Zen",
         "alert": {
-          "description": "Necesitas tener Zen Browser instalado para instalar este tema.",
+          "description": "Necesitas tener Zen instalado para instalar este tema.",
           "button": "¡Descargar ahora!"
         },
         "createdBy": "Creado por {author} • <b>v{version}</b>",
@@ -110,7 +110,7 @@
     "releaseNotes": {
       "topSection": {
         "title": "Changelog",
-        "description": "Mantente al día con los últimos cambios en Zen. Desde la <a class=\"zen-link\" href=\"#1.0.0-a.1\">primera versión</a> hasta <a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>, hemos estado trabajando arduamente para hacer de Zen Browser lo mejor posible. ¡Gracias a todos por sus comentarios! ❤️"
+        "description": "Mantente al día con los últimos cambios en Zen. Desde la <a class=\"zen-link\" href=\"#1.0.0-a.1\">primera versión</a> hasta <a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>, hemos estado trabajando arduamente para hacer de Zen lo mejor posible. ¡Gracias a todos por sus comentarios! ❤️"
       },
       "list": {
         "support": "¡Danos un poco de apoyo!",
@@ -136,7 +136,7 @@
           "githubRelease": "GitHub Release",
           "workflowRun": "Workflow run",
           "compareChanges": "Comparar cambios",
-          "twilightWarning": "Ten en cuenta que Twilight es una versión preliminar de Zen Browser. Puede contener errores y funciones incompletas.",
+          "twilightWarning": "Ten en cuenta que Twilight es una versión preliminar de Zen. Puede contener errores y funciones incompletas.",
           "reportIssues": " Si encuentras algún problema, infórmalo en <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">la página de problemas</a>.",
           "learnMore": "Aprender más",
           "viewIssue": "Ver el problema número {issue} en GitHub"
@@ -242,7 +242,7 @@
       },
       "contributors": {
         "title": "Contribuyentes",
-        "description": "Esta lista muestra a los contribuyentes que nos han ayudado a hacer de Zen Browser lo mejor que puede ser.",
+        "description": "Esta lista muestra a los contribuyentes que nos han ayudado a hacer de Zen lo mejor que puede ser.",
         "browser": "Navegador",
         "website": "Sitio web"
       }
