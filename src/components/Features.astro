@@ -112,7 +112,8 @@ const descriptions = Object.values(features.featureTabs).map(tab => tab.descript
       </div>
 
       <!-- Mobile description -->
-      <div class="feature-description mt-4 lg:hidden" data-descriptions={descriptions}></div>
+      <div class="feature-description mt-4 lg:hidden" data-descriptions={descriptions.join('|||')}>
+      </div>
     </div>
 
     <div class="sticky top-6 h-fit w-full lg:w-3/5">
@@ -165,7 +166,7 @@ const descriptions = Object.values(features.featureTabs).map(tab => tab.descript
 
   // Set initial description
   const descriptionEl = document.querySelector('.feature-description') as HTMLDivElement
-  const descriptions = descriptionEl?.dataset.descriptions?.split(',')
+  const descriptions = descriptionEl?.dataset.descriptions?.split('|||')
   if (descriptionEl && descriptions) {
     descriptionEl.textContent = descriptions[0]
   }
