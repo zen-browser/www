@@ -27,7 +27,7 @@ const {
           hero.title.map(title =>
             title.text !== '\n' ? (
               <span
-                class:list={[title.highlight && 'italic text-coral']}
+                class:list={['inline-block', title.highlight && 'italic text-coral']}
                 style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
               >
                 {title.text}
