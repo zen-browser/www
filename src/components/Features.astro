@@ -57,12 +57,12 @@ const featureList = [
             case '\n':
               return <br class="hidden md:block" />
             default:
-              return <span class="translate-y-20 opacity-0 blur-sm">{title}</span>
+              return <span class="opacity-0 blur-sm">{title}</span>
           }
         })
       }
     </h2>
-    <p class="max-w-2xl translate-y-20 text-base opacity-80 blur-sm sm:text-lg">
+    <p class="max-w-2xl text-base opacity-80 blur-sm sm:text-lg">
       {features.description}
     </p>
   </div>
@@ -75,15 +75,15 @@ const featureList = [
           class={`flex w-full flex-col items-center gap-6 xl:gap-12 ${index % 2 === 0 ? 'xl:flex-row-reverse' : 'xl:flex-row'}`}
         >
           <div class="flex flex-col items-center gap-4">
-            <h3 class="translate-y-20 text-2xl font-bold opacity-0 blur-sm sm:text-3xl xl:text-4xl">
+            <h3 class="text-2xl font-bold opacity-0 blur-sm sm:text-3xl xl:text-4xl">
               {feature.title}
             </h3>
-            <p class="translate-y-20 text-base leading-relaxed opacity-80 blur-sm sm:text-lg">
+            <p class="text-base leading-relaxed opacity-80 blur-sm sm:text-lg">
               {feature.description}
             </p>
           </div>
           <Video
-            class="max-h-[450px] w-[800px] translate-y-20 rounded-xl border-2 border-dark object-cover opacity-0 shadow-lg blur-sm"
+            class="max-h-[450px] w-[800px] rounded-xl border-2 border-dark object-cover opacity-0 shadow-lg blur-sm"
             name={feature.video}
             autoplay
             loop

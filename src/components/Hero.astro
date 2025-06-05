@@ -26,12 +26,7 @@ const {
         {
           hero.title.map(title =>
             title.text !== '\n' ? (
-              <span
-                class:list={[
-                  'translate-y-20 opacity-0 blur-sm',
-                  title.highlight && 'italic text-coral',
-                ]}
-              >
+              <span class:list={['opacity-0 blur-sm', title.highlight && 'italic text-coral']}>
                 {title.text}
               </span>
             ) : (
@@ -40,28 +35,31 @@ const {
           )
         }
       </Title>
-      <p class="translate-y-20 px-12 text-center opacity-0 blur-sm lg:px-0">
+      <p class="px-12 text-center opacity-0 blur-sm lg:px-0">
         {hero.description[0]}
         <br class="hidden sm:inline" />
         {hero.description[1]}
       </p>
     </div>
     <div
-      class="hero__link-group flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row"
+      class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row"
     >
       <Button
-        class="w-fit translate-y-20 opacity-0 blur-sm"
+        class="hero__link-group_button w-fit opacity-0 blur-sm"
         href={getLocalePath('/download')}
         isPrimary
       >
         {hero.buttons.beta}
         <ArrowRightIcon class="size-4" />
       </Button>
-      <Button href={getLocalePath('/donate')} class="w-fit translate-y-20 opacity-0 blur-sm">
+      <Button
+        href={getLocalePath('/donate')}
+        class="hero__link-group_button w-fit opacity-0 blur-sm"
+      >
         {hero.buttons.support}
       </Button>
     </div>
-    <SocialMediaStrip class="translate-y-20 blur-sm" opacity={0} />
+    <SocialMediaStrip class="blur-sm" opacity={0} />
   </div>
   <Video
     name="hero-video"
@@ -70,7 +68,7 @@ const {
     muted
     playsinline
     preload="none"
-    class="translate-y-20 rounded-xl opacity-0 blur-sm"
+    class="rounded-xl opacity-0 blur-sm"
   />
 </header>
 
@@ -81,7 +79,7 @@ const {
     const debug = false
 
     const elements = document.querySelectorAll(
-      '#header h1 span, #header p, #header .hero__link-group a, #header video, #header ul'
+      '#header h1 span, #header p, #header .hero__link-group_button, #header video, #header ul'
     )
 
     animate(elements, {
@@ -89,12 +87,12 @@ const {
       opacity: element => {
         // if ul is the element, return 0.8
         if (element.tagName === 'UL') {
-          return 0.8
+          return { from: 0.001, to: 0.8 }
         }
-        return 1
+        return { from: 0.001, to: 1 }
       },
-      translateY: 0,
-      filter: 'blur(0px)',
+      translateY: { from: 20, to: 0 },
+      filter: { from: 'blur(4px)', to: 'blur(0px)' },
       duration: 300,
       delay: stagger(150),
       easing: 'easeOutQuart',

@@ -18,16 +18,12 @@ const {
 
 <section id="sponsors" class:list={['py-12', !showSponsors && 'hidden']}>
   <div class="flex flex-col items-center gap-6 text-center">
-    <h3 class="translate-y-20 text-4xl font-bold opacity-0 blur-sm sm:text-6xl">
+    <h3 class="text-4xl font-bold opacity-0 blur-sm sm:text-6xl">
       {sponsors.title}
     </h3>
-    <p class="translate-y-20 text-base opacity-80 blur-sm" set:html={sponsors.description} />
+    <p class="text-base opacity-80 blur-sm" set:html={sponsors.description} />
     <div class="sponsors__sponsor relative mt-8 flex items-center justify-center">
-      <a
-        href={sponsors.sponsors['tuta'].url}
-        target="_blank"
-        class="w-fit translate-y-20 opacity-0 blur-sm"
-      >
+      <a href={sponsors.sponsors['tuta'].url} target="_blank" class="w-fit opacity-0 blur-sm">
         <Image
           src={tutaLogo}
           alt={sponsors.sponsors['tuta'].name}
