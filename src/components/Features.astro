@@ -50,7 +50,7 @@ const featureList = [
 >
   <!-- Section Header -->
   <div class="flex w-full flex-col items-center gap-4 sm:gap-6 xl:gap-12">
-    <h2 class="text-3xl font-bold sm:text-4xl md:text-6xl">
+    <h2 class="text-3xl sm:text-4xl md:text-6xl">
       {
         (titles || features.titles).map(title => {
           switch (title) {
@@ -58,12 +58,12 @@ const featureList = [
               return <br class="hidden md:block" />
             default:
               return (
-                <span
-                  class="inline-block"
+                <b
+                  class="font-bold"
                   style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
                 >
                   {title}
-                </span>
+                </b>
               )
           }
         })
@@ -118,7 +118,7 @@ const featureList = [
     const debug = false
 
     const elements = document.querySelectorAll(
-      '#features h2 span, #features h3, #features p, #features video'
+      '#features h2 b, #features h3, #features p, #features video'
     )
 
     animate(elements, {

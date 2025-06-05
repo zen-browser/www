@@ -19,53 +19,53 @@ const {
 
 <header id="header" class="flex w-full flex-col items-center gap-12 py-32 text-center lg:gap-16">
   <div class="flex h-full flex-col items-center justify-center gap-6 md:gap-12">
-    <div>
-      <Title
-        class="relative px-12 text-center text-5xl font-normal md:text-7xl lg:px-0 lg:text-9xl"
-      >
-        {
-          hero.title.map(title =>
-            title.text !== '\n' ? (
-              <span
-                class:list={['inline-block', title.highlight && 'italic text-coral']}
-                style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
-              >
-                {title.text}
-              </span>
-            ) : (
-              <br class="hidden md:block" />
+    <div class="flex flex-col items-center justify-center gap-4 md:gap-8">
+      <div>
+        <Title class="relative px-12 text-center text-5xl md:text-7xl lg:px-0 lg:text-9xl">
+          {
+            hero.title.map(title =>
+              title.text !== '\n' ? (
+                <b
+                  class:list={['font-normal', title.highlight && 'italic text-coral']}
+                  style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+                >
+                  {title.text}
+                </b>
+              ) : (
+                <br class="hidden md:block" />
+              )
             )
-          )
-        }
-      </Title>
-      <p
-        class="px-12 text-center lg:px-0"
-        style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
-      >
-        {hero.description[0]}
-        <br class="hidden sm:inline" />
-        {hero.description[1]}
-      </p>
-    </div>
-    <div
-      class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row"
-    >
-      <div
-        class="hero__link-group_button"
-        style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
-      >
-        <Button class="w-fit" href={getLocalePath('/download')} isPrimary>
-          {hero.buttons.beta}
-          <ArrowRightIcon class="size-4" />
-        </Button>
+          }
+        </Title>
+        <p
+          class="px-12 text-center lg:px-0"
+          style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+        >
+          {hero.description[0]}
+          <br class="hidden sm:inline" />
+          {hero.description[1]}
+        </p>
       </div>
       <div
-        class="hero__link-group_button"
-        style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+        class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row"
       >
-        <Button class="w-fit" href={getLocalePath('/donate')}>
-          {hero.buttons.support}
-        </Button>
+        <div
+          class="hero__link-group_button"
+          style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+        >
+          <Button class="w-fit" href={getLocalePath('/download')} isPrimary>
+            {hero.buttons.beta}
+            <ArrowRightIcon class="size-4" />
+          </Button>
+        </div>
+        <div
+          class="hero__link-group_button"
+          style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+        >
+          <Button class="w-fit" href={getLocalePath('/donate')}>
+            {hero.buttons.support}
+          </Button>
+        </div>
       </div>
     </div>
     <SocialMediaStrip style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)" />
@@ -89,7 +89,7 @@ const {
     const debug = false
 
     const elements = document.querySelectorAll(
-      '#header h1 span, #header p, #header .hero__link-group_button, #header video, #header ul'
+      '#header h1 b, #header p, #header .hero__link-group_button, #header video, #header ul'
     )
 
     animate(elements, {
