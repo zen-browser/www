@@ -1,0 +1,514 @@
+  {
+    "routes": {
+      "index": {
+        "title": "Zen Browser",
+        "hero": {
+          "title": [
+            { "text": "cung ", "highlight": false },
+            { "text": "cấp ", "highlight": false },
+            { "text": "trải ", "highlight": false },
+            { "text": "nghiệm ", "highlight": false },
+            { "text": "web ", "highlight": false },
+            { "text": "\n", "highlight": false },
+            { "text": "tuyệt ", "highlight": true },
+            { "text": "vời ", "highlight": true }
+          ],
+          "description": [
+            "Thiết kế tuyệt đẹp, Tập trung bảo mật, được đóng gói với nhiều tính năng.",
+            "Chúng tôi chỉ quan tâm tới trải nghiệm của bạn."
+          ],
+          "buttons": {
+            "beta": "Hiện tại đã có phiên bản Beta",
+            "support": "Ủng hộ ❤️"
+          }
+        },
+        "features": {
+          "titles": ["Tăng cường ", "hiệu suất ", "làm việc"],
+          "description": "Zen cung cấp những tính năng giúp bạn giữ tập trung và năng suất nhất. Những tính năng có sẵn giúp bạn hoàn thành công việc mà không bị phân tâm.",
+          "featureTabs": {
+            "workspaces": {
+              "title": "Workspaces",
+              "description": "Cho phép bạn tổ chức các tab của mình theo cách mà bạn muốn, giúp bạn dễ dàng chuyển đổi giữa các công việc khác nhau."
+            },
+            "compactMode": {
+              "title": "Compact Mode",
+              "description": "Compact Mode giúp bạn tiết kiệm không gian trên trình duyệt nhiều hơn bằng cách ẩn những tab không cần đến và hiển thị khi bạn cần."
+            },
+            "glance": {
+              "title": "Glance",
+              "description": "Glance là một tính năng giúp bạn xem nhanh các tab của mình mà không cần phải mở chúng. Nó hiển thị một bản xem trước nhỏ của mỗi tab, giúp bạn dễ dàng tìm thấy tab mà bạn cần."
+            },
+            "splitView": {
+              "title": "Split View",
+              "description": "Split View cho phép bạn xem hai tab cùng một lúc, giúp bạn dễ dàng so sánh hoặc làm việc với hai trang web khác nhau mà không cần phải chuyển đổi giữa chúng."
+            }
+          }
+        },
+        "sponsors": {
+          "title": "Nhà tài trợ",
+          "description": "Chúng tôi biết ơn các nhà tài trợ đã ủng hộ và giúp chúng tôi duy trì dự án.<br />Chúng ta có thể cùng nhau tiếp bước hành trình tiếp bước trong cuộc hành trình này bằng cách  <a href=\"/donate\" class=\"zen-link\">ủng hộ chúng tôi </a>!",
+          "sponsors": {
+            "tuta": {
+              "name": "Tuta",
+              "url": "https://tuta.com/"
+            }
+          }
+        },
+        "community": {
+          "title": ["Giá ", "Trị ", "Cốt ", "Lõi"],
+          "description": "Chúng tôi không chỉ coi đó là ưu tiên mà còn là điều cần thiết để đảm bảo Zen luôn đạt được sự cân bằng phù hợp giữa vẻ đẹp, hiệu suất và quyền riêng tư. Chúng tôi cam kết biến Zen thành trình duyệt đẹp nhất, hiệu quả nhất và tôn trọng quyền riêng tư nhất hiện có — mà không ảnh hưởng đến trải nghiệm của bạn.",
+          "lists": {
+            "freeAndOpenSource": {
+              "title": "Miễn phí và mã nguồn mở",
+              "description": "Zen là một trình duyệt mã nguồn mở, có nghĩa là bạn có thể sử dụng nó miễn phí và có thể xem mã nguồn của nó. Điều này đảm bảo rằng Zen luôn minh bạch và có thể được kiểm tra bởi bất kỳ ai."
+            },
+            "simpleYetPowerful": {
+              "title": "Không chỉ đơn giản mà còn mạnh mẽ",
+              "description": "Zen được thiết kế để đơn giản và dễ sử dụng, nhưng vẫn cung cấp nhiều tính năng mạnh mẽ. Nó có giao diện người dùng đẹp mắt và trực quan, giúp bạn dễ dàng tìm thấy những gì bạn cần."
+            },
+            "privateAndAlwaysUpToDate": {
+              "title": "Riêng tư và luôn cập nhật",
+              "description": "Zen được thiết kế để bảo vệ quyền riêng tư của bạn. Nó không thu thập dữ liệu cá nhân của bạn và không theo dõi hoạt động duyệt web của bạn. Zen cũng luôn được cập nhật với các tính năng mới và sửa lỗi, đảm bảo rằng bạn luôn có trải nghiệm tốt nhất."
+            }
+          },
+          "images": {
+            "community": {
+              "alt": "Cộng đồng"
+            }
+          }
+        }
+      },
+      "mods": {
+        "title": "Zen Mods",
+        "description": "Xem ngay các Zen Mods đa dạng của chúng tôi, các plugin và chủ đề do cộng đồng tạo ra cho Zen. Khám phá một chủ đề phù hợp với mọi tâm trạng, và một plugin đáp ứng mọi yêu cầu. Bắt đầu trải nghiệm trình duyệt của bạn ngay hôm nay!",
+        "pagination": {
+          "pagination": "{input} trong {totalPages} trang ({totalItems} mods)"
+        },
+        "search": "Gõ đễ nhập...",
+        "by": "của",
+        "sort": {
+          "lastCreated": "Mới nhất",
+          "lastUpdated": "Cập nhật gần đây",
+          "perPage": "Số lượng mỗi trang"
+        },
+        "noResults": "Không có kết quả",
+        "noResultsDescription": "Không có kết quả nào phù hợp với tìm kiếm của bạn. Hãy thử tìm kiếm với từ khóa hoặc xem các Zen Mods khác.",
+        "slug": {
+          "title": "{name} - Zen Mods",
+          "description": "Tìm hiểu thêm vè {name} có trên trình duyệt Zen",
+          "alert": {
+            "description": "Bạn cần cài đặt trình duyệt Zen để sử dụng mod này.",
+            "button": "Tải ngay!"
+          },
+          "createdBy": "Tác giả: {author} • <b>v{version}</b>",
+          "creationDate": "Ngày đăng: <b>{createdAt}</b>",
+          "latestUpdate": "Cập nhật gần nhất: <b>{updatedAt}</b>",
+          "visitModHomepage": "Truy cập trang chủ mod",
+          "installMod": "Tải Mod 🎉",
+          "uninstallMod": "Gỡ cài đặt Mod",
+          "back": "Quay lại"
+        }
+      },
+      "releaseNotes": {
+        "topSection": {
+          "title": "Nhật ký phát hành",
+          "description": "Cập nhật những thay đổi mới nhất của Zen! Kể từ khi <a class=\"zen-link\" href=\"#1.0.0-a.1\">phiên bản đầu tiên</a> cho đến <a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>, chúng tôi đã cố gắng đem lại những gì tốt nhất có thể cho Zen. Cảm ơn tất cả những ý kiến đóng góp từ khắp nơi! ❤️"
+        },
+        "list": {
+          "support": "Hỗ trợ chúng tôi!",
+          "navigateToVersion": "Đi đên phiên bản..."
+        },
+        "itemType": {
+          "fix": "Sửa lỗi",
+          "feature": "Mới",
+          "known": "Lỗi đã biết",
+          "break": "Lỗi",
+          "theme": "Chủ đề",
+          "security": "Bản vá bảo mật",
+          "change": "Cải tiến"
+        },
+        "backToTop": "Trở về đầu trang",
+        "chooseVersion": "Chọn phiên bản",
+        "components": {
+          "releaseNoteItem": {
+            "twilight": "Twilight",
+            "twilightChanges": "Twilight có nghĩa là bạn đang tải xuống các tính năng và cập nhật thử nghiệm mới nhất.",
+            "releaseChanges": "v{version}",
+            "firefoxVersion": "Firefox {version}",
+            "githubRelease": "GitHub release",
+            "workflowRun": "Workflow run",
+            "compareChanges": "So sánh thay đổi",
+            "twilightWarning": "Cảnh báo: Bạn đang sử dụng Twilight, có nghĩa là bạn đang tải xuống các tính năng và cập nhật thử nghiệm mới nhất. Điều này có thể dẫn đến các lỗi hoặc sự cố không mong muốn.",
+            "reportIssues": " Nếu bạn gặp bất kỳ sự cố nào, làm ơn thông báo với chúng tôi <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">tại đây</a>.",
+            "learnMore": "Tìm hiểu thêm",
+            "viewIssue": "Xem thêm về sự cố {issue} trên GitHub"
+          }
+        },
+        "slug": {
+          "title": "Nhật ký phát hành - Zen",
+          "redirect": "Chuyển tới nhật ký phát hành cho phiên bản {version}..."
+        }
+      },
+      "about": {
+        "title": "Về Zen",
+        "description": "Chúng tôi chỉ là một nhóm các nhà phát triển và nhà thiết kế quan tâm đến trải nghiệm của bạn trên web. Chúng tôi tin rằng internet nên là một nơi mà bạn có thể khám phá, học hỏi và kết nối mà không lo lắng về việc dữ liệu của bạn bị thu thập.",
+        "littleHelp": "Một chút giúp đỡ?",
+        "mainTeam": {
+          "title": "Đội ngũ chính",
+          "description": "Chúng tôi là những người đứng sau Zen, những người đã làm việc chăm chỉ để mang đến cho bạn một trình duyệt đẹp, hiệu quả và tôn trọng quyền riêng tư.",
+          "subTitle": {
+            "browser": "Trình duyệt",
+            "website": "Trang web"
+          },
+          "members": {
+            "browser": {
+              "mauro": {
+                "name": "Mauro B.",
+                "description": "Nhà sáng tạo, nhà phát triển và người duy trì chính của Zen",
+                "link": "https://cheff.dev/"
+              },
+              "jan": {
+                "name": "Jan Heres",
+                "description": "Người đang đóng góp và phát triển Zen trên hệ điều hành MacOS",
+                "link": "https://janheres.eu/"
+              },
+              "bryan": {
+                "name": "Bryan Galdámez",
+                "description": "Người có đóng góp to lớn cho các chức năng về chủ đề của Zen",
+                "link": "https://josuegalre.netlify.app/"
+              },
+              "oscar": {
+                "name": "Oscar Gonzalez",
+                "description": "Kỹ sư quản lý độ tin cậy (Site Reliability Engineer) và xác minh tính toàn vẹn của mã nguồn.",
+                "link": false
+              },
+              "daniel": {
+                "name": "Daniel García",
+                "description": "Người duy trì chứng chỉ MacOS và công chứng trình duyệt Zen",
+                "link": false
+              },
+              "brhm": {
+                "name": "BrhmDev",
+                "description": "Người đang có những đóng góp to lớn cho Zen",
+                "link": "https://github.com/BrhmDev"
+              },
+              "kristijanribaric": {
+                "name": "Kristijan Ribaric",
+                "description": "Người đang đóng góp cho chức năng chia màn hình và workspaces",
+                "link": "https://github.com/kristijanribaric"
+              },
+              "larvey": {
+                "name": "Larvey",
+                "description": "Người duy trí AUR",
+                "link": "https://github.com/LarveyOfficial/"
+              },
+              "studio": {
+                "name": "Studio Movie Girl",
+                "description": "Người có đóng góp to lớn cho tính năng Gradient",
+                "link": "https://github.com/neurokitti"
+              }
+            },
+            "website": {
+              "taroj1205": {
+                "name": "Shintaro Jokagi",
+                "description": "Thiết kế cốt lõi trình duyệt, Tiên phong trong việc tái cấu trúc và cải tiến kỹ thuật",
+                "link": "https://github.com/taroj1205"
+              },
+              "jace": {
+                "name": "Jace",
+                "description": "Đóng góp vào thiết kế trang web và xây dựng thương hiệu",
+                "link": "https://x.com/JaceThings"
+              },
+              "canoa": {
+                "name": "Canoa",
+                "description": "Người đóng góp tích cực và rất tích cực trong việc xử lý sự cố và quản lý trang web",
+                "link": "https://thatcanoa.org/"
+              },
+              "adam": {
+                "name": "Adam",
+                "description": "Thương hiệu và thiết kế",
+                "link": "https://cybrneon.xyz/"
+              },
+              "n7itro": {
+                "name": "n7itro",
+                "description": "Người đóng góp tích cực và người viết ghi nhật ký phát hành",
+                "link": "https://github.com/n7itro"
+              },
+              "jafeth": {
+                "name": "Jafeth Garro",
+                "description": "Người viết tài liệu hướng dẫn",
+                "link": "https://iamjafeth.com/"
+              }
+            }
+          }
+        },
+        "contributors": {
+          "title": "Người đóng góp",
+          "description": "Chúng tôi muốn cảm ơn tất cả những người đã đóng góp cho Zen. Dưới đây là danh sách những người đã giúp đỡ chúng tôi trong việc phát triển Zen.",
+          "browser": "Trình duyệt",
+          "website": "Trang web"
+        }
+      },
+      "donate": {
+        "title": "Ủng hộ",
+        "description": "Chúng tôi là một nhóm nhỏ các nhà phát triển làm việc chăm chỉ để mang đến cho bạn trải nghiệm duyệt web tốt nhất. Nếu bạn thích những gì chúng tôi làm, hãy xem xét việc ủng hộ chúng tôi.",
+        "patreon": {
+          "title": "Patreon",
+          "description": "Patreon cho phép bạn ủng hộ chúng tôi với một khoản đóng góp hàng tháng. Bạn có thể chọn mức đóng góp phù hợp với bạn. Chúng tôi sẽ sử dụng số tiền này để duy trì và phát triển Zen.",
+          "button": "Đi đến Patreon"
+        },
+        "koFi": {
+          "title": "Ko-fi",
+          "description": "Ko-fi cho phép bạn ủng hộ chúng tôi với một khoản đóng góp một lần. Bạn có thể chọn số tiền bạn muốn ủng hộ. Chúng tôi sẽ sử dụng số tiền này để duy trì và phát triển Zen.",
+          "button": "Đi đến Ko-fi"
+        }
+      },
+      "download": {
+        "title": "Tải Zen",
+        "description": "Tải Zen cho nền tảng của bạn và trải nghiệm duyệt web một cách chú tâm hơn. Tất cả các bản tải xuống đều bao gồm SHA256 để xác minh.",
+        "twilightInfo": "Bạn đang ở chế độ Twilight, có nghĩa là bạn đang tải xuống các tính năng và cập nhật thử nghiệm mới nhất.",
+        "alertInfo": {
+          "description": "<strong class='font-medium text-zen-blue'>Chế độ Twilight:</strong> Bạn đang ở chế độ Twilight có nghĩa là đang tải xuống các tính năng và cập nhật thử nghiệm mới nhất."
+        },
+        "platformSelector": {
+          "title": "Chọn hệ điều hành của bạn",
+          "description": "Chọn hệ điều hành của bạn để tải xuống Zen."
+        },
+        "additionalResources": {
+          "title": "Tài nguyên bổ sung",
+          "sourceCode": {
+            "title": "Mã nguồn",
+            "description": "Xem mã nguồn của Zen trên GitHub. Bạn có thể đóng góp hoặc báo cáo lỗi tại đây."
+          },
+          "documentation": {
+            "title": "Tài liệu",
+            "description": "Tài liệu hướng dẫn sử dụng Zen. Tìm hiểu cách sử dụng các tính năng và tùy chỉnh Zen theo ý muốn của bạn."
+          }
+        },
+        "securityNotice": {
+          "title": "Thông báo bảo mật",
+          "description": "Tát cả bản cài đặt của Zen đều được bảo mật để đảm bảo an toàn cho bạn. Chúng tôi khuyến nghị cài đặt Zen trên website chính thực hoặc từ Github. Nếu bản cài đặt của bạn bị hỏng hoặc được cảnh báo bời các phàn mềm diệt virus, làm ơn <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>báo cáo cho chúng tôi</a>."
+        },
+        "platformNames": {
+          "mac": "macOS",
+          "windows": "Windows",
+          "linux": "Linux",
+          "macDownload": "Cài đặt trên MacOS",
+          "windowsDownload": "Cài đặt trên Windows",
+          "linuxDownload": "Cài đặt trên Linux"
+        },
+        "platformDescriptions": {
+          "mac": "Hoạt động trên cả thiết bị Apple (M-Series) mới và cũ hơn như Intel Macs.<br />Yêu cầu từ macOS 11.0 trở lên.",
+          "windows": "Hoạt động trên Windows 10 và Windows 11.<br />Không chắc nên sử dụng phiên bản nào? Chúng tôi khuyên bạn nên sử dụng phiên bản 64-bit.",
+          "linux": "Hoạt động hầu hết trên các phiên bản của Linux.<br />Cài đặt phù hợp với Linux của bạn."
+        },
+        "links": {
+          "macos": { "universal": "Universal" },
+          "windows": { "64bit": "64-bit (Khuyến nghị)", "ARM64": "ARM64" },
+          "linux": {
+            "flathub": "Flathub",
+            "x86_64": "Tarball",
+            "aarch64": "Tarball"
+          }
+        },
+        "buttonCard": {
+          "copy": "Copy",
+          "showChecksum": "Xem chứng chỉ SHA-256",
+          "beta": "Beta"
+        }
+      },
+      "privacyPolicy": {
+        "title": "Chính sách bảo mật",
+        "lastUpdated": "Cập nhật gần nhất: 2025-02-5",
+        "sections": {
+          "introduction": {
+            "title": "Giới thiệu",
+            "body": "Chào mứng tới với Zen! Bảo mệt của bạn được đặt lên hàng đầu. Chúng tôi cam kết bảo vệ quyền riêng tư của bạn và đảm bảo rằng dữ liệu của bạn được an toàn khi sử dụng Zen. Chính sách bảo mật này giải thích cách chúng tôi xử lý dữ liệu của bạn khi bạn sử dụng Zen.",
+            "summary": "Không bán - Không thu thập - Không theo dõi"
+          },
+          "noCollect": {
+            "title": "1. Chúng tôi không thu thập dữ liệu cá nhân",
+            "body": "Zen được thiết kế để bảo vệ quyền riêng tư của bạn. Chúng tôi không thu thập bất kỳ dữ liệu cá nhân nào từ bạn khi bạn sử dụng Zen."
+          },
+          "noTelemetry": {
+            "title": "1.1. Không thu thập dữ liệu từ xa",
+            "body": "Chúng tôi không thu thập dữ liệu từ xa cũng như báo cáo sự cố.",
+            "body2": "Zen đã loại bỏ chức năng đo từ xa được tích hợp sẵn của Mozilla Firefox. Chúng tôi đã loại bỏ hoàn toàn việc thu thập dữ liệu từ xa và báo cáo sự cố."
+          },
+          "noPersonalData": {
+            "title": "1.2. Không thu thập dữ liệu cá nhân",
+            "body": "Zen không thu thập dữ liệu cá nhân như địa chỉ IP, lịch sử web, tìm kiếm và điền thông tin của người dùng."
+          },
+          "noThirdParty": {
+            "title": "1.3. No Third-Party Tracking",
+            "body": "We do not allow third-party trackers or analytics tools to operate within Zen. Your browsing activity remains entirely private and is not shared with any third party. Mozilla is not considered a third party as it is the base of Zen."
+          },
+          "externalConnections": {
+            "title": "1.4. Kết nối bên ngoài được thực hiện khi khởi động",
+            "body": "Zen kiểm tra những kết nối bên ngời trước khi khởi động nhằm đảm bảo trình duyệt cũng như các mod của bạn được cập nhật. Những kết nối này bao gồm việc kiểm tra các bản cập nhật của Zen, các mod và các addon đã cài đặt. Những kết nối này không thu thập dữ liệu cá nhân của bạn và chỉ được sử dụng để đảm bảo rằng bạn đang sử dụng phiên bản mới nhất của Zen."
+          },
+          "localStorage": {
+            "title": "2. Dữ liệu được lưu trữ cục bộ trên thiết bị của bạn"
+          },
+          "browsingData": {
+            "title": "2.1. Dữ liệu duyệt web",
+            "body": "Zen lưu trữ dữ liệu duyệt web cục bộ trên thiết bị của bạn để cải thiện trải nghiệm duyệt web của bạn. Dữ liệu này bao gồm:"
+          },
+          "cookies": {
+            "title": "Cookies",
+            "body": "Cookies được sử dụng để lưu trữ thông tin đăng nhập, tùy chọn và các dữ liệu khác cần thiết cho việc duyệt web. Bạn có thể quản lý và xóa cookies thông qua cài đặt trình duyệt của mình."
+          },
+          "cache": {
+            "title": "Bộ nhớ đệm (Cache) và Dữ liệu tạm thời",
+            "body": "Bộ nhớ đệm được sử dụng để lưu trữ tạm thời các tài nguyên web. Điều này giúp tăng tốc độ tải trang và cải thiện hiệu suất duyệt web. Bạn có thể xóa bộ nhớ đệm thông qua cài đặt trình duyệt của mình."
+          },
+          "settings": {
+            "title": "2.2. Cài đặt và Tùy chọn",
+            "body": "Zen lưu trữ các cài đặt và tùy chọn của bạn cục bộ trên thiết bị của bạn. Điều này bao gồm các tùy chọn giao diện, cài đặt bảo mật và quyền riêng tư, cũng như các tùy chọn khác mà bạn đã cấu hình trong Zen. Những cài đặt này chỉ được sử dụng để cải thiện trải nghiệm duyệt web của bạn và không được chia sẻ với bất kỳ ai."
+          },
+          "sync": {
+            "title": "3. Tính năng Đồng bộ hóa",
+            "body": "Zen cung cấp tính năng đồng bộ hóa để bạn có thể đồng bộ hóa dữ liệu duyệt web của mình trên nhiều thiết bị. Tính năng này sử dụng Mozilla Firefox Sync để lưu trữ dữ liệu của bạn trên máy chủ của Mozilla. Dữ liệu được mã hóa và chỉ bạn mới có thể truy cập nó.",
+            "link1": "Đồng bộ Mozilla Firefox",
+            "link2": "Đây là cách chúng tôi lưu trữ mật khẩu của bạn."
+          },
+          "addons": {
+            "title": "4. Add-ons và \"Mods\"",
+            "body": "Zen hỗ trợ các add-on và \"mods\" để mở rộng chức năng của trình duyệt. Các add-on này có thể được cài đặt từ Zen Mods hoặc từ Mozilla Add-ons. Khi bạn cài đặt một add-on, nó có thể yêu cầu quyền truy cập vào dữ liệu duyệt web của bạn. Bạn nên xem xét kỹ các quyền mà add-on yêu cầu trước khi cài đặt."
+          },
+          "security": {
+            "title": "5. Bảo mật và Bảo vệ Dữ liệu",
+            "body": "Zen sử dụng các biện pháp bảo mật để bảo vệ dữ liệu của bạn. Điều này bao gồm mã hóa dữ liệu, bảo vệ chống lại phần mềm độc hại và các mối đe dọa khác. Chúng tôi cũng khuyến nghị bạn sử dụng các tính năng bảo mật của Zen, chẳng hạn như chế độ duyệt web riêng tư và chặn theo dõi.",
+            "note": "Chú ý rằng phần lớn những phương pháp bảo mật đều được thực hiện bởi Mozilla Firefox."
+          },
+          "control": {
+            "title": "6. Quyền kiểm soát dữ liệu của bạn",
+            "deletionTitle": "6.1. Xóa dữ liệu",
+            "deletionBody": "Bạn có toàn quyền kiểm soát tất cả dữ liệu được lưu trữ cục bộ trên thiết bị của bạn bởi Zen. Bạn có thể xóa dữ liệu duyệt web, cookies và bộ nhớ đệm bất kỳ lúc nào bằng cách sử dụng cài đặt của trình duyệt."
+          },
+          "website": {
+            "title": "7. Website và Dịch vụ của Zen",
+            "body": "Trang web và dịch vụ của Zen không sử dụng bất kỳ dịch vụ phân tích, theo dõi hoặc CDN của bên thứ ba nào. Chúng tôi không thu thập bất kỳ thông tin cá nhân nào từ người dùng truy cập trang web của chúng tôi. Trang web được lưu trữ trên Cloudflare nhưng với tính năng phân tích và theo dõi bị vô hiệu hóa, Cloudflare có thể thu thập một số dữ liệu phân tích từ các yêu cầu HTTP để cung cấp các cải tiến về bảo mật và hiệu suất. Tuy nhiên, dữ liệu này không được liên kết với bất kỳ thông tin cá nhân nào và không được sử dụng cho mục đích theo dõi.",
+            "externalLinksTitle": "7.1. Liên kết bên ngoài",
+            "externalLinksBody": "Zen có thể chứa các liên kết đến các trang web hoặc dịch vụ bên ngoài không thuộc sở hữu hoặc điều hành của chúng tôi. Chúng tôi không chịu trách nhiệm về nội dung hoặc các hoạt động bảo mật của các trang web này. Chúng tôi khuyên bạn nên xem lại các chính sách bảo mật của các trang web này trước khi cung cấp cho họ bất kỳ thông tin cá nhân nào."
+          },
+          "changes": {
+            "title": "8. Thay đổi Chính sách Bảo mật",
+            "body": "Chúng tôi có thể cập nhật Chính sách bảo mật này theo thời gian để phản ánh những thay đổi trong hoạt động hoặc yêu cầu pháp lý của chúng tôi. Chúng tôi sẽ thông báo cho bạn về bất kỳ thay đổi quan trọng nào bằng cách cập nhật ngày có hiệu lực ở đầu chính sách này. Việc tiếp tục sử dụng Zen sau những thay đổi như vậy cấu thành sự chấp nhận của bạn đối với các điều khoản mới."
+          },
+          "otherTelemetry": {
+            "title": "9. Những thu thập dữ liệu từ xa khác được thực hiện bởi Mozilla Firefox",
+            "body": "Chúng tôi cố gắng vô hiệu hóa tất cả dữ liệu thu thập từ xa trong Zen. Nhưng chúng tôi có thể đã bỏ sót một số. Kiểm tra các liên kết bên dưới để biết thêm thông tin.",
+            "firefoxPrivacyNotice": "Thông báo về quyền riêng tư của Mozilla Firefox",
+            "forMoreInformation": "biết thêm thông tin."
+          },
+          "contact": {
+            "title": "10. Liên hệ với chúng tôi",
+            "body": "Nếu bạn có bất kỳ câu hỏi hoặc mối quan tâm nào về Chính sách bảo mật này hoặc Zen, vui lòng liên hệ với chúng tôi tại:",
+            "discord": "Discord: ",
+            "discordLink": "Discord của Zen",
+            "github": "GitHub: ",
+            "githubLink": "Tổ chức GitHub của Zen"
+          }
+        }
+      },
+      "welcome": {
+        "title": ["Chào mừng ", "đến với ", "Zen!"]
+      },
+      "whatsNew": {
+        "title": "Có gì mới trên {latestVersion.version}!",
+        "reportIssue": "Báo cáo lỗi",
+        "joinDiscord": "Tham gia Discord",
+        "readFullReleaseNotes": "Đọc nhật ký phát hành"
+      },
+      "notFound": {
+        "title": "Không tìm thấy",
+        "subtitle": "Trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.",
+        "description": "Có thể bạn đã nhập sai địa chỉ hoặc trang đã bị xóa. Hãy thử kiểm tra lại địa chỉ hoặc quay lại trang chủ.",
+        "button": "Trở về trang chủ"
+      }
+    },
+    "layout": {
+      "index": {
+        "title": "Trình duyệt Zen",
+        "description": "Thiết kế bắt mắt, tập trung bảo mật, nhiều tính năng thú vị."
+      },
+      "mods": {
+        "title": "Zen Mods",
+        "description": "Trải nghiệm duyệt web phụ thuộc vào bạn với Zen Mods. Khám phá các mod, plugin và chủ đề do cộng đồng tạo ra cho Zen."
+      },
+      "releaseNotes": {
+        "title": "Nhật ký phát hành - Zen",
+        "description": "Cập nhật những thay đổi mới nhất của Zen! Kể từ khi phiên bản đầu tiên cho đến {latestVersion}, chúng tôi đã cố gắng đem lại những gì tốt nhất có thể cho Zen. Cảm ơn tất cả những ý kiến đóng góp từ khắp nơi! ❤️"
+      },
+      "about": {
+        "title": "Về Zen",
+        "description": "Chúng tôi chỉ là một nhóm các nhà phát triển và nhà thiết kế quan tâm đến trải nghiệm của bạn trên web. Chúng tôi tin rằng internet nên là một nơi mà bạn có thể khám phá, học hỏi và kết nối mà không lo lắng về việc dữ liệu của bạn bị thu thập."
+      },
+      "donate": {
+        "title": "Ủng hộ - Zen",
+        "description": "Chúng tôi là một nhóm nhỏ các nhà phát triển làm việc chăm chỉ để mang đến cho bạn trải nghiệm duyệt web tốt nhất. Nếu bạn thích những gì chúng tôi làm, hãy xem xét việc ủng hộ chúng tôi."
+      },
+      "download": {
+        "title": "Tải - Zen",
+        "description": "Tải Zen cho nền tảng của bạn và trải nghiệm duyệt web một cách chú tâm hơn. Tất cả các bản tải xuống đều bao gồm SHA256 để xác minh."
+      },
+      "privacyPolicy": {
+        "title": "Chính sách bảo mật - Zen",
+        "description": "Chính sách bảo mật này giải thích cách chúng tôi xử lý dữ liệu của bạn khi bạn sử dụng Zen. Chúng tôi cam kết bảo vệ quyền riêng tư của bạn và đảm bảo rằng dữ liệu của bạn được an toàn khi sử dụng Zen."
+      },
+      "welcome": {
+        "title": "Chào mừng!",
+        "description": "Chào mừng tới với Zen!"
+      },
+      "whatsNew": {
+        "title": "Có gì mới ở {latestVersion.version}!"
+      }
+    },
+    "components": {
+      "footer": {
+        "title": "Trình duyệt Zen",
+        "description": "Thiết kế bắt mắt, tập trung bảo mật, nhiều tính năng thú vị. Chúng tôi chỉ quan tâm trải nghiệm, không phải dữ liệu của bạn.",
+        "download": "Tải xuống",
+        "followUs": "Theo dõi chúng tôi",
+        "aboutUs": "Về chúng tôi",
+        "teamAndContributors": "Đội ngũ và Người đóng góp",
+        "privacyPolicy": "Chính sách bảo mật",
+        "getStarted": "Bắt đầu",
+        "documentation": "Tài liệu",
+        "zenMods": "Zen Mods",
+        "releaseNotes": "Nhật ký phát hành",
+        "getHelp": "Nhận trợ giúp",
+        "discord": "Discord",
+        "uptimeStatus": "Trạng thái hoạt động",
+        "reportAnIssue": "Báo cáo sự cố",
+        "twilight": "Twilight",
+        "madeWith": "Được phát triển với <span aria-label='love'>❤️</span> bởi <a href='{link}' class='zen-link inline-block font-bold'>Đội ngũ Zen</a>"
+      },
+      "nav": {
+        "brand": "Trình duyệt Zen",
+        "menu": {
+          "gettingStarted": "Bắt đầu",
+          "usefulLinks": "Liên kết hữu ích",
+          "mods": "Mods",
+          "download": "Tải xuống",
+          "discord": "Discord",
+          "releaseNotes": "Nhật ký phát hành",
+          "zenMods": "Zen Mods",
+          "tryZenMods": "Dùng thử Zen Mods",
+          "zenModsDesc": "Trải nghiệm duyệt web phụ thuộc vào bạn với Zen Mods.",
+          "releaseNotesDesc": "Xem nhật ký phát hành của Zen để biết những thay đổi mới nhất.",
+          "discordDesc": "Tham gia cộng đồng Zen trên Discord để nhận trợ giúp và kết nối với những người dùng khác.",
+          "donate": "Ủng hộ ❤️",
+          "donateDesc": "Hãy ủng hộ chúng tôi để giúp chúng tôi duy trì và phát triển Zen.",
+          "aboutUs": "Về chúng tôi 🌟",
+          "aboutUsDesc": "Tìm hiểu về đội ngũ đứng sau Zen và những người đóng góp.",
+          "documentation": "Tài liệu",
+          "documentationDesc": "Tìm hiểu cách sử dụng Zen và các tính năng của nó.",
+          "github": "GitHub",
+          "githubDesc": "Xem mã nguồn của Zen trên GitHub và đóng góp vào dự án.",
+          "menu": "Menu"
+        }
+      }
+    }
+  }
