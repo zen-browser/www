@@ -46,10 +46,10 @@ const featureList = [
 
 <section
   id="features"
-  class="relative flex w-full flex-col items-center gap-8 py-8 text-center sm:gap-12 sm:py-12 xl:gap-16 xl:py-36"
+  class="relative flex w-full flex-col items-center gap-8 py-8 text-center sm:gap-12 sm:py-12 xl:gap-24 xl:py-36"
 >
   <!-- Section Header -->
-  <div class="flex w-full flex-col items-center gap-4 sm:gap-6 xl:gap-12">
+  <div class="flex w-full flex-col items-center gap-4 sm:gap-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl">
       {
         (titles || features.titles).map(title => {
@@ -70,7 +70,7 @@ const featureList = [
       }
     </h2>
     <p
-      class="max-w-2xl text-base sm:text-lg"
+      class="max-w-4xl text-base sm:text-lg"
       style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
     >
       <span class="opacity-80">{features.description}</span>
@@ -78,25 +78,23 @@ const featureList = [
   </div>
 
   <!-- Features Layout -->
-  <div class="space-between flex w-full flex-col gap-12 sm:gap-16 xl:gap-24">
+  <div id="showcase" class="flex w-full flex-col gap-12 sm:gap-16 xl:gap-36">
     {
       featureList.map((feature, index) => (
-        <div
-          class={`flex w-full flex-col items-center gap-6 xl:gap-12 ${index % 2 === 0 ? 'xl:flex-row-reverse' : 'xl:flex-row'}`}
-        >
+        <div class="flex w-full flex-col items-center gap-6 xl:gap-12">
           <div class="flex flex-col items-center gap-4">
-            <h3 class="text-2xl font-bold opacity-0 blur-sm sm:text-3xl xl:text-4xl">
+            <h3 class="text-3xl font-bold opacity-0 blur-sm sm:text-4xl xl:text-5xl">
               {feature.title}
             </h3>
             <p
-              class="text-base leading-relaxed sm:text-lg"
+              class="max-w-3xl text-center text-base leading-relaxed sm:text-lg"
               style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
             >
               <span class="opacity-80">{feature.description}</span>
             </p>
           </div>
           <Video
-            class="max-h-[450px] w-[800px] rounded-xl border-2 border-dark object-cover shadow-lg"
+            class="w-full rounded-xl object-cover shadow-lg"
             style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
             name={feature.video}
             autoplay
@@ -117,22 +115,38 @@ const featureList = [
   function initAnimations() {
     const debug = false
 
-    const elements = document.querySelectorAll(
-      '#features h2 b, #features h3, #features p, #features video'
-    )
+    const elements = document.querySelectorAll('#features h2 b, #features > div > p')
+    const showcase = document.getElementById('showcase') as HTMLElement
 
     animate(elements, {
       opacity: { from: 0.001, to: 1 },
       translateY: { from: 20, to: 0 },
       filter: { from: 'blur(4px)', to: 'blur(0px)' },
       duration: 300,
-      delay: stagger(150),
+      delay: stagger(200),
       ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
       autoplay: onScroll({
         target: '#features',
         debug,
       }),
     })
+
+    for (const element of showcase.children) {
+      const target = element.querySelectorAll('p, h3, video')
+      animate(target, {
+        opacity: { from: 0.001, to: 1 },
+        translateY: { from: 20, to: 0 },
+        filter: { from: 'blur(4px)', to: 'blur(0px)' },
+        duration: 300,
+        delay: stagger(150),
+        ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
+        autoplay: onScroll({
+          target,
+          enter: 'bottom-=200 top',
+          debug,
+        }),
+      })
+    }
   }
   initAnimations()
 </script>

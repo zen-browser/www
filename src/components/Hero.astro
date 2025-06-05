@@ -17,7 +17,10 @@ const {
 } = getUI(locale)
 ---
 
-<header id="header" class="flex w-full flex-col items-center gap-12 py-32 text-center lg:gap-16">
+<header
+  id="header"
+  class="flex w-full flex-col items-center gap-12 py-16 text-center lg:gap-16 lg:py-32"
+>
   <div class="flex h-full flex-col items-center justify-center gap-6 md:gap-12">
     <div class="flex flex-col items-center justify-center gap-4 md:gap-8">
       <div>
@@ -49,19 +52,13 @@ const {
       <div
         class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row"
       >
-        <div
-          class="hero__link-group_button"
-          style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
-        >
+        <div style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">
           <Button class="w-fit" href={getLocalePath('/download')} isPrimary>
             {hero.buttons.beta}
             <ArrowRightIcon class="size-4" />
           </Button>
         </div>
-        <div
-          class="hero__link-group_button"
-          style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
-        >
+        <div style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">
           <Button class="w-fit" href={getLocalePath('/donate')}>
             {hero.buttons.support}
           </Button>
@@ -78,7 +75,7 @@ const {
     playsinline
     preload="none"
     class="rounded-xl"
-    style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+    style="transform: translateY(20px) scale(0.6); opacity: 0.001; filter: blur(4px); transform-origin: top;"
   />
 </header>
 
@@ -89,13 +86,12 @@ const {
     const debug = false
 
     const elements = document.querySelectorAll(
-      '#header h1 b, #header p, #header .hero__link-group_button, #header video, #header ul'
+      '#header h1 b, #header p, #header div:has(a), #header video, #header ul'
     )
 
     animate(elements, {
       // @ts-expect-error - element is HTMLElement
       opacity: element => {
-        // if ul is the element, return 0.8
         if (element.tagName === 'UL') {
           return { from: 0.001, to: 0.8 }
         }
@@ -108,6 +104,17 @@ const {
       ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
       autoplay: onScroll({
         target: '#header',
+        debug,
+      }),
+    })
+
+    animate('#header video', {
+      scale: { from: 0.6, to: 1 },
+      ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
+      autoplay: onScroll({
+        enter: 'bottom-=100 top',
+        leave: 'top+=100 bottom',
+        sync: true,
         debug,
       }),
     })
