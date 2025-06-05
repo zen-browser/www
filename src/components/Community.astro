@@ -1,10 +1,7 @@
 ---
 import Image from 'astro/components/Image.astro'
-import { motion } from 'motion/react'
-import { getTitleAnimation } from '~/animations'
 import ComImage from '~/assets/ComImage.png'
 import Button from '~/components/Button.astro'
-import Description from '~/components/Description.astro'
 import CheckIcon from '~/icons/CheckIcon.astro'
 import GitHubIcon from '~/icons/GitHubIcon.astro'
 import { getLocale, getUI } from '~/utils/i18n'
@@ -19,50 +16,70 @@ const {
 ---
 
 <section
-  id="Community"
+  id="community"
   class="relative flex w-full flex-col items-center gap-6 py-12 text-start md:text-center lg:py-36"
 >
-  <Description class="mb-2 text-4xl font-bold sm:text-6xl">
+  <h2 class="mb-2 text-4xl font-bold sm:text-6xl">
     {
-      community.title.map((title, index) =>
+      community.title.map(title =>
         title !== '\n' ? (
-          <motion.span client:load {...getTitleAnimation(0.2 + index * 0.2)}>
-            {title}
-          </motion.span>
+          <span class="translate-y-20 opacity-0 blur-sm">{title}</span>
         ) : (
           <br class="hidden md:block" />
         )
       )
     }
-  </Description>
-  <motion.p client:load {...getTitleAnimation(0.6)} className="lg:w-1/2 lg:px-0">
+  </h2>
+  <p class="translate-y-20 text-base opacity-80 blur-sm lg:w-1/2 lg:px-0">
     {community.description}
-  </motion.p>
+  </p>
   <div class="flex w-full flex-wrap gap-3 sm:gap-10 md:justify-center">
-    <motion.span client:load {...getTitleAnimation(0.8)}>
+    <span class="community__button translate-y-20 opacity-0 blur-sm">
       <Button class:list={['px-4']} href="https://github.com/zen-browser">
         <GitHubIcon class="size-4" />
         <span>{community.lists.freeAndOpenSource.title}</span>
       </Button>
-    </motion.span>
-    <motion.div client:load {...getTitleAnimation(1)} className="flex items-center gap-4">
+    </span>
+    <div class="community__button flex translate-y-20 items-center gap-4 opacity-0 blur-sm">
       <CheckIcon class="size-4" />
       <span>{community.lists.simpleYetPowerful.title}</span>
-    </motion.div>
-    <motion.div client:load {...getTitleAnimation(1.2)} className="flex items-center gap-4">
+    </div>
+    <div class="community__button flex translate-y-20 items-center gap-4 opacity-0 blur-sm">
       <CheckIcon class="size-4" />
       <span>{community.lists.privateAndAlwaysUpToDate.title}</span>
-    </motion.div>
+    </div>
   </div>
-  <motion.span
-    className="flex max-w-full lg:max-w-none lg:flex-none"
-    client:load
-    {...getTitleAnimation(1.4)}
-  >
+  <span class="flex max-w-full lg:max-w-none lg:flex-none">
     <Image
       src={ComImage}
       alt={community.images.community.alt}
-      class="rounded-3xl shadow-md lg:mx-auto dark:opacity-80"
+      class="translate-y-20 rounded-3xl opacity-0 shadow-md blur-sm lg:mx-auto dark:opacity-80"
     />
-  </motion.span>
+  </span>
 </section>
+
+<script>
+  import { animate, onScroll, stagger } from 'animejs'
+
+  function initAnimations() {
+    const debug = false
+
+    const elements = document.querySelectorAll(
+      '#community h2 span, #community p, #community .community__button, #community img'
+    )
+
+    animate(elements, {
+      opacity: { from: 0.001, to: 1 },
+      translateY: { from: 20, to: 0 },
+      filter: { from: 'blur(4px)', to: 'blur(0px)' },
+      duration: 300,
+      delay: stagger(150),
+      easing: 'easeOutQuart',
+      autoplay: onScroll({
+        target: '#community',
+        debug,
+      }),
+    })
+  }
+  initAnimations()
+</script>

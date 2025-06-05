@@ -1,5 +1,5 @@
 ---
-const { gap = 4 } = Astro.props
+const { gap = 4, opacity = 0.8, class: className, ...props } = Astro.props
 
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -18,7 +18,7 @@ const XTwitter = icon({ prefix: 'fab', iconName: 'x-twitter' })
 const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
 ---
 
-<ul class={`flex items-center opacity-80 gap-${gap}`}>
+<ul class:list={[`flex items-center opacity-${opacity} gap-${gap}`, className]} {...props}>
   <li>
     <a
       href="https://github.com/zen-browser"

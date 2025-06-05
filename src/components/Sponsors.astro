@@ -1,7 +1,5 @@
 ---
-import { motion } from 'motion/react'
-import { getTitleAnimation } from '~/animations'
-import Description from '~/components/Description.astro'
+import h3 from '~/components/Description.astro'
 import { getLocale, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
@@ -19,23 +17,49 @@ const {
 ---
 
 <section id="sponsors" class:list={['py-12', !showSponsors && 'hidden']}>
-  <div class="mx-auto flex flex-col text-center">
-    <motion.span client:load {...getTitleAnimation(0.2)}>
-      <Description class="mb-2 text-4xl font-bold sm:text-6xl">{sponsors.title}</Description>
-    </motion.span>
-    <motion.span client:load {...getTitleAnimation(0.4)}>
-      <Description set:html={sponsors.description} />
-    </motion.span>
-    <div class="relative mt-8 flex items-center justify-center">
-      <motion.span client:load {...getTitleAnimation(0.6)}>
-        <a href={sponsors.sponsors['tuta'].url} target="_blank" class="w-fit">
-          <Image
-            src={tutaLogo}
-            alt={sponsors.sponsors['tuta'].name}
-            class="h-16 w-fit object-contain"
-          />
-        </a>
-      </motion.span>
+  <div class="flex flex-col items-center gap-6 text-center">
+    <h3 class="translate-y-20 text-4xl font-bold opacity-0 blur-sm sm:text-6xl">
+      {sponsors.title}
+    </h3>
+    <p class="translate-y-20 text-base opacity-80 blur-sm" set:html={sponsors.description} />
+    <div class="sponsors__sponsor relative mt-8 flex items-center justify-center">
+      <a
+        href={sponsors.sponsors['tuta'].url}
+        target="_blank"
+        class="w-fit translate-y-20 opacity-0 blur-sm"
+      >
+        <Image
+          src={tutaLogo}
+          alt={sponsors.sponsors['tuta'].name}
+          class="h-16 w-fit object-contain"
+        />
+      </a>
     </div>
   </div>
 </section>
+
+<script>
+  import { animate, onScroll, stagger } from 'animejs'
+
+  function initAnimations() {
+    const debug = false
+
+    const elements = document.querySelectorAll(
+      '#sponsors h3, #sponsors p, #sponsors .sponsors__sponsor a'
+    )
+
+    animate(elements, {
+      opacity: { from: 0.001, to: 1 },
+      translateY: { from: 20, to: 0 },
+      filter: { from: 'blur(4px)', to: 'blur(0px)' },
+      duration: 300,
+      delay: stagger(150),
+      easing: 'easeOutQuart',
+      autoplay: onScroll({
+        target: '#sponsors',
+        debug,
+      }),
+    })
+  }
+  initAnimations()
+</script>

@@ -4,6 +4,7 @@
   "files": ["**/*.{ts,js,astro,html,css,json,yml,yaml,md}"],
   "words": [
     "adam",
+    "animejs",
     "AMOLED",
     "Astronav",
     "Briel",
