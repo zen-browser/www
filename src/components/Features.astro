@@ -57,13 +57,20 @@ const featureList = [
             case '\n':
               return <br class="hidden md:block" />
             default:
-              return <span class="opacity-0 blur-sm">{title}</span>
+              return (
+                <span style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">
+                  {title}
+                </span>
+              )
           }
         })
       }
     </h2>
-    <p class="max-w-2xl text-base opacity-80 blur-sm sm:text-lg">
-      {features.description}
+    <p
+      class="max-w-2xl text-base sm:text-lg"
+      style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+    >
+      <span class="opacity-80">{features.description}</span>
     </p>
   </div>
 
@@ -78,12 +85,16 @@ const featureList = [
             <h3 class="text-2xl font-bold opacity-0 blur-sm sm:text-3xl xl:text-4xl">
               {feature.title}
             </h3>
-            <p class="text-base leading-relaxed opacity-80 blur-sm sm:text-lg">
-              {feature.description}
+            <p
+              class="text-base leading-relaxed sm:text-lg"
+              style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+            >
+              <span class="opacity-80">{feature.description}</span>
             </p>
           </div>
           <Video
-            class="max-h-[450px] w-[800px] rounded-xl border-2 border-dark object-cover opacity-0 shadow-lg blur-sm"
+            class="max-h-[450px] w-[800px] rounded-xl border-2 border-dark object-cover shadow-lg"
+            style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
             name={feature.video}
             autoplay
             loop

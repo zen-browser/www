@@ -26,7 +26,10 @@ const {
         {
           hero.title.map(title =>
             title.text !== '\n' ? (
-              <span class:list={['opacity-0 blur-sm', title.highlight && 'italic text-coral']}>
+              <span
+                class:list={[title.highlight && 'italic text-coral']}
+                style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+              >
                 {title.text}
               </span>
             ) : (
@@ -35,7 +38,10 @@ const {
           )
         }
       </Title>
-      <p class="px-12 text-center opacity-0 blur-sm lg:px-0">
+      <p
+        class="px-12 text-center lg:px-0"
+        style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+      >
         {hero.description[0]}
         <br class="hidden sm:inline" />
         {hero.description[1]}
@@ -44,19 +50,25 @@ const {
     <div
       class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row"
     >
-      <div class="hero__link-group_button opacity-0 blur-sm">
+      <div
+        class="hero__link-group_button"
+        style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+      >
         <Button class="w-fit" href={getLocalePath('/download')} isPrimary>
           {hero.buttons.beta}
           <ArrowRightIcon class="size-4" />
         </Button>
       </div>
-      <div class="hero__link-group_button opacity-0 blur-sm">
+      <div
+        class="hero__link-group_button"
+        style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+      >
         <Button class="w-fit" href={getLocalePath('/donate')}>
           {hero.buttons.support}
         </Button>
       </div>
     </div>
-    <SocialMediaStrip class="blur-sm" opacity={0} />
+    <SocialMediaStrip style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)" />
   </div>
   <Video
     name="hero-video"
@@ -65,7 +77,8 @@ const {
     muted
     playsinline
     preload="none"
-    class="rounded-xl opacity-0 blur-sm"
+    class="rounded-xl"
+    style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
   />
 </header>
 
