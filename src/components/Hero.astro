@@ -44,20 +44,17 @@ const {
     <div
       class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row"
     >
-      <Button
-        class="hero__link-group_button w-fit opacity-0 blur-sm"
-        href={getLocalePath('/download')}
-        isPrimary
-      >
-        {hero.buttons.beta}
-        <ArrowRightIcon class="size-4" />
-      </Button>
-      <Button
-        href={getLocalePath('/donate')}
-        class="hero__link-group_button w-fit opacity-0 blur-sm"
-      >
-        {hero.buttons.support}
-      </Button>
+      <div class="hero__link-group_button opacity-0 blur-sm">
+        <Button class="w-fit" href={getLocalePath('/download')} isPrimary>
+          {hero.buttons.beta}
+          <ArrowRightIcon class="size-4" />
+        </Button>
+      </div>
+      <div class="hero__link-group_button opacity-0 blur-sm">
+        <Button class="w-fit" href={getLocalePath('/donate')}>
+          {hero.buttons.support}
+        </Button>
+      </div>
     </div>
     <SocialMediaStrip class="blur-sm" opacity={0} />
   </div>
@@ -95,7 +92,7 @@ const {
       filter: { from: 'blur(4px)', to: 'blur(0px)' },
       duration: 300,
       delay: stagger(150),
-      easing: 'easeOutQuart',
+      ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
       autoplay: onScroll({
         target: '#header',
         debug,

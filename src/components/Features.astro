@@ -113,7 +113,7 @@ const featureList = [
       filter: { from: 'blur(4px)', to: 'blur(0px)' },
       duration: 300,
       delay: stagger(150),
-      easing: 'easeOutQuart',
+      ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
       autoplay: onScroll({
         target: '#features',
         debug,

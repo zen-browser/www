@@ -34,12 +34,12 @@ const {
     {community.description}
   </p>
   <div class="flex w-full flex-wrap gap-3 sm:gap-10 md:justify-center">
-    <span class="community__button opacity-0 blur-sm">
+    <div class="community__button opacity-0 blur-sm">
       <Button class:list={['px-4']} href="https://github.com/zen-browser">
         <GitHubIcon class="size-4" />
         <span>{community.lists.freeAndOpenSource.title}</span>
       </Button>
-    </span>
+    </div>
     <div class="community__button flex items-center gap-4 opacity-0 blur-sm">
       <CheckIcon class="size-4" />
       <span>{community.lists.simpleYetPowerful.title}</span>
@@ -74,7 +74,7 @@ const {
       filter: { from: 'blur(4px)', to: 'blur(0px)' },
       duration: 300,
       delay: stagger(150),
-      easing: 'easeOutQuart',
+      ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
       autoplay: onScroll({
         target: '#community',
         debug,
