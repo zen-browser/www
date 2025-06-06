@@ -1,7 +1,7 @@
 {
   "routes": {
     "index": {
-      "title": "Zen Browser",
+      "title": "Zenブラウザー",
       "hero": {
         "title": [
           { "text": "ようこそ", "highlight": false },
@@ -22,7 +22,7 @@
       },
       "features": {
         "titles": ["生産性", "の", "極み"],
-        "description": "Zenは、生産性と集中力を高める機能が満載です。ブラウザは作業の妨げではなく、作業を助けるツールであるべきです。",
+        "description": "Zenは、生産性と集中力を高める機能が満載です。ブラウザーは作業の妨げではなく、作業を助けるツールであるべきです。",
         "featureTabs": {
           "workspaces": {
             "title": "ワークスペース",
@@ -33,8 +33,8 @@
             "description": "Zenのコンパクトモードは、必要ないときにタブバーを隠して画面スペースを広く使い、必要なときに表示します。"
           },
           "glance": {
-            "title": "クイックビュー",
-            "description": "クイックビューを使えば、タブを切り替えることなく、内容を確認できます。"
+            "title": "Glance",
+            "description": "リンクをポップアップで開き、タブを切り替えることなく内容を確認できます。新しいタブを開く前に素早くプレビューできます。"
           },
           "splitView": {
             "title": "分割表示",
@@ -78,7 +78,7 @@
     },
     "mods": {
       "title": "Zen Mods",
-      "description": "Zen Browser用の多彩なMod（プラグイン・テーマ）を探そう。気分やニーズに合ったテーマやプラグインで、ブラウザ体験をカスタマイズ！",
+      "description": "Zenブラウザー用の多彩なMod（プラグイン・テーマ）を探そう。気分やニーズに合ったテーマやプラグインで、ブラウザー体験をカスタマイズ！",
       "pagination": {
         "pagination": "{input} / {totalPages}（全{totalItems}件）"
       },
@@ -110,7 +110,7 @@
     "releaseNotes": {
       "topSection": {
         "title": "変更履歴",
-        "description": "Zenの最新情報はこちら！<a class=\"zen-link\" href=\"#1.0.0-a.1\">最初のリリース</a>から<a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>まで、最高のブラウザを目指して努力しています。ご意見ありがとうございます！❤️"
+        "description": "Zenの最新情報はこちら！<a class=\"zen-link\" href=\"#1.0.0-a.1\">最初のリリース</a>から<a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>まで、最高のブラウザーを目指して努力しています。ご意見ありがとうございます！❤️"
       },
       "list": {
         "support": "応援してください！",
@@ -136,7 +136,7 @@
           "githubRelease": "GitHubリリース",
           "workflowRun": "ワークフロー実行",
           "compareChanges": "変更を比較",
-          "twilightWarning": "TwilightはZen Browserのプレリリース版です。不具合や未完成の機能が含まれる場合があります。",
+          "twilightWarning": "TwilightはZenブラウザーのプレリリース版です。不具合や未完成の機能が含まれる場合があります。",
           "reportIssues": " 問題が発生した場合は、<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">issueページ</a>でご報告ください。",
           "learnMore": "詳細はこちら",
           "viewIssue": "GitHubのIssue番号{issue}を見る"
@@ -155,7 +155,7 @@
         "title": "メインチーム",
         "description": "最高のブラウジング体験を提供するために努力しているメンバーです。",
         "subTitle": {
-          "browser": "ブラウザ",
+          "browser": "ブラウザー",
           "website": "ウェブサイト・ブランディング"
         },
         "members": {
@@ -243,7 +243,7 @@
       "contributors": {
         "title": "コントリビューター",
         "description": "Zenの発展に貢献してくださった皆様です。",
-        "browser": "ブラウザ",
+        "browser": "ブラウザー",
         "website": "ウェブサイト"
       }
     },
@@ -359,7 +359,7 @@
         },
         "cookies": {
           "title": "クッキー",
-          "body": "クッキーはローカルに保存され、Zenや第三者と共有されません。管理はブラウザ設定から可能です。"
+          "body": "クッキーはローカルに保存され、Zenや第三者と共有されません。管理はブラウザー設定から可能です。"
         },
         "cache": {
           "title": "キャッシュ・一時ファイル",
@@ -432,16 +432,16 @@
   },
   "layout": {
     "index": {
-      "title": "Zen Browser",
+      "title": "Zenブラウザー",
       "description": "美しいデザイン、プライバシー重視、機能満載。"
     },
     "mods": {
       "title": "Zen Mods",
-      "description": "Zen用の多彩なMod（プラグイン・テーマ）を探そう。気分やニーズに合ったテーマやプラグインで、ブラウザ体験をカスタマイズ！"
+      "description": "Zen用の多彩なMod（プラグイン・テーマ）を探そう。気分やニーズに合ったテーマやプラグインで、ブラウザー体験をカスタマイズ！"
     },
     "releaseNotes": {
       "title": "リリースノート - Zen",
-      "description": "Zenの最新情報はこちら！最初のリリースから{latestVersion}まで、最高のブラウザを目指して努力しています。ご意見ありがとうございます！❤️"
+      "description": "Zenの最新情報はこちら！最初のリリースから{latestVersion}まで、最高のブラウザーを目指して努力しています。ご意見ありがとうございます！❤️"
     },
     "about": {
       "title": "Zenについて",
@@ -469,7 +469,7 @@
   },
   "components": {
     "footer": {
-      "title": "Zen Browser",
+      "title": "Zenブラウザー",
       "description": "美しいデザイン、プライバシー重視、機能満載。私たちはあなたのデータではなく、体験を大切にします。",
       "download": "ダウンロード",
       "followUs": "フォローする",
@@ -488,7 +488,7 @@
       "madeWith": "<span aria-label='love'>❤️</span>と共に<a href='{link}' class='zen-link inline-block font-bold'>Zenチーム</a>が作りました"
     },
     "nav": {
-      "brand": "Zen Browser",
+      "brand": "Zenブラウザー",
       "menu": {
         "gettingStarted": "はじめに",
         "usefulLinks": "便利なリンク",
@@ -498,7 +498,7 @@
         "releaseNotes": "リリースノート",
         "zenMods": "Zen Mods",
         "tryZenMods": "Zen Modsを試す",
-        "zenModsDesc": "Zen Modsでブラウザ体験をカスタマイズ。",
+        "zenModsDesc": "Zen Modsでブラウザー体験をカスタマイズ。",
         "releaseNotesDesc": "最新機能・改善情報はこちら。",
         "discordDesc": "Discordコミュニティで他のZenユーザーと交流！",
         "donate": "寄付 ❤️",
