@@ -1,7 +1,8 @@
 ---
 import { Dropdown, DropdownItems } from 'astro-navbar'
 import { i18n } from '~/constants/i18n'
-import LanguagesIcon from '~/icons/Languages.astro'
+import LanguagesIcon from '~/icons/LanguagesIcon.astro'
+import { getPath } from '~/utils/i18n'
 
 interface Props {
   label?: string
@@ -9,13 +10,6 @@ interface Props {
 }
 
 const { label = 'Toggle i18n', className = '' } = Astro.props
-
-function getHref(locale: string) {
-  if (locale === 'en') return Astro.url.pathname.replace(/^\/ja\//, '/')
-  if (locale === 'ja')
-    return Astro.url.pathname.startsWith('/ja') ? Astro.url.pathname : `/ja${Astro.url.pathname}`
-  return Astro.url.pathname
-}
 ---
 
 <Dropdown class="group">
@@ -30,7 +24,7 @@ function getHref(locale: string) {
     <div class="navbar-dropdown !grid-cols-1 gap-1">
       {
         i18n.LOCALES.map(locale => (
-          <a class="dropdown-item" href={getHref(locale.value)} aria-label={locale.label}>
+          <a class="dropdown-item" href={getPath(locale.value)(Astro.url.pathname)} aria-label={locale.label}>
             <div class="dropdown-title">{locale.label}</div>
           </a>
         ))

@@ -16,10 +16,13 @@ export type Locale = (typeof locales)[number]
 export const getPath =
   (locale?: Locale): ((arg0: string) => string) =>
   (path: string) => {
-    if (locale && locale !== CONSTANT.I18N.DEFAULT_LOCALE && !path.startsWith(`/${locale}`)) {
-      return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`
-    }
-    return path
+  const localeDirs = CONSTANT.I18N.LOCALES.map(({ value }) => value);
+  const cleanedPath = path.replace(new RegExp(`^/(${localeDirs.join('|')})(/|$)`), '/');
+
+  if (locale && locale !== CONSTANT.I18N.DEFAULT_LOCALE && !path.startsWith(`/${locale}`)) {
+    return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`;
+  }
+  return cleanedPath;
   }
 
 /**
