@@ -1,15 +1,10 @@
 ---
-import { getLocale } from '~/utils/i18n'
 import { cn } from '~/utils/merge'
 const { class: className } = Astro.props
-const locale = getLocale(Astro)
 ---
 
 <h1
-  class={cn(
-    `mb-[0.4rem] ${locale !== 'vi' ? 'font-junicode' : ''}text-5xl font-semibold leading-[0.9] text-dark`,
-    className
-  )}
+  class={cn('mb-[0.4rem] font-junicode text-5xl font-semibold leading-[0.9] text-dark', className)}
 >
   <slot />
 </h1>
