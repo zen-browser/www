@@ -19,9 +19,9 @@ const {
 
 <header
   id="header"
-  class="flex w-full flex-col items-center gap-12 py-16 text-center lg:gap-16 lg:py-32"
+  class="flex w-full flex-col items-center gap-6 py-16 text-center lg:gap-12 lg:py-32"
 >
-  <div class="flex h-full flex-col items-center justify-center gap-6 md:gap-12">
+  <div class="flex h-full flex-col items-center justify-center gap-6 md:gap-8">
     <div class="flex flex-col items-center justify-center gap-4 md:gap-8">
       <div>
         <Title class="relative px-12 text-center text-5xl md:text-7xl lg:px-0 lg:text-9xl">
@@ -75,7 +75,7 @@ const {
     playsinline
     preload="none"
     class="rounded-xl"
-    style="transform: translateY(20px) scale(0.6); opacity: 0.001; filter: blur(4px); transform-origin: top;"
+    style="transform: translateY(20px); opacity: 0.001; filter: blur(4px); transform-origin: top;"
   />
 </header>
 
@@ -104,17 +104,6 @@ const {
       ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
       autoplay: onScroll({
         target: '#header',
-        debug,
-      }),
-    })
-
-    animate('#header video', {
-      scale: { from: 0.6, to: 1 },
-      ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
-      autoplay: onScroll({
-        enter: 'bottom-=100 top',
-        leave: 'top+=100 bottom',
-        sync: true,
         debug,
       }),
     })
