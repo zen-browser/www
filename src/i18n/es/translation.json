@@ -12,7 +12,7 @@
           { "text": "tranquilo", "highlight": true }
         ],
         "description": [
-          "Hermosamente diseñado, enfocado en la privacidad y repleto de funciones.",
+          "Hermosamente diseñado, enfocado en la privacidad y repleto de funcionalidades.",
           "Nos importa tu experiencia, no tus datos."
         ],
         "buttons": {
@@ -22,7 +22,7 @@
       },
       "features": {
         "titles": ["Máxima ", "productividad", ""],
-        "description": "Zen está repleto de funciones que te ayudan a mantenerte productivo y enfocado. Los navegadores deberían ser herramientas que te ayuden a hacer las cosas, no distracciones que te alejen de tu trabajo.",
+        "description": "Zen está repleto de funcionalidades que te ayudan a mantenerte productivo y enfocado. Los navegadores deberían ser herramientas que te ayuden a hacer las cosas, no distracciones que te alejen de tu trabajo.",
         "featureTabs": {
           "workspaces": {
             "title": "Espacios de trabajo",
@@ -136,7 +136,7 @@
           "githubRelease": "GitHub Release",
           "workflowRun": "Workflow run",
           "compareChanges": "Comparar cambios",
-          "twilightWarning": "Ten en cuenta que Twilight es una versión preliminar de Zen. Puede contener errores y funciones incompletas.",
+          "twilightWarning": "Ten en cuenta que Twilight es una versión preliminar de Zen. Puede contener errores y funcionalidades incompletas.",
           "reportIssues": " Si encuentras algún problema, infórmalo en <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">la página de problemas</a>.",
           "learnMore": "Aprender más",
           "viewIssue": "Ver el problema número {issue} en GitHub"
@@ -264,9 +264,9 @@
     "download": {
       "title": "Descargar Zen",
       "description": "Descarga Zen para tu plataforma y experimenta una experiencia de navegación por Internet más consciente. Todas las descargas incluyen sumas de verificación SHA256 para verificación.",
-      "twilightInfo": "Actualmente estás en modo Twilight, lo que significa que estás descargando las últimas funciones y actualizaciones experimentales.",
+      "twilightInfo": "Actualmente estás en modo Twilight, lo que significa que estás descargando las últimas funcionalidades y actualizaciones experimentales.",
       "alertInfo": {
-        "description": "<strong class='font-medium text-zen-blue'>Modo Twilight:</strong> Actualmente estás en modo Twilight, lo que significa que estás descargando las últimas funciones y actualizaciones experimentales."
+        "description": "<strong class='font-medium text-zen-blue'>Modo Twilight:</strong> Actualmente estás en modo Twilight, lo que significa que estás descargando las últimas funcionalidades y actualizaciones experimentales."
       },
       "platformSelector": {
         "title": "Selector de Plataforma",
@@ -285,7 +285,7 @@
       },
       "securityNotice": {
         "title": "Descargas Verificadas y Seguras",
-        "description": "Todas las descargas de Zen están firmadas y verificadas para tu seguridad. Recomendamos descargar directamente desde nuestro sitio web oficial o repositorio de GitHub. Si tu descarga parece estar rota o es marcada por tu antivirus, por favor <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link'>infórmanos</a>."
+        "description": "Todas las descargas de Zen están firmadas y verificadas para tu seguridad. Recomendamos descargar directamente desde nuestro sitio web oficial o repositorio de GitHub. Si tu descarga parece estar rota o es marcada por tu antivirus, por favor <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>infórmanos</a>."
       },
       "platformNames": {
         "mac": "MacOS",
