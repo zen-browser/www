@@ -16,6 +16,11 @@ export type Locale = (typeof locales)[number]
 export const getPath =
   (locale?: Locale): ((arg0: string) => string) =>
   (path: string) => {
+    // Return external URLs unchanged
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path
+    }
+
     // Check if path already contains any locale prefix
     const existingLocale = locales.find(l => path.startsWith(`/${l}/`))
 
