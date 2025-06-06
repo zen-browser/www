@@ -68,79 +68,93 @@ const otherLocales = CONSTANT.I18N.LOCALES.filter(
  */
 export const getOtherLocales = (): Locale[] => otherLocales
 
-/**
- * Retrieves UI translations for a given locale, merging with default translations
- * @param {Locale} [locale] - The target locale for translations
- * @returns {UI} Merged UI translations
- */
-export const getUI = (locale?: Locale | string): I18nType => {
-  const validLocale = locales.includes(locale as Locale) ? locale : CONSTANT.I18N.DEFAULT_LOCALE
-  const defaultUI = CONSTANT.I18N.LOCALES.find(
-    ({ value }) => value === CONSTANT.I18N.DEFAULT_LOCALE
-  )?.ui
-  const localeUI = CONSTANT.I18N.LOCALES.find(({ value }) => value === validLocale)?.ui
+// Helper to recursively check for missing keys
+export function checkMismatch(
+  defaultObj: I18nType,
+  localeObj: Partial<I18nType> = {},
+  path: string[] = [],
+  validLocale: Locale
+): void {
+  if (typeof defaultObj !== 'object' || defaultObj === null) return
+  for (const key of Object.keys(defaultObj) as (keyof I18nType)[]) {
+    if (!(key in localeObj)) {
+      console.error(
+        `[i18n] Missing translation key: ${[...path, key as string].join('.')} in locale '\x1b[1m${validLocale}\x1b[0m'. See src/i18n/${validLocale}/translation.json`
+      )
+    } else if (
+      typeof defaultObj[key] === 'object' &&
+      defaultObj[key] !== null &&
+      typeof localeObj[key] === 'object' &&
+      localeObj[key] !== null
+    ) {
+      // @ts-expect-error: recursive structure
+      checkMismatch(defaultObj[key], localeObj[key], [...path, key as string], validLocale)
+    }
+  }
+}
 
-  // Helper to recursively check for missing keys
-  function checkMismatch(
-    defaultObj: I18nType,
-    localeObj: Partial<I18nType> = {},
-    path: string[] = []
-  ): void {
-    if (typeof defaultObj !== 'object' || defaultObj === null) return
-    for (const key of Object.keys(defaultObj) as (keyof I18nType)[]) {
-      if (!(key in localeObj)) {
-        console.error(
-          `[i18n] Missing translation key: ${[...path, key as string].join('.')} in locale '\x1b[1m${validLocale}\x1b[0m'. See src/i18n/${validLocale}/translation.json`
-        )
-      } else if (
+// Deep merge: localeUI overrides defaultUI, fallback to defaultUI for missing keys
+export function deepMerge(defaultObj: I18nType, localeObj: Partial<I18nType> = {}): I18nType {
+  if (
+    typeof defaultObj !== 'object' ||
+    defaultObj === null ||
+    typeof localeObj !== 'object' ||
+    localeObj === null
+  ) {
+    return defaultObj
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const result: any = Array.isArray(defaultObj) ? [...defaultObj] : { ...defaultObj }
+  for (const key of Object.keys(defaultObj) as (keyof I18nType)[]) {
+    if (key in localeObj) {
+      if (
         typeof defaultObj[key] === 'object' &&
         defaultObj[key] !== null &&
         typeof localeObj[key] === 'object' &&
         localeObj[key] !== null
       ) {
         // @ts-expect-error: recursive structure
-        checkMismatch(defaultObj[key], localeObj[key], [...path, key as string])
-      }
-    }
-  }
-
-  // Deep merge: localeUI overrides defaultUI, fallback to defaultUI for missing keys
-  function deepMerge(defaultObj: I18nType, localeObj: Partial<I18nType> = {}): I18nType {
-    if (typeof defaultObj !== 'object' || defaultObj === null) return defaultObj
-    if (typeof localeObj !== 'object' || localeObj === null) return defaultObj
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const result: any = Array.isArray(defaultObj) ? [...defaultObj] : { ...defaultObj }
-    for (const key of Object.keys(defaultObj) as (keyof I18nType)[]) {
-      if (key in localeObj) {
-        if (
-          typeof defaultObj[key] === 'object' &&
-          defaultObj[key] !== null &&
-          typeof localeObj[key] === 'object' &&
-          localeObj[key] !== null
-        ) {
-          // @ts-expect-error: recursive structure
-          result[key] = deepMerge(defaultObj[key], localeObj[key])
-        } else {
-          result[key] = localeObj[key]
-        }
+        result[key] = deepMerge(defaultObj[key], localeObj[key])
       } else {
-        result[key] = defaultObj[key]
+        result[key] = localeObj[key]
       }
+    } else {
+      result[key] = defaultObj[key]
     }
-    return result
   }
+  return result
+}
 
-  if (!defaultUI) {
-    throw new Error('Default UI translation is missing!')
+const defaultUI = CONSTANT.I18N.LOCALES.find(({ value }) => {
+  return value === CONSTANT.I18N.DEFAULT_LOCALE
+})?.ui
+
+if (!defaultUI) {
+  throw new Error('Default UI translation is missing!')
+}
+
+const localesMap: Record<Locale, I18nType> = {} as Record<Locale, I18nType>
+
+for (const locale of locales) {
+  const maybeLocale = CONSTANT.I18N.LOCALES.find(({ value }) => {
+    return value === locale
+  })
+
+  if (maybeLocale) {
+    localesMap[locale] = maybeLocale.ui
   }
+}
 
-  if (localeUI && validLocale !== CONSTANT.I18N.DEFAULT_LOCALE) {
-    checkMismatch(defaultUI, localeUI)
-    return deepMerge(defaultUI, localeUI) as I18nType
-  }
+/**
+ * Retrieves UI translations for a given locale
+ * @param {Locale} [locale] - The target locale for translations
+ * @returns {I18nType} UI translations
+ */
+export const getUI = (locale?: Locale): I18nType => {
+  const validLocale = locale && locales.includes(locale) ? locale : CONSTANT.I18N.DEFAULT_LOCALE
 
-  // If localeUI is undefined or locale is default, just return defaultUI
-  return defaultUI
+  return localesMap[validLocale] ?? defaultUI
 }
 
 /**
