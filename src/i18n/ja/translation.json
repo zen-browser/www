@@ -25,19 +25,19 @@
         "description": "Zenは、生産性と集中力を高める機能が満載です。ブラウザは作業の妨げではなく、作業を助けるツールであるべきです。",
         "featureTabs": {
           "workspaces": {
-            "title": "Workspaces",
+            "title": "ワークスペース",
             "description": "タブをワークスペースごとに整理し、プロジェクトごとに分けて管理。簡単に切り替え可能です。"
           },
           "compactMode": {
-            "title": "Compact Mode",
+            "title": "コンパクトモード",
             "description": "Zenのコンパクトモードは、必要ないときにタブバーを隠して画面スペースを広く使い、必要なときに表示します。"
           },
           "glance": {
-            "title": "Glance",
-            "description": "Glanceを使えば、履歴をスクロールしなくても、よく使うタブに素早く切り替えられます。"
+            "title": "クイックビュー",
+            "description": "クイックビューを使えば、タブを切り替えることなく、内容を確認できます。"
           },
           "splitView": {
-            "title": "Split View",
+            "title": "分割表示",
             "description": "画面分割機能で、2つのタブを並べて表示し、比較や切り替えが簡単になります。"
           }
         }
