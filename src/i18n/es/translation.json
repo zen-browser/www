@@ -285,7 +285,7 @@
       },
       "securityNotice": {
         "title": "Descargas Verificadas y Seguras",
-        "description": "Todas las descargas de Zen están firmadas y verificadas para tu seguridad. Recomendamos descargar directamente desde nuestro sitio web oficial o repositorio de GitHub. Si tu descarga parece estar rota o es marcada por tu antivirus, por favor <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>infórmanos</a>."
+        "description": "Todas las descargas de Zen están firmadas y verificadas para tu seguridad. Recomendamos descargar directamente desde nuestro sitio web oficial o repositorio de GitHub. Si tu descarga parece estar rota o es marcada por tu antivirus, por favor <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link'>infórmanos</a>."
       },
       "platformNames": {
         "mac": "MacOS",
