@@ -1,7 +1,7 @@
 import { type AstroGlobal, type GetStaticPaths } from 'astro'
 
 import { CONSTANT } from '~/constants'
-import { type UIProps } from '~/constants/i18n'
+import { type I18nType } from '~/constants/i18n'
 
 /**
  * Represents the available locales in the application
@@ -73,7 +73,7 @@ export const getOtherLocales = (): Locale[] => otherLocales
  * @param {Locale} [locale] - The target locale for translations
  * @returns {UI} Merged UI translations
  */
-export const getUI = (locale?: Locale | string): UIProps => {
+export const getUI = (locale?: Locale | string): I18nType => {
   const validLocale = locales.includes(locale as Locale) ? locale : CONSTANT.I18N.DEFAULT_LOCALE
   const defaultUI = CONSTANT.I18N.LOCALES.find(
     ({ value }) => value === CONSTANT.I18N.DEFAULT_LOCALE
@@ -82,12 +82,12 @@ export const getUI = (locale?: Locale | string): UIProps => {
 
   // Helper to recursively check for missing keys
   function checkMismatch(
-    defaultObj: UIProps,
-    localeObj: Partial<UIProps> = {},
+    defaultObj: I18nType,
+    localeObj: Partial<I18nType> = {},
     path: string[] = []
   ): void {
     if (typeof defaultObj !== 'object' || defaultObj === null) return
-    for (const key of Object.keys(defaultObj) as (keyof UIProps)[]) {
+    for (const key of Object.keys(defaultObj) as (keyof I18nType)[]) {
       if (!(key in localeObj)) {
         console.error(
           `[i18n] Missing translation key: ${[...path, key as string].join('.')} in locale '\x1b[1m${validLocale}\x1b[0m'. See src/i18n/${validLocale}/translation.json`
@@ -105,12 +105,12 @@ export const getUI = (locale?: Locale | string): UIProps => {
   }
 
   // Deep merge: localeUI overrides defaultUI, fallback to defaultUI for missing keys
-  function deepMerge(defaultObj: UIProps, localeObj: Partial<UIProps> = {}): UIProps {
+  function deepMerge(defaultObj: I18nType, localeObj: Partial<I18nType> = {}): I18nType {
     if (typeof defaultObj !== 'object' || defaultObj === null) return defaultObj
     if (typeof localeObj !== 'object' || localeObj === null) return defaultObj
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const result: any = Array.isArray(defaultObj) ? [...defaultObj] : { ...defaultObj }
-    for (const key of Object.keys(defaultObj) as (keyof UIProps)[]) {
+    for (const key of Object.keys(defaultObj) as (keyof I18nType)[]) {
       if (key in localeObj) {
         if (
           typeof defaultObj[key] === 'object' &&
@@ -136,7 +136,7 @@ export const getUI = (locale?: Locale | string): UIProps => {
 
   if (localeUI && validLocale !== CONSTANT.I18N.DEFAULT_LOCALE) {
     checkMismatch(defaultUI, localeUI)
-    return deepMerge(defaultUI, localeUI) as UIProps
+    return deepMerge(defaultUI, localeUI) as I18nType
   }
 
   // If localeUI is undefined or locale is default, just return defaultUI
