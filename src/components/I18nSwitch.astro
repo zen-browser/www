@@ -1,0 +1,55 @@
+---
+import { Dropdown, DropdownItems } from 'astro-navbar'
+import { i18n } from '~/constants/i18n'
+import LanguagesIcon from '~/icons/Languages.astro'
+
+interface Props {
+  label?: string
+  className?: string
+}
+
+const { label = 'Toggle i18n', className = '' } = Astro.props
+
+function getHref(locale: string) {
+  if (locale === 'en') return Astro.url.pathname.replace(/^\/ja\//, '/')
+  if (locale === 'ja')
+    return Astro.url.pathname.startsWith('/ja') ? Astro.url.pathname : `/ja${Astro.url.pathname}`
+  return Astro.url.pathname
+}
+---
+
+<Dropdown class="group">
+  <button
+    type="button"
+    class:list={['inline-flex h-8 w-8 cursor-pointer items-center justify-center', className]}
+    aria-label={label}
+  >
+    <LanguagesIcon />
+  </button>
+  <DropdownItems>
+    <div class="navbar-dropdown !grid-cols-1 gap-1">
+      {
+        i18n.LOCALES.map(locale => (
+          <a class="dropdown-item" href={getHref(locale.value)} aria-label={locale.label}>
+            <div class="dropdown-title">{locale.label}</div>
+          </a>
+        ))
+      }
+    </div>
+  </DropdownItems>
+</Dropdown>
+
+<style>
+  .navbar-dropdown {
+    @apply absolute mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border-2 border-dark bg-paper p-3 shadow-sm;
+  }
+  .navbar-dropdown .dropdown-item {
+    @apply flex cursor-pointer select-none flex-col gap-1 rounded-lg p-3 pl-8 transition-colors duration-200;
+  }
+  .navbar-dropdown .dropdown-item:hover {
+    @apply bg-muted;
+  }
+  .navbar-dropdown .dropdown-title {
+    @apply text-right font-bold;
+  }
+</style>
