@@ -1,12 +1,7 @@
 import { type AstroGlobal, type GetStaticPaths } from 'astro'
 
 import { CONSTANT } from '~/constants'
-import { type I18nType } from '~/constants/i18n'
-
-/**
- * Represents the available locales in the application
- */
-export type Locale = (typeof locales)[number]
+import { type I18nType, type Locale } from '~/constants/i18n'
 
 /**
  * Generates a localized path by prefixing the locale if necessary

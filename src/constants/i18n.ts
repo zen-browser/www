@@ -442,29 +442,53 @@ export const i18nSchema = type
 
 export type I18nType = typeof i18nSchema.I18n.infer
 
-const languages: Record<string, I18nType> = Object.fromEntries(
-  Object.entries(import.meta.glob('~/i18n/**/translation.json', { eager: true })).map(
-    ([key, value]) => {
-      const result = i18nSchema.I18n(value)
+export type Locale = (typeof locales)[number]['value']
 
-      if (result instanceof type.errors) {
-        throw new Error(`Invalid translation file (${key}):\n${' '.repeat(2)}${result.summary}`)
-      }
+async function importI18n(
+  locale: Locale,
+  promise: Promise<{ default: unknown }>
+): Promise<[Locale, unknown]> {
+  const result = await promise
 
-      return [/i18n\/([A-z]{2})\/translation.json/.exec(key)?.[1], result]
+  return [locale, result.default]
+}
+
+export const locales = [
+  { label: 'English', value: 'en', intl: 'en-US' },
+  { label: '日本語', value: 'ja', intl: 'ja-JP' },
+  { label: 'Español', value: 'es', intl: 'es-ES' },
+] as const
+
+const languages = Object.fromEntries(
+  (
+    await Promise.all([
+      importI18n('en', import('~/i18n/en/translation.json')),
+      importI18n('ja', import('~/i18n/ja/translation.json')),
+      importI18n('es', import('~/i18n/es/translation.json')),
+    ])
+  ).map(([locale, result]) => {
+    const parsed = i18nSchema.I18n(result)
+
+    if (parsed instanceof type.errors) {
+      throw new Error(`Invalid translation file (${locale}):\n${' '.repeat(2)}${parsed.summary}`)
     }
-  )
-)
+
+    return [locale, parsed]
+  })
+) as Record<Locale, I18nType>
 
 export const i18n = {
   DEFAULT_LOCALE: 'en',
-  LOCALES: [
-    { label: 'English', value: 'en', ui: languages['en'], intl: 'en-US' },
-    { label: '日本語', value: 'ja', ui: languages['ja'], intl: 'ja-JP' },
-    { label: 'Español', value: 'es', ui: languages['es'], intl: 'es-ES' },
-  ],
+  LOCALES: locales.map(locale => {
+    return {
+      ...locale,
+      ui: languages[locale.value],
+    }
+  }),
 } as const
 
 export const getIntlLocale = (locale: string) => {
-  return i18n.LOCALES.find(l => l.value === locale)?.intl
+  return locales.find(({ value }) => {
+    return value === locale
+  })?.intl
 }

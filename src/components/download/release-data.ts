@@ -1,4 +1,5 @@
-import { getUI, type Locale } from '~/utils/i18n'
+import { type Locale } from '~/constants/i18n'
+import { getUI } from '~/utils/i18n'
 
 /**
  * Returns the releases object, injecting checksums dynamically.
