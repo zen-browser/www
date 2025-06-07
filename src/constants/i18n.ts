@@ -12,7 +12,7 @@ export const locales = Object.keys(languages) as Locale[]
 /**
  * Maps locale keys to their corresponding translation objects.
  */
-export const translations: Record<string, I18nType> = Object.fromEntries(
+export const translations: Record<Locale, I18nType> = Object.fromEntries(
   Object.entries(import.meta.glob('~/i18n/**/translation.json', { eager: true })).map(
     ([key, value]) => {
       const result = i18nSchema.I18n(value)
@@ -34,7 +34,7 @@ export const i18n = {
   LOCALES: Object.entries(languages).map(([key, locale]) => {
     return {
       ...locale,
-      ui: translations[key],
+      ui: translations[key as Locale],
     }
   }),
 } as const
