@@ -1,7 +1,12 @@
 import { type AstroGlobal, type GetStaticPaths } from 'astro'
 
 import { CONSTANT } from '~/constants'
-import { type I18nType, type Locale } from '~/constants/i18n'
+import { languages, type I18nType, type Locale } from '~/constants/i18n'
+
+/**
+ * List of all supported locales
+ */
+export const locales = CONSTANT.I18N.LOCALES.map(({ value }) => value)
 
 /**
  * Generates a localized path by prefixing the locale if necessary
@@ -44,11 +49,6 @@ export const getPath =
 export const getLocale = (Astro: AstroGlobal): Locale => {
   return Astro.currentLocale as Locale
 }
-
-/**
- * List of all supported locales
- */
-export const locales = CONSTANT.I18N.LOCALES.map(({ value }) => value)
 
 /**
  * List of locales excluding the default locale
@@ -121,24 +121,10 @@ export function deepMerge(defaultObj: I18nType, localeObj: Partial<I18nType> = {
   return result
 }
 
-const defaultUI = CONSTANT.I18N.LOCALES.find(({ value }) => {
-  return value === CONSTANT.I18N.DEFAULT_LOCALE
-})?.ui
+const defaultUI = languages[CONSTANT.I18N.DEFAULT_LOCALE]
 
 if (!defaultUI) {
   throw new Error('Default UI translation is missing!')
-}
-
-const localesMap: Record<Locale, I18nType> = {} as Record<Locale, I18nType>
-
-for (const locale of locales) {
-  const maybeLocale = CONSTANT.I18N.LOCALES.find(({ value }) => {
-    return value === locale
-  })
-
-  if (maybeLocale) {
-    localesMap[locale] = maybeLocale.ui
-  }
 }
 
 /**
@@ -149,7 +135,7 @@ for (const locale of locales) {
 export const getUI = (locale?: Locale): I18nType => {
   const validLocale = locale && locales.includes(locale) ? locale : CONSTANT.I18N.DEFAULT_LOCALE
 
-  return localesMap[validLocale] ?? defaultUI
+  return languages[validLocale] ?? defaultUI
 }
 
 /**

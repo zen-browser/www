@@ -453,18 +453,18 @@ async function importI18n(
   return [locale, result.default]
 }
 
-export const locales = [
+const locales = [
   { label: 'English', value: 'en', intl: 'en-US' },
   { label: '日本語', value: 'ja', intl: 'ja-JP' },
   { label: 'Español', value: 'es', intl: 'es-ES' },
 ] as const
 
-const languages = Object.fromEntries(
+export const languages = Object.fromEntries(
   (
     await Promise.all([
-      importI18n('en', import('~/i18n/en/translation.json')),
-      importI18n('ja', import('~/i18n/ja/translation.json')),
-      importI18n('es', import('~/i18n/es/translation.json')),
+      importI18n('en', import('~/i18n/en/translation.json', { with: { type: 'json' } })),
+      importI18n('ja', import('~/i18n/ja/translation.json', { with: { type: 'json' } })),
+      importI18n('es', import('~/i18n/es/translation.json', { with: { type: 'json' } })),
     ])
   ).map(([locale, result]) => {
     const parsed = i18nSchema.I18n(result)
