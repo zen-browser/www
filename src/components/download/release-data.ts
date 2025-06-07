@@ -1,4 +1,4 @@
-import { type Locale } from '~/constants/i18n'
+import { type Locale } from '~/types/i18n'
 import { getUI } from '~/utils/i18n'
 
 /**
