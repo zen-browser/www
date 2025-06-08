@@ -141,8 +141,8 @@ const featureList = [
         delay: stagger(150),
         ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
         autoplay: onScroll({
-          target,
-          enter: 'bottom-=200 top',
+          enter: { container: 'top+=500' },
+          target: element,
           debug,
         }),
       })
