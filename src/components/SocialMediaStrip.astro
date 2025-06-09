@@ -1,5 +1,5 @@
 ---
-const { gap = 4, class: className, ...props } = Astro.props
+const { class: className, ...props } = Astro.props
 
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import {
@@ -9,6 +9,7 @@ import {
   faReddit,
   faXTwitter,
 } from '@fortawesome/free-brands-svg-icons'
+import { cn } from '~/utils/merge'
 
 library.add(faMastodon, faBluesky, faGithub, faXTwitter, faReddit)
 const Mastodon = icon({ prefix: 'fab', iconName: 'mastodon' })
@@ -18,7 +19,7 @@ const XTwitter = icon({ prefix: 'fab', iconName: 'x-twitter' })
 const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
 ---
 
-<ul class:list={[`flex items-center opacity-80 gap-${gap}`, className]} {...props}>
+<ul class={cn('flex items-center gap-4 opacity-80', className)} {...props}>
   <li>
     <a
       href="https://github.com/zen-browser"
