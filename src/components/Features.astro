@@ -1,9 +1,5 @@
 ---
-import { motion } from 'motion/react'
-import { getTitleAnimation } from '~/animations'
 import { getLocale, getUI } from '~/utils/i18n'
-import Description from './Description.astro'
-
 import Video from './Video.astro'
 
 const locale = getLocale(Astro)
@@ -20,290 +16,137 @@ interface Props {
 
 const { titles } = Astro.props
 
-const descriptions = Object.values(features.featureTabs).map(tab => tab.description)
+const featureList = [
+  {
+    key: 'workspaces',
+    title: features.featureTabs.workspaces.title,
+    description: features.featureTabs.workspaces.description,
+    video: 'workspaces',
+  },
+  {
+    key: 'compact-mode',
+    title: features.featureTabs.compactMode.title,
+    description: features.featureTabs.compactMode.description,
+    video: 'compact-mode',
+  },
+  {
+    key: 'glance',
+    title: features.featureTabs.glance.title,
+    description: features.featureTabs.glance.description,
+    video: 'glance',
+  },
+  {
+    key: 'split-view',
+    title: features.featureTabs.splitView.title,
+    description: features.featureTabs.splitView.description,
+    video: 'split-views',
+  },
+]
 ---
 
-<section id="Features" class="relative flex w-full flex-col py-12 text-start lg:py-36">
-  <Description class="mb-2 text-4xl font-bold sm:text-6xl">
+<section
+  id="features"
+  class="relative flex w-full flex-col items-center gap-8 py-8 text-center sm:gap-12 sm:py-12 xl:gap-24 xl:py-36"
+>
+  <!-- Section Header -->
+  <div class="flex w-full flex-col items-center gap-4 sm:gap-6">
+    <h2 class="text-3xl sm:text-4xl md:text-6xl">
+      {
+        (titles || features.titles).map(title => {
+          switch (title) {
+            case '\n':
+              return <br class="hidden md:block" />
+            default:
+              return (
+                <b
+                  class="font-bold"
+                  style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+                >
+                  {title}
+                </b>
+              )
+          }
+        })
+      }
+    </h2>
+    <p
+      class="max-w-4xl text-base sm:text-lg"
+      style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+    >
+      <span class="opacity-80">{features.description}</span>
+    </p>
+  </div>
+
+  <!-- Features Layout -->
+  <div id="showcase" class="flex w-full flex-col gap-12 sm:gap-16 xl:gap-36">
     {
-      (titles || features.titles).map((title, index) =>
-        title !== '\n' ? (
-          <motion.span client:load {...getTitleAnimation(0.2 + index * 0.2)}>
-            {title}
-          </motion.span>
-        ) : (
-          <br class="hidden md:block" />
-        )
-      )
-    }
-  </Description>
-  <motion.p client:load {...getTitleAnimation(0.6)} className="lg:w-1/2">
-    {features.description}
-  </motion.p>
-  <div class="mt-6 flex flex-col gap-6 lg:flex-row lg:justify-between lg:gap-2">
-    <div class="flex w-full flex-col lg:w-1/3">
-      <!-- Mobile tabs -->
-      <div class="flex gap-2 overflow-x-auto overflow-y-clip lg:hidden">
-        <motion.button
-          client:load
-          {...getTitleAnimation()}
-          className="feature-tab whitespace-nowrap"
-          data-active="true"
-        >
-          {features.featureTabs.workspaces.title}
-        </motion.button>
-        <motion.button
-          client:load
-          {...getTitleAnimation(0.2)}
-          className="feature-tab whitespace-nowrap"
-        >
-          {features.featureTabs.compactMode.title}
-        </motion.button>
-        <motion.button
-          client:load
-          {...getTitleAnimation(0.4)}
-          className="feature-tab whitespace-nowrap"
-        >
-          {features.featureTabs.glance.title}
-        </motion.button>
-        <motion.button
-          client:load
-          {...getTitleAnimation(0.6)}
-          className="feature-tab whitespace-nowrap"
-        >
-          {features.featureTabs.splitView.title}
-        </motion.button>
-      </div>
-
-      <!-- Desktop features list -->
-      <div id="features-list" class="hidden lg:flex lg:flex-col lg:gap-3">
-        <motion.div client:load {...getTitleAnimation(0.8)} className="feature" data-active="true">
-          <Description class="text-2xl font-bold">
-            {features.featureTabs.workspaces.title}
-          </Description>
-          <Description>
-            {features.featureTabs.workspaces.description}
-          </Description>
-        </motion.div>
-        <motion.div client:load {...getTitleAnimation(1)} className="feature">
-          <Description class="text-2xl font-bold">
-            {features.featureTabs.compactMode.title}
-          </Description>
-          <Description>
-            {features.featureTabs.compactMode.description}
-          </Description>
-        </motion.div>
-        <motion.div client:load {...getTitleAnimation(1.2)} className="feature">
-          <Description class="text-2xl font-bold">
-            {features.featureTabs.glance.title}
-          </Description>
-          <Description>
-            {features.featureTabs.glance.description}
-          </Description>
-        </motion.div>
-        <motion.div client:load {...getTitleAnimation(1.4)} className="feature">
-          <Description class="text-2xl font-bold">
-            {features.featureTabs.splitView.title}
-          </Description>
-          <Description>
-            {features.featureTabs.splitView.description}
-          </Description>
-        </motion.div>
-      </div>
-
-      <!-- Mobile description -->
-      <div class="feature-description mt-4 lg:hidden" data-descriptions={descriptions.join('|||')}>
-      </div>
-    </div>
-
-    <div class="sticky top-6 h-fit w-full lg:w-3/5">
-      <div class="relative w-full">
-        <div class="video-stack relative h-full w-full">
+      featureList.map((feature, index) => (
+        <div class="flex w-full flex-col items-center gap-6 xl:gap-12">
+          <div class="flex flex-col items-center gap-4">
+            <h3 class="text-3xl font-bold opacity-0 blur-sm sm:text-4xl xl:text-5xl">
+              {feature.title}
+            </h3>
+            <p
+              class="max-w-3xl text-center text-base leading-relaxed sm:text-lg"
+              style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+            >
+              <span class="opacity-80">{feature.description}</span>
+            </p>
+          </div>
           <Video
+            class="w-full rounded-xl object-cover shadow-lg"
+            style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+            name={feature.video}
             autoplay
             loop
             muted
             playsinline
             preload="none"
-            class="feature-video"
-            name="workspaces"
-          />
-          <Video
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="none"
-            class="feature-video"
-            name="compact-mode"
-          />
-          <Video
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="none"
-            class="feature-video"
-            name="glance"
-          />
-          <Video
-            autoplay
-            loop
-            muted
-            playsinline
-            preload="none"
-            class="feature-video"
-            name="split-views"
           />
         </div>
-      </div>
-    </div>
+      ))
+    }
   </div>
 </section>
 
 <script>
-  const features = document.querySelectorAll('.feature, .feature-tab') as NodeListOf<HTMLElement>
+  import { animate, onScroll, stagger } from 'animejs'
 
-  // Set initial description
-  const descriptionEl = document.querySelector('.feature-description') as HTMLDivElement
-  const descriptions = descriptionEl?.dataset.descriptions?.split('|||')
-  if (descriptionEl && descriptions) {
-    descriptionEl.textContent = descriptions[0]
-  }
+  function initAnimations() {
+    const debug = false
 
-  function changeToFeature({ target }: MouseEvent | { target: HTMLElement }) {
-    let targetEl: HTMLElement | null = target as HTMLElement
+    const elements = document.querySelectorAll('#features h2 b, #features > div > p')
+    const showcase = document.getElementById('showcase') as HTMLElement
 
-    if (target instanceof HTMLElement) {
-      targetEl = target.closest('.feature, .feature-tab')
-    }
+    animate(elements, {
+      opacity: { from: 0.001, to: 1 },
+      translateY: { from: 20, to: 0 },
+      filter: { from: 'blur(4px)', to: 'blur(0px)' },
+      duration: 300,
+      delay: stagger(150),
+      ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
+      autoplay: onScroll({
+        target: '#features',
+        debug,
+      }),
+    })
 
-    if (!targetEl) {
-      return
-    }
-
-    const index = Array.from(features).indexOf(targetEl) % 4
-
-    if (index === -1) {
-      return
-    }
-
-    // Update both mobile and desktop elements
-    for (let i = 0; i < features.length; i += 1) {
-      const f = features[i]
-
-      if (i % 4 === index) {
-        f.setAttribute('data-active', 'true')
-      } else {
-        f.removeAttribute('data-active')
-      }
-    }
-
-    // Update mobile description
-    const descriptionEl = document.querySelector('.feature-description')
-
-    if (descriptionEl && descriptions) {
-      descriptionEl.textContent = descriptions[index]
-    }
-
-    const videos = document.querySelectorAll<HTMLVideoElement>('.feature-video')
-
-    for (let i = 0; i < videos.length; i += 1) {
-      const vid = videos[i]
-      const yOffset = (i - index) * 20
-      const zOffset = i === index ? 0 : -100 - Math.abs(i - index) * 50
-      const scale = i === index ? 1 : 0.95
-      const rotation = (i - index) * 3
-
-      if (i === index) {
-        vid.setAttribute('data-active', 'true')
-        vid.style.opacity = '1'
-        vid.style.transform = `translate3d(-50%, 0, 0) scale(${scale})`
-        vid.style.zIndex = '10'
-        vid.currentTime = 0
-        vid.play()
-      } else {
-        vid.removeAttribute('data-active')
-        vid.style.transform = `translate3d(-50%, ${yOffset}px, ${zOffset}px)
-                             rotate3d(1, 0, 0, ${rotation}deg)
-                             scale(${scale})`
-        vid.style.zIndex = String(1 - Math.abs(i - index))
-        vid.pause()
-      }
+    for (const element of showcase.children) {
+      const target = element.querySelectorAll('p, h3, video')
+      animate(target, {
+        opacity: { from: 0.001, to: 1 },
+        translateY: { from: 20, to: 0 },
+        filter: { from: 'blur(4px)', to: 'blur(0px)' },
+        duration: 300,
+        delay: stagger(150),
+        ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
+        autoplay: onScroll({
+          enter: { container: 'top+=500' },
+          target: element,
+          debug,
+        }),
+      })
     }
   }
-
-  for (const feature of features) {
-    feature.addEventListener('click', changeToFeature)
-  }
-
-  changeToFeature({ target: features[0] })
+  initAnimations()
 </script>
-
-<style>
-  .feature {
-    @apply w-full cursor-pointer select-none rounded-lg p-4 opacity-0 hover:bg-subtle;
-    transition: background 0.2s ease-in-out;
-
-    &[data-active='true'] {
-      @apply bg-subtle;
-    }
-  }
-
-  .feature-tab {
-    @apply rounded-lg px-4 py-2 text-lg font-medium opacity-0 hover:bg-subtle;
-    transition: background 0.2s ease-in-out;
-
-    &[data-active='true'] {
-      @apply bg-subtle;
-    }
-  }
-
-  .feature-description {
-    @apply px-4 text-sm;
-  }
-
-  .video-stack {
-    @apply aspect-video;
-    perspective: 2000px;
-    transform-style: preserve-3d;
-  }
-
-  .feature-video {
-    @apply left-1/2 hidden transform rounded-3xl shadow-md lg:absolute lg:mx-auto lg:block lg:w-full dark:opacity-80;
-    max-width: 800px;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    position: absolute;
-    top: 0;
-    transform-origin: top center;
-    backface-visibility: hidden;
-    will-change: transform, opacity;
-    transform: translate3d(-50%, 0, -100px) scale(0.95);
-  }
-
-  /* Don't animate translation on small screens */
-  @media (max-width: 1024px) {
-    .feature-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transform: none !important;
-      display: none;
-      object-fit: cover;
-
-      &[data-active='true'] {
-        display: block;
-        opacity: 1;
-      }
-    }
-
-    .video-stack {
-      @apply overflow-hidden rounded-xl;
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16/9;
-    }
-  }
-</style>
