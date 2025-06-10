@@ -285,7 +285,7 @@
       },
       "securityNotice": {
         "title": "Verified & Secure Downloads",
-        "description": "All Zen downloads are signed and verified for your security. We recommend downloading directly from our official website or GitHub repository. If your download seems broken or gets flagged by your antivirus, please <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link'>report it to us</a>."
+        "description": "All Zen downloads are signed and verified for your security. We recommend downloading directly from our official website or GitHub repository. If your download seems broken or gets flagged by your antivirus, please <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>report it to us</a>."
       },
       "platformNames": {
         "mac": "macOS",
