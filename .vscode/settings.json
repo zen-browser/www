@@ -40,5 +40,6 @@
   },
   "files.associations": {
     "*.astro": "astro"
-  }
+  },
+  "css.customData": [".vscode/tailwind-extra-data.json"]
 }
