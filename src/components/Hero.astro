@@ -1,10 +1,23 @@
 ---
+import { motion } from 'motion/react'
+import { getTitleAnimation } from '~/animations'
 import Button from '~/components/Button.astro'
+import Description from '~/components/Description.astro'
 import Title from '~/components/Title.astro'
 import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
 import SocialMediaStrip from './SocialMediaStrip.astro'
 import Video from './Video.astro'
+
+let titleAnimationCounter = 0
+function getNewAnimationDelay() {
+  titleAnimationCounter++
+  return titleAnimationCounter * 0.15
+}
+
+function getHeroTitleAnimation() {
+  return getTitleAnimation(getNewAnimationDelay())
+}
 
 const locale = getLocale(Astro)
 
@@ -19,54 +32,58 @@ const {
 
 <header
   id="header"
-  class="flex w-full flex-col items-center gap-6 py-16 text-center lg:gap-12 lg:py-32"
+  class="flex w-full flex-col items-center gap-[20%] py-32 text-center lg:gap-[25%]"
 >
-  <div class="flex h-full flex-col items-center justify-center gap-6 md:gap-8">
-    <div class="flex flex-col items-center justify-center gap-4 md:gap-8">
-      <div>
-        <Title class="relative px-12 text-center text-5xl md:text-7xl lg:px-0 lg:text-9xl">
-          {
-            hero.title.map(title =>
-              title.text !== '\n' ? (
-                <b
-                  class:list={['font-normal', title.highlight && 'italic text-coral']}
-                  style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
-                >
-                  {title.text}
-                </b>
-              ) : (
-                <br class="hidden md:block" />
-              )
-            )
-          }
-        </Title>
-        <p
-          class="px-12 text-center lg:px-0"
-          style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
-        >
-          {hero.description[0]}
-          <br class="hidden sm:inline" />
-          {hero.description[1]}
-        </p>
-      </div>
-      <div
-        class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row"
+  <div class="flex h-full flex-col items-center justify-center">
+    <Title class="relative px-12 text-center font-normal md:text-7xl lg:px-0 lg:text-9xl">
+      {
+        hero.title.map(title =>
+          title.text !== '\n' ? (
+            <motion.span
+              client:load
+              {...getHeroTitleAnimation()}
+              className={title.highlight ? 'italic text-coral' : ''}
+            >
+              {title.text}
+            </motion.span>
+          ) : (
+            <br class="hidden md:block" />
+          )
+        )
+      }
+    </Title>
+    <motion.span client:load {...getHeroTitleAnimation()}>
+      <Description class="px-12 text-center lg:px-0">
+        {hero.description[0]}
+        <br class="hidden sm:inline" />
+        {hero.description[1]}</Description
       >
-        <div style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">
-          <Button class="w-fit" href={getLocalePath('/download')} isPrimary>
-            {hero.buttons.beta}
-            <ArrowRightIcon class="size-4" />
-          </Button>
-        </div>
-        <div style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">
-          <Button class="w-fit" href={getLocalePath('/donate')}>
-            {hero.buttons.support}
-          </Button>
-        </div>
-      </div>
+    </motion.span>
+    <div class="mt-6 flex w-2/3 flex-col gap-3 sm:gap-6 md:w-fit md:flex-row">
+      <motion.span client:load {...getHeroTitleAnimation()}>
+        <Button class="w-full" href={getLocalePath('/download')} isPrimary>
+          {hero.buttons.beta}
+          <ArrowRightIcon class="size-4" />
+        </Button>
+      </motion.span>
+      <motion.span client:load {...getHeroTitleAnimation()}>
+        <Button href={getLocalePath('/donate')}>{hero.buttons.support}</Button>
+      </motion.span>
     </div>
-    <SocialMediaStrip style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)" />
+    <motion.span
+      client:load
+      {...getHeroTitleAnimation()}
+      className="mx-auto translate-y-16 !transform"
+    >
+      <SocialMediaStrip />
+    </motion.span>
   </div>
+</header>
+<motion.span
+  className="flex max-w-full lg:max-w-none lg:flex-none"
+  client:load
+  {...getHeroTitleAnimation()}
+>
   <Video
     name="hero-video"
     autoplay
@@ -74,39 +91,6 @@ const {
     muted
     playsinline
     preload="none"
-    class="rounded-xl"
-    style="transform: translateY(20px); opacity: 0.001; filter: blur(4px); transform-origin: top;"
+    class="mb-24 rounded-3xl shadow-md dark:opacity-80"
   />
-</header>
-
-<script>
-  import { animate, onScroll, stagger } from 'animejs'
-
-  function initAnimations() {
-    const debug = false
-
-    const elements = document.querySelectorAll(
-      '#header h1 b, #header p, #header div:has(a), #header video, #header ul'
-    )
-
-    animate(elements, {
-      // @ts-expect-error - element is HTMLElement
-      opacity: element => {
-        if (element.tagName === 'UL') {
-          return { from: 0.001, to: 0.8 }
-        }
-        return { from: 0.001, to: 1 }
-      },
-      translateY: { from: 20, to: 0 },
-      filter: { from: 'blur(4px)', to: 'blur(0px)' },
-      duration: 300,
-      delay: stagger(150),
-      ease: 'cubicBezier(0.25, 0.1, 0.25, 1)',
-      autoplay: onScroll({
-        target: '#header',
-        debug,
-      }),
-    })
-  }
-  initAnimations()
-</script>
+</motion.span>
