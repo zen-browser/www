@@ -1,4 +1,3 @@
-import { type Locale } from '~/types/i18n'
 import { getUI } from '~/utils/i18n'
 
 /**
@@ -6,7 +5,7 @@ import { getUI } from '~/utils/i18n'
  * @param locale The locale to use for labels
  * @param checksums Record<string, string> mapping filenames to SHA-256 hashes
  */
-export function getReleasesWithChecksums(locale: Locale) {
+export function getReleasesWithChecksums(locale: string) {
   const {
     routes: {
       download: {
