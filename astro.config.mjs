@@ -1,11 +1,12 @@
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
 import { defineConfig } from 'astro/config'
+
+import tailwindcss from '@tailwindcss/vite'
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind(), react(), sitemap()],
+  integrations: [react(), sitemap()],
   site: 'https://zen-browser.app',
   i18n: {
     defaultLocale: 'en',
@@ -26,5 +27,7 @@ export default defineConfig({
         },
       },
     },
+
+    plugins: [tailwindcss()],
   },
 })

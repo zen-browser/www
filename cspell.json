@@ -81,7 +81,8 @@
     "*.bundle.js",
     "package-lock.json",
     "yarn.lock",
-    "pnpm-lock.yaml"
+    "pnpm-lock.yaml",
+    "pnpm-workspace.yaml"
   ],
   "allowCompoundWords": true,
   "dictionaries": ["typescript", "node", "html", "css", "bash", "npm", "es-es"],
