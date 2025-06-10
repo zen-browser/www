@@ -1,0 +1,210 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: 'Junicode';
+  src: url('/fonts/JunicodeVF-Roman-subset.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Junicode-Italic';
+  src: url('/fonts/JunicodeVF-Italic-subset.woff2') format('woff2');
+  font-display: swap;
+}
+
+@theme {
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  --color-paper: #f2f0e3;
+  --color-coral: #f76f53;
+  --color-dark: #2e2e2e;
+  --color-subtle: rgba(0, 0, 0, 0.05);
+  --color-muted: rgba(0, 0, 0, 0.05);
+  --color-zen-blue: #6287f5;
+  --color-zen-green: #63f78b;
+  --font-junicode: 'Junicode, serif';
+  --font-junicode-italic: 'Junicode-Italic, serif';
+  --font-junicode--font-feature-settings: 'swsh' 1;
+  --font-bricolage: 'Bricolage Grotesque', sans-serif;
+  --font-bricolage--font-variation-settings: 'wdth' 100;
+  --default-font-family: var(--font-bricolage);
+
+  --animate-fade-in: fadeIn 2s ease-in-out;
+  --animate-breathe: breathe 5s ease-in-out infinite;
+  --animate-header-slide-in: headerSlideIn 0.5s ease-in-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes breathe {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes headerSlideIn {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body,
+body > * {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 500;
+  font-variation-settings: 'wdth' 100;
+}
+
+h1 .italic {
+  font-family: 'Junicode-Italic', serif;
+  font-weight: 400;
+  font-feature-settings: 'swsh' 0;
+  font-style: normal;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@layer base {
+  @variant dark {
+    --color-paper: #1f1f1f;
+    --color-dark: #d1cfc0;
+    --color-subtle: rgba(255, 255, 255, 0.1);
+    --color-muted: rgba(255, 255, 255, 0.05);
+  }
+}
+
+@utility container {
+  @apply mx-auto w-full px-4;
+
+  @media (min-width: 100%) {
+    @apply w-full max-w-full px-4;
+  }
+
+  @variant sm {
+    @apply w-full max-w-full;
+  }
+
+  @variant md {
+    @apply w-full max-w-256;
+  }
+
+  @variant lg {
+    @apply w-full max-w-256 px-6;
+  }
+
+  @variant xl {
+    @apply w-full max-w-320 px-8;
+  }
+}
+
+@layer components {
+  #theme-switcher * {
+    @apply text-dark;
+  }
+
+  #version-modal > * {
+    @apply font-bricolage!;
+  }
+
+  .zen-link {
+    @apply text-coral underline underline-offset-4;
+  }
+
+  .ac-accordion-item-title {
+    @apply !text-dark [&>svg]:text-dark! flex-row-reverse! hover:opacity-80!;
+  }
+
+  .ac-accordion-item {
+    @apply transition-[height]! duration-200! ease-in-out! [&>li]:opacity-50!;
+  }
+
+  .ac-accordion {
+    &.ac-accordion--light {
+      > * + * {
+        @apply w-full;
+
+        border-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1)) !important;
+      }
+    }
+  }
+
+  .extra {
+    & a {
+      @apply !text-coral underline underline-offset-4;
+    }
+  }
+
+  .release-note-item {
+    border-color: light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
+  }
+
+  .svg-inline--fa {
+    @apply box-border inline-block h-4 overflow-visible align-[-0.125em];
+  }
+
+  /* Download card icon */
+  .download-card__icon {
+    @apply bg-subtle text-coral data-[twilight='true']:text-zen-blue flex h-10 w-10 items-center justify-center rounded-full p-2;
+  }
+
+  /* Make FontAwesome icons match size */
+  .download-card__icon svg {
+    @apply h-6 w-6;
+  }
+
+  .os-icon svg {
+    @apply h-12 w-12;
+  }
+
+  button,
+  a {
+    font-size: 0.9rem;
+
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  }
+
+  .navbar-dropdown {
+    @apply border-dark bg-paper absolute left-1/2 mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border-2 p-3 shadow-xs;
+    & .dropdown-item {
+      @apply flex cursor-pointer flex-col gap-2 rounded-lg p-4 transition-colors duration-200 select-none;
+
+      &:hover {
+        @apply bg-muted;
+      }
+
+      & .dropdown-title {
+        @apply font-bold;
+      }
+
+      & .dropdown-description {
+        @apply text-sm;
+      }
+    }
+  }
+}

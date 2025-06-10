@@ -242,7 +242,7 @@ const descriptions = Object.values(features.featureTabs).map(tab => tab.descript
 
 <style>
   .feature {
-    @apply w-full cursor-pointer select-none rounded-lg p-4 opacity-0 hover:bg-subtle;
+    @apply hover:bg-subtle w-full cursor-pointer rounded-lg p-4 opacity-0 select-none;
     transition: background 0.2s ease-in-out;
 
     &[data-active='true'] {
@@ -251,7 +251,7 @@ const descriptions = Object.values(features.featureTabs).map(tab => tab.descript
   }
 
   .feature-tab {
-    @apply rounded-lg px-4 py-2 text-lg font-medium opacity-0 hover:bg-subtle;
+    @apply hover:bg-subtle rounded-lg px-4 py-2 text-lg font-medium opacity-0;
     transition: background 0.2s ease-in-out;
 
     &[data-active='true'] {

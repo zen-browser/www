@@ -33,10 +33,10 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
 <div id="mods-list-container" class="flex flex-1 flex-col">
   <div class="flex flex-col items-center gap-4">
     <div
-      class="flex w-full flex-row items-center justify-center rounded-full border-2 border-dark pr-6"
+      class="border-dark flex w-full flex-row items-center justify-center rounded-full border-2 pr-6"
     >
       <input
-        class="w-full rounded-full bg-transparent py-2 pl-6 pr-4 text-lg outline-none"
+        class="w-full rounded-full bg-transparent py-2 pr-4 pl-6 text-lg outline-hidden"
         id="search"
         placeholder={translations.search}
         type="text"
@@ -44,7 +44,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       <button
         id="clear-search"
         title="Clear search"
-        class="hidden rounded-full p-1 transition-colors duration-150 hover:bg-subtle"
+        class="hover:bg-subtle hidden rounded-full p-1 transition-colors duration-150"
         aria-label="Clear search"
         tabindex="0"
       >
@@ -55,7 +55,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
     <div class="mb-1 flex w-full items-center justify-between gap-4 sm:mb-2">
       <div class="flex items-start gap-4">
         <button
-          class="flex items-center gap-2 rounded-full border border-subtle px-5 py-1 text-sm font-semibold shadow-sm transition-colors hover:bg-muted focus:bg-coral/10 sm:text-base"
+          class="border-subtle hover:bg-muted focus:bg-coral/10 flex items-center gap-2 rounded-full border px-5 py-1 text-sm font-semibold shadow-xs transition-colors sm:text-base"
           id="created-sort"
           type="button"
         >
@@ -67,7 +67,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           </span>
         </button>
         <button
-          class="flex items-center gap-2 rounded-full border border-subtle px-5 py-1 text-sm font-semibold shadow-sm transition-colors hover:bg-muted focus:bg-coral/10 sm:text-base"
+          class="border-subtle hover:bg-muted focus:bg-coral/10 flex items-center gap-2 rounded-full border px-5 py-1 text-sm font-semibold shadow-xs transition-colors sm:text-base"
           id="updated-sort"
           type="button"
         >
@@ -84,7 +84,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         <label class="text-md font-semibold" for="limit">
           {translations.sort.perPage}
         </label>
-        <select class="rounded border border-dark bg-paper px-2 py-1 text-sm" id="limit">
+        <select class="border-dark bg-paper rounded-xs border px-2 py-1 text-sm" id="limit">
           <option value="12">12</option>
           <option value="24">24</option>
           <option value="48">48</option>
@@ -103,7 +103,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           class="mod-card flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
           href={getLocalePath(`/mods/${mod.id}`)}
         >
-          <div class="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
+          <div class="border-dark relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 object-cover shadow-md">
             <img
               alt={mod.name}
               class="h-full w-full object-cover transition-transform duration-100 hover:scale-105"
@@ -140,7 +140,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
             <input
               id="page-input"
               aria-label="Page number"
-              class="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
+              class="border-dark w-16 rounded-xs border bg-transparent px-2 py-1 text-center text-sm"
               type="text"
               value="1"
             />
@@ -152,7 +152,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
             </span>
           </form>
           <a
-            class="px-3 py-2 text-dark hover:text-gray-600"
+            class="text-dark px-3 py-2 hover:text-gray-600"
             href={getLocalePath('/mods?page=2')}
             data-page="2"
           >
@@ -660,7 +660,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           <input
             id="page-input"
             aria-label="Page number"
-            class="w-16 rounded border border-dark bg-transparent px-2 py-1 text-center text-sm"
+            class="w-16 rounded-xs border border-dark bg-transparent px-2 py-1 text-center text-sm"
             type="text"
             value="${this.state.page}"
           />
