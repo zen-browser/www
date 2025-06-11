@@ -16,13 +16,27 @@ export type Locale = (typeof locales)[number]
 export const getPath =
   (locale?: Locale): ((arg0: string) => string) =>
   (path: string) => {
-  const localeDirs = CONSTANT.I18N.LOCALES.map(({ value }) => value);
-  const cleanedPath = path.replace(new RegExp(`^/(${localeDirs.join('|')})(/|$)`), '/');
+    // Return external URLs unchanged
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path
+    }
 
-  if (locale && locale !== CONSTANT.I18N.DEFAULT_LOCALE && !path.startsWith(`/${locale}`)) {
-    return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`;
-  }
-  return cleanedPath;
+    // Check if path already contains any locale prefix
+    const existingLocale = locales.find(l => path.startsWith(`/${l}/`))
+
+    if (locale && locale !== CONSTANT.I18N.DEFAULT_LOCALE) {
+      if (existingLocale) {
+        // Replace existing locale with new locale
+        return path.replace(`/${existingLocale}/`, `/${locale}/`)
+      }
+      // Add new locale prefix
+      return `/${locale}${path.startsWith('/') ? '' : '/'}${path}`
+    }
+    // Remove locale prefix if switching to default locale
+    if (existingLocale && locale === CONSTANT.I18N.DEFAULT_LOCALE) {
+      return path.replace(`/${existingLocale}/`, '/')
+    }
+    return path
   }
 
 /**
