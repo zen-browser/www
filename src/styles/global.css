@@ -179,16 +179,6 @@ h1 .italic {
     @apply h-12 w-12;
   }
 
-  button,
-  a {
-    font-size: 0.9rem;
-
-    &[disabled] {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-  }
-
   .navbar-dropdown {
     @apply border-dark bg-paper absolute left-1/2 mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border-2 p-3 shadow-xs;
     & .dropdown-item {
@@ -205,6 +195,61 @@ h1 .italic {
       & .dropdown-description {
         @apply text-sm;
       }
+    }
+  }
+
+  .feature {
+    @apply hover:bg-subtle w-full cursor-pointer rounded-lg p-4 opacity-0 select-none;
+    transition: background 0.2s ease-in-out;
+
+    &[data-active='true'] {
+      @apply bg-subtle;
+    }
+  }
+
+  .feature-tab {
+    @apply hover:bg-subtle rounded-lg px-4 py-2 text-lg font-medium opacity-0;
+    transition: background 0.2s ease-in-out;
+
+    &[data-active='true'] {
+      @apply bg-subtle;
+    }
+  }
+
+  .feature-description {
+    @apply px-4 text-sm;
+  }
+
+  .video-stack {
+    @apply aspect-video;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+  }
+
+  .feature-video {
+    @apply left-1/2 hidden transform rounded-3xl shadow-md lg:absolute lg:mx-auto lg:block lg:w-full dark:opacity-80;
+    max-width: 800px;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    position: absolute;
+    top: 0;
+    transform-origin: top center;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    transform: translate3d(-50%, 0, -100px) scale(0.95);
+  }
+
+  /* Don't animate translation on small screens */
+  @media (max-width: 1024px) {
+    .feature-video {
+      @apply absolute inset-0 hidden size-full transform-none! object-cover opacity-0;
+
+      &[data-active='true'] {
+        @apply block opacity-100;
+      }
+    }
+
+    .video-stack {
+      @apply relative aspect-video w-full overflow-hidden rounded-xl;
     }
   }
 }

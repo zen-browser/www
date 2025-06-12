@@ -23,6 +23,7 @@ const {
       {...extra}
       href={localePath ? getLocalePath(href) : href}
       class:list={[
+        'text-sm disabled:cursor-not-allowed disabled:opacity-50',
         'transition-bg flex items-center justify-center gap-2 rounded-xl px-6 py-4 transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]',
         className,
         isPrimary
@@ -42,6 +43,7 @@ const {
       id={id}
       {...extra}
       class:list={[
+        'text-sm disabled:cursor-not-allowed disabled:opacity-50',
         'transition-bg flex items-center justify-center gap-2 rounded-lg px-6 py-3 transition-transform duration-150 hover:scale-[1.02]',
         className,
         isPrimary
