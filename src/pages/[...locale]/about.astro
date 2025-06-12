@@ -17,14 +17,14 @@ const {
 <Layout title={layout.about.title} description={layout.about.description}>
   <main class="container flex min-h-screen w-full flex-col gap-24 py-24">
     <div class="flex w-full flex-col gap-6">
-      <Description class="text-6xl font-bold leading-none">{about.title}</Description>
+      <Description class="text-6xl leading-none font-bold">{about.title}</Description>
       <Description class="max-w-4xl">
         {about.description}
       </Description>
       <Button href="/donate" class="w-fit" isPrimary>{about.littleHelp}</Button>
     </div>
     <div class="flex w-full flex-col gap-4">
-      <div class="text-4xl font-bold leading-none lg:text-5xl">{about.mainTeam.title}</div>
+      <div class="text-4xl leading-none font-bold lg:text-5xl">{about.mainTeam.title}</div>
       <Description>
         {about.mainTeam.description}
       </Description>
@@ -55,7 +55,7 @@ const {
       </div>
     </div>
     <div class="flex w-full flex-col gap-4">
-      <div class="text-4xl font-bold leading-none lg:text-5xl">{about.contributors.title}</div>
+      <div class="text-4xl leading-none font-bold lg:text-5xl">{about.contributors.title}</div>
       <Description>
         {about.contributors.description}
       </Description>
