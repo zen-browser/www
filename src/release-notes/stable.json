@@ -31,7 +31,7 @@
     "version": "1.0.0-a.2",
     "date": "12/07/2024",
     "extra": "This release is the second alpha release of the 1.0.0-alpha series. It includes a lot of bug fixes and improvements given the feedback we received from the first alpha release. This release is still not considered stable, but it's a big step towards the first stable release.",
-    "features": ["Added support for macOS aarch64!", "Some performance improvements"],
+    "features": ["Added support for macOS aaarch64!", "Some performance improvements"],
     "fixes": [
       {
         "description": "Fixed rounded corners of browser views for some websites",
@@ -231,7 +231,7 @@
       "Added support for the latest version of Firefox (128.0.3).",
       "Improved the compact view mode",
       "New logo for the browser!",
-      "Improved speed of the browser"
+      "Imrpoved speed of the browser"
     ],
     "fixes": [
       {
@@ -259,7 +259,7 @@
   {
     "version": "1.0.0-a.11",
     "date": "02/08/2024",
-    "extra": "This release is the eleventh alpha release of the 1.0.0-alpha series.\n\nWe skipped some releases because we were working on some big features and improvements. This release includes some big performance improvements and support for other platforms.\n\nHopefully things will get a bit more stable from now on.",
+    "extra": "This release is the eleventh alpha release of the 1.0.0-alpha series.\n\nWe skipped some releases because we were working on some big features and improvements. This release includes some big performance improvements and support for other platforms.\n\nHopefuly things will get a bit more stable from now on.",
     "features": [
       "Added support for Windows Generic CPUs",
       "Added support for Linux Generic CPUs",
@@ -315,7 +315,7 @@
       "New compact mode design, it's much better now",
       "Reduced CPU requirements for MacOS Intel CPUs",
       "Reduced blur for floating URL bar",
-      "Allow the sidebar to be wider, customizable in about:config"
+      "Allow the sidebar to be wider, customisable in about:config"
     ],
     "fixes": [
       {
@@ -567,7 +567,7 @@
         "issue": 414
       },
       {
-        "description": "The threshold for the expanded tab sidebar in compact mode is too high",
+        "description": "The treshhold for the expanded tab sidebar in compact mode is too high",
         "issue": 389
       }
     ]
@@ -732,7 +732,7 @@
     "version": "1.0.1-a",
     "date": "15/09/2024",
     "workflowId": 10911842349,
-    "extra": "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab containers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for mods, improved overall UX and added an a better theme support (Now called Zen Mods)!",
+    "extra": "This version marks a more stable alpha release.\n\nThis release brings a few improvements to the UI and some important quality of life features for workspaces, such as separate pinned tabs, custom icons and assigned tab conainers!\n\nWe've also added a new AppImage installer for Linux users and started signing our Windows builds with a verified digital signature, making Windows Defender and other antivirus software less annoying!\n\nAlso, we've made the browser's layout more stable for mods, improved overal UX and added an a better theme support (Now called Zen Mods)!",
     "features": [
       "Added verified digital signature to Windows builds",
       "Added Zen to Homebrew Cask repository",
@@ -844,7 +844,7 @@
       "Compact mode now stays open for a longer time if the mouse exits the app",
       "MacOS buttons will now be at the left side of the toolbar",
       "Updated to the latest version of Firefox (130.0.1)",
-      "Added a way to modify compact mode behavior from right clicking the tab bar",
+      "Added a way to modify compact mode behavior from right clickin the tab bar",
       "No paddings or borders will be shown when in fullscreen no more",
       "Applied a more consistent design for the tab bar",
       "Correctly signed the Windows updater"
@@ -852,7 +852,7 @@
     "fixes": [
       {
         "description": "Can't split tab, if one of the tabs has been previously split",
-        "issue": 1592
+        "isse": 1592
       },
       {
         "description": "Exit button padding is not correct",
@@ -957,7 +957,7 @@
     ],
     "themeChanges": ["Toggle inputs will not use the themed tertiary color"],
     "breakingChanges": [
-      "The keyboard shortcuts will be overridden by the defaults ones in this update"
+      "The keyboard shortcuts will be overriden by the defaults ones in this update"
     ],
     "fixes": [
       {
@@ -1061,13 +1061,13 @@
       "Added a new feature to save the pinned state of tabs in the session store, allowing for better tab management across sessions",
       "Reduced the vertical tab toolbox width to 44px, providing a more compact layout and freeing up more screen space for content",
       "Added support for containers in the sidebar websites",
-      "Changed AMOLED theme's base color",
+      "Changed amoled theme's base color",
       "Worked on keyboard shortcuts",
       "Improved light mode experience",
       "Allow VAAPI/FMPEG APIs only for Linux",
       "Twilight will now display the proper name on .desktop files",
       "Added a better icon selection for workspaces, enhancing more icons",
-      "Created a \"Force container workspace\" option. Basically, force each container to belong to a certain workspace.",
+      "Created a \"Force container workspace\" option. Basically, force each container to belong to acertain workspace.",
       "Bookmarks are now opened in the workspace's default container",
       "Allow tab unloader to ignore picture-in-picture tabs"
     ],
@@ -1079,7 +1079,7 @@
         "description": "Fixed compact mode overlapping the tabs"
       },
       {
-        "description": "Fixed browser bottom padding misaligned",
+        "description": "Fixed browser bottom padding misaligns",
         "issue": 2007
       },
       {
@@ -1095,7 +1095,7 @@
         "issue": 2015
       },
       {
-        "description": "Fixed 'Tabs sidebar Expand on Hover causes jank with latest UI'",
+        "description": "Fixed 'Tabs sidebar Expand on Hover casuses jank with latest UI'",
         "issue": 2033
       },
       {
@@ -1121,7 +1121,7 @@
         "description": "Fixed handling of corrupted mod files"
       },
       {
-        "description": "Fixed resetting shortcuts not working"
+        "description": "Fixed reseting shortcuts not working"
       },
       {
         "description": "Fixed settings UI when night theme is enabled while having a light website displayed"
@@ -1192,11 +1192,11 @@
     "extra": "This release is a small release that fixes some annoying bugs, and adds some small improvements.\n\nThese releases will commonly mostly contain bug fixes and small improvements as our current goal right now is to stabilize the browser.\n\nThanks everyone for the feedback!",
     "features": [
       "Fixed always rendering the split view overlay, potentially fixing huge speed issues",
-      "Disabled 'all' webrender options by default, performance increase for unsupported GPUs"
+      "Disabled 'all' webrender options by default, performance increase for unsuported GPUs"
     ],
     "fixes": [
       {
-        "description": "Fixed tab overflow changing the height of the web view"
+        "description": "Fixed tab overlflow changing the height of the web view"
       },
       {
         "description": "Fixed 'cancel' button for workspaces creation not working"
@@ -1278,7 +1278,7 @@
     "version": "1.0.1-a.15",
     "date": "31/10/2024",
     "workflowId": 11600705444,
-    "extra": "This release introduces Zen Glance, a new convenient way to preview links!\n\nZen Glance allows you to open a link preview in a small window, without leaving the current page. This feature is perfect for quickly checking links without losing your place.\n\nWe've also updated to the latest stable version of Firefox (what a mess, everything got broken!), and we can already start to see some early stages of tab groups!\n\nStart using Zen Glance today my 'ctrl+click' or 'alt+click' on macos on any link and experience this new way of browsing!",
+    "extra": "This release introduces Zen Glance, a new convenient way to preview links!\n\nZen Glance allows you to open a link preview in a small window, without leaving the current page. This feature is perfect for quickly checking links without losing your place.\n\nWe've also updated to the latest stable version of Firefox (what a mess, everything got broken!), and we can already start to see some early stages of tab groups!\n\nStart using Zen Glance today my 'ctrl+clic' or 'alt+click' on macos on any link and experience this new way of browsing!",
     "fixes": [
       {
         "description": "Fixed gradient theme not applying to sidebar using expand on hover",
@@ -1340,7 +1340,7 @@
         "description": "Fixed disabling 'show newtab button under last active tab' not hiding the button"
       },
       {
-        "description": "Fixed wrong alignment on glance action buttons"
+        "description": "Fixed wrong aligment on glance action buttons"
       }
     ]
   },
@@ -1392,7 +1392,7 @@
       "Added support for forward/backward mouse buttons for switching workspaces",
       "Pinned tabs and essentials will stay active in all windows",
       "For macos, the browser will now have a transparency/blur factor, based on the theme's contrast. Giving a more native look to the browser",
-      "Improved UI theme colors generation and newtab alignment",
+      "Improved UI theme colors generation and newtab aligment",
       "Default border radius will be OS specific, giving a more native look to the browser",
       "Added weather widget to the newtab",
       "Updated to the latest stable version of Firefox (132.0.1)",
@@ -1430,7 +1430,7 @@
         "description": "Fixed opening panel animation, making the popup view look weird while animating"
       },
       {
-        "description": "Fixed web panels being reloaded when unpinning them"
+        "description": "Fixed web panels being reloaded when unpining them"
       },
       {
         "description": "Fixed not making a default workspace when creating a new profile on specific conditions"
@@ -1471,7 +1471,7 @@
         "description": "Fixed compact mode background being possibly transparent if the custom colors allow it"
       },
       {
-        "description": "Fixed not having any background if the workspace hasn't gotten a color yet"
+        "description": "Fixed not having any background if the workspace hasnt gotten a color yet"
       },
       {
         "description": "Fixed texture slider not working",
@@ -1485,7 +1485,7 @@
         "description": "Fixed some translations issues"
       },
       {
-        "description": "Fixed workspaces buttons scaling down when being clicked"
+        "description": "Fixed workspaces buttons scalling down when being clicked"
       }
     ],
     "breakingChanges": [
@@ -1522,7 +1522,7 @@
         "description": "Fixed support URLs pointing to a 404 pages"
       },
       {
-        "description": "Fixed extra all-tabs and newtab buttons not appearing on customized toolbar"
+        "description": "Fixed extra all-tabs and newtab buttons not appearing on customised toolbar"
       },
       {
         "description": "Fixed workspaces indicator appearing when workspaces are disabled"
@@ -1575,7 +1575,7 @@
       },
       {
         "description": "Fixed restoring pinned tabs to their pinned URLs on startup if the option is checked",
-        "issue": 2817
+        "isue": 2817
       },
       {
         "description": "Prevent creating new window for dragging pinned tab out of the window."
@@ -1631,7 +1631,7 @@
     "breakingChanges": [
       "Urlbar now will open when clicking on it instead of on-mousedown",
       "Changed default glance opening trigger to 'alt+click' on linux/windows systems",
-      "Removed collapsible sidebar expanding on hover (mod will be available soon). This is due to the difficulty of maintaining it as we evolve the sidebar"
+      "Removed collapsible sidebar expande on hover (mod will be available soon). This is due to the dificulty of maintaining it as we evolve the sidebar"
     ]
   },
   {
@@ -1656,7 +1656,7 @@
         "description": "Fixed an 'all-tabs' buttons appearing always and not being able to remove it"
       },
       {
-        "description": "Fixed overlapping top toolbar in compact mode when having multiple toolbars enabled"
+        "description": "Fixed overlaping top toolbar in compact mode when having multiple toolbars enabled"
       },
       {
         "description": "Fixed gradient generator overflowing the dialog on some displays"
@@ -1684,7 +1684,7 @@
         "description": "Fixed macos window control when changing right side tabs to normal tabs"
       },
       {
-        "description": "Fixed compact mode overlapping site when having bookmarks bar enabled"
+        "description": "Fixed compact mode overlaping site when having bookmarks bar enabled"
       },
       {
         "description": "Fixed entering into customize mode while having collapsed tabs"
@@ -1722,7 +1722,7 @@
     "version": "1.0.2-b.3",
     "date": "19/12/2024",
     "workflowId": 12419745635,
-    "extra": "This release brings more bug fixing and overall stability while also including some small polishing features/details. Our goal during the beta phase is to get everything as stable and ready for our stable release!\n\nNote: We will be hosting a hall-of-fame event, where top 20 zen rices will be featured in the website!\n\nMerry Christmas everyone!",
+    "extra": "This release brings more bug fixing and ovcerall stability while also including some small polishing features/details. Our goal during the beta phase is to get everything as stable and ready for our stable release!\n\nNote: We will be hosting a hall-of-fame event, where top 20 zen rices will be featured in the website!\n\nMerry Christmas everyone!",
     "fixes": [
       "Fixed workspaces not being initialized correctly when creating a fresh profile",
       "Fixed gradient generator not being correctly initialized on startup",
@@ -1757,7 +1757,7 @@
       "Added experimental rounded corners for website (Disabled by default on macos)",
       "Added fallback cache-based website favicon in case we fail to fetch the website's favicon for essentials/pinned tabs",
       "Added a more optimized version of zen hardening, there should be less performance issues now and less font-rendering issues",
-      "Added a smoother scrolling experience by using msd physics and changing scroll values/offsets (Disabled in macos)",
+      "Added a smoother scrolling experience by using msd physics and changing scroll values/offests (Disabled in macos)",
       "Optimized workspace switching animations"
     ]
   },
@@ -1783,20 +1783,20 @@
       "Fixed compact mode animations on hover for macos, having laggy window buttons and splitter size for macos",
       "Minor fixes to layout spacing and padding",
       {
-        "description": "Fixed URL bar being outside of the window in compact mode while typing",
+        "description": "Fixed URL bar being outisde of the window in compact mode while typing",
         "issue": 3913
       },
       {
         "description": "Fixed tab context menu not working when changing tab to a different workspace",
-        "issue": 2963
+        "isue": 2963
       },
       {
         "description": "Fixed fullscreen videos having a top-bar on certain layouts",
-        "issue": 3269
+        "isue": 3269
       },
       {
         "description": "Fixed wrong firefox version when using extensions API, therefor breaking some extensions",
-        "issue": 1366
+        "isue": 1366
       }
     ],
     "features": [
@@ -1804,14 +1804,14 @@
       "Disable Normandy studies by default",
       "Zen Mods will now not load if the browser is opened in safe mode",
       "Removed permission buttons in the URL bar into an unified button, saving space (single toolbar layout)",
-      "Added support for function keys in the range of F13-F24, also for num lock and scroll lock keys",
+      "Added support for function keys in the range of F13-F24, also for nums lock and scroll lock keys",
       "Add experimental window controls preference to hide the window controls always (zen.view.experimental-no-window-controls)",
       "Fixed and improved PGO, LTO and clang plugins for all builds, improving performance"
     ],
     "breakingChanges": [
       "Due to a high amount of complaints, we've changed the 'Inspect Element' shortcut to 'Ctrl+Shift+L' (Windows/Linux) and 'Cmd+Opt+I' (macOS). This is done to prioritize the 'Copy current URL' shortcut",
       {
-        "description": "Removed optimized builds for linux and windows",
+        "description": "Removed opimized builds for linux and windows",
         "link": "https://github.com/zen-browser/desktop/wiki/Why-have-optimized-builds-been-removed%3F"
       }
     ]
@@ -1836,7 +1836,7 @@
     "extra": "This new release includes more polishing changes and bug fixes. We are most excited about our latest release schedule. We are now using Firefox's Release Candidates for Twilight, meaning we can test out new Firefox versions before they are released to the public. This will allow us to fix any issues before they are released to the public.\n\nIt may be a bit late, but happy new year! We hope you have a great year ahead!",
     "fixes": [
       "Fixed compact mode sidebar not hiding fully on some occasions",
-      "Fixed context menu checkbox icon alignment for Windows users",
+      "Fixed context menu checkbox icon aligments for Windows users",
       "Fixed having multiple windows displaying the wrong essentials at startup",
       {
         "description": "Fixed toolbar jittering when in compact mode",
@@ -1856,13 +1856,13 @@
         "issue": 4050
       },
       {
-        "description": "Fixed weird coloring for toggle inputs",
+        "description": "Fixed weird colouring for toggle inputs",
         "issue": 4047
       },
       "Update application identifier for Zen Browser to align with new naming conventions (MacOS)",
-      "Fixed translations trying to be overridden on Windows builds",
+      "Fixed translations trying to be overriden on Windows builds",
       {
-        "description": "Fixed web panels closing and immediately opening again when clicking on the toolbar button",
+        "description": "Fixed web panels closing and inmediately opening again when clicking on the toolbar button",
         "issue": 4049
       },
       "Fixed issues when building PGO, leading to bad optimization techniques",
@@ -1906,14 +1906,14 @@
       "Fixed moving pinned tabs into the essential tabs container breaking the UI",
       "Fixed compact mode not opening when hovering on the side when the window changes size",
       "Improved security for Zen Mods, only allowing installs from the Zen Mods website",
-      "Fixed the completely broken save bookmark dialog",
+      "Fixed the completly broken save bookmark dialog",
       "Fixed and improved the grain texture for workspace backgrounds (Thanks to @different55)",
       "Fixed zen's app bundle ID giving an incorrect identifier",
       "Fixed issue related to changing workspace with the 4 / 5 mouse buttons and we now take into consideration natural scrolling",
       "Fixed some website dialogs overflowing the window",
       "Fixed moving around pins not saving their position after a restart",
       {
-        "description": "Fixed extension Pin to Toolbar overlaid with gtk theme toggle",
+        "description": "Fixed extension Pin to Toolbar overlayed with gtk theme toggle",
         "issue": 1934
       },
       {
@@ -2066,7 +2066,7 @@
     "fixes": [
       "Fixed essentials background having the wrong border radius",
       "Fixed compact mode sidebar not re-opening when the animation key is off",
-      "Fixed closing pinned tabs with CTRL+W making the browser unusable",
+      "Fixed closing pinned tabs with CTRL+W making the browser unuseable",
       {
         "description": "Fixed glance opening on essential tabs even if it's disabled",
         "issue": 4564
@@ -2074,7 +2074,7 @@
       "Fixed crash on overflow menu in macos",
       "Fixed elements shifting on macos fullscreen",
       "Fixed changing entering on customizable mode when having multiple windows",
-      "Fixed empty space on top of the vertical tabs when there's no buttons inside it",
+      "Fixed empty space ontop of the vertical tabs when there's no buttons inside it",
       "Fixed having an empty overflow menu when using single toolbar layout",
       "Fixed print dialog not opening and fixed website dialogs being clipped",
       "Fixed keyboard shortcuts not working after pinning extension to the bookmarks bar",
@@ -2089,7 +2089,7 @@
       "Glance will now wait for the answer to 'this page might not save your data' before closing the tab",
       "Better and more consistent workspace transition for touchpad users",
       "Added more native tab border radius",
-      "Split view rearrangement now has transition animations",
+      "Split view rearangement now has transition animations",
       "Improved the display of workspace icons in the workspace switcher",
       "New tab animation is now smoother",
       "Increase tab unloader timeout from 20 to 40 minutes",
@@ -2100,7 +2100,7 @@
     ],
     "breakingChanges": [
       "The default newtab position is now at the top (can be disabled in the settings under Look & Feel)",
-      "Changed default pinned behavior where it always opens a new tab if only pinned tabs exist"
+      "Changed default pinned behaviour where it always opens a new tab if only pinned tabs exist"
     ],
     "workflowId": 13053102880,
     "date": "30/01/2025"
@@ -2189,17 +2189,17 @@
       "Fixed tabs sharing screens not hiding when switching workspaces",
       "Fixed URL bar glitching when focusing in compact mode",
       "Fixed pinned tabs separator using the wrong tabs when hiding",
-      "Fixed rearranging essential tabs containing glance tabs",
+      "Fixed rearanging essential tabs containing glance tabs",
       "Fixed normal tabs opening where pinned tabs are after having a glance tab opened",
       "Fixed trying to unload an about:* page rendering the browser useless",
       "Fixed floating URL bar glitching hovering compact mode sidebar",
       "Fixed pinned/essentials tabs being reorganized when opening multiple windows",
-      "Fixed renaming/changing icons on some occasions not working",
+      "Fixed renaming/changing icons on some occations not working",
       "Fixed pinning tabs with glance opened not working",
       "Fixed pinned tabs / essentials opening in the container that the window was opened",
       "Fixed not being able to move around multiple pinned tabs at the same time",
       "Fixed selecting essentials/pinned tabs when switching workspaces",
-      "Fixed opening new windows with container specific essentials showing all at once"
+      "Fixed opening new windows with contaienr specific essentials showing all at once"
     ],
     "features": [
       "\ud83d\udd25 Tabs are handled in different containers, meaning faster transitions and better swiping experience",
@@ -2220,14 +2220,14 @@
       "Removed 'status alert' green dot from tabs",
       "Added improved and bouncier toast notifications",
       "URL bar is now fully floatable, always at the center of the screen and with better looks",
-      "Added an option to completely ignore hovering over the compact mode sidebar ('zen.view.compact.show-sidebar-and-toolbar-on-hover' in about:config)",
+      "Added an option to completly ignore hovering over the compact mode sidebar ('zen.view.compact.show-sidebar-and-toolbar-on-hover' in about:config)",
       "Improved shadows, borders and corners in common UI elements",
       "Compact mode now also gets texture if any is set",
       "MacOS window buttons are now mono colored (zen.widget.mac.mono-window-controls in about:config)",
       "Add support for additional languages: Welsh, Estonian, Persian, Finnish, Hebrew, and Icelandic",
       "Swiping between workspaces now has a force feedback and a maximum limit",
       "Double clicking on an essential now resets to the original URL",
-      "Changed default behavior of the '-' button on pinned tabs to reset, unload and switch the tab"
+      "Changed default behaviour of the '-' button on pinned tabs to reset, unload and switch the tab"
     ],
     "breakingChanges": [
       "Removed profile switching toolbar button and dialog, now that firefox will release them in their next version",
@@ -2772,8 +2772,8 @@
     "version": "1.12.10b",
     "extra": "",
     "fixes": [
-      "An issue with migration that led to unexpected behavior on startup, leading to some services being unavailable.",
-      "Unloaded pinned tabs using the wrong favicon instead of the cached one.",
+      "An issue with migration that leaded to unexpected behavior when starting up zen, leading to some services being unavailable.",
+      "Unloading pinned tabs using the wrong favicon instead of the cached one.",
       "Gradients not showing when restoring multiple windows at once",
       "Restoring previously closed pinned tabs being on the wrong container."
     ],
@@ -2781,5 +2781,27 @@
     "workflowId": 15372237282,
     "image": false,
     "date": "01/06/2025"
+  },
+  {
+    "version": "1.13b",
+    "extra": "This update includes overall fixes, stability and a new way to manage spaces",
+    "fixes": [
+      "Fixed issues related to glance and split view",
+      "Fixed performance issues and high GPU usage for some users",
+      "Other small fixes and improvements"
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-47/",
+    "features": [
+      "There's a new way to manage spaces, which brings a more intuitive and user-friendly experience",
+      "Updated to firefox 139.0.4",
+      "Added support for google safebrowsing for better security",
+      "Collapsed toolbarr gets a slight UI redesign"
+    ],
+    "breakingChanges": [
+      "Customizable UI buttons at the bottom has been reset to a new default state"
+    ],
+    "workflowId": 15630968997,
+    "image": false,
+    "date": "13/06/2025"
   }
 ]
