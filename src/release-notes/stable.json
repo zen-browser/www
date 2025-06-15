@@ -2772,8 +2772,8 @@
     "version": "1.12.10b",
     "extra": "",
     "fixes": [
-      "An issue with migration that led to unexpected behavior when starting up zen, leading to some services being unavailable.",
-      "Unloading pinned tabs using the wrong favicon instead of the cached one.",
+      "An issue with migration that led to unexpected behavior on startup, leading to some services being unavailable.",
+      "Unloaded pinned tabs using the wrong favicon instead of the cached one.",
       "Gradients not showing when restoring multiple windows at once",
       "Restoring previously closed pinned tabs being on the wrong container."
     ],
@@ -2781,5 +2781,27 @@
     "workflowId": 15372237282,
     "image": false,
     "date": "01/06/2025"
+  },
+  {
+    "version": "1.13b",
+    "extra": "This update includes overall fixes, stability and a new way to manage spaces",
+    "fixes": [
+      "Fixed issues related to glance and split view",
+      "Fixed performance issues and high GPU usage for some users",
+      "Other small fixes and improvements"
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-47/",
+    "features": [
+      "There's a new way to manage spaces, which brings a more intuitive and user-friendly experience",
+      "Updated to firefox 139.0.4",
+      "Added support for google safebrowsing for better security",
+      "Collapsed toolbar gets a slight UI redesign"
+    ],
+    "breakingChanges": [
+      "Customizable UI buttons at the bottom has been reset to a new default state"
+    ],
+    "workflowId": 15630968997,
+    "image": false,
+    "date": "13/06/2025"
   }
 ]
