@@ -7,12 +7,13 @@ import InfoIcon from '~/icons/InfoIcon.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
 import { getPath, getUI } from '~/utils/i18n'
-import { getLocale, getOtherLocales } from '~/utils/i18n'
+import { getLocale, otherLocales } from '~/utils/i18n'
 
 export async function getStaticPaths() {
   const mods = await getAllMods()
+
   return mods.flatMap(mod => [
-    ...getOtherLocales().map(locale => ({
+    ...otherLocales.map(locale => ({
       params: {
         slug: mod.id,
         locale: locale,

@@ -1,13 +1,16 @@
 import { expect, test, type BrowserContextOptions, type Page } from '@playwright/test'
 
-import { getReleasesWithChecksums } from '~/components/download/release-data'
-import { CONSTANT } from '~/constants'
+import checksumMock from './checksum-mock.json' with { type: 'json' }
 
-// Helper to get the platform section by id
+/**
+ * Helper to get the platform section by id.
+ */
 const getPlatformSection = (page: Page, platform: string) =>
   page.locator(`#${platform}-downloads.platform-section[data-active='true']`)
 
-// Helper to get the platform tab button
+/**
+ * Helper to get the platform tab button.
+ */
 const getPlatformButton = (page: Page, platform: string) =>
   page.locator(`button.platform-selector[data-platform='${platform}']`)
 
@@ -75,24 +78,22 @@ test.describe('Download page platform detection and tab switching', () => {
 })
 
 test.describe('Download page download links', () => {
-  const releases = getReleasesWithChecksums('en')(CONSTANT.CHECKSUMS)
-
-  type Releases = ReturnType<ReturnType<typeof getReleasesWithChecksums>>
-  function getPlatformLinks(releases: Releases) {
+  function getPlatformLinks() {
     return {
-      mac: [releases.macos.universal],
-      windows: [releases.windows.x86_64, releases.windows.arm64],
+      mac: [checksumMock.macos.universal],
+      windows: [checksumMock.windows.x86_64, checksumMock.windows.arm64],
       linux: [
-        releases.linux.x86_64.tarball,
-        releases.linux.aarch64.tarball,
-        releases.linux.flathub.all,
+        checksumMock.linux.x86_64.tarball,
+        checksumMock.linux.aarch64.tarball,
+        checksumMock.linux.flathub.all,
       ],
     }
   }
 
   test('all platform download links are correct', async ({ page }) => {
     const platforms = ['windows', 'mac', 'linux']
-    const platformLinkSelectors = getPlatformLinks(releases)
+    const platformLinkSelectors = getPlatformLinks()
+
     await page.goto('/download')
     await page.waitForLoadState('domcontentloaded')
     for (const platform of platforms) {
