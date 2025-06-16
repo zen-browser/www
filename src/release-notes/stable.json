@@ -2852,5 +2852,16 @@
     "workflowId": 15656297661,
     "image": false,
     "date": "15/06/2025"
+  },
+  {
+    "version": "1.13.2b",
+    "extra": "",
+    "fixes": [],
+    "features": [
+      "Show spaces when right clicking on the workspace indicator"
+    ],
+    "workflowId": 15668398583,
+    "image": false,
+    "date": "16/06/2025"
   }
 ]
