@@ -4,31 +4,21 @@
   "timezone": "UTC",
   "schedule": ["before 9am on Monday"],
   "labels": ["dependencies"],
-  "assignees": ["@me"],
-  "prConcurrentLimit": 5,
+  "prConcurrentLimit": 10,
+  "rebaseWhen": "conflicted",
   "prHourlyLimit": 2,
-  "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": false,
-    "schedule": ["before 9am on Monday"]
-  },
   "packageRules": [
     {
       "description": "Astro and React ecosystem packages",
       "matchPackagePatterns": ["^@astrojs/", "^astro", "^react", "^@types/react"],
       "groupName": "Astro and React core",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
       "reviewersFromCodeOwners": true
     },
     {
       "description": "Development dependencies",
       "matchDepTypes": ["devDependencies"],
       "groupName": "Dev dependencies",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr",
-      "minimumReleaseAge": "3 days"
+      "reviewersFromCodeOwners": true
     },
     {
       "description": "Testing packages",
@@ -40,18 +30,14 @@
         "^jsdom"
       ],
       "groupName": "Testing packages",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "reviewersFromCodeOwners": true
     },
     {
       "description": "ESLint and TypeScript packages",
       "matchPackagePatterns": ["^@typescript-eslint/", "^eslint", "^typescript", "^@types/"],
       "excludePackagePatterns": ["^@types/react"],
       "groupName": "TypeScript and ESLint",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "reviewersFromCodeOwners": true
     },
     {
       "description": "Formatting and code quality tools",
@@ -63,39 +49,30 @@
         "lint-staged"
       ],
       "groupName": "Code formatting tools",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "reviewersFromCodeOwners": true
     },
     {
       "description": "TailwindCSS ecosystem",
       "matchPackagePatterns": ["^tailwind", "^@tailwindcss/"],
       "matchPackageNames": ["autoprefixer", "postcss", "clsx", "tailwind-merge"],
       "groupName": "TailwindCSS ecosystem",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false
+      "reviewersFromCodeOwners": true
     },
     {
       "description": "FontAwesome packages",
       "matchPackagePatterns": ["^@fortawesome/"],
       "groupName": "FontAwesome packages",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "reviewersFromCodeOwners": true
     },
     {
       "description": "Lucide icon packages",
       "matchPackagePatterns": ["^lucide-"],
       "groupName": "Lucide icons",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "reviewersFromCodeOwners": true
     },
     {
       "description": "Major updates require manual review",
       "matchUpdateTypes": ["major"],
-      "automerge": false,
-      "schedule": ["before 9am on Monday"],
       "labels": ["dependencies", "major-update"],
       "reviewersFromCodeOwners": true
     },
@@ -103,14 +80,12 @@
       "description": "Pin Node.js to LTS versions",
       "matchPackageNames": ["node"],
       "allowedVersions": "/^(18|20|22)\\./",
-      "automerge": false
+      "reviewersFromCodeOwners": true
     },
     {
       "description": "Cloudflare Workers and Wrangler",
       "matchPackageNames": ["wrangler", "@astrojs/cloudflare"],
       "groupName": "Cloudflare ecosystem",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
       "reviewersFromCodeOwners": true
     }
   ],
