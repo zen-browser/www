@@ -4,31 +4,19 @@
   "timezone": "UTC",
   "schedule": ["before 9am on Monday"],
   "labels": ["dependencies"],
-  "assignees": ["@me"],
-  "prConcurrentLimit": 5,
+  "prConcurrentLimit": 10,
+  "rebaseWhen": "conflicted",
   "prHourlyLimit": 2,
-  "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": false,
-    "schedule": ["before 9am on Monday"]
-  },
   "packageRules": [
     {
       "description": "Astro and React ecosystem packages",
       "matchPackagePatterns": ["^@astrojs/", "^astro", "^react", "^@types/react"],
-      "groupName": "Astro and React core",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "reviewersFromCodeOwners": true
+      "groupName": "Astro and React core"
     },
     {
       "description": "Development dependencies",
       "matchDepTypes": ["devDependencies"],
-      "groupName": "Dev dependencies",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr",
-      "minimumReleaseAge": "3 days"
+      "groupName": "Dev dependencies"
     },
     {
       "description": "Testing packages",
@@ -39,19 +27,13 @@
         "^@vitest/",
         "^jsdom"
       ],
-      "groupName": "Testing packages",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "groupName": "Testing packages"
     },
     {
       "description": "ESLint and TypeScript packages",
       "matchPackagePatterns": ["^@typescript-eslint/", "^eslint", "^typescript", "^@types/"],
       "excludePackagePatterns": ["^@types/react"],
-      "groupName": "TypeScript and ESLint",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "groupName": "TypeScript and ESLint"
     },
     {
       "description": "Formatting and code quality tools",
@@ -62,66 +44,46 @@
         "husky",
         "lint-staged"
       ],
-      "groupName": "Code formatting tools",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "groupName": "Code formatting tools"
     },
     {
       "description": "TailwindCSS ecosystem",
       "matchPackagePatterns": ["^tailwind", "^@tailwindcss/"],
       "matchPackageNames": ["autoprefixer", "postcss", "clsx", "tailwind-merge"],
-      "groupName": "TailwindCSS ecosystem",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false
+      "groupName": "TailwindCSS ecosystem"
     },
     {
       "description": "FontAwesome packages",
       "matchPackagePatterns": ["^@fortawesome/"],
-      "groupName": "FontAwesome packages",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "groupName": "FontAwesome packages"
     },
     {
       "description": "Lucide icon packages",
       "matchPackagePatterns": ["^lucide-"],
-      "groupName": "Lucide icons",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "automergeType": "pr"
+      "groupName": "Lucide icons"
     },
     {
       "description": "Major updates require manual review",
       "matchUpdateTypes": ["major"],
-      "automerge": false,
-      "schedule": ["before 9am on Monday"],
-      "labels": ["dependencies", "major-update"],
-      "reviewersFromCodeOwners": true
+      "labels": ["dependencies", "major-update"]
     },
     {
       "description": "Pin Node.js to LTS versions",
       "matchPackageNames": ["node"],
-      "allowedVersions": "/^(18|20|22)\\./",
-      "automerge": false
+      "allowedVersions": "/^(18|20|22)\\./"
     },
     {
       "description": "Cloudflare Workers and Wrangler",
       "matchPackageNames": ["wrangler", "@astrojs/cloudflare"],
-      "groupName": "Cloudflare ecosystem",
-      "schedule": ["before 9am on Monday"],
-      "automerge": false,
-      "reviewersFromCodeOwners": true
+      "groupName": "Cloudflare ecosystem"
     }
   ],
   "vulnerabilityAlerts": {
-    "enabled": false,
-    "labels": ["security", "dependencies"],
-    "automerge": false,
-    "schedule": ["at any time"]
+    "enabled": true,
+    "labels": ["security", "dependencies"]
   },
   "osvVulnerabilityAlerts": true,
-  "dependencyDashboard": false,
+  "dependencyDashboard": true,
   "dependencyDashboardTitle": "Dependency Dashboard",
   "dependencyDashboardHeader": "This issue lists Renovate updates and detected dependencies. Read the [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) docs to learn more.",
   "dependencyDashboardFooter": "Configure Renovate in `renovate.json`",
