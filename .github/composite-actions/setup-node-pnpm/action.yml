@@ -12,16 +12,24 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Restore node_modules cache
-      id: node-modules-cache
+    - name: Check if node_modules cache exists
+      id: check-node-modules-cache
       uses: actions/cache@v4
       with:
         path: |
           node_modules
           */node_modules
         key: ${{ inputs.node-modules-cache-key }}
-        restore-keys: |
-          ${{ runner.os }}-node-modules-
+        lookup-only: true
+
+    - name: Restore node_modules cache
+      if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
+      uses: actions/cache@v4
+      with:
+        path: |
+          node_modules
+          */node_modules
+        key: ${{ inputs.node-modules-cache-key }}
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -29,12 +37,13 @@ runs:
         node-version: lts/*
 
     - name: Setup pnpm
+      if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
       uses: pnpm/action-setup@v4
       with:
         version: 10.11.0
         run_install: false
 
     - name: Install dependencies
-      if: steps.node-modules-cache.outputs.cache-hit != 'true'
+      if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
       shell: bash
       run: pnpm install --frozen-lockfile
