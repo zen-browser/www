@@ -17,7 +17,8 @@ runs:
       with:
         path: .turbo
         key: ${{ inputs.turbo-cache-key }}
-        lookup-only: true
+        restore-keys: |
+          ${{ runner.os }}-turbo-
 
     - name: Restore node_modules cache
       uses: actions/cache@v4
@@ -26,7 +27,8 @@ runs:
           node_modules
           */node_modules
         key: ${{ inputs.node-modules-cache-key }}
-        lookup-only: true
+        restore-keys: |
+          ${{ runner.os }}-node-modules-
 
     - name: Setup Node.js
       uses: actions/setup-node@v4

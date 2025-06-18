@@ -12,14 +12,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Restore Turborepo cache
-      uses: actions/cache@v4
-      with:
-        path: .turbo
-        key: ${{ inputs.turbo-cache-key }}
-        restore-keys: |
-          ${{ runner.os }}-turbo-
-
     - name: Restore node_modules cache
       id: node-modules-cache
       uses: actions/cache@v4
@@ -28,8 +20,7 @@ runs:
           node_modules
           */node_modules
         key: ${{ inputs.node-modules-cache-key }}
-        restore-keys: |
-          ${{ runner.os }}-node-modules-
+        lookup-only: true
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
