@@ -1,9 +1,0 @@
-name: "Run Prettier"
-description: "Run Prettier formatting checks"
-
-runs:
-  using: "composite"
-  steps:
-    - name: Run Prettier
-      shell: bash
-      run: pnpm exec turbo run format

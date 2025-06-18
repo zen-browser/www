@@ -1,9 +1,0 @@
-name: "Run ESLint"
-description: "Run ESLint linting checks"
-
-runs:
-  using: "composite"
-  steps:
-    - name: Run ESLint
-      shell: bash
-      run: pnpm exec turbo run lint
