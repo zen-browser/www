@@ -56,8 +56,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js and pnpm
-        uses: ./.github/composite-actions/setup-node-pnpm
+      - name: Restore Node.js and pnpm caches
+        uses: ./.github/composite-actions/restore-cache
         with:
           turbo-cache-key: ${{ runner.os }}-turbo-${{ github.sha }}
           node-modules-cache-key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -73,8 +73,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js and pnpm
-        uses: ./.github/composite-actions/setup-node-pnpm
+      - name: Restore Node.js and pnpm caches
+        uses: ./.github/composite-actions/restore-cache
         with:
           turbo-cache-key: ${{ runner.os }}-turbo-${{ github.sha }}
           node-modules-cache-key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -90,8 +90,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js and pnpm
-        uses: ./.github/composite-actions/setup-node-pnpm
+      - name: Restore Node.js and pnpm caches
+        uses: ./.github/composite-actions/restore-cache
         with:
           turbo-cache-key: ${{ runner.os }}-turbo-${{ github.sha }}
           node-modules-cache-key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -107,8 +107,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js and pnpm
-        uses: ./.github/composite-actions/setup-node-pnpm
+      - name: Restore Node.js and pnpm caches
+        uses: ./.github/composite-actions/restore-cache
         with:
           turbo-cache-key: ${{ runner.os }}-turbo-${{ github.sha }}
           node-modules-cache-key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -124,8 +124,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node.js and pnpm
-        uses: ./.github/composite-actions/setup-node-pnpm
+      - name: Restore Node.js and pnpm caches
+        uses: ./.github/composite-actions/restore-cache
         with:
           turbo-cache-key: ${{ runner.os }}-turbo-${{ github.sha }}
           node-modules-cache-key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -143,8 +143,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js and pnpm
-        uses: ./.github/composite-actions/setup-node-pnpm
+      - name: Restore Node.js and pnpm caches
+        uses: ./.github/composite-actions/restore-cache
         with:
           turbo-cache-key: ${{ runner.os }}-turbo-${{ github.sha }}
           node-modules-cache-key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
