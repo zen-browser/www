@@ -42,44 +42,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Restore Turborepo cache
-        id: turbo-cache
-        uses: actions/cache@v4
+      - name: Setup Node.js and pnpm
+        uses: ./.github/composite-actions/setup-node-pnpm
         with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-          lookup-only: true
-
-      - name: Restore node_modules cache
-        id: node-modules-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-            */node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-
-          lookup-only: true
-
-      - name: Setup Node.js
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Setup pnpm
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10.11.0
-          run_install: false
-
-      - name: Install dependencies
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
+          turbo-cache-key: ${{ runner.os }}-turbo-${{ github.sha }}
+          node-modules-cache-key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
 
   eslint:
     name: ESLint

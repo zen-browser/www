@@ -21,6 +21,7 @@ runs:
           ${{ runner.os }}-turbo-
 
     - name: Restore node_modules cache
+      id: node-modules-cache
       uses: actions/cache@v4
       with:
         path: |
@@ -40,3 +41,8 @@ runs:
       with:
         version: 10.11.0
         run_install: false
+
+    - name: Install dependencies
+      if: steps.node-modules-cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: pnpm install --frozen-lockfile
