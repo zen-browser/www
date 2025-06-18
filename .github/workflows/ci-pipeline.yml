@@ -49,6 +49,17 @@ jobs:
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           lookup-only: true
 
+      - name: Setup cache for node_modules
+        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            */node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -64,15 +75,6 @@ jobs:
       - name: Install dependencies
         if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
-
-      - name: Upload node_modules cache
-        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
-        uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-            */node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
 
   quality_checks:
     name: ${{ matrix.check }}
@@ -100,6 +102,8 @@ jobs:
             node_modules
             */node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
