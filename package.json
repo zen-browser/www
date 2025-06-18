@@ -27,7 +27,7 @@
   "dependencies": {
     "@astrojs/check": "0.9.4",
     "@astrojs/cloudflare": "12.5.2",
-    "@astrojs/react": "^4.3.0",
+    "@astrojs/react": "4.3.0",
     "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "3.3.1",
     "@astrojs/tailwind": "6.0.2",
@@ -46,7 +46,7 @@
     "free-astro-components": "1.2.0",
     "jiti": "^2.4.2",
     "lefthook": "^1.11.13",
-    "motion": "^12.15.0",
+    "motion": "12.15.0",
     "postcss": "8.5.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
