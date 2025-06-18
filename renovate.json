@@ -1,93 +1,83 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended", ":semanticCommits", "config:js-app"],
-  "timezone": "UTC",
-  "schedule": ["before 9am on Monday"],
-  "labels": ["dependencies"],
+  "extends": ["config:js-app"],
+  "labels": ["dependencies", "renovate"],
   "prConcurrentLimit": 10,
-  "rebaseWhen": "conflicted",
   "prHourlyLimit": 2,
+  "rebaseWhen": "conflicted",
+  "dependencyDashboard": true,
   "packageRules": [
     {
-      "description": "Astro and React ecosystem packages",
-      "matchPackagePatterns": ["^@astrojs/", "^astro", "^react", "^@types/react"],
-      "groupName": "Astro and React core"
+      "description": "Automatically merge minor and patch-level updates",
+      "matchUpdateTypes": ["minor", "patch", "digest"],
+      "automergeType": "branch"
     },
     {
-      "description": "Development dependencies",
-      "matchDepTypes": ["devDependencies"],
-      "groupName": "Dev dependencies"
+      "description": "Group Astro related packages",
+      "groupName": "astro",
+      "matchPackageNames": ["astro*", "@astrojs*"]
     },
     {
-      "description": "Testing packages",
-      "matchPackagePatterns": [
-        "^@testing-library/",
-        "^@playwright/",
-        "^vitest",
-        "^@vitest/",
-        "^jsdom"
-      ],
-      "groupName": "Testing packages"
+      "description": "Group React related packages",
+      "groupName": "react",
+      "matchPackageNames": ["react*", "@types/react*"]
     },
     {
-      "description": "ESLint and TypeScript packages",
-      "matchPackagePatterns": ["^@typescript-eslint/", "^eslint", "^typescript", "^@types/"],
-      "excludePackagePatterns": ["^@types/react"],
-      "groupName": "TypeScript and ESLint"
+      "description": "Group testing libraries",
+      "groupName": "testing",
+      "matchPackageNames": ["vitest*", "@vitest*", "@testing-library*", "@playwright*", "jsdom*"]
     },
     {
-      "description": "Formatting and code quality tools",
+      "description": "Group ESLint and TypeScript packages",
+      "groupName": "eslint-typescript",
+      "matchPackageNames": ["eslint*", "@eslint*", "typescript*", "@typescript-eslint*"]
+    },
+    {
+      "description": "Group formatting and code quality tools",
+      "groupName": "code-quality",
+      "matchPackageNames": ["prettier*", "lefthook*", "@commitlint*", "cspell*", "@cspell*"]
+    },
+    {
+      "description": "Group TailwindCSS ecosystem",
+      "groupName": "tailwindcss",
       "matchPackageNames": [
-        "prettier",
-        "prettier-plugin-astro",
-        "prettier-plugin-tailwindcss",
-        "husky",
-        "lint-staged"
-      ],
-      "groupName": "Code formatting tools"
+        "tailwind*",
+        "@tailwindcss*",
+        "autoprefixer",
+        "postcss",
+        "clsx",
+        "tailwind-merge"
+      ]
     },
     {
-      "description": "TailwindCSS ecosystem",
-      "matchPackagePatterns": ["^tailwind", "^@tailwindcss/"],
-      "matchPackageNames": ["autoprefixer", "postcss", "clsx", "tailwind-merge"],
-      "groupName": "TailwindCSS ecosystem"
+      "description": "Group FontAwesome packages",
+      "groupName": "fontawesome",
+      "matchPackageNames": ["@fortawesome*"]
     },
     {
-      "description": "FontAwesome packages",
-      "matchPackagePatterns": ["^@fortawesome/"],
-      "groupName": "FontAwesome packages"
+      "description": "Group build and bundling tools",
+      "groupName": "build-tools",
+      "matchPackageNames": ["turbo*", "vite*", "jiti*", "wrangler*"]
     },
     {
-      "description": "Lucide icon packages",
-      "matchPackagePatterns": ["^lucide-"],
-      "groupName": "Lucide icons"
+      "description": "Group type definitions",
+      "groupName": "type-definitions",
+      "matchPackageNames": ["@types*"],
+      "excludePackageNames": ["@types/react*"]
+    },
+    {
+      "description": "Group devDependencies",
+      "groupName": "devDependencies",
+      "matchDepTypes": ["devDependencies"]
     },
     {
       "description": "Major updates require manual review",
       "matchUpdateTypes": ["major"],
       "labels": ["dependencies", "major-update"]
-    },
-    {
-      "description": "Pin Node.js to LTS versions",
-      "matchPackageNames": ["node"],
-      "allowedVersions": "/^(18|20|22)\\./"
-    },
-    {
-      "description": "Cloudflare Workers and Wrangler",
-      "matchPackageNames": ["wrangler", "@astrojs/cloudflare"],
-      "groupName": "Cloudflare ecosystem"
     }
   ],
   "vulnerabilityAlerts": {
-    "enabled": true,
     "labels": ["security", "dependencies"]
   },
-  "osvVulnerabilityAlerts": true,
-  "dependencyDashboard": true,
-  "dependencyDashboardTitle": "Dependency Dashboard",
-  "dependencyDashboardHeader": "This issue lists Renovate updates and detected dependencies. Read the [Dependency Dashboard](https://docs.renovatebot.com/key-concepts/dashboard/) docs to learn more.",
-  "dependencyDashboardFooter": "Configure Renovate in `renovate.json`",
-  "configMigration": true,
-  "platformAutomerge": false,
-  "automergeStrategy": "squash"
+  "osvVulnerabilityAlerts": true
 }
