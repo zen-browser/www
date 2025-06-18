@@ -22,15 +22,6 @@ runs:
         key: ${{ inputs.node-modules-cache-key }}
         lookup-only: true
 
-    - name: Restore node_modules cache
-      if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
-      uses: actions/cache@v4
-      with:
-        path: |
-          node_modules
-          */node_modules
-        key: ${{ inputs.node-modules-cache-key }}
-
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
@@ -47,3 +38,12 @@ runs:
       if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
       shell: bash
       run: pnpm install --frozen-lockfile
+
+    - name: Upload node_modules cache
+      if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
+      uses: actions/cache@v4
+      with:
+        path: |
+          node_modules
+          */node_modules
+        key: ${{ inputs.node-modules-cache-key }}
