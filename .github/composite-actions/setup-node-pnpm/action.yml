@@ -1,0 +1,42 @@
+name: "Setup Node.js and pnpm"
+description: "Setup Node.js, pnpm, and restore caches"
+
+inputs:
+  turbo-cache-key:
+    description: "Cache key for Turborepo"
+    required: true
+  node-modules-cache-key:
+    description: "Cache key for node_modules"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Restore Turborepo cache
+      uses: actions/cache@v4
+      with:
+        path: .turbo
+        key: ${{ inputs.turbo-cache-key }}
+        restore-keys: |
+          ${{ runner.os }}-turbo-
+
+    - name: Restore node_modules cache
+      uses: actions/cache@v4
+      with:
+        path: |
+          node_modules
+          */node_modules
+        key: ${{ inputs.node-modules-cache-key }}
+        restore-keys: |
+          ${{ runner.os }}-node-modules-
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10.11.0
+        run_install: false

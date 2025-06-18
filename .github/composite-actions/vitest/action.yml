@@ -1,0 +1,9 @@
+name: "Run Vitest"
+description: "Run Vitest unit tests"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run Vitest
+      shell: bash
+      run: pnpm exec turbo run test

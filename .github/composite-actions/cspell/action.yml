@@ -1,0 +1,9 @@
+name: "Run CSpell"
+description: "Run CSpell spell checking"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run CSpell
+      shell: bash
+      run: pnpm exec turbo run spell
