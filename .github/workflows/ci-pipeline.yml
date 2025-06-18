@@ -57,8 +57,7 @@ jobs:
             node_modules
             */node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-
+          restore-keys: ${{ runner.os }}-node-modules-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -77,20 +76,32 @@ jobs:
         run: pnpm install --frozen-lockfile
 
   quality_checks:
-    name: Quality Checks
+    name: ${{ matrix.name }}
     needs: [check_changes, setup]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - check: lint
+            name: Lint
+          - check: format
+            name: Format
+          - check: test
+            name: Test
+          - check: spell
+            name: Spell Check
+          - check: build
+            name: Build
     steps:
       - uses: actions/checkout@v4
 
-      - name: Restore Turborepo cache
+      - name: Restore Turborepo Cache
         uses: actions/cache@v4
         with:
           path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
+          key: ${{ runner.os }}-turbo-${{ matrix.check }}-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-turbo-${{ matrix.check }}-
 
       - name: Restore node_modules cache
         uses: actions/cache@v4
@@ -99,8 +110,6 @@ jobs:
             node_modules
             */node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-modules-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -113,8 +122,8 @@ jobs:
           version: 10.11.0
           run_install: false
 
-      - name: Run Checks
-        run: pnpm exec turbo run test lint format spell build
+      - name: Run ${{ matrix.name }}
+        run: pnpm exec turbo run ${{ matrix.check }}
 
   playwright:
     name: Playwright Tests
@@ -126,13 +135,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Restore Turborepo cache
+      - name: Restore Turborepo Cache
         uses: actions/cache@v4
         with:
           path: .turbo
           key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
+          restore-keys: ${{ runner.os }}-turbo-
 
       - name: Restore node_modules cache
         uses: actions/cache@v4
@@ -153,18 +161,17 @@ jobs:
           version: 10.11.0
           run_install: false
 
-      - name: Cache Playwright browsers
+      - name: Cache Playwright Browsers
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-playwright-
+          restore-keys: ${{ runner.os }}-playwright-
 
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
 
-      - name: Run Playwright tests
+      - name: Run Playwright Tests
         run: pnpm exec turbo run test:playwright
 
   verify:
