@@ -110,6 +110,7 @@ jobs:
             node_modules
             */node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-node-modules-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -149,6 +150,7 @@ jobs:
             node_modules
             */node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-node-modules-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
