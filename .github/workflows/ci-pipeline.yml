@@ -1,189 +1,200 @@
 name: CI Pipeline
+
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
 concurrency:
-  group: ci-pipeline-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
+  check_changes:
+    name: Check Changes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      exists: ${{ steps.filter.outputs.exists }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Filter changes
+        uses: yumemi-inc/path-filter@v2
+        id: filter
+        with:
+          patterns: |
+            **
+            !**.md
+            !.gitignore
+            !.gitattributes
+            !.vscode/**
+            !.env.example
+
   setup:
+    name: Setup Dependencies
+    needs: check_changes
+    if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.11.0
-      - name: Cache node_modules
-        id: cache-deps
+
+      - name: Check if node_modules cache exists
+        id: check-node-modules-cache
         uses: actions/cache@v4
         with:
           path: |
-            .turbo
             node_modules
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-      - name: Verify pnpm installation
-        run: pnpm --version
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+            */node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          lookup-only: true
 
-  eslint:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - uses: pnpm/action-setup@v4
+          node-version: lts/*
+
+      - name: Setup pnpm
+        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
+        uses: pnpm/action-setup@v4
         with:
           version: 10.11.0
-      - name: Restore node_modules from cache
-        uses: actions/cache@v4
+          run_install: false
+
+      - name: Install dependencies
+        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
+        run: pnpm install --frozen-lockfile
+
+      - name: Save node_modules cache
+        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
         with:
           path: |
-            .turbo
             node_modules
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-      - name: Run Eslint check
-        run: pnpm exec turbo run lint
+            */node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
 
-  prettier:
+  quality_checks:
+    name: ${{ matrix.name }}
+    needs: [check_changes, setup]
+    if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
-    needs: setup
+    strategy:
+      matrix:
+        include:
+          - check: lint
+            name: Lint
+          - check: format
+            name: Format
+          - check: test
+            name: Test
+          - check: spell
+            name: Spell Check
+          - check: build
+            name: Build
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.11.0
-      - name: Restore node_modules from cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            .turbo
-            node_modules
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-      - name: Run Prettier check
-        run: pnpm exec turbo run format
 
-  cspell:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.11.0
-      - name: Restore node_modules from cache
+      - name: Restore Turborepo Cache
         uses: actions/cache@v4
         with:
-          path: |
-            .turbo
-            node_modules
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-      - name: Run cspell check
-        run: pnpm exec turbo run spell
+          path: .turbo
+          key: ${{ runner.os }}-turbo-${{ matrix.check }}-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-turbo-${{ matrix.check }}-
 
-  vitest:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.11.0
-      - name: Restore node_modules from cache
-        uses: actions/cache@v4
+      - name: Restore node_modules cache
+        uses: actions/cache/restore@v4
         with:
           path: |
-            .turbo
             node_modules
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-      - name: Run Vitest tests
-        run: pnpm exec turbo test
+            */node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-node-modules-
 
-  build:
-    runs-on: ubuntu-latest
-    needs: setup
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: lts/*
-      - uses: pnpm/action-setup@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
         with:
           version: 10.11.0
-      - name: Restore node_modules from cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            .turbo
-            node_modules
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-      - name: Build project
-        run: pnpm exec turbo run build
-      - name: Upload build output
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: |
-            dist
+          run_install: false
+
+      - name: Run ${{ matrix.name }}
+        run: pnpm exec turbo run ${{ matrix.check }}
 
   playwright:
+    name: Playwright Tests
+    needs: [check_changes, setup, quality_checks]
+    if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
-    needs: build
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10.11.0
-      - name: Restore node_modules from cache
+
+      - name: Restore Turborepo Cache
         uses: actions/cache@v4
         with:
-          path: |
-            .turbo
-            node_modules
+          path: .turbo
           key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
+          restore-keys: ${{ runner.os }}-turbo-
+
+      - name: Restore node_modules cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            node_modules
+            */node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-node-modules-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.11.0
+          run_install: false
+
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-playwright-
+
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
-      - name: Download build output
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: dist
-      - name: Run Playwright tests
+
+      - name: Run Playwright Tests
         run: pnpm exec turbo run test:playwright
+
+  verify:
+    name: Verify
+    needs: [check_changes, quality_checks, playwright]
+    runs-on: ubuntu-latest
+    if: always()
+    outputs:
+      success: ${{ steps.set-result.outputs.success }}
+    steps:
+      - name: Set Result
+        id: set-result
+        run: |
+          # Check if changes exist but no jobs ran, or if any job failed or was cancelled
+          if [[ "${{ needs.check_changes.outputs.exists }}" != "true" ]]; then
+            echo "success=true" >> $GITHUB_OUTPUT
+            echo "No relevant changes detected - pipeline passed"
+          elif [[ "${{ contains(needs.*.result, 'failure') }}" == "true" || "${{ contains(needs.*.result, 'cancelled') }}" == "true" ]]; then
+            echo "success=false" >> $GITHUB_OUTPUT
+            echo "Pipeline failed - some jobs failed or were cancelled"
+            exit 1
+          else
+            echo "success=true" >> $GITHUB_OUTPUT
+            echo "All jobs completed successfully"
+          fi

@@ -32,7 +32,8 @@
     },
     "test:playwright": {
       "cache": true,
-      "inputs": ["**/*.{ts,tsx,js,jsx}"],
+      "dependsOn": ["build"],
+      "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
       "outputs": ["playwright-report/**", "test-results/**"]
     }
   },
