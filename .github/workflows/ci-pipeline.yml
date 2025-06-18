@@ -119,7 +119,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.11.0
+          version: latest
           run_install: false
 
       - name: Run ${{ matrix.name }}
@@ -159,7 +159,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.11.0
+          version: latest
           run_install: false
 
       - name: Cache Playwright Browsers
