@@ -36,17 +36,8 @@ jobs:
     needs: check_changes
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
-    outputs:
-      turbo-cache-key: ${{ steps.cache-keys.outputs.turbo-cache-key }}
-      node-modules-cache-key: ${{ steps.cache-keys.outputs.node-modules-cache-key }}
     steps:
       - uses: actions/checkout@v4
-
-      - name: Generate cache keys
-        id: cache-keys
-        run: |
-          echo "turbo-cache-key=${{ runner.os }}-turbo-${{ github.sha }}" >> $GITHUB_OUTPUT
-          echo "node-modules-cache-key=${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}" >> $GITHUB_OUTPUT
 
       - name: Check if node_modules cache exists
         id: check-node-modules-cache
@@ -55,7 +46,7 @@ jobs:
           path: |
             node_modules
             */node_modules
-          key: ${{ needs.setup.outputs.node-modules-cache-key }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           lookup-only: true
 
       - name: Setup Node.js
@@ -81,7 +72,7 @@ jobs:
           path: |
             node_modules
             */node_modules
-          key: ${{ needs.setup.outputs.node-modules-cache-key }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
 
   quality_checks:
     name: ${{ matrix.check }}
@@ -98,7 +89,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .turbo
-          key: ${{ needs.setup.outputs.turbo-cache-key }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
@@ -108,7 +99,7 @@ jobs:
           path: |
             node_modules
             */node_modules
-          key: ${{ needs.setup.outputs.node-modules-cache-key }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
@@ -157,7 +148,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .turbo
-          key: ${{ needs.setup.outputs.turbo-cache-key }}
+          key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-turbo-
 
@@ -167,7 +158,7 @@ jobs:
           path: |
             node_modules
             */node_modules
-          key: ${{ needs.setup.outputs.node-modules-cache-key }}
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-node-modules-
 
