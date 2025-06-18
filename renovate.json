@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:js-app"],
+  "extends": ["config:recommended", "config:js-app"],
   "labels": ["dependencies", "renovate"],
   "prConcurrentLimit": 10,
   "prHourlyLimit": 2,
@@ -9,8 +9,7 @@
   "packageRules": [
     {
       "description": "Group minor and patch-level updates",
-      "matchUpdateTypes": ["minor", "patch", "digest"],
-      "automergeType": "branch"
+      "matchUpdateTypes": ["minor", "patch", "digest"]
     },
     {
       "description": "Group Astro related packages",
@@ -62,8 +61,7 @@
     {
       "description": "Group type definitions",
       "groupName": "type-definitions",
-      "matchPackageNames": ["@types*"],
-      "excludePackageNames": ["@types/react*"]
+      "matchPackageNames": ["@types*", "!@types/react*"]
     },
     {
       "description": "Group devDependencies",
@@ -76,8 +74,6 @@
       "labels": ["dependencies", "major-update"]
     }
   ],
-  "vulnerabilityAlerts": {
-    "labels": ["security", "dependencies"]
-  },
+  "vulnerabilityAlerts": { "labels": ["security", "dependencies"] },
   "osvVulnerabilityAlerts": true
 }
