@@ -1,4 +1,6 @@
 ---
+import '~/styles/global.css'
+
 interface Props {
   title: string
   description?: string
@@ -97,77 +99,10 @@ const locale = getLocale(Astro)
     </script>
   </head>
   <body
-    class="min-h-[max(100dvh,_64rem)] overflow-x-hidden text-balance bg-paper font-['bricolage-grotesque'] text-dark"
+    class="bg-paper text-dark font-bricolage min-h-[max(100dvh,_64rem)] overflow-x-hidden text-balance"
   >
     <NavBar />
     <slot />
     <Footer />
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: 'Junicode';
-    src: url('/fonts/JunicodeVF-Roman-subset.woff2') format('woff2');
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Junicode-Italic';
-    src: url('/fonts/JunicodeVF-Italic-subset.woff2') format('woff2');
-    font-display: swap;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --zen-paper: #f2f0e3;
-    --zen-dark: #2e2e2e;
-    --zen-muted: rgba(0, 0, 0, 0.05);
-    --zen-subtle: rgba(0, 0, 0, 0.05);
-
-    &[data-theme='dark'] {
-      --zen-paper: #1f1f1f;
-      --zen-dark: #d1cfc0;
-      --zen-muted: rgba(255, 255, 255, 0.05);
-      --zen-subtle: rgba(255, 255, 255, 0.1);
-    }
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body,
-  body > * {
-    font-family: 'Bricolage Grotesque', sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-weight: 500;
-    font-variation-settings: 'width' 100;
-  }
-
-  h1 .italic {
-    font-family: 'Junicode-Italic', serif;
-    font-weight: 400;
-    font-feature-settings: 'swsh' 0;
-    font-style: normal;
-  }
-
-  .zen-link {
-    @apply text-coral underline underline-offset-4;
-  }
-</style>
-<style is:global>
-  /* Declare a custom CSS class to make the icon look right */
-  .svg-inline--fa {
-    overflow: visible;
-    box-sizing: content-box;
-    display: inline-block;
-    height: 1em;
-    vertical-align: -0.125em;
-  }
-</style>

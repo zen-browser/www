@@ -23,15 +23,16 @@ const {
       {...extra}
       href={localePath ? getLocalePath(href) : href}
       class:list={[
+        'text-sm disabled:cursor-not-allowed disabled:opacity-50',
         'transition-bg flex items-center justify-center gap-2 rounded-xl px-6 py-4 transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]',
         className,
         isPrimary
           ? 'border-dark bg-dark text-paper shadow-lg'
           : isAlert
-            ? 'bg-red-300 text-dark'
+            ? 'text-dark bg-red-300'
             : !isBordered
               ? 'bg-subtle'
-              : '!transition-bg border-2 border-dark hover:bg-dark hover:text-paper hover:shadow-sm',
+              : '!transition-bg border-dark hover:bg-dark hover:text-paper border-2 hover:shadow-xs',
       ]}
       {...props}
     >
@@ -42,15 +43,16 @@ const {
       id={id}
       {...extra}
       class:list={[
+        'text-sm disabled:cursor-not-allowed disabled:opacity-50',
         'transition-bg flex items-center justify-center gap-2 rounded-lg px-6 py-3 transition-transform duration-150 hover:scale-[1.02]',
         className,
         isPrimary
           ? 'border-dark bg-dark text-paper shadow-md'
           : isAlert
-            ? 'bg-red-300 text-dark'
+            ? 'text-dark bg-red-300'
             : !isBordered
               ? ''
-              : '!transition-bg border-2 border-dark hover:bg-dark hover:text-paper hover:shadow-sm',
+              : '!transition-bg border-dark hover:bg-dark hover:text-paper border-2 hover:shadow-xs',
       ]}
       {...props}
     >
@@ -58,14 +60,3 @@ const {
     </button>
   )
 }
-<style>
-  button,
-  a {
-    font-size: 0.9rem;
-
-    &[disabled] {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-  }
-</style>

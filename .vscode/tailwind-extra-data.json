@@ -1,0 +1,150 @@
+{
+  "version": 1.1,
+  "properties": [
+    {
+      "name": "--alpha()",
+      "description": "Use the `--alpha()` function to adjust the opacity of a color at build time.",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "--spacing()",
+      "description": "Use the `--spacing()` function to generate a spacing value based on your theme’s scale.",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "theme()",
+      "description": "Use the deprecated `theme()` function to access theme values using dot notation (v3 compatibility).",
+      "status": "deprecated",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    }
+  ],
+  "atDirectives": [
+    {
+      "name": "@import",
+      "description": "Inline import CSS files, including Tailwind itself.",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "@theme",
+      "description": "Define custom design tokens (fonts, colors, breakpoints, etc.).",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "@source",
+      "description": "Specify additional source files for Tailwind’s content detection.",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "@utility",
+      "description": "Add custom utilities that work with variants like `hover`, `focus`, etc.",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "@variant",
+      "description": "Apply a Tailwind variant to CSS inside a rule.",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "@custom-variant",
+      "description": "Define your own variant for use in utility class names.",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "@apply",
+      "description": "Inline existing utility classes into your custom CSS rules.",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "@reference",
+      "description": "Reference (but not output) another stylesheet for use in `@apply`/`@variant`.",
+      "status": "standard",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "@config",
+      "description": "Load a legacy JavaScript-based Tailwind config (v3 compatibility).",
+      "status": "compat",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    },
+    {
+      "name": "@plugin",
+      "description": "Load a legacy JavaScript-based Tailwind plugin (v3 compatibility).",
+      "status": "compat",
+      "references": [
+        {
+          "name": "Tailwind CSS: Functions and Directives",
+          "url": "https://tailwindcss.com/docs/functions-and-directives"
+        }
+      ]
+    }
+  ]
+}

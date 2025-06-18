@@ -21,7 +21,7 @@ const {
   <main
     class="container flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4"
   >
-    <div id="release-notes" class="py-42 flex min-h-screen w-full flex-col justify-center gap-8">
+    <div id="release-notes" class="flex min-h-screen w-full flex-col justify-center gap-8 py-42">
       <Description class="mt-48 text-6xl font-bold">{releaseNotes.topSection.title}</Description>
       <p
         class="text-base opacity-55"
@@ -46,7 +46,7 @@ const {
       {releaseNotesData.map(notes => <ReleaseNoteItem {...notes} />)}
     </div>
   </main>
-  <Button id="scroll-top" isPrimary class="fixed bottom-8 right-8" onclick="window.scrollTo(0, 0)">
+  <Button id="scroll-top" isPrimary class="fixed right-8 bottom-8" onclick="window.scrollTo(0, 0)">
     <p class="hidden items-center gap-2 sm:flex">
       {releaseNotes.backToTop}
       <ArrowUpIcon aria-hidden="true" class="size-4" />
@@ -54,17 +54,17 @@ const {
     <ArrowUpIcon aria-label="Back to the top" class="size-4 sm:hidden" />
   </Button>
 </Layout>
-<Modal id="version-modal" class="m-auto border border-[--zen-dark] !bg-paper">
+<Modal id="version-modal" class="!bg-paper m-auto border border-[--zen-dark]">
   <ModalHeader class="border-b border-[--zen-dark]">
-    <p class="text-4xl font-bold text-dark">{releaseNotes.chooseVersion}</p>
+    <p class="text-dark text-4xl font-bold">{releaseNotes.chooseVersion}</p>
   </ModalHeader>
   <ModalBody>
-    <div id="version-list" class="flex flex-col gap-2 text-xl text-dark">
+    <div id="version-list" class="text-dark flex flex-col gap-2 text-xl">
       {
         releaseNotesData.map(note => (
           <button
             aria-label={`Navigate to version ${note.version}`}
-            class="w-full text-left transition-colors duration-150 hover:text-coral"
+            class="hover:text-coral w-full text-left transition-colors duration-150"
             data-version={note.version}
           >
             {note.version}
@@ -131,9 +131,3 @@ const {
     }
   })
 </script>
-
-<style is:global>
-  #version-modal > * {
-    font-family: 'Bricolage Grotesque', sans-serif !important;
-  }
-</style>

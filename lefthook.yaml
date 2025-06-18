@@ -28,7 +28,7 @@ eslint:
         - playwright-report/**
         - test-results/**
       run: |
-        pnpm eslint {staged_files} --max-warnings=0 --fix --cache
+        pnpm eslint {staged_files} --max-warnings=0 --fix --cache --no-warn-ignored
       stage_fixed: true
 
 cspell:

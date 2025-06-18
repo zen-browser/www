@@ -61,7 +61,7 @@ const {
   ogImage={mod.image}
 >
   <main class="container mt-6 2xl:mt-0">
-    <div class="mx-auto mb-24 mt-12 flex flex-col gap-6 lg:mt-32">
+    <div class="mx-auto mt-12 mb-24 flex flex-col gap-6 lg:mt-32">
       <div
         id="install-theme-error"
         class="flex flex-col items-center justify-center gap-2 rounded-xl bg-red-200 p-2 pl-4 md:flex-row md:justify-between dark:bg-red-700"
@@ -74,7 +74,7 @@ const {
         </div>
         <Button
           href="/download"
-          class="inline-flex flex-shrink-0 whitespace-nowrap !rounded-lg bg-red-300 dark:bg-red-800"
+          class="inline-flex shrink-0 !rounded-lg bg-red-300 whitespace-nowrap dark:bg-red-800"
           isAlert
         >
           {slug.alert.button}
@@ -89,10 +89,10 @@ const {
       <img
         src={mod.image}
         alt={mod.name}
-        class="h-full w-full rounded-xl border-2 border-dark object-cover shadow"
+        class="border-dark object-cover-sm h-full w-full rounded-xl border-2"
       />
       <div class="flex flex-col justify-between gap-2 sm:flex-row">
-        <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
+        <div class="flex shrink-0 flex-col gap-2 font-normal">
           <p
             set:html={slug.createdBy
               .replace(
@@ -134,8 +134,8 @@ const {
       -->
     </div>
     <div></div>
-  </main></Layout
->
+  </main>
+</Layout>
 
 <script>
   const backButton = document.getElementById('back-button') as HTMLAnchorElement

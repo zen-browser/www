@@ -1,4 +1,6 @@
 ---
+import { cn } from '~/utils/merge'
+
 type Props = {
   name: string
   class?: string
@@ -9,7 +11,7 @@ const { name, class: className, ...rest }: Props = Astro.props
 
 {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
 <video
-  class:list={['w-fit', className]}
+  class:list={cn('w-full', className)}
   preload="none"
   poster={`/media/${name}/poster.webp`}
   {...rest}

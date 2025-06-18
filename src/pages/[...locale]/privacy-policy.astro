@@ -13,7 +13,9 @@ const {
 ---
 
 <Layout title={layout.privacyPolicy.title} description={layout.privacyPolicy.description}>
-  <main class="mx-auto mt-52 w-1/2 pb-24">
+  <main
+    class="mx-auto mt-52 w-1/2 pb-24 [&_li]:ml-4 [&_li]:list-disc [&_p,li]:opacity-55 [&_ul]:mt-4"
+  >
     <Title id="privacy-policy" class="xl:text-6xl">{privacyPolicy.title}</Title>
     <div class="ml-4 font-bold">{privacyPolicy.lastUpdated}</div>
     <Title class="mt-16 text-4xl font-bold" id="introduction">
@@ -153,17 +155,3 @@ const {
     </ul>
   </main>
 </Layout>
-<style>
-  p,
-  li {
-    @apply opacity-55;
-  }
-
-  ul {
-    @apply mt-4;
-  }
-
-  li {
-    @apply ml-4 list-disc;
-  }
-</style>

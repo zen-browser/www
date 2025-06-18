@@ -22,7 +22,7 @@ const {
 <!-- Desktop Navigation -->
 <Astronav>
   <MenuItems
-    class="container relative z-20 grid w-full grid-cols-2 items-center gap-2 bg-paper py-3 lg:grid lg:grid-cols-[auto_1fr_auto] lg:py-6"
+    class="bg-paper relative z-20 container grid w-full grid-cols-2 items-center gap-2 py-3 lg:grid lg:grid-cols-[auto_1fr_auto] lg:py-6"
   >
     <a class="flex items-center gap-2 text-lg font-bold" href={getLocalePath('/')}>
       <Logo class="text-coral" />
@@ -121,7 +121,7 @@ const {
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label
         for="mobile-menu-toggle"
-        class="cursor-pointer p-2 text-dark lg:hidden"
+        class="text-dark cursor-pointer p-2 lg:hidden"
         aria-label="Open menu"
       >
         <MenuIcon class="h-6 w-6" />
@@ -132,29 +132,3 @@ const {
 
 <!-- Mobile Hamburger Menu Content -->
 <MobileMenu />
-
-<style>
-  .navbar-dropdown {
-    @apply absolute left-1/2 mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border-2 border-dark bg-paper p-3 shadow-sm;
-    & .dropdown-item {
-      @apply flex cursor-pointer select-none flex-col gap-2 rounded-lg p-4 transition-colors duration-200;
-
-      &:hover {
-        @apply bg-muted;
-      }
-
-      & .dropdown-title {
-        @apply font-bold;
-      }
-
-      & .dropdown-description {
-        @apply text-sm;
-      }
-    }
-  }
-</style>
-<style is:global>
-  #theme-switcher * {
-    @apply text-dark;
-  }
-</style>
