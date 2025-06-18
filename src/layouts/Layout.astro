@@ -10,7 +10,6 @@ interface Props {
 const { title, description, ogImage, isHome, redirect } = Astro.props
 const defaultDescription =
   'Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features.'
-const defaultOgImage = '/share-pic.png'
 import '@fontsource/bricolage-grotesque/400.css'
 import '@fontsource/bricolage-grotesque/500.css'
 import '@fontsource/bricolage-grotesque/600.css'
@@ -75,7 +74,7 @@ const locale = getLocale(Astro)
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage ?? defaultOgImage} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:description" content={description ?? defaultDescription} />
     <meta property="og:color" content="#da755b" />
     <!-- Twitter card -->
