@@ -20,19 +20,16 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Filter changes
-        uses: dorny/paths-filter@v3
+        uses: yumemi-inc/path-filter@v2
         id: filter
         with:
-          filters: |
-            exists:
-              - '**'
-              - '!**.md'
-              - '!.gitignore'
-              - '!.gitattributes'
-              - '!.vscode/**'
-              - '!.env.example'
-              - '!README.md'
-              - '!CONTRIBUTING.md'
+          patterns: |
+            **
+            !**.md
+            !.gitignore
+            !.gitattributes
+            !.vscode/**
+            !.env.example
 
   setup:
     name: Setup
