@@ -5,10 +5,9 @@ interface Props {
   ogImage?: string
   isHome?: boolean
   redirect?: string
-  hideNavbar?: boolean
 }
 
-const { title, description, ogImage, isHome, redirect, hideNavbar } = Astro.props
+const { title, description, ogImage, isHome, redirect } = Astro.props
 const defaultDescription =
   'Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features.'
 import '@fontsource/bricolage-grotesque/400.css'
@@ -100,7 +99,7 @@ const locale = getLocale(Astro)
   <body
     class="min-h-[max(100dvh,_64rem)] overflow-x-hidden text-balance bg-paper font-['bricolage-grotesque'] text-dark"
   >
-    {hideNavbar ? null : <NavBar />}
+    <NavBar />
     <slot />
     <Footer />
   </body>
