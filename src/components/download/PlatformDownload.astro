@@ -57,7 +57,7 @@ function getReleaseLink(releases: PlatformReleases, { os, cpu }: { os: string; c
 ---
 
 <div
-  id={`${platform}-downloads`}
+  id={`${platform}-${cpu}-downloads`}
   data-active={platform === 'mac'}
   class="platform-section data-[active='false']:hidden"
   data-cpu={cpu}
