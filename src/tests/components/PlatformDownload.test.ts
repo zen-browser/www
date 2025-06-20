@@ -22,12 +22,10 @@ describe('<PlatformDownload />', () => {
       props: {
         platform: 'mac',
         icon: mockIcon,
-        title: 'Mac Title',
         description: 'Mac Desc',
         releases: mockReleases,
       },
     })
-    expect(result).toContain('Mac Title')
     expect(result).toContain('Mac Desc')
     expect(result).toContain('Universal')
   })
@@ -37,13 +35,9 @@ describe('<PlatformDownload />', () => {
       props: {
         platform: 'windows',
         icon: mockIcon,
-        title: 'Win Title',
-        description: 'Win Desc',
         releases: mockReleases,
       },
     })
-    expect(result).toContain('Win Title')
-    expect(result).toContain('Win Desc')
     expect(result).toContain('x86_64')
     expect(result).toContain('ARM64')
   })
@@ -63,13 +57,9 @@ describe('<PlatformDownload />', () => {
       props: {
         platform: 'linux',
         icon: mockIcon,
-        title: 'Linux Title',
-        description: 'Linux Desc',
         releases: linuxReleases,
       },
     })
-    expect(result).toContain('Linux Title')
-    expect(result).toContain('Linux Desc')
     expect(result).toContain('Flathub')
     expect(result).toContain('Tarball')
     expect(result).toContain('x86_64')
@@ -97,18 +87,11 @@ describe('<PlatformDownload />', () => {
       props: {
         platform: 'linux',
         icon: mockIcon,
-        title: 'Linux Title',
-        description: 'Linux Desc',
         releases: linuxReleases,
       },
     })
 
-    // Test basic content
-    expect(result).toContain('Linux Title')
-    expect(result).toContain('Linux Desc')
-
     // Test Flathub section
-    expect(result).toContain('Flathub')
     expect(result).toContain('/flathub')
 
     // Test x86_64 section

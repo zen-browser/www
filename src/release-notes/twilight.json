@@ -1,6 +1,6 @@
 {
-  "version": "xxx",
-  "extra": "",
+  "version": "1.12.11t",
+  "extra": "This update includes some attempts at performance improvements, better workspace management and some bug fixes!",
   "fixes": [],
   "features": []
 }

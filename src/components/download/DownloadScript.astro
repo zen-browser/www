@@ -1,56 +1,65 @@
 <script>
+  import JSConfetti from 'js-confetti'
+  import { UAParser } from 'ua-parser-js'
+
   // Handle platform selection
-  const platformButtons = document.querySelectorAll('.platform-selector')
   const platformSections = document.querySelectorAll('.platform-section')
 
   // Function to detect OS and select appropriate platform
   function detectOS() {
     const userAgent = window.navigator.userAgent
+    const { cpu, os } = UAParser(userAgent)
     let detectedOS = 'mac' // Default to macOS
 
-    if (userAgent.indexOf('Windows') !== -1) {
+    if (os.name === 'Windows') {
       detectedOS = 'windows'
-    } else if (userAgent.indexOf('Linux') !== -1) {
+    } else if (os.name === 'Linux' || os.name === 'Ubuntu') {
       detectedOS = 'linux'
     }
 
-    return detectedOS
+    let arch = cpu.architecture || 'x86_64' // Default to x86_64
+    if (arch === 'amd64' || arch === 'x86_64') {
+      arch = 'x86_64'
+    } else if (arch === 'arm64' || arch === 'aarch64') {
+      arch = 'aarch64'
+    } else if (arch === 'arm') {
+      arch = 'arm64' // Treat arm as arm64 for simplicity
+    }
+
+    return { os: detectedOS, cpu: arch }
+  }
+
+  function getRandomNumber(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1)) + min
   }
 
   // Initialize platform based on user's OS
   async function initializePlatform() {
     const detectedOS = detectOS()
-    selectPlatform(detectedOS)
+    selectPlatform(detectedOS.os, detectedOS.cpu)
+
+    for (const button of document.querySelectorAll('.download-button')) {
+      button.addEventListener('click', () => {
+        const jsConfetti = new JSConfetti()
+        jsConfetti.addConfetti({
+          confettiNumber: 100,
+          // If we get a 1 to 10k chance, show only burger confetti
+          ...(getRandomNumber(1, 10000) === 1 ? { emojis: ['🍔'] } : {}),
+        })
+      })
+    }
   }
 
   // Function to select a platform
-  async function selectPlatform(platform: string) {
-    // Update button styling
-    for (const button of platformButtons) {
-      const buttonPlatform = button.getAttribute('data-platform')
-      if (buttonPlatform === platform) {
-        button.setAttribute('data-active', 'true')
-      } else {
-        button.setAttribute('data-active', 'false')
-      }
-    }
-
+  async function selectPlatform(platform: string, cpu = 'x86_64') {
     // Show/hide platform sections
     for (const section of platformSections) {
-      if (section.id === `${platform}-downloads`) {
+      if (section.id === `${platform}-downloads` && section.getAttribute('data-cpu') === cpu) {
         section.setAttribute('data-active', 'true')
       } else {
         section.setAttribute('data-active', 'false')
       }
     }
-  }
-
-  // Handle platform button clicks
-  for (const button of platformButtons) {
-    button.addEventListener('click', () => {
-      const platform = button.getAttribute('data-platform') ?? ''
-      selectPlatform(platform)
-    })
   }
 
   // Check for twilight mode
