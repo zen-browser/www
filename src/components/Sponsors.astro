@@ -28,12 +28,14 @@ const {
     <p class="text-base" style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">
       <span class="opacity-80" set:html={sponsors.description} />
     </p>
-    <div class="sponsors__sponsor relative mt-8 flex items-center justify-center gap-8">
+    <div
+      class="sponsors__sponsor relative mt-8 flex flex-col items-center justify-center gap-8 md:flex-row md:gap-12"
+    >
       <a href={sponsors.sponsors['blacksmith'].url} target="_blank" class="w-fit">
         <Image
           src={blacksmithLogo}
           alt={sponsors.sponsors['blacksmith'].name}
-          class="h-16 w-fit object-contain"
+          class="h-16 w-fit object-contain dark:invert"
         />
       </a>
       <a
@@ -45,7 +47,7 @@ const {
         <Image
           src={tutaLogo}
           alt={sponsors.sponsors['tuta'].name}
-          class="h-16 w-fit object-contain"
+          class="h-16 w-fit object-contain dark:invert"
         />
       </a>
     </div>
