@@ -5,7 +5,7 @@
   "engines": {
     "pnpm": "^10.0.0"
   },
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.12.1",
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro preview --port 3000",
@@ -40,6 +40,7 @@
     "animejs": "^4.0.2",
     "astro": "5.7.10",
     "astro-navbar": "2.3.7",
+    "turbo": "^2.5.4",
     "autoprefixer": "10.4.14",
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
@@ -93,7 +94,6 @@
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "turbo": "^2.5.4",
     "typescript-eslint": "8.33.0",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.1.3",

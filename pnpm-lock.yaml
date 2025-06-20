@@ -89,6 +89,9 @@ importers:
       tailwindcss:
         specifier: 3.4.15
         version: 3.4.15
+      turbo:
+        specifier: ^2.5.4
+        version: 2.5.4
       typescript:
         specifier: 5.6.3
         version: 5.6.3
@@ -207,9 +210,6 @@ importers:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.11
         version: 0.6.12(prettier-plugin-astro@0.14.1)(prettier@3.5.3)
-      turbo:
-        specifier: ^2.5.4
-        version: 2.5.4
       typescript-eslint:
         specifier: 8.33.0
         version: 8.33.0(eslint@9.27.0(jiti@2.4.2))(typescript@5.6.3)
