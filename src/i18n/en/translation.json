@@ -58,7 +58,7 @@
       },
       "community": {
         "title": ["Our ", "Core ", "Values"],
-        "description": "We make it not only a priority, but a necessity to ensure that Zen always strikes the right balance between beauty, performance, and privacy. We are committed to making Zen the most beautiful, productive, and privacy-respecting browser out there — without compromising on your experience.",
+        "description": "We make it not only a priority, but a necessity to ensure that Zen always strikes the right balance between beauty, performance, and privacy.",
         "lists": {
           "freeAndOpenSource": {
             "title": "Free and open-source",
