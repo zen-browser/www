@@ -266,13 +266,13 @@
       }
     },
     "download": {
-      "title": "Ready to experience Zen?",
+      "title": "Zenの旅を始めよう",
       "description": "お使いのプラットフォーム向けにZenをダウンロード。すべてのダウンロードにはSHA256チェックサムが含まれています",
       "twilightInfo": "現在Twilightモードです。最新の実験的機能とアップデートをダウンロードしています。",
-      "beta": "Zen is currently in ",
-      "otherDownload": "Zen is available on Windows, MacOS and Linux: <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link ml-[1px]'>See all downloads</a>.<br />Please report any issues you encounter on <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>.",
+      "beta": "Zenは現在",
+      "otherDownload": "Zen は Windows、macOS、Linux で利用できます：<a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link'>すべてのダウンロードを見る</a>。<br />問題が発生した場合は <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a> でご報告ください。",
       "alertInfo": {
-        "description": "You're currently in Twilight mode, this means you're downloading the latest experimental features and updates."
+        "description": "現在はTwilightモードです。最新の実験的機能とアップデートをダウンロードしています。"
       },
       "platformSelector": {
         "title": "プラットフォーム選択",
