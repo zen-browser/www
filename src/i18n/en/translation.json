@@ -49,6 +49,10 @@
           "tuta": {
             "name": "Tuta",
             "url": "https://tuta.com/"
+          },
+          "blacksmith": {
+            "name": "BlackSmith",
+            "url": "https://www.blacksmith.sh/"
           }
         }
       },
