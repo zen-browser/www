@@ -41,12 +41,10 @@ function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
 function getReleaseLink(releases: PlatformReleases, { os, cpu }: { os: string; cpu?: string }) {
   if (os === 'mac') {
     return releases.universal?.link || releases.all?.link || ''
-  } else if (os === 'windows') {
-    return releases.all?.link || ''
-  } else if (os === 'linux') {
+  } else {
     if (cpu === 'x86_64') {
       if (isFlatReleaseInfo(releases.x86_64)) {
-        return releases.flathub?.all.link
+        return releases.flathub?.all.link || releases.x86_64.link || ''
       }
       return releases.x86_64?.tarball?.link ? releases.x86_64?.tarball?.link : ''
     } else if (cpu === 'aarch64') {
