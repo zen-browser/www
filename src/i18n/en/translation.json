@@ -49,12 +49,16 @@
           "tuta": {
             "name": "Tuta",
             "url": "https://tuta.com/"
+          },
+          "blacksmith": {
+            "name": "BlackSmith",
+            "url": "https://www.blacksmith.sh/"
           }
         }
       },
       "community": {
         "title": ["Our ", "Core ", "Values"],
-        "description": "We make it not only a priority, but a necessity to ensure that Zen always strikes the right balance between beauty, performance, and privacy. We are committed to making Zen the most beautiful, productive, and privacy-respecting browser out there — without compromising on your experience.",
+        "description": "We make it not only a priority, but a necessity to ensure that Zen always strikes the right balance between beauty, performance, and privacy.",
         "lists": {
           "freeAndOpenSource": {
             "title": "Free and open-source",
@@ -262,11 +266,13 @@
       }
     },
     "download": {
-      "title": "Download Zen",
-      "description": "Download Zen for your platform and experience a more mindful internet browsing experience. All downloads include SHA256 checksums for verification.",
+      "title": "Start your journey",
+      "description": "Download Zen for your platform and experience a more mindful internet browsing experience.<br/>Zen is available for macOS, Windows, and Linux.",
       "twilightInfo": "You're currently in Twilight mode, this means you're downloading the latest experimental features and updates.",
+      "beta": "Zen is currently in ",
+      "otherDownload": "If your device has been wrongly detected, <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link'>see other downloads</a>.<br />Please report any issues you encounter on <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>.",
       "alertInfo": {
-        "description": "<strong class='font-medium text-zen-blue'>Twilight Mode:</strong> You're currently in Twilight mode, this means you're downloading the latest experimental features and updates."
+        "description": "You're currently in Twilight mode, this means you're downloading the latest experimental features and updates."
       },
       "platformSelector": {
         "title": "Platform Selector",
@@ -290,10 +296,7 @@
       "platformNames": {
         "mac": "macOS",
         "windows": "Windows",
-        "linux": "Linux",
-        "macDownload": "MacOS Download",
-        "windowsDownload": "Windows Download",
-        "linuxDownload": "Linux Download"
+        "linux": "Linux"
       },
       "platformDescriptions": {
         "mac": "Works on both new Apple (M-Series) and older Intel Macs.<br />Requires macOS 11.0 or later.",
@@ -448,7 +451,7 @@
     },
     "download": {
       "title": "Download - Zen",
-      "description": "Download Zen for your platform and experience a more mindful internet browsing experience. All downloads include SHA256 checksums for verification."
+      "description": "Download Zen for your platform and experience a more mindful internet browsing experience."
     },
     "privacyPolicy": {
       "title": "Privacy Policy - Zen",
@@ -476,6 +479,7 @@
       "zenMods": "Zen Mods",
       "releaseNotes": "Release Notes",
       "getHelp": "Get Help",
+      "securtiy": "Security",
       "discord": "Discord",
       "uptimeStatus": "Uptime Status",
       "reportAnIssue": "Report an Issue",

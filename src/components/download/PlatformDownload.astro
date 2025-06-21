@@ -1,4 +1,7 @@
 ---
+import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
+import Button from '../Button.astro'
+
 interface ReleaseInfo {
   label?: string
   link: string
@@ -24,130 +27,74 @@ interface PlatformReleases {
 interface Props {
   platform: 'mac' | 'windows' | 'linux'
   icon: string[]
-  title: string
   description: string
   releases: PlatformReleases
+  cpu: 'x86_64' | 'aarch64' | 'arm64'
 }
 
-const { platform, icon, title, description, releases } = Astro.props
-import { Image } from 'astro:assets'
-import AppIconDark from '../../assets/app-icon-dark.png'
-import AppIconLight from '../../assets/app-icon-light.png'
-import DownloadCard from './ButtonCard.astro'
+const { platform, icon, releases, cpu } = Astro.props
 
 function isFlatReleaseInfo(obj: unknown): obj is ReleaseInfo {
   return !!obj && typeof obj === 'object' && 'link' in obj
 }
+
+function getReleaseLink(releases: PlatformReleases, { os, cpu }: { os: string; cpu?: string }) {
+  if (os === 'mac') {
+    return releases.universal?.link || releases.all?.link || ''
+  } else {
+    if (cpu === 'x86_64') {
+      if (isFlatReleaseInfo(releases.x86_64)) {
+        return releases.flathub?.all.link || releases.x86_64.link || ''
+      }
+      return releases.x86_64?.tarball?.link ? releases.x86_64?.tarball?.link : ''
+    } else if (cpu === 'aarch64') {
+      return releases.aarch64?.tarball?.link || ''
+    } else if (cpu === 'arm64') {
+      return releases.arm64?.link || ''
+    }
+  }
+}
 ---
 
 <div
-  id={`${platform}-downloads`}
+  id={`${platform}-${cpu}-downloads`}
   data-active={platform === 'mac'}
   class="platform-section data-[active='false']:hidden"
+  data-cpu={cpu}
+  data-platform={platform}
 >
   <div class="items-center gap-8 md:flex">
-    <div class="mb-8 md:mb-0 md:w-2/3">
-      <div class="mb-4 flex items-center gap-3">
-        <div class="download-card__icon">
-          <Fragment set:html={icon} />
-        </div>
-        <h3 class="text-2xl font-medium">{title}</h3>
-      </div>
-      <p class="text-muted-foreground mb-6" set:html={description} />
-      <div class="space-y-6">
-        {
-          platform === 'linux' ? (
-            <>
-              {releases.flathub && releases.flathub.all.label && (
-                <article class="flathub-download data-[twilight='true']:hidden">
-                  <h4 class="mb-3 text-lg font-medium">Package Managers</h4>
-                  <div class="space-y-3">
-                    <DownloadCard
-                      label={releases.flathub.all.label}
-                      href={releases.flathub.all.link}
-                      variant="flathub"
-                    />
-                  </div>
-                </article>
-              )}
-              {releases.x86_64 &&
-                typeof releases.x86_64 === 'object' &&
-                'tarball' in releases.x86_64 &&
-                releases.x86_64.tarball && (
-                  <article>
-                    <h4 class="mb-3 text-lg font-medium">x86_64</h4>
-                    <div class="">
-                      {releases.x86_64.tarball && (
-                        <DownloadCard
-                          label={releases.x86_64.tarball.label ? releases.x86_64.tarball.label : ''}
-                          href={releases.x86_64.tarball.link ? releases.x86_64.tarball.link : ''}
-                          variant="x86_64"
-                          checksum={releases.x86_64.tarball.checksum}
-                        />
-                      )}
-                    </div>
-                  </article>
-                )}
-              {releases.aarch64 &&
-                typeof releases.aarch64 === 'object' &&
-                'tarball' in releases.aarch64 &&
-                releases.aarch64.tarball && (
-                  <article>
-                    <h4 class="mb-3 text-lg font-medium">ARM64</h4>
-                    <div class="gap-3">
-                      {releases.aarch64.tarball && (
-                        <DownloadCard
-                          label={
-                            releases.aarch64.tarball.label ? releases.aarch64.tarball.label : ''
-                          }
-                          href={releases.aarch64.tarball.link ? releases.aarch64.tarball.link : ''}
-                          variant="aarch64"
-                          checksum={releases.aarch64.tarball.checksum}
-                        />
-                      )}
-                    </div>
-                  </article>
-                )}
-            </>
-          ) : (
-            <div class="flex flex-col gap-4">
-              <div class="flex flex-col gap-3">
-                {releases.universal && releases.universal.label && (
-                  <DownloadCard
-                    label={releases.universal.label}
-                    href={releases.universal.link}
-                    checksum={releases.universal.checksum}
-                  />
-                )}
-                {releases.x86_64 && isFlatReleaseInfo(releases.x86_64) && releases.x86_64.label && (
-                  <DownloadCard
-                    label={releases.x86_64.label}
-                    href={releases.x86_64.link}
-                    checksum={releases.x86_64.checksum}
-                  />
-                )}
-                {releases.arm64 && releases.arm64.label && (
-                  <DownloadCard
-                    label={releases.arm64.label}
-                    href={releases.arm64.link}
-                    checksum={releases.arm64.checksum}
-                  />
-                )}
-              </div>
-            </div>
-          )
+    <div class="mx-auto flex w-full justify-center gap-4">
+      <Button
+        class="download-button w-fit"
+        href={getReleaseLink(releases, { os: platform, cpu })}
+        isPrimary
+      >
+        <Fragment set:html={icon} />
+        Download for {
+          platform === 'mac' ? 'MacOS' : platform.charAt(0).toUpperCase() + platform.slice(1)
         }
-      </div>
-    </div>
-    <div
-      class="download-browser-logo flex justify-center text-coral transition-colors data-[twilight='true']:text-zen-blue md:w-1/3"
-    >
-      <Image src={AppIconDark} alt="Zen Browser" class="w-32 translate-y-6 transform dark:hidden" />
-      <Image
-        src={AppIconLight}
-        alt="Zen Browser"
-        class="hidden w-32 translate-y-6 transform dark:block"
-      />
+      </Button>
+      {
+        platform === 'linux' && (
+          <Button
+            class="download-button w-fit"
+            href={releases.flathub?.all.link || ''}
+            aria-label="Download from Flathub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Flathub
+            <ArrowRightIcon class="size-4" />
+          </Button>
+        )
+      }
     </div>
   </div>
 </div>
+
+<style is:global>
+  .download-button .svg-inline--fa {
+    @apply size-5;
+  }
+</style>
