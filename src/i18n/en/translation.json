@@ -53,6 +53,10 @@
           "blacksmith": {
             "name": "BlackSmith",
             "url": "https://www.blacksmith.sh/"
+          },
+          "crowdin": {
+            "name": "Crowdin",
+            "url": "https://crowdin.com/"
           }
         }
       },
