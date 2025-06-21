@@ -95,7 +95,8 @@
       }
 
       // Replace all download links with twilight versions
-      const downloadLinks = document.querySelectorAll('a.download-link')
+      const downloadLinks = document.querySelectorAll('a.download-button')
+
       for (const link of downloadLinks) {
         if (!link.id.includes('beta')) {
           const href = link.getAttribute('href')
