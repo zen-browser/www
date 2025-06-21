@@ -54,7 +54,10 @@
   async function selectPlatform(platform: string, cpu = 'x86_64') {
     // Show/hide platform sections
     for (const section of platformSections) {
-      if (section.id === `${platform}-downloads` && section.getAttribute('data-cpu') === cpu) {
+      if (
+        section.getAttribute('data-platform') === platform &&
+        section.getAttribute('data-cpu') === cpu
+      ) {
         section.setAttribute('data-active', 'true')
       } else {
         section.setAttribute('data-active', 'false')

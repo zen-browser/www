@@ -1,3 +1,6 @@
 onlyBuiltDependencies:
+  - esbuild
   - lefthook
+  - sharp
   - unrs-resolver
+  - workerd

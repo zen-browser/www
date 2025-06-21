@@ -270,7 +270,7 @@
       "description": "Download Zen for your platform and experience a more mindful internet browsing experience.<br/>Zen is available for macOS, Windows, and Linux.",
       "twilightInfo": "You're currently in Twilight mode, this means you're downloading the latest experimental features and updates.",
       "beta": "Zen is currently in ",
-      "otherDownload": "Zen is available on Windows, MacOS and Linux: <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link ml-[1px]'>See all downloads</a>.<br />Please report any issues you encounter on <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>.",
+      "otherDownload": "If your device got wrongly detected, <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link'>see other downloads</a>.<br />Please report any issues you encounter on <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>.",
       "alertInfo": {
         "description": "You're currently in Twilight mode, this means you're downloading the latest experimental features and updates."
       },
