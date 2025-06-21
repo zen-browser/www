@@ -32,7 +32,7 @@ const {
       class="hidden items-center gap-6 place-self-center text-xs sm:text-sm lg:flex lg:text-base"
     >
       <Dropdown class="group">
-        <button class="flex items-center">
+        <button class="flex items-center rounded-lg p-3 hover:bg-muted group-open:bg-muted">
           <span>{menu.gettingStarted}</span>
           <ChevronDownIcon
             class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
@@ -66,7 +66,7 @@ const {
         </DropdownItems>
       </Dropdown>
       <Dropdown class="group">
-        <button class="flex items-center">
+        <button class="flex items-center rounded-lg p-3 hover:bg-muted group-open:bg-muted">
           <span>{menu.usefulLinks}</span>
           <ChevronDownIcon
             class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
@@ -78,12 +78,6 @@ const {
               <div class="dropdown-title">{menu.donate}</div>
               <div class="dropdown-description">
                 {menu.donateDesc}
-              </div>
-            </a>
-            <a class="dropdown-item" href={getLocalePath('/about')}>
-              <div class="dropdown-title">{menu.aboutUs}</div>
-              <div class="dropdown-description">
-                {menu.aboutUsDesc}
               </div>
             </a>
             <a class="dropdown-item" href="https://docs.zen-browser.app">
@@ -101,7 +95,16 @@ const {
           </div>
         </DropdownItems>
       </Dropdown>
-      <a class="hidden items-center lg:block" href={getLocalePath('/mods')}>
+      <a
+        class={`hidden items-center hover:bg-muted rounded-lg p-3 lg:block${Astro.url.pathname === getLocalePath('/about') ? ' text-coral' : ''}`}
+        href={getLocalePath('/about')}
+      >
+        <span>{menu.aboutUs}</span>
+      </a>
+      <a
+        class={`hidden items-center hover:bg-muted rounded-lg p-3 lg:block${Astro.url.pathname === getLocalePath('/mods') ? ' text-coral' : ''}`}
+        href={getLocalePath('/mods')}
+      >
         <span>{menu.mods}</span>
       </a>
     </div>
@@ -135,7 +138,7 @@ const {
 
 <style>
   .navbar-dropdown {
-    @apply absolute left-1/2 mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border-2 border-dark bg-paper p-3 shadow-sm;
+    @apply absolute left-1/2 mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border border-dark bg-paper p-3 shadow-lg;
     & .dropdown-item {
       @apply flex cursor-pointer select-none flex-col gap-2 rounded-lg p-4 transition-colors duration-200;
 
@@ -158,3 +161,48 @@ const {
     @apply text-dark;
   }
 </style>
+<script>
+  import { animate, stagger } from 'animejs'
+
+  function animateDropdown(dropdown: Element) {
+    animate(dropdown, {
+      opacity: { from: 0, to: 1 },
+      filter: { from: 'blur(4px)', to: 'blur(0px)' },
+      duration: 300,
+      easing: 'cubicBezier(0.25, 0.1, 0.25, 1)',
+    })
+
+    const items = dropdown.querySelectorAll('.dropdown-item')
+    if (items.length) {
+      animate(items, {
+        opacity: { from: 0, to: 1 },
+        translateY: { from: 20, to: 0 },
+        filter: { from: 'blur(4px)', to: 'blur(0px)' },
+        duration: 300,
+        delay: stagger(150),
+        easing: 'cubicBezier(0.25, 0.1, 0.25, 1)',
+      })
+    }
+  }
+
+  // Initialize dropdown animations on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+      const dropdown = toggle.querySelector('.navbar-dropdown')
+      if (!dropdown) return
+
+      if (!toggle.classList.contains('hidden')) {
+        animateDropdown(dropdown)
+      }
+
+      const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+          if (mutation.attributeName === 'class' && !toggle.classList.contains('hidden')) {
+            animateDropdown(dropdown)
+          }
+        })
+      })
+      observer.observe(toggle, { attributes: true })
+    })
+  })
+</script>
