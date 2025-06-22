@@ -22,7 +22,7 @@ jobs:
         id: filter
         with:
           filters: |
-            changes:
+            relevant:
               - '!*.md'
               - '!.gitignore'
               - '!.gitattributes'
