@@ -18,12 +18,12 @@
     },
     "build": {
       "cache": true,
-      "inputs": ["src/**/*.{ts,tsx,js,jsx,astro,json}"],
+      "inputs": ["src/**/*"],
       "outputs": ["dist/**"]
     },
     "test": {
       "cache": true,
-      "inputs": ["src/**/*.{ts,tsx,js,jsx,astro}"],
+      "inputs": ["src/**/*"],
       "outputs": []
     },
     "spell": {
@@ -33,33 +33,33 @@
     },
     "test:e2e": {
       "cache": true,
-      "inputs": ["src/**/*.{ts,tsx,js,jsx,astro}"],
+      "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
     "test:e2e:shard1": {
       "cache": true,
-      "inputs": ["src/**/*.{ts,tsx,js,jsx,astro}"],
+      "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
     "test:e2e:shard2": {
       "cache": true,
-      "inputs": ["src/**/*.{ts,tsx,js,jsx,astro}"],
+      "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
     "test:e2e:shard3": {
       "cache": true,
-      "inputs": ["src/**/*.{ts,tsx,js,jsx,astro}"],
+      "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
     "test:e2e:shard4": {
       "cache": true,
-      "inputs": ["src/**/*.{ts,tsx,js,jsx,astro}"],
+      "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
     "test:e2e:all": {
       "cache": true,
       "dependsOn": ["test:e2e:shard1", "test:e2e:shard2", "test:e2e:shard3", "test:e2e:shard4"],
-      "inputs": ["src/**/*.{ts,tsx,js,jsx,astro}"],
+      "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     }
   },

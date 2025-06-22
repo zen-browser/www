@@ -185,6 +185,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.53.1-jammy
+    env:
+      CI: true
     steps:
       - uses: actions/checkout@v4
 
@@ -231,7 +233,6 @@ jobs:
       - name: Run Playwright Tests (4 Shards)
         run: pnpm exec turbo run test:e2e:all
         timeout-minutes: 10
-
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v4
         if: always()
