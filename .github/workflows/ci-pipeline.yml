@@ -15,21 +15,21 @@ jobs:
     permissions:
       contents: read
     outputs:
-      exists: ${{ steps.filter.outputs.exists }}
+      exists: ${{ steps.filter.outputs.relevant }}
     steps:
       - uses: actions/checkout@v4
 
       - name: Filter changes
-        uses: yumemi-inc/path-filter@v2
+        uses: dorny/paths-filter@v3
         id: filter
         with:
-          patterns: |
-            **
-            !**.md
-            !.gitignore
-            !.gitattributes
-            !.vscode/**
-            !.env.example
+          filters: |
+            relevant:
+              !**.md
+              !.gitignore
+              !.gitattributes
+              !.vscode/**
+              !.env.example
 
   setup:
     name: Setup Dependencies
@@ -50,6 +50,7 @@ jobs:
           lookup-only: true
 
       - name: Setup Node.js
+        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -80,8 +81,6 @@ jobs:
             name: Test
           - check: spell
             name: Spell Check
-          - check: build
-            name: Build
     steps:
       - uses: actions/checkout@v4
 
@@ -119,22 +118,105 @@ jobs:
       - name: Run ${{ matrix.name }}
         run: pnpm exec turbo run ${{ matrix.check }}
 
-  playwright:
-    name: Playwright Tests
+  build:
+    name: Build
     needs: [check_changes, setup]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Restore Turborepo Cache
         uses: actions/cache@v4
         with:
           path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: ${{ runner.os }}-turbo-
+          key: ${{ runner.os }}-turbo-build-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-turbo-build-
+
+      - name: Restore Astro Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .astro
+            node_modules/.astro
+          key: ${{ runner.os }}-astro-${{ hashFiles('**/pnpm-lock.yaml', 'src/**', 'public/**', 'astro.config.mjs') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-${{ hashFiles('**/pnpm-lock.yaml') }}-
+            ${{ runner.os }}-astro-
+
+      - name: Restore node_modules cache
+        id: cache
+        uses: actions/cache/restore@v4
+        with:
+          path: |
+            node_modules
+            */node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: ${{ runner.os }}-node-modules-
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: pnpm install --frozen-lockfile
+
+      - name: Build project
+        run: pnpm exec turbo run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+  playwright:
+    name: Playwright Tests (Shard ${{ matrix.shard }})
+    needs: [check_changes, setup, build]
+    if: ${{ needs.check_changes.outputs.exists == 'true' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Restore Turborepo Cache
+        uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: ${{ runner.os }}-turbo-playwright-shard-${{ matrix.shard }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-turbo-playwright-shard-${{ matrix.shard }}-
+            ${{ runner.os }}-turbo-playwright-
+
+      - name: Restore Astro Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .astro
+            node_modules/.astro
+          key: ${{ runner.os }}-astro-${{ hashFiles('**/pnpm-lock.yaml', 'src/**', 'public/**', 'astro.config.mjs') }}
+          restore-keys: |
+            ${{ runner.os }}-astro-${{ hashFiles('**/pnpm-lock.yaml') }}-
+            ${{ runner.os }}-astro-
 
       - name: Restore node_modules cache
         id: cache
@@ -170,13 +252,21 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
 
-      - name: Run Playwright Tests
-        run: pnpm exec turbo run test:playwright
+      - name: Run Playwright Tests (Shard ${{ matrix.shard }}/4)
+        run: pnpm exec turbo run test:playwright -- --shard=${{ matrix.shard }}/4
         timeout-minutes: 10
+
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-shard-${{ matrix.shard }}
+          path: playwright-report/
+          retention-days: 7
 
   verify:
     name: Verify
-    needs: [check_changes, quality_checks, playwright]
+    needs: [check_changes, quality_checks, build, playwright]
     runs-on: ubuntu-latest
     if: always()
     outputs:
