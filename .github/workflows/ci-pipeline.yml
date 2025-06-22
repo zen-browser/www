@@ -169,8 +169,6 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build project
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: pnpm exec turbo run build
 
       - name: Upload build artifacts
