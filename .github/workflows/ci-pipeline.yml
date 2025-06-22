@@ -85,7 +85,7 @@ jobs:
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.52.0-noble
+      image: mcr.microsoft.com/playwright:v1.52.0-jammy
       options: --user 1001
     steps:
       - uses: actions/checkout@v4
@@ -95,6 +95,11 @@ jobs:
         with:
           name: build-dist
           path: dist/
+
+      - name: Install unzip (required for Bun setup)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y unzip
 
       - name: Setup Bun with Cache
         uses: ./.github/actions/setup-bun-with-cache
