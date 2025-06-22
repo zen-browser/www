@@ -116,7 +116,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run ${{ matrix.name }}
-        run: pnpm exec turbo run ${{ matrix.check }}
+        run: pnpm exec turbo run ${{ matrix.check }} --ui=stream
 
   build:
     name: Build
@@ -169,7 +169,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build project
-        run: pnpm exec turbo run build
+        run: pnpm exec turbo run build --ui=stream
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
@@ -185,7 +185,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.52.0-jammy
-      options: --user 1001
     steps:
       - uses: actions/checkout@v4
         with:
@@ -227,7 +226,7 @@ jobs:
         run: pnpm exec playwright install firefox --with-deps
 
       - name: Run Playwright Tests (4 Shards)
-        run: pnpm exec turbo run test:e2e:all
+        run: pnpm exec turbo run test:e2e:all --ui=stream
         timeout-minutes: 10
 
       - name: Upload Playwright Report
