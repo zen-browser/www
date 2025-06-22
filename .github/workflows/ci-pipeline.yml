@@ -247,7 +247,7 @@ jobs:
         run: pnpm exec playwright install --with-deps
 
       - name: Run Playwright Tests (4 Shards)
-        run: pnpm exec turbo run test:playwright:shard1 test:playwright:shard2 test:playwright:shard3 test:playwright:shard4
+        run: pnpm exec turbo run test:e2e:shard1 test:e2e:shard2 test:e2e:shard3 test:e2e:shard4
         timeout-minutes: 10
 
       - name: Upload Playwright Report
