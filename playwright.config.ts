@@ -17,8 +17,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
-  /* Remove worker limitation in CI for better sharding performance */
-  workers: process.env.CI ? '50%' : undefined,
+  workers: process.env.CI ? 1 : undefined,
   reporter: process.env.CI ? [['github'], ['html']] : 'html',
   use: {
     baseURL: 'http://localhost:3000',
