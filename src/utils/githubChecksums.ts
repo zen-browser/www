@@ -18,7 +18,7 @@ export async function getChecksums() {
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28',
       'User-Agent': 'zen-browser-checksum-fetcher',
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      ...(process.env.GITHUB_TOKEN ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : {}),
     },
   })
   if (!res.ok) throw new Error(`Failed to fetch GitHub release: ${res.statusText}`)
