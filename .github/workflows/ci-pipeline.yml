@@ -116,9 +116,6 @@ jobs:
     needs: [check_changes, build]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.52.0-jammy
-      options: --user 1001
     steps:
       - uses: actions/checkout@v4
 
@@ -127,11 +124,6 @@ jobs:
         with:
           name: build-dist
           path: dist/
-
-      - name: Install unzip (required for Bun setup)
-        run: |
-          apt-get update
-          apt-get install -y unzip
 
       - name: Restore Turborepo Cache
         uses: actions/cache@v4
@@ -149,6 +141,16 @@ jobs:
 
       - name: Install dependencies
         run: bun install --frozen-lockfile
+
+      - name: Cache Playwright Browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/bun.lock') }}
+          restore-keys: ${{ runner.os }}-playwright-
+
+      - name: Install Playwright Browsers
+        run: bunx playwright install --with-deps
 
       - name: Run Playwright Tests
         run: bunx turbo run test:playwright
