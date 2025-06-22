@@ -15,36 +15,20 @@ jobs:
     permissions:
       contents: read
     outputs:
-      exists: ${{ steps.filter.outputs.exists }}
-    env:
-      CI_IGNORE: |
-        *.md
-        .gitignore
-        .gitattributes
-        .vscode/**
+      exists: ${{ steps.filter.outputs.changes }}
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
 
-      - name: Filter Changed Files
+      - name: Check for relevant changes
+        uses: dorny/paths-filter@v3
         id: filter
-        shell: bash
-        run: |
-          BASE_SHA="${{ github.event.pull_request.base.sha }}"
-          CHANGED=$(git diff --name-only "$BASE_SHA" "$GITHUB_SHA")
-
-          # Filter out ignored patterns using grep
-          FILTERED="$CHANGED"
-          while IFS= read -r pattern; do
-            [[ -n "$pattern" ]] && FILTERED=$(echo "$FILTERED" | grep -v "$pattern" || true)
-          done <<< "$CI_IGNORE"
-
-          if [[ -z "$FILTERED" ]]; then
-            echo "exists=false" >> "$GITHUB_OUTPUT"
-          else
-            echo "exists=true" >> "$GITHUB_OUTPUT"
-          fi
+        with:
+          filters: |
+            changes:
+              - '!*.md'
+              - '!.gitignore'
+              - '!.gitattributes'
+              - '!.vscode/**'
 
   quality_checks:
     name: ${{ matrix.name }}
@@ -104,8 +88,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Download Build Artifacts
         uses: actions/download-artifact@v4
