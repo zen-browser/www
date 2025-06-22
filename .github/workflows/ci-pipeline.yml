@@ -223,6 +223,9 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
 
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install firefox --with-deps
+
       - name: Run Playwright Tests (4 Shards)
         run: pnpm exec turbo run test:e2e:all
         timeout-minutes: 10
