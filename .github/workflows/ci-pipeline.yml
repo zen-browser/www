@@ -171,13 +171,6 @@ jobs:
       - name: Build project
         run: pnpm exec turbo run build
 
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist/
-          retention-days: 1
-
   playwright:
     name: Playwright Tests
     needs: [check_changes, setup, build]
@@ -185,12 +178,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist/
 
       - name: Restore Turborepo Cache
         uses: actions/cache@v4

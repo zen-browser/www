@@ -33,26 +33,31 @@
     },
     "test:e2e": {
       "cache": true,
+      "dependsOn": ["build"],
       "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
     "test:e2e:shard1": {
       "cache": true,
+      "dependsOn": ["build"],
       "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
     "test:e2e:shard2": {
       "cache": true,
+      "dependsOn": ["build"],
       "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
     "test:e2e:shard3": {
       "cache": true,
+      "dependsOn": ["build"],
       "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
     "test:e2e:shard4": {
       "cache": true,
+      "dependsOn": ["build"],
       "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
