@@ -98,6 +98,7 @@
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "5.2.0",
     "jsdom": "26.1.0",
+    "playwright": "1.53.1",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.6.11",
