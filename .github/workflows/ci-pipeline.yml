@@ -25,11 +25,11 @@ jobs:
         with:
           filters: |
             relevant:
-              !**.md
-              !.gitignore
-              !.gitattributes
-              !.vscode/**
-              !.env.example
+              - '!**.md'
+              - '!.gitignore'
+              - '!.gitattributes'
+              - '!.vscode/**'
+              - '!.env.example'
 
   setup:
     name: Setup Dependencies
