@@ -184,7 +184,7 @@ jobs:
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.53.1-jammy
+      image: mcr.microsoft.com/playwright:v1.53.0-noble
     env:
       CI: true
     steps:
