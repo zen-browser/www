@@ -154,7 +154,7 @@ jobs:
 
       - name: Run Playwright Tests
         run: bunx turbo run test:playwright
-        timeout-minutes: 10
+        timeout-minutes: 8
 
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v4
