@@ -183,6 +183,9 @@ jobs:
     needs: [check_changes, setup, build]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.53.0-jammy
+      options: --ipc=host
     steps:
       - uses: actions/checkout@v4
         with:
@@ -211,11 +214,6 @@ jobs:
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: ${{ runner.os }}-node-modules-
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -225,18 +223,8 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
 
-      - name: Cache Playwright Browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-playwright-
-
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
-
       - name: Run Playwright Tests (4 Shards)
-        run: pnpm exec turbo run test:e2e:shard1 test:e2e:shard2 test:e2e:shard3 test:e2e:shard4
+        run: pnpm exec turbo run test:e2e:all
         timeout-minutes: 10
 
       - name: Upload Playwright Report

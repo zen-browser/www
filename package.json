@@ -26,6 +26,7 @@
     "test:e2e:shard2": "playwright test --shard=2/4",
     "test:e2e:shard3": "playwright test --shard=3/4",
     "test:e2e:shard4": "playwright test --shard=4/4",
+    "test:e2e:all": "turbo run test:e2e:all",
     "prepare": "lefthook install"
   },
   "dependencies": {

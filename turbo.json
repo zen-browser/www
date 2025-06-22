@@ -30,28 +30,34 @@
       "inputs": ["src/**/*.{ts,tsx,js,jsx,astro,md,json,yml,yaml}"],
       "outputs": []
     },
-    "test:playwright": {
+    "test:e2e": {
       "cache": true,
       "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
-    "test:playwright:shard1": {
+    "test:e2e:shard1": {
       "cache": true,
       "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
-    "test:playwright:shard2": {
+    "test:e2e:shard2": {
       "cache": true,
       "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
-    "test:playwright:shard3": {
+    "test:e2e:shard3": {
       "cache": true,
       "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
       "outputs": ["playwright-report/**", "test-results/**"]
     },
-    "test:playwright:shard4": {
+    "test:e2e:shard4": {
       "cache": true,
+      "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
+      "outputs": ["playwright-report/**", "test-results/**"]
+    },
+    "test:e2e:all": {
+      "cache": true,
+      "dependsOn": ["test:e2e:shard1", "test:e2e:shard2", "test:e2e:shard3", "test:e2e:shard4"],
       "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
       "outputs": ["playwright-report/**", "test-results/**"]
     }
