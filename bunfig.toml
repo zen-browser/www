@@ -1,0 +1,7 @@
+[install.scopes]
+# Only built dependencies
+"@esbuild" = { "trustedDependencies" = ["esbuild"] }
+"@lefthook" = { "trustedDependencies" = ["lefthook"] }
+"@sharp" = { "trustedDependencies" = ["sharp"] }
+"@unrs-resolver" = { "trustedDependencies" = ["unrs-resolver"] }
+"@workerd" = { "trustedDependencies" = ["workerd"] } 

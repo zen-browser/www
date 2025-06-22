@@ -28,8 +28,8 @@ git checkout -b <BRANCH_NAME>
 5. Start the development environment.
 
 ```bash
-pnpm install
-pnpm dev
+bun install
+bun dev
 ```
 
 6. Make your changes.

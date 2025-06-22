@@ -17,7 +17,7 @@ test-results/
 # Package files
 package-lock.json
 yarn.lock
-pnpm-lock.yaml
+bun.lock
 
 # Config files that should maintain their format
 wrangler.toml

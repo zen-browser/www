@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "pnpm": "^10.0.0"
+    "bun": "^1.0.0"
   },
-  "packageManager": "pnpm@10.12.1",
+  "packageManager": "bun@1.2.16",
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro preview --port 3000",
@@ -22,6 +22,7 @@
     "test": "vitest run",
     "test:coverage": "vitest --coverage",
     "test:playwright": "playwright test --reporter=list",
+    "test:e2e": "turbo run test:playwright",
     "prepare": "lefthook install"
   },
   "dependencies": {

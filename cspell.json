@@ -11,6 +11,7 @@
     "Brhm",
     "Briel",
     "bryan",
+    "bunx",
     "canoa",
     "Canoa",
     "cfasync",
@@ -87,7 +88,7 @@
     "*.bundle.js",
     "package-lock.json",
     "yarn.lock",
-    "pnpm-lock.yaml"
+    "bun.lock"
   ],
   "allowCompoundWords": true,
   "dictionaries": ["typescript", "node", "html", "css", "bash", "npm", "es-es"],

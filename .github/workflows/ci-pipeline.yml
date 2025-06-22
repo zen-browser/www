@@ -16,57 +16,42 @@ jobs:
       contents: read
     outputs:
       exists: ${{ steps.filter.outputs.exists }}
+    env:
+      CI_IGNORE: |
+        *.md
+        .gitignore
+        .gitattributes
+        .vscode/**
     steps:
       - uses: actions/checkout@v4
-
-      - name: Filter changes
-        uses: yumemi-inc/path-filter@v2
-        id: filter
         with:
-          patterns: |
-            **
-            !**.md
-            !.gitignore
-            !.gitattributes
-            !.vscode/**
-            !.env.example
+          fetch-depth: 2
 
-  setup:
-    name: Setup Dependencies
-    needs: check_changes
-    if: ${{ needs.check_changes.outputs.exists == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Check if node_modules cache exists
-        id: check-node-modules-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-            */node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          lookup-only: true
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Setup pnpm
-        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Install dependencies
-        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
+      - id: filter
+        shell: bash
+        run: |
+          # Determine the commit to diff against (push vs PR)
+          if [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          else
+            BASE_SHA="${{ github.event.before }}"
+          fi
+          # List changed files between BASE_SHA and current HEAD
+          CHANGED=$(git diff --name-only "$BASE_SHA" "$GITHUB_SHA")
+          # Identify ignored files based on CI_IGNORE patterns
+          IGNORED=$(echo "$CHANGED" | git check-ignore --stdin --exclude-from=<(printf '%s\n' "$CI_IGNORE") || true)
+          # Remove ignored files from the changed list
+          FILTERED=$(comm -23 <(echo "$CHANGED" | sort) <(echo "$IGNORED" | sort))
+          # Output result for downstream jobs
+          if [[ -z "$FILTERED" ]]; then
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          fi
 
   quality_checks:
     name: ${{ matrix.name }}
-    needs: [check_changes, setup]
+    needs: [check_changes]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     strategy:
@@ -85,43 +70,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Restore Turborepo Cache
-        uses: actions/cache@v4
+      - name: Setup Bun with Cache
+        uses: ./.github/actions/setup-bun-with-cache
         with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ matrix.check }}-${{ github.sha }}
-          restore-keys: ${{ runner.os }}-turbo-${{ matrix.check }}-
-
-      - name: Restore node_modules cache
-        id: cache
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            node_modules
-            */node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-node-modules-
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
+          cache-suffix: ${{ matrix.check }}
 
       - name: Run ${{ matrix.name }}
-        run: pnpm exec turbo run ${{ matrix.check }}
+        run: bunx turbo run ${{ matrix.check }}
+
+  build:
+    name: Build
+    needs: [check_changes]
+    if: ${{ needs.check_changes.outputs.exists == 'true' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun with Cache
+        uses: ./.github/actions/setup-bun-with-cache
+        with:
+          cache-suffix: build
+          enable-astro-cache: "true"
+
+      - name: Run Build
+        run: bunx turbo run build
 
   playwright:
     name: Playwright Tests
-    needs: [check_changes, setup]
+    needs: [check_changes, build]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     steps:
@@ -129,49 +105,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Restore Turborepo Cache
-        uses: actions/cache@v4
+      - name: Setup Bun with Cache
+        uses: ./.github/actions/setup-bun-with-cache
         with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: ${{ runner.os }}-turbo-
-
-      - name: Restore node_modules cache
-        id: cache
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            node_modules
-            */node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-node-modules-
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
+          cache-suffix: playwright
 
       - name: Cache Playwright Browsers
         uses: actions/cache@v4
         with:
           path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/bun.lock') }}
           restore-keys: ${{ runner.os }}-playwright-
 
       - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
+        run: bunx playwright install --with-deps
 
       - name: Run Playwright Tests
-        run: pnpm exec turbo run test:playwright
+        run: bunx turbo run test:playwright
         timeout-minutes: 10
 
   verify:
