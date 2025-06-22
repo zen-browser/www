@@ -86,7 +86,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.52.0-jammy
-      options: --ipc=host --user pwuser
+      options: --user 1001
     steps:
       - uses: actions/checkout@v4
 
