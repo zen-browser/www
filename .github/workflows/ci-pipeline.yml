@@ -130,8 +130,8 @@ jobs:
 
       - name: Install unzip (required for Bun setup)
         run: |
-          sudo apt-get update
-          sudo apt-get install -y unzip
+          apt-get update
+          apt-get install -y unzip
 
       - name: Restore Turborepo Cache
         uses: actions/cache@v4
