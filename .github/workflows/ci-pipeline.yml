@@ -179,14 +179,10 @@ jobs:
           retention-days: 1
 
   playwright:
-    name: Playwright Tests (Shard ${{ matrix.shard }})
+    name: Playwright Tests
     needs: [check_changes, setup, build]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        shard: [1, 2, 3, 4]
     steps:
       - uses: actions/checkout@v4
         with:
@@ -202,10 +198,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .turbo
-          key: ${{ runner.os }}-turbo-playwright-shard-${{ matrix.shard }}-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-playwright-shard-${{ matrix.shard }}-
-            ${{ runner.os }}-turbo-playwright-
+          key: ${{ runner.os }}-turbo-playwright-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-turbo-playwright-
 
       - name: Restore Astro Cache
         uses: actions/cache@v4
@@ -252,15 +246,15 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
 
-      - name: Run Playwright Tests (Shard ${{ matrix.shard }}/4)
-        run: pnpm exec turbo run test:playwright -- --shard=${{ matrix.shard }}/4
+      - name: Run Playwright Tests (4 Shards)
+        run: pnpm exec turbo run test:playwright:shard1 test:playwright:shard2 test:playwright:shard3 test:playwright:shard4
         timeout-minutes: 10
 
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: playwright-report-shard-${{ matrix.shard }}
+          name: playwright-report
           path: playwright-report/
           retention-days: 7
 

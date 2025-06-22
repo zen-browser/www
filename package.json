@@ -22,6 +22,10 @@
     "test": "vitest run",
     "test:coverage": "vitest --coverage",
     "test:playwright": "playwright test --reporter=list",
+    "test:playwright:shard1": "playwright test --reporter=list --shard=1/4",
+    "test:playwright:shard2": "playwright test --reporter=list --shard=2/4",
+    "test:playwright:shard3": "playwright test --reporter=list --shard=3/4",
+    "test:playwright:shard4": "playwright test --reporter=list --shard=4/4",
     "prepare": "lefthook install"
   },
   "dependencies": {

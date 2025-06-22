@@ -34,6 +34,26 @@
       "cache": true,
       "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
       "outputs": ["playwright-report/**", "test-results/**"]
+    },
+    "test:playwright:shard1": {
+      "cache": true,
+      "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
+      "outputs": ["playwright-report/**", "test-results/**"]
+    },
+    "test:playwright:shard2": {
+      "cache": true,
+      "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
+      "outputs": ["playwright-report/**", "test-results/**"]
+    },
+    "test:playwright:shard3": {
+      "cache": true,
+      "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
+      "outputs": ["playwright-report/**", "test-results/**"]
+    },
+    "test:playwright:shard4": {
+      "cache": true,
+      "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
+      "outputs": ["playwright-report/**", "test-results/**"]
     }
   },
   "ui": "tui"
