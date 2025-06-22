@@ -183,8 +183,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: .turbo
-          key: ${{ runner.os }}-turbo-playwright-${{ github.sha }}
-          restore-keys: ${{ runner.os }}-turbo-playwright-
+          key: ${{ runner.os }}-turbo-build-${{ github.sha }}
+          restore-keys: ${{ runner.os }}-turbo-build-
 
       - name: Restore node_modules cache
         id: cache
