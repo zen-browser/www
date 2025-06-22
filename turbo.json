@@ -59,13 +59,7 @@
     },
     "test:e2e:all": {
       "cache": true,
-      "dependsOn": [
-        "^build",
-        "test:e2e:shard1",
-        "test:e2e:shard2",
-        "test:e2e:shard3",
-        "test:e2e:shard4"
-      ],
+      "dependsOn": ["test:e2e:shard1", "test:e2e:shard2", "test:e2e:shard3", "test:e2e:shard4"],
       "inputs": ["src/**/*"],
       "outputs": ["playwright-report/**", "test-results/**"]
     }
