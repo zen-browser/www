@@ -30,19 +30,10 @@ jobs:
       - id: filter
         shell: bash
         run: |
-          # Determine the commit to diff against (push vs PR)
-          if [[ "$GITHUB_EVENT_NAME" == "pull_request" ]]; then
-            BASE_SHA="${{ github.event.pull_request.base.sha }}"
-          else
-            BASE_SHA="${{ github.event.before }}"
-          fi
-          # List changed files between BASE_SHA and current HEAD
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
           CHANGED=$(git diff --name-only "$BASE_SHA" "$GITHUB_SHA")
-          # Identify ignored files based on CI_IGNORE patterns
           IGNORED=$(echo "$CHANGED" | git check-ignore --stdin --exclude-from=<(printf '%s\n' "$CI_IGNORE") || true)
-          # Remove ignored files from the changed list
           FILTERED=$(comm -23 <(echo "$CHANGED" | sort) <(echo "$IGNORED" | sort))
-          # Output result for downstream jobs
           if [[ -z "$FILTERED" ]]; then
             echo "exists=false" >> "$GITHUB_OUTPUT"
           else
