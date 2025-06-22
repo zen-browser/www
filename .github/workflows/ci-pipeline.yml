@@ -21,9 +21,9 @@ jobs:
         uses: dorny/paths-filter@v3
         id: filter
         with:
-          base: ${{ github.base_ref }}
           filters: |
             relevant:
+              - '**'
               - '!*.md'
               - '!.gitignore'
               - '!.gitattributes'
