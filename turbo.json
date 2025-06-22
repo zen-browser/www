@@ -23,7 +23,7 @@
     },
     "test": {
       "cache": true,
-      "inputs": ["**/*.{ts,tsx,js,jsx}"],
+      "inputs": ["**/*.{ts,tsx,js,jsx,astro}"],
       "outputs": []
     },
     "spell": {
