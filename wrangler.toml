@@ -2,7 +2,7 @@ name = "zenbrowser-www"
 pages_build_output_dir = "./dist"
 
 [build]
-command = "bun run build"
+command = "bun run build:cf"
 
 [env]
 production = {}

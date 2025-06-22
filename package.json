@@ -10,6 +10,8 @@
     "dev": "astro dev --port 3000",
     "start": "astro preview --port 3000",
     "build": "astro check && astro build",
+    "build:cf": "bun upgrade && bun install --frozen-lockfile && bun run build",
+    "build:node": "bun install --frozen-lockfile && npm run build",
     "preview": "astro preview --port 3000",
     "wrangler": "wrangler",
     "astro": "astro",
