@@ -52,7 +52,7 @@
     "react-dom": "19.1.0",
     "sharp": "0.33.5",
     "tailwind-merge": "3.3.0",
-    "tailwindcss": "3.4.15",
+    "tailwindcss": "4.1.10",
     "turbo": "2.5.4",
     "typescript": "5.6.3",
     "ua-parser-js": "2.0.3"
