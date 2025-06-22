@@ -13,7 +13,7 @@ jobs:
     name: Check Changes
     runs-on: ubuntu-latest
     outputs:
-      exists: ${{ steps.filter.outputs.exists }}
+      exists: ${{ steps.filter.outputs.changes }}
     steps:
       - uses: actions/checkout@v4
 
@@ -22,11 +22,10 @@ jobs:
         id: filter
         with:
           filters: |
-            exists:
-              - '!*.md'
-              - '!.gitignore'
-              - '!.gitattributes'
-              - '!.vscode/**'
+            - '!*.md'
+            - '!.gitignore'
+            - '!.gitattributes'
+            - '!.vscode/**'
 
   quality_checks:
     name: ${{ matrix.name }}
