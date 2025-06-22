@@ -2,9 +2,8 @@
 import Description from '~/components/Description.astro'
 import DownloadScript from '~/components/download/DownloadScript.astro'
 import PlatformDownload from '~/components/download/PlatformDownload.astro'
-import { getReleasesWithChecksums } from '~/components/download/release-data'
+import { getReleases } from '~/components/download/release-data'
 import Layout from '~/layouts/Layout.astro'
-import { getChecksums } from '~/utils/githubChecksums'
 import { getLocale, getUI } from '~/utils/i18n'
 
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
@@ -27,8 +26,7 @@ const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
 const linuxIcon = icon({ prefix: 'fab', iconName: 'linux' })
 const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
 
-const checksums = await getChecksums()
-const releases = getReleasesWithChecksums(locale)(checksums)
+const releases = getReleases(locale)
 
 const platformDescriptions = download.platformDescriptions
 ---
