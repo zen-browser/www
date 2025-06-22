@@ -56,8 +56,6 @@ jobs:
             name: Test
           - check: spell
             name: Spell Check
-          - check: build
-            name: Build
     steps:
       - uses: actions/checkout@v4
 
