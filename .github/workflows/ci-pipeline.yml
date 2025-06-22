@@ -12,8 +12,6 @@ jobs:
   check_changes:
     name: Check Changes
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     outputs:
       exists: ${{ steps.filter.outputs.changes }}
     steps:
