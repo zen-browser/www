@@ -33,8 +33,13 @@ jobs:
         run: |
           BASE_SHA="${{ github.event.pull_request.base.sha }}"
           CHANGED=$(git diff --name-only "$BASE_SHA" "$GITHUB_SHA")
-          IGNORED=$(echo "$CHANGED" | git check-ignore --stdin --exclude-from=<(printf '%s\n' "$CI_IGNORE") || true)
-          FILTERED=$(comm -23 <(echo "$CHANGED" | sort) <(echo "$IGNORED" | sort))
+
+          # Filter out ignored patterns using grep
+          FILTERED="$CHANGED"
+          while IFS= read -r pattern; do
+            [[ -n "$pattern" ]] && FILTERED=$(echo "$FILTERED" | grep -v "$pattern" || true)
+          done <<< "$CI_IGNORE"
+
           if [[ -z "$FILTERED" ]]; then
             echo "exists=false" >> "$GITHUB_OUTPUT"
           else
