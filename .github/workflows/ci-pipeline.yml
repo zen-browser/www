@@ -12,8 +12,6 @@ jobs:
   check_changes:
     name: Check Changes
     runs-on: ubuntu-latest
-    outputs:
-      exists: ${{ steps.filter.outputs.changes }}
     steps:
       - uses: actions/checkout@v4
 
@@ -22,8 +20,7 @@ jobs:
         id: filter
         with:
           filters: |
-            relevant:
-              - '**'
+            exists:
               - '!*.md'
               - '!.gitignore'
               - '!.gitattributes'
