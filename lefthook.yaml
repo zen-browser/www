@@ -4,6 +4,8 @@ pre-commit:
     prettier:
       priority: 1
       glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,md,mdx,yaml,yml,json,html,css,astro}"
+      exclude:
+        - pnpm-lock.yaml
       run: |
         pnpm prettier {staged_files} --write --list-different
       stage_fixed: true
@@ -27,6 +29,7 @@ eslint:
         - dist/**
         - playwright-report/**
         - test-results/**
+        - pnpm-lock.yaml
       run: |
         pnpm eslint {staged_files} --max-warnings=0 --fix --cache
       stage_fixed: true
@@ -35,6 +38,8 @@ cspell:
   commands:
     base:
       glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
+      exclude:
+        - pnpm-lock.yaml
       run: |
         pnpm cspell {staged_files}
       stage_fixed: true
