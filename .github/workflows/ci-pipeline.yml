@@ -184,8 +184,8 @@ jobs:
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.53.0-jammy
-      options: --ipc=host
+      image: mcr.microsoft.com/playwright:v1.52.0-jammy
+      options: --user 1001
     steps:
       - uses: actions/checkout@v4
         with:
