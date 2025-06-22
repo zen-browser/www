@@ -27,7 +27,8 @@ jobs:
         with:
           fetch-depth: 2
 
-      - id: filter
+      - name: Filter Changed Files
+        id: filter
         shell: bash
         run: |
           BASE_SHA="${{ github.event.pull_request.base.sha }}"
