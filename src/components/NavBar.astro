@@ -96,13 +96,31 @@ const {
         </DropdownItems>
       </Dropdown>
       <a
-        class={`hidden items-center hover:bg-muted rounded-lg p-3 lg:block${Astro.url.pathname === getLocalePath('/about') ? ' text-coral' : ''}`}
+        class:list={{
+          hidden: true,
+          'items-center': true,
+          'hover:bg-muted': true,
+          'rounded-lg': true,
+          'p-3': true,
+          'lg:block': true,
+          'text-coral': Astro.url.pathname === getLocalePath('/about'),
+        }}
+        data-active={Astro.url.pathname === getLocalePath('/about')}
         href={getLocalePath('/about')}
       >
         <span>{menu.aboutUs}</span>
       </a>
       <a
-        class={`hidden items-center hover:bg-muted rounded-lg p-3 lg:block${Astro.url.pathname === getLocalePath('/mods') ? ' text-coral' : ''}`}
+        class:list={{
+          hidden: true,
+          'items-center': true,
+          'hover:bg-muted': true,
+          'rounded-lg': true,
+          'p-3': true,
+          'lg:block': true,
+          'text-coral': Astro.url.pathname === getLocalePath('/mods'),
+        }}
+        data-active={Astro.url.pathname === getLocalePath('/mods')}
         href={getLocalePath('/mods')}
       >
         <span>{menu.mods}</span>
