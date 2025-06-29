@@ -2824,7 +2824,7 @@
   },
   {
     "version": "1.14b",
-    "extra": "",
+    "extra": "This update includes a nice upgrade to the color picker and some nice fixes!\n\n<strong class='underline'>IMPORTANT:</strong> Previous colors might have issues, to update them, right click the sidebar and click on 'edit theme'",
     "fixes": [
       "Fixed visual twitching when cancelling a drag-to-split operation.",
       "Resolved an issue with tab switching when tabs overflow the toolbar."
