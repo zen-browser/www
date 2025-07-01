@@ -2824,7 +2824,7 @@
   },
   {
     "version": "1.14b",
-    "extra": "This update includes a nice upgrade to the color picker and some nice fixes!\n\n<strong class='underline'>IMPORTANT:</strong> Previous colors might have issues, to update them, right click the sidebar and click on 'edit theme'",
+    "extra": "",
     "fixes": [
       "Fixed visual twitching when cancelling a drag-to-split operation.",
       "Resolved an issue with tab switching when tabs overflow the toolbar."
@@ -2847,5 +2847,14 @@
     "workflowId": 15953789168,
     "image": false,
     "date": "29/06/2025"
+  },
+  {
+    "version": "1.14.1b",
+    "extra": "",
+    "fixes": ["Fixed a crash with third party tools"],
+    "features": [],
+    "workflowId": 15985890220,
+    "image": false,
+    "date": "01/07/2025"
   }
 ]
