@@ -2856,5 +2856,14 @@
     "workflowId": 15985890220,
     "image": false,
     "date": "01/07/2025"
+  },
+  {
+    "version": "1.14.2b",
+    "extra": "",
+    "fixes": ["Fixed an issue when disabling mods"],
+    "features": [],
+    "workflowId": 16020875210,
+    "image": false,
+    "date": "03/07/2025"
   }
 ]
