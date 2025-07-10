@@ -2851,7 +2851,7 @@
   {
     "version": "1.14.1b",
     "extra": "",
-    "fixes": ["Fixed a crash with third party tools"],
+    "fixes": ["Fixed a crash with third-party tools."],
     "features": [],
     "workflowId": 15985890220,
     "image": false,
@@ -2860,7 +2860,7 @@
   {
     "version": "1.14.2b",
     "extra": "",
-    "fixes": ["Fixed an issue when disabling mods"],
+    "fixes": ["Fixed an issue when disabling mods."],
     "features": [],
     "workflowId": 16058435355,
     "image": false,
@@ -2870,7 +2870,7 @@
     "version": "1.14.3b",
     "extra": "",
     "fixes": [
-      "Improved default colors for the color picker",
+      "Improved default colors for the color picker.",
       "Fixed various issues in various places"
     ],
     "features": [],
@@ -2881,7 +2881,7 @@
   {
     "version": "1.14.4b",
     "extra": "",
-    "fixes": ["the color picker turning the colors into a white background"],
+    "fixes": ["The color picker turning colors into a white background."],
     "features": [],
     "workflowId": 16183208677,
     "image": false,
