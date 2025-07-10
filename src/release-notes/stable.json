@@ -2877,5 +2877,14 @@
     "workflowId": 16166003695,
     "image": false,
     "date": "09/07/2025"
+  },
+  {
+    "version": "1.14.4b",
+    "extra": "",
+    "fixes": ["the color picker turning the colors into a white background"],
+    "features": [],
+    "workflowId": 16183208677,
+    "image": false,
+    "date": "10/07/2025"
   }
 ]
