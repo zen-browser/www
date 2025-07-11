@@ -2803,5 +2803,88 @@
     "workflowId": 15630968997,
     "image": false,
     "date": "13/06/2025"
+  },
+  {
+    "version": "1.13.1b",
+    "extra": "",
+    "fixes": ["Small fixes from the previous release."],
+    "features": [],
+    "workflowId": 15656297661,
+    "image": false,
+    "date": "15/06/2025"
+  },
+  {
+    "version": "1.13.2b",
+    "extra": "",
+    "fixes": [],
+    "features": ["Show spaces when right clicking on the workspace indicator"],
+    "workflowId": 15668398583,
+    "image": false,
+    "date": "16/06/2025"
+  },
+  {
+    "version": "1.14b",
+    "extra": "",
+    "fixes": [
+      "Fixed visual twitching when cancelling a drag-to-split operation.",
+      "Resolved an issue with tab switching when tabs overflow the toolbar."
+    ],
+    "features": [
+      "Upgraded to Firefox 140.0.2.",
+      "Introduced a refreshed look and feel for the color picker.",
+      "Added automatic dark/light mode detection based on the browser's background.",
+      "Improved gradient rendering to reduce dithering artifacts.",
+      "Moved mods to a C++ backend for enhanced performance, stability, and caching.",
+      "Made workspace swiping smoother with animated background transitions and improved responsiveness.",
+      "Simplified the compact mode toggle: now a single button replaces the previous submenu in single-toolbar setups.",
+      "The Add-ons button can now be removed from the toolbar."
+    ],
+    "changes": [
+      "Legacy customization styles are now disabled by default for new users unless a `userChrome.css` file is present.",
+      "New user profiles now have container-specific essentials enabled by default."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-51/",
+    "workflowId": 15953789168,
+    "image": false,
+    "date": "29/06/2025"
+  },
+  {
+    "version": "1.14.1b",
+    "extra": "",
+    "fixes": ["Fixed a crash with third party tools"],
+    "features": [],
+    "workflowId": 15985890220,
+    "image": false,
+    "date": "01/07/2025"
+  },
+  {
+    "version": "1.14.2b",
+    "extra": "",
+    "fixes": ["Fixed an issue when disabling mods"],
+    "features": [],
+    "workflowId": 16058435355,
+    "image": false,
+    "date": "03/07/2025"
+  },
+  {
+    "version": "1.14.3b",
+    "extra": "",
+    "fixes": [
+      "Improved default colors for the color picker",
+      "Fixed various issues in various places"
+    ],
+    "features": [],
+    "workflowId": 16166003695,
+    "image": false,
+    "date": "09/07/2025"
+  },
+  {
+    "version": "1.14.4b",
+    "extra": "",
+    "fixes": ["the color picker turning the colors into a white background"],
+    "features": [],
+    "workflowId": 16183208677,
+    "image": false,
+    "date": "10/07/2025"
   }
 ]
