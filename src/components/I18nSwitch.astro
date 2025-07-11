@@ -24,7 +24,13 @@ const { label = 'Toggle i18n', className = '' } = Astro.props
     <div class="navbar-dropdown !grid-cols-1 gap-1">
       {
         i18n.LOCALES.map(locale => (
-          <a class="dropdown-item" href={getPath(locale.value)(Astro.url.pathname)} aria-label={locale.label}>
+          <a
+            class="dropdown-item"
+            href={getPath(locale.value)(Astro.url.pathname)}
+            aria-label={locale.label}
+          >
+            <div class="dropdown-title">{locale.label}</div>
+
             <div class="dropdown-title">{locale.label}</div>
           </a>
         ))
