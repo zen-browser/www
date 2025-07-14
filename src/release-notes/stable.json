@@ -2886,5 +2886,17 @@
     "workflowId": 16183208677,
     "image": false,
     "date": "10/07/2025"
+  },
+  {
+    "version": "1.14.5b",
+    "extra": "",
+    "fixes": [
+      "Fixed compact mode turning off when restoring windows",
+      "Fixed accessibility issues when using custom colors"
+    ],
+    "features": [],
+    "workflowId": 16253635838,
+    "image": false,
+    "date": "14/07/2025"
   }
 ]
