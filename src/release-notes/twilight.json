@@ -1,6 +1,10 @@
 {
-  "version": "xxx",
+  "version": "1.15t",
   "extra": "",
   "fixes": [],
-  "features": []
+  "features": [
+    "Updated to Firefox 141.0",
+    "Improved accent color detection, making elements such as toasts more vibrant.",
+    "Added a better custom color picker (experimental UI, might change)"
+  ]
 }
