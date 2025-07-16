@@ -2865,5 +2865,38 @@
     "workflowId": 16058435355,
     "image": false,
     "date": "03/07/2025"
+  },
+  {
+    "version": "1.14.3b",
+    "extra": "",
+    "fixes": [
+      "Improved default colors for the color picker",
+      "Fixed various issues in various places"
+    ],
+    "features": [],
+    "workflowId": 16166003695,
+    "image": false,
+    "date": "09/07/2025"
+  },
+  {
+    "version": "1.14.4b",
+    "extra": "",
+    "fixes": ["the color picker turning the colors into a white background"],
+    "features": [],
+    "workflowId": 16204894193,
+    "image": false,
+    "date": "10/07/2025"
+  },
+  {
+    "version": "1.14.5b",
+    "extra": "",
+    "fixes": [
+      "Fixed compact mode turning off when restoring windows",
+      "Fixed accessibility issues when using custom colors"
+    ],
+    "features": [],
+    "workflowId": 16253635838,
+    "image": false,
+    "date": "14/07/2025"
   }
 ]
