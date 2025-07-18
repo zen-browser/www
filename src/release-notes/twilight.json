@@ -1,10 +1,15 @@
 {
   "version": "1.15t",
   "extra": "",
-  "fixes": [],
+  "fixes": [
+    "picture caching and scroll optimization issues",
+    "a bug where adding or removing colors in the color picker would make the UI white"
+  ],
   "features": [
     "Updated to Firefox 141.0",
     "Improved accent color detection, making elements such as toasts more vibrant.",
-    "Added a better custom color picker (experimental UI, might change)"
+    "Added a better custom color picker (experimental UI, might change)",
+    "Improved and optimized glance animations and UI",
+    "WebGPU is now enabled by default on windows"
   ]
 }
