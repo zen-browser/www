@@ -3,7 +3,8 @@
   "extra": "",
   "fixes": [
     "picture caching and scroll optimization issues",
-    "a bug where adding or removing colors in the color picker would make the UI white"
+    "a bug where adding or removing colors in the color picker would make the UI white",
+    "On Linux, Zen uses less memory and no longer requires a forced restart after an update has been applied by a package manager."
   ],
   "features": [
     "Updated to Firefox 141.0",
