@@ -11,6 +11,7 @@
     "Improved accent color detection, making elements such as toasts more vibrant.",
     "Added a better custom color picker (experimental UI, might change)",
     "Improved and optimized glance animations and UI",
-    "WebGPU is now enabled by default on windows"
+    "WebGPU is now enabled by default on windows",
+    "Added a mroe native feel to windows 11 window buttons"
   ]
 }
