@@ -1,0 +1,516 @@
+{
+  "routes": {
+    "index": {
+      "title": "Zen Browser",
+      "hero": {
+        "title": [
+          { "text": "欢迎 ", "highlight": false },
+          { "text": "来到 ", "highlight": false },
+          { "text": "\n", "highlight": false },
+          { "text": "一个 ", "highlight": false },
+          { "text": "更平静的 ", "highlight": true },
+          { "text": "互联网", "highlight": false }
+        ],
+        "description": ["精美设计、注重隐私、功能丰富。", "我们关心您的体验，而非您的数据。"],
+        "buttons": {
+          "beta": "Beta 版本现已发布！",
+          "support": "支持我们 ❤️"
+        }
+      },
+      "features": {
+        "titles": ["生产力 ", "极致 ", "体验"],
+        "description": "Zen 拥有丰富的功能，帮助您保持高效和专注。浏览器应该是帮您完成工作的工具，而不是让您分心的干扰源。",
+        "featureTabs": {
+          "workspaces": {
+            "title": "工作区",
+            "description": "将您的标签页整理到工作区中，保持项目独立有序，并可轻松切换。"
+          },
+          "compactMode": {
+            "title": "紧凑模式",
+            "description": "Zen 的紧凑模式在您不需要时隐藏标签栏，需要时显示，为您提供更多屏幕空间。"
+          },
+          "glance": {
+            "title": "快速浏览",
+            "description": "快速浏览功能让您无需翻阅历史记录，即可快速切换到最常用的标签页。"
+          },
+          "splitView": {
+            "title": "分屏视图",
+            "description": "分屏视图让您可以并排查看两个标签页，更轻松地进行比较和切换。"
+          }
+        }
+      },
+      "sponsors": {
+        "title": "我们的赞助商",
+        "description": "我们感谢赞助商的支持，他们帮助我们维持项目的运行。<br />您也可以通过<a href=\"/donate\" class=\"zen-link\">直接捐赠</a>来成为这个旅程的一部分！",
+        "sponsors": {
+          "tuta": {
+            "name": "Tuta",
+            "url": "https://tuta.com/"
+          },
+          "blacksmith": {
+            "name": "BlackSmith",
+            "url": "https://www.blacksmith.sh/"
+          },
+          "crowdin": {
+            "name": "Crowdin",
+            "url": "https://crowdin.com/"
+          }
+        }
+      },
+      "community": {
+        "title": ["我们的 ", "核心 ", "价值观"],
+        "description": "我们不仅将其作为优先事项，更将其视为必要条件，以确保 Zen 始终在美观、性能和隐私之间取得完美平衡。",
+        "lists": {
+          "freeAndOpenSource": {
+            "title": "免费且开源",
+            "description": "Zen 是免费的开源软件，您可以免费使用并可根据需要进行修改。"
+          },
+          "simpleYetPowerful": {
+            "title": "简洁而强大",
+            "description": "Zen 使用简单，但功能强大，足以处理您的日常任务。"
+          },
+          "privateAndAlwaysUpToDate": {
+            "title": "隐私保护且持续更新",
+            "description": "Zen 保护隐私且持续更新，您可以免费使用并可根据需要进行修改。"
+          }
+        },
+        "images": {
+          "community": {
+            "alt": "社区"
+          }
+        }
+      }
+    },
+    "mods": {
+      "title": "Zen Mods",
+      "description": "浏览我们多样化的 Zen 模组集合，这些由社区制作的插件和主题适用于 Zen 浏览器。发现适合每种心情的主题，找到满足每种需求的插件。立即开始定制您的浏览器体验！",
+      "pagination": {
+        "pagination": "{input} / {totalPages} （共 {totalItems} 项）"
+      },
+      "search": "输入搜索内容...",
+      "by": "作者",
+      "sort": {
+        "lastCreated": "最新创建",
+        "lastUpdated": "最近更新",
+        "perPage": "每页显示"
+      },
+      "noResults": "未找到结果",
+      "noResultsDescription": "尝试搜索其他关键词或稍后再检查。",
+      "slug": {
+        "title": "{name} - Zen Mods",
+        "description": "了解更多 Zen 浏览器上可用的 {name} 模组",
+        "alert": {
+          "description": "您需要安装 Zen 浏览器才能安装此主题。",
+          "button": "立即下载！"
+        },
+        "createdBy": "由 {author} 创建 • <b>v{version}</b>",
+        "creationDate": "创建日期：<b>{createdAt}</b>",
+        "latestUpdate": "最近更新：<b>{updatedAt}</b>",
+        "visitModHomepage": "访问模组主页",
+        "installMod": "安装模组 🎉",
+        "uninstallMod": "卸载模组",
+        "back": "返回"
+      }
+    },
+    "releaseNotes": {
+      "topSection": {
+        "title": "更新日志",
+        "description": "了解 Zen 的最新变更！从<a class=\"zen-link\" href=\"#1.0.0-a.1\">首个版本</a>到<a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>，我们一直努力让 Zen 浏览器变得更好。感谢大家的反馈！❤️"
+      },
+      "list": {
+        "support": "给我们一些支持！",
+        "navigateToVersion": "跳转到版本..."
+      },
+      "itemType": {
+        "fix": "修复",
+        "feature": "新增",
+        "known": "已知问题",
+        "break": "重大变更",
+        "theme": "主题",
+        "security": "安全",
+        "change": "变更"
+      },
+      "backToTop": "回到顶部",
+      "chooseVersion": "选择版本",
+      "components": {
+        "releaseNoteItem": {
+          "twilight": "暮光版",
+          "twilightChanges": "暮光版变更",
+          "releaseChanges": "v{version}",
+          "firefoxVersion": "Firefox {version}",
+          "githubRelease": "GitHub 发布",
+          "workflowRun": "工作流运行",
+          "compareChanges": "比较变更",
+          "twilightWarning": "请注意，暮光版是 Zen 浏览器的预发布版本。可能包含错误和未完成的功能。",
+          "reportIssues": " 如果遇到任何问题，请在<a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">问题页面</a>报告。",
+          "learnMore": "了解更多",
+          "viewIssue": "在 GitHub 上查看问题编号 {issue}"
+        }
+      },
+      "slug": {
+        "title": "发布说明",
+        "redirect": "正在重定向到版本 {version} 的发布说明..."
+      }
+    },
+    "about": {
+      "title": "关于 Zen",
+      "description": "我们只是一群关心您网页体验的开发者和设计师。我们相信互联网应该是一个您可以探索、学习和连接的地方，而无需担心数据被收集。",
+      "littleHelp": "需要一点帮助？",
+      "mainTeam": {
+        "title": "核心团队",
+        "description": "此列表显示了努力为您带来最佳浏览体验的核心团队成员。",
+        "subTitle": {
+          "browser": "浏览器",
+          "website": "网站和品牌"
+        },
+        "members": {
+          "browser": {
+            "mauro": {
+              "name": "Mauro V.",
+              "description": "创始人，主要开发者",
+              "link": "https://cheff.dev/"
+            },
+            "jan": {
+              "name": "Jan Heres",
+              "description": "活跃贡献者，协助 MacOS 构建",
+              "link": "https://janheres.eu/"
+            },
+            "bryan": {
+              "name": "Bryan Galdámez",
+              "description": "主题功能的重要贡献者",
+              "link": "https://josuegalre.netlify.app/"
+            },
+            "oscar": {
+              "name": "Oscar Gonzalez",
+              "description": "站点可靠性工程师（SRE）和代码签名",
+              "link": false
+            },
+            "daniel": {
+              "name": "Daniel García",
+              "description": "MacOS 证书和应用程序公证维护者",
+              "link": false
+            },
+            "brhm": {
+              "name": "BrhmDev",
+              "description": "活跃贡献者，做出了重要贡献",
+              "link": "https://github.com/BrhmDev"
+            },
+            "kristijanribaric": {
+              "name": "Kristijan Ribaric",
+              "description": "分屏视图/工作区的活跃贡献者",
+              "link": "https://github.com/kristijanribaric"
+            },
+            "larvey": {
+              "name": "Larvey",
+              "description": "AUR 维护者",
+              "link": "https://github.com/LarveyOfficial/"
+            },
+            "studio": {
+              "name": "Studio Movie Girl",
+              "description": "渐变生成器的重要贡献者",
+              "link": "https://github.com/neurokitti"
+            }
+          },
+          "website": {
+            "taroj1205": {
+              "name": "Shintaro Jokagi",
+              "description": "核心网站架构师，领导重构和技术改进",
+              "link": "https://github.com/taroj1205"
+            },
+            "jace": {
+              "name": "Jace",
+              "description": "网站设计和品牌贡献者",
+              "link": "https://x.com/JaceThings"
+            },
+            "canoa": {
+              "name": "Canoa",
+              "description": "活跃贡献者，在问题处理和网站管理方面非常活跃",
+              "link": "https://thatcanoa.org/"
+            },
+            "adam": {
+              "name": "Adam",
+              "description": "品牌和设计",
+              "link": "https://cybrneon.xyz/"
+            },
+            "n7itro": {
+              "name": "n7itro",
+              "description": "活跃贡献者和发布说明撰写者",
+              "link": "https://github.com/n7itro"
+            },
+            "jafeth": {
+              "name": "Jafeth Garro",
+              "description": "文档撰写者",
+              "link": "https://iamjafeth.com/"
+            }
+          }
+        }
+      },
+      "contributors": {
+        "title": "贡献者",
+        "description": "此列表显示了帮助我们让 Zen 浏览器变得更好的贡献者。",
+        "browser": "浏览器",
+        "website": "网站"
+      }
+    },
+    "donate": {
+      "title": "捐赠",
+      "description": "我们是一个努力为您带来最佳浏览体验的小团队。如果您喜欢我们所做的，请考虑支持我们。",
+      "patreon": {
+        "title": "Patreon",
+        "description": "Patreon 允许您通过每月捐赠来支持我们。您可以选择最适合您的支持级别。",
+        "button": "前往 Patreon"
+      },
+      "koFi": {
+        "title": "Ko-fi",
+        "description": "Ko-fi 允许您通过一次性捐赠来支持我们。您可以选择最适合您的金额。也可以进行每月捐赠。",
+        "button": "前往 Ko-fi"
+      }
+    },
+    "download": {
+      "title": "开始您的旅程",
+      "description": "为您的平台下载 Zen，体验更加专注的互联网浏览体验。<br/>Zen 适用于 macOS、Windows 和 Linux。",
+      "twilightInfo": "您目前处于暮光模式，这意味着您正在下载最新的实验性功能和更新。",
+      "beta": "Zen 目前处于 ",
+      "otherDownload": "如果您的设备识别错误，<a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link'>查看其他下载</a>。<br />请在 <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a> 上报告您遇到的任何问题。",
+      "alertInfo": {
+        "description": "您目前处于暮光模式，这意味着您正在下载最新的实验性功能和更新。"
+      },
+      "platformSelector": {
+        "title": "平台选择器",
+        "description": "选择您的平台以下载 Zen。"
+      },
+      "additionalResources": {
+        "title": "其他资源",
+        "sourceCode": {
+          "title": "源代码",
+          "description": "在 GitHub 上探索 Zen 的源代码。为项目贡献或构建您自己的版本。"
+        },
+        "documentation": {
+          "title": "文档",
+          "description": "访问 Zen 的全面文档、指南和教程。"
+        }
+      },
+      "securityNotice": {
+        "title": "验证和安全下载",
+        "description": "所有 Zen 下载都经过签名和验证以确保安全。我们建议直接从我们的官方网站或 GitHub 仓库下载。如果您的下载似乎损坏或被杀毒软件标记，请<a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>向我们报告</a>。"
+      },
+      "platformNames": {
+        "mac": "macOS",
+        "windows": "Windows",
+        "linux": "Linux"
+      },
+      "platformDescriptions": {
+        "mac": "适用于新的 Apple（M 系列）和旧的 Intel Mac。<br />需要 macOS 11.0 或更高版本。",
+        "windows": "适用于 Windows 10 和 Windows 11。<br />不确定选择哪个版本？大多数人应该选择 64 位安装程序。",
+        "linux": "适用于多个 Linux 版本。<br />选择与您的系统匹配的下载。"
+      },
+      "links": {
+        "macos": { "universal": "通用版" },
+        "windows": { "64bit": "64 位（推荐）", "ARM64": "ARM64" },
+        "linux": {
+          "flathub": "Flathub",
+          "x86_64": "压缩包",
+          "aarch64": "压缩包"
+        }
+      },
+      "buttonCard": {
+        "copy": "复制",
+        "showChecksum": "显示 SHA-256",
+        "beta": "测试版"
+      }
+    },
+    "privacyPolicy": {
+      "title": "隐私政策",
+      "lastUpdated": "最近更新：2025-02-5",
+      "sections": {
+        "introduction": {
+          "title": "简介",
+          "body": "欢迎使用 Zen！您的隐私是我们的首要任务。本隐私政策概述了我们收集的个人信息类型、使用方式，以及您使用 Zen 时我们采取的数据保护措施。",
+          "summary": "我们不出售数据 - 我们不收集数据 - 我们不跟踪您"
+        },
+        "noCollect": {
+          "title": "1. 我们不收集的信息",
+          "body": "Zen 本着隐私为先的原则设计。我们不收集、存储或分享您的任何个人数据。这意味着："
+        },
+        "noTelemetry": {
+          "title": "1.1. 无遥测数据",
+          "body": "我们不收集任何遥测数据或崩溃报告。",
+          "body2": "Zen 已移除了 Mozilla Firefox 内置的遥测功能。我们删除了所有遥测数据收集和崩溃报告。"
+        },
+        "noPersonalData": {
+          "title": "1.2. 不收集个人数据",
+          "body": "Zen 不收集任何个人信息，如您的 IP 地址、浏览历史、搜索查询或表单数据。"
+        },
+        "noThirdParty": {
+          "title": "1.3. 无第三方跟踪",
+          "body": "我们不允许第三方跟踪器或分析工具在 Zen 中运行。您的浏览活动完全私密，不会与任何第三方共享。Mozilla 不被视为第三方，因为它是 Zen 的基础。"
+        },
+        "externalConnections": {
+          "title": "1.4. 启动时的外部连接",
+          "body": "Zen 可能在启动时建立外部连接以检查更新并确保浏览器在插件、附加组件、连接检查和地理位置/推送通知服务方面保持最新状态，以符合网络标准。我们 Zen 不从这些连接中收集任何数据，但这些连接可能被第三方服务或您访问的网站记录。这些连接对于浏览器的正常运行是必需的，不用于跟踪或分析目的。可以通过浏览器标志（about:config）禁用它们。"
+        },
+        "localStorage": {
+          "title": "2. 本地存储在您设备上的信息"
+        },
+        "browsingData": {
+          "title": "2.1. 浏览数据",
+          "body": "Zen 在您的设备上本地存储某些数据以增强您的浏览体验。这包括："
+        },
+        "cookies": {
+          "title": "Cookie",
+          "body": "Cookie 本地存储在您的设备上，不会与 Zen 或任何第三方共享。您可以通过浏览器设置完全控制 Cookie 的管理。"
+        },
+        "cache": {
+          "title": "缓存和临时文件",
+          "body": "Zen 可能在本地存储缓存文件和其他临时数据以提高性能。这些文件可以随时通过浏览器设置清除。"
+        },
+        "settings": {
+          "title": "2.2. 设置和首选项",
+          "body": "您在 Zen 中进行的任何自定义、设置和首选项都本地存储在您的设备上。我们无法访问或控制这些数据。"
+        },
+        "sync": {
+          "title": "3. 同步功能",
+          "body": "Zen 提供“同步”功能，该功能使用 Mozilla Firefox 的同步功能实现。此功能允许您在多个设备之间同步书签、历史记录、密码和其他数据。为了使此功能正常工作，您的数据会被加密并存储在 Mozilla 的服务器上，并按照他们的隐私政策处理。我们 Zen 无法查看任何这些数据。",
+          "link1": "Mozilla Firefox 同步",
+          "link2": "我们如何存储您的密码"
+        },
+        "addons": {
+          "title": "4. 附加组件和“模组”",
+          "body": "您可以从 addons.mozilla.org 安装附加组件。Zen 会定期检查这些附加组件的更新。\n您也可以从 zen-browser.app/mods 安装“模组”。这些模组由我们的服务托管，遵循与我们网站相同的隐私政策。我们不从这些模组中收集任何数据，它们纯粹是下载到您设备的静态内容。"
+        },
+        "security": {
+          "title": "5. 数据安全",
+          "body": "虽然 Zen 不收集您的数据，但我们致力于保护本地存储在您设备上的信息，如果您使用同步功能，还包括存储在 Mozilla 服务器上的加密数据。我们建议您使用安全密码、启用设备加密并定期更新软件，以确保数据安全。",
+          "note": "注意，大部分安全措施由 Mozilla Firefox 负责。"
+        },
+        "control": {
+          "title": "6. 您的控制权",
+          "deletionTitle": "6.1. 数据删除",
+          "deletionBody": "您完全控制 Zen 在您设备上本地存储的所有数据。您可以随时使用浏览器设置清除浏览数据、Cookie 和缓存。"
+        },
+        "website": {
+          "title": "7. 我们的网站和服务",
+          "body": "Zen 的网站和服务不使用任何第三方分析、跟踪或 CDN 服务。我们不从访问我们网站的用户那里收集任何个人信息。网站托管在 Cloudflare 上但禁用了分析和跟踪，Cloudflare 可能从 HTTP 请求中收集一些分析数据以提供安全和性能改进。然而，这些数据不与任何个人信息关联，也不用于跟踪目的。",
+          "externalLinksTitle": "7.1. 外部链接",
+          "externalLinksBody": "Zen 可能包含指向非我们拥有或运营的外部网站或服务的链接。我们对这些网站的内容或隐私做法不负责任。我们建议您在向这些网站提供任何个人信息之前查看其隐私政策。"
+        },
+        "changes": {
+          "title": "8. 本隐私政策的变更",
+          "body": "我们可能会不时更新本隐私政策以反映我们实践或法律要求的变化。我们将通过更新本政策顶部的生效日期来通知您任何重大变更。在此类变更后继续使用 Zen 即表示您接受新条款。"
+        },
+        "otherTelemetry": {
+          "title": "9. Mozilla Firefox 的其他遥测",
+          "body": "我们努力在 Zen 中禁用所有遥测数据收集。但是，我们可能遗漏了一些。查看以下链接了解更多信息。",
+          "firefoxPrivacyNotice": "Firefox 隐私声明",
+          "forMoreInformation": "了解更多信息。"
+        },
+        "contact": {
+          "title": "10. 联系我们",
+          "body": "如果您对本隐私政策或 Zen 有任何问题或疑虑，请通过以下方式联系我们：",
+          "discord": "Discord：",
+          "discordLink": "Zen 的 Discord",
+          "github": "GitHub：",
+          "githubLink": "组织"
+        }
+      }
+    },
+    "welcome": {
+      "title": ["欢迎 ", "使用 ", "Zen！"]
+    },
+    "whatsNew": {
+      "title": "{latestVersion.version} 版本的新功能！",
+      "reportIssue": "报告问题",
+      "joinDiscord": "加入我们的 Discord",
+      "readFullReleaseNotes": "阅读完整发布说明"
+    },
+    "notFound": {
+      "title": "页面未找到",
+      "description": "抱歉，您要查找的页面不存在或已被移动。",
+      "button": "返回首页"
+    }
+  },
+  "layout": {
+    "index": {
+      "title": "Zen Browser",
+      "description": "精美设计、注重隐私、功能丰富。"
+    },
+    "mods": {
+      "title": "Zen Mods",
+      "description": "浏览我们多样化的 Zen 模组集合，这些由社区制作的插件和主题适用于 Zen。发现适合每种心情的主题，找到满足每种需求的插件。立即开始定制您的浏览器体验！"
+    },
+    "releaseNotes": {
+      "title": "发布说明 - Zen",
+      "description": "了解 Zen 的最新变更！从首个版本到 {latestVersion}，我们一直努力让 Zen 变得更好。感谢大家的反馈！❤️"
+    },
+    "about": {
+      "title": "关于 Zen",
+      "description": "我们只是一群关心您网页体验的开发者和设计师。我们相信互联网应该是一个您可以探索、学习和连接的地方，而无需担心数据被收集。"
+    },
+    "donate": {
+      "title": "捐赠 - Zen",
+      "description": "我们是一个努力为您带来最佳浏览体验的小团队。如果您喜欢我们所做的，请考虑支持我们。"
+    },
+    "download": {
+      "title": "下载 - Zen",
+      "description": "为您的平台下载 Zen，体验更加专注的互联网浏览体验。"
+    },
+    "privacyPolicy": {
+      "title": "隐私政策 - Zen",
+      "description": "您的隐私是我们的首要任务。本隐私政策概述了我们收集的个人信息类型、使用方式，以及您使用 Zen 时我们采取的数据保护措施。"
+    },
+    "welcome": {
+      "title": "欢迎！",
+      "description": "欢迎使用 Zen！"
+    },
+    "whatsNew": {
+      "title": "{latestVersion.version} 版本的新功能！"
+    }
+  },
+  "components": {
+    "footer": {
+      "title": "Zen Browser",
+      "description": "精美设计、注重隐私、功能丰富。我们关心您的体验，而非您的数据。",
+      "download": "下载",
+      "followUs": "关注我们",
+      "aboutUs": "关于我们",
+      "teamAndContributors": "团队和贡献者",
+      "privacyPolicy": "隐私政策",
+      "getStarted": "开始使用",
+      "documentation": "文档",
+      "zenMods": "Zen Mods",
+      "releaseNotes": "发布说明",
+      "getHelp": "获取帮助",
+      "securtiy": "安全",
+      "discord": "Discord",
+      "uptimeStatus": "运行状态",
+      "reportAnIssue": "报告问题",
+      "twilight": "暮光版",
+      "madeWith": "由 <a href='{link}' class='zen-link inline-block font-bold'>Zen 团队</a>用<span aria-label='love'>❤️</span>"
+    },
+    "nav": {
+      "brand": "Zen Browser",
+      "menu": {
+        "gettingStarted": "快速入门",
+        "resources": "资源",
+        "mods": "模组",
+        "download": "下载",
+        "discord": "Discord",
+        "releaseNotes": "发布说明",
+        "zenMods": "Zen Mods",
+        "tryZenMods": "试用 Zen 模组",
+        "zenModsDesc": "使用 Zen 模组自定义您的浏览体验。",
+        "releaseNotesDesc": "及时了解最新功能和改进。",
+        "discordDesc": "加入我们的 Discord 社区，与其他 Zen 用户交流！",
+        "donate": "捐赠 ❤️",
+        "donateDesc": "通过捐赠支持 Zen 的开发。",
+        "aboutUs": "关于我们",
+        "aboutUsDesc": "了解更多关于 Zen 团队的信息。",
+        "documentation": "文档",
+        "documentationDesc": "通过我们的文档学习如何使用 Zen。",
+        "github": "GitHub",
+        "githubDesc": "在 GitHub 上为 Zen 的开发做出贡献。",
+        "menu": "菜单"
+      }
+    }
+  }
+}

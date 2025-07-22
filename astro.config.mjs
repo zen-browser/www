@@ -9,7 +9,7 @@ export default defineConfig({
   site: 'https://zen-browser.app',
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ja'],
+    locales: ['en', 'zh', 'es', 'de', 'ja'],
     routing: {
       fallbackType: 'rewrite',
       prefixDefaultLocale: false,

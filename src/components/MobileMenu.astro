@@ -1,4 +1,5 @@
 ---
+import LanguagePicker from '~/components/LanguagePicker.astro'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
@@ -64,7 +65,7 @@ const {
       </li>
       <!-- Useful Links -->
       <li>
-        <div class="mb-2 font-bold">{menu.usefulLinks}</div>
+        <div class="mb-2 font-bold">{menu.resources}</div>
         <ul class="ml-4 space-y-2">
           <li>
             <a href={getLocalePath('/donate')} class="block text-dark hover:text-coral"
@@ -101,6 +102,7 @@ const {
           >{menu.download}</a
         >
       </li>
+      <LanguagePicker isDark />
     </ul>
   </nav>
 </div>
