@@ -1,4 +1,6 @@
 ---
+import Button from '~/components/Button.astro'
+import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
@@ -39,67 +41,71 @@ const {
       </svg>
     </label>
   </div>
-  <nav class="px-4 py-2">
-    <ul class="space-y-4">
+  <nav class="px-6 py-6">
+    <ul>
       <!-- Getting Started Links -->
       <li>
-        <div class="mb-2 font-bold">{menu.gettingStarted}</div>
-        <ul class="ml-4 space-y-2">
+        <div class="mb-2 text-sm font-thin opacity-80">{menu.gettingStarted}</div>
+        <ul class="space-y-2">
           <li>
-            <a href={getLocalePath('/mods')} class="block text-dark hover:text-coral"
-              >{menu.zenMods}</a
+            <a
+              href={getLocalePath('/mods')}
+              class="block text-2xl font-medium text-dark hover:text-coral">{menu.zenMods}</a
             >
           </li>
           <li>
-            <a href={getLocalePath('/release-notes')} class="block text-dark hover:text-coral"
-              >{menu.releaseNotes}</a
+            <a
+              href={getLocalePath('/release-notes')}
+              class="block text-2xl font-medium text-dark hover:text-coral">{menu.releaseNotes}</a
             >
           </li>
           <li>
-            <a href="https://discord.gg/zen-browser" class="block text-dark hover:text-coral"
-              >{menu.discord}</a
+            <a
+              href="https://discord.gg/zen-browser"
+              class="block text-2xl font-medium text-dark hover:text-coral">{menu.discord}</a
             >
           </li>
         </ul>
       </li>
-      <!-- Useful Links -->
+      <!-- Resources -->
       <li>
-        <div class="mb-2 font-bold">{menu.usefulLinks}</div>
-        <ul class="ml-4 space-y-2">
+        <div class="mb-2 pt-6 text-sm font-thin opacity-80">{menu.usefulLinks}</div>
+        <ul class="space-y-2">
           <li>
-            <a href={getLocalePath('/donate')} class="block text-dark hover:text-coral"
-              >{menu.donate}</a
+            <a
+              href={getLocalePath('/donate')}
+              class="block text-2xl font-medium text-dark hover:text-coral">{menu.donate}</a
             >
           </li>
           <li>
-            <a href={getLocalePath('/about')} class="block text-dark hover:text-coral"
-              >{menu.aboutUs}</a
+            <a
+              href={getLocalePath('/about')}
+              class="block text-2xl font-medium text-dark hover:text-coral">{menu.aboutUs}</a
             >
           </li>
           <li>
-            <a href="https://docs.zen-browser.app" class="block text-dark hover:text-coral"
-              >{menu.documentation}</a
+            <a
+              href="https://docs.zen-browser.app"
+              class="block text-2xl font-medium text-dark hover:text-coral">{menu.documentation}</a
             >
           </li>
           <li>
             <a
               href="https://github.com/zen-browser"
               target="_blank"
-              class="block text-dark hover:text-coral">{menu.github}</a
+              class="block text-2xl font-medium text-dark hover:text-coral">{menu.github}</a
             >
           </li>
         </ul>
       </li>
       <!-- Extra Links -->
-      <li>
-        <a href={getLocalePath('/mods')} class="block font-bold text-dark hover:text-coral"
-          >{menu.mods}</a
-        >
-      </li>
-      <li>
-        <a href={getLocalePath('/download')} class="block font-bold text-dark hover:text-coral"
-          >{menu.download}</a
-        >
+      <li class="pt-6">
+        <Button href="/download" isPrimary>
+          <span class="flex items-center gap-2">
+            {menu.download}
+            <ArrowRightIcon class="size-4" />
+          </span>
+        </Button>
       </li>
     </ul>
   </nav>
