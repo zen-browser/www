@@ -124,18 +124,16 @@ const {
               >
             </li>
           </ul>
+          <div class="flex justify-center pt-8 lg:hidden"><LanguagePicker /></div>
         </nav>
       </div>
     </section>
     <section
-      class="grid w-full grid-cols-[1fr_auto] items-center gap-2"
+      class="grid w-full grid-cols-[auto_auto] items-center justify-center gap-8 lg:justify-start"
       aria-label="Copyright information"
     >
-      <LanguagePicker />
-      <p
-        class="flex justify-center gap-2 lg:justify-start"
-        set:html={footer.madeWith.replace('{link}', getLocalePath('/about'))}
-      />
+      <div class="hidden lg:flex"><LanguagePicker /></div>
+      <p class="flex gap-2" set:html={footer.madeWith.replace('{link}', getLocalePath('/about'))} />
     </section>
     <section class="absolute bottom-0 right-0">
       <Circles white multiplier={0.7} class="mb-[-100px] ml-auto mr-[-80px] hidden lg:block" />

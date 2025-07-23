@@ -25,19 +25,19 @@
         "description": "Zen ist voller Funktionen, die dir helfen, produktiv und fokussiert zu bleiben. Browser sollten Werkzeuge sein, die dir helfen, Dinge zu erledigen, keine Ablenkungen, die dich von deiner Arbeit abhalten.",
         "featureTabs": {
           "workspaces": {
-            "title": "Arbeitsbereiche",
+            "title": "Workspaces",
             "description": "Organisiere deine Tabs in Arbeitsbereiche, um deine Projekte getrennt und organisiert zu halten und mühelos zwischen ihnen zu wechseln."
           },
           "compactMode": {
-            "title": "Kompaktmodus",
+            "title": "Compact Mode",
             "description": "Zens Kompaktmodus verschafft dir mehr Bildschirmplatz, indem die Tab-Leiste versteckt wird, wenn du sie nicht brauchst, und sie angezeigt wird, wenn du sie benötigst."
           },
           "glance": {
-            "title": "Blick",
-            "description": "Blick ermöglicht es dir, schnell zwischen deinen meistgenutzten Tabs zu wechseln, ohne durch deine Historie scrollen zu müssen."
+            "title": "Glance",
+            "description": "Glance ermöglicht es dir, schnell zwischen deinen meistgenutzten Tabs zu wechseln, ohne durch deine Historie scrollen zu müssen."
           },
           "splitView": {
-            "title": "Geteilte Ansicht",
+            "title": "Split View",
             "description": "Die geteilte Ansicht ermöglicht es dir, zwei Tabs nebeneinander zu betrachten, was das Vergleichen und Wechseln zwischen ihnen erleichtert."
           }
         }
@@ -61,7 +61,7 @@
         }
       },
       "community": {
-        "title": ["Unsere ", "Core", "values"],
+        "title": ["Unsere ", "Core", "Values"],
         "description": "Wir machen es nicht nur zu einer Priorität, sondern zu einer Notwendigkeit, sicherzustellen, dass Zen immer die richtige Balance zwischen Schönheit, Leistung und Privatsphäre findet.",
         "lists": {
           "freeAndOpenSource": {
@@ -79,7 +79,7 @@
         },
         "images": {
           "community": {
-            "alt": "Gemeinschaft"
+            "alt": "Community"
           }
         }
       }
