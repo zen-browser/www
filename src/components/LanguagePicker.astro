@@ -21,11 +21,13 @@ const localeOptions = locales.map(locale => ({
 }))
 
 const { class: className, isDark, ...props } = Astro.props
+
+const uniqueId = `locale-dropdown-${Math.random().toString(36).substring(2, 9)}`
 ---
 
 <div class="relative inline-block">
   <select
-    id="locale-dropdown"
+    id={uniqueId}
     aria-label="Select language"
     class:list={[
       'cursor-pointer rounded-xl border px-4 py-2 text-base transition hover:border-coral focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
@@ -44,12 +46,12 @@ const { class: className, isDark, ...props } = Astro.props
   </select>
 </div>
 
-<script>
-  const dropdown = document.getElementById('locale-dropdown') as HTMLSelectElement
+<script define:vars={{ uniqueId }}>
+  const dropdown = document.getElementById(uniqueId)
 
   if (dropdown) {
     dropdown.addEventListener('change', event => {
-      const target = event.target as HTMLSelectElement
+      const target = event.target
       const selectedPath = target.value
 
       if (selectedPath) {

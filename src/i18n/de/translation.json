@@ -488,7 +488,7 @@
       "uptimeStatus": "Verfügbarkeitsstatus",
       "reportAnIssue": "Problem melden",
       "twilight": "Twilight",
-      "madeWith": "Mit <span aria-label='Liebe'>❤️</span> vom <a href='{link}' class='zen-link inline-block font-bold'>Zen Team</a> gemacht"
+      "madeWith": "Mit <span aria-label='Liebe'>❤️</span> vom <a href='{link}' class='zen-link inline-block font-bold'>Zen Team</a>"
     },
     "nav": {
       "brand": "Zen Browser",
