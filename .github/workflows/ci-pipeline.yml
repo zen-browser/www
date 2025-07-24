@@ -129,9 +129,10 @@ jobs:
           name: build-dist-${{ github.sha }}
           path: dist/
 
+  # We should depend on quality checks to save CI running time.
   playwright:
     name: Playwright Tests
-    needs: [setup]
+    needs: [setup, quality_checks]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     container:
