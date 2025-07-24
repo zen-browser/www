@@ -81,7 +81,7 @@ jobs:
           - name: Build
             check: build
           - name: TypeScript
-            check: astro check
+            check: typecheck
           - name: Spell Check
             check: cspell
     steps:
