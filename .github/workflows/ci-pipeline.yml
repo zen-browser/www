@@ -50,6 +50,7 @@ jobs:
           lookup-only: true
 
       - name: Setup Node.js
+        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
@@ -173,9 +174,6 @@ jobs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
-
-      - name: Install Playwright
-        run: pnpm exec playwright install --with-deps
 
       - name: Run Playwright Tests
         run: pnpm exec turbo run test:playwright
