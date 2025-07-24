@@ -31,9 +31,18 @@ jobs:
             !.vscode/**
             !.env.example
 
+  cspell:
+    name: Spell Check
+    needs: [check_changes]
+    runs-on: ubuntu-latest
+    if: ${{ needs.check_changes.outputs.exists == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: streetsidesoftware/cspell-action@v7
+
   setup:
     name: Setup Dependencies
-    needs: check_changes
+    needs: [check_changes]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     steps:
@@ -66,22 +75,22 @@ jobs:
 
   quality_checks:
     name: ${{ matrix.name }}
-    needs: [check_changes, setup]
+    needs: [setup, cspell]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         include:
-          - check: lint
-            name: Lint
-          - check: format
-            name: Format
-          - check: test
-            name: Test
-          - check: spell
-            name: Spell Check
-          - check: build
-            name: Build
+          - name: Lint
+            check: lint
+          - name: Format
+            check: format
+          - name: Test
+            check: test
+          - name: Build
+            check: build
+          - name: TypeScript
+            check: astro check
     steps:
       - uses: actions/checkout@v4
 
@@ -121,9 +130,12 @@ jobs:
 
   playwright:
     name: Playwright Tests
-    needs: [check_changes, setup]
+    needs: [setup, cspell]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.54.0-noble
+      options: --user 1001
     steps:
       - uses: actions/checkout@v4
         with:
@@ -146,11 +158,6 @@ jobs:
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: ${{ runner.os }}-node-modules-
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -160,23 +167,13 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
 
-      - name: Cache Playwright Browsers
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-playwright-
-
-      - name: Install Playwright Browsers
-        run: pnpm exec playwright install --with-deps
-
       - name: Run Playwright Tests
         run: pnpm exec turbo run test:playwright
         timeout-minutes: 10
 
   verify:
     name: Verify
-    needs: [check_changes, quality_checks, playwright]
+    needs: [check_changes, cspell, quality_checks, playwright]
     runs-on: ubuntu-latest
     if: always()
     outputs:
