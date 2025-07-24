@@ -176,8 +176,6 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run Playwright Tests
-        env:
-          PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
         run: pnpm exec turbo run test:playwright
         timeout-minutes: 10
 
