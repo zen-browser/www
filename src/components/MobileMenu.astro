@@ -1,5 +1,4 @@
 ---
-import LanguagePicker from '~/components/LanguagePicker.astro'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
@@ -102,7 +101,6 @@ const {
           >{menu.download}</a
         >
       </li>
-      <LanguagePicker isDark />
     </ul>
   </nav>
 </div>

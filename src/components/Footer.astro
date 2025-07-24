@@ -2,7 +2,6 @@
 import Button from '~/components/Button.astro'
 import Circles from '~/components/Circles.astro'
 import Description from '~/components/Description.astro'
-import LanguagePicker from '~/components/LanguagePicker.astro'
 import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
 import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
@@ -124,16 +123,17 @@ const {
               >
             </li>
           </ul>
-          <div class="flex justify-center pt-8 sm:hidden"><LanguagePicker /></div>
         </nav>
       </div>
     </section>
     <section
-      class="flex w-full flex-wrap items-center justify-center gap-8"
+      class="grid w-full grid-cols-[1fr_auto] items-center gap-2"
       aria-label="Copyright information"
     >
-      <div class="hidden sm:flex"><LanguagePicker /></div>
-      <p class="gap-2" set:html={footer.madeWith.replace('{link}', getLocalePath('/about'))} />
+      <p
+        class="flex justify-center gap-2 lg:justify-start"
+        set:html={footer.madeWith.replace('{link}', getLocalePath('/about'))}
+      />
     </section>
     <section class="absolute bottom-0 right-0">
       <Circles white multiplier={0.7} class="mb-[-100px] ml-auto mr-[-80px] hidden lg:block" />
