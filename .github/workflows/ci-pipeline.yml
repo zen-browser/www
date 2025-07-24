@@ -83,7 +83,7 @@ jobs:
           - name: TypeScript
             check: typecheck
           - name: Spell Check
-            check: cspell
+            check: spell
     steps:
       - uses: actions/checkout@v4
 
