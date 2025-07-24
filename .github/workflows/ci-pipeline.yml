@@ -175,10 +175,9 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
 
-      - name: Install Playwright
-        run: pnpm exec playwright install
-
       - name: Run Playwright Tests
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
         run: pnpm exec turbo run test:playwright
         timeout-minutes: 10
 
