@@ -121,6 +121,13 @@ jobs:
       - name: Run ${{ matrix.name }}
         run: pnpm exec turbo run ${{ matrix.check }}
 
+      - name: Upload Build Artifact
+        if: matrix.name == 'Build'
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-dist-${{ github.sha }}
+          path: dist/
+
   playwright:
     name: Playwright Tests
     needs: [setup]
@@ -151,6 +158,13 @@ jobs:
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: ${{ runner.os }}-node-modules-
 
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          path: dist/
+          pattern: build-dist*
+          merge-multiple: true
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -159,6 +173,9 @@ jobs:
       - name: Install dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
+
+      - name: Install Playwright
+        run: pnpm exec playwright install --with-deps
 
       - name: Run Playwright Tests
         run: pnpm exec turbo run test:playwright
