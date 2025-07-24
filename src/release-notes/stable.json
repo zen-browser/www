@@ -2900,7 +2900,7 @@
     "date": "14/07/2025"
   },
   {
-    "version": "1.15b",
+    "version": "1.14.6b",
     "extra": "Lots of performance improvements and nice stability fixes!",
     "fixes": [
       "picture caching and scroll optimization issues",
