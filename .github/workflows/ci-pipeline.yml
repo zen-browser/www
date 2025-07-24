@@ -176,7 +176,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install Playwright
-        run: pnpm exec playwright install firefox
+        run: pnpm exec playwright install
 
       - name: Run Playwright Tests
         run: pnpm exec turbo run test:playwright
