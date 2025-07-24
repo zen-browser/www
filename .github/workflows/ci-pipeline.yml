@@ -31,15 +31,6 @@ jobs:
             !.vscode/**
             !.env.example
 
-  cspell:
-    name: Spell Check
-    needs: [check_changes]
-    runs-on: ubuntu-latest
-    if: ${{ needs.check_changes.outputs.exists == 'true' }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: streetsidesoftware/cspell-action@v7
-
   setup:
     name: Setup Dependencies
     needs: [check_changes]
@@ -75,7 +66,7 @@ jobs:
 
   quality_checks:
     name: ${{ matrix.name }}
-    needs: [setup, cspell]
+    needs: [setup]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     strategy:
@@ -91,6 +82,8 @@ jobs:
             check: build
           - name: TypeScript
             check: astro check
+          - name: Spell Check
+            check: cspell
     steps:
       - uses: actions/checkout@v4
 
@@ -130,7 +123,7 @@ jobs:
 
   playwright:
     name: Playwright Tests
-    needs: [setup, cspell]
+    needs: [setup]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     container:
@@ -173,7 +166,7 @@ jobs:
 
   verify:
     name: Verify
-    needs: [check_changes, cspell, quality_checks, playwright]
+    needs: [check_changes, quality_checks, playwright]
     runs-on: ubuntu-latest
     if: always()
     outputs:
