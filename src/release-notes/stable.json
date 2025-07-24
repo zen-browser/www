@@ -2901,7 +2901,7 @@
   },
   {
     "version": "1.15b",
-    "extra": "Lot's of performance improvements and nice stability fixes!",
+    "extra": "Lots of performance improvements and nice stability fixes!",
     "fixes": [
       "picture caching and scroll optimization issues",
       "a bug where adding or removing colors in the color picker would make the UI white",
