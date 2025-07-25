@@ -2920,5 +2920,17 @@
     "workflowId": 16501636155,
     "image": false,
     "date": "25/07/2025"
+  },
+  {
+    "version": "1.14.7b",
+    "extra": "",
+    "fixes": [
+      "Fixed an issue when changing workspaces not changing tabs",
+      "Fixed native windows caption buttons displaying the grid display dialog even if it's hidden"
+    ],
+    "features": [],
+    "workflowId": 16519901845,
+    "image": false,
+    "date": "25/07/2025"
   }
 ]
