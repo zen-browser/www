@@ -1,5 +1,7 @@
 pre-commit:
   piped: true
+  exclude:
+    - pnpm-lock.yaml
   commands:
     prettier:
       priority: 1
@@ -36,7 +38,7 @@ cspell:
     base:
       glob: "*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,d.ts,astro,json,yaml,yml,md,mdx}"
       run: |
-        pnpm cspell {staged_files}
+        pnpm cspell {staged_files} --cache --cache-strategy=content --cache-location=.cspellcache
       stage_fixed: true
 
 commit-msg:
