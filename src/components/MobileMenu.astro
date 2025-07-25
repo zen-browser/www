@@ -10,6 +10,26 @@ const {
     nav: { menu },
   },
 } = getUI(locale)
+
+const menuItems = [
+  {
+    section: menu.gettingStarted,
+    links: [
+      { href: getLocalePath('/mods'), text: menu.zenMods },
+      { href: getLocalePath('/release-notes'), text: menu.releaseNotes },
+      { href: 'https://discord.gg/zen-browser', text: menu.discord },
+    ],
+  },
+  {
+    section: menu.usefulLinks,
+    links: [
+      { href: getLocalePath('/donate'), text: menu.donate },
+      { href: getLocalePath('/about'), text: menu.aboutUs },
+      { href: 'https://docs.zen-browser.app', text: menu.documentation },
+      { href: 'https://github.com/zen-browser', text: menu.github, target: '_blank' },
+    ],
+  },
+]
 ---
 
 <!-- Hidden checkbox for menu toggle -->
@@ -41,73 +61,38 @@ const {
       </svg>
     </label>
   </div>
+
   <nav class="px-6 py-6">
     <ul>
-      <!-- Getting Started Links -->
-      <li>
-        <div class="mb-2 text-sm font-semibold uppercase tracking-wider opacity-65">
-          {menu.gettingStarted}
-        </div>
-        <ul class="space-y-2">
-          <li>
-            <a
-              href={getLocalePath('/mods')}
-              class="block text-lg font-medium text-dark hover:text-coral">{menu.zenMods}</a
-            >
+      {
+        menuItems.map((section, index) => (
+          <li class={index > 0 ? 'pt-6' : ''}>
+            <div class="mb-2 text-sm font-semibold uppercase tracking-wider opacity-65">
+              {section.section}
+            </div>
+            <ul class="space-y-2">
+              {section.links.map(link => (
+                <li>
+                  <a
+                    href={link.href}
+                    {...(link.target && { target: link.target })}
+                    class="block text-lg font-medium text-dark hover:text-coral"
+                  >
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </li>
-          <li>
-            <a
-              href={getLocalePath('/release-notes')}
-              class="block text-lg font-medium text-dark hover:text-coral">{menu.releaseNotes}</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://discord.gg/zen-browser"
-              class="block text-lg font-medium text-dark hover:text-coral">{menu.discord}</a
-            >
-          </li>
-        </ul>
-      </li>
-      <!-- Resources -->
-      <li>
-        <div class="mb-2 pt-6 text-sm font-semibold uppercase tracking-wider opacity-65">
-          {menu.usefulLinks}
-        </div>
-        <ul class="space-y-2">
-          <li>
-            <a
-              href={getLocalePath('/donate')}
-              class="block text-lg font-medium text-dark hover:text-coral">{menu.donate}</a
-            >
-          </li>
-          <li>
-            <a
-              href={getLocalePath('/about')}
-              class="block text-lg font-medium text-dark hover:text-coral">{menu.aboutUs}</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://docs.zen-browser.app"
-              class="block text-lg font-medium text-dark hover:text-coral">{menu.documentation}</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://github.com/zen-browser"
-              target="_blank"
-              class="block text-lg font-medium text-dark hover:text-coral">{menu.github}</a
-            >
-          </li>
-        </ul>
-      </li>
-      <!-- Extra Links -->
+        ))
+      }
+
+      <!-- Download Button -->
       <li class="pt-6">
-        <Button href="/download" isPrimary>
-          <span class="flex items-center gap-2">
+        <Button href={getLocalePath('/download')} isPrimary>
+          <span class="flex items-center gap-2 text-lg">
             {menu.download}
-            <ArrowRightIcon class="size-4" />
+            <ArrowRightIcon class="size-5" />
           </span>
         </Button>
       </li>
