@@ -2932,5 +2932,17 @@
     "workflowId": 16519901845,
     "image": false,
     "date": "25/07/2025"
+  },
+  {
+    "version": "1.14.8b",
+    "extra": "",
+    "fixes": [
+      "Fixed glance cancelation button not working",
+      "Fixed urlbar having multiple arrows when switching tabs"
+    ],
+    "features": [],
+    "workflowId": 16539026644,
+    "image": false,
+    "date": "26/07/2025"
   }
 ]
