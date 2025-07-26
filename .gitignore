@@ -6,7 +6,7 @@ dist/
 
 # dependencies
 node_modules/
-
+bun.lockb
 # logs
 npm-debug.log*
 yarn-debug.log*
