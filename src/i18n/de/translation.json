@@ -1,0 +1,519 @@
+{
+  "routes": {
+    "index": {
+      "title": "Zen Browser",
+      "hero": {
+        "title": [
+          { "text": "Willkommen ", "highlight": false },
+          { "text": "zu ", "highlight": false },
+          { "text": "\n", "highlight": false },
+          { "text": "einem ", "highlight": false },
+          { "text": "ruhigeren ", "highlight": true },
+          { "text": "Internet", "highlight": false }
+        ],
+        "description": [
+          "Wunderschön gestaltet, datenschutzorientiert und voller Funktionen.",
+          "Uns liegt deine Erfahrung am Herzen, nicht deine Daten."
+        ],
+        "buttons": {
+          "beta": "Beta ist jetzt verfügbar!",
+          "support": "Unterstütze uns ❤️"
+        }
+      },
+      "features": {
+        "titles": ["Produktivität ", "auf ", "höchstem Niveau"],
+        "description": "Zen ist voller Funktionen, die dir helfen, produktiv und fokussiert zu bleiben. Browser sollten Werkzeuge sein, die dir helfen, Dinge zu erledigen, keine Ablenkungen, die dich von deiner Arbeit abhalten.",
+        "featureTabs": {
+          "workspaces": {
+            "title": "Workspaces",
+            "description": "Organisiere deine Tabs in Arbeitsbereiche, um deine Projekte getrennt und organisiert zu halten und mühelos zwischen ihnen zu wechseln."
+          },
+          "compactMode": {
+            "title": "Compact Mode",
+            "description": "Zens Kompaktmodus verschafft dir mehr Bildschirmplatz, indem die Tab-Leiste versteckt wird, wenn du sie nicht brauchst, und sie angezeigt wird, wenn du sie benötigst."
+          },
+          "glance": {
+            "title": "Glance",
+            "description": "Glance ermöglicht es dir, schnell zwischen deinen meistgenutzten Tabs zu wechseln, ohne durch deine Historie scrollen zu müssen."
+          },
+          "splitView": {
+            "title": "Split View",
+            "description": "Die geteilte Ansicht ermöglicht es dir, zwei Tabs nebeneinander zu betrachten, was das Vergleichen und Wechseln zwischen ihnen erleichtert."
+          }
+        }
+      },
+      "sponsors": {
+        "title": "Unsere Sponsoren",
+        "description": "Wir sind unseren Sponsoren für ihre Unterstützung dankbar. Sie helfen uns dabei, das Projekt am Leben zu erhalten.<br />Du kannst auch Teil dieser Reise werden, indem du <a href=\"/donate\" class=\"zen-link\">uns direkt spendest</a>!",
+        "sponsors": {
+          "tuta": {
+            "name": "Tuta",
+            "url": "https://tuta.com/"
+          },
+          "blacksmith": {
+            "name": "BlackSmith",
+            "url": "https://www.blacksmith.sh/"
+          },
+          "crowdin": {
+            "name": "Crowdin",
+            "url": "https://crowdin.com/"
+          }
+        }
+      },
+      "community": {
+        "title": ["Unsere ", "Core", "Values"],
+        "description": "Wir machen es nicht nur zu einer Priorität, sondern zu einer Notwendigkeit, sicherzustellen, dass Zen immer die richtige Balance zwischen Schönheit, Leistung und Privatsphäre findet.",
+        "lists": {
+          "freeAndOpenSource": {
+            "title": "Kostenlos und Open Source",
+            "description": "Zen ist kostenlose und quelloffene Software, was bedeutet, dass du sie kostenlos nutzen und an deine Bedürfnisse anpassen kannst."
+          },
+          "simpleYetPowerful": {
+            "title": "Einfach und dennoch nützlich",
+            "description": "Zen ist einfach zu verwenden, aber mächtig genug, um deine täglichen Aufgaben zu bewältigen."
+          },
+          "privateAndAlwaysUpToDate": {
+            "title": "Privat und immer aktuell",
+            "description": "Zen ist privat und immer aktuell, was bedeutet, dass du es kostenlos nutzen und an deine Bedürfnisse anpassen kannst."
+          }
+        },
+        "images": {
+          "community": {
+            "alt": "Community"
+          }
+        }
+      }
+    },
+    "mods": {
+      "title": "Zen Mods",
+      "description": "Durchstöbere unsere vielfältige Sammlung von Zen Mods, von der Community erstellte Plugins und Themes für Zen Browser. Entdecke ein Theme für jede Stimmung und ein Plugin für jede Anforderung. Beginne noch heute damit, dein Browser-Erlebnis anzupassen!",
+      "pagination": {
+        "pagination": "{input} von {totalPages} ({totalItems} Elemente)"
+      },
+      "search": "Tippen zum Suchen...",
+      "by": "von",
+      "sort": {
+        "lastCreated": "Zuletzt erstellt",
+        "lastUpdated": "Zuletzt aktualisiert",
+        "perPage": "Pro Seite"
+      },
+      "noResults": "Keine Ergebnisse gefunden",
+      "noResultsDescription": "Versuche nach einem anderen Begriff zu suchen oder schaue später noch einmal vorbei.",
+      "slug": {
+        "title": "{name} - Zen Mods",
+        "description": "Erfahre mehr über die {name} Mod, verfügbar für Zen Browser",
+        "alert": {
+          "description": "Du musst Zen Browser installiert haben, um dieses Theme zu installieren.",
+          "button": "Jetzt herunterladen!"
+        },
+        "createdBy": "Erstellt von {author} • <b>v{version}</b>",
+        "creationDate": "Erstellungsdatum: <b>{createdAt}</b>",
+        "latestUpdate": "Letztes Update: <b>{updatedAt}</b>",
+        "visitModHomepage": "Mod-Homepage besuchen",
+        "installMod": "Mod installieren 🎉",
+        "uninstallMod": "Mod deinstallieren",
+        "back": "Zurück"
+      }
+    },
+    "releaseNotes": {
+      "topSection": {
+        "title": "Änderungsprotokoll",
+        "description": "Bleibe auf dem Laufenden mit den neuesten Änderungen an Zen! Seit der <a class=\"zen-link\" href=\"#1.0.0-a.1\">ersten Veröffentlichung</a> bis zu <a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a> haben wir hart daran gearbeitet, Zen Browser zum Besten zu machen, was er sein kann. Danke an alle für euer Feedback! ❤️"
+      },
+      "list": {
+        "support": "Gib uns etwas Unterstützung!",
+        "navigateToVersion": "Zu Version navigieren..."
+      },
+      "itemType": {
+        "fix": "Behoben",
+        "feature": "Hinzugefügt",
+        "known": "Bekannt",
+        "break": "Breaking",
+        "theme": "Theme",
+        "security": "Sicherheit",
+        "change": "Änderung"
+      },
+      "backToTop": "Zurück nach oben",
+      "chooseVersion": "Version wählen",
+      "components": {
+        "releaseNoteItem": {
+          "twilight": "Twilight",
+          "twilightChanges": "Twilight-Änderungen",
+          "releaseChanges": "v{version}",
+          "firefoxVersion": "Firefox {version}",
+          "githubRelease": "GitHub-Release",
+          "workflowRun": "Workflow-Ausführung",
+          "compareChanges": "Änderungen vergleichen",
+          "twilightWarning": "Bitte beachte, dass Twilight eine Vorabversion von Zen Browser ist. Sie kann Fehler und unvollständige Funktionen enthalten.",
+          "reportIssues": " Falls du auf Probleme stößt, melde sie bitte auf <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">der Issues-Seite</a>.",
+          "learnMore": "Mehr erfahren",
+          "viewIssue": "Issue Nummer {issue} auf GitHub ansehen"
+        }
+      },
+      "slug": {
+        "title": "Release-Notizen",
+        "redirect": "Weiterleitung zu Release-Notizen für Version {version}..."
+      }
+    },
+    "about": {
+      "title": "Über Zen",
+      "description": "Wir sind einfach eine Gruppe von Entwicklern und Designern, denen deine Erfahrung im Web am Herzen liegt. Wir glauben, dass das Internet ein Ort sein sollte, an dem du erkunden, lernen und dich verbinden kannst, ohne dir Sorgen darüber machen zu müssen, dass deine Daten gesammelt werden.",
+      "littleHelp": "Ein bisschen Hilfe?",
+      "mainTeam": {
+        "title": "Hauptteam",
+        "description": "Diese Liste zeigt die Hauptteammitglieder, die hart daran arbeiten, dir das beste Browser-Erlebnis zu bieten.",
+        "subTitle": {
+          "browser": "Browser",
+          "website": "Website und Branding"
+        },
+        "members": {
+          "browser": {
+            "mauro": {
+              "name": "Mauro V.",
+              "description": "Erfinder, Hauptentwickler",
+              "link": "https://cheff.dev/"
+            },
+            "jan": {
+              "name": "Jan Heres",
+              "description": "Aktiver Mitwirkender und hilft bei MacOS-Builds",
+              "link": "https://janheres.eu/"
+            },
+            "bryan": {
+              "name": "Bryan Galdámez",
+              "description": "Großer Beitragender bei Theme-Funktionalitäten",
+              "link": "https://josuegalre.netlify.app/"
+            },
+            "oscar": {
+              "name": "Oscar Gonzalez",
+              "description": "Site Reliability Engineer (SRE) und Code-Signierung.",
+              "link": false
+            },
+            "daniel": {
+              "name": "Daniel García",
+              "description": "MacOS-Zertifikat und App-Notarisierungs-Maintainer",
+              "link": false
+            },
+            "brhm": {
+              "name": "BrhmDev",
+              "description": "Aktiver Mitwirkender mit großartigen Beiträgen",
+              "link": "https://github.com/BrhmDev"
+            },
+            "kristijanribaric": {
+              "name": "Kristijan Ribaric",
+              "description": "Aktiver Mitwirkender bei geteilten Ansichten / Arbeitsbereichen",
+              "link": "https://github.com/kristijanribaric"
+            },
+            "larvey": {
+              "name": "Larvey",
+              "description": "AUR-Maintainer",
+              "link": "https://github.com/LarveyOfficial/"
+            },
+            "studio": {
+              "name": "Studio Movie Girl",
+              "description": "Großer Beitragender beim Gradient-Generator",
+              "link": "https://github.com/neurokitti"
+            }
+          },
+          "website": {
+            "taroj1205": {
+              "name": "Shintaro Jokagi",
+              "description": "Kern-Website-Architekt, führt Refactoring und technische Verbesserungen an",
+              "link": "https://github.com/taroj1205"
+            },
+            "jace": {
+              "name": "Jace",
+              "description": "Trägt zu Website-Design und Branding bei",
+              "link": "https://x.com/JaceThings"
+            },
+            "canoa": {
+              "name": "Canoa",
+              "description": "Aktiver Mitwirkender und sehr aktiv bei Issue-Bearbeitung und Website-Management",
+              "link": "https://thatcanoa.org/"
+            },
+            "adam": {
+              "name": "Adam",
+              "description": "Branding und Design",
+              "link": "https://cybrneon.xyz/"
+            },
+            "n7itro": {
+              "name": "n7itro",
+              "description": "Aktiver Mitwirkender und Release-Notes-Autor",
+              "link": "https://github.com/n7itro"
+            },
+            "jafeth": {
+              "name": "Jafeth Garro",
+              "description": "Dokumentationsautor",
+              "link": "https://iamjafeth.com/"
+            }
+          }
+        }
+      },
+      "contributors": {
+        "title": "Mitwirkende",
+        "description": "Diese Liste zeigt die Mitwirkenden, die uns geholfen haben, Zen Browser zum Besten zu machen, was er sein kann.",
+        "browser": "Browser",
+        "website": "Website"
+      }
+    },
+    "donate": {
+      "title": "Spenden",
+      "description": "Wir sind ein kleines Team von Entwicklern, das hart daran arbeitet, dir das beste Browser-Erlebnis zu bieten. Falls dir gefällt, was wir tun, überlege bitte, uns zu unterstützen.",
+      "patreon": {
+        "title": "Patreon",
+        "description": "Patreon ermöglicht es dir, uns mit einer monatlichen Spende zu unterstützen. Du kannst das Unterstützungslevel wählen, das am besten für dich funktioniert.",
+        "button": "Zu Patreon"
+      },
+      "koFi": {
+        "title": "Ko-fi",
+        "description": "Ko-fi ermöglicht es dir, uns mit einer einmaligen Spende zu unterstützen. Du kannst den Betrag wählen, der am besten für dich funktioniert. Monatliche Spenden sind ebenfalls verfügbar.",
+        "button": "Zu Ko-fi"
+      }
+    },
+    "download": {
+      "title": "Beginne deine Reise",
+      "description": "Lade Zen für deine Plattform herunter und erlebe ein achtsameres Internet-Browsing-Erlebnis.<br/>Zen ist verfügbar für macOS, Windows und Linux.",
+      "twilightInfo": "Du bist derzeit im Twilight-Modus, das bedeutet, du lädst die neuesten experimentellen Funktionen und Updates herunter.",
+      "beta": "Zen befindet sich derzeit in ",
+      "otherDownload": "Falls dein Gerät falsch erkannt wurde, <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link'>siehe andere Downloads</a>.<br />Bitte melde alle Probleme, die du feststellst, auf <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>.",
+      "alertInfo": {
+        "description": "Du bist derzeit im Twilight-Modus, das bedeutet, du lädst die neuesten experimentellen Funktionen und Updates herunter."
+      },
+      "platformSelector": {
+        "title": "Plattform-Auswahl",
+        "description": "Wähle deine Plattform zum Herunterladen von Zen."
+      },
+      "additionalResources": {
+        "title": "Zusätzliche Ressourcen",
+        "sourceCode": {
+          "title": "Quellcode",
+          "description": "Erkunde Zens Quellcode auf GitHub. Trage zum Projekt bei oder erstelle deine eigene Version."
+        },
+        "documentation": {
+          "title": "Dokumentation",
+          "description": "Greife auf umfassende Dokumentation, Anleitungen und Tutorials für Zen zu."
+        }
+      },
+      "securityNotice": {
+        "title": "Verifizierte & sichere Downloads",
+        "description": "Alle Zen-Downloads sind signiert und für deine Sicherheit verifiziert. Wir empfehlen, direkt von unserer offiziellen Website oder dem GitHub-Repository herunterzuladen. Falls dein Download defekt zu sein scheint oder von deinem Antivirenprogramm markiert wird, <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>melde es uns bitte</a>."
+      },
+      "platformNames": {
+        "mac": "macOS",
+        "windows": "Windows",
+        "linux": "Linux"
+      },
+      "platformDescriptions": {
+        "mac": "Funktioniert sowohl auf neuen Apple (M-Serie) als auch älteren Intel Macs.<br />Erfordert macOS 11.0 oder neuer.",
+        "windows": "Funktioniert auf Windows 10 und Windows 11.<br />Nicht sicher, welche Version du benötigst? Die meisten Leute sollten den 64-Bit-Installer wählen.",
+        "linux": "Funktioniert mit vielen Linux-Versionen.<br />Wähle den Download, der zu deinem System passt."
+      },
+      "links": {
+        "macos": { "universal": "Universal" },
+        "windows": { "64bit": "64-Bit (Empfohlen)", "ARM64": "ARM64" },
+        "linux": {
+          "flathub": "Flathub",
+          "x86_64": "Tarball",
+          "aarch64": "Tarball"
+        }
+      },
+      "buttonCard": {
+        "copy": "Kopieren",
+        "showChecksum": "SHA-256 anzeigen",
+        "beta": "Beta"
+      }
+    },
+    "privacyPolicy": {
+      "title": "Datenschutzrichtlinie",
+      "lastUpdated": "Zuletzt aktualisiert: 2025-02-5",
+      "sections": {
+        "introduction": {
+          "title": "Einführung",
+          "body": "Willkommen bei Zen! Deine Privatsphäre ist unsere Priorität. Diese Datenschutzrichtlinie beschreibt die Art der persönlichen Informationen, die wir sammeln, wie wir sie verwenden und welche Schritte wir unternehmen, um deine Daten zu schützen, wenn du Zen verwendest.",
+          "summary": "Wir verkaufen keine Daten - Wir sammeln keine Daten - Wir verfolgen dich nicht"
+        },
+        "noCollect": {
+          "title": "1. Informationen, die wir NICHT sammeln",
+          "body": "Zen ist mit Fokus auf Privatsphäre entwickelt. Wir sammeln, speichern oder teilen keine deiner persönlichen Daten. Das bedeutet:"
+        },
+        "noTelemetry": {
+          "title": "1.1. Keine Telemetrie",
+          "body": "Wir sammeln keine Telemetriedaten oder Absturzberichte.",
+          "body2": "Zen hat die in Mozilla Firefox integrierte Telemetrie entfernt. Wir haben alle Telemetriedatensammlung und Absturzberichte entfernt."
+        },
+        "noPersonalData": {
+          "title": "1.2. Keine Sammlung persönlicher Daten",
+          "body": "Zen sammelt keine persönlichen Informationen wie deine IP-Adresse, Browserhistorie, Suchanfragen oder Formulardaten."
+        },
+        "noThirdParty": {
+          "title": "1.3. Kein Tracking durch Dritte",
+          "body": "Wir erlauben es keinen Drittanbieter-Trackern oder Analytics-Tools, innerhalb von Zen zu operieren. Deine Browser-Aktivität bleibt vollständig privat und wird nicht mit Dritten geteilt. Mozilla wird nicht als Drittanbieter betrachtet, da es die Basis von Zen ist."
+        },
+        "externalConnections": {
+          "title": "1.4. Externe Verbindungen beim Start",
+          "body": "Zen kann beim Start externe Verbindungen aufbauen, um nach Updates zu suchen und sicherzustellen, dass der Browser bei Plugins, Add-ons aktuell ist, Konnektivität prüft und Geolocation/Push-Benachrichtigungsdienste bereitstellt, um Web-Standards zu erfüllen. Wir bei Zen sammeln keine Daten aus diesen Verbindungen, aber sie können von Drittanbieterdiensten oder Websites, die du besuchst, protokolliert werden. Diese Verbindungen sind für das ordnungsgemäße Funktionieren des Browsers notwendig und werden nicht für Tracking oder Profiling verwendet. Sie können über die Browser-Flags (about:config) deaktiviert werden."
+        },
+        "localStorage": {
+          "title": "2. Informationen, die lokal auf deinem Gerät gespeichert werden"
+        },
+        "browsingData": {
+          "title": "2.1. Browser-Daten",
+          "body": "Zen speichert bestimmte Daten lokal auf deinem Gerät, um dein Browser-Erlebnis zu verbessern. Dazu gehören:"
+        },
+        "cookies": {
+          "title": "Cookies",
+          "body": "Cookies werden lokal auf deinem Gerät gespeichert und nicht mit Zen oder Dritten geteilt. Du hast vollständige Kontrolle über die Verwaltung von Cookies über die Browser-Einstellungen."
+        },
+        "cache": {
+          "title": "Cache und temporäre Dateien",
+          "body": "Zen kann Cache-Dateien und andere temporäre Daten lokal speichern, um die Leistung zu verbessern. Diese Dateien können jederzeit über die Browser-Einstellungen gelöscht werden."
+        },
+        "settings": {
+          "title": "2.2. Einstellungen und Präferenzen",
+          "body": "Alle Anpassungen, Einstellungen und Präferenzen, die du in Zen vornimmst, werden lokal auf deinem Gerät gespeichert. Wir haben keinen Zugang zu oder Kontrolle über diese Daten."
+        },
+        "sync": {
+          "title": "3. Synchronisierungsfunktion",
+          "body": "Zen bietet eine \"Sync\"-Funktion, die mithilfe von Mozilla Firefoxs Sync-Funktion implementiert ist. Diese Funktion ermöglicht es dir, deine Lesezeichen, Historie, Passwörter und andere Daten zwischen mehreren Geräten zu synchronisieren. Damit diese Funktion funktioniert, werden deine Daten verschlüsselt und auf Mozillas Servern gespeichert und gemäß deren Datenschutzrichtlinie behandelt. Wir bei Zen können diese Daten nicht einsehen.",
+          "link1": "Mozilla Firefox Sync",
+          "link2": "So speichern wir deine Passwörter"
+        },
+        "addons": {
+          "title": "4. Add-ons und \"Mods\"",
+          "body": "Du kannst Add-ons von addons.mozilla.org installieren. Zen prüft regelmäßig nach Updates für diese Add-ons.\nDu kannst auch \"Mods\" von zen-browser.app/mods installieren. Diese Mods werden von unseren Diensten gehostet und folgen derselben Datenschutzrichtlinie unserer Website. Wir sammeln keine Daten von diesen Mods, sie sind rein statischer Inhalt, der auf dein Gerät heruntergeladen wird."
+        },
+        "security": {
+          "title": "5. Datensicherheit",
+          "body": "Obwohl Zen deine Daten nicht sammelt, sind wir verpflichtet, die Informationen zu schützen, die lokal auf deinem Gerät gespeichert werden und, falls du die Sync-Funktion nutzt, die verschlüsselten Daten, die auf Mozillas Servern gespeichert sind. Wir empfehlen, dass du sichere Passwörter verwendest, Geräteverschlüsselung aktivierst und deine Software regelmäßig aktualisierst, um sicherzustellen, dass deine Daten sicher bleiben.",
+          "note": "Beachte, dass die meisten Sicherheitsmaßnahmen von Mozilla Firefox übernommen werden."
+        },
+        "control": {
+          "title": "6. Deine Kontrolle",
+          "deletionTitle": "6.1. Datenlöschung",
+          "deletionBody": "Du hast vollständige Kontrolle über alle Daten, die lokal von Zen auf deinem Gerät gespeichert werden. Du kannst deine Browser-Daten, Cookies und Cache jederzeit über die Browser-Einstellungen löschen."
+        },
+        "website": {
+          "title": "7. Unsere Website und Dienste",
+          "body": "Zens Website und Dienste verwenden keine Drittanbieter-Analytics, Tracking oder CDN-Dienste. Wir sammeln keine persönlichen Informationen von Nutzern, die unsere Website besuchen. Die Website wird auf Cloudflare gehostet, aber mit deaktivierten Analytics und Tracking. Cloudflare kann einige Analytics-Daten aus HTTP-Anfragen sammeln, um Sicherheits- und Leistungsverbesserungen bereitzustellen. Diese Daten sind jedoch nicht mit persönlichen Informationen verknüpft und werden nicht für Tracking-Zwecke verwendet.",
+          "externalLinksTitle": "7.1. Externe Links",
+          "externalLinksBody": "Zen kann Links zu externen Websites oder Diensten enthalten, die nicht von uns besessen oder betrieben werden. Wir sind nicht verantwortlich für den Inhalt oder die Datenschutzpraktiken dieser Seiten. Wir empfehlen, dass du die Datenschutzrichtlinien dieser Seiten überprüfst, bevor du ihnen persönliche Informationen zur Verfügung stellst."
+        },
+        "changes": {
+          "title": "8. Änderungen an dieser Datenschutzrichtlinie",
+          "body": "Wir können diese Datenschutzrichtlinie von Zeit zu Zeit aktualisieren, um Änderungen in unseren Praktiken oder rechtlichen Anforderungen zu reflektieren. Wir werden dich über bedeutende Änderungen informieren, indem wir das Datum oben in dieser Richtlinie aktualisieren. Die fortgesetzte Nutzung von Zen nach solchen Änderungen stellt deine Akzeptanz der neuen Bedingungen dar."
+        },
+        "otherTelemetry": {
+          "title": "9. Andere Telemetrie von Mozilla Firefox",
+          "body": "Wir versuchen, alle Telemetriedatensammlung in Zen zu deaktivieren. Aber wir könnten einige übersehen haben. Schaue dir die untenstehenden Links für weitere Informationen an.",
+          "firefoxPrivacyNotice": "Firefox Datenschutzhinweis",
+          "forMoreInformation": "für weitere Informationen."
+        },
+        "contact": {
+          "title": "10. Kontaktiere uns",
+          "body": "Falls du Fragen oder Bedenken zu dieser Datenschutzrichtlinie oder Zen hast, kontaktiere uns bitte unter:",
+          "discord": "Discord: ",
+          "discordLink": "Zens Discord",
+          "github": "GitHub: ",
+          "githubLink": "Organisation"
+        }
+      }
+    },
+    "welcome": {
+      "title": ["Willkommen ", "bei ", "Zen!"]
+    },
+    "whatsNew": {
+      "title": "Was ist neu in {latestVersion.version}!",
+      "reportIssue": "Ein Problem melden",
+      "joinDiscord": "Tritt unserem Discord bei",
+      "readFullReleaseNotes": "Vollständige Release-Notizen lesen"
+    },
+    "notFound": {
+      "title": "Seite nicht gefunden",
+      "description": "Entschuldigung, die Seite, die du suchst, existiert nicht oder wurde verschoben.",
+      "button": "Zur Startseite"
+    }
+  },
+  "layout": {
+    "index": {
+      "title": "Zen Browser",
+      "description": "Wunderschön gestaltet, datenschutzorientiert und voller Funktionen."
+    },
+    "mods": {
+      "title": "Zen Mods",
+      "description": "Durchstöbere unsere vielfältige Sammlung von Zen Mods, von der Community erstellte Plugins und Themes für Zen. Entdecke ein Theme für jede Stimmung und ein Plugin für jede Anforderung. Beginne noch heute damit, dein Browser-Erlebnis anzupassen!"
+    },
+    "releaseNotes": {
+      "title": "Release-Notizen - Zen",
+      "description": "Bleibe auf dem Laufenden mit den neuesten Änderungen an Zen! Seit der ersten Veröffentlichung bis zu {latestVersion} haben wir hart daran gearbeitet, Zen zum Besten zu machen, was er sein kann. Danke an alle für euer Feedback! ❤️"
+    },
+    "about": {
+      "title": "Über Zen",
+      "description": "Wir sind einfach eine Gruppe von Entwicklern und Designern, denen deine Erfahrung im Web am Herzen liegt. Wir glauben, dass das Internet ein Ort sein sollte, an dem du erkunden, lernen und dich verbinden kannst, ohne dir Sorgen darüber machen zu müssen, dass deine Daten gesammelt werden."
+    },
+    "donate": {
+      "title": "Spenden - Zen",
+      "description": "Wir sind ein kleines Team von Entwicklern, das hart daran arbeitet, dir das beste Browser-Erlebnis zu bieten. Falls dir das gefällt, würden wir uns über eine Spende freuen."
+    },
+    "download": {
+      "title": "Download - Zen",
+      "description": "Lade Zen für deine Plattform herunter und erlebe eine achtsamere Internet-Browsing-Erfahrung."
+    },
+    "privacyPolicy": {
+      "title": "Datenschutzerklärung - Zen",
+      "description": "Deine Privatsphäre hat für uns Priorität. Diese Datenschutzerklärung beschreibt, welche persönlichen Daten wir sammeln, wie wir sie verwenden und welche Schritte wir unternehmen, um deine Daten zu schützen, wenn du Zen verwendest."
+    },
+    "welcome": {
+      "title": "Willkommen!",
+      "description": "Willkommen bei Zen!"
+    },
+    "whatsNew": {
+      "title": "Was ist neu in {latestVersion.version}!"
+    }
+  },
+  "components": {
+    "footer": {
+      "title": "Zen Browser",
+      "description": "Wunderschön gestaltet, datenschutzorientiert und voller Funktionen. Uns liegt deine Erfahrung am Herzen, nicht deine Daten.",
+      "download": "Download",
+      "followUs": "Folge uns",
+      "aboutUs": "Über uns",
+      "teamAndContributors": "Team & Mitwirkende",
+      "privacyPolicy": "Datenschutzerklärung",
+      "getStarted": "Loslegen",
+      "documentation": "Dokumentation",
+      "zenMods": "Zen Mods",
+      "releaseNotes": "Versionshinweise",
+      "getHelp": "Hilfe erhalten",
+      "securtiy": "Sicherheit",
+      "discord": "Discord",
+      "uptimeStatus": "Verfügbarkeitsstatus",
+      "reportAnIssue": "Problem melden",
+      "twilight": "Twilight",
+      "madeWith": "Mit <span aria-label='Liebe'>❤️</span> vom <a href='{link}' class='zen-link inline-block font-bold'>Zen Team</a>"
+    },
+    "nav": {
+      "brand": "Zen Browser",
+      "menu": {
+        "gettingStarted": "Loslegen",
+        "resources": "Ressourcen",
+        "mods": "Mods",
+        "download": "Download",
+        "discord": "Discord",
+        "releaseNotes": "Versionshinweise",
+        "zenMods": "Zen Mods",
+        "tryZenMods": "Zen Mods ausprobieren",
+        "zenModsDesc": "Passe dein Browser-Erlebnis mit Zen Mods an.",
+        "releaseNotesDesc": "Bleibe auf dem Laufenden über die neuesten Funktionen und Verbesserungen.",
+        "discordDesc": "Tritt unserer Community auf Discord bei und chatte mit anderen Zen-Nutzern!",
+        "donate": "Spenden ❤️",
+        "donateDesc": "Unterstütze die Entwicklung von Zen mit einer Spende.",
+        "aboutUs": "Über uns",
+        "aboutUsDesc": "Erfahre mehr über das Team hinter Zen.",
+        "documentation": "Dokumentation",
+        "documentationDesc": "Lerne mit unserer Dokumentation, wie du Zen verwendest.",
+        "github": "GitHub",
+        "githubDesc": "Beteilige dich an der Entwicklung von Zen auf GitHub.",
+        "menu": "Menü"
+      }
+    }
+  }
+}
