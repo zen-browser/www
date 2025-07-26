@@ -43,11 +43,16 @@ const socialMediaLinks = [
 ]
 ---
 
-<ul class={cn('flex items-center gap-4 opacity-80', className)} {...props}>
+<ul class={cn('flex items-center gap-4', className)} {...props}>
   {
     socialMediaLinks.map(({ href, ariaLabel, icon }) => (
       <li>
-        <a href={href} target="_blank" class="font-normal hover:opacity-50" aria-label={ariaLabel}>
+        <a
+          href={href}
+          target="_blank"
+          class="font-normal opacity-80 hover:opacity-100"
+          aria-label={ariaLabel}
+        >
           <Fragment set:html={icon.html} />
         </a>
       </li>
