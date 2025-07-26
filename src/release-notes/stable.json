@@ -2871,7 +2871,7 @@
     "extra": "",
     "fixes": [
       "Improved default colors for the color picker.",
-      "Fixed various issues in various places"
+      "Fixed various issues in various places."
     ],
     "features": [],
     "workflowId": 16166003695,
@@ -2891,12 +2891,46 @@
     "version": "1.14.5b",
     "extra": "",
     "fixes": [
-      "Fixed compact mode turning off when restoring windows",
-      "Fixed accessibility issues when using custom colors"
+      "Fixed compact mode turning off when restoring windows.",
+      "Fixed accessibility issues when using custom color."
     ],
     "features": [],
     "workflowId": 16253635838,
     "image": false,
     "date": "14/07/2025"
+  },
+  {
+    "version": "1.14.6b",
+    "extra": "Lots of performance improvements and nice stability fixes!",
+    "fixes": [
+      "Image caching and scroll optimization issues.",
+      "A bug where adding or removing colors in the color picker would make the UI white.",
+      "On Linux, Zen uses less memory and no longer requires a forced restart after an update has been applied by a package manager.",
+      "'Copy calculation' in the URL bar not working."
+    ],
+    "features": [
+      "Updated to Firefox 141.0.",
+      "Improved accent color detection, making elements such as toasts more vibrant.",
+      "Added a better custom color picker (experimental UI, might change).",
+      "Improved and optimized the Glance animations and UI.",
+      "WebGPU is now enabled by default on Windows.",
+      "A more native feel to Windows 11 window buttons."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-56/",
+    "workflowId": 16501636155,
+    "image": false,
+    "date": "25/07/2025"
+  },
+  {
+    "version": "1.14.7b",
+    "extra": "",
+    "fixes": [
+      "Fixed an issue when changing workspaces not changing tabs",
+      "Fixed native windows caption buttons displaying the grid display dialog even if it's hidden"
+    ],
+    "features": [],
+    "workflowId": 16519901845,
+    "image": false,
+    "date": "25/07/2025"
   }
 ]
