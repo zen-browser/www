@@ -2925,8 +2925,8 @@
     "version": "1.14.7b",
     "extra": "",
     "fixes": [
-      "Fixed an issue when changing workspaces not changing tabs",
-      "Fixed native windows caption buttons displaying the grid display dialog even if it's hidden"
+      "Fixed an issue where changing workspaces doesn't change tabs.",
+      "Fixed native Windows caption buttons displaying the grid display dialog even if it's hidden."
     ],
     "features": [],
     "workflowId": 16519901845,
@@ -2937,8 +2937,8 @@
     "version": "1.14.8b",
     "extra": "",
     "fixes": [
-      "Fixed glance cancelation button not working",
-      "Fixed urlbar having multiple arrows when switching tabs"
+      "Fixed the Glance cancelation button not working.",
+      "Fixed the URL bar having multiple arrows when switching tabs."
     ],
     "features": [],
     "workflowId": 16539026644,
@@ -2948,7 +2948,7 @@
   {
     "version": "1.14.9b",
     "extra": "",
-    "fixes": ["A regression with closing glance that appeared in previous versions"],
+    "fixes": ["A regression with closing Glance that appeared in previous versions."],
     "features": [],
     "workflowId": 16543924459,
     "image": false,
