@@ -1,5 +1,6 @@
 {
   "$schema": "https://turborepo.com/schema.json",
+  "globalPassThroughEnv": ["PLAYWRIGHT_*"],
   "tasks": {
     "dev": {
       "cache": false,
@@ -33,7 +34,6 @@
     },
     "test:playwright": {
       "cache": true,
-      "dependsOn": ["build"],
       "inputs": ["src"],
       "outputs": ["playwright-report/**", "test-results/**"]
     }

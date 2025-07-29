@@ -9,10 +9,10 @@
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro preview --port 3000",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview --port 3000",
     "wrangler": "wrangler",
-    "astro": "astro",
+    "typecheck": "astro check",
     "lint": "eslint . --max-warnings=0 --cache",
     "lint:fix": "eslint . --fix",
     "spell": "cspell \"**/*.{ts,tsx,js,jsx,astro,md,json,yml,yaml}\"",
