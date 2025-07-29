@@ -1,14 +1,12 @@
 ---
-import h3 from '~/components/Description.astro'
+import Image from 'astro/components/Image.astro'
+import blacksmithLogo from '~/assets/sponsors/blacksmith-logo-dark.svg'
+import crowdinLogo from '~/assets/sponsors/crowdin-logo-dark.svg'
+import tutaLogo from '~/assets/sponsors/tutaLogo-dark.svg'
 import { getLocale, getUI } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
 
-import tutaLogo from '~/assets/sponsors/tutaLogo-dark.svg'
-import blacksmithLogo from '~/assets/sponsors/blacksmith-logo-dark.svg'
-import crowdinLogo from '~/assets/sponsors/crowdin-logo-dark.svg'
-
-import Image from 'astro/components/Image.astro'
 const { showSponsors = true } = Astro.props
 
 const {
