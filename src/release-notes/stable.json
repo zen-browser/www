@@ -2944,5 +2944,14 @@
     "workflowId": 16539026644,
     "image": false,
     "date": "26/07/2025"
+  },
+  {
+    "version": "1.14.9b",
+    "extra": "",
+    "fixes": ["A regression with closing glance that appeared in previous versions"],
+    "features": [],
+    "workflowId": 16543924459,
+    "image": false,
+    "date": "27/07/2025"
   }
 ]
