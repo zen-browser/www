@@ -14,3 +14,13 @@ This repository contains the source code for the Zen Browser Website. We are thr
 Zen Browser's website is built with [Astro.js](https://astro.build/), [TypeScript](https://www.typescriptlang.org/), and [Tailwind CSS](https://tailwindcss.com/).
 
 If you are interested in contributing to this project, please read the [Contributing Guidelines](https://docs.zen-browser.app/contribute/www).
+
+## Star History
+
+<a href="https://www.star-history.com/#zen-browser/www&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=zen-browser/www&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=zen-browser/www&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=zen-browser/www&type=Date" />
+ </picture>
+</a>
