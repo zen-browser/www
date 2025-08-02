@@ -2937,7 +2937,7 @@
     "version": "1.14.8b",
     "extra": "",
     "fixes": [
-      "Fixed the Glance cancelation button not working.",
+      "Fixed the Glance cancellation button not working.",
       "Fixed the URL bar having multiple arrows when switching tabs."
     ],
     "features": [],
