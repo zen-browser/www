@@ -2953,5 +2953,14 @@
     "workflowId": 16543924459,
     "image": false,
     "date": "27/07/2025"
+  },
+  {
+    "version": "1.14.10b",
+    "extra": "",
+    "fixes": ["Fixed hovering over the tabs in compact mode having weird behavior on windows."],
+    "features": ["New windows should be opening faster now."],
+    "workflowId": 16704215673,
+    "image": false,
+    "date": "04/08/2025"
   }
 ]
