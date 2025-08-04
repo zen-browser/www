@@ -2959,7 +2959,7 @@
     "extra": "",
     "fixes": ["Fixed hovering over the tabs in compact mode having weird behavior on windows."],
     "features": ["New windows should be opening faster now."],
-    "workflowId": 16726137373,
+    "workflowId": 16726691771,
     "image": false,
     "date": "04/08/2025"
   }
