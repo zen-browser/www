@@ -69,6 +69,8 @@ export const i18nSchema = type
           description: 'string',
           sponsors: {
             tuta: 'Sponsor',
+            blacksmith: 'Sponsor',
+            crowdin: 'Sponsor',
           },
         },
         community: {
@@ -205,6 +207,8 @@ export const i18nSchema = type
         title: 'string',
         description: 'string',
         twilightInfo: 'string',
+        beta: 'string',
+        otherDownload: 'string',
         alertInfo: {
           description: 'string',
         },
@@ -231,9 +235,6 @@ export const i18nSchema = type
           mac: 'string',
           windows: 'string',
           linux: 'string',
-          macDownload: 'string',
-          windowsDownload: 'string',
-          linuxDownload: 'string',
         },
         platformDescriptions: {
           mac: 'string',
@@ -405,6 +406,7 @@ export const i18nSchema = type
         discord: 'string',
         uptimeStatus: 'string',
         reportAnIssue: 'string',
+        security: 'string',
         twilight: 'string',
         madeWith: 'string',
       },
