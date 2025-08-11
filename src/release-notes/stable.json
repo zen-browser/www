@@ -2962,5 +2962,14 @@
     "workflowId": 16726691771,
     "image": false,
     "date": "04/08/2025"
+  },
+  {
+    "version": "1.14.11b",
+    "extra": "Just a small update since we are focusing on folders! now on twilight.",
+    "fixes": ["Fixed the download having poor visibility"],
+    "features": ["Updated to Firefox 141.0.3"],
+    "workflowId": 16847611692,
+    "image": false,
+    "date": "10/08/2025"
   }
 ]
