@@ -61,7 +61,7 @@ export function getReleasesWithChecksums(locale: Locale) {
   }
 }
 
-export function getReleases(locale: string) {
+export function getReleases(locale: Locale) {
   const {
     routes: {
       download: {

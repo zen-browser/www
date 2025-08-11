@@ -49,6 +49,14 @@
           "tuta": {
             "name": "Tuta",
             "url": "https://tuta.com/"
+          },
+          "blacksmith": {
+            "name": "BlackSmith",
+            "url": "https://www.blacksmith.sh/"
+          },
+          "crowdin": {
+            "name": "Crowdin",
+            "url": "https://crowdin.com/"
           }
         }
       },
@@ -109,7 +117,7 @@
     },
     "releaseNotes": {
       "topSection": {
-        "title": "Changelog",
+        "title": "Registro de cambios",
         "description": "Mantente al día con los últimos cambios en Zen. Desde la <a class=\"zen-link\" href=\"#1.0.0-a.1\">primera versión</a> hasta <a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>, hemos estado trabajando arduamente para hacer de Zen lo mejor posible. ¡Gracias a todos por sus comentarios! ❤️"
       },
       "list": {
@@ -133,8 +141,8 @@
           "twilightChanges": "Cambios de Twilight",
           "releaseChanges": "v{version}",
           "firefoxVersion": "Firefox {version}",
-          "githubRelease": "GitHub Release",
-          "workflowRun": "Workflow run",
+          "githubRelease": "Lanzamiento en GitHub",
+          "workflowRun": "Ejecución del flujo de trabajo",
           "compareChanges": "Comparar cambios",
           "twilightWarning": "Ten en cuenta que Twilight es una versión preliminar de Zen. Puede contener errores y funcionalidades incompletas.",
           "reportIssues": " Si encuentras algún problema, infórmalo en <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">la página de problemas</a>.",
@@ -265,6 +273,8 @@
       "title": "Descargar Zen",
       "description": "Descarga Zen para tu plataforma y experimenta una experiencia de navegación por Internet más consciente. Todas las descargas incluyen sumas de verificación SHA256 para verificación.",
       "twilightInfo": "Actualmente estás en modo Twilight, lo que significa que estás descargando las últimas funcionalidades y actualizaciones experimentales.",
+      "beta": "Zen está actualmente en ",
+      "otherDownload": "Si tu dispositivo ha sido detectado incorrectamente, <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link'>mira otras descargas</a>.<br />Por favor, infórmanos sobre cualquier problema que encuentres en <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>.",
       "alertInfo": {
         "description": "<strong class='font-medium text-zen-blue'>Modo Twilight:</strong> Actualmente estás en modo Twilight, lo que significa que estás descargando las últimas funcionalidades y actualizaciones experimentales."
       },
@@ -290,10 +300,7 @@
       "platformNames": {
         "mac": "MacOS",
         "windows": "Windows",
-        "linux": "Linux",
-        "macDownload": "Descarga de MacOS",
-        "windowsDownload": "Descarga de Windows",
-        "linuxDownload": "Descarga de Linux"
+        "linux": "Linux"
       },
       "platformDescriptions": {
         "mac": "Funciona en nuevos Macs de Apple (M-Series) y en Macs Intel más antiguos.<br />Requiere macOS 11.0 o posterior.",
@@ -479,6 +486,7 @@
       "discord": "Discord",
       "uptimeStatus": "Disponibilidad",
       "reportAnIssue": "Reportar un Problema",
+      "security": "Seguridad",
       "twilight": "Twilight",
       "madeWith": "Hecho con <span aria-label='love'>❤️</span> por el <a href='{link}' class='zen-link inline-block font-bold'>Equipo de Zen</a>"
     },
