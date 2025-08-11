@@ -1,16 +1,15 @@
 ---
+import { icon, library } from '@fortawesome/fontawesome-svg-core'
+import { faApple, faGithub, faLinux, faWindows } from '@fortawesome/free-brands-svg-icons'
+import Image from 'astro/components/Image.astro'
+import AppIconDark from '~/assets/app-icon-dark.png'
+import AppIconLight from '~/assets/app-icon-light.png'
 import Description from '~/components/Description.astro'
 import DownloadScript from '~/components/download/DownloadScript.astro'
 import PlatformDownload from '~/components/download/PlatformDownload.astro'
-import { getReleasesWithChecksums } from '~/components/download/release-data'
+import { getReleases } from '~/components/download/release-data'
 import Layout from '~/layouts/Layout.astro'
-import { getChecksums } from '~/utils/githubChecksums'
 import { getLocale, getUI } from '~/utils/i18n'
-
-import { icon, library } from '@fortawesome/fontawesome-svg-core'
-import { faApple, faGithub, faLinux, faWindows } from '@fortawesome/free-brands-svg-icons'
-import ExternalLinkIcon from '~/icons/ExternalLink.astro'
-import LockIcon from '~/icons/LockIcon.astro'
 
 export { getStaticPaths } from '~/utils/i18n'
 
@@ -24,28 +23,39 @@ library.add(faWindows, faLinux, faApple, faGithub)
 const windowsIcon = icon({ prefix: 'fab', iconName: 'windows' })
 const linuxIcon = icon({ prefix: 'fab', iconName: 'linux' })
 const appleIcon = icon({ prefix: 'fab', iconName: 'apple' })
-const githubIcon = icon({ prefix: 'fab', iconName: 'github' })
 
-const checksums = await getChecksums()
-const releases = getReleasesWithChecksums(locale)(checksums)
+const releases = getReleases(locale)
 
-const platformNames = download.platformNames
 const platformDescriptions = download.platformDescriptions
 ---
 
 <DownloadScript />
 
 <Layout title={layout.download.title} description={layout.download.description}>
-  <main class="flex min-h-screen flex-col px-6 data-[os='windows']:bg-zen-blue">
-    <div class="container relative mx-auto py-12">
-      <div class="mb-6 mt-12 flex flex-col gap-4">
-        <Description id="download-title" class="text-6xl font-bold">{download.title}</Description>
-        <Description class="max-w-xl text-pretty">
-          {download.description}
+  <main class="mt-48 flex flex-col px-6 data-[os='windows']:bg-zen-blue">
+    <div class="container relative mx-auto pb-48">
+      <div class="mb-6 flex flex-col gap-4">
+        <div class="download-browser-logo mx-auto">
+          <Image
+            src={AppIconDark}
+            alt="Zen Browser"
+            class="w-32 translate-y-3 transform dark:hidden"
+          />
+          <Image
+            src={AppIconLight}
+            alt="Zen Browser"
+            class="hidden w-32 translate-y-3 transform dark:block"
+          />
+        </div>
+        <Description id="download-title" class="mx-auto max-w-3xl text-center text-6xl font-bold"
+          >{download.title}</Description
+        >
+        <Description class="mx-auto text-pretty text-center">
+          <Fragment set:html={download.description} />
         </Description>
         <div
           id="twilight-info"
-          class="hidden max-w-xl items-center justify-center gap-3 text-pretty rounded-xl border border-zen-blue/20 bg-zen-blue/5 p-4 text-left data-[twilight='true']:flex"
+          class="mx-auto hidden max-w-xl items-center justify-center gap-3 text-pretty rounded-xl border border-zen-blue/20 bg-zen-blue/5 p-4 text-left text-center data-[twilight='true']:flex"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,140 +75,72 @@ const platformDescriptions = download.platformDescriptions
         </div>
       </div>
 
-      <!-- Platform selector -->
-      <div class="mb-6 flex">
-        <div
-          class="inline-flex rounded-3xl bg-[rgba(255,255,255,0.4)] p-2 shadow-md dark:bg-[rgba(0,0,0,0.3)] dark:shadow-sm"
-        >
-          <button
-            class="platform-selector rounded-2xl px-5 py-2.5 transition-all duration-200 data-[active='true']:bg-subtle"
-            data-platform="mac"
-          >
-            <span class="flex items-center gap-2">
-              <Fragment set:html={appleIcon.html} />
-              <span>{platformNames.mac}</span>
-            </span>
-          </button>
-          <button
-            class="platform-selector rounded-2xl px-5 py-2.5 transition-all duration-200 data-[active='true']:bg-subtle"
-            data-platform="windows"
-          >
-            <span class="flex items-center gap-2">
-              <Fragment set:html={windowsIcon.html} />
-              <span>{platformNames.windows}</span>
-            </span>
-          </button>
-          <button
-            class="platform-selector rounded-2xl px-5 py-2.5 transition-all duration-200 data-[active='true']:bg-subtle"
-            data-platform="linux"
-          >
-            <span class="flex items-center gap-2">
-              <Fragment set:html={linuxIcon.html} />
-              <span>{platformNames.linux}</span>
-            </span>
-          </button>
-        </div>
-      </div>
-
       <!-- Download Cards -->
-      <div
-        class="relative mb-16 overflow-hidden rounded-3xl bg-[rgba(255,255,255,0.4)] p-8 shadow-xl md:p-10 dark:bg-[rgba(0,0,0,0.3)]"
-      >
+      <div class="relative overflow-hidden">
         <!-- MacOS Download -->
         <PlatformDownload
           platform="mac"
           icon={appleIcon.html}
-          title={platformNames.macDownload}
           description={platformDescriptions.mac}
           releases={releases.macos}
+          cpu="x86_64"
         />
+
+        <PlatformDownload
+          platform="mac"
+          icon={appleIcon.html}
+          description={platformDescriptions.mac}
+          releases={releases.macos}
+          cpu="arm64"
+        />
+
         <!-- Windows Download -->
         <PlatformDownload
           platform="windows"
           icon={windowsIcon.html}
-          title={platformNames.windowsDownload}
           description={platformDescriptions.windows}
           releases={releases.windows}
+          cpu="x86_64"
+        />
+
+        <PlatformDownload
+          platform="windows"
+          icon={windowsIcon.html}
+          description={platformDescriptions.windows}
+          releases={releases.windows}
+          cpu="arm64"
         />
 
         <!-- Linux Download -->
         <PlatformDownload
           platform="linux"
           icon={linuxIcon.html}
-          title={platformNames.linuxDownload}
           description={platformDescriptions.linux}
           releases={releases.linux}
+          cpu="x86_64"
+        />
+
+        <PlatformDownload
+          platform="linux"
+          icon={linuxIcon.html}
+          description={platformDescriptions.linux}
+          releases={releases.linux}
+          cpu="aarch64"
         />
       </div>
 
-      <!-- Additional resources -->
-      <section class="mb-16">
-        <h2 class="mb-4 text-3xl font-semibold">
-          {download.additionalResources.title}
-        </h2>
-
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-          <a
-            href="https://github.com/zen-browser"
-            class="group rounded-2xl bg-[rgba(255,255,255,0.4)] p-6 transition-all duration-300 hover:shadow-lg dark:bg-[rgba(0,0,0,0.3)]"
+      <div class="mt-20 flex flex-col items-center justify-center gap-2 text-center">
+        <div class="flex cursor-default items-center justify-center gap-3 text-sm font-bold">
+          {download.beta}
+          <span
+            class="leading-20 caption inline-block flex h-6 items-center rounded-md border border-dark px-2 text-xs"
+            >BETA</span
           >
-            <div class="flex items-start justify-between">
-              <div>
-                <h3 class="mb-2 text-xl font-medium">
-                  {download.additionalResources.sourceCode.title}
-                </h3>
-                <p class="text-muted-foreground">
-                  {download.additionalResources.sourceCode.description}
-                </p>
-              </div>
-              <div
-                class="grid aspect-square h-12 w-12 place-items-center rounded-xl border border-subtle transition-all duration-100 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-10"
-              >
-                <div
-                  class="text-muted-foreground transition-all duration-200 group-hover:text-coral"
-                >
-                  <Fragment set:html={githubIcon.html} />
-                </div>
-              </div>
-            </div>
-          </a>
-
-          <a
-            href="https://docs.zen-browser.app"
-            class="group rounded-2xl bg-[rgba(255,255,255,0.4)] p-6 transition-all duration-200 hover:shadow-lg dark:bg-[rgba(0,0,0,0.3)]"
-          >
-            <div class="flex items-start justify-between">
-              <div>
-                <h3 class="mb-2 text-xl font-medium">
-                  {download.additionalResources.documentation.title}
-                </h3>
-                <p class="text-muted-foreground">
-                  {download.additionalResources.documentation.description}
-                </p>
-              </div>
-              <div
-                class="rounded-xl border border-subtle p-3 transition-all duration-100 hover:bg-coral hover:bg-opacity-10 group-hover:border-coral group-hover:border-opacity-20"
-              >
-                <ExternalLinkIcon
-                  class="h-5 w-5 transition-all duration-200 group-hover:text-coral"
-                />
-              </div>
-            </div>
-          </a>
         </div>
-      </section>
-
-      <!-- Security Notice -->
-      <div class="grid grid-cols-[auto,1fr] gap-4 rounded-2xl bg-subtle bg-opacity-10 p-6">
-        <div class="h-fit rounded-xl bg-subtle p-3">
-          <LockIcon class="h-5 w-5" />
-        </div>
-
-        <div>
-          <h3 class="mb-2 text-lg font-medium">
-            {download.securityNotice.title}
-          </h3>
-          <p class="text-muted-foreground" set:html={download.securityNotice.description} />
+        <div
+          class="max-w-[55ch] cursor-default text-balance text-sm font-normal text-black/50 dark:text-white/50"
+        >
+          <Fragment set:html={download.otherDownload} />
         </div>
       </div>
     </div>

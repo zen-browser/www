@@ -60,3 +60,52 @@ export function getReleasesWithChecksums(locale: Locale) {
     }
   }
 }
+
+export function getReleases(locale: string) {
+  const {
+    routes: {
+      download: {
+        links: { macos, windows, linux },
+      },
+    },
+  } = getUI(locale)
+
+  return {
+    macos: {
+      universal: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.macos-universal.dmg',
+        label: macos.universal,
+      },
+    },
+    windows: {
+      x86_64: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.installer.exe',
+        label: windows['64bit'],
+      },
+      arm64: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.installer-arm64.exe',
+        label: windows.ARM64,
+      },
+    },
+    linux: {
+      x86_64: {
+        tarball: {
+          link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-x86_64.tar.xz',
+          label: linux.x86_64,
+        },
+      },
+      aarch64: {
+        tarball: {
+          link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-aarch64.tar.xz',
+          label: linux.aarch64,
+        },
+      },
+      flathub: {
+        all: {
+          link: 'https://flathub.org/apps/app.zen_browser.zen',
+          label: linux.flathub,
+        },
+      },
+    },
+  }
+}

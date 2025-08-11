@@ -24,9 +24,11 @@ const {
       class="flex w-full flex-col gap-4 text-center lg:w-1/2 lg:text-left"
       aria-labelledby="footer-title"
     >
-      <Description id="footer-title" class="text-6xl font-bold !text-paper"
-        >{footer.title}</Description
-      >
+      <a href="/">
+        <Description id="footer-title" class="text-6xl font-bold !text-paper"
+          >{footer.title}</Description
+        >
+      </a>
       <Description class="mx-auto max-w-xl lg:mx-0">
         {footer.description}
       </Description>
@@ -113,6 +115,11 @@ const {
             <li>
               <a href="https://github.com/zen-browser/desktop/issues/new/choose" class="font-normal"
                 >{footer.reportAnIssue}</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/zen-browser/desktop/security/policy" class="font-normal"
+                >{footer.securtiy}</a
               >
             </li>
           </ul>

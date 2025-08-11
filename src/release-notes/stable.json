@@ -2821,5 +2821,155 @@
     "workflowId": 15668398583,
     "image": false,
     "date": "16/06/2025"
+  },
+  {
+    "version": "1.14b",
+    "extra": "",
+    "fixes": [
+      "Fixed visual twitching when cancelling a drag-to-split operation.",
+      "Resolved an issue with tab switching when tabs overflow the toolbar."
+    ],
+    "features": [
+      "Upgraded to Firefox 140.0.2.",
+      "Introduced a refreshed look and feel for the color picker.",
+      "Added automatic dark/light mode detection based on the browser's background.",
+      "Improved gradient rendering to reduce dithering artifacts.",
+      "Moved mods to a C++ backend for enhanced performance, stability, and caching.",
+      "Made workspace swiping smoother with animated background transitions and improved responsiveness.",
+      "Simplified the compact mode toggle: now a single button replaces the previous submenu in single-toolbar setups.",
+      "The Add-ons button can now be removed from the toolbar."
+    ],
+    "changes": [
+      "Legacy customization styles are now disabled by default for new users unless a `userChrome.css` file is present.",
+      "New user profiles now have container-specific essentials enabled by default."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-51/",
+    "workflowId": 15953789168,
+    "image": false,
+    "date": "29/06/2025"
+  },
+  {
+    "version": "1.14.1b",
+    "extra": "",
+    "fixes": ["Fixed a crash with third-party tools."],
+    "features": [],
+    "workflowId": 15985890220,
+    "image": false,
+    "date": "01/07/2025"
+  },
+  {
+    "version": "1.14.2b",
+    "extra": "",
+    "fixes": ["Fixed an issue when disabling mods."],
+    "features": [],
+    "workflowId": 16058435355,
+    "image": false,
+    "date": "03/07/2025"
+  },
+  {
+    "version": "1.14.3b",
+    "extra": "",
+    "fixes": [
+      "Improved default colors for the color picker.",
+      "Fixed various issues in various places."
+    ],
+    "features": [],
+    "workflowId": 16166003695,
+    "image": false,
+    "date": "09/07/2025"
+  },
+  {
+    "version": "1.14.4b",
+    "extra": "",
+    "fixes": ["The color picker turning colors into a white background."],
+    "features": [],
+    "workflowId": 16204894193,
+    "image": false,
+    "date": "10/07/2025"
+  },
+  {
+    "version": "1.14.5b",
+    "extra": "",
+    "fixes": [
+      "Fixed compact mode turning off when restoring windows.",
+      "Fixed accessibility issues when using custom color."
+    ],
+    "features": [],
+    "workflowId": 16253635838,
+    "image": false,
+    "date": "14/07/2025"
+  },
+  {
+    "version": "1.14.6b",
+    "extra": "Lots of performance improvements and nice stability fixes!",
+    "fixes": [
+      "Image caching and scroll optimization issues.",
+      "A bug where adding or removing colors in the color picker would make the UI white.",
+      "On Linux, Zen uses less memory and no longer requires a forced restart after an update has been applied by a package manager.",
+      "'Copy calculation' in the URL bar not working."
+    ],
+    "features": [
+      "Updated to Firefox 141.0.",
+      "Improved accent color detection, making elements such as toasts more vibrant.",
+      "Added a better custom color picker (experimental UI, might change).",
+      "Improved and optimized the Glance animations and UI.",
+      "WebGPU is now enabled by default on Windows.",
+      "A more native feel to Windows 11 window buttons."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-56/",
+    "workflowId": 16501636155,
+    "image": false,
+    "date": "25/07/2025"
+  },
+  {
+    "version": "1.14.7b",
+    "extra": "",
+    "fixes": [
+      "Fixed an issue where changing workspaces doesn't change tabs.",
+      "Fixed native Windows caption buttons displaying the grid display dialog even if it's hidden."
+    ],
+    "features": [],
+    "workflowId": 16519901845,
+    "image": false,
+    "date": "25/07/2025"
+  },
+  {
+    "version": "1.14.8b",
+    "extra": "",
+    "fixes": [
+      "Fixed the Glance cancellation button not working.",
+      "Fixed the URL bar having multiple arrows when switching tabs."
+    ],
+    "features": [],
+    "workflowId": 16539026644,
+    "image": false,
+    "date": "26/07/2025"
+  },
+  {
+    "version": "1.14.9b",
+    "extra": "",
+    "fixes": ["A regression with closing Glance that appeared in previous versions."],
+    "features": [],
+    "workflowId": 16543924459,
+    "image": false,
+    "date": "27/07/2025"
+  },
+  {
+    "version": "1.14.10b",
+    "extra": "",
+    "fixes": ["Fixed hovering over the tabs in compact mode having weird behavior on windows."],
+    "features": ["New windows should be opening faster now.", "Updated to Firefox 141.0.2"],
+    "workflowId": 16726691771,
+    "image": false,
+    "date": "04/08/2025"
+  },
+  {
+    "version": "1.14.11b",
+    "extra": "Just a small update since we are focusing on folders! now on twilight.",
+    "fixes": ["Fixed the download having poor visibility"],
+    "features": ["Updated to Firefox 141.0.3"],
+    "workflowId": 16847611692,
+    "image": false,
+    "date": "10/08/2025"
   }
 ]

@@ -49,6 +49,14 @@
           "tuta": {
             "name": "Tuta",
             "url": "https://tuta.com/"
+          },
+          "blacksmith": {
+            "name": "BlackSmith",
+            "url": "https://www.blacksmith.sh/"
+          },
+          "crowdin": {
+            "name": "Crowdin",
+            "url": "https://crowdin.com/"
           }
         }
       },
@@ -262,11 +270,13 @@
       }
     },
     "download": {
-      "title": "Zenをダウンロードする",
+      "title": "Ready to experience Zen?",
       "description": "お使いのプラットフォーム向けにZenをダウンロード。すべてのダウンロードにはSHA256チェックサムが含まれています",
       "twilightInfo": "現在Twilightモードです。最新の実験的機能とアップデートをダウンロードしています。",
+      "beta": "Zen is currently in ",
+      "otherDownload": "If your device got wrongly detected, <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link ml-[1px]'>see other downloads</a>.<br />Please report any issues you encounter on <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>.",
       "alertInfo": {
-        "description": "<strong class='font-medium text-zen-blue'>Twilightモード:</strong> 現在Twilightモードで、最新の実験的機能とアップデートをダウンロードしています。"
+        "description": "You're currently in Twilight mode, this means you're downloading the latest experimental features and updates."
       },
       "platformSelector": {
         "title": "プラットフォーム選択",
@@ -290,10 +300,7 @@
       "platformNames": {
         "mac": "macOS",
         "windows": "Windows",
-        "linux": "Linux",
-        "macDownload": "MacOSダウンロード",
-        "windowsDownload": "Windowsダウンロード",
-        "linuxDownload": "Linuxダウンロード"
+        "linux": "Linux"
       },
       "platformDescriptions": {
         "mac": "Apple（Mシリーズ）・Intel両対応。<br />macOS 11.0以降が必要です。",
@@ -481,6 +488,7 @@
       "zenMods": "Zen Mods",
       "releaseNotes": "リリースノート",
       "getHelp": "ヘルプ",
+      "securtiy": "Security",
       "discord": "Discord",
       "uptimeStatus": "稼働状況",
       "reportAnIssue": "問題を報告",
