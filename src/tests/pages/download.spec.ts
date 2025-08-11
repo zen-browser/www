@@ -1,7 +1,7 @@
 import { expect, test, type BrowserContextOptions, type Page } from '@playwright/test'
 
-import { getReleasesWithChecksums } from '~/components/download/release-data'
-import { CONSTANT } from '~/constants'
+import { CHECKSUMS } from '~/constants/checksum'
+import en from '~/i18n/en/translation.json' with { type: 'json' }
 
 const getPlatformSection = (page: Page, platform: string, cpu: string) => {
   return page.locator(`#${platform}-${cpu}-downloads.platform-section`)
@@ -67,23 +67,68 @@ test.describe('Download page shows correct platform section per platform', () =>
 })
 
 test.describe('Download page download links', () => {
-  const releases = getReleasesWithChecksums('en')(CONSTANT.CHECKSUMS)
+  const {
+    routes: {
+      download: {
+        links: { macos, windows, linux },
+      },
+    },
+  } = en
 
-  type Releases = ReturnType<ReturnType<typeof getReleasesWithChecksums>>
+  const releases = {
+    macos: {
+      universal: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.macos-universal.dmg',
+        label: macos.universal,
+        checksum: CHECKSUMS['zen.macos-universal.dmg'],
+      },
+    },
+    windows: {
+      x86_64: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.installer.exe',
+        label: windows['64bit'],
+        checksum: CHECKSUMS['zen.installer.exe'],
+      },
+      arm64: {
+        link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.installer-arm64.exe',
+        label: windows.ARM64,
+        checksum: CHECKSUMS['zen.installer-arm64.exe'],
+      },
+    },
+    linux: {
+      x86_64: {
+        tarball: {
+          link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-x86_64.tar.xz',
+          label: linux.x86_64,
+          checksum: CHECKSUMS['zen.linux-x86_64.tar.xz'],
+        },
+      },
+      aarch64: {
+        tarball: {
+          link: 'https://github.com/zen-browser/desktop/releases/latest/download/zen.linux-aarch64.tar.xz',
+          label: linux.aarch64,
+          checksum: CHECKSUMS['zen.linux-aarch64.tar.xz'],
+        },
+      },
+      flathub: {
+        all: {
+          link: 'https://flathub.org/apps/app.zen_browser.zen',
+          label: linux.flathub,
+        },
+      },
+    },
+  }
 
-  function getPlatformLinks(releases: Releases) {
-    return {
-      'mac-x86_64': [releases.macos.universal],
-      'mac-arm64': [releases.macos.universal],
-      'windows-x86_64': [releases.windows.x86_64],
-      'windows-arm64': [releases.windows.arm64],
-      'linux-x86_64': [releases.linux.x86_64.tarball, releases.linux.flathub.all],
-      'linux-aarch64': [releases.linux.aarch64.tarball, releases.linux.flathub.all],
-    }
+  const platformLinkSelectors = {
+    'mac-x86_64': [releases.macos.universal],
+    'mac-arm64': [releases.macos.universal],
+    'windows-x86_64': [releases.windows.x86_64],
+    'windows-arm64': [releases.windows.arm64],
+    'linux-x86_64': [releases.linux.x86_64.tarball, releases.linux.flathub.all],
+    'linux-aarch64': [releases.linux.aarch64.tarball, releases.linux.flathub.all],
   }
 
   test('all platform download links are correct', async ({ page }) => {
-    const platformLinkSelectors = getPlatformLinks(releases)
     await page.goto('/download')
     await page.waitForLoadState('domcontentloaded')
 
