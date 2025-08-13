@@ -295,7 +295,7 @@
       },
       "securityNotice": {
         "title": "検証済み・安全なダウンロード",
-        "description": "すべてのZenダウンロードは署名・検証済みです。公式サイトまたはGitHubからのダウンロードを推奨します。ダウンロードに問題がある場合やウイルス対策で警告が出た場合は、<a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>ご報告ください</a>。"
+        "description": "すべてのZenダウンロードは署名・検証済みです。公式サイトまたはGitHubからのダウンロードを推奨します。ダウンロードに問題がある場合やウイルス対策で警告が出た場合は、<a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link'>ご報告ください</a>。"
       },
       "platformNames": {
         "mac": "macOS",
@@ -488,7 +488,7 @@
       "zenMods": "Zen Mods",
       "releaseNotes": "リリースノート",
       "getHelp": "ヘルプ",
-      "securtiy": "Security",
+      "security": "Security",
       "discord": "Discord",
       "uptimeStatus": "稼働状況",
       "reportAnIssue": "問題を報告",

@@ -1,0 +1,5 @@
+{
+  "en": { "label": "English", "intl": "en-US" },
+  "ja": { "label": "日本語", "intl": "ja-JP" },
+  "es": { "label": "Español", "intl": "es-ES" }
+}
