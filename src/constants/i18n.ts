@@ -1,19 +1,47 @@
-const UI_EN = (await import('~/i18n/en/translation.json', { with: { type: 'json' } })).default
-const UI_JA = (await import('~/i18n/ja/translation.json', { with: { type: 'json' } })).default
+import { type } from 'arktype'
 
-export const i18n = {
-  DEFAULT_LOCALE: 'en',
-  LOCALES: [
-    { label: 'English', value: 'en', ui: UI_EN, intl: 'en-US' },
-    { label: '日本語', value: 'ja', ui: UI_JA, intl: 'ja-JP' },
-  ],
-}
+import languages from '~/i18n/locales.json' with { type: 'json' }
+import { i18nSchema } from '~/schemas/i18n'
+import { type I18nType, type Locale } from '~/types/i18n'
 
 /**
- * Type definition for UI translations based on the English translation
+ * List of all supported locales.
  */
-export type UIProps = typeof UI_EN | typeof UI_JA
+export const locales = Object.keys(languages) as Locale[]
 
-export const getIntlLocale = (locale: string) => {
-  return i18n.LOCALES.find(l => l.value === locale)?.intl
+/**
+ * Maps locale keys to their corresponding translation objects.
+ */
+export const translations: Record<Locale, I18nType> = Object.fromEntries(
+  Object.entries(import.meta.glob('~/i18n/**/translation.json', { eager: true })).map(
+    ([key, value]) => {
+      const result = i18nSchema.I18n(value)
+
+      if (result instanceof type.errors) {
+        throw new Error(`Invalid translation file (${key}):\n${' '.repeat(2)}${result.summary}`)
+      }
+
+      return [/i18n\/([A-z]{2})\/translation.json/.exec(key)?.[1], result]
+    }
+  )
+)
+
+/**
+ * Constants for i18n configuration.
+ */
+export const i18n = {
+  DEFAULT_LOCALE: 'en',
+  LOCALES: Object.entries(languages).map(([key, locale]) => {
+    return {
+      ...locale,
+      ui: translations[key as Locale],
+    }
+  }),
+} as const
+
+/**
+ * Retrieves the intl locale string for a given locale.
+ */
+export const getIntlLocale = (locale: Locale) => {
+  return languages[locale]?.intl
 }
