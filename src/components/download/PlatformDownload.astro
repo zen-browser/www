@@ -78,6 +78,7 @@ function getReleaseLink(releases: PlatformReleases, { os, cpu }: { os: string; c
       {
         platform === 'linux' && (
           <Button
+            id="download-from-flathub"
             class="download-button w-fit"
             href={releases.flathub?.all.link || ''}
             aria-label="Download from Flathub"
