@@ -2993,7 +2993,7 @@
       "Compact mode with no browser padding will now have a separation between the sidebar and the window edge"
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-64/",
-    "workflowId": 17241382754,
+    "workflowId": 17249990370,
     "image": false,
     "date": "25/08/2025"
   }
