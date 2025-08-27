@@ -2958,38 +2958,38 @@
     "version": "1.14.10b",
     "extra": "",
     "fixes": ["Fixed hovering over the tabs in compact mode having weird behavior on windows."],
-    "features": ["New windows should be opening faster now.", "Updated to Firefox 141.0.2"],
+    "features": ["New windows should be opening faster now.", "Updated to Firefox 141.0.2."],
     "workflowId": 16726691771,
     "image": false,
     "date": "04/08/2025"
   },
   {
     "version": "1.14.11b",
-    "extra": "Just a small update since we are focusing on folders! now on twilight.",
-    "fixes": ["Fixed the download having poor visibility"],
-    "features": ["Updated to Firefox 141.0.3"],
+    "extra": "Just a small update since we are focusing on folders! Now on Twilight.",
+    "fixes": ["Fixed the download having poor visibility."],
+    "features": ["Updated to Firefox 141.0.3."],
     "workflowId": 16847611692,
     "image": false,
     "date": "10/08/2025"
   },
   {
     "version": "1.15b",
-    "extra": "You asked, we delivered: Folders have arrived in Zen! Organise your browsing the way you want. Create a folder from the sidebar with the plus (+) button, give it a name, then drag and drop tabs inside. Right\u2013click a folder to rename or delete it, and rearrange them anytime to keep projects or saved links in order. Folders have been one of the most requested features since Zen\u2019s launch, and they\u2019re finally here.",
+    "extra": "You asked, we delivered: Folders have arrived in Zen! Organise your browsing the way you want. Create a folder from the sidebar with the plus (+) button, give it a name, then drag-and-drop tabs inside. Right\u2013click a folder to rename or delete it, and rearrange them anytime to keep projects or saved links in order. Folders have been one of the most requested features since Zen\u2019s launch, and they\u2019re finally here.",
     "fixes": [
       "Resolved compact mode twitching issue when hovering the URL bar.",
-      "Fixed pinned tab titles not showing on the urlbar search results",
-      "Fix performance issue with pinned tabs pre-loading at startup"
+      "Pinned tab titles not showing on the URL bar search results.",
+      "A performance issue with pinned tabs pre-loading at startup."
     ],
     "features": [
       "Folders!",
-      "Updated to firefox 142.0",
+      "Updated to Firefox 142.0",
       "Implemented monochromatic icons for spaces, folders, etc.",
-      "Added a small animation when updating Zen"
+      "Added a small animation when updating Zen."
     ],
     "changes": [
-      "Third party domains now open in their own tabs when opened on pinned and essential tabs",
-      "Added a more native feel to windows users",
-      "New profiles or resetting to default shortcuts will now have next/previous workspace assigned as <strong>ctrl+alt+LEFT/RIGHT</strong>, toggle compact mode as <strong>ctrl+S</strong> and save page as <strong>ctrl+alt+S</strong>",
+      "Third-party domains now open in their own tabs when opened on pinned and essential tabs.",
+      "Added a more native feel for Windows users.",
+      "New profiles or resetting to default shortcuts will now have next/previous workspace assigned as <strong>Ctrl + Alt + LEFT/RIGHT</strong>, toggle compact mode using <strong>Ctrl + S</strong> and save page as <strong>Ctrl + Alt + S</strong>",
       "Compact mode with no browser padding will now have a separation between the sidebar and the window edge"
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-64/",
