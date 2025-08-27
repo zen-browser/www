@@ -2974,7 +2974,7 @@
   },
   {
     "version": "1.15b",
-    "extra": "You asked, we delivered: Folders have arrived in Zen! Organise your browsing the way you want. Create a folder from the sidebar with the plus (+) button, give it a name, then drag and drop tabs inside. Right\u2013click a folder to rename or delete it, and rearrange them anytime to keep projects or saved links in order. Folders have been one of the most requested features since Zen\u2019s launch, and they\u2019re finally here.\n\nIf you wan't us to keep doing cool things like these, please consider donating! https://zen-browser.app/donate",
+    "extra": "You asked, we delivered: Folders have arrived in Zen! Organise your browsing the way you want. Create a folder from the sidebar with the plus (+) button, give it a name, then drag and drop tabs inside. Right\u2013click a folder to rename or delete it, and rearrange them anytime to keep projects or saved links in order. Folders have been one of the most requested features since Zen\u2019s launch, and they\u2019re finally here.\n\nIf you wan't us to keep doing cool things like these, please consider <a href='https://zen-browser.app/donate'>donating</a>!",
     "fixes": [
       "Resolved compact mode twitching issue when hovering the URL bar.",
       "Fixed pinned tab titles not showing on the urlbar search results",
