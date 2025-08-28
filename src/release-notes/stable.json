@@ -2973,6 +2973,31 @@
     "date": "10/08/2025"
   },
   {
+    "version": "1.15b",
+    "extra": "You asked, we delivered: Folders have arrived in Zen! Organise your browsing the way you want. Create a folder from the sidebar with the plus (+) button, give it a name, then drag and drop tabs inside. Right\u2013click a folder to rename or delete it, and rearrange them anytime to keep projects or saved links in order. Folders have been one of the most requested features since Zen\u2019s launch, and they\u2019re finally here.\n\nIf you wan't us to keep doing cool things like these, please consider <a href='https://zen-browser.app/donate'>donating</a>!",
+    "fixes": [
+      "Resolved compact mode twitching issue when hovering the URL bar.",
+      "Fixed pinned tab titles not showing on the urlbar search results",
+      "Fix performance issue with pinned tabs pre-loading at startup"
+    ],
+    "features": [
+      "Folders!",
+      "Updated to firefox 142.0",
+      "Implemented monochromatic icons for spaces, folders, etc.",
+      "Added a small animation when updating Zen"
+    ],
+    "changes": [
+      "Third party domains now open in their own tabs when opened on pinned and essential tabs",
+      "Added a more native feel to windows users",
+      "New profiles or resetting to default shortcuts will now have next/previous workspace assigned as <strong>ctrl+alt+LEFT/RIGHT</strong>, toggle compact mode as <strong>ctrl+S</strong> and save page as <strong>ctrl+alt+S</strong>",
+      "Compact mode with no browser padding will now have a separation between the sidebar and the window edge"
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-64/",
+    "workflowId": 17249990370,
+    "image": false,
+    "date": "25/08/2025"
+  },
+  {
     "version": "1.15.1b",
     "extra": "",
     "fixes": [
