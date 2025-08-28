@@ -2971,5 +2971,18 @@
     "workflowId": 16847611692,
     "image": false,
     "date": "10/08/2025"
+  },
+  {
+    "version": "1.15.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed issues with the folder context menu not working on collapsed mode",
+      "Fixed tab becoming invisible on some occasions when collapsing active folders"
+    ],
+    "features": ["Updated to Firefox 142.0.1"],
+    "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu"],
+    "workflowId": 17281244121,
+    "image": false,
+    "date": "28/08/2025"
   }
 ]
