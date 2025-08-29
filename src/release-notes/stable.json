@@ -3009,5 +3009,14 @@
     "workflowId": 17281244121,
     "image": false,
     "date": "28/08/2025"
+  },
+  {
+    "version": "1.15.2b",
+    "extra": "",
+    "fixes": ["Fixed an issue where folders couldn't be renamed on double toolbar"],
+    "features": [],
+    "workflowId": 17309178471,
+    "image": false,
+    "date": "29/08/2025"
   }
 ]
