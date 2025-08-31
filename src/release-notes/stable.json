@@ -3003,7 +3003,7 @@
     "fixes": [
       "Fixed issues with the folder context menu not working on collapsed mode",
       "Fixed tab becoming invisible on some occasions when collapsing active folders",
-      "Fixed pinned tabs / folders not initializing correctly on some occations"
+      "Fixed pinned tabs / folders not initializing correctly on some occasions"
     ],
     "features": ["Updated to Firefox 142.0.1"],
     "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu"],
@@ -3019,5 +3019,26 @@
     "workflowId": 17309178471,
     "image": false,
     "date": "29/08/2025"
+  },
+  {
+    "version": "1.15.3b",
+    "extra": "",
+    "fixes": [
+      "Fixed compact mode turning off after startup.",
+      {
+        "description": "Fixed memory issues when creating new folders.",
+        "issue": 10145
+      },
+      "Fixed startup freezes on some systems.",
+      "Fixed hovering over the urlbar making the compact mode sidebar appear"
+    ],
+    "changes": [
+      "'Split Tabs' context menu item won't show if it's not applicable.",
+      "Changed the UI for the status panel to provide a more streamlined feel."
+    ],
+    "features": ["Wheel clicking on a pending pinned tab will now close it."],
+    "workflowId": 17349467603,
+    "image": false,
+    "date": "31/08/2025"
   }
 ]
