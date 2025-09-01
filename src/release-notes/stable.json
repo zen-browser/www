@@ -3032,12 +3032,12 @@
       "Fixed startup freezes on some systems.",
       "Fixed hovering over the urlbar making the compact mode sidebar appear"
     ],
-    "changes": [
-      "'Split Tabs' context menu item won't show if it's not applicable.",
-      "Changed the UI for the status panel to provide a more streamlined feel."
+    "changes": ["'Split Tabs' context menu item won't show if it's not applicable."],
+    "features": [
+      "Wheel clicking on a pending pinned tab will now close it.",
+      "Instead of the default orange color, the accent color will now be the system accent color."
     ],
-    "features": ["Wheel clicking on a pending pinned tab will now close it."],
-    "workflowId": 17349467603,
+    "workflowId": 17363346416,
     "image": false,
     "date": "31/08/2025"
   }
