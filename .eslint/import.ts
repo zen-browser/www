@@ -1,5 +1,4 @@
 import { type Linter } from 'eslint'
-// @ts-expect-error - no types available
 import importPlugin from 'eslint-plugin-import'
 
 import { sharedFiles } from './shared'

@@ -7,6 +7,7 @@ export const astroConfig: Linter.Config = {
   name: 'eslint/astro',
   files: astroFiles,
   plugins: {
+    // @ts-expect-error - just type error, no issue with the plugin
     'jsx-a11y': jsxA11y,
   },
   rules: {

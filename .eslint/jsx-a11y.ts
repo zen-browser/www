@@ -11,6 +11,7 @@ export const jsxA11yConfig: Linter.Config = {
     ...javascriptFiles.filter(f => f.includes('jsx')),
   ],
   plugins: {
+    // @ts-expect-error - just type error, no issue with the plugin
     'jsx-a11y': jsxA11y,
   },
   rules: {
