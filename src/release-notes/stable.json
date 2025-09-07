@@ -3005,8 +3005,8 @@
       "Fixed tab becoming invisible on some occasions when collapsing active folders",
       "Fixed pinned tabs / folders not initializing correctly on some occasions"
     ],
-    "features": ["Updated to Firefox 142.0.1"],
-    "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu"],
+    "features": ["Updated to Firefox 142.0.1."],
+    "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu."],
     "workflowId": 17281244121,
     "image": false,
     "date": "28/08/2025"
