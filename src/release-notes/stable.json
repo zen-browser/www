@@ -3001,14 +3001,68 @@
     "version": "1.15.1b",
     "extra": "",
     "fixes": [
-      "Issues with the folder context menu not working in collapsed mode.",
-      "Tab becoming invisible on some occasions when collapsing active folders.",
-      "Pinned tabs / folders not initializing correctly on some occasions."
+      "Fixed issues with the folder context menu not working on collapsed mode",
+      "Fixed tab becoming invisible on some occasions when collapsing active folders",
+      "Fixed pinned tabs / folders not initializing correctly on some occasions"
     ],
     "features": ["Updated to Firefox 142.0.1."],
     "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu."],
     "workflowId": 17281244121,
     "image": false,
     "date": "28/08/2025"
+  },
+  {
+    "version": "1.15.2b",
+    "extra": "",
+    "fixes": ["Fixed an issue where folders couldn't be renamed on double toolbar"],
+    "features": [],
+    "workflowId": 17309178471,
+    "image": false,
+    "date": "29/08/2025"
+  },
+  {
+    "version": "1.15.3b",
+    "extra": "",
+    "fixes": [
+      "Fixed compact mode turning off after startup.",
+      {
+        "description": "Fixed memory issues when creating new folders.",
+        "issue": 10145
+      },
+      "Fixed startup freezes on some systems.",
+      "Fixed hovering over the urlbar making the compact mode sidebar appear"
+    ],
+    "changes": ["'Split Tabs' context menu item won't show if it's not applicable."],
+    "features": ["Wheel clicking on a pending pinned tab will now close it."],
+    "workflowId": 17382661251,
+    "image": false,
+    "date": "31/08/2025"
+  },
+  {
+    "version": "1.15.4b",
+    "extra": "This release is mostly important for Windows users as the previous certificate will expire soon.",
+    "fixes": ["Fixed using the scrollbar on the sidebar, moving the window instead of scrolling."],
+    "changes": [
+      "The Windows build is now signed with a new certificate since the previous will expire soon."
+    ],
+    "features": [
+      "Added a 'tada' folder icon",
+      "Added faster tab open animations, and a new tab close animation"
+    ],
+    "workflowId": 17474455267,
+    "image": false,
+    "date": "04/09/2025"
+  },
+  {
+    "version": "1.15.5b",
+    "extra": "",
+    "fixes": [
+      "Fixed potential crashes on flatpak and updated flatpak dependencies.",
+      "Fixed double clicking on the empty space of the sidebar not making a new tab."
+    ],
+    "features": [],
+    "workflowId": 17516383788,
+    "image": false,
+    "date": "06/09/2025"
   }
 ]
