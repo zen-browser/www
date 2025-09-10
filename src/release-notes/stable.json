@@ -2989,8 +2989,8 @@
     "changes": [
       "Third-party domains now open in their own tabs when opened on pinned and essential tabs.",
       "Added a more native feel for Windows users.",
-      "New profiles or resetting to default shortcuts will now have next/previous workspace assigned as <strong>Ctrl + Alt + LEFT/RIGHT</strong>, toggle compact mode using <strong>Ctrl + S</strong> and save page as <strong>Ctrl + Alt + S</strong>",
-      "Compact mode with no browser padding will now have a separation between the sidebar and the window edge"
+      "New profiles or resetting to default shortcuts will now have next/previous workspace assigned as <strong>Ctrl + Alt + LEFT/RIGHT</strong>, toggle compact mode using <strong>Ctrl + S</strong> and save page as <strong>Ctrl + Alt + S</strong>.",
+      "Compact mode with no browser padding will now have a separation between the sidebar and the window edge."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-64/",
     "workflowId": 17249990370,
@@ -3001,9 +3001,9 @@
     "version": "1.15.1b",
     "extra": "",
     "fixes": [
-      "Fixed issues with the folder context menu not working on collapsed mode",
-      "Fixed tab becoming invisible on some occasions when collapsing active folders",
-      "Fixed pinned tabs / folders not initializing correctly on some occasions"
+      "Fixed issues with the folder context menu not working on collapsed mode.",
+      "Fixed tab becoming invisible on some occasions when collapsing active folders.",
+      "Fixed pinned tabs / folders not initializing correctly on some occasions."
     ],
     "features": ["Updated to Firefox 142.0.1."],
     "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu."],
@@ -3014,7 +3014,7 @@
   {
     "version": "1.15.2b",
     "extra": "",
-    "fixes": ["Fixed an issue where folders couldn't be renamed on double toolbar"],
+    "fixes": ["Fixed an issue where folders couldn't be renamed on double toolbar."],
     "features": [],
     "workflowId": 17309178471,
     "image": false,
@@ -3030,7 +3030,7 @@
         "issue": 10145
       },
       "Fixed startup freezes on some systems.",
-      "Fixed hovering over the urlbar making the compact mode sidebar appear"
+      "Fixed hovering over the URL bar making the compact mode sidebar appear."
     ],
     "changes": ["'Split Tabs' context menu item won't show if it's not applicable."],
     "features": ["Wheel clicking on a pending pinned tab will now close it."],
@@ -3043,11 +3043,11 @@
     "extra": "This release is mostly important for Windows users as the previous certificate will expire soon.",
     "fixes": ["Fixed using the scrollbar on the sidebar, moving the window instead of scrolling."],
     "changes": [
-      "The Windows build is now signed with a new certificate since the previous will expire soon."
+      "The Windows build is now signed with a new certificate since the previous one will expire soon."
     ],
     "features": [
-      "Added a 'tada' folder icon",
-      "Added faster tab open animations, and a new tab close animation"
+      "Added a 'tada' folder icon.",
+      "Added faster tab open animations, and a new tab close animation."
     ],
     "workflowId": 17474455267,
     "image": false,
@@ -3057,8 +3057,8 @@
     "version": "1.15.5b",
     "extra": "",
     "fixes": [
-      "Fixed potential crashes on flatpak and updated flatpak dependencies.",
-      "Fixed double clicking on the empty space of the sidebar not making a new tab."
+      "Fixed potential crashes on- and updated Flatpak dependencies.",
+      "Fixed double-clicking on the empty space of the sidebar not making a new tab."
     ],
     "features": [],
     "workflowId": 17516383788,
