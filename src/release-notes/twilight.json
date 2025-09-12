@@ -1,6 +1,22 @@
 {
-  "version": "xxx",
+  "version": "1.16t",
   "extra": "",
-  "fixes": [],
-  "features": []
+  "fixes": [
+    "Fixed an issue with pinned tabs not correctly being saved/restored",
+    "Fixed restoring tabs from other spaces not working correctly"
+  ],
+  "changes": [
+    "Replaced open file's 'cmd+O' shortcut to instead expand glance",
+    "Replaced save all bookmarks 'cmd+shift+D' shortcut to pin/unpin tabs",
+    "Improved space swiping gesture performance",
+    "Keyboard shortcuts will now be represented with native symbols on macOS",
+    "Improved performance and UI for the 'drag-to-split' action"
+  ],
+  "features": [
+    "Updated to Firefox 143.0",
+    "Added support for Logitech space gestures",
+    "Added command bar actions support (e.g. Toggling compact mode directly from the command bar). More commands and new functionality will be added progressively. Feel free to contribute!",
+    "Compact mode background will no longer instantly change background when changing spaces, instead it will now do a smooth transition",
+    "Enabled the new status panel UI for all users"
+  ]
 }
