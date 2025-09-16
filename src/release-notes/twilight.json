@@ -20,6 +20,7 @@
     "Added new shortcut to split views (cmd-alt-+) and new split view creation UI",
     "New UrlBar design with improved usability and more results",
     "You can now change between spacings by typing the space name from the urlbar",
-    "Enabled the new status panel UI for all users"
+    "Enabled the new status panel UI for all users",
+    "Improved glance performance and scroll smoothness"
   ]
 }
