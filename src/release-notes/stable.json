@@ -2925,8 +2925,8 @@
     "version": "1.14.7b",
     "extra": "",
     "fixes": [
-      "Fixed an issue when changing workspaces not changing tabs",
-      "Fixed native windows caption buttons displaying the grid display dialog even if it's hidden"
+      "Fixed an issue where changing workspaces doesn't change tabs.",
+      "Fixed native Windows caption buttons displaying the grid display dialog even if it's hidden."
     ],
     "features": [],
     "workflowId": 16519901845,
@@ -2937,8 +2937,8 @@
     "version": "1.14.8b",
     "extra": "",
     "fixes": [
-      "Fixed glance cancelation button not working",
-      "Fixed urlbar having multiple arrows when switching tabs"
+      "Fixed the Glance cancellation button not working.",
+      "Fixed the URL bar having multiple arrows when switching tabs."
     ],
     "features": [],
     "workflowId": 16539026644,
@@ -2948,10 +2948,121 @@
   {
     "version": "1.14.9b",
     "extra": "",
-    "fixes": ["A regression with closing glance that appeared in previous versions"],
+    "fixes": ["A regression with closing Glance that appeared in previous versions."],
     "features": [],
     "workflowId": 16543924459,
     "image": false,
     "date": "27/07/2025"
+  },
+  {
+    "version": "1.14.10b",
+    "extra": "",
+    "fixes": ["Fixed hovering over the tabs in compact mode having weird behavior on windows."],
+    "features": ["New windows should be opening faster now.", "Updated to Firefox 141.0.2."],
+    "workflowId": 16726691771,
+    "image": false,
+    "date": "04/08/2025"
+  },
+  {
+    "version": "1.14.11b",
+    "extra": "Just a small update since we are focusing on folders! Now on Twilight.",
+    "fixes": ["Fixed the download having poor visibility."],
+    "features": ["Updated to Firefox 141.0.3."],
+    "workflowId": 16847611692,
+    "image": false,
+    "date": "10/08/2025"
+  },
+  {
+    "version": "1.15b",
+    "extra": "You asked, we delivered: Folders have arrived in Zen! Organise your browsing the way you want. Create a folder from the sidebar with the plus (+) button, give it a name, then drag and drop tabs inside. Right\u2013click a folder to rename or delete it, and rearrange them anytime to keep projects or saved links in order. Folders have been one of the most requested features since Zen\u2019s launch, and they\u2019re finally here.\n\nIf you wan't us to keep doing cool things like these, please consider <a href='https://zen-browser.app/donate'>donating</a>!",
+    "fixes": [
+      "Resolved compact mode twitching issue when hovering the URL bar.",
+      "Pinned tab titles not showing on the URL bar search results.",
+      "A performance issue with pinned tabs pre-loading at startup."
+    ],
+    "features": [
+      "Folders!",
+      "Updated to Firefox 142.0",
+      "Implemented monochromatic icons for spaces, folders, etc.",
+      "Added a small animation when updating Zen."
+    ],
+    "changes": [
+      "Third-party domains now open in their own tabs when opened on pinned and essential tabs.",
+      "Added a more native feel for Windows users.",
+      "New profiles or resetting to default shortcuts will now have next/previous workspace assigned as <strong>Ctrl + Alt + LEFT/RIGHT</strong>, toggle compact mode using <strong>Ctrl + S</strong> and save page as <strong>Ctrl + Alt + S</strong>",
+      "Compact mode with no browser padding will now have a separation between the sidebar and the window edge"
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-64/",
+    "workflowId": 17249990370,
+    "image": false,
+    "date": "25/08/2025"
+  },
+  {
+    "version": "1.15.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed issues with the folder context menu not working on collapsed mode",
+      "Fixed tab becoming invisible on some occasions when collapsing active folders",
+      "Fixed pinned tabs / folders not initializing correctly on some occasions"
+    ],
+    "features": ["Updated to Firefox 142.0.1."],
+    "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu."],
+    "workflowId": 17281244121,
+    "image": false,
+    "date": "28/08/2025"
+  },
+  {
+    "version": "1.15.2b",
+    "extra": "",
+    "fixes": ["Fixed an issue where folders couldn't be renamed on double toolbar"],
+    "features": [],
+    "workflowId": 17309178471,
+    "image": false,
+    "date": "29/08/2025"
+  },
+  {
+    "version": "1.15.3b",
+    "extra": "",
+    "fixes": [
+      "Fixed compact mode turning off after startup.",
+      {
+        "description": "Fixed memory issues when creating new folders.",
+        "issue": 10145
+      },
+      "Fixed startup freezes on some systems.",
+      "Fixed hovering over the urlbar making the compact mode sidebar appear"
+    ],
+    "changes": ["'Split Tabs' context menu item won't show if it's not applicable."],
+    "features": ["Wheel clicking on a pending pinned tab will now close it."],
+    "workflowId": 17382661251,
+    "image": false,
+    "date": "31/08/2025"
+  },
+  {
+    "version": "1.15.4b",
+    "extra": "This release is mostly important for Windows users as the previous certificate will expire soon.",
+    "fixes": ["Fixed using the scrollbar on the sidebar, moving the window instead of scrolling."],
+    "changes": [
+      "The Windows build is now signed with a new certificate since the previous will expire soon."
+    ],
+    "features": [
+      "Added a 'tada' folder icon",
+      "Added faster tab open animations, and a new tab close animation"
+    ],
+    "workflowId": 17474455267,
+    "image": false,
+    "date": "04/09/2025"
+  },
+  {
+    "version": "1.15.5b",
+    "extra": "",
+    "fixes": [
+      "Fixed potential crashes on flatpak and updated flatpak dependencies.",
+      "Fixed double clicking on the empty space of the sidebar not making a new tab."
+    ],
+    "features": [],
+    "workflowId": 17516383788,
+    "image": false,
+    "date": "06/09/2025"
   }
 ]
