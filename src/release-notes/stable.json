@@ -3093,5 +3093,14 @@
     "workflowId": 17910611774,
     "image": false,
     "date": "21/09/2025"
+  },
+  {
+    "version": "1.16.1b",
+    "extra": "",
+    "fixes": ["Fixed not being able to close then window on an empty state"],
+    "features": ["Command Bar commands will now obtain more priority in the URL bar"],
+    "workflowId": 17928553267,
+    "image": false,
+    "date": "22/09/2025"
   }
 ]
