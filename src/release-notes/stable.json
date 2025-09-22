@@ -3064,5 +3064,33 @@
     "workflowId": 17516383788,
     "image": false,
     "date": "06/09/2025"
+  },
+  {
+    "version": "1.16b",
+    "extra": "This update focuses on the URL bar, letting you open extensions and switch spaces by typing their names, with a redesigned interface for clearer, richer results. It also adds smoother transitions, improved split view creation, and general performance fixes.",
+    "fixes": [
+      "Resolved an issue where pinned tabs were not being saved or restored correctly",
+      "Fixed a bug preventing tabs from being restored across different spaces"
+    ],
+    "changes": [
+      "Reassigned the 'cmd+O' shortcut from opening a file to expanding Glance",
+      "Reassigned the 'cmd+shift+D' shortcut from saving all bookmarks to pinning/unpinning tabs",
+      "Enhanced performance of space-swiping gestures",
+      "Keyboard shortcuts on macOS now use native system symbols",
+      "Improved both performance and interface for the drag-to-split action"
+    ],
+    "features": [
+      "Upgraded to Firefox 143.0",
+      "Introduced command bar actions (e.g., toggle Compact Mode directly from the command bar). More commands and features will be added over time\u2014contributions are welcome!",
+      "Extensions can now be opened by typing their name directly in the URL bar",
+      "Compact Mode backgrounds now transition smoothly when switching spaces instead of changing instantly",
+      "Added a new shortcut (cmd+alt+=) for creating split views, along with a redesigned split view creation interface",
+      "Redesigned URL bar for improved usability and richer results",
+      "Spaces can now be switched by typing the space name directly into the URL bar",
+      "Optimized Glance for smoother scrolling and faster performance"
+    ],
+    "workflowId": 17910611774,
+    "image": false,
+    "date": "21/09/2025"
   }
 ]
