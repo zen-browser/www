@@ -3089,6 +3089,7 @@
       "Spaces can now be switched by typing the space name directly into the URL bar",
       "Optimized Glance for smoother scrolling and faster performance"
     ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-73/",
     "workflowId": 17910611774,
     "image": false,
     "date": "21/09/2025"
