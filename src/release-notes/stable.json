@@ -3097,7 +3097,10 @@
   {
     "version": "1.16.1b",
     "extra": "",
-    "fixes": ["Fixed not being able to close the window on an empty state"],
+    "fixes": [
+      "Fixed not being able to close the window on an empty state",
+      "Fixed broken UI when using split views on collapsed mode"
+    ],
     "features": [
       "Command Bar commands will now obtain more priority in the URL bar",
       "Enabled Firefox's crash reporter to better identify crashes"
