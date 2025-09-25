@@ -3093,5 +3093,22 @@
     "workflowId": 17910611774,
     "image": false,
     "date": "21/09/2025"
+  },
+  {
+    "version": "1.16.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed not being able to close the window on an empty state",
+      "Fixed broken UI when using split views on collapsed mode",
+      "Fixed a memory leak due to the the folder icon animation",
+      "Improved performance when having compact mode enabled, reducing the amount of observations"
+    ],
+    "features": [
+      "Command Bar commands will now obtain more priority in the URL bar",
+      "Enabled Firefox's crash reporter to better identify crashes"
+    ],
+    "workflowId": 18005882035,
+    "image": false,
+    "date": "22/09/2025"
   }
 ]
