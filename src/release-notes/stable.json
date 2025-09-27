@@ -3110,5 +3110,24 @@
     "workflowId": 18005882035,
     "image": false,
     "date": "22/09/2025"
+  },
+  {
+    "version": "1.16.2b",
+    "extra": "",
+    "fixes": [
+      "Themed compact mode top toolbar is back, sorry for the small confusion!",
+      "Fixed symbols on certain languages not rendering correctly for flatpack users",
+      "Fixed mute button on collapsed sidebar not displaying unless selecting the tab"
+    ],
+    "changes": ["URL Bar commands will now be enabled regardless of the browser's language"],
+    "features": [
+      "Pressing 'TAB' on an empty command bar will show all the available commands",
+      "Improved URL Bar command search performance and implemented a learning algorithm",
+      "Compact mode + fullscreen will no longer have borders",
+      "Added more icons to folders and workspaces"
+    ],
+    "workflowId": 18059883443,
+    "image": false,
+    "date": "27/09/2025"
   }
 ]
