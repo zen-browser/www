@@ -3129,5 +3129,20 @@
     "workflowId": 18059883443,
     "image": false,
     "date": "27/09/2025"
+  },
+  {
+    "version": "1.16.3b",
+    "extra": "",
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-80/",
+    "fixes": [
+      "Fixed switching spaces making essentials disappear sometimes",
+      "Fixed small visual inconsistencies",
+      "Fixed the urlbar staying floating on compact mode",
+      "Fixed addons not being able to automatically update"
+    ],
+    "features": ["Updated to Firefox 143.0.3"],
+    "workflowId": 18214195616,
+    "image": false,
+    "date": "03/10/2025"
   }
 ]
