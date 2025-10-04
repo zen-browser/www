@@ -3140,8 +3140,8 @@
       "Fixed the urlbar staying floating on compact mode",
       "Fixed addons not being able to automatically update"
     ],
-    "features": ["Updated to Firefox 143.0.3"],
-    "workflowId": 18214195616,
+    "features": ["Updated to Firefox 143.0.4"],
+    "workflowId": 18238451297,
     "image": false,
     "date": "03/10/2025"
   }
