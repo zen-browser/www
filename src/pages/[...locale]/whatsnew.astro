@@ -19,6 +19,11 @@ const {
   routes: { whatsNew },
   layout,
 } = getUI(locale)
+
+// Just redirect to the release notes if we are in a patch version
+if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVersion.version) {
+  return Astro.redirect(`/release-notes#${latestVersion.version}`)
+}
 ---
 
 <Layout title={layout.whatsNew.title.replace('{latestVersion.version}', latestVersion.version)}>
