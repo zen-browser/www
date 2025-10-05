@@ -3069,25 +3069,25 @@
     "version": "1.16b",
     "extra": "This update focuses on the URL bar, letting you open extensions and switch spaces by typing their names, with a redesigned interface for clearer, richer results. It also adds smoother transitions, improved split view creation, and general performance fixes.",
     "fixes": [
-      "Resolved an issue where pinned tabs were not being saved or restored correctly",
-      "Fixed a bug preventing tabs from being restored across different spaces"
+      "Resolved an issue where pinned tabs were not being saved or restored correctly.",
+      "Fixed a bug preventing tabs from being restored across different spaces."
     ],
     "changes": [
-      "Reassigned the 'cmd+O' shortcut from opening a file to expanding Glance",
-      "Reassigned the 'cmd+shift+D' shortcut from saving all bookmarks to pinning/unpinning tabs",
-      "Enhanced performance of space-swiping gestures",
-      "Keyboard shortcuts on macOS now use native system symbols",
-      "Improved both performance and interface for the drag-to-split action"
+      "Re-assigned the 'Cmd + O' shortcut from opening a file to expanding Glance.",
+      "Re-assigned the 'Cmd + Shift + D' shortcut from saving all bookmarks to pinning/unpinning tabs.",
+      "Enhanced the performance of space-swiping gestures.",
+      "Keyboard shortcuts on macOS now use native system symbols.",
+      "Improved both the performance and interface for the drag-to-split action."
     ],
     "features": [
       "Upgraded to Firefox 143.0",
-      "Introduced command bar actions (e.g., toggle Compact Mode directly from the command bar). More commands and features will be added over time\u2014contributions are welcome!",
-      "Extensions can now be opened by typing their name directly in the URL bar",
-      "Compact Mode backgrounds now transition smoothly when switching spaces instead of changing instantly",
-      "Added a new shortcut (cmd+alt+=) for creating split views, along with a redesigned split view creation interface",
-      "Redesigned URL bar for improved usability and richer results",
-      "Spaces can now be switched by typing the space name directly into the URL bar",
-      "Optimized Glance for smoother scrolling and faster performance"
+      "Introduced Command Bar actions (e.g., toggle Compact Mode directly from the Command Bar). More commands and features will be added over time\u2014contributions are welcome!",
+      "Extensions can now be opened by typing their name directly in the URL bar.",
+      "Compact Mode backgrounds now transition smoothly when switching spaces instead of changing instantly.",
+      "Added a new shortcut (Cmd + Alt + =) for creating split views, along with a redesigned split view creation interface.",
+      "Redesigned the URL bar for improved usability and richer results.",
+      "Spaces can now be switched by typing the space name directly into the URL bar.",
+      "Optimized Glance for smoother scrolling and faster performance."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-73/",
     "workflowId": 17910611774,
@@ -3098,14 +3098,14 @@
     "version": "1.16.1b",
     "extra": "",
     "fixes": [
-      "Fixed not being able to close the window on an empty state",
-      "Fixed broken UI when using split views on collapsed mode",
-      "Fixed a memory leak due to the the folder icon animation",
-      "Improved performance when having compact mode enabled, reducing the amount of observations"
+      "Fixed not being able to close the window on an empty state.",
+      "Fixed the broken UI when using split views in collapsed mode.",
+      "Fixed a memory leak caused by the folder icon animation.",
+      "Improved performance while having compact mode enabled, reducing the amount of observations."
     ],
     "features": [
-      "Command Bar commands will now obtain more priority in the URL bar",
-      "Enabled Firefox's crash reporter to better identify crashes"
+      "Command Bar commands will now obtain more priority in the URL bar.",
+      "Enabled Firefox's crash reporter to better identify crashes."
     ],
     "workflowId": 18005882035,
     "image": false,
@@ -3116,15 +3116,15 @@
     "extra": "",
     "fixes": [
       "Themed compact mode top toolbar is back, sorry for the small confusion!",
-      "Fixed symbols on certain languages not rendering correctly for flatpack users",
-      "Fixed mute button on collapsed sidebar not displaying unless selecting the tab"
+      "Fixed symbols on certain languages not rendering correctly for Flatpak user.",
+      "Fixed the mute button on collapsed sidebar not displaying unless selecting the tab."
     ],
-    "changes": ["URL Bar commands will now be enabled regardless of the browser's language"],
+    "changes": ["URL Bar commands will now be enabled regardless of the browser's language."],
     "features": [
-      "Pressing 'TAB' on an empty command bar will show all the available commands",
-      "Improved URL Bar command search performance and implemented a learning algorithm",
-      "Compact mode + fullscreen will no longer have borders",
-      "Added more icons to folders and workspaces"
+      "Pressing 'TAB' on an empty Command Bar will show all the available commands.",
+      "Improved URL bar command search performance, and implemented a learning algorithm.",
+      "Compact mode + fullscreen will no longer have borders.",
+      "Added more icons to folders and workspaces."
     ],
     "workflowId": 18059883443,
     "image": false,
@@ -3135,10 +3135,10 @@
     "extra": "",
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-80/",
     "fixes": [
-      "Fixed switching spaces making essentials disappear sometimes",
-      "Fixed small visual inconsistencies",
-      "Fixed the urlbar staying floating on compact mode",
-      "Fixed addons not being able to automatically update"
+      "Fixed switching spaces causing Essentials to disappear sometimes.",
+      "Fixed small visual inconsistencies.",
+      "Fixed the URL bar staying afloat in compact mode.",
+      "Fixed addons being unable to automatically update."
     ],
     "features": ["Updated to Firefox 143.0.4"],
     "workflowId": 18238451297,
