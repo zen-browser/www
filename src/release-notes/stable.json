@@ -3144,5 +3144,22 @@
     "workflowId": 18238451297,
     "image": false,
     "date": "03/10/2025"
+  },
+  {
+    "version": "1.16.4b",
+    "extra": "",
+    "fixes": [
+      "Fixed wrong version of ffmpeg being used for AUR users.",
+      "Fixed a bug where compact mode wouldn't hide",
+      "Fixed poor performance when the media controller is shown.",
+      "Fixed hang when having 'switch space automatically' enabled and using automatic container add-ons."
+    ],
+    "features": [
+      "Added support for a 'unload space' context menu item to unload all tabs in a space.",
+      "Added an about:config to limit the number of essentials (zen.tabs.essentials.max) and to prevent compact mode from hiding the borders in fullscreen (zen.view.borderless-fullscreen)."
+    ],
+    "workflowId": 18345238906,
+    "image": false,
+    "date": "08/10/2025"
   }
 ]
