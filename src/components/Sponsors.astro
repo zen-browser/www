@@ -19,12 +19,12 @@ const {
 <section id="sponsors" class:list={['py-12', !showSponsors && 'hidden']}>
   <div class="grid items-center gap-8 text-center">
     <div class="grid gap-2">
-      <h3
+      <h2
         class="text-4xl font-bold sm:text-6xl"
         style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
       >
         {sponsors.title}
-      </h3>
+      </h2>
       <p class="text-base" style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">
         <span class="opacity-80" set:html={sponsors.description} />
       </p>
@@ -74,7 +74,7 @@ const {
     const debug = false
 
     const elements = document.querySelectorAll(
-      '#sponsors h3, #sponsors p, #sponsors .sponsors__sponsor a'
+      '#sponsors h2, #sponsors p, #sponsors .sponsors__sponsor a'
     )
 
     animate(elements, {
