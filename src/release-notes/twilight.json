@@ -1,14 +1,6 @@
 {
-  "version": "1.17t",
+  "version": "xxx",
   "extra": "",
-  "fixes": ["Fixed the urlbar not opening in fullscreen mode"],
-  "features": [
-    "Updated to Firefox 144.0",
-    "New unified panel to show site permissions, security, add-ons, quick actions and more to de-clutter the address bar.",
-    "Added toolbar button to quickly toggle compact mode",
-    "Improved glance animations to make it feel like the element is being lifted off the page"
-  ],
-  "changes": [
-    "On double toolbar mode, entering on compact mode will move the buttons at the sidebar to the top toolbar"
-  ]
+  "fixes": [],
+  "features": []
 }
