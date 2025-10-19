@@ -1,28 +1,6 @@
 {
-  "version": "1.17t",
+  "version": "xxx",
   "extra": "",
-  "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-81/",
-  "fixes": [
-    "Fixed the urlbar not opening in fullscreen mode",
-    "Fixed performance for macos users when using transparency on the window",
-    "For enhanced privacy, 'Copy curren't page url' button will not copy tracking parameters by default",
-    "Other fixes with compact mode on double toolbar mode",
-    {
-      "description": "Fixed issues with 'Firefox Multiaccount Containers' extension freezing Zen",
-      "issue": 10666
-    }
-  ],
-  "features": [
-    "Updated to Firefox 144.0",
-    "New unified panel to show site permissions, security, add-ons, quick actions and more to de-clutter the address bar.",
-    "Added toolbar button to quickly toggle compact mode",
-    "Improved glance animations to make it feel like the element is being lifted off the page",
-    "Added an urlbar button to quickly copy the current page url",
-    "Zen will now start using the new MacOS Tahoe look and feel",
-    "The operating system accent color will now be used instead of the default orange color when there's no browser theme applied"
-  ],
-  "changes": [
-    "On double toolbar mode, compact mode will have a new UI, where it overlays the web view instead of sliding like the sidebar",
-    "Hovering over the window captions on windows/linux or double toolbar in compact mode will stop pushing the web view down, instead it will overlay it"
-  ]
+  "fixes": [],
+  "features": []
 }
