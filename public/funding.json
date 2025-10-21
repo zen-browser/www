@@ -47,7 +47,8 @@
         "guid": "github-sponsors",
         "name": "GitHub Sponsors",
         "description": "GitHub Sponsors is a platform that allows supporters to make monthly donations to support the project.",
-        "url": "https://github.com/sponsors/zen-browser"
+        "url": "https://github.com/sponsors/zen-browser",
+        "type": "other"
       }
     ],
     "plans": [
