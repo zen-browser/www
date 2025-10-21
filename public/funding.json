@@ -42,6 +42,12 @@
         "description": "Ko-fi is a platform that allows supporters to make one-time donations to support the project.",
         "url": "https://ko-fi.com/zen_browser",
         "type": "other"
+      },
+      {
+        "guid": "github-sponsors",
+        "name": "GitHub Sponsors",
+        "description": "GitHub Sponsors is a platform that allows supporters to make monthly donations to support the project.",
+        "url": "https://github.com/sponsors/zen-browser"
       }
     ],
     "plans": [
@@ -53,7 +59,7 @@
         "amount": 500,
         "currency": "EUR",
         "frequency": "yearly",
-        "channels": ["patreon", "ko-fi"]
+        "channels": ["patreon", "ko-fi", "github-sponsors"]
       },
       {
         "guid": "angel-plan",
@@ -63,7 +69,7 @@
         "amount": 0,
         "currency": "EUR",
         "frequency": "one-time",
-        "channels": ["patreon", "ko-fi"]
+        "channels": ["patreon", "ko-fi", "github-sponsors"]
       }
     ]
   }
