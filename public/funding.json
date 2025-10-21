@@ -5,7 +5,7 @@
     "role": "owner",
     "name": "Mauro",
     "email": "funding@zen-browser.app",
-    "description": "Im the developer of Zen Browser, a web browser that is fast, secure, and easy to use. I am passionate about creating software that makes people's lives easier and more enjoyable.",
+    "description": "Im the developer of Zen, a firefox fork with a focus on UI/UX. I am passionate about creating software that makes people's lives easier and more enjoyable.",
     "webpageUrl": {
       "url": "https://cheff.dev",
       "wellKnown": "https://cheff.dev/.well-known/funding-manifest-urls"
@@ -15,7 +15,7 @@
     {
       "guid": "zen-browser",
       "name": "Zen",
-      "description": "Zen is a beautiful, fast, and productive web browser. It is designed to be packed with features that make it easy to use and navigate. Zen is built on the latest Firefox engine, providing speed, privacy, and security.",
+      "description": "Zen is a beautiful, fast, and productive web browser. Zen is built on the latest Firefox engine, providing speed, privacy, and security while offering our unique features and experience.",
       "webpageUrl": {
         "url": "https://zen-browser.app"
       },
@@ -32,14 +32,14 @@
       {
         "guid": "patreon",
         "name": "Patreon",
-        "description": "Patreon is a membership platform that makes it easy for artists and creators to get paid.",
+        "description": "Patreon is a good place for monthly funding to support ongoing development.",
         "url": "https://www.patreon.com/zen_browser",
         "type": "other"
       },
       {
         "guid": "ko-fi",
         "name": "Ko-fi",
-        "description": "Ko-fi is a platform that allows creators to receive donations from their fans.",
+        "description": "Ko-fi is a platform that allows supporters to make one-time donations to support the project.",
         "url": "https://ko-fi.com/zen_browser",
         "type": "other"
       }
@@ -50,7 +50,7 @@
         "status": "active",
         "name": "Licenses and hosting",
         "description": "Help me pay for the licenses and hosting of the project. This includes self-hosting build servers, cloudflare services, and software licenses.",
-        "amount": 420,
+        "amount": 500,
         "currency": "EUR",
         "frequency": "yearly",
         "channels": ["patreon", "ko-fi"]
@@ -59,7 +59,7 @@
         "guid": "angel-plan",
         "status": "active",
         "name": "Goodwill plan",
-        "description": "Pay anything you wish to show your goodwill for the project.",
+        "description": "Pay anything you wish to show your goodwill for the project and for ongoing development.",
         "amount": 0,
         "currency": "EUR",
         "frequency": "one-time",
