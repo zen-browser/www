@@ -3164,7 +3164,7 @@
   },
   {
     "version": "1.17b",
-    "extra": "",
+    "extra": "Note that if you used to like glance on the left side, you can download this <a href=\"https://zen-browser.app/mods/20e8cc78-3dac-4db0-81a4-814672fb50af/\">mod</a> to restore that functionality!",
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-81/",
     "fixes": [
       "Fixed the urlbar not opening in fullscreen mode",
