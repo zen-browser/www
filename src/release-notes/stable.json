@@ -3194,5 +3194,23 @@
     "workflowId": 18680759658,
     "image": false,
     "date": "19/10/2025"
+  },
+  {
+    "version": "1.17.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed a regression with collapsed tabs not expanding the full width of the window",
+      "Fixed an issue with warnings for unsigned extensions not displaying correctly",
+      "Fixed compact mode getting stuck after updating to 1.17",
+      "Fixed a border at the top of the window appearing in some cases",
+      "Other minor bug fixes and improvements"
+    ],
+    "changes": [
+      "Control centers will look more native on linux / windows for a more 'flat' appearance"
+    ],
+    "features": [],
+    "workflowId": 18724178873,
+    "image": false,
+    "date": "22/10/2025"
   }
 ]
