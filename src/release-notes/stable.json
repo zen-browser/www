@@ -3098,7 +3098,7 @@
     "version": "1.16.1b",
     "extra": "",
     "fixes": [
-      "Fixed not being able to close the window on an empty state.",
+      "Fixed being unable to close the window on an empty state.",
       "Fixed the broken UI when using split views in collapsed mode.",
       "Fixed a memory leak caused by the folder icon animation.",
       "Improved performance while having compact mode enabled, reducing the amount of observations."
@@ -3116,13 +3116,13 @@
     "extra": "",
     "fixes": [
       "Themed compact mode top toolbar is back, sorry for the small confusion!",
-      "Fixed symbols on certain languages not rendering correctly for Flatpak user.",
-      "Fixed the mute button on collapsed sidebar not displaying unless selecting the tab."
+      "Fixed symbols on certain languages not rendering correctly for Flatpak users.",
+      "Fixed the mute button on the collapsed sidebar not displaying unless selecting the tab."
     ],
     "changes": ["URL Bar commands will now be enabled regardless of the browser's language."],
     "features": [
-      "Pressing 'TAB' on an empty Command Bar will show all the available commands.",
-      "Improved URL bar command search performance, and implemented a learning algorithm.",
+      "Pressing 'TAB' on an empty Command Bar will show all available commands.",
+      "Improved URL bar command search performance; and implemented a learning algorithm.",
       "Compact mode + fullscreen will no longer have borders.",
       "Added more icons to folders and workspaces."
     ],
@@ -3149,14 +3149,14 @@
     "version": "1.16.4b",
     "extra": "",
     "fixes": [
-      "Fixed wrong version of ffmpeg being used for AUR users.",
-      "Fixed a bug where compact mode wouldn't hide",
+      "Fixed the incorrect version of FFmpeg being used for AUR users.",
+      "Fixed a bug where compact mode wouldn't hide.",
       "Fixed poor performance when the media controller is shown.",
-      "Fixed hang when having 'switch space automatically' enabled and using automatic container add-ons."
+      "Fixed a hang when having 'switch space automatically' enabled and using automatic container add-ons."
     ],
     "features": [
-      "Added support for a 'unload space' context menu item to unload all tabs in a space.",
-      "Added an about:config to limit the number of essentials (zen.tabs.essentials.max) and to prevent compact mode from hiding the borders in fullscreen (zen.view.borderless-fullscreen)."
+      "Added support for an 'unload space' context menu item to unload all tabs in a space.",
+      "Added an 'about:config' to limit the number of essentials (zen.tabs.essentials.max) and to prevent compact mode from hiding the borders in fullscreen (zen.view.borderless-fullscreen)."
     ],
     "workflowId": 18345238906,
     "image": false,
@@ -3167,29 +3167,29 @@
     "extra": "Note that if you used to like glance on the left side, you can download this <a href=\"https://zen-browser.app/mods/20e8cc78-3dac-4db0-81a4-814672fb50af/\">mod</a> to restore that functionality!",
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-81/",
     "fixes": [
-      "Fixed the urlbar not opening in fullscreen mode",
-      "Fixed performance for macos users when using transparency on the window",
-      "Other fixes with compact mode on double toolbar mode",
+      "Fixed the URL bar not opening in fullscreen mode.",
+      "Fixed performance for MacOS users when using transparency on the browser window.",
+      "Other fixes with compact mode on double toolbar mode.",
       {
-        "description": "Fixed issues with 'Firefox Multiaccount Containers' extension freezing Zen",
+        "description": "Fixed issues with 'Firefox Multiaccount Containers' extension freezing Zen.",
         "issue": 10666
       },
-      "Fixed slow split view switching and scroll positions not being remembered",
-      "Various stability and performance fixes for glance"
+      "Fixed slow split view switching and scroll positions not being remembered.",
+      "Various stability and performance fixes for Glance."
     ],
     "features": [
       "Updated to Firefox 144.0",
       "New unified panel to show site permissions, security, add-ons, quick actions and more to de-clutter the address bar.",
-      "Added toolbar button to quickly toggle compact mode",
-      "Improved glance animations to make it feel like the element is being lifted off the page",
-      "Added an urlbar button to quickly copy the current page url",
-      "Zen will now start using the new MacOS Tahoe look and feel",
-      "The operating system accent color will now be used instead of the default orange color when there's no browser theme applied"
+      "Added toolbar button to quickly toggle compact mode.",
+      "Improved Glance animations to make it feel like the element is being lifted off the page.",
+      "Added a URL bar button to quickly copy the current page URL.",
+      "Zen will now start using the new MacOS Tahoe look and feel.",
+      "The operating system accent color will now be used instead of the default orange color when there's no browser theme applied."
     ],
     "changes": [
-      "On double toolbar mode, compact mode will have a new UI, where it overlays the web view instead of sliding like the sidebar",
-      "Hovering over the window captions on windows/linux or double toolbar in compact mode will stop pushing the web view down, instead it will overlay it",
-      "For enhanced privacy, 'Copy current page url' button will not copy tracking parameters by default"
+      "On double toolbar mode, compact mode will have a new UI, where it overlays the web view instead of sliding like the sidebar.",
+      "Hovering over the window captions on Windows/Linux or double toolbar in compact mode will stop pushing the web view down, instead it will overlay it.",
+      "By default, the 'Copy current page URL' button will not copy tracking parameters for enhanced privacy."
     ],
     "workflowId": 18680759658,
     "image": false,
