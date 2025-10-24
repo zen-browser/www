@@ -3212,5 +3212,18 @@
     "workflowId": 18724178873,
     "image": false,
     "date": "22/10/2025"
+  },
+  {
+    "version": "1.17.2b",
+    "extra": "",
+    "fixes": [
+      "Fixed wheel-clicking on pinned tabs not closing them if they are unloaded.",
+      "Fixed macos traffic light buttons \"mirroring\" themselves when using certain settings.",
+      "Other small quality of life improvements and bug fixes."
+    ],
+    "features": [],
+    "workflowId": 18753962090,
+    "image": false,
+    "date": "24/10/2025"
   }
 ]
