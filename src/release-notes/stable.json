@@ -3218,7 +3218,7 @@
     "extra": "",
     "fixes": [
       "Fixed wheel-clicking on pinned tabs not closing them if they are unloaded.",
-      "Fixed macos traffic light buttons \"mirroring\" themselves when using certain settings.",
+      "Fixed the MacOS traffic light buttons \"mirroring\" themselves when using certain settings.",
       "Other small quality of life improvements and bug fixes."
     ],
     "features": [],
@@ -3229,9 +3229,12 @@
   {
     "version": "1.17.3b",
     "extra": "",
-    "fixes": ["Fixed bookmarks popup not opening", "Fixed a memory leak while using glance tabs"],
+    "fixes": [
+      "Fixed the bookmarks popup not opening.",
+      "Fixed a memory leak while using Glance tabs."
+    ],
     "features": [
-      "Buttons on the control center has changed orders for faster access to frequently used buttons"
+      "Buttons on the control center have changed order for faster access to frequently used buttons."
     ],
     "workflowId": 18794964599,
     "image": false,
