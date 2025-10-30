@@ -3236,5 +3236,23 @@
     "workflowId": 18794964599,
     "image": false,
     "date": "25/10/2025"
+  },
+  {
+    "version": "1.17.4b",
+    "extra": "",
+    "fixes": [
+      "Fixed dragging links inside the sidebar causing it to flicker in compact mode.",
+      "Fixed double toolbar urlbar permission icons not being centered vertically.",
+      "Fixed performance and video playback issues on macOS 26 (Tahoe) that occurred when the system was under heavy load.",
+      "Fixed a startup crash affecting Windows users with Avast or other security software installed."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-86/",
+    "features": [
+      "Updated to Firefox 144.0.2",
+      "Added a new 'Clear Tabs' button to the sidebar to quickly close all open unpinned tabs."
+    ],
+    "workflowId": 18941886669,
+    "image": false,
+    "date": "30/10/2025"
   }
 ]
