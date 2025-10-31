@@ -1,4 +1,6 @@
 ---
+import { icon, library } from '@fortawesome/fontawesome-svg-core'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Astronav, Dropdown, DropdownItems, MenuItems } from 'astro-navbar'
 import Button from '~/components/Button.astro'
 import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
@@ -10,6 +12,9 @@ import Logo from './Logo.astro'
 import MobileMenu from './MobileMenu.astro'
 import ThemeSwitch from './ThemeSwitch.astro'
 
+library.add(faGithub)
+const Github = icon({ prefix: 'fab', iconName: 'github' })
+
 const locale = getLocale(Astro)
 const getLocalePath = getPath(locale)
 const {
@@ -17,6 +22,19 @@ const {
     nav: { brand, menu },
   },
 } = getUI(locale)
+
+const owner = 'zen-browser'
+const repo = 'desktop'
+
+const res = await fetch(`https://api.github.com/repos/${owner}/${repo}`)
+const data = await res.json()
+const stars = data.stargazers_count
+
+function formatStars(num: number) {
+  if (num < 1000) return num.toString()
+  return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k'
+}
+const displayStars = formatStars(stars)
 ---
 
 <!-- Desktop Navigation -->
@@ -92,12 +110,6 @@ const {
                 {menu.documentationDesc}
               </div>
             </a>
-            <a class="dropdown-item" href="https://github.com/zen-browser" target="_blank">
-              <div class="dropdown-title">{menu.github}</div>
-              <div class="dropdown-description">
-                {menu.githubDesc}
-              </div>
-            </a>
           </div>
         </DropdownItems>
       </Dropdown>
@@ -106,6 +118,10 @@ const {
       </a>
     </div>
     <div class="flex items-center gap-2 place-self-end lg:gap-4">
+      <a class="flex items-center gap-2 text-xl" href="https://github.com/zen-browser/desktop">
+        <Fragment set:html={Github.html} />
+        <span class="text-sm">{displayStars}</span>
+      </a>
       <div id="theme-switcher">
         <ThemeSwitch label="Toggle theme" />
       </div>
