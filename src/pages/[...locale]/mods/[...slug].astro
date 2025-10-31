@@ -8,6 +8,8 @@ import Layout from '~/layouts/Layout.astro'
 import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
 import { getPath, getUI } from '~/utils/i18n'
 import { getLocale, getOtherLocales } from '~/utils/i18n'
+import { marked } from 'marked'
+import sanitizeHtml from 'sanitize-html'
 
 export async function getStaticPaths() {
   const mods = await getAllMods()
@@ -53,6 +55,23 @@ const {
     mods: { slug },
   },
 } = getUI(locale)
+
+// Fetch the README from GitHub API
+let readmeHtml = ''
+
+if (mod.homepage) {
+  const url = new URL(mod.homepage)
+  const [owner, repo] = url.pathname.slice(1).split('/').filter(Boolean)
+
+  const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/readme`, {
+    headers: {
+      Accept: 'application/vnd.github.v3.raw',
+    },
+  })
+  const rawMarkdown = await res.text()
+  const rawHtml = await marked(rawMarkdown)
+  readmeHtml = sanitizeHtml(rawHtml)
+}
 ---
 
 <Layout
@@ -86,10 +105,23 @@ const {
         <Description class="text-6xl font-bold">{mod.name}</Description>
         <Description>{mod.description}</Description>
       </div>
+      <div class="flex flex-col sm:items-start">
+        <Button class="hidden" id="install-theme" extra={{ 'zen-theme-id': mod.id }} isPrimary>
+          {slug.installMod}
+        </Button>
+        <Button
+          class="hidden"
+          id="install-theme-uninstall"
+          extra={{ 'zen-theme-id': mod.id }}
+          isPrimary
+        >
+          {slug.uninstallMod}
+        </Button>
+      </div>
       <img
         src={mod.image}
         alt={mod.name}
-        class="h-full w-full rounded-xl border-2 border-dark object-cover shadow"
+        class="h-full w-full rounded-xl border-2 border-dark object-cover shadow sm:w-3/4"
       />
       <div class="flex flex-col justify-between gap-2 sm:flex-row">
         <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
@@ -115,25 +147,16 @@ const {
             )
           }
         </div>
-        <div class="flex flex-col sm:items-end">
-          <Button class="hidden" id="install-theme" extra={{ 'zen-theme-id': mod.id }} isPrimary>
-            {slug.installMod}
-          </Button>
-          <Button
-            class="hidden"
-            id="install-theme-uninstall"
-            extra={{ 'zen-theme-id': mod.id }}
-            isPrimary
-          >
-            {slug.uninstallMod}
-          </Button>
-        </div>
       </div>
-      <!-- TODO: Readme markdown
-      <div class="h-[1px] opacity-80 bg-dark w-full"></div>
-      -->
+      {
+        mod.homepage && (
+          <>
+            <div class="mb-4 mt-4 h-[1px] w-full bg-dark opacity-80" />
+            <div set:html={readmeHtml} class="prose dark:prose-invert" />
+          </>
+        )
+      }
     </div>
-    <div></div>
   </main></Layout
 >
 
