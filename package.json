@@ -25,7 +25,7 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.4",
+    "@astrojs/check": "0.9.5",
     "@astrojs/cloudflare": "12.6.6",
     "@astrojs/react": "4.3.0",
     "@astrojs/rss": "4.0.11",
