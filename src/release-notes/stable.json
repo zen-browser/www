@@ -3254,5 +3254,18 @@
     "workflowId": 18938300171,
     "image": false,
     "date": "30/10/2025"
+  },
+  {
+    "version": "1.17.5b",
+    "extra": "",
+    "fixes": ["Stability and performance improvements, specially on glance"],
+    "features": [
+      "Advanced preferences 'zen.urlbar.single-toolbar-show-copy-url' and 'zen.urlbar.show-pip-button' has been added to control the visibility of the 'Copy URL' and 'Picture-in-Picture' buttons in the URL bar.",
+      "The site control center is now opened on click instead of on mouse down so the link can be dragged",
+      "If a site is bookmarked, the control center will now show a filled icon instead of an empty one."
+    ],
+    "workflowId": 19050449808,
+    "image": false,
+    "date": "04/11/2025"
   }
 ]
