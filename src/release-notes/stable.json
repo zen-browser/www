@@ -3218,7 +3218,7 @@
     "extra": "",
     "fixes": [
       "Fixed wheel-clicking on pinned tabs not closing them if they are unloaded.",
-      "Fixed macos traffic light buttons \"mirroring\" themselves when using certain settings.",
+      "Fixed MacOS traffic light buttons \"mirroring\" themselves when using certain settings.",
       "Other small quality of life improvements and bug fixes."
     ],
     "features": [],
@@ -3229,9 +3229,9 @@
   {
     "version": "1.17.3b",
     "extra": "",
-    "fixes": ["Fixed bookmarks popup not opening", "Fixed a memory leak while using glance tabs"],
+    "fixes": ["Fixed bookmarks popup not opening.", "Fixed a memory leak while using Glance tabs."],
     "features": [
-      "Buttons on the control center has changed orders for faster access to frequently used buttons"
+      "Buttons on the control center have changed orders for faster access to frequently used buttons."
     ],
     "workflowId": 18794964599,
     "image": false,
@@ -3242,8 +3242,8 @@
     "extra": "",
     "fixes": [
       "Fixed dragging links inside the sidebar causing it to flicker in compact mode.",
-      "Fixed double toolbar urlbar permission icons not being centered vertically.",
-      "Fixed performance and video playback issues on macOS 26 (Tahoe) that occurred when the system was under heavy load.",
+      "Fixed double toolbar URL bar permission icons not being centered vertically.",
+      "Fixed performance and video playback issues on MacOS 26 (Tahoe) that occurred when the system was under heavy load.",
       "Fixed a startup crash affecting Windows users with Avast or other security software installed."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-86/",
@@ -3258,10 +3258,10 @@
   {
     "version": "1.17.5b",
     "extra": "",
-    "fixes": ["Stability and performance improvements, specially on glance"],
+    "fixes": ["Stability and performance improvements, especially for Glance."],
     "features": [
-      "Advanced preferences 'zen.urlbar.single-toolbar-show-copy-url' and 'zen.urlbar.show-pip-button' has been added to control the visibility of the 'Copy URL' and 'Picture-in-Picture' buttons in the URL bar.",
-      "The site control center is now opened on click instead of on mouse down so the link can be dragged",
+      "Advanced preferences 'zen.urlbar.single-toolbar-show-copy-url' and 'zen.urlbar.show-pip-button' have been added to control the visibility of the 'Copy URL' and 'Picture-in-Picture' buttons in the URL bar.",
+      "The site control center is now opened on click instead of on mouse-down so the link can be dragged.",
       "If a site is bookmarked, the control center will now show a filled icon instead of an empty one."
     ],
     "workflowId": 19050449808,
