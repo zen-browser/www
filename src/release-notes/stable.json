@@ -3269,7 +3269,7 @@
     "date": "04/11/2025"
   },
   {
-    "version": "1.17.5b",
+    "version": "1.17.6b",
     "extra": "",
     "fixes": [
       "Fixed an issue with popups appearing off-screen, e.g., when trying to install a new add-on.",
