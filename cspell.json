@@ -72,7 +72,8 @@
     "xmark",
     "XPCOM",
     "yumemi",
-    "zsync"
+    "zsync",
+    "Zstandard"
   ],
   "flagWords": [],
   "ignorePaths": [

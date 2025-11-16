@@ -3299,8 +3299,15 @@
       "Control center will now show on new tab pages",
       "Added theme commands for the urlbar commands",
       "Added 'Open Link in Glance' option to link context menu",
-      "Added the options to make Ctrl+Tab cycling to keep within essentials/regular tabs only, and another option with the same behavior but for pending tabs"
+      "Added the options to make Ctrl+Tab cycling to keep within essentials/regular tabs only, and another option with the same behavior but for pending tabs",
+      "With the new Open links from apps next to your active tab setting, you can have links from other applications open next to your active tab instead of at the end of the tab strip.",
+      "Enhanced Bounce Tracking Protection's stateless mode is now enabled by default in ETP Strict, blocking more advanced tracking techniques based on redirection",
+      "For most Windows users, the existing desktop shortcut for launching Zen has been replaced with the desktop launcher, a small program that will launch Zen if it is installed"
     ],
+    "changed": [
+      "Local translation models are now compressed with Zstandard, reducing download sizes and on-device storage consumption."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-87/",
     "workflowId": 19393089695,
     "image": false,
     "date": "15/11/2025"
