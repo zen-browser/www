@@ -3308,7 +3308,7 @@
       "Local translation models are now compressed with Zstandard, reducing download sizes and on-device storage consumption."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-87/",
-    "workflowId": 19393089695,
+    "workflowId": 19398706240,
     "image": false,
     "date": "15/11/2025"
   }
