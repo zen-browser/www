@@ -3279,5 +3279,30 @@
     "workflowId": 19151313794,
     "image": false,
     "date": "07/11/2025"
+  },
+  {
+    "version": "1.17.7b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Set workspace id of duplicated essential tab to current active workspace",
+        "issue": 10457
+      },
+      {
+        "description": "Fixed incorrect element picker tooltip description",
+        "issue": 8998
+      }
+    ],
+    "features": [
+      "Updated to Firefox 145.0",
+      "Swiping back or going back in history now closes the tab if it has been opened from another tab",
+      "Control center will now show on new tab pages",
+      "Added theme commands for the urlbar commands",
+      "Added 'Open Link in Glance' option to link context menu",
+      "Added the options to make Ctrl+Tab cycling to keep within essentials/regular tabs only, and another option with the same behavior but for pending tabs"
+    ],
+    "workflowId": 19393089695,
+    "image": false,
+    "date": "16/11/2025"
   }
 ]
