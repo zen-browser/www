@@ -38,8 +38,8 @@ importers:
         specifier: 6.0.2
         version: 6.0.2(astro@5.15.6(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.53.2)(typescript@5.9.2)(yaml@2.8.0))(tailwindcss@3.4.15)
       '@fontsource/bricolage-grotesque':
-        specifier: 5.2.8
-        version: 5.2.8
+        specifier: 5.2.10
+        version: 5.2.10
       '@fortawesome/fontawesome-svg-core':
         specifier: 6.7.2
         version: 6.7.2
@@ -1387,8 +1387,8 @@ packages:
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
 
-  '@fontsource/bricolage-grotesque@5.2.8':
-    resolution: {integrity: sha512-DVCqsxTGDIL/CdDgw1tiAFmtt6OKrgUx9IbzUcMu4EMrrdq7W2/AMM2hgksVy9F0mKGfao76IVL+4gxk4T4LTw==}
+  '@fontsource/bricolage-grotesque@5.2.10':
+    resolution: {integrity: sha512-V2xS+1P7C8IrSypXLUx/bLtX/LsTlYtV2k2CsU+S/0t8qepZ2hvKSlyJIx7Ub/iY8Bbnj+IjAuUF9nvFz+BbIg==}
 
   '@fortawesome/fontawesome-common-types@6.7.2':
     resolution: {integrity: sha512-Zs+YeHUC5fkt7Mg1l6XTniei3k4bwG/yo3iFUtZWd/pMx9g3fdvkSK9E0FOC+++phXOka78uJcYb8JaFkW52Xg==}
@@ -6861,7 +6861,7 @@ snapshots:
 
   '@fastify/busboy@2.1.1': {}
 
-  '@fontsource/bricolage-grotesque@5.2.8': {}
+  '@fontsource/bricolage-grotesque@5.2.10': {}
 
   '@fortawesome/fontawesome-common-types@6.7.2': {}
 
