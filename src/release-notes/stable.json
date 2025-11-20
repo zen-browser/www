@@ -3313,7 +3313,7 @@
     "date": "15/11/2025"
   },
   {
-    "version": "1.17.7b",
+    "version": "1.17.8b",
     "extra": "",
     "fixes": [
       "Fixed an issue with glance opening from the wrong location",
