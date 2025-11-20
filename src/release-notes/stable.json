@@ -3311,5 +3311,26 @@
     "workflowId": 19404811719,
     "image": false,
     "date": "15/11/2025"
+  },
+  {
+    "version": "1.17.7b",
+    "extra": "",
+    "fixes": [
+      "Fixed an issue with glance opening from the wrong location",
+      "Fixed various issues with the URL bar and its commands",
+      "Fixed memory leaks with split view and glance"
+    ],
+    "features": [
+      "Updated to Firefox 145.0.1",
+      "Improved the feel for drag-and-dropping tabs inside folders",
+      "Close buttons now only show when hovering over tabs",
+      "Tabs separator will always show if an unpinned tab is present"
+    ],
+    "knownIssues": [
+      "Double-click to open a new tab is currently broken on windows, as a workaround the preference 'zen.view.draggable-sidebar' has been added to disable the sidebar dragging feature and make double-click work again"
+    ],
+    "workflowId": 19511885561,
+    "image": false,
+    "date": "20/11/2025"
   }
 ]
