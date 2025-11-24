@@ -3343,7 +3343,7 @@
     "features": [
       "Added an update success notification after updating to a new version. (zen.updates.show-update-notification in about:config)"
     ],
-    "workflowId": 19617902379,
+    "workflowId": 19633693139,
     "image": false,
     "date": "24/11/2025"
   }
