@@ -3346,5 +3346,17 @@
     "workflowId": 19617902379,
     "image": false,
     "date": "24/11/2025"
+  },
+  {
+    "version": "1.17.10b",
+    "extra": "",
+    "fixes": [
+      "Fixed download animation not showing",
+      "Fixed ctrl/shift+click on a link not activating glance properly"
+    ],
+    "features": ["Updated to Firefox 145.0.2"],
+    "workflowId": 19677732051,
+    "image": false,
+    "date": "26/11/2025"
   }
 ]
