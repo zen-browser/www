@@ -3358,5 +3358,19 @@
     "workflowId": 19677732051,
     "image": false,
     "date": "26/11/2025"
+  },
+  {
+    "version": "1.17.11b",
+    "extra": "",
+    "fixes": [
+      "Fixed double clicking on the sidebar not opening a new tab on Windows.",
+      "Fixed fullscreen having a border at the top on windows on secondary monitors.",
+      "Fixed slow internet connections when using HTTP/3.",
+      "Fixed pinned tabs restoring incorrectly and crashing when quitting on macOS."
+    ],
+    "features": [],
+    "workflowId": 19762723292,
+    "image": false,
+    "date": "28/11/2025"
   }
 ]
