@@ -3368,7 +3368,7 @@
       "Fixed very slow page loading in cases where http/3 connections failed but did not properly fall back to http/2.",
       "Fixed pinned tabs restoring incorrectly and crashing when quitting on macOS."
     ],
-    "features": [],
+    "features": ["Enabled the new styled status panel by default just for macOS users for now."],
     "workflowId": 19775829409,
     "image": false,
     "date": "28/11/2025"
