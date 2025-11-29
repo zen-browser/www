@@ -3365,7 +3365,7 @@
     "fixes": [
       "Fixed double clicking on the sidebar not opening a new tab on Windows.",
       "Fixed fullscreen having a border at the top on windows on secondary monitors.",
-      "Fixed slow internet connections when using HTTP/3.",
+      "Fixed very slow page loading in cases where http/3 connections failed but did not properly fall back to http/2.",
       "Fixed pinned tabs restoring incorrectly and crashing when quitting on macOS."
     ],
     "features": [],
