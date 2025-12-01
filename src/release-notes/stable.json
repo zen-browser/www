@@ -3372,5 +3372,17 @@
     "workflowId": 19775829409,
     "image": false,
     "date": "28/11/2025"
+  },
+  {
+    "version": "1.17.12b",
+    "extra": "",
+    "fixes": [
+      "Fixed titlebars not displaying correctly on WIndows",
+      "Fixed compact mode not initializing correctly on new windows or private windows"
+    ],
+    "features": [],
+    "workflowId": 19804431705,
+    "image": false,
+    "date": "01/12/2025"
   }
 ]
