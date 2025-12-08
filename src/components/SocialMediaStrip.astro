@@ -1,9 +1,10 @@
 ---
-const { class: className, ...props } = Astro.props
+const { class: className, excludeIcons = [], ...props } = Astro.props
 
 import { icon, library } from '@fortawesome/fontawesome-svg-core'
 import {
   faBluesky,
+  faDiscord,
   faGithub,
   faMastodon,
   faReddit,
@@ -11,63 +12,108 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import { cn } from '~/utils/merge'
 
-library.add(faMastodon, faBluesky, faGithub, faXTwitter, faReddit)
+library.add(faMastodon, faBluesky, faGithub, faDiscord, faXTwitter, faReddit)
 const Mastodon = icon({ prefix: 'fab', iconName: 'mastodon' })
 const Bluesky = icon({ prefix: 'fab', iconName: 'bluesky' })
 const Github = icon({ prefix: 'fab', iconName: 'github' })
+const Discord = icon({ prefix: 'fab', iconName: 'discord' })
 const XTwitter = icon({ prefix: 'fab', iconName: 'x-twitter' })
 const Reddit = icon({ prefix: 'fab', iconName: 'reddit' })
+
+const allowedIcons = new Set(['github', 'discord', 'x', 'mastodon', 'bluesky', 'reddit'])
+const excluded = new Set(
+  Array.isArray(excludeIcons)
+    ? excludeIcons
+        .filter(v => typeof v === 'string')
+        .map(v => v.toLowerCase())
+        .filter(v => allowedIcons.has(v))
+    : []
+)
 ---
 
 <ul class={cn('flex items-center gap-4 opacity-80', className)} {...props}>
-  <li>
-    <a
-      href="https://github.com/zen-browser"
-      target="_blank"
-      class="font-bold"
-      aria-label="Visit Zen Browser on GitHub"
-    >
-      <Fragment set:html={Github.html} />
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://x.com/zen_browser"
-      target="_blank"
-      class="font-normal"
-      aria-label="Visit Zen Browser on X"
-    >
-      <Fragment set:html={XTwitter.html} />
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://floss.social/@zenbrowser"
-      target="_blank"
-      class="font-normal"
-      aria-label="Visit Zen Browser on Mastodon"
-    >
-      <Fragment set:html={Mastodon.html} />
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://bsky.app/profile/zen-browser.app"
-      target="_blank"
-      class="font-normal"
-      aria-label="Visit Zen Browser on Bluesky"
-    >
-      <Fragment set:html={Bluesky.html} />
-    </a>
-  </li>
-  <li>
-    <a
-      href="https://www.reddit.com/r/zen_browser"
-      target="_blank"
-      class="font-normal"
-      aria-label="Visit Zen Browser on Reddit"
-    >
-      <Fragment set:html={Reddit.html} />
-    </a>
-  </li>
+  {
+    !excluded.has('github') && (
+      <li>
+        <a
+          href="https://github.com/zen-browser"
+          target="_blank"
+          class="font-bold"
+          aria-label="Visit Zen Browser on GitHub"
+        >
+          <Fragment set:html={Github.html} />
+        </a>
+      </li>
+    )
+  }
+  {
+    !excluded.has('discord') && (
+      <li>
+        <a
+          href="https://discord.gg/zen-browser"
+          target="_blank"
+          class="font-bold"
+          aria-label="Join Zen Browser on Discord"
+        >
+          <Fragment set:html={Discord.html} />
+        </a>
+      </li>
+    )
+  }
+  {
+    !excluded.has('x') && (
+      <li>
+        <a
+          href="https://x.com/zen_browser"
+          target="_blank"
+          class="font-normal"
+          aria-label="Visit Zen Browser on X"
+        >
+          <Fragment set:html={XTwitter.html} />
+        </a>
+      </li>
+    )
+  }
+  {
+    !excluded.has('mastodon') && (
+      <li>
+        <a
+          href="https://floss.social/@zenbrowser"
+          target="_blank"
+          class="font-normal"
+          aria-label="Visit Zen Browser on Mastodon"
+        >
+          <Fragment set:html={Mastodon.html} />
+        </a>
+      </li>
+    )
+  }
+  {
+    !excluded.has('bluesky') && (
+      <li>
+        <a
+          href="https://bsky.app/profile/zen-browser.app"
+          target="_blank"
+          class="font-normal"
+          aria-label="Visit Zen Browser on Bluesky"
+        >
+          <Fragment set:html={Bluesky.html} />
+        </a>
+      </li>
+    )
+  }
+  {
+    !excluded.has('reddit') && (
+      <li>
+        <a
+          href="https://www.reddit.com/r/zen_browser"
+          target="_blank"
+          class="font-normal"
+          aria-label="Visit Zen Browser on Reddit"
+        >
+          <Fragment set:html={Reddit.html} />
+        </a>
+      </li>
+    )
+  }
 </ul>
