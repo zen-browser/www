@@ -3377,7 +3377,7 @@
     "version": "1.17.12b",
     "extra": "",
     "fixes": [
-      "Fixed titlebars not displaying correctly on WIndows",
+      "Fixed titlebars not displaying correctly on Windows",
       "Fixed compact mode not initializing correctly on new windows or private windows"
     ],
     "features": [],
