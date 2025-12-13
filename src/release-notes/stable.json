@@ -3384,5 +3384,20 @@
     "workflowId": 19804431705,
     "image": false,
     "date": "01/12/2025"
+  },
+  {
+    "version": "1.17.13b",
+    "extra": "",
+    "fixes": ["Small performance improvements and bug fixes."],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-92/",
+    "features": [
+      "Updated to Firefox 146.0",
+      "You can now choose monochrome themes and customize the color algorithm on the theme picker",
+      "Zen now natively supports fractional scaled displays on Linux (Wayland), making rendering more effective.",
+      "MacOS users now have a dedicated GPU process by default. This includes WebGPU, WebGL, and Zen's own WebRender. With this feature enabled, fatal errors in graphics code will no longer crash the browser, and will instead transparently restart the GPU process."
+    ],
+    "workflowId": 20138588499,
+    "image": false,
+    "date": "12/12/2025"
   }
 ]
