@@ -3399,5 +3399,20 @@
     "workflowId": 20138588499,
     "image": false,
     "date": "12/12/2025"
+  },
+  {
+    "version": "1.17.14b",
+    "extra": "",
+    "fixes": [
+      "Fixed startup hangs on macos systems having webrenderer disabled.",
+      "Fixed an issue when setting certain sites as default search engines being overwritten on restart.",
+      "Fixed minor issues with the update notification being used alongside the media player and improved overflowing space icons feel when hovering."
+    ],
+    "features": [
+      "Added a preference (`zen.downloads.icon-popup-position`) to control the position of the download icon popup in compact mode."
+    ],
+    "workflowId": 20200279614,
+    "image": false,
+    "date": "14/12/2025"
   }
 ]
