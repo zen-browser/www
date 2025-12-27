@@ -83,6 +83,12 @@ const generateItems = (items: any, type: string) => {
           content: item,
         })
         break
+      case 'known':
+        listItems[type].push({
+          type: 'known',
+          content: item,
+        })
+        break
       case 'break':
         listItems[type].push({
           type: 'break',

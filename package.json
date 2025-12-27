@@ -5,7 +5,7 @@
   "engines": {
     "pnpm": "^10.0.0"
   },
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.18.3",
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro preview --port 3000",
@@ -26,19 +26,19 @@
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
-    "@astrojs/cloudflare": "12.5.2",
+    "@astrojs/cloudflare": "12.6.6",
     "@astrojs/react": "4.3.0",
     "@astrojs/rss": "4.0.11",
     "@astrojs/sitemap": "3.3.1",
     "@astrojs/tailwind": "6.0.2",
-    "@fontsource/bricolage-grotesque": "5.2.8",
+    "@fontsource/bricolage-grotesque": "5.2.10",
     "@fortawesome/fontawesome-svg-core": "6.7.2",
     "@fortawesome/free-brands-svg-icons": "6.7.2",
     "@fortawesome/free-solid-svg-icons": "6.7.2",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "animejs": "4.0.2",
-    "astro": "5.7.10",
+    "astro": "5.15.6",
     "astro-navbar": "2.3.7",
     "autoprefixer": "10.4.14",
     "clsx": "2.1.1",

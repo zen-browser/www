@@ -2958,18 +2958,479 @@
     "version": "1.14.10b",
     "extra": "",
     "fixes": ["Fixed hovering over the tabs in compact mode having weird behavior on windows."],
-    "features": ["New windows should be opening faster now.", "Updated to Firefox 141.0.2"],
+    "features": ["New windows should be opening faster now.", "Updated to Firefox 141.0.2."],
     "workflowId": 16726691771,
     "image": false,
     "date": "04/08/2025"
   },
   {
     "version": "1.14.11b",
-    "extra": "Just a small update since we are focusing on folders! now on twilight.",
-    "fixes": ["Fixed the download having poor visibility"],
-    "features": ["Updated to Firefox 141.0.3"],
+    "extra": "Just a small update since we are focusing on folders! Now on Twilight.",
+    "fixes": ["Fixed the download having poor visibility."],
+    "features": ["Updated to Firefox 141.0.3."],
     "workflowId": 16847611692,
     "image": false,
     "date": "10/08/2025"
+  },
+  {
+    "version": "1.15b",
+    "extra": "You asked, we delivered: Folders have arrived in Zen! Organise your browsing the way you want. Create a folder from the sidebar with the plus (+) button, give it a name, then drag and drop tabs inside. Right\u2013click a folder to rename or delete it, and rearrange them anytime to keep projects or saved links in order. Folders have been one of the most requested features since Zen\u2019s launch, and they\u2019re finally here.\n\nIf you wan't us to keep doing cool things like these, please consider <a href='https://zen-browser.app/donate'>donating</a>!",
+    "fixes": [
+      "Resolved compact mode twitching issue when hovering the URL bar.",
+      "Pinned tab titles not showing on the URL bar search results.",
+      "A performance issue with pinned tabs pre-loading at startup."
+    ],
+    "features": [
+      "Folders!",
+      "Updated to Firefox 142.0",
+      "Implemented monochromatic icons for spaces, folders, etc.",
+      "Added a small animation when updating Zen."
+    ],
+    "changes": [
+      "Third-party domains now open in their own tabs when opened on pinned and essential tabs.",
+      "Added a more native feel for Windows users.",
+      "New profiles or resetting to default shortcuts will now have next/previous workspace assigned as <strong>Ctrl + Alt + LEFT/RIGHT</strong>, toggle compact mode using <strong>Ctrl + S</strong> and save page as <strong>Ctrl + Alt + S</strong>.",
+      "Compact mode with no browser padding will now have a separation between the sidebar and the window edge."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-64/",
+    "workflowId": 17249990370,
+    "image": false,
+    "date": "25/08/2025"
+  },
+  {
+    "version": "1.15.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed issues with the folder context menu not working on collapsed mode.",
+      "Fixed tab becoming invisible on some occasions when collapsing active folders.",
+      "Fixed pinned tabs / folders not initializing correctly on some occasions."
+    ],
+    "features": ["Updated to Firefox 142.0.1."],
+    "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu."],
+    "workflowId": 17281244121,
+    "image": false,
+    "date": "28/08/2025"
+  },
+  {
+    "version": "1.15.2b",
+    "extra": "",
+    "fixes": ["Fixed an issue where folders couldn't be renamed on double toolbar."],
+    "features": [],
+    "workflowId": 17309178471,
+    "image": false,
+    "date": "29/08/2025"
+  },
+  {
+    "version": "1.15.3b",
+    "extra": "",
+    "fixes": [
+      "Fixed compact mode turning off after startup.",
+      {
+        "description": "Fixed memory issues when creating new folders.",
+        "issue": 10145
+      },
+      "Fixed startup freezes on some systems.",
+      "Fixed hovering over the URL bar making the compact mode sidebar appear."
+    ],
+    "changes": ["'Split Tabs' context menu item won't show if it's not applicable."],
+    "features": ["Wheel clicking on a pending pinned tab will now close it."],
+    "workflowId": 17382661251,
+    "image": false,
+    "date": "31/08/2025"
+  },
+  {
+    "version": "1.15.4b",
+    "extra": "This release is mostly important for Windows users as the previous certificate will expire soon.",
+    "fixes": ["Fixed using the scrollbar on the sidebar, moving the window instead of scrolling."],
+    "changes": [
+      "The Windows build is now signed with a new certificate since the previous one will expire soon."
+    ],
+    "features": [
+      "Added a 'tada' folder icon.",
+      "Added faster tab open animations, and a new tab close animation."
+    ],
+    "workflowId": 17474455267,
+    "image": false,
+    "date": "04/09/2025"
+  },
+  {
+    "version": "1.15.5b",
+    "extra": "",
+    "fixes": [
+      "Fixed potential crashes on- and updated Flatpak dependencies.",
+      "Fixed double-clicking on the empty space of the sidebar not making a new tab."
+    ],
+    "features": [],
+    "workflowId": 17516383788,
+    "image": false,
+    "date": "06/09/2025"
+  },
+  {
+    "version": "1.16b",
+    "extra": "This update focuses on the URL bar, letting you open extensions and switch spaces by typing their names, with a redesigned interface for clearer, richer results. It also adds smoother transitions, improved split view creation, and general performance fixes.",
+    "fixes": [
+      "Resolved an issue where pinned tabs were not being saved or restored correctly.",
+      "Fixed a bug preventing tabs from being restored across different spaces."
+    ],
+    "changes": [
+      "Re-assigned the 'Cmd + O' shortcut from opening a file to expanding Glance.",
+      "Re-assigned the 'Cmd + Shift + D' shortcut from saving all bookmarks to pinning/unpinning tabs.",
+      "Enhanced the performance of space-swiping gestures.",
+      "Keyboard shortcuts on macOS now use native system symbols.",
+      "Improved both the performance and interface for the drag-to-split action."
+    ],
+    "features": [
+      "Upgraded to Firefox 143.0",
+      "Introduced Command Bar actions (e.g., toggle Compact Mode directly from the Command Bar). More commands and features will be added over time\u2014contributions are welcome!",
+      "Extensions can now be opened by typing their name directly in the URL bar.",
+      "Compact Mode backgrounds now transition smoothly when switching spaces instead of changing instantly.",
+      "Added a new shortcut (Cmd + Alt + =) for creating split views, along with a redesigned split view creation interface.",
+      "Redesigned the URL bar for improved usability and richer results.",
+      "Spaces can now be switched by typing the space name directly into the URL bar.",
+      "Optimized Glance for smoother scrolling and faster performance."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-73/",
+    "workflowId": 17910611774,
+    "image": false,
+    "date": "21/09/2025"
+  },
+  {
+    "version": "1.16.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed being unable to close the window on an empty state.",
+      "Fixed the broken UI when using split views in collapsed mode.",
+      "Fixed a memory leak caused by the folder icon animation.",
+      "Improved performance while having compact mode enabled, reducing the amount of observations."
+    ],
+    "features": [
+      "Command Bar commands will now obtain more priority in the URL bar.",
+      "Enabled Firefox's crash reporter to better identify crashes."
+    ],
+    "workflowId": 18005882035,
+    "image": false,
+    "date": "22/09/2025"
+  },
+  {
+    "version": "1.16.2b",
+    "extra": "",
+    "fixes": [
+      "Themed compact mode top toolbar is back, sorry for the small confusion!",
+      "Fixed symbols on certain languages not rendering correctly for Flatpak users.",
+      "Fixed the mute button on the collapsed sidebar not displaying unless selecting the tab."
+    ],
+    "changes": ["URL Bar commands will now be enabled regardless of the browser's language."],
+    "features": [
+      "Pressing 'TAB' on an empty Command Bar will show all available commands.",
+      "Improved URL bar command search performance; and implemented a learning algorithm.",
+      "Compact mode + fullscreen will no longer have borders.",
+      "Added more icons to folders and workspaces."
+    ],
+    "workflowId": 18059883443,
+    "image": false,
+    "date": "27/09/2025"
+  },
+  {
+    "version": "1.16.3b",
+    "extra": "",
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-80/",
+    "fixes": [
+      "Fixed switching spaces causing Essentials to disappear sometimes.",
+      "Fixed small visual inconsistencies.",
+      "Fixed the URL bar staying afloat in compact mode.",
+      "Fixed addons being unable to automatically update."
+    ],
+    "features": ["Updated to Firefox 143.0.4"],
+    "workflowId": 18238451297,
+    "image": false,
+    "date": "03/10/2025"
+  },
+  {
+    "version": "1.16.4b",
+    "extra": "",
+    "fixes": [
+      "Fixed the incorrect version of FFmpeg being used for AUR users.",
+      "Fixed a bug where compact mode wouldn't hide.",
+      "Fixed poor performance when the media controller is shown.",
+      "Fixed a hang when having 'switch space automatically' enabled and using automatic container add-ons."
+    ],
+    "features": [
+      "Added support for an 'unload space' context menu item to unload all tabs in a space.",
+      "Added an 'about:config' to limit the number of essentials (zen.tabs.essentials.max) and to prevent compact mode from hiding the borders in fullscreen (zen.view.borderless-fullscreen)."
+    ],
+    "workflowId": 18345238906,
+    "image": false,
+    "date": "08/10/2025"
+  },
+  {
+    "version": "1.17b",
+    "extra": "Note that if you used to like glance on the left side, you can download this <a href=\"https://zen-browser.app/mods/20e8cc78-3dac-4db0-81a4-814672fb50af/\">mod</a> to restore that functionality!",
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-81/",
+    "fixes": [
+      "Fixed the URL bar not opening in fullscreen mode.",
+      "Fixed performance for MacOS users when using transparency on the browser window.",
+      "Other fixes with compact mode on double toolbar mode.",
+      {
+        "description": "Fixed issues with 'Firefox Multiaccount Containers' extension freezing Zen.",
+        "issue": 10666
+      },
+      "Fixed slow split view switching and scroll positions not being remembered.",
+      "Various stability and performance fixes for Glance."
+    ],
+    "features": [
+      "Updated to Firefox 144.0",
+      "New unified panel to show site permissions, security, add-ons, quick actions and more to de-clutter the address bar.",
+      "Added toolbar button to quickly toggle compact mode.",
+      "Improved Glance animations to make it feel like the element is being lifted off the page.",
+      "Added a URL bar button to quickly copy the current page URL.",
+      "Zen will now start using the new MacOS Tahoe look and feel.",
+      "The operating system accent color will now be used instead of the default orange color when there's no browser theme applied."
+    ],
+    "changes": [
+      "On double toolbar mode, compact mode will have a new UI, where it overlays the web view instead of sliding like the sidebar.",
+      "Hovering over the window captions on Windows/Linux or double toolbar in compact mode will stop pushing the web view down, instead it will overlay it.",
+      "By default, the 'Copy current page URL' button will not copy tracking parameters for enhanced privacy."
+    ],
+    "workflowId": 18680759658,
+    "image": false,
+    "date": "19/10/2025"
+  },
+  {
+    "version": "1.17.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed a regression with collapsed tabs not expanding the full width of the window",
+      "Fixed an issue with warnings for unsigned extensions not displaying correctly",
+      "Fixed compact mode getting stuck after updating to 1.17",
+      "Fixed a border at the top of the window appearing in some cases",
+      "Other minor bug fixes and improvements"
+    ],
+    "changes": [
+      "Control centers will look more native on linux / windows for a more 'flat' appearance"
+    ],
+    "features": [],
+    "workflowId": 18724178873,
+    "image": false,
+    "date": "22/10/2025"
+  },
+  {
+    "version": "1.17.2b",
+    "extra": "",
+    "fixes": [
+      "Fixed wheel-clicking on pinned tabs not closing them if they are unloaded.",
+      "Fixed macos traffic light buttons \"mirroring\" themselves when using certain settings.",
+      "Other small quality of life improvements and bug fixes."
+    ],
+    "features": [],
+    "workflowId": 18753962090,
+    "image": false,
+    "date": "24/10/2025"
+  },
+  {
+    "version": "1.17.3b",
+    "extra": "",
+    "fixes": ["Fixed bookmarks popup not opening", "Fixed a memory leak while using glance tabs"],
+    "features": [
+      "Buttons on the control center has changed orders for faster access to frequently used buttons"
+    ],
+    "workflowId": 18794964599,
+    "image": false,
+    "date": "25/10/2025"
+  },
+  {
+    "version": "1.17.4b",
+    "extra": "",
+    "fixes": [
+      "Fixed dragging links inside the sidebar causing it to flicker in compact mode.",
+      "Fixed double toolbar urlbar permission icons not being centered vertically.",
+      "Fixed performance and video playback issues on macOS 26 (Tahoe) that occurred when the system was under heavy load.",
+      "Fixed a startup crash affecting Windows users with Avast or other security software installed."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-86/",
+    "features": [
+      "Updated to Firefox 144.0.2",
+      "Added a new 'Clear Tabs' button to the sidebar to quickly close all open unpinned tabs."
+    ],
+    "workflowId": 18941886669,
+    "image": false,
+    "date": "30/10/2025"
+  },
+  {
+    "version": "1.17.5b",
+    "extra": "",
+    "fixes": ["Stability and performance improvements, specially on glance"],
+    "features": [
+      "Advanced preferences 'zen.urlbar.single-toolbar-show-copy-url' and 'zen.urlbar.show-pip-button' has been added to control the visibility of the 'Copy URL' and 'Picture-in-Picture' buttons in the URL bar.",
+      "The site control center is now opened on click instead of on mouse down so the link can be dragged",
+      "If a site is bookmarked, the control center will now show a filled icon instead of an empty one."
+    ],
+    "workflowId": 19050449808,
+    "image": false,
+    "date": "04/11/2025"
+  },
+  {
+    "version": "1.17.6b",
+    "extra": "",
+    "fixes": [
+      "Fixed an issue with popups appearing off-screen, e.g., when trying to install a new add-on.",
+      "Fixed flashing issues with glance"
+    ],
+    "features": [],
+    "workflowId": 19151313794,
+    "image": false,
+    "date": "07/11/2025"
+  },
+  {
+    "version": "1.17.7b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Set workspace id of duplicated essential tab to current active workspace",
+        "issue": 10457
+      },
+      {
+        "description": "Fixed incorrect element picker tooltip description",
+        "issue": 8998
+      }
+    ],
+    "features": [
+      "Updated to Firefox 145.0",
+      "Swiping back or going back in history now closes the tab if it has been opened from another tab",
+      "Control center will now show on new tab pages",
+      "Added theme commands for the urlbar commands",
+      "Added 'Open Link in Glance' option to link context menu",
+      "Added the options to make Ctrl+Tab cycling to keep within essentials/regular tabs only, and another option with the same behavior but for pending tabs",
+      "With the new Open links from apps next to your active tab setting, you can have links from other applications open next to your active tab instead of at the end of the tab strip.",
+      "Enhanced Bounce Tracking Protection's stateless mode is now enabled by default in ETP Strict, blocking more advanced tracking techniques based on redirection",
+      "For most Windows users, the existing desktop shortcut for launching Zen has been replaced with the desktop launcher, a small program that will launch Zen if it is installed"
+    ],
+    "changed": [
+      "Local translation models are now compressed with Zstandard, reducing download sizes and on-device storage consumption."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-87/",
+    "workflowId": 19404811719,
+    "image": false,
+    "date": "15/11/2025"
+  },
+  {
+    "version": "1.17.8b",
+    "extra": "",
+    "fixes": [
+      "Fixed an issue with glance opening from the wrong location",
+      "Fixed various issues with the URL bar and its commands",
+      "Fixed memory leaks with split view and glance"
+    ],
+    "features": [
+      "Updated to Firefox 145.0.1",
+      "Improved the feel for drag-and-dropping tabs inside folders",
+      "Close buttons now only show when hovering over tabs",
+      "Tabs separator will always show if an unpinned tab is present"
+    ],
+    "knownIssues": [
+      "Double-click to open a new tab is currently broken on windows, as a workaround the preference 'zen.view.draggable-sidebar' has been added to disable the sidebar dragging feature and make double-click work again"
+    ],
+    "workflowId": 19511885561,
+    "image": false,
+    "date": "20/11/2025"
+  },
+  {
+    "version": "1.17.9b",
+    "extra": "",
+    "fixes": [
+      "Fixed folders not remembering their name and icon changes after app restart.",
+      "Fixed glance being activated when alt+selecting a link"
+    ],
+    "features": [
+      "Added an update success notification after updating to a new version. (zen.updates.show-update-notification in about:config)"
+    ],
+    "workflowId": 19633693139,
+    "image": false,
+    "date": "24/11/2025"
+  },
+  {
+    "version": "1.17.10b",
+    "extra": "",
+    "fixes": [
+      "Fixed download animation not showing",
+      "Fixed ctrl/shift+click on a link not activating glance properly"
+    ],
+    "features": ["Updated to Firefox 145.0.2"],
+    "workflowId": 19677732051,
+    "image": false,
+    "date": "26/11/2025"
+  },
+  {
+    "version": "1.17.11b",
+    "extra": "",
+    "fixes": [
+      "Fixed double clicking on the sidebar not opening a new tab on Windows.",
+      "Fixed fullscreen having a border at the top on windows on secondary monitors.",
+      "Fixed very slow page loading in cases where http/3 connections failed but did not properly fall back to http/2.",
+      "Fixed pinned tabs restoring incorrectly and crashing when quitting on macOS."
+    ],
+    "features": ["Enabled the new styled status panel by default just for macOS users for now."],
+    "workflowId": 19775829409,
+    "image": false,
+    "date": "28/11/2025"
+  },
+  {
+    "version": "1.17.12b",
+    "extra": "",
+    "fixes": [
+      "Fixed titlebars not displaying correctly on WIndows",
+      "Fixed compact mode not initializing correctly on new windows or private windows"
+    ],
+    "features": [],
+    "workflowId": 19804431705,
+    "image": false,
+    "date": "01/12/2025"
+  },
+  {
+    "version": "1.17.13b",
+    "extra": "",
+    "fixes": ["Small performance improvements and bug fixes."],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-92/",
+    "features": [
+      "Updated to Firefox 146.0",
+      "You can now choose monochrome themes and customize the color algorithm on the theme picker",
+      "Zen now natively supports fractional scaled displays on Linux (Wayland), making rendering more effective.",
+      "MacOS users now have a dedicated GPU process by default. This includes WebGPU, WebGL, and Zen's own WebRender. With this feature enabled, fatal errors in graphics code will no longer crash the browser, and will instead transparently restart the GPU process."
+    ],
+    "workflowId": 20138588499,
+    "image": false,
+    "date": "12/12/2025"
+  },
+  {
+    "version": "1.17.14b",
+    "extra": "",
+    "fixes": [
+      "Fixed startup hangs on macos systems having webrenderer disabled.",
+      "Fixed an issue when setting certain sites as default search engines being overwritten on restart.",
+      "Fixed minor issues with the update notification being used alongside the media player and improved overflowing space icons feel when hovering."
+    ],
+    "features": [
+      "Added a preference (`zen.downloads.icon-popup-position`) to control the position of the download icon popup in compact mode."
+    ],
+    "workflowId": 20200279614,
+    "image": false,
+    "date": "14/12/2025"
+  },
+  {
+    "version": "1.17.15b",
+    "extra": "",
+    "fixes": [
+      "Fixed an issue where fingerprinting protection caused incorrect font rendering on popular websites.",
+      "Improved overall stability by fixing crashes related to browsing, graphics, and accessibility features.",
+      "Fixed opening a link from an external application not creating a new tab in some cases.",
+      "Fixed 'Create new split' not working from the command bar."
+    ],
+    "features": [
+      "Updated to Firefox 146.0.1",
+      "Added support for Norwegian Bokmål (nb-NO), Slovak (sk), Romanian (ro) and more languages."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-98/",
+    "workflowId": 20394140036,
+    "image": false,
+    "date": "21/12/2025"
   }
 ]

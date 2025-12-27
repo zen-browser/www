@@ -11,6 +11,7 @@
     "Brhm",
     "Briel",
     "bryan",
+    "Bokmål",
     "canoa",
     "Canoa",
     "cfasync",
@@ -42,6 +43,7 @@
     "linaarchsum",
     "linuxarmsum",
     "linuxsum",
+    "Logitech",
     "mfsa",
     "mozilla",
     "Nehalem",
@@ -71,7 +73,8 @@
     "xmark",
     "XPCOM",
     "yumemi",
-    "zsync"
+    "zsync",
+    "Zstandard"
   ],
   "flagWords": [],
   "ignorePaths": [
