@@ -3399,5 +3399,38 @@
     "workflowId": 20138588499,
     "image": false,
     "date": "12/12/2025"
+  },
+  {
+    "version": "1.17.14b",
+    "extra": "",
+    "fixes": [
+      "Fixed startup hangs on macos systems having webrenderer disabled.",
+      "Fixed an issue when setting certain sites as default search engines being overwritten on restart.",
+      "Fixed minor issues with the update notification being used alongside the media player and improved overflowing space icons feel when hovering."
+    ],
+    "features": [
+      "Added a preference (`zen.downloads.icon-popup-position`) to control the position of the download icon popup in compact mode."
+    ],
+    "workflowId": 20200279614,
+    "image": false,
+    "date": "14/12/2025"
+  },
+  {
+    "version": "1.17.15b",
+    "extra": "",
+    "fixes": [
+      "Fixed an issue where fingerprinting protection caused incorrect font rendering on popular websites.",
+      "Improved overall stability by fixing crashes related to browsing, graphics, and accessibility features.",
+      "Fixed opening a link from an external application not creating a new tab in some cases.",
+      "Fixed 'Create new split' not working from the command bar."
+    ],
+    "features": [
+      "Updated to Firefox 146.0.1",
+      "Added support for Norwegian Bokmål (nb-NO), Slovak (sk), Romanian (ro) and more languages."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-98/",
+    "workflowId": 20394140036,
+    "image": false,
+    "date": "21/12/2025"
   }
 ]

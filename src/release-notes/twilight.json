@@ -1,6 +1,15 @@
 {
-  "version": "xxx",
+  "version": "1.18t",
   "extra": "",
   "fixes": [],
-  "features": []
+  "features": [
+    "Merged window syncing! Now, when you open multiple windows of Zen, they will stay in sync with each other. Changes made in one window will automatically reflect in all other open windows. (Experimental, some features such as glance still can't sync yet.)",
+    "Session restore now remembers which space each window was in.",
+    "Tabs can now have custom icons (set via right-click context menu).",
+    "Implemented new tab drag-and-drop system, making it easier to rearrange tabs specially when multiple layers of folders are involved.",
+    "You can now collapse all pinned tabs by clicking on the space name below the essentials.",
+    "Before, only pinned tabs could be renamed; now, any tab can be renamed via right-click context menu or double-clicking the tab title.",
+    "Improved startup time when restoring large sessions.",
+    "Enabled de-cluttering preference for context menus."
+  ]
 }
