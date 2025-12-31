@@ -10,6 +10,8 @@
     "You can now collapse all pinned tabs by clicking on the space name below the essentials.",
     "Before, only pinned tabs could be renamed; now, any tab can be renamed via right-click context menu or double-clicking the tab title.",
     "Improved startup time when restoring large sessions.",
+    "New MacOS profiles will now have 'switch to N space' keyboard shortcuts filled by default (control+number).",
+    "Improved native menu bar integration on MacOS (and Windows/Linux if applicable), adding a 'Spaces' menu item for easier access to space-related actions.",
     "Enabled de-cluttering preference for context menus."
   ]
 }
