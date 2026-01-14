@@ -3,6 +3,7 @@
   "extra": "",
   "fixes": [],
   "features": [
+    "Updated to Firefox 147.0",
     "Merged window syncing! Now, when you open multiple windows of Zen, they will stay in sync with each other. Changes made in one window will automatically reflect in all other open windows. (Experimental, some features such as glance still can't sync yet.)",
     "Session restore now remembers which space each window was in.",
     "Tabs can now have custom icons (set via right-click context menu).",
@@ -12,6 +13,11 @@
     "Improved startup time when restoring large sessions.",
     "New MacOS profiles will now have 'switch to N space' keyboard shortcuts filled by default (control+number).",
     "Improved native menu bar integration on MacOS (and Windows/Linux if applicable), adding a 'Spaces' menu item for easier access to space-related actions.",
-    "Enabled de-cluttering preference for context menus."
+    "Enabled de-cluttering preference for context menus.",
+    "WebGPU support is now enabled for devices with Apple Silicon processors on all supported macOS versions.",
+    "Improved video playback performance on systems with AMD GPUs by enabling zero-copy playback for hardware-decoded video where supported, bringing them to parity with Intel and NVIDIA GPUs.",
+    "Zen now supports the Safe Browsing V5 protocol and is migrating from Safe Browsing V4 to the local list mode of Safe Browsing V5 protocol.",
+    "Zen now supports the Freedesktop.org XDG Base Directory Specification.",
+    "Added an 'Essentials DnD Promo' card, shown when dragging a tab to the top of the sidebar if there are no essentials."
   ]
 }
