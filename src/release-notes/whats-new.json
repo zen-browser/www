@@ -1,4 +1,4 @@
 [
-  "This update includes window sync and other nice improvements! Window sync is a way to keep your windows organized across multiple monitors. If you wan't a blank window, you can do so by using opt+cmd+N (for mac), ctrl+alt+N (for linux) and alt+N (for windows). Enjoy!\n\nYou can read more about window sync in our documentation <a class=\"text-coral\" href=\"https://docs.zen-browser.app/user-manual/window-sync\">here</a>",
-  "1.18b"
+  "This update focuses on enhancing user experience and general polishing. You can now start using the new Site Control Center to manage site permissions, security settings, and add-ons all in one place. We've also added a quick toggle button for compact mode on the toolbar for easier access along with other nice quality of life improvements!",
+  "1.17.3b"
 ]
