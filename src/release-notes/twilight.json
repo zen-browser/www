@@ -3,12 +3,18 @@
   "extra": "",
   "fixes": [
     "Improved startup time when restoring large sessions.",
-    "Improved rendering for background gradient rendering / mixing when using three color gradients."
+    "Improved rendering for background gradient rendering / mixing when using three color gradients.",
+    {
+      "description": "Fixed split views resetting their layout / sizes on startup.",
+      "issue": 9978
+    },
+    "Fixed pinned tabs losing their icons when being unloaded or at startup."
   ],
   "features": [
-    "Updated to Firefox 147.0",
+    "Updated to Firefox 147.0 and 147.0.1",
     "Merged window syncing! Now, when you open multiple windows of Zen, they will stay in sync with each other. Changes made in one window will automatically reflect in all other open windows. (Experimental, some features such as glance still can't sync yet.)",
     "Session restore now remembers which space each window was in.",
+    "Closing a tab will now focus the last accessed tab instead of the tab to the bottom",
     "Tabs can now have custom icons (set via right-click context menu).",
     "Implemented new tab drag-and-drop system, making it easier to rearrange tabs specially when multiple layers of folders are involved.",
     "You can now collapse all pinned tabs by clicking on the space name below the essentials.",
