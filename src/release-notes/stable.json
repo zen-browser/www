@@ -3444,7 +3444,8 @@
         "issue": 9978
       },
       "Fixed pinned tabs losing their icons when being unloaded or at startup.",
-      "Fixed sub-folders separating from their parent folders when restoring in some cases."
+      "Fixed sub-folders separating from their parent folders when restoring in some cases.",
+      "Fixed a possible memory leak with mods."
     ],
     "features": [
       "Updated to Firefox 147.0 and 147.0.1",
@@ -3463,7 +3464,7 @@
       "Zen now supports the Safe Browsing V5 protocol and is migrating from Safe Browsing V4 to the local list mode of Safe Browsing V5 protocol.",
       "Added an 'Essentials DnD Promo' card, shown when dragging a tab to the top of the sidebar if there are no essentials."
     ],
-    "workflowId": 21155460289,
+    "workflowId": 21283712817,
     "image": false,
     "date": "18/01/2026"
   }
