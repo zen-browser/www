@@ -3435,7 +3435,7 @@
   },
   {
     "version": "1.18b",
-    "extra": "This update includes window sync and other nice improvements! Window sync is a way to keep your windows organized across multiple monitors. If you wan't a blank window, you can do so by using opt+cmd+N (for mac), ctrl+alt+N (for linux) and alt+N (for windows). Enjoy!\n\nYou can read more about window sync in our documentation <a href=\"https://docs.zen-browser.app/user-manual/window-sync\">here</a>",
+    "extra": "This update includes window sync and other nice improvements! Window sync is a way to keep your windows organized across multiple monitors. If you want a blank window, you can do so by using opt+cmd+N (for mac), ctrl+alt+N (for linux) and alt+N (for windows). Enjoy!\n\nYou can read more about window sync in our documentation <a href=\"https://docs.zen-browser.app/user-manual/window-sync\">here</a>",
     "fixes": [
       "Improved startup time when restoring large sessions.",
       "Improved rendering for background gradient rendering / mixing when using three color gradients.",
