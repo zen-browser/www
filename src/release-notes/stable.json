@@ -3426,7 +3426,7 @@
     ],
     "features": [
       "Updated to Firefox 146.0.1",
-      "Added support for Norwegian Bokmål (nb-NO), Slovak (sk), Romanian (ro) and more languages."
+      "Added support for Norwegian (nb-NO), Slovak (sk), Romanian (ro) and more languages."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-98/",
     "workflowId": 20394140036,
@@ -3467,5 +3467,17 @@
     "workflowId": 21283712817,
     "image": false,
     "date": "18/01/2026"
+  },
+  {
+    "version": "1.18.1b",
+    "extra": "",
+    "fixes": ["Fixed an issue with new profiles not properly migrating the session files"],
+    "changes": [
+      "Changed the default keyboard shortcut for a new blank window to cmd+shift+N (for mac), ctrl+shift+N (for linux/windows)"
+    ],
+    "features": [],
+    "workflowId": 21316668922,
+    "image": false,
+    "date": "24/01/2026"
   }
 ]

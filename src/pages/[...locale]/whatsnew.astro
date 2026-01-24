@@ -11,7 +11,7 @@ import whatsNewText from '~/release-notes/whats-new.json'
 import { getLocale, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
 
-const latestVersion = releaseNotes[0]
+let latestVersion = releaseNotes[0]
 
 const locale = getLocale(Astro)
 
@@ -21,8 +21,14 @@ const {
 } = getUI(locale)
 
 // Just redirect to the release notes if we are in a patch version
-if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVersion.version) {
-  return Astro.redirect(`/release-notes#${latestVersion.version}`)
+if (latestVersion.version.split('.').length > 2) {
+  if (whatsNewText[1] !== latestVersion.version) {
+    return Astro.redirect(`/release-notes#${latestVersion.version}`)
+  } else {
+    // We need to set the last major version for the text to make sense
+    const majorVersion = latestVersion.version.split('.').slice(0, 2).join('.') + 'b'
+    latestVersion = releaseNotes.find(v => v.version === majorVersion) || latestVersion
+  }
 }
 ---
 
