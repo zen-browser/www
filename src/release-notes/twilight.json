@@ -1,6 +1,11 @@
 {
-  "version": "xxx",
+  "version": "1.19t",
   "extra": "",
-  "fixes": [],
+  "fixes": [
+    {
+      "description": "Fixed auto-focusing on inputs not working for popup windows, such as Bitwarden's login prompt.",
+      "issue": 11377
+    }
+  ],
   "features": []
 }
