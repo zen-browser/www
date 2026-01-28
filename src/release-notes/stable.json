@@ -3479,5 +3479,23 @@
     "workflowId": 21316668922,
     "image": false,
     "date": "24/01/2026"
+  },
+  {
+    "version": "1.18.2b",
+    "extra": "",
+    "fixes": [
+      "Fixed blank windows when opening Zen for the first time or new windows on some occasions.",
+      "Fixed an issue where essentials would disappear intermittently.",
+      "Fixed pinned tabs not restoring to their base URL at startup.",
+      "Other minor bug fixes and stability improvements related to window sync and its respective migration system."
+    ],
+    "features": [
+      "Updated to Firefox 147.0.2",
+      "Added 'close to the most recently used tab' option to the tab management settings."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-06/",
+    "workflowId": 21417478109,
+    "image": false,
+    "date": "28/01/2026"
   }
 ]

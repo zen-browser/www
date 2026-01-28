@@ -1,15 +1,6 @@
 {
-  "version": "1.18.2t",
+  "version": "xxx",
   "extra": "",
-  "fixes": [
-    "Fixed blank windows when opening Zen for the first time or new windows on some occasions.",
-    "Fixed an issue where essentials would disappear intermittently.",
-    "Fixed pinned tabs not restoring to their base URL at startup.",
-    "Other minor bug fixes and stability improvements related to window sync and its respective migration system."
-  ],
-  "features": [
-    "Updated to Firefox 147.0.2",
-    "Added 'close to the most recently used tab' option to the tab management settings."
-  ],
-  "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-06/"
+  "fixes": [],
+  "features": []
 }
