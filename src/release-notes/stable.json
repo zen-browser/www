@@ -3497,5 +3497,21 @@
     "workflowId": 21417478109,
     "image": false,
     "date": "28/01/2026"
+  },
+  {
+    "version": "1.18.3b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed auto-focusing on inputs not working for popup windows, such as Bitwarden's login prompt.",
+        "issue": 11377
+      },
+      "Fixed not being able to drag and drop tabs between different windows if WS is disabled.",
+      "Added extra migration backup checks to prevent possible data loss during migration."
+    ],
+    "features": [],
+    "workflowId": 21453170466,
+    "image": false,
+    "date": "28/01/2026"
   }
 ]
