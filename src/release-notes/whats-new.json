@@ -1,4 +1,4 @@
 [
-  "This update includes window sync and other nice improvements! Window sync is a way to keep your windows organized across multiple monitors. If you want a blank window, you can do so by using opt+cmd+N (for mac), ctrl+alt+N (for linux) and alt+N (for windows). Enjoy!\n\nYou can read more about window sync in our documentation <a class=\"text-coral\" href=\"https://docs.zen-browser.app/user-manual/window-sync\">here</a>",
+  "This update includes window sync and other nice improvements! Window sync is a way to keep your windows organized across multiple monitors. If you want a blank window, you can do so by using cmd+shift+N (for MacOS), control+shift+N (for Linux / Windows). Enjoy!\n\nYou can read more about window sync in our documentation <a class=\"text-coral\" href=\"https://docs.zen-browser.app/user-manual/window-sync\">here</a>",
   "1.18.3b"
 ]
