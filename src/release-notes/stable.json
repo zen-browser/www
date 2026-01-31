@@ -3199,14 +3199,14 @@
     "version": "1.17.1b",
     "extra": "",
     "fixes": [
-      "Fixed a regression with collapsed tabs not expanding the full width of the window",
-      "Fixed an issue with warnings for unsigned extensions not displaying correctly",
-      "Fixed compact mode getting stuck after updating to 1.17",
-      "Fixed a border at the top of the window appearing in some cases",
-      "Other minor bug fixes and improvements"
+      "Fixed a regression with collapsed tabs not expanding the full width of the window.",
+      "Fixed an issue with warnings for unsigned extensions not displaying correctly.",
+      "Fixed compact mode getting stuck after updating to 1.17.",
+      "Fixed a border at the top of the window appearing in some cases.",
+      "Other minor bug fixes and improvements."
     ],
     "changes": [
-      "Control centers will look more native on linux / windows for a more 'flat' appearance"
+      "Control centers will look more native on Linux / Windows for a more 'flat' appearance."
     ],
     "features": [],
     "workflowId": 18724178873,
@@ -3229,9 +3229,12 @@
   {
     "version": "1.17.3b",
     "extra": "",
-    "fixes": ["Fixed bookmarks popup not opening", "Fixed a memory leak while using glance tabs"],
+    "fixes": [
+      "Fixed the bookmarks popup not opening.",
+      "Fixed a memory leak while using Glance tabs."
+    ],
     "features": [
-      "Buttons on the control center has changed orders for faster access to frequently used buttons"
+      "Buttons on the control center have changed orders for faster access to frequently used buttons."
     ],
     "workflowId": 18794964599,
     "image": false,
@@ -3258,10 +3261,10 @@
   {
     "version": "1.17.5b",
     "extra": "",
-    "fixes": ["Stability and performance improvements, specially on glance"],
+    "fixes": ["Stability and performance improvements, specially for Glance."],
     "features": [
       "Advanced preferences 'zen.urlbar.single-toolbar-show-copy-url' and 'zen.urlbar.show-pip-button' has been added to control the visibility of the 'Copy URL' and 'Picture-in-Picture' buttons in the URL bar.",
-      "The site control center is now opened on click instead of on mouse down so the link can be dragged",
+      "The site control center is now opened on click instead of on mouse down so the link can be dragged.",
       "If a site is bookmarked, the control center will now show a filled icon instead of an empty one."
     ],
     "workflowId": 19050449808,
@@ -3273,7 +3276,7 @@
     "extra": "",
     "fixes": [
       "Fixed an issue with popups appearing off-screen, e.g., when trying to install a new add-on.",
-      "Fixed flashing issues with glance"
+      "Fixed flashing issues with Glance."
     ],
     "features": [],
     "workflowId": 19151313794,
@@ -3285,24 +3288,24 @@
     "extra": "",
     "fixes": [
       {
-        "description": "Set workspace id of duplicated essential tab to current active workspace",
+        "description": "Set workspace ID of duplicated essential tab to current active workspace.",
         "issue": 10457
       },
       {
-        "description": "Fixed incorrect element picker tooltip description",
+        "description": "Fixed an incorrect element picker tooltip description.",
         "issue": 8998
       }
     ],
     "features": [
       "Updated to Firefox 145.0",
-      "Swiping back or going back in history now closes the tab if it has been opened from another tab",
-      "Control center will now show on new tab pages",
-      "Added theme commands for the urlbar commands",
-      "Added 'Open Link in Glance' option to link context menu",
-      "Added the options to make Ctrl+Tab cycling to keep within essentials/regular tabs only, and another option with the same behavior but for pending tabs",
-      "With the new Open links from apps next to your active tab setting, you can have links from other applications open next to your active tab instead of at the end of the tab strip.",
-      "Enhanced Bounce Tracking Protection's stateless mode is now enabled by default in ETP Strict, blocking more advanced tracking techniques based on redirection",
-      "For most Windows users, the existing desktop shortcut for launching Zen has been replaced with the desktop launcher, a small program that will launch Zen if it is installed"
+      "Swiping back or going back in history now closes the tab if it has been opened from another tab.",
+      "Control center will now show on new tab pages.",
+      "Added theme commands to the the URL bar commands.",
+      "Added 'Open Link in Glance' option to link context menu.",
+      "Added the option to make Ctrl + Tab cycling to keep within essentials/regular tabs only, and another option with the same behavior but for pending tabs.",
+      "With the new 'Open links from apps' next to your active tab setting, you can have links from other applications open next to your active tab instead of at the end of the tab strip.",
+      "Enhanced Bounce Tracking Protection's stateless mode is now enabled by default in ETP Strict, blocking more advanced tracking techniques based on redirection.",
+      "For most Windows users, the existing desktop shortcut for launching Zen has been replaced with the desktop launcher, a small program that will launch Zen if it is installed."
     ],
     "changed": [
       "Local translation models are now compressed with Zstandard, reducing download sizes and on-device storage consumption."
@@ -3316,18 +3319,18 @@
     "version": "1.17.8b",
     "extra": "",
     "fixes": [
-      "Fixed an issue with glance opening from the wrong location",
-      "Fixed various issues with the URL bar and its commands",
-      "Fixed memory leaks with split view and glance"
+      "Fixed an issue with Glance opening from the incorrect location.",
+      "Fixed various issues with the URL bar and its commands.",
+      "Fixed memory leaks with split view and Glance."
     ],
     "features": [
       "Updated to Firefox 145.0.1",
-      "Improved the feel for drag-and-dropping tabs inside folders",
-      "Close buttons now only show when hovering over tabs",
-      "Tabs separator will always show if an unpinned tab is present"
+      "Improved the feel for drag-and-dropping tabs inside folders.",
+      "Close buttons now only show when hovering over tabs.",
+      "Tabs separator will always show if an unpinned tab is present."
     ],
     "knownIssues": [
-      "Double-click to open a new tab is currently broken on windows, as a workaround the preference 'zen.view.draggable-sidebar' has been added to disable the sidebar dragging feature and make double-click work again"
+      "Double-click to open a new tab is currently broken on Windows, as a workaround the preference 'zen.view.draggable-sidebar' has been added to disable the sidebar dragging feature and make double-click work again."
     ],
     "workflowId": 19511885561,
     "image": false,
@@ -3338,7 +3341,7 @@
     "extra": "",
     "fixes": [
       "Fixed folders not remembering their name and icon changes after app restart.",
-      "Fixed glance being activated when alt+selecting a link"
+      "Fixed Glance being activated when Alt + Selecting a link."
     ],
     "features": [
       "Added an update success notification after updating to a new version. (zen.updates.show-update-notification in about:config)"
@@ -3351,8 +3354,8 @@
     "version": "1.17.10b",
     "extra": "",
     "fixes": [
-      "Fixed download animation not showing",
-      "Fixed ctrl/shift+click on a link not activating glance properly"
+      "Fixed the download animation not showing.",
+      "Fixed Ctrl/Shift + Click on a link not activating Glance properly."
     ],
     "features": ["Updated to Firefox 145.0.2"],
     "workflowId": 19677732051,
