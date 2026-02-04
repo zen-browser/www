@@ -3513,5 +3513,18 @@
     "workflowId": 21453170466,
     "image": false,
     "date": "28/01/2026"
+  },
+  {
+    "version": "1.18.4b",
+    "extra": "",
+    "fixes": [
+      "Fixed drag and dropping into split views not working as expected.",
+      "Resolved an issue where drag and dropping tabs into different windows would sometimes fail.",
+      "Other small quality of life improvements and bug fixes."
+    ],
+    "features": [],
+    "workflowId": 21648367079,
+    "image": false,
+    "date": "04/02/2026"
   }
 ]
