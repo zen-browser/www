@@ -3526,5 +3526,20 @@
     "workflowId": 21648367079,
     "image": false,
     "date": "04/02/2026"
+  },
+  {
+    "version": "1.18.5b",
+    "extra": "This update includes a new setting to allow users who didn't like the window sync feature but still want to sync their pinned tabs across windows in a workspace to do so. Make sure window sync is enabled in about:config for this feature to work.",
+    "fixes": [
+      "Fixed an issue when drag and dropping tabs from normal windows to blank windows",
+      "Fixed an issue on Windows systems with a large number of fonts installed where parts of the UI (tabs, menus, and Settings) could display garbled characters or symbols instead of readable text."
+    ],
+    "features": [
+      "Added 'Sync only pinned tabs in workspaces' option to the 'Tab Management' settings so that only pinned tabs will be synced across windows in a workspace. This is useful for users who want to keep their pinned tabs consistent across windows while allowing unpinned tabs to be different in each window.",
+      "Updated to Firefox 147.0.3"
+    ],
+    "workflowId": 21707723523,
+    "image": false,
+    "date": "05/02/2026"
   }
 ]
