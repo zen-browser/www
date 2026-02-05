@@ -3535,10 +3535,10 @@
       "Fixed an issue on Windows systems with a large number of fonts installed where parts of the UI (tabs, menus, and Settings) could display garbled characters or symbols instead of readable text."
     ],
     "features": [
-      "Added 'Sync only pinned tabs in workspaces' option to the 'Tab Management' settings so that only pinned tabs will be synced across windows in a workspace. This is useful for users who want to keep their pinned tabs consistent across windows while allowing unpinned tabs to be different in each window.",
+      "Added <u>'Sync only pinned tabs in workspaces'</u> option to the 'Tab Management' settings so that only pinned tabs will be synced across windows in a workspace. This is useful for users who want to keep their pinned tabs consistent across windows while allowing unpinned tabs to be different in each window.",
       "Updated to Firefox 147.0.3"
     ],
-    "workflowId": 21707723523,
+    "workflowId": 21730195077,
     "image": false,
     "date": "05/02/2026"
   }

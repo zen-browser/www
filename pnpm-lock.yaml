@@ -31,7 +31,7 @@ importers:
         version: 0.9.6(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.2)
       '@astrojs/cloudflare':
         specifier: 12.6.12
-        version: 12.6.12(@types/node@22.16.3)(astro@5.16.11(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(jiti@2.4.2)(yaml@2.8.0)
+        version: 12.6.12(@types/node@22.16.3)(astro@5.17.1(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(jiti@2.4.2)(yaml@2.8.0)
       '@astrojs/react':
         specifier: 4.4.2
         version: 4.4.2(@types/node@22.16.3)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(jiti@2.4.2)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(yaml@2.8.0)
@@ -43,7 +43,7 @@ importers:
         version: 3.7.0
       '@astrojs/tailwind':
         specifier: 6.0.2
-        version: 6.0.2(astro@5.16.11(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(tailwindcss@3.4.15)
+        version: 6.0.2(astro@5.17.1(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(tailwindcss@3.4.15)
       '@fontsource/bricolage-grotesque':
         specifier: 5.2.10
         version: 5.2.10
@@ -66,8 +66,8 @@ importers:
         specifier: 4.0.2
         version: 4.0.2
       astro:
-        specifier: 5.16.11
-        version: 5.16.11(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
+        specifier: 5.17.1
+        version: 5.17.1(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
       astro-navbar:
         specifier: 2.3.7
         version: 2.3.7
@@ -2381,8 +2381,8 @@ packages:
   astro-navbar@2.3.7:
     resolution: {integrity: sha512-3rB27AkbTQVZCyrNc0C+8EK558eF9U/Ldmwnfl3w4lZ2zZCjUCiCqhoEAqkBEupiVsZux89/AkNUpBkufQQ5jA==}
 
-  astro@5.16.11:
-    resolution: {integrity: sha512-Z7kvkTTT5n6Hn5lCm6T3WU6pkxx84Hn25dtQ6dR7ATrBGq9eVa8EuB/h1S8xvaoVyCMZnIESu99Z9RJfdLRLDA==}
+  astro@5.17.1:
+    resolution: {integrity: sha512-oD3tlxTaVWGq/Wfbqk6gxzVRz98xa/rYlpe+gU2jXJMSD01k6sEDL01ZlT8mVSYB/rMgnvIOfiQQ3BbLdN237A==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -2538,6 +2538,10 @@ packages:
   chokidar@4.0.3:
     resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
     engines: {node: '>= 14.16.0'}
+
+  chokidar@5.0.0:
+    resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
+    engines: {node: '>= 20.19.0'}
 
   ci-info@4.3.1:
     resolution: {integrity: sha512-Wdy2Igu8OcBpI2pZePZ5oWjPC38tmDVx5WKUXKwlLYkA0ozo85sLsLvkBbBn/sZaSCMFOGZJ14fvW9t5/d7kdA==}
@@ -4488,6 +4492,10 @@ packages:
     resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
     engines: {node: '>= 14.18.0'}
 
+  readdirp@5.0.0:
+    resolution: {integrity: sha512-9u/XQ1pvrQtYyMpZe7DXKv2p5CNvyVwzUB6uhLAnQwHMSgKMBR62lc7AHljaeteeHXn11XTAaLLUVZYVZyuRBQ==}
+    engines: {node: '>= 20.19.0'}
+
   redent@3.0.0:
     resolution: {integrity: sha512-6tDA8g98We0zd0GvVeMT9arEOnTw9qM03L9cJXaCjrip1OO764RDBLBfrB4cwzNGDj5OA5ioymC9GkizgWJDUg==}
     engines: {node: '>=8'}
@@ -5032,9 +5040,6 @@ packages:
     resolution: {integrity: sha512-BdnBM5waFormdrOFBU+cA90R689V0tWUWlIG2i30UXxElHjuCu5+dOV2Etw3547jcQ/yaLtPm9wrqIuOY2bSJg==}
     hasBin: true
 
-  ufo@1.6.2:
-    resolution: {integrity: sha512-heMioaxBcG9+Znsda5Q8sQbWnLJSl98AFDXTO80wELWEzX3hordXsTdxrIfMQoO9IY1MEnoGoPjpoKpMj+Yx0Q==}
-
   ufo@1.6.3:
     resolution: {integrity: sha512-yDJTmhydvl5lJzBmy/hyOAA0d+aqCBuwl818haVdYCRrWV84o7YyeVm4QlVHStqNrrJSTb6jKuFAVqAFsr+K3Q==}
 
@@ -5098,8 +5103,8 @@ packages:
   unrs-resolver@1.9.2:
     resolution: {integrity: sha512-VUyWiTNQD7itdiMuJy+EuLEErLj3uwX/EpHQF8EOf33Dq3Ju6VW1GXm+swk6+1h7a49uv9fKZ+dft9jU7esdLA==}
 
-  unstorage@1.17.3:
-    resolution: {integrity: sha512-i+JYyy0DoKmQ3FximTHbGadmIYb8JEpq7lxUjnjeB702bCPum0vzo6oy5Mfu0lpqISw7hCyMW2yj4nWC8bqJ3Q==}
+  unstorage@1.17.4:
+    resolution: {integrity: sha512-fHK0yNg38tBiJKp/Vgsq4j0JEsCmgqH58HAn707S7zGkArbZsVr/CwINoi+nh3h98BRCwKvx1K3Xg9u3VV83sw==}
     peerDependencies:
       '@azure/app-configuration': ^1.8.0
       '@azure/cosmos': ^4.2.0
@@ -5107,14 +5112,14 @@ packages:
       '@azure/identity': ^4.6.0
       '@azure/keyvault-secrets': ^4.9.0
       '@azure/storage-blob': ^12.26.0
-      '@capacitor/preferences': ^6.0.3 || ^7.0.0
+      '@capacitor/preferences': ^6 || ^7 || ^8
       '@deno/kv': '>=0.9.0'
       '@netlify/blobs': ^6.5.0 || ^7.0.0 || ^8.1.0 || ^9.0.0 || ^10.0.0
       '@planetscale/database': ^1.19.0
       '@upstash/redis': ^1.34.3
       '@vercel/blob': '>=0.27.1'
       '@vercel/functions': ^2.2.12 || ^3.0.0
-      '@vercel/kv': ^1.0.1
+      '@vercel/kv': ^1 || ^2 || ^3
       aws4fetch: ^1.0.20
       db0: '>=0.2.1'
       idb-keyval: ^6.2.1
@@ -5623,12 +5628,12 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/cloudflare@12.6.12(@types/node@22.16.3)(astro@5.16.11(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(jiti@2.4.2)(yaml@2.8.0)':
+  '@astrojs/cloudflare@12.6.12(@types/node@22.16.3)(astro@5.17.1(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(jiti@2.4.2)(yaml@2.8.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.7.5
       '@astrojs/underscore-redirects': 1.0.0
       '@cloudflare/workers-types': 4.20260120.0
-      astro: 5.16.11(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
+      astro: 5.17.1(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
       tinyglobby: 0.2.15
       vite: 6.4.1(@types/node@22.16.3)(jiti@2.4.2)(yaml@2.8.0)
       wrangler: 4.60.0(@cloudflare/workers-types@4.20260120.0)
@@ -5743,9 +5748,9 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.25.76
 
-  '@astrojs/tailwind@6.0.2(astro@5.16.11(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(tailwindcss@3.4.15)':
+  '@astrojs/tailwind@6.0.2(astro@5.17.1(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(tailwindcss@3.4.15)':
     dependencies:
-      astro: 5.16.11(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
+      astro: 5.17.1(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
       autoprefixer: 10.4.21(postcss@8.5.4)
       postcss: 8.5.4
       postcss-load-config: 4.0.2(postcss@8.5.4)
@@ -7690,7 +7695,7 @@ snapshots:
 
   astro-navbar@2.3.7: {}
 
-  astro@5.16.11(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0):
+  astro@5.17.1(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
@@ -7745,7 +7750,7 @@ snapshots:
       ultrahtml: 1.6.0
       unifont: 0.7.3
       unist-util-visit: 5.0.0
-      unstorage: 1.17.3
+      unstorage: 1.17.4
       vfile: 6.0.3
       vite: 6.4.1(@types/node@22.16.3)(jiti@2.4.2)(yaml@2.8.0)
       vitefu: 1.1.1(vite@6.4.1(@types/node@22.16.3)(jiti@2.4.2)(yaml@2.8.0))
@@ -7948,6 +7953,10 @@ snapshots:
   chokidar@4.0.3:
     dependencies:
       readdirp: 4.1.2
+
+  chokidar@5.0.0:
+    dependencies:
+      readdirp: 5.0.0
 
   ci-info@4.3.1: {}
 
@@ -8846,7 +8855,7 @@ snapshots:
   free-astro-components@1.2.0(@types/node@22.16.3)(jiti@2.4.2)(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(rollup@4.55.1)(yaml@2.8.0):
     dependencies:
       '@astrojs/check': 0.9.6(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.2)
-      astro: 5.16.11(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
+      astro: 5.17.1(@types/node@22.16.3)(jiti@2.4.2)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
       typescript: 5.9.2
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -10011,7 +10020,7 @@ snapshots:
     dependencies:
       destr: 2.0.5
       node-fetch-native: 1.6.7
-      ufo: 1.6.2
+      ufo: 1.6.3
 
   ohash@2.0.11: {}
 
@@ -10266,6 +10275,8 @@ snapshots:
       picomatch: 2.3.1
 
   readdirp@4.1.2: {}
+
+  readdirp@5.0.0: {}
 
   redent@3.0.0:
     dependencies:
@@ -11025,8 +11036,6 @@ snapshots:
       is-standalone-pwa: 0.1.1
       ua-is-frozen: 0.1.2
 
-  ufo@1.6.2: {}
-
   ufo@1.6.3: {}
 
   ultrahtml@1.6.0: {}
@@ -11132,16 +11141,16 @@ snapshots:
       '@unrs/resolver-binding-win32-ia32-msvc': 1.9.2
       '@unrs/resolver-binding-win32-x64-msvc': 1.9.2
 
-  unstorage@1.17.3:
+  unstorage@1.17.4:
     dependencies:
       anymatch: 3.1.3
-      chokidar: 4.0.3
+      chokidar: 5.0.0
       destr: 2.0.5
       h3: 1.15.5
-      lru-cache: 10.4.3
+      lru-cache: 11.2.4
       node-fetch-native: 1.6.7
       ofetch: 1.5.1
-      ufo: 1.6.2
+      ufo: 1.6.3
 
   update-browserslist-db@1.1.3(browserslist@4.25.0):
     dependencies:
