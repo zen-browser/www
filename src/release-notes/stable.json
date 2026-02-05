@@ -3538,7 +3538,7 @@
       "Added <u>'Sync only pinned tabs in workspaces'</u> option to the 'Tab Management' settings so that only pinned tabs will be synced across windows in a workspace. This is useful for users who want to keep their pinned tabs consistent across windows while allowing unpinned tabs to be different in each window.",
       "Updated to Firefox 147.0.3"
     ],
-    "workflowId": 21730195077,
+    "workflowId": 21730793131,
     "image": false,
     "date": "05/02/2026"
   }
