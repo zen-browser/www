@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "pnpm": "^10.27.0"
+    "pnpm": "^10.28.2"
   },
-  "packageManager": "pnpm@10.27.0",
+  "packageManager": "pnpm@10.28.2",
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro preview --port 3000",
