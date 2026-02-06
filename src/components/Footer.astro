@@ -64,15 +64,16 @@ const {
               {footer.aboutUs}
             </h2>
             <nav aria-label="About navigation">
-              <ul class="grid gap-2 opacity-80">
+              <ul class="grid gap-2">
                 <li>
-                  <a href={getLocalePath('/about')} class="font-normal"
+                  <a href={getLocalePath('/about')} class="font-normal opacity-80 hover:opacity-100"
                     >{footer.teamAndContributors}</a
                   >
                 </li>
                 <li>
-                  <a href={getLocalePath('/privacy-policy')} class="font-normal"
-                    >{footer.privacyPolicy}</a
+                  <a
+                    href={getLocalePath('/privacy-policy')}
+                    class="font-normal opacity-80 hover:opacity-100">{footer.privacyPolicy}</a
                   >
                 </li>
               </ul>
@@ -83,19 +84,28 @@ const {
           <h2 id="get-started-heading" class="text-base !font-semibold">
             {footer.getStarted}
           </h2>
-          <ul class="grid gap-2 opacity-80">
+          <ul class="grid gap-2">
             <li>
-              <a href="https://docs.zen-browser.app/" class="font-normal">{footer.documentation}</a>
-            </li>
-            <li>
-              <a href={getLocalePath('/mods')} class="font-normal">{footer.zenMods}</a>
-            </li>
-            <li>
-              <a href={getLocalePath('/release-notes')} class="font-normal">{footer.releaseNotes}</a
+              <a
+                href="https://docs.zen-browser.app/"
+                class="font-normal opacity-80 hover:opacity-100">{footer.documentation}</a
               >
             </li>
             <li>
-              <a href={getLocalePath('/download?twilight')} class="font-normal">{footer.twilight}</a
+              <a href={getLocalePath('/mods')} class="font-normal opacity-80 hover:opacity-100"
+                >{footer.zenMods}</a
+              >
+            </li>
+            <li>
+              <a
+                href={getLocalePath('/release-notes')}
+                class="font-normal opacity-80 hover:opacity-100">{footer.releaseNotes}</a
+              >
+            </li>
+            <li>
+              <a
+                href={getLocalePath('/download?twilight')}
+                class="font-normal opacity-80 hover:opacity-100">{footer.twilight}</a
               >
             </li>
           </ul>
@@ -104,22 +114,29 @@ const {
           <h2 id="get-help-heading" class="text-base !font-semibold">
             {footer.getHelp}
           </h2>
-          <ul class="grid gap-2 opacity-80">
+          <ul class="grid gap-2">
             <li>
-              <a href="https://discord.gg/zen-browser" class="font-normal">{footer.discord}</a>
-            </li>
-            <li>
-              <a href="https://uptime.zen-browser.app/" class="font-normal">{footer.uptimeStatus}</a
+              <a
+                href="https://discord.gg/zen-browser"
+                class="font-normal opacity-80 hover:opacity-100">{footer.discord}</a
               >
             </li>
             <li>
-              <a href="https://github.com/zen-browser/desktop/issues/new/choose" class="font-normal"
-                >{footer.reportAnIssue}</a
+              <a
+                href="https://uptime.zen-browser.app/"
+                class="font-normal opacity-80 hover:opacity-100">{footer.uptimeStatus}</a
               >
             </li>
             <li>
-              <a href="https://github.com/zen-browser/desktop/security/policy" class="font-normal"
-                >{footer.securtiy}</a
+              <a
+                href="https://github.com/zen-browser/desktop/issues/new/choose"
+                class="font-normal opacity-80 hover:opacity-100">{footer.reportAnIssue}</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/zen-browser/desktop/security/policy"
+                class="font-normal opacity-80 hover:opacity-100">{footer.securtiy}</a
               >
             </li>
           </ul>
