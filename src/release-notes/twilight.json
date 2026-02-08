@@ -3,6 +3,7 @@
   "extra": "",
   "fixes": [],
   "features": [
-    "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode."
+    "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode.",
+    "Zen will now follow the XDG Base Directory Specification for storing its configuration and data files. This means that on Linux, configuration files will be stored in `~/.config/zen`. Note that compatibility with the old configuration directory (`~/.zen`) will be enabled if the directory exists."
   ]
 }
