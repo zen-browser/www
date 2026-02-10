@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "pnpm": "^10.0.0"
+    "pnpm": "^10.28.2"
   },
-  "packageManager": "pnpm@10.18.3",
+  "packageManager": "pnpm@10.28.2",
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro preview --port 3000",
@@ -25,11 +25,11 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.4",
-    "@astrojs/cloudflare": "12.6.6",
-    "@astrojs/react": "4.3.0",
-    "@astrojs/rss": "4.0.11",
-    "@astrojs/sitemap": "3.3.1",
+    "@astrojs/check": "0.9.6",
+    "@astrojs/cloudflare": "12.6.12",
+    "@astrojs/react": "4.4.2",
+    "@astrojs/rss": "4.0.15",
+    "@astrojs/sitemap": "3.7.0",
     "@astrojs/tailwind": "6.0.2",
     "@fontsource/bricolage-grotesque": "5.2.10",
     "@fortawesome/fontawesome-svg-core": "6.7.2",
@@ -38,14 +38,13 @@
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "animejs": "4.0.2",
-    "astro": "5.15.6",
+    "astro": "5.17.1",
     "astro-navbar": "2.3.7",
     "autoprefixer": "10.4.14",
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
     "free-astro-components": "1.2.0",
     "jiti": "2.4.2",
-    "js-confetti": "0.12.0",
     "lefthook": "1.11.13",
     "postcss": "8.5.1",
     "react": "19.1.0",
@@ -55,7 +54,7 @@
     "tailwindcss": "3.4.15",
     "turbo": "2.5.4",
     "typescript": "5.9.2",
-    "ua-parser-js": "2.0.4"
+    "ua-parser-js": "2.0.8"
   },
   "devDependencies": {
     "@commitlint/cli": "19.8.1",

@@ -1,5 +1,4 @@
 <script>
-  import JSConfetti from 'js-confetti'
   import { UAParser } from 'ua-parser-js'
 
   // Handle platform selection
@@ -29,25 +28,10 @@
     return { os: detectedOS, cpu: arch }
   }
 
-  function getRandomNumber(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
-  }
-
   // Initialize platform based on user's OS
   async function initializePlatform() {
     const detectedOS = detectOS()
     selectPlatform(detectedOS.os, detectedOS.cpu)
-
-    for (const button of document.querySelectorAll('.download-button')) {
-      button.addEventListener('click', () => {
-        const jsConfetti = new JSConfetti()
-        jsConfetti.addConfetti({
-          confettiNumber: 100,
-          // If we get a 1 to 10k chance, show only burger confetti
-          ...(getRandomNumber(1, 10000) === 1 ? { emojis: ['🍔'] } : {}),
-        })
-      })
-    }
   }
 
   // Function to select a platform
