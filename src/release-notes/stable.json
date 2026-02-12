@@ -3543,7 +3543,7 @@
     "date": "05/02/2026"
   },
   {
-    "version": "1.18.5b",
+    "version": "1.18.6b",
     "extra": "",
     "fixes": [
       "Zen will now restore unpinned tabs after a crash, even if the 'Restore previous session' setting is disabled.",
