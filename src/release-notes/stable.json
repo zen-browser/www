@@ -3557,7 +3557,7 @@
       "When typing directly an url or domain, a second search result will appear with the option to search for the url or domain on your selected search engine.",
       "Added a '--blank-window' command line argument to open a blank window without pinned tabs, spaces, etc."
     ],
-    "workflowId": 21956231238,
+    "workflowId": 21967090031,
     "image": false,
     "date": "12/02/2026"
   }
