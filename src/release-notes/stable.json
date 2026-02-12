@@ -3547,6 +3547,7 @@
     "extra": "",
     "fixes": [
       "Zen will now restore unpinned tabs after a crash, even if the 'Restore previous session' setting is disabled.",
+      "Fixed syncing bookmarks with your Mozilla account not working correctly.",
       "Other quality of life improvements and bug fixes."
     ],
     "features": [
