@@ -1,6 +1,8 @@
 {
-  "version": "xxx",
+  "version": "1.19t",
   "extra": "",
   "fixes": [],
-  "features": []
+  "features": [
+    "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode."
+  ]
 }

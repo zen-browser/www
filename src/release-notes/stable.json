@@ -3551,7 +3551,6 @@
       "Other quality of life improvements and bug fixes."
     ],
     "features": [
-      "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode.",
       "Zen will now follow the XDG Base Directory Specification for storing its configuration and data files. This means that on Linux, configuration files will be stored in `~/.config/zen`. Note that compatibility with the old configuration directory (`~/.zen`) will be enabled if the directory exists.",
       "Dragging a tab to the center of the window to create a split will now give the option to split on top or below.",
       "When typing directly an url or domain, a second search result will appear with the option to search for the url or domain on your selected search engine.",
