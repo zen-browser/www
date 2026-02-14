@@ -3559,5 +3559,17 @@
     "workflowId": 21967090031,
     "image": false,
     "date": "12/02/2026"
+  },
+  {
+    "version": "1.18.7b",
+    "extra": "",
+    "fixes": [
+      "Fixed accessibility issues with the workspace switcher and other buttons",
+      "Other session restore fixes and improvements"
+    ],
+    "features": [],
+    "workflowId": 22005390322,
+    "image": false,
+    "date": "14/02/2026"
   }
 ]
