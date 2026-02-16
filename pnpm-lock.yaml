@@ -31,7 +31,7 @@ importers:
         version: 0.9.6(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.2)
       '@astrojs/cloudflare':
         specifier: 12.6.12
-        version: 12.6.12(@types/node@22.16.3)(astro@5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(jiti@2.6.1)(yaml@2.8.0)
+        version: 12.6.12(@types/node@22.16.3)(astro@5.17.2(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(jiti@2.6.1)(yaml@2.8.0)
       '@astrojs/react':
         specifier: 4.4.2
         version: 4.4.2(@types/node@22.16.3)(@types/react-dom@19.1.6(@types/react@19.1.8))(@types/react@19.1.8)(jiti@2.6.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(yaml@2.8.0)
@@ -43,7 +43,7 @@ importers:
         version: 3.7.0
       '@astrojs/tailwind':
         specifier: 6.0.2
-        version: 6.0.2(astro@5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(tailwindcss@3.4.15)
+        version: 6.0.2(astro@5.17.2(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(tailwindcss@3.4.15)
       '@fontsource/bricolage-grotesque':
         specifier: 5.2.10
         version: 5.2.10
@@ -66,11 +66,11 @@ importers:
         specifier: 4.0.2
         version: 4.0.2
       astro:
-        specifier: 5.17.1
-        version: 5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
+        specifier: 5.17.2
+        version: 5.17.2(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
       astro-navbar:
-        specifier: 2.3.7
-        version: 2.3.7
+        specifier: 2.4.0
+        version: 2.4.0
       autoprefixer:
         specifier: 10.4.14
         version: 10.4.14(postcss@8.5.1)
@@ -2444,11 +2444,11 @@ packages:
     resolution: {integrity: sha512-JepyLROIad6f44uyqMF6HKE2QbunNzp3mYKRcPoDGt0QkxXmH222FAFC64WTyQu2Kg8NNEXHTN/sWuUId9sSxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro-navbar@2.3.7:
-    resolution: {integrity: sha512-3rB27AkbTQVZCyrNc0C+8EK558eF9U/Ldmwnfl3w4lZ2zZCjUCiCqhoEAqkBEupiVsZux89/AkNUpBkufQQ5jA==}
+  astro-navbar@2.4.0:
+    resolution: {integrity: sha512-UhQnU8lz3a0NKL5gTBXFwYg1CVzP/DNlw1z6qW7f9Q1j33oMHdjwX/TmC2/xkJTKeq4a2RxgaqeJ+6CxCxRELg==}
 
-  astro@5.17.1:
-    resolution: {integrity: sha512-oD3tlxTaVWGq/Wfbqk6gxzVRz98xa/rYlpe+gU2jXJMSD01k6sEDL01ZlT8mVSYB/rMgnvIOfiQQ3BbLdN237A==}
+  astro@5.17.2:
+    resolution: {integrity: sha512-7jnMqGo53hOQNwo1N/wqeOvUp8wwW/p+DeerSjSkHNx8L/1mhy6P7rVo7EhdmF8DpKqw0tl/B5Fx1WcIzg1ysA==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -5694,12 +5694,12 @@ snapshots:
       - prettier
       - prettier-plugin-astro
 
-  '@astrojs/cloudflare@12.6.12(@types/node@22.16.3)(astro@5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(jiti@2.6.1)(yaml@2.8.0)':
+  '@astrojs/cloudflare@12.6.12(@types/node@22.16.3)(astro@5.17.2(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(jiti@2.6.1)(yaml@2.8.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.7.5
       '@astrojs/underscore-redirects': 1.0.0
       '@cloudflare/workers-types': 4.20260120.0
-      astro: 5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
+      astro: 5.17.2(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
       tinyglobby: 0.2.15
       vite: 6.4.1(@types/node@22.16.3)(jiti@2.6.1)(yaml@2.8.0)
       wrangler: 4.60.0(@cloudflare/workers-types@4.20260120.0)
@@ -5814,9 +5814,9 @@ snapshots:
       stream-replace-string: 2.0.0
       zod: 3.25.76
 
-  '@astrojs/tailwind@6.0.2(astro@5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(tailwindcss@3.4.15)':
+  '@astrojs/tailwind@6.0.2(astro@5.17.2(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0))(tailwindcss@3.4.15)':
     dependencies:
-      astro: 5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
+      astro: 5.17.2(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
       autoprefixer: 10.4.21(postcss@8.5.4)
       postcss: 8.5.4
       postcss-load-config: 4.0.2(postcss@8.5.4)
@@ -5872,7 +5872,7 @@ snapshots:
       '@babel/helper-compilation-targets': 7.27.2
       '@babel/helper-module-transforms': 7.27.3(@babel/core@7.27.4)
       '@babel/helpers': 7.27.4
-      '@babel/parser': 7.27.4
+      '@babel/parser': 7.28.6
       '@babel/template': 7.27.2
       '@babel/traverse': 7.27.4
       '@babel/types': 7.28.6
@@ -5992,7 +5992,7 @@ snapshots:
 
   '@babel/parser@7.27.4':
     dependencies:
-      '@babel/types': 7.27.3
+      '@babel/types': 7.28.6
 
   '@babel/parser@7.28.6':
     dependencies:
@@ -6659,7 +6659,7 @@ snapshots:
   '@eslint/config-array@0.21.0':
     dependencies:
       '@eslint/object-schema': 2.1.6
-      debug: 4.4.1
+      debug: 4.4.3
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -7384,7 +7384,7 @@ snapshots:
       '@typescript-eslint/tsconfig-utils': 8.36.0(typescript@5.9.2)
       '@typescript-eslint/types': 8.36.0
       '@typescript-eslint/visitor-keys': 8.36.0
-      debug: 4.4.1
+      debug: 4.4.3
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
@@ -7516,7 +7516,7 @@ snapshots:
     dependencies:
       '@vitest/spy': 3.2.4
       estree-walker: 3.0.3
-      magic-string: 0.30.17
+      magic-string: 0.30.21
     optionalDependencies:
       vite: 7.1.12(@types/node@22.16.3)(jiti@2.6.1)(yaml@2.8.0)
 
@@ -7533,7 +7533,7 @@ snapshots:
   '@vitest/snapshot@3.2.4':
     dependencies:
       '@vitest/pretty-format': 3.2.4
-      magic-string: 0.30.17
+      magic-string: 0.30.21
       pathe: 2.0.3
 
   '@vitest/spy@3.2.4':
@@ -7765,9 +7765,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro-navbar@2.3.7: {}
+  astro-navbar@2.4.0: {}
 
-  astro@5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0):
+  astro@5.17.2(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0):
     dependencies:
       '@astrojs/compiler': 2.13.0
       '@astrojs/internal-helpers': 0.7.5
@@ -7792,7 +7792,7 @@ snapshots:
       dlv: 1.1.3
       dset: 3.1.4
       es-module-lexer: 1.7.0
-      esbuild: 0.25.12
+      esbuild: 0.27.0
       estree-walker: 3.0.3
       flattie: 1.1.1
       fontace: 0.4.0
@@ -8927,7 +8927,7 @@ snapshots:
   free-astro-components@1.2.0(@types/node@22.16.3)(jiti@2.6.1)(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(rollup@4.55.1)(yaml@2.8.0):
     dependencies:
       '@astrojs/check': 0.9.6(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.2)
-      astro: 5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
+      astro: 5.17.2(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.55.1)(typescript@5.9.2)(yaml@2.8.0)
       typescript: 5.9.2
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -9409,7 +9409,7 @@ snapshots:
   istanbul-lib-source-maps@5.0.6:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
-      debug: 4.4.1
+      debug: 4.4.3
       istanbul-lib-coverage: 3.2.2
     transitivePeerDependencies:
       - supports-color
@@ -11254,7 +11254,7 @@ snapshots:
   vite-node@3.2.4(@types/node@22.16.3)(jiti@2.6.1)(yaml@2.8.0):
     dependencies:
       cac: 6.7.14
-      debug: 4.4.1
+      debug: 4.4.3
       es-module-lexer: 1.7.0
       pathe: 2.0.3
       vite: 7.1.12(@types/node@22.16.3)(jiti@2.6.1)(yaml@2.8.0)
