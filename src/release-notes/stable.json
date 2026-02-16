@@ -3571,5 +3571,21 @@
     "workflowId": 22005390322,
     "image": false,
     "date": "14/02/2026"
+  },
+  {
+    "version": "1.18.8b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed back / forward buttons changing the page's history instead of switching spaces",
+        "issue": 9157
+      },
+      "Fixed drag and dropping tabs from multiple windows with different spaces acting weirdly",
+      "Other minor bug fixes and improvements"
+    ],
+    "features": [],
+    "workflowId": 22044886332,
+    "image": false,
+    "date": "16/02/2026"
   }
 ]
