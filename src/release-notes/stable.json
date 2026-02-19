@@ -3587,5 +3587,19 @@
     "workflowId": 22044886332,
     "image": false,
     "date": "16/02/2026"
+  },
+  {
+    "version": "1.18.9b",
+    "extra": "",
+    "fixes": ["Stability and performance improvements related to window sync and session restore."],
+    "features": [
+      "Updated to Firefox 147.0.4",
+      "Appimage .desktop file now includes 'X-AppImage-Version' metadata for better integration with application launchers and system tools.",
+      "Linux desktop files will now include an option to open a new blank window from the taskbar"
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-10/",
+    "workflowId": 22164432405,
+    "image": false,
+    "date": "16/02/2026"
   }
 ]
