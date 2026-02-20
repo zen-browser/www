@@ -3601,5 +3601,18 @@
     "workflowId": 22164432405,
     "image": false,
     "date": "16/02/2026"
+  },
+  {
+    "version": "1.18.10b",
+    "extra": "",
+    "fixes": ["Stability and performance improvements related to window sync and session restore."],
+    "features": [
+      "Improved greatly the performance for Linux users by removing bottom window rounded corners, which will be added once the core issue has been resolved upstream. To enable them back, turn 'widget.gtk.rounded-bottom-corners.enabled' to true in about:config.",
+      "Added more automatic recovery options when updating or restarting zen, to prevent tab loss.",
+      "Fixed some tabs becoming 'New Tabs' after focusing them from different windows"
+    ],
+    "workflowId": 22245081530,
+    "image": false,
+    "date": "21/02/2026"
   }
 ]

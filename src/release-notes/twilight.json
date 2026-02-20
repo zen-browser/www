@@ -3,6 +3,7 @@
   "extra": "",
   "fixes": [],
   "features": [
+    "Added live folders. Automatically fill your folders with opened GitHub issues, pull requests or RSS feeds. To add a live folder, click the + button in the sidebar and select 'Live Folder'.",
     "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode."
   ]
 }
