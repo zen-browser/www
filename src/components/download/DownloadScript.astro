@@ -85,7 +85,7 @@
         if (!link.id.includes('beta')) {
           const href = link.getAttribute('href')
           if (href && href.includes('/latest/download/')) {
-            const twilightHref = href.replace('/latest/download/', '/download/canary/')
+            const twilightHref = href.replace('/latest/download/', '/download/twilight/')
             link.setAttribute('href', twilightHref)
           }
         }
