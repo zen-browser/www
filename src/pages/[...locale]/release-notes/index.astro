@@ -2,7 +2,7 @@
 import { Modal, ModalBody, ModalHeader } from 'free-astro-components'
 import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
-import ReleaseNoteItem from '~/components/ReleaseNoteItem.astro'
+import ReleaseNoteYearGroup from '~/components/ReleaseNoteYearGroup.astro'
 import ArrowUpIcon from '~/icons/ArrowUp.astro'
 import Layout from '~/layouts/Layout.astro'
 import { releaseNotes as releaseNotesData, releaseNotesTwilight } from '~/release-notes'
@@ -15,13 +15,31 @@ const {
   routes: { releaseNotes },
   layout,
 } = getUI(locale)
+
+const currentYear = new Date().getFullYear().toString()
+
+const releasesByYear = releaseNotesData.reduce(
+  (groups, note) => {
+    if (!note.date) return groups
+    const year = note.date.split('/')[2]
+    if (!groups[year]) groups[year] = []
+    groups[year].push(note)
+    return groups
+  },
+  {} as Record<string, typeof releaseNotesData>
+)
+
+const sortedYears = Object.keys(releasesByYear).sort((a, b) => Number(b) - Number(a))
 ---
 
 <Layout title={layout.releaseNotes.title}>
   <main
     class="container flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4"
   >
-    <div id="release-notes" class="py-42 flex min-h-screen w-full flex-col justify-center gap-8">
+    <div
+      id="release-notes"
+      class="py-42 flex min-h-screen w-full flex-col justify-center gap-8 pb-24"
+    >
       <Description class="mt-48 text-6xl font-bold">{releaseNotes.topSection.title}</Description>
       <p
         class="text-base opacity-55"
@@ -39,11 +57,20 @@ const {
         </Button>
       </div>
       {
-        releaseNotesTwilight.features.length || releaseNotesTwilight.fixes.length ? (
-          <ReleaseNoteItem {...releaseNotesTwilight} isTwilight />
-        ) : null
+        sortedYears.map(year => (
+          <ReleaseNoteYearGroup
+            year={year}
+            notes={releasesByYear[year]}
+            isOpen={year === currentYear}
+            twilightNote={
+              year === currentYear &&
+              (releaseNotesTwilight.features.length || releaseNotesTwilight.fixes.length)
+                ? releaseNotesTwilight
+                : undefined
+            }
+          />
+        ))
       }
-      {releaseNotesData.map(notes => <ReleaseNoteItem {...notes} />)}
     </div>
   </main>
   <Button id="scroll-top" isPrimary class="fixed bottom-8 right-8" onclick="window.scrollTo(0, 0)">
@@ -104,7 +131,12 @@ const {
     if (!version) return
     window.location.hash = version
 
-    const versionDetails = document.getElementById(version)?.getElementsByTagName('details')
+    const versionEl = document.getElementById(version)
+
+    const parentYearGroup = versionEl?.closest('details.year-group') as HTMLDetailsElement | null
+    if (parentYearGroup) parentYearGroup.open = true
+
+    const versionDetails = versionEl?.getElementsByTagName('details')
     if (versionDetails && versionDetails.length > 0) {
       Array.from(versionDetails).forEach(accordion => {
         accordion.setAttribute('open', '')
