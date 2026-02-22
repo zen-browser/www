@@ -133,6 +133,8 @@ const sortedYears = Object.keys(releasesByYear).sort((a, b) => Number(b) - Numbe
 
     const versionEl = document.getElementById(version)
 
+    // Ensure the target version's year group is expanded before scrolling,
+    // in case the user picks a version from a collapsed past year.
     const parentYearGroup = versionEl?.closest('details.year-group') as HTMLDetailsElement | null
     if (parentYearGroup) parentYearGroup.open = true
 
