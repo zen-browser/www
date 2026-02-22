@@ -498,25 +498,14 @@
     "nav": {
       "brand": "Zenブラウザー",
       "menu": {
-        "gettingStarted": "はじめに",
-        "usefulLinks": "便利なリンク",
+        "browse": "ブラウズ",
+        "socialLinks": "ソーシャルリンク",
         "mods": "Mods",
-        "download": "ダウンロード",
         "discord": "Discord",
         "releaseNotes": "リリースノート",
-        "zenMods": "Zen Mods",
-        "tryZenMods": "Zen Modsを試す",
-        "zenModsDesc": "Zen Modsでブラウザー体験をカスタマイズ。",
-        "releaseNotesDesc": "最新機能・改善情報はこちら。",
-        "discordDesc": "Discordコミュニティで他のZenユーザーと交流！",
-        "donate": "寄付 ❤️",
-        "donateDesc": "Zen開発を寄付で応援。",
-        "aboutUs": "私たちについて 🌟",
-        "aboutUsDesc": "Zenのチームについて知る。",
+        "aboutUs": "私たちについて",
         "documentation": "ドキュメント",
-        "documentationDesc": "ドキュメントでZenの使い方を学ぶ。",
         "github": "GitHub",
-        "githubDesc": "GitHubでZen開発に貢献。",
         "menu": "メニュー"
       }
     }
