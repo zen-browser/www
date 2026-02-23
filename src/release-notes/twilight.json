@@ -7,5 +7,8 @@
     "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode.",
     "MacOS users now get to use native popover UI, making the experience more consistent with the rest of the operating system."
   ],
-  "changes": ["Bluring the window will no longer close the urlbar if its open."]
+  "changes": [
+    "Bluring the window will no longer close the urlbar if its open.",
+    "Emojis at the space switcher will now be larger and more visible."
+  ]
 }
