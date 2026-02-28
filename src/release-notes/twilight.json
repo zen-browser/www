@@ -1,19 +1,8 @@
 {
-  "version": "1.19t",
+  "version": "1.20t",
   "extra": "",
-  "fixes": [
-    "Fixed private mode windows having dark text on dark background in the sidebar.",
-    "Other bug fixes and performance improvements."
-  ],
+  "fixes": [],
   "features": [
-    "Added live folders. Automatically fill your folders with opened GitHub issues, pull requests or RSS feeds. To add a live folder, click the + button in the sidebar and select 'Live Folder'.",
-    "Dragging a tab on top of another tab for one second will now allow the option to split those tabs.",
-    "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode.",
-    "MacOS users now get to use native popover UI, making the experience more consistent with the rest of the operating system.",
-    "Improved the icon picker for folders, tabs, etc. It now let you select icons without closing the picker."
-  ],
-  "changes": [
-    "Bluring the window will no longer close the urlbar if its open.",
-    "Emojis at the space switcher will now be larger and more visible."
+    "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode."
   ]
 }
