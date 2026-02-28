@@ -39,67 +39,61 @@ const {
       </svg>
     </label>
   </div>
-  <nav class="px-4 py-2">
-    <ul class="space-y-4">
-      <!-- Getting Started Links -->
+  <nav class="px-4 py-4">
+    <ul class="space-y-3">
       <li>
-        <div class="mb-2 font-bold">{menu.gettingStarted}</div>
+        <div class="mb-2 font-bold">{menu.browse}</div>
         <ul class="ml-4 space-y-2">
           <li>
-            <a href={getLocalePath('/mods')} class="block text-dark hover:text-coral"
-              >{menu.zenMods}</a
+            <a
+              href="https://docs.zen-browser.app"
+              class="block font-medium text-dark hover:text-coral"
             >
+              {menu.documentation}
+            </a>
           </li>
           <li>
-            <a href={getLocalePath('/release-notes')} class="block text-dark hover:text-coral"
-              >{menu.releaseNotes}</a
-            >
+            <a href={getLocalePath('/mods')} class="block font-medium text-dark hover:text-coral">
+              {menu.mods}
+            </a>
           </li>
           <li>
-            <a href="https://discord.gg/zen-browser" class="block text-dark hover:text-coral"
-              >{menu.discord}</a
+            <a
+              href={getLocalePath('/release-notes')}
+              class="block font-medium text-dark hover:text-coral"
             >
+              {menu.releaseNotes}
+            </a>
+          </li>
+          <li>
+            <a href={getLocalePath('/about')} class="block font-medium text-dark hover:text-coral">
+              {menu.aboutUs}
+            </a>
           </li>
         </ul>
       </li>
-      <!-- Useful Links -->
       <li>
-        <div class="mb-2 font-bold">{menu.usefulLinks}</div>
+        <div class="mb-2 font-bold">{menu.socialLinks}</div>
         <ul class="ml-4 space-y-2">
-          <li>
-            <a href={getLocalePath('/donate')} class="block text-dark hover:text-coral"
-              >{menu.donate}</a
-            >
-          </li>
-          <li>
-            <a href={getLocalePath('/about')} class="block text-dark hover:text-coral"
-              >{menu.aboutUs}</a
-            >
-          </li>
-          <li>
-            <a href="https://docs.zen-browser.app" class="block text-dark hover:text-coral"
-              >{menu.documentation}</a
-            >
-          </li>
           <li>
             <a
               href="https://github.com/zen-browser"
               target="_blank"
-              class="block text-dark hover:text-coral">{menu.github}</a
+              class="block text-dark hover:text-coral"
             >
+              {menu.github}
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://discord.gg/zen-browser"
+              target="_blank"
+              class="block text-dark hover:text-coral"
+            >
+              {menu.discord}
+            </a>
           </li>
         </ul>
-      </li>
-      <!-- Extra Links -->
-      <li>
-        <a href={getLocalePath('/mods')} class="block font-bold text-dark hover:text-coral"
-          >{menu.mods}</a
-        >
-      </li>
-      <li>
-        <a href={getLocalePath('/download')} class="block font-bold text-dark hover:text-coral"
-          >{menu.download}</a
-        >
       </li>
     </ul>
   </nav>

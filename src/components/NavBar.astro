@@ -1,9 +1,7 @@
 ---
-import { Astronav, Dropdown, DropdownItems, MenuItems } from 'astro-navbar'
-import Button from '~/components/Button.astro'
-import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
-import ChevronDownIcon from '~/icons/ChevronDownIcon.astro'
-import DownloadIcon from '~/icons/DownloadIcon.astro'
+import { Astronav, MenuItems } from 'astro-navbar'
+import DiscordIcon from '~/icons/DiscordIcon.astro'
+import GitHubIcon from '~/icons/GitHubIcon.astro'
 import MenuIcon from '~/icons/MenuIcon.astro'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
 import Logo from './Logo.astro'
@@ -28,96 +26,56 @@ const {
       <Logo class="text-coral" />
       <span>{brand}</span>
     </a>
-    <div
+    <nav
       class="hidden items-center gap-6 place-self-center text-xs sm:text-sm lg:flex lg:text-base"
     >
-      <Dropdown class="group">
-        <button class="flex items-center">
-          <span>{menu.gettingStarted}</span>
-          <ChevronDownIcon
-            class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
-          />
-        </button>
-        <DropdownItems>
-          <div class="navbar-dropdown">
-            <a class="dropdown-item bg-dark/5 row-span-2" href={getLocalePath('/mods')}>
-              <div class="dropdown-title">{menu.zenMods}</div>
-              <div class="dropdown-description">
-                {menu.zenModsDesc}
-              </div>
-              <Button isPrimary class="mt-auto">
-                {menu.tryZenMods}
-                <ArrowRightIcon class="size-4" />
-              </Button>
-            </a>
-            <a class="dropdown-item" href={getLocalePath('/release-notes')}>
-              <div class="dropdown-title">{menu.releaseNotes}</div>
-              <div class="dropdown-description">
-                {menu.releaseNotesDesc}
-              </div>
-            </a>
-            <a class="dropdown-item" href="https://discord.gg/zen-browser">
-              <div class="dropdown-title">{menu.discord}</div>
-              <div class="dropdown-description">
-                {menu.discordDesc}
-              </div>
-            </a>
-          </div>
-        </DropdownItems>
-      </Dropdown>
-      <Dropdown class="group">
-        <button class="flex items-center">
-          <span>{menu.usefulLinks}</span>
-          <ChevronDownIcon
-            class="size-4 transform transition-transform duration-200 group-open:rotate-180 md:ml-2"
-          />
-        </button>
-        <DropdownItems>
-          <div class="navbar-dropdown !grid-cols-1 gap-1">
-            <a class="dropdown-item" href={getLocalePath('/donate')}>
-              <div class="dropdown-title">{menu.donate}</div>
-              <div class="dropdown-description">
-                {menu.donateDesc}
-              </div>
-            </a>
-            <a class="dropdown-item" href={getLocalePath('/about')}>
-              <div class="dropdown-title">{menu.aboutUs}</div>
-              <div class="dropdown-description">
-                {menu.aboutUsDesc}
-              </div>
-            </a>
-            <a class="dropdown-item" href="https://docs.zen-browser.app">
-              <div class="dropdown-title">{menu.documentation}</div>
-              <div class="dropdown-description">
-                {menu.documentationDesc}
-              </div>
-            </a>
-            <a class="dropdown-item" href="https://github.com/zen-browser" target="_blank">
-              <div class="dropdown-title">{menu.github}</div>
-              <div class="dropdown-description">
-                {menu.githubDesc}
-              </div>
-            </a>
-          </div>
-        </DropdownItems>
-      </Dropdown>
-      <a class="hidden items-center lg:block" href={getLocalePath('/mods')}>
-        <span>{menu.mods}</span>
+      <a
+        class="font-medium transition-colors duration-200 hover:text-coral"
+        href="https://docs.zen-browser.app"
+      >
+        {menu.documentation}
       </a>
-    </div>
-    <div class="flex items-center gap-2 place-self-end lg:gap-4">
+      <a
+        class="font-medium transition-colors duration-200 hover:text-coral"
+        href={getLocalePath('/mods')}
+      >
+        {menu.mods}
+      </a>
+      <a
+        class="font-medium transition-colors duration-200 hover:text-coral"
+        href={getLocalePath('/release-notes')}
+      >
+        {menu.releaseNotes}
+      </a>
+      <a
+        class="font-medium transition-colors duration-200 hover:text-coral"
+        href={getLocalePath('/about')}
+      >
+        {menu.aboutUs}
+      </a>
+    </nav>
+    <div class="flex items-center gap-3 place-self-end lg:gap-4">
+      <div class="hidden gap-4 lg:flex">
+        <a
+          href="https://github.com/zen-browser"
+          target="_blank"
+          aria-label="Visit Zen Browser on GitHub"
+          class="text-dark opacity-80 transition-opacity hover:opacity-100"
+        >
+          <GitHubIcon class="size-5" />
+        </a>
+        <a
+          href="https://discord.gg/zen-browser"
+          target="_blank"
+          aria-label="Join Zen Browser on Discord"
+          class="text-dark opacity-80 transition-opacity hover:opacity-100"
+        >
+          <DiscordIcon class="size-5" />
+        </a>
+      </div>
       <div id="theme-switcher">
         <ThemeSwitch label="Toggle theme" />
       </div>
-      <Button href="/download" class="hidden lg:flex" isPrimary>
-        <span class="hidden items-center gap-2 lg:flex">
-          {menu.download}
-          <ArrowRightIcon class="size-4" />
-        </span>
-        <span class="flex items-center gap-2 lg:hidden">
-          <DownloadIcon class="size-4" />
-        </span>
-      </Button>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label
         for="mobile-menu-toggle"
@@ -133,26 +91,6 @@ const {
 <!-- Mobile Hamburger Menu Content -->
 <MobileMenu />
 
-<style>
-  .navbar-dropdown {
-    @apply absolute left-1/2 mt-2 grid !-translate-x-1/2 !transform grid-cols-2 gap-2 rounded-lg border-2 border-dark bg-paper p-3 shadow-sm;
-    & .dropdown-item {
-      @apply flex cursor-pointer select-none flex-col gap-2 rounded-lg p-4 transition-colors duration-200;
-
-      &:hover {
-        @apply bg-muted;
-      }
-
-      & .dropdown-title {
-        @apply font-bold;
-      }
-
-      & .dropdown-description {
-        @apply text-sm;
-      }
-    }
-  }
-</style>
 <style is:global>
   #theme-switcher * {
     @apply text-dark;
