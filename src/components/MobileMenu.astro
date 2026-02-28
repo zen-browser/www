@@ -72,11 +72,6 @@ const {
             >
           </li>
           <li>
-            <a href={getLocalePath('/about')} class="block text-dark hover:text-coral"
-              >{menu.aboutUs}</a
-            >
-          </li>
-          <li>
             <a href="https://docs.zen-browser.app" class="block text-dark hover:text-coral"
               >{menu.documentation}</a
             >
@@ -91,6 +86,10 @@ const {
         </ul>
       </li>
       <!-- Extra Links -->
+      <li>
+        <a href={getLocalePath('/about')} class="block text-dark hover:text-coral">{menu.aboutUs}</a
+        >
+      </li>
       <li>
         <a href={getLocalePath('/mods')} class="block font-bold text-dark hover:text-coral"
           >{menu.mods}</a
