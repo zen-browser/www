@@ -48,40 +48,28 @@ const {
       class="grid w-full max-w-5xl place-items-center gap-12 text-center sm:text-left"
       aria-label="Footer navigation and links"
     >
-      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:w-full">
-        <div class="grid gap-8 sm:col-span-2 sm:grid-cols-2 md:col-span-1 md:grid-cols-1">
-          <section
-            class="flex flex-col items-center gap-2 sm:items-start"
-            aria-labelledby="follow-us-heading"
-          >
-            <h2 id="follow-us-heading" class="text-base !font-semibold">
-              {footer.followUs}
-            </h2>
-            <SocialMediaStrip />
-          </section>
-          <section class="flex flex-col gap-2" aria-labelledby="about-us-heading">
-            <h2 id="about-us-heading" class="text-base !font-semibold">
-              {footer.aboutUs}
-            </h2>
-            <nav aria-label="About navigation">
-              <ul class="grid gap-2 opacity-80">
-                <li>
-                  <a href={getLocalePath('/about')} class="font-normal"
-                    >{footer.teamAndContributors}</a
-                  >
-                </li>
-                <li>
-                  <a href={getLocalePath('/privacy-policy')} class="font-normal"
-                    >{footer.privacyPolicy}</a
-                  >
-                </li>
-              </ul>
-            </nav>
-          </section>
-        </div>
-        <nav class="flex flex-col gap-2" aria-labelledby="get-started-heading">
-          <h2 id="get-started-heading" class="text-base !font-semibold">
-            {footer.getStarted}
+      <div class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
+        <section class="flex flex-col gap-3" aria-labelledby="follow-us-heading">
+          <h2 id="follow-us-heading" class="text-base !font-semibold">
+            {footer.socialLinks}
+          </h2>
+          <ul class="grid gap-2 opacity-80">
+            <li>
+              <a href="https://github.com/zen-browser" target="_blank" class="font-normal">
+                {footer.github}
+              </a>
+            </li>
+            <li>
+              <a href="https://discord.gg/zen-browser" target="_blank" class="font-normal">
+                {footer.discord}
+              </a>
+            </li>
+          </ul>
+          <SocialMediaStrip excludeIcons={['github', 'discord']} />
+        </section>
+        <nav class="flex flex-col gap-2" aria-labelledby="primary-links-heading">
+          <h2 id="primary-links-heading" class="text-base !font-semibold">
+            {footer.primaryLinks}
           </h2>
           <ul class="grid gap-2 opacity-80">
             <li>
@@ -95,7 +83,27 @@ const {
               >
             </li>
             <li>
-              <a href={getLocalePath('/download?twilight')} class="font-normal">{footer.twilight}</a
+              <a href={getLocalePath('/about')} class="font-normal">{footer.aboutUs}</a>
+            </li>
+          </ul>
+        </nav>
+        <nav class="flex flex-col gap-2" aria-labelledby="more-links-heading">
+          <h2 id="more-links-heading" class="text-base !font-semibold">
+            {footer.more}
+          </h2>
+          <ul class="grid gap-2 opacity-80">
+            <li>
+              <a href={getLocalePath('/download')} class="font-normal">{footer.download}</a>
+            </li>
+            <li>
+              <a href={getLocalePath('/donate')} class="font-normal">{footer.supportUs}</a>
+            </li>
+            <li>
+              <a href={getLocalePath('/about')} class="font-normal">{footer.teamAndContributors}</a>
+            </li>
+            <li>
+              <a href={getLocalePath('/privacy-policy')} class="font-normal"
+                >{footer.privacyPolicy}</a
               >
             </li>
           </ul>
@@ -106,7 +114,8 @@ const {
           </h2>
           <ul class="grid gap-2 opacity-80">
             <li>
-              <a href="https://discord.gg/zen-browser" class="font-normal">{footer.discord}</a>
+              <a href="https://uptime.zen-browser.app/" class="font-normal">{footer.uptimeStatus}</a
+              >
             </li>
             <li>
               <a href="https://status.zen-browser.app/" class="font-normal">{footer.uptimeStatus}</a
