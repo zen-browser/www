@@ -3614,5 +3614,33 @@
     "workflowId": 22245081530,
     "image": false,
     "date": "21/02/2026"
+  },
+  {
+    "version": "1.19b",
+    "extra": "This update includes a new feature that allows you to automatically fill your folders with opened GitHub issues, pull requests or RSS feeds. To add a live folder, click the + button in the sidebar and select 'Live Folder'.\n\nLet us know what other live folder types you would like to see in the future!",
+    "fixes": [
+      "Fixed private mode windows having dark text on dark background in the sidebar.",
+      "Fixed popup windows not showing at all on certain occasions.",
+      "Other bug fixes and performance improvements."
+    ],
+    "features": [
+      "Updated to Firefox 148.0",
+      "Added live folders. Automatically fill your folders with opened GitHub issues, pull requests or RSS feeds. To add a live folder, click the + button in the sidebar and select 'Live Folder'.",
+      "Dragging a tab on top of another tab for one second will now allow the option to split those tabs.",
+      "MacOS users now get to use native popover UI, making the experience more consistent with the rest of the operating system.",
+      "Improved the icon picker for folders, tabs, etc. It now let you select icons without closing the picker.",
+      "Pressing the \"Un-split\" button while holding shift will not focus the un-split tab, allowing you to stay in the current split view."
+    ],
+    "changes": [
+      "Bluring the window will no longer close the urlbar if its open.",
+      "Emojis at the space switcher will now be larger and more visible."
+    ],
+    "themeChanges": [
+      "Removed the `-zen-window-transform-origin` CSS attribute as it is not needed anymore"
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-13/",
+    "workflowId": 22518892421,
+    "image": false,
+    "date": "27/02/2026"
   }
 ]
