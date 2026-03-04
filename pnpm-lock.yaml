@@ -93,8 +93,8 @@ importers:
         specifier: 4.1.0
         version: 4.1.0
       free-astro-components:
-        specifier: 1.2.0
-        version: 1.2.0(@types/node@22.16.3)(jiti@2.6.1)(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(rollup@4.59.0)(yaml@2.8.0)
+        specifier: 1.2.1
+        version: 1.2.1(@types/node@22.16.3)(jiti@2.6.1)(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(rollup@4.59.0)(yaml@2.8.0)
       jiti:
         specifier: 2.6.1
         version: 2.6.1
@@ -3195,8 +3195,8 @@ packages:
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
 
-  free-astro-components@1.2.0:
-    resolution: {integrity: sha512-bsT9dWsNlRGDNjqcoIlz6w8NcSCgOpx6oxiwZgYwq9RVbi3JqUImPc6c4Kico2wRJSIXc7HHyr71QgmgXv7nfg==}
+  free-astro-components@1.2.1:
+    resolution: {integrity: sha512-M04w6JX9LpZjGxPxGxIbd/Wn4ZLxZar3OF9AyzVM36nJ2cEY6cBc2RF31VWTNA+fsY5KGksf6osLm8eXSTdhIw==}
 
   fsevents@2.3.2:
     resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
@@ -8704,7 +8704,7 @@ snapshots:
 
   fraction.js@4.3.7: {}
 
-  free-astro-components@1.2.0(@types/node@22.16.3)(jiti@2.6.1)(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(rollup@4.59.0)(yaml@2.8.0):
+  free-astro-components@1.2.1(@types/node@22.16.3)(jiti@2.6.1)(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(rollup@4.59.0)(yaml@2.8.0):
     dependencies:
       '@astrojs/check': 0.9.6(prettier-plugin-astro@0.14.1)(prettier@3.6.2)(typescript@5.9.2)
       astro: 5.17.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.59.0)(typescript@5.9.2)(yaml@2.8.0)
