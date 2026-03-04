@@ -3642,5 +3642,21 @@
     "workflowId": 22518892421,
     "image": false,
     "date": "27/02/2026"
+  },
+  {
+    "version": "1.19.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed certain popups on MacOS appearing with no background color, making them invisible.",
+      "Fixed Github Pull Request live folders not fetching the pull request data correctly.",
+      "Other minor bug fixes and improvements."
+    ],
+    "features": [],
+    "changed": [
+      "Middle clicking on the sidebar will now simply open a new tab instead of searching the content stored inside the clipboard. This is to prevent accidental middle clicks from opening sensitive information. Middle clicking on the new tab button will still search the clipboard content."
+    ],
+    "workflowId": 22657981427,
+    "image": false,
+    "date": "04/03/2026"
   }
 ]
