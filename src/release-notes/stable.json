@@ -3658,5 +3658,28 @@
     "workflowId": 22657981427,
     "image": false,
     "date": "04/03/2026"
+  },
+  {
+    "version": "1.19.2b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed some RSS live folders not working with certain feeds.",
+        "issue": 12685
+      },
+      {
+        "description": "Improved performance for spaces, specially when switching between them.",
+        "issue": 11851
+      },
+      "Other minor bug fixes and improvements."
+    ],
+    "changed": [
+      "Clicking on 'reset pinned tab' will now also select the pinned tab if it is not currently selected."
+    ],
+    "features": ["Updated to Firefox 148.0.2"],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-19/",
+    "workflowId": 22929917826,
+    "image": false,
+    "date": "11/03/2026"
   }
 ]
