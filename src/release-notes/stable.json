@@ -3006,7 +3006,7 @@
       "Fixed pinned tabs / folders not initializing correctly on some occasions."
     ],
     "features": ["Updated to Firefox 142.0.1."],
-    "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu."],
+    "changes": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu."],
     "workflowId": 17281244121,
     "image": false,
     "date": "28/08/2025"
@@ -3304,7 +3304,7 @@
       "Enhanced Bounce Tracking Protection's stateless mode is now enabled by default in ETP Strict, blocking more advanced tracking techniques based on redirection",
       "For most Windows users, the existing desktop shortcut for launching Zen has been replaced with the desktop launcher, a small program that will launch Zen if it is installed"
     ],
-    "changed": [
+    "changes": [
       "Local translation models are now compressed with Zstandard, reducing download sizes and on-device storage consumption."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-87/",
@@ -3652,7 +3652,7 @@
       "Other minor bug fixes and improvements."
     ],
     "features": [],
-    "changed": [
+    "changes": [
       "Middle clicking on the sidebar will now simply open a new tab instead of searching the content stored inside the clipboard. This is to prevent accidental middle clicks from opening sensitive information. Middle clicking on the new tab button will still search the clipboard content."
     ],
     "workflowId": 22657981427,
@@ -3673,7 +3673,7 @@
       },
       "Other minor bug fixes and improvements."
     ],
-    "changed": [
+    "changes": [
       "Clicking on 'reset pinned tab' will now also select the pinned tab if it is not currently selected."
     ],
     "features": ["Updated to Firefox 148.0.2"],
@@ -3696,7 +3696,7 @@
       },
       "Others fixes and quality of life improvements"
     ],
-    "changed": [
+    "changes": [
       "Pressing CTRL+T again while the urlbar is open will now close it.",
       "Bookmarks bar will now stay visible on fullscreen mode."
     ],
