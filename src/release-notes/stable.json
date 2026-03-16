@@ -3681,5 +3681,31 @@
     "workflowId": 22929917826,
     "image": false,
     "date": "11/03/2026"
+  },
+  {
+    "version": "1.19.3b",
+    "extra": "",
+    "fixes": [
+      "Split views will now hide when toggling fullscreen mode.",
+      "Other minor bug fixes and improvements.",
+      "Improved accessibility for split view controls.",
+      "Fixed opening a new window making all tabs appear as 'New Tab' until they are selected.",
+      {
+        "description": "Fixed chrome hide toolbar flag not being respected for new windows.",
+        "issue": 12736
+      },
+      "Others fixes and quality of life improvements"
+    ],
+    "changed": [
+      "Pressing CTRL+T again while the urlbar is open will now close it.",
+      "Bookmarks bar will now stay visible on fullscreen mode."
+    ],
+    "features": [
+      "Holding ctrl/cmd while hovering 'Reset pinned tab' will now duplicate that tab in the background",
+      "Added 'Unload all spaces except current' context menu item to the space switcher"
+    ],
+    "workflowId": 23116589584,
+    "image": false,
+    "date": "16/03/2026"
   }
 ]
