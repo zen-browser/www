@@ -37,7 +37,7 @@
     "@fortawesome/free-solid-svg-icons": "6.7.2",
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
-    "animejs": "4.0.2",
+    "animejs": "4.3.6",
     "astro": "5.17.1",
     "astro-navbar": "2.3.7",
     "autoprefixer": "10.4.14",
