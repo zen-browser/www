@@ -3707,5 +3707,42 @@
     "workflowId": 23116589584,
     "image": false,
     "date": "16/03/2026"
+  },
+  {
+    "version": "1.19.4b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed background grain not showing properly",
+        "issue": 12765
+      },
+      {
+        "description": "Fixed not being able to switch spaces with scroll actions",
+        "issue": 12816
+      },
+      {
+        "description": "Fixed closing blank windows when asking for confirmation",
+        "issue": 12922
+      },
+      "Increased robustness of HTTP/3 upload performance for unstable network conditions.",
+      "Other minor bug fixes and improvements."
+    ],
+    "changes": [
+      "Live folders will now perform a refresh when waking up the computer to make sure the content is up to date.",
+      "On Linux, Zen will now default to the XDG portal file picker if available, rather than the GTK3 one, which is usually better integrated with the user's desktop environment, and more powerful.",
+      "On Windows, Zen will use the modern Windows.Devices.Geolocation API for geolocation instead of Windows 7 location API."
+    ],
+    "features": [
+      "Updated to Firefox 149.0",
+      "Optimized the performance glance and its animations, making it more responsive and smoother than before.",
+      "Added a 'Un-split tabs' context menu item when right-clicking on a tab inside a split view to quickly un-split it.",
+      "Many PDF files will now load significantly faster thanks to hardware acceleration.",
+      "Zen now automatically blocks notifications and permanently revokes permissions for any website flagged as malicious by SafeBrowsing. This prevents unsafe sites from sending background notifications to users, commonly used for ads, spam or phishing.",
+      "The WebRender layer compositor is now enabled on Windows, reducing power usage during full-screen video playback and improving WebGL/WebGPU performance."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-20/",
+    "workflowId": 23604204844,
+    "image": false,
+    "date": "26/03/2026"
   }
 ]
