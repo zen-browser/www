@@ -3744,5 +3744,19 @@
     "workflowId": 23604204844,
     "image": false,
     "date": "26/03/2026"
+  },
+  {
+    "version": "1.19.5b",
+    "extra": "Quick fixes from the 1.19.4b release, please see their respective entries for more details.",
+    "fixes": [
+      "Fixed new profiles freezing on startup",
+      "Fixed an issue with drag and dropping tabs, making folders have empty spaces"
+    ],
+    "knownIssues": [
+      "Github live folders might not update their content, we are currently investigating this issue and will release a fix as soon as possible."
+    ],
+    "workflowId": 23648805936,
+    "image": false,
+    "date": "27/03/2026"
   }
 ]
