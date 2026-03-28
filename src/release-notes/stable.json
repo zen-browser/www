@@ -3749,9 +3749,15 @@
     "version": "1.19.5b",
     "extra": "Quick fixes from the 1.19.4b release, please see their respective entries for more details.",
     "fixes": [
-      "Fixed new profiles freezing on startup",
+      {
+        "description": "Fixed new profiles freezing on startup",
+        "issue": 12940
+      },
       "Fixed an issue with drag and dropping tabs, making folders have empty spaces",
-      "Fixed Github Live Folders not fetching Pull Request data correctly"
+      {
+        "description": "Fixed Github Live Folders not fetching Pull Request data correctly",
+        "issue": 12942
+      }
     ],
     "workflowId": 23679666277,
     "image": false,
