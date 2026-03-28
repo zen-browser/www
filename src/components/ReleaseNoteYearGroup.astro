@@ -1,0 +1,79 @@
+---
+import type { ReleaseNote } from '../release-notes'
+import ReleaseNoteItem from './ReleaseNoteItem.astro'
+
+interface Props {
+  year: string
+  notes: ReleaseNote[]
+  isOpen: boolean
+  twilightNote?: ReleaseNote
+}
+
+const { year, notes, isOpen, twilightNote } = Astro.props
+---
+
+<details class="group/year year-group w-full" open={isOpen}>
+  <summary
+    class="group/summary flex cursor-pointer select-none list-none items-center justify-between gap-4 border-b border-[--zen-dark] py-8"
+  >
+    <span
+      class="font-bold text-dark opacity-60 transition-opacity duration-200 group-open/year:opacity-100 group-hover/summary:opacity-100"
+      style="font-size: clamp(2rem, 5vw, 3.5rem);"
+    >
+      {year}
+    </span>
+    <div class="flex items-center gap-3">
+      {
+        notes.length > 0 && (
+          <span class="rounded-full border border-[--zen-dark] px-3 py-1 text-xs font-medium text-dark opacity-40">
+            {notes.length} release{notes.length !== 1 ? 's' : ''}
+          </span>
+        )
+      }
+      <svg
+        class="chevron size-5 shrink-0 text-dark opacity-30 transition-transform duration-300 ease-in-out group-hover/summary:opacity-60"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+          clip-rule="evenodd"></path>
+      </svg>
+    </div>
+  </summary>
+
+  <div class="year-group-content [&>*:first-child]:mt-0">
+    {twilightNote && <ReleaseNoteItem {...twilightNote} isTwilight />}
+    {notes.map(note => <ReleaseNoteItem {...note} />)}
+  </div>
+</details>
+
+<style>
+  details[open] .chevron {
+    transform: rotate(180deg);
+  }
+
+  details[open] .year-group-content {
+    transition:
+      opacity 0.25s ease-out,
+      transform 0.25s ease-out;
+  }
+
+  /*
+   * @starting-style defines the initial state an element transitions FROM
+   * when it first becomes visible (e.g. display: none → block).
+   * Without it, CSS transitions are ignored on first paint since there is no prior state.
+   * Learn more:
+   *   MDN   — https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@starting-style
+   *   Video — https://www.youtube.com/watch?v=vmDEHAzj2XE
+   */
+  @starting-style {
+    details[open] .year-group-content {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+  }
+</style>
