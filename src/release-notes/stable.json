@@ -3762,5 +3762,43 @@
     "workflowId": 23679666277,
     "image": false,
     "date": "27/03/2026"
+  },
+  {
+    "version": "1.19.6b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed compact mode toggle being appear checked incorrectly",
+        "issue": 12973
+      },
+      "Zen now respects more 'reduce motion' system settings to disable or simplify non-essential animations",
+      {
+        "description": "Switching spaces will not be blocking anymore, meaning you can switch to another space while the current one is still animating",
+        "issue": 8206
+      },
+      {
+        "description": "Fixed website notifications not being clickable when using the right sidebar",
+        "issue": 12104
+      },
+      {
+        "description": "Improved low-FPS performance on certain occasions, such as when playing videos or using glance on low-end devices",
+        "issue": 12979
+      },
+      {
+        "description": "Fixed restoring a pinned tab also scrolling the website to it's original position",
+        "issue": 13024
+      },
+      {
+        "description": "Fixed some toolbars having unreadable text colors when using certain themes",
+        "issue": 13024
+      }
+    ],
+    "changes": [
+      "Reverted to Firefox's old search bar due to compatibility issues with the new one",
+      "Context menu for split tabs has now been renamed to 'Join tabs' to be more intuitive"
+    ],
+    "workflowId": 23924571668,
+    "image": false,
+    "date": "03/04/2026"
   }
 ]
