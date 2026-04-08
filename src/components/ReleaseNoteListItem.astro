@@ -41,11 +41,13 @@ const {
     {
       link && (
         <span>
-          (
-          <a href={link.href} class="text-blue inline-block text-base underline">
-            {link.text}
-          </a>
-          )
+          <>
+            {type === 'fix' && <span>{'('}</span>}
+            <a href={link.href} class="text-blue inline-block text-base underline">
+              {link.text}
+            {/* prettier-ignore */}
+            </a>{type === 'fix' && <span>{')'}</span>}
+          </>
         </span>
       )
     }
