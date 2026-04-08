@@ -81,8 +81,8 @@ importers:
         specifier: 5.18.1
         version: 5.18.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.59.0)(typescript@5.9.2)(yaml@2.8.0)
       astro-navbar:
-        specifier: 2.3.7
-        version: 2.3.7
+        specifier: 2.4.0
+        version: 2.4.0
       autoprefixer:
         specifier: 10.4.14
         version: 10.4.14(postcss@8.5.1)
@@ -2488,8 +2488,8 @@ packages:
     resolution: {integrity: sha512-JepyLROIad6f44uyqMF6HKE2QbunNzp3mYKRcPoDGt0QkxXmH222FAFC64WTyQu2Kg8NNEXHTN/sWuUId9sSxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro-navbar@2.3.7:
-    resolution: {integrity: sha512-3rB27AkbTQVZCyrNc0C+8EK558eF9U/Ldmwnfl3w4lZ2zZCjUCiCqhoEAqkBEupiVsZux89/AkNUpBkufQQ5jA==}
+  astro-navbar@2.4.0:
+    resolution: {integrity: sha512-UhQnU8lz3a0NKL5gTBXFwYg1CVzP/DNlw1z6qW7f9Q1j33oMHdjwX/TmC2/xkJTKeq4a2RxgaqeJ+6CxCxRELg==}
 
   astro@5.18.1:
     resolution: {integrity: sha512-m4VWilWZ+Xt6NPoYzC4CgGZim/zQUO7WFL0RHCH0AiEavF1153iC3+me2atDvXpf/yX4PyGUeD8wZLq1cirT3g==}
@@ -7797,7 +7797,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro-navbar@2.3.7: {}
+  astro-navbar@2.4.0: {}
 
   astro@5.18.1(@types/node@22.16.3)(jiti@2.6.1)(rollup@4.59.0)(typescript@5.9.2)(yaml@2.8.0):
     dependencies:
