@@ -25,11 +25,11 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.6",
-    "@astrojs/cloudflare": "12.6.12",
+    "@astrojs/check": "0.9.8",
+    "@astrojs/cloudflare": "12.6.13",
     "@astrojs/react": "4.4.2",
-    "@astrojs/rss": "4.0.15",
-    "@astrojs/sitemap": "3.7.0",
+    "@astrojs/rss": "4.0.18",
+    "@astrojs/sitemap": "3.7.2",
     "@astrojs/tailwind": "6.0.2",
     "@fontsource/bricolage-grotesque": "5.2.10",
     "@fortawesome/fontawesome-svg-core": "6.7.2",
