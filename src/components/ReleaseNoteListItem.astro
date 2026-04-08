@@ -40,9 +40,13 @@ const {
     {content && <span class="text-base opacity-80" set:html={content} />}
     {
       link && (
-        <a href={link.href} class="text-blue inline-block text-base underline">
-          {link.text}
-        </a>
+        <>
+          "("
+          <a href={link.href} class="text-blue inline-block text-base underline">
+            {link.text}
+          </a>
+          ")"
+        </>
       )
     }
   </div>
