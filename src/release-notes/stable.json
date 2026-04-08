@@ -3800,5 +3800,33 @@
     "workflowId": 23924571668,
     "image": false,
     "date": "03/04/2026"
+  },
+  {
+    "version": "1.19.7b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed MacOS setting 'disable page swipe' making switching spaces not work at all",
+        "issue": 10687
+      },
+      {
+        "description": "Fixed double separator lines in context menus in some places",
+        "issue": 13093
+      },
+      {
+        "description": "Fixed unable to install addons in compact mode",
+        "issue": 11667
+      },
+      "Fixed an issue on Linux where the browser toolbar could become unresponsive to mouse clicks after dragging a tab when using Wayland",
+      "Other stability fixes and improvements."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-25/",
+    "features": [
+      "Updated to Firefox 149.0.2",
+      "Added a new 'Duplicate tab' keyboard shortcut available in settings"
+    ],
+    "workflowId": 24104826155,
+    "image": false,
+    "date": "07/04/2026"
   }
 ]
