@@ -1795,7 +1795,7 @@
         "issue": 3269
       },
       {
-        "description": "Fixed wrong firefox version when using extensions API, therefor breaking some extensions",
+        "description": "Fixed wrong firefox version when using extensions API, therefore breaking some extensions",
         "issue": 1366
       }
     ],
@@ -3828,5 +3828,27 @@
     "workflowId": 24104826155,
     "image": false,
     "date": "07/04/2026"
+  },
+  {
+    "version": "1.19.8b",
+    "extra": "Please see the 1.19.7b release for more details on the fixes included in this release.",
+    "fixes": [
+      {
+        "description": "Fixed some animations inside Zen not respecting the 'reduce motion' system setting",
+        "issue": 13140
+      },
+      {
+        "description": "Fixed compact mode not hiding the sidebar or toolbar when a site has permissions disabled",
+        "issue": 13121
+      },
+      "Fixed accessibility issues with some toolbars such as 'find on page' in private windows"
+    ],
+    "changes": [
+      "Modified sidebar context menu to be more intuitive and simplified, removing some options and moving others to more appropriate places.",
+      "Live folders option has been moved to the sidebar context menu"
+    ],
+    "workflowId": 70497878213,
+    "image": false,
+    "date": "09/04/2026"
   }
 ]
