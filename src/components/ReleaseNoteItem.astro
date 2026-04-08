@@ -61,7 +61,7 @@ const generateItems = (items: any, type: string) => {
           ...(item.issue
             ? {
                 link: {
-                  text: `Bug #${item.issue}`,
+                  text: `Bug gh-${item.issue}`,
                   href: `https://github.com/zen-browser/desktop/issues/${item.issue}`,
                 },
               }
