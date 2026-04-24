@@ -3850,38 +3850,5 @@
     "workflowId": 70497878213,
     "image": false,
     "date": "09/04/2026"
-  },
-  {
-    "version": "1.19.9b",
-    "extra": "",
-    "fixes": [
-      {
-        "description": "Fixed halts / unresponsiveness happening every certain amount of time",
-        "issue": 10649
-      },
-      {
-        "description": "Fixed duplicate bookmarks appearing on startup",
-        "issue": 9540
-      },
-      "Fixed an issue on macOS where, when macOS Lockdown mode is enabled, emoji characters are not displayed in web content.",
-      "Fixed live folders not working with GitHub's new Pull Request UI",
-      "Windows users can now install updates without having to accept the User Account Control (UAC) prompt. It might need a re-install to work for existing users.",
-      "Other minor bug fixes and performance improvements."
-    ],
-    "changes": ["There's a new modal UI, thanks to @12th-devs on GitHub!"],
-    "features": [
-      "Updated to Firefox 150.0",
-      "(alt or opt)+clicking a tab will now split it with the selected tab",
-      "Added a 'Move to folder...' context menu item for tabs to quickly move them to a different folder",
-      "Added a new loading progress animation when a page is loading",
-      "Safebrowsing and geo-location APIs should work more reliably now"
-    ],
-    "security": [
-      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-30/",
-      "https://github.com/zen-browser/desktop/security/advisories"
-    ],
-    "workflowId": 24859237447,
-    "image": false,
-    "date": "23/04/2026"
   }
 ]

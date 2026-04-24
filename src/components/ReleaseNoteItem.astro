@@ -104,7 +104,7 @@ const generateItems = (items: any, type: string) => {
     }
   })
 }
-generateItems(typeof props.security === 'string' ? [props.security] : props.security, 'security')
+generateItems(props.security ? [props.security] : null, 'security')
 generateItems(props.fixes, 'fix')
 generateItems(props.features, 'feature')
 generateItems(props.changes, 'change')
