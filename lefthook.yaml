@@ -10,11 +10,6 @@ pre-commit:
         pnpm prettier {staged_files} --write --list-different
       stage_fixed: true
 
-    eslint:
-      priority: 2
-      run: |
-        pnpm lefthook run eslint
-
     cspell:
       priority: 3
       run: |

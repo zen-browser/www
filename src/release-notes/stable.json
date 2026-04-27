@@ -3886,5 +3886,30 @@
     "workflowId": 24884426227,
     "image": false,
     "date": "23/04/2026"
+  },
+  {
+    "version": "1.19.10b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed video controls being off screen in compact mode",
+        "issue": 10594
+      },
+      {
+        "description": "Fixed startup crashes and not letting any tab to be selected",
+        "issue": 13414
+      },
+      {
+        "description": "Fixed dragging tabs between windows not hiding sidebar",
+        "issue": 8643
+      },
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": [
+      "(alt or opt)+clicking again on a merged tab will now split it from the selected tab"
+    ],
+    "workflowId": 24983103164,
+    "image": false,
+    "date": "27/04/2026"
   }
 ]
