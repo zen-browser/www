@@ -14,7 +14,7 @@ export type ReleaseNote = {
   date?: string // optional for twilight
   extra?: string
   fixes?: Fix[]
-  security?: string
+  security?: string | string[]
   knownIssues?: string[]
   features?: string[]
   breakingChanges?: BreakingChange[]
