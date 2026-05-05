@@ -466,7 +466,8 @@
       "description": "Welcome to Zen!"
     },
     "whatsNew": {
-      "title": "What's New in {latestVersion.version}!"
+      "title": "What's New in {latestVersion.version}!",
+      "description": "Check out what's new in Zen Browser version {latestVersion.version}!"
     }
   },
   "components": {

@@ -471,7 +471,8 @@
       "description": "Zenへようこそ！"
     },
     "whatsNew": {
-      "title": "{latestVersion.version}の新機能！"
+      "title": "{latestVersion.version}の新機能！",
+      "description": "Zenブラウザ バージョン{latestVersion.version}の新機能をチェックしましょう！"
     }
   },
   "components": {

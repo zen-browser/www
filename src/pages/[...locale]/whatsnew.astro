@@ -34,7 +34,10 @@ if (latestVersion.version.split('.').length > 2) {
 
 <Layout
   title={layout.whatsNew.title.replace('{latestVersion.version}', latestVersion.version)}
-  description={`Check out what's new in Zen Browser version ${latestVersion.version}! ${latestVersion.extra?.split('\n')[0] ?? ''}`}
+  description={layout.whatsNew.description.replace(
+    '{latestVersion.version}',
+    latestVersion.version
+  ) + (latestVersion.extra ? ` ${latestVersion.extra.split('\n')[0]}` : '')}
 >
   <main
     class="container flex flex-col gap-12 py-12 xl:mt-24 xl:grid xl:min-h-[calc(100vh-12rem)] xl:grid-cols-[2fr_3fr]"
