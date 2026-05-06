@@ -23,16 +23,8 @@ const {
 
 <li class="flex gap-2">
   <div
-    class:list={[
-      (type === 'security' && 'text-[#e3401f]') ||
-        (type === 'feature' && 'text-[#bf3316] dark:text-[#ffb1a1]') ||
-        (type === 'fix' && 'text-[#fe846b]') ||
-        (type === 'theme' && 'text-[#f76f53]') ||
-        (type === 'change' && 'text-[#f7a74b]') ||
-        (type === 'break' && 'text-[#471308] dark:text-[#D02908]') ||
-        '',
-      'min-w-16 font-bold opacity-80',
-    ]}
+    class="min-w-16 font-bold opacity-80"
+    style={{ color: `var(--zen-color-${type})` }}
   >
     {itemType[type]}
   </div>

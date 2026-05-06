@@ -128,12 +128,27 @@ const locale = getLocale(Astro)
     --zen-dark: #2e2e2e;
     --zen-muted: rgba(0, 0, 0, 0.05);
     --zen-subtle: rgba(0, 0, 0, 0.05);
+    --zen-border: rgba(0, 0, 0, 0.1);
+    --zen-border-strong: rgba(0, 0, 0, 0.2);
+
+    /* Release Note Category Colors */
+    --zen-color-security: #e3401f;
+    --zen-color-feature: #bf3316;
+    --zen-color-fix: #fe846b;
+    --zen-color-theme: #f76f53;
+    --zen-color-change: #f7a74b;
+    --zen-color-break: #471308;
 
     &[data-theme='dark'] {
       --zen-paper: #1f1f1f;
       --zen-dark: #d1cfc0;
       --zen-muted: rgba(255, 255, 255, 0.05);
       --zen-subtle: rgba(255, 255, 255, 0.1);
+      --zen-border: rgba(255, 255, 255, 0.1);
+      --zen-border-strong: rgba(255, 255, 255, 0.2);
+
+      --zen-color-feature: #ffb1a1;
+      --zen-color-break: #d02908;
     }
   }
 

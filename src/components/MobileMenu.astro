@@ -111,3 +111,12 @@ const {
   for="mobile-menu-toggle"
   class="pointer-events-none fixed inset-0 z-30 bg-black opacity-0 transition-opacity duration-300 peer-checked:pointer-events-auto peer-checked:opacity-50"
   aria-hidden="true"></label>
+
+<script>
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle') as HTMLInputElement | null
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && mobileMenuToggle?.checked) {
+      mobileMenuToggle.checked = false
+    }
+  })
+</script>

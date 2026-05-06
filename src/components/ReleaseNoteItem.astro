@@ -260,7 +260,7 @@ generateItems(props.knownIssues, 'known')
     .ac-accordion {
       &.ac-accordion--light {
         > * + * {
-          border-color: light-dark(rgba(0, 0, 0, 0.1), rgba(255, 255, 255, 0.1)) !important;
+          border-color: var(--zen-border) !important;
           width: 100%;
         }
       }
@@ -273,7 +273,7 @@ generateItems(props.knownIssues, 'known')
     }
 
     .release-note-item {
-      border-color: light-dark(rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.2));
+      border-color: var(--zen-border-strong);
     }
   </style>
 </section>
