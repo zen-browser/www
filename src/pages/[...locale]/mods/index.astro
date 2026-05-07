@@ -20,7 +20,7 @@ const allMods = (await getAllMods()) || []
 <Layout title={layout.mods.title}>
   <main class="container mt-32 flex flex-col gap-10 2xl:mt-32">
     <header class="flex w-full flex-col gap-8 border-dark">
-      <Description class="text-6xl font-bold">{mods.title}</Description>
+      <h1 class="text-6xl font-bold">{mods.title}</h1>
       <Description class="max-w-3xl">
         {mods.description}
       </Description>

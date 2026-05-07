@@ -20,7 +20,7 @@ const descriptions = Object.values(features.featureTabs).map(tab => tab.descript
 ---
 
 <section id="features" class="relative flex w-full flex-col py-12 text-start lg:py-36">
-  <Description class="mb-2 text-4xl font-bold sm:text-6xl">
+  <h2 class="mb-2 text-4xl font-bold sm:text-6xl">
     {
       (titles || features.titles).map((title, index) =>
         title !== '\n' ? (
@@ -32,7 +32,7 @@ const descriptions = Object.values(features.featureTabs).map(tab => tab.descript
         )
       )
     }
-  </Description>
+  </h2>
 
   <p class="feature-description-text opacity-0 lg:w-1/2">
     {features.description}
@@ -66,7 +66,7 @@ const descriptions = Object.values(features.featureTabs).map(tab => tab.descript
               data-feature-key={key}
               data-active={i === 0 ? 'true' : undefined}
             >
-              <Description class="text-2xl font-bold">{tab.title}</Description>
+              <h3 class="text-2xl font-bold">{tab.title}</h3>
               <Description>{tab.description}</Description>
             </div>
           ))

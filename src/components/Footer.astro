@@ -1,7 +1,6 @@
 ---
 import Button from '~/components/Button.astro'
 import Circles from '~/components/Circles.astro'
-import Description from '~/components/Description.astro'
 import SocialMediaStrip from '~/components/SocialMediaStrip.astro'
 import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
 import { getLocale, getPath, getUI } from '~/utils/i18n'
@@ -24,14 +23,13 @@ const {
       class="flex w-full flex-col gap-4 text-center lg:w-1/2 lg:text-left"
       aria-labelledby="footer-title"
     >
-      <a href="/">
-        <Description id="footer-title" class="text-6xl font-bold !text-paper"
-          >{footer.title}</Description
-        >
-      </a>
-      <Description class="mx-auto max-w-xl lg:mx-0">
+      <h2 id="footer-title" class="text-6xl font-bold !text-paper">
+        <a href="/">{footer.title}</a>
+      </h2>
+
+      <p class="mx-auto max-w-xl lg:mx-0">
         {footer.description}
-      </Description>
+      </p>
     </section>
     <section class="grid gap-10 place-self-center lg:place-self-start">
       <Button
@@ -54,15 +52,15 @@ const {
             class="flex flex-col items-center gap-2 sm:items-start"
             aria-labelledby="follow-us-heading"
           >
-            <h2 id="follow-us-heading" class="text-base !font-semibold">
+            <h3 id="follow-us-heading" class="text-base !font-semibold">
               {footer.followUs}
-            </h2>
+            </h3>
             <SocialMediaStrip />
           </section>
           <section class="flex flex-col gap-2" aria-labelledby="about-us-heading">
-            <h2 id="about-us-heading" class="text-base !font-semibold">
+            <h3 id="about-us-heading" class="text-base !font-semibold">
               {footer.aboutUs}
-            </h2>
+            </h3>
             <nav aria-label="About navigation">
               <ul class="grid gap-2 opacity-80">
                 <li>
@@ -80,9 +78,9 @@ const {
           </section>
         </div>
         <nav class="flex flex-col gap-2" aria-labelledby="get-started-heading">
-          <h2 id="get-started-heading" class="text-base !font-semibold">
+          <h3 id="get-started-heading" class="text-base !font-semibold">
             {footer.getStarted}
-          </h2>
+          </h3>
           <ul class="grid gap-2 opacity-80">
             <li>
               <a href="https://docs.zen-browser.app/" class="font-normal">{footer.documentation}</a>
@@ -101,9 +99,9 @@ const {
           </ul>
         </nav>
         <nav class="flex flex-col gap-2" aria-labelledby="get-help-heading">
-          <h2 id="get-help-heading" class="text-base !font-semibold">
+          <h3 id="get-help-heading" class="text-base !font-semibold">
             {footer.getHelp}
-          </h2>
+          </h3>
           <ul class="grid gap-2 opacity-80">
             <li>
               <a href="https://discord.gg/zen-browser" class="font-normal">{footer.discord}</a>

@@ -1,10 +1,10 @@
 ---
 import { Image } from 'astro:assets'
+import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getLocale, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
-import Button from '~/components/Button.astro'
 
 const locale = getLocale(Astro)
 
@@ -17,14 +17,14 @@ const {
 <Layout title={layout.about.title} description={layout.about.description}>
   <main class="container flex min-h-screen w-full flex-col gap-24 py-24">
     <div class="flex w-full flex-col gap-6">
-      <Description class="text-6xl font-bold leading-none">{about.title}</Description>
+      <h1 class="text-6xl font-bold leading-none">{about.title}</h1>
       <Description class="max-w-4xl">
         {about.description}
       </Description>
       <Button href="/donate" class="w-fit" isPrimary>{about.littleHelp}</Button>
     </div>
     <div class="flex w-full flex-col gap-4">
-      <div class="text-4xl font-bold leading-none lg:text-5xl">{about.mainTeam.title}</div>
+      <h2 class="text-4xl font-bold leading-none lg:text-5xl">{about.mainTeam.title}</h2>
       <Description>
         {about.mainTeam.description}
       </Description>
@@ -32,9 +32,9 @@ const {
         {
           Object.entries(about.mainTeam.members).map(([team, members]) => (
             <div class="flex flex-col gap-2">
-              <div class="text-3xl font-semibold">
+              <h3 class="text-3xl font-semibold">
                 {about.mainTeam.subTitle[team as keyof typeof about.mainTeam.subTitle]}
-              </div>
+              </h3>
               <ul class="flex flex-col gap-2">
                 {Object.entries(members).map(([_key, member]) => (
                   <li class="text-sm">
@@ -55,14 +55,12 @@ const {
       </div>
     </div>
     <div class="flex w-full flex-col gap-4">
-      <div class="text-4xl font-bold leading-none lg:text-5xl">{about.contributors.title}</div>
+      <h2 class="text-4xl font-bold leading-none lg:text-5xl">{about.contributors.title}</h2>
       <Description>
         {about.contributors.description}
       </Description>
       <div class="flex w-fit flex-col gap-4">
-        <Description class="text-3xl font-semibold lg:text-4xl"
-          >{about.contributors.browser}</Description
-        >
+        <h3 class="text-3xl font-semibold lg:text-4xl">{about.contributors.browser}</h3>
         <a href="https://github.com/zen-browser/desktop/graphs/contributors"
           ><Image
             src="https://contributors-img.web.app/image?repo=zen-browser/desktop"
@@ -73,9 +71,7 @@ const {
         >
       </div>
       <div class="flex w-fit flex-col gap-4">
-        <Description class="text-3xl font-semibold lg:text-4xl"
-          >{about.contributors.website}</Description
-        >
+        <h3 class="text-3xl font-semibold lg:text-4xl">{about.contributors.website}</h3>
         <a href="https://github.com/zen-browser/www/graphs/contributors"
           ><Image
             src="https://contributors-img.web.app/image?repo=zen-browser/www"
