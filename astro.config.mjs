@@ -15,16 +15,4 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            vendor: ['react', 'react-dom'],
-            astro: ['astro'],
-          },
-        },
-      },
-    },
-  },
 })
