@@ -1,4 +1,3 @@
-# cspell:words valades
 version: 2
 updates:
   - package-ecosystem: npm
@@ -13,7 +12,6 @@ updates:
       - dependabot
     assignees:
       - taroj1205
-      - mauro-valades
     open-pull-requests-limit: 3
     groups:
       security-updates:
@@ -67,7 +65,6 @@ updates:
       - github-actions
     assignees:
       - taroj1205
-      - mauro-valades
     open-pull-requests-limit: 5
     groups:
       security-updates:
