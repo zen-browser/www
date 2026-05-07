@@ -31,43 +31,9 @@ jobs:
             !.vscode/**
             !.env.example
 
-  setup:
-    name: Setup Dependencies
-    needs: [check_changes]
-    if: ${{ needs.check_changes.outputs.exists == 'true' }}
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Check if node_modules cache exists
-        id: check-node-modules-cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            node_modules
-            */node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          lookup-only: true
-
-      - name: Setup Node.js
-        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
-      - name: Setup pnpm
-        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
-
-      - name: Install dependencies
-        if: steps.check-node-modules-cache.outputs.cache-hit != 'true'
-        run: pnpm install --frozen-lockfile
-
   quality_checks:
     name: ${{ matrix.name }}
-    needs: [setup]
+    needs: [check_changes]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     strategy:
@@ -120,7 +86,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run ${{ matrix.name }}
-        run: pnpm exec turbo run ${{ matrix.check }}
+        run: pnpm turbo run ${{ matrix.check }}
 
       - name: Upload Build Artifact
         if: matrix.name == 'Build'
@@ -129,10 +95,9 @@ jobs:
           name: build-dist-${{ github.sha }}
           path: dist/
 
-  # We should depend on quality checks to save CI running time.
   playwright:
     name: Playwright Tests
-    needs: [setup, quality_checks]
+    needs: [check_changes, quality_checks]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     container:
@@ -150,16 +115,6 @@ jobs:
           key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: ${{ runner.os }}-turbo-
 
-      - name: Restore node_modules cache
-        id: cache
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            node_modules
-            */node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-node-modules-
-
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
@@ -173,11 +128,10 @@ jobs:
           run_install: false
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
 
       - name: Run Playwright Tests
-        run: pnpm exec turbo run test:playwright
+        run: pnpm turbo run test:playwright
         timeout-minutes: 10
 
   verify:
