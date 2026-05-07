@@ -24,10 +24,15 @@
     "test:playwright": "playwright test --reporter=list",
     "prepare": "lefthook install"
   },
+  "pnpm": {
+    "overrides": {
+      "eslint-plugin-import>minimatch": "3.1.5"
+    }
+  },
   "dependencies": {
-    "@astrojs/check": "0.9.8",
-    "@astrojs/cloudflare": "13.1.10",
-    "@astrojs/react": "4.4.2",
+    "@astrojs/check": "0.9.9",
+    "@astrojs/cloudflare": "13.5.0",
+    "@astrojs/react": "5.0.4",
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.2",
     "@astrojs/tailwind": "6.0.2",
@@ -38,12 +43,12 @@
     "@types/react": "19.1.8",
     "@types/react-dom": "19.1.6",
     "animejs": "4.3.6",
-    "astro": "5.18.1",
-    "astro-navbar": "2.3.7",
+    "astro": "6.3.1",
+    "astro-navbar": "2.4.0",
     "autoprefixer": "10.4.14",
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
-    "free-astro-components": "1.2.0",
+    "free-astro-components": "1.3.0",
     "jiti": "2.6.1",
     "lefthook": "1.13.6",
     "postcss": "8.5.1",
@@ -68,9 +73,9 @@
     "@cspell/dict-typescript": "3.2.3",
     "@cspell/eslint-plugin": "9.1.5",
     "@eslint/compat": "1.3.1",
-    "@eslint/eslintrc": "3.3.1",
-    "@eslint/js": "9.31.0",
-    "@playwright/test": "1.54.1",
+    "@eslint/eslintrc": "3.3.5",
+    "@eslint/js": "9.39.4",
+    "@playwright/test": "1.59.1",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/user-event": "14.6.1",
     "@types/animejs": "3.1.13",
@@ -82,10 +87,10 @@
     "@typescript-eslint/utils": "8.36.0",
     "@vitest/coverage-istanbul": "3.2.4",
     "cspell": "9.1.5",
-    "eslint": "9.31.0",
+    "eslint": "9.39.4",
     "eslint-config-prettier": "10.1.5",
     "eslint-import-resolver-typescript": "4.4.4",
-    "eslint-plugin-astro": "1.3.1",
+    "eslint-plugin-astro": "1.7.0",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsonc": "2.20.1",
     "eslint-plugin-jsx-a11y": "6.10.2",
@@ -98,6 +103,6 @@
     "typescript-eslint": "8.36.0",
     "vite-tsconfig-paths": "5.1.4",
     "vitest": "3.2.4",
-    "wrangler": "^4.81.0"
+    "wrangler": "^4.90.0"
   }
 }
