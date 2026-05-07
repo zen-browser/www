@@ -61,28 +61,18 @@ jobs:
           key: ${{ runner.os }}-turbo-${{ matrix.check }}-${{ github.sha }}
           restore-keys: ${{ runner.os }}-turbo-${{ matrix.check }}-
 
-      - name: Restore node_modules cache
-        id: cache
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            node_modules
-            */node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: ${{ runner.os }}-node-modules-
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           run_install: false
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
 
       - name: Run ${{ matrix.name }}
@@ -115,17 +105,23 @@ jobs:
           key: ${{ runner.os }}-turbo-${{ github.sha }}
           restore-keys: ${{ runner.os }}-turbo-
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
       - name: Download Build Artifact
         uses: actions/download-artifact@v4
         with:
           path: dist/
           pattern: build-dist*
           merge-multiple: true
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          run_install: false
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
