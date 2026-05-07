@@ -11,7 +11,7 @@ updates:
     labels:
       - dependencies
       - dependabot
-    reviewers:
+    assignees:
       - taroj1205
       - mauro-valades
     open-pull-requests-limit: 3
@@ -65,7 +65,7 @@ updates:
       - dependencies
       - dependabot
       - github-actions
-    reviewers:
+    assignees:
       - taroj1205
       - mauro-valades
     open-pull-requests-limit: 5
