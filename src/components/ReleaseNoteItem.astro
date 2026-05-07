@@ -121,7 +121,7 @@ generateItems(props.knownIssues, 'known')
     {
       isTwilight ? (
         <a
-          class="!mb-2 block w-fit rounded-full bg-coral px-3 py-1 text-xs text-paper"
+          class="bg-coral text-paper !mb-2 block w-fit rounded-full px-3 py-1 text-xs"
           href={getLocalePath('/download?twilight')}
         >
           {releaseNoteItem.twilight}
@@ -148,7 +148,7 @@ generateItems(props.knownIssues, 'known')
               <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
               <a
                 rel="noopener noreferrer"
-                class="text-xs text-coral underline decoration-wavy opacity-80"
+                class="text-coral text-xs underline decoration-wavy opacity-80"
                 href={`https://www.mozilla.org/en-US/firefox/${ffVersion}/releasenotes/`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -161,7 +161,7 @@ generateItems(props.knownIssues, 'known')
         <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
         <a
           rel="noopener noreferrer"
-          class="zen-link whitespace-nowrap text-xs !no-underline opacity-80"
+          class="zen-link text-xs whitespace-nowrap !no-underline opacity-80"
           target="_blank"
           href={`https://github.com/zen-browser/desktop/releases/tag/${isTwilight ? 'twilight-1' : props.version}`}
           >{releaseNoteItem.githubRelease}</a
@@ -172,7 +172,7 @@ generateItems(props.knownIssues, 'known')
               <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
               <a
                 rel="noopener noreferrer"
-                class="zen-link whitespace-nowrap text-xs !no-underline opacity-80"
+                class="zen-link text-xs whitespace-nowrap !no-underline opacity-80"
                 target="_blank"
                 href={`https://github.com/zen-browser/desktop/actions/runs/${props.workflowId}`}
               >
@@ -187,7 +187,7 @@ generateItems(props.knownIssues, 'known')
               <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
               <a
                 rel="noopener noreferrer"
-                class="zen-link whitespace-nowrap text-xs !no-underline opacity-80"
+                class="zen-link text-xs whitespace-nowrap !no-underline opacity-80"
                 target="_blank"
                 href={compareLink}
               >
@@ -237,6 +237,8 @@ generateItems(props.knownIssues, 'known')
     </div>
   </div>
   <style is:global>
+    @reference '../styles/global.css';
+
     .ac-accordion-item-title {
       @apply !text-dark;
       flex-direction: row-reverse !important;

@@ -32,8 +32,8 @@ const platformDescriptions = download.platformDescriptions
 <DownloadScript />
 
 <Layout title={layout.download.title} description={layout.download.description}>
-  <main class="mt-48 flex flex-col px-6 data-[os='windows']:bg-zen-blue">
-    <div class="container relative mx-auto pb-48">
+  <main class="data-[os='windows']:bg-zen-blue mt-48 flex flex-col px-6">
+    <div class="relative container mx-auto pb-48">
       <div class="mb-6 flex flex-col gap-4">
         <div class="download-browser-logo mx-auto">
           <Image
@@ -50,16 +50,16 @@ const platformDescriptions = download.platformDescriptions
         <Description id="download-title" class="mx-auto max-w-3xl text-center text-6xl font-bold"
           >{download.title}</Description
         >
-        <Description class="mx-auto text-pretty text-center">
+        <Description class="mx-auto text-center text-pretty">
           <Fragment set:html={download.description} />
         </Description>
         <div
           id="twilight-info"
-          class="mx-auto hidden max-w-xl items-center justify-center gap-3 text-pretty rounded-xl border border-zen-blue/20 bg-zen-blue/5 p-4 text-left text-center data-[twilight='true']:flex"
+          class="border-zen-blue/20 bg-zen-blue/5 mx-auto hidden max-w-xl items-center justify-center gap-3 rounded-xl border p-4 text-center text-left text-pretty data-[twilight='true']:flex"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="mt-0.5 h-5 w-5 flex-shrink-0 text-zen-blue"
+            class="text-zen-blue mt-0.5 h-5 w-5 flex-shrink-0"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -133,12 +133,12 @@ const platformDescriptions = download.platformDescriptions
         <div class="flex cursor-default items-center justify-center gap-3 text-sm font-bold">
           {download.beta}
           <span
-            class="leading-20 caption inline-block flex h-6 items-center rounded-md border border-dark px-2 text-xs"
+            class="caption border-dark inline-flex h-6 items-center rounded-md border px-2 text-xs leading-4"
             >BETA</span
           >
         </div>
         <div
-          class="max-w-[55ch] cursor-default text-balance text-sm font-normal text-black/50 dark:text-white/50"
+          class="max-w-[55ch] cursor-default text-sm font-normal text-balance text-black/50 dark:text-white/50"
         >
           <Fragment set:html={download.otherDownload} />
         </div>
@@ -148,9 +148,11 @@ const platformDescriptions = download.platformDescriptions
 </Layout>
 
 <style is:global>
+  @reference '../../styles/global.css';
+
   /* Download card icon */
   .download-card__icon {
-    @apply flex h-10 w-10 items-center justify-center rounded-full bg-subtle p-2 text-coral data-[twilight='true']:text-zen-blue;
+    @apply bg-subtle text-coral data-[twilight='true']:text-zen-blue flex h-10 w-10 items-center justify-center rounded-full p-2;
   }
 
   /* Make FontAwesome icons match size */
