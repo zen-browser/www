@@ -1,0 +1,79 @@
+# cspell:words valades
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - dependencies
+      - dependabot
+    reviewers:
+      - taroj1205
+      - mauro-valades
+    open-pull-requests-limit: 3
+    groups:
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+      astro-and-react:
+        patterns:
+          - astro*
+          - "@astrojs*"
+          - react*
+          - "@types/react*"
+      quality-checks:
+        patterns:
+          - "@commitlint*"
+          - "@cspell*"
+          - "@eslint*"
+          - "@playwright*"
+          - "@testing-library*"
+          - "@typescript-eslint*"
+          - "@vitest*"
+          - cspell*
+          - eslint*
+          - jsdom*
+          - lefthook*
+          - prettier*
+          - typescript*
+          - vitest*
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - "*"
+      majors:
+        update-types:
+          - major
+        patterns:
+          - "*"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: Etc/UTC
+    labels:
+      - dependencies
+      - dependabot
+      - github-actions
+    reviewers:
+      - taroj1205
+      - mauro-valades
+    open-pull-requests-limit: 5
+    groups:
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
+      github-actions:
+        patterns:
+          - "*"
