@@ -1,0 +1,73 @@
+name: Website change request
+description: Suggest a content, UI, translation, or website improvement
+title: "[Change]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a website improvement.
+
+        Please search open and closed issues before submitting. Someone might have requested the same thing already.
+        Desktop app requests should be opened in https://github.com/zen-browser/desktop/issues.
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This request is about the Zen Browser website, not the desktop app.
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Content / copy
+        - UI / visual design
+        - Download page
+        - Release notes / what's new
+        - Mods pages
+        - Translations
+        - Accessibility
+        - Build / tooling
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Related page or route
+      placeholder: "https://zen-browser.app/..."
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What should change?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why is this useful?
+      description: Explain the user-facing benefit or problem this solves.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: ai_use
+    attributes:
+      label: AI use
+      options:
+        - label: I did not use AI to create this issue.
+        - label: If there is no check above, I reviewed the generated content before submitting.
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Implementation notes
+      description: Optional screenshots, copy suggestions, links, or technical details.
