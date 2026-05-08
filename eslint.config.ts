@@ -45,6 +45,8 @@ const ignoresConfig: Config = globalIgnores(
 
     // Test outputs
     '**/coverage/**',
+    '**/blob-report/**',
+    '**/playwright/.cache/**',
     '**/playwright-report/**',
     '**/test-results/**',
 
