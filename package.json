@@ -99,7 +99,7 @@
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.8.0",
     "typescript-eslint": "8.59.2",
-    "vite-tsconfig-paths": "5.1.4",
+    "vite-tsconfig-paths": "6.1.1",
     "vitest": "4.1.5",
     "wrangler": "^4.90.0"
   }
