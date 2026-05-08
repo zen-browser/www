@@ -60,8 +60,8 @@
     "ua-parser-js": "2.0.9"
   },
   "devDependencies": {
-    "@commitlint/cli": "20.5.3",
-    "@commitlint/config-conventional": "20.5.3",
+    "@commitlint/cli": "21.0.0",
+    "@commitlint/config-conventional": "21.0.0",
     "@cspell/dict-bash": "4.2.2",
     "@cspell/dict-css": "4.1.1",
     "@cspell/dict-es-es": "3.0.8",
