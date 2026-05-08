@@ -36,7 +36,7 @@
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.2",
     "@fontsource/bricolage-grotesque": "5.2.10",
-    "@fortawesome/fontawesome-svg-core": "6.7.2",
+    "@fortawesome/fontawesome-svg-core": "7.2.0",
     "@fortawesome/free-brands-svg-icons": "6.7.2",
     "@fortawesome/free-solid-svg-icons": "6.7.2",
     "@tailwindcss/vite": "4.3.0",
