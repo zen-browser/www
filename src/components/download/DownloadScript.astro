@@ -1,36 +1,39 @@
 <script>
-  import { UAParser } from 'ua-parser-js'
+  import {
+    getDetectedOS,
+    getUserAgentArchitecture,
+    getUserAgentOSName,
+    normalizeArchitecture,
+  } from './detect-platform'
 
   // Handle platform selection
   const platformSections = document.querySelectorAll('.platform-section')
 
+  type UserAgentData = {
+    getHighEntropyValues?: (hints: string[]) => Promise<{ architecture?: string }>
+  }
+
   // Function to detect OS and select appropriate platform
-  function detectOS() {
+  async function detectOS() {
     const userAgent = window.navigator.userAgent
-    const { cpu, os } = UAParser(userAgent)
-    let detectedOS = 'mac' // Default to macOS
+    const osName = getUserAgentOSName(userAgent)
+    const detectedOS = getDetectedOS(osName)
+    const userAgentData = (window.navigator as Navigator & { userAgentData?: UserAgentData })
+      .userAgentData
 
-    if (os.name === 'Windows') {
-      detectedOS = 'windows'
-    } else if (os.name === 'Linux' || os.name === 'Ubuntu' || os.name === 'Chrome OS') {
-      detectedOS = 'linux'
+    let arch: string | undefined = getUserAgentArchitecture(userAgent, osName)
+
+    if (userAgentData?.getHighEntropyValues) {
+      const { architecture } = await userAgentData.getHighEntropyValues(['architecture'])
+      arch = architecture || arch
     }
 
-    let arch = cpu.architecture || 'x86_64' // Default to x86_64
-    if (arch === 'amd64' || arch === 'x86_64') {
-      arch = 'x86_64'
-    } else if (arch === 'arm64' || arch === 'aarch64') {
-      arch = 'aarch64'
-    } else if (arch === 'arm') {
-      arch = 'arm64' // Treat arm as arm64 for simplicity
-    }
-
-    return { os: detectedOS, cpu: arch }
+    return { os: detectedOS, cpu: normalizeArchitecture(arch, detectedOS) }
   }
 
   // Initialize platform based on user's OS
   async function initializePlatform() {
-    const detectedOS = detectOS()
+    const detectedOS = await detectOS()
     selectPlatform(detectedOS.os, detectedOS.cpu)
   }
 
