@@ -27,6 +27,14 @@ export function getUserAgentArchitecture(userAgent: string, osName?: string) {
   return cpu.architecture
 }
 
+export function detectDownloadPlatform(userAgent: string, architecture?: string) {
+  const osName = getUserAgentOSName(userAgent)
+  const os = getDetectedOS(osName)
+  const cpu = normalizeArchitecture(architecture || getUserAgentArchitecture(userAgent, osName), os)
+
+  return { os, cpu }
+}
+
 export function normalizeArchitecture(
   architecture: string | undefined,
   os: DetectedOS

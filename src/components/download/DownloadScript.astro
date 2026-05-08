@@ -1,10 +1,5 @@
 <script>
-  import {
-    getDetectedOS,
-    getUserAgentArchitecture,
-    getUserAgentOSName,
-    normalizeArchitecture,
-  } from './detect-platform'
+  import { detectDownloadPlatform } from './detect-platform'
 
   // Handle platform selection
   const platformSections = document.querySelectorAll('.platform-section')
@@ -16,19 +11,19 @@
   // Function to detect OS and select appropriate platform
   async function detectOS() {
     const userAgent = window.navigator.userAgent
-    const osName = getUserAgentOSName(userAgent)
-    const detectedOS = getDetectedOS(osName)
     const userAgentData = (window.navigator as Navigator & { userAgentData?: UserAgentData })
       .userAgentData
 
-    let arch: string | undefined = getUserAgentArchitecture(userAgent, osName)
-
     if (userAgentData?.getHighEntropyValues) {
-      const { architecture } = await userAgentData.getHighEntropyValues(['architecture'])
-      arch = architecture || arch
+      try {
+        const { architecture } = await userAgentData.getHighEntropyValues(['architecture'])
+        return detectDownloadPlatform(userAgent, architecture)
+      } catch {
+        // Fall back to the lower-entropy user agent when Client Hints are unavailable.
+      }
     }
 
-    return { os: detectedOS, cpu: normalizeArchitecture(arch, detectedOS) }
+    return detectDownloadPlatform(userAgent)
   }
 
   // Initialize platform based on user's OS

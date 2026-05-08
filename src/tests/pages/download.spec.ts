@@ -12,6 +12,8 @@ const platformConfigs: {
   userAgent: string
   platform: string
   expectedCpu: string
+  userAgentDataArchitecture?: string
+  userAgentDataRejects?: boolean
 }[] = [
   {
     name: 'windows',
@@ -26,6 +28,22 @@ const platformConfigs: {
       'Mozilla/5.0 (Windows NT 10.0; Win64; ARM64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     platform: 'Win32',
     expectedCpu: 'arm64',
+  },
+  {
+    name: 'windows',
+    userAgent:
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    platform: 'Win32',
+    expectedCpu: 'arm64',
+    userAgentDataArchitecture: 'arm',
+  },
+  {
+    name: 'windows',
+    userAgent:
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+    platform: 'Win32',
+    expectedCpu: 'x86_64',
+    userAgentDataRejects: true,
   },
   {
     name: 'mac',
@@ -44,8 +62,21 @@ const platformConfigs: {
 ]
 
 test.describe('Download page shows correct platform section per platform', () => {
-  for (const { name, userAgent, platform, expectedCpu } of platformConfigs) {
-    test(`shows correct platform section for ${name} ${expectedCpu} platform`, async ({
+  for (const {
+    name,
+    userAgent,
+    platform,
+    expectedCpu,
+    userAgentDataArchitecture,
+    userAgentDataRejects,
+  } of platformConfigs) {
+    const clientHintsLabel = userAgentDataArchitecture
+      ? ` with ${userAgentDataArchitecture} client hint`
+      : userAgentDataRejects
+        ? ' with rejected client hint'
+        : ''
+
+    test(`shows correct platform section for ${name} ${expectedCpu} platform${clientHintsLabel}`, async ({
       browser,
     }) => {
       const context = await browser.newContext({
@@ -53,6 +84,25 @@ test.describe('Download page shows correct platform section per platform', () =>
         locale: 'en-US',
         platform,
       } as BrowserContextOptions)
+      if (userAgentDataArchitecture || userAgentDataRejects) {
+        await context.addInitScript(
+          ({ architecture, rejects }) => {
+            Object.defineProperty(window.navigator, 'userAgentData', {
+              configurable: true,
+              value: {
+                getHighEntropyValues: async () => {
+                  if (rejects) {
+                    throw new Error('Client Hints unavailable')
+                  }
+
+                  return { architecture }
+                },
+              },
+            })
+          },
+          { architecture: userAgentDataArchitecture, rejects: userAgentDataRejects }
+        )
+      }
       const page = await context.newPage()
       await page.goto('/download')
 
