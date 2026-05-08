@@ -14,7 +14,7 @@ const {
 
 <Layout title={layout.privacyPolicy.title} description={layout.privacyPolicy.description}>
   <main class="mx-auto mt-52 w-1/2 pb-24">
-    <Title id="privacy-policy" class="xl:text-6xl">{privacyPolicy.title}</Title>
+    <Title id="privacy-policy" class="xl:text-6xl xl:leading-none">{privacyPolicy.title}</Title>
     <div class="ml-4 font-bold">{privacyPolicy.lastUpdated}</div>
     <Title class="mt-16 text-4xl font-bold" id="introduction">
       {privacyPolicy.sections.introduction.title}
@@ -154,6 +154,8 @@ const {
   </main>
 </Layout>
 <style>
+  @reference '../../styles/global.css';
+
   p,
   li {
     @apply opacity-55;
