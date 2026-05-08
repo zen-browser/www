@@ -39,7 +39,7 @@
     "@fortawesome/fontawesome-svg-core": "6.7.2",
     "@fortawesome/free-brands-svg-icons": "6.7.2",
     "@fortawesome/free-solid-svg-icons": "6.7.2",
-    "@tailwindcss/vite": "4.2.4",
+    "@tailwindcss/vite": "4.3.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "animejs": "4.4.1",
@@ -54,7 +54,7 @@
     "react-dom": "19.2.6",
     "sharp": "0.34.5",
     "tailwind-merge": "3.5.0",
-    "tailwindcss": "4.2.4",
+    "tailwindcss": "4.3.0",
     "turbo": "2.9.10",
     "typescript": "6.0.3",
     "ua-parser-js": "2.0.9"
