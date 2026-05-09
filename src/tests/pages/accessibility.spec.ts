@@ -15,17 +15,34 @@ const followMetaRefresh = async (page: Page) => {
   }
 }
 
+const analyzePage = async (page: Page) => {
+  const analyze = () =>
+    new AxeBuilder({ page })
+      // Existing public pages have broad color-contrast debt. Keep this smoke test focused
+      // on non-contrast runtime issues; contrast fixes should be handled in a separate PR.
+      .disableRules(['color-contrast'])
+      .analyze()
+
+  try {
+    return await analyze()
+  } catch (error) {
+    if (!(error instanceof Error) || !error.message.includes('Execution context was destroyed')) {
+      throw error
+    }
+
+    await page.waitForLoadState('load')
+    return analyze()
+  }
+}
+
 test.describe('Public page accessibility smoke checks', () => {
   for (const route of CONSTANT.PUBLIC_ROUTES) {
     test(`${route} has no serious or critical axe violations`, async ({ page }) => {
       await page.goto(route, { waitUntil: 'domcontentloaded' })
       await followMetaRefresh(page)
+      await page.waitForLoadState('load')
 
-      const { violations } = await new AxeBuilder({ page })
-        // Existing public pages have broad color-contrast debt. Keep this smoke test focused
-        // on non-contrast runtime issues; contrast fixes should be handled in a separate PR.
-        .disableRules(['color-contrast'])
-        .analyze()
+      const { violations } = await analyzePage(page)
       const blockingViolations = violations.filter(
         violation => violation.impact === 'serious' || violation.impact === 'critical'
       )
