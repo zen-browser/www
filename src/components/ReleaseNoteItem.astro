@@ -69,13 +69,23 @@ const generateItems = (items: any, type: string) => {
         })
         break
       case 'security':
-        listItems[type].push({
-          type: 'security',
-          link: {
-            text: 'Various security fixes.',
-            href: item,
-          },
-        })
+        if (typeof item === 'string') {
+          listItems[type].push({
+            type: 'security',
+            link: {
+              text: 'Various security fixes.',
+              href: item,
+            },
+          })
+        } else if (Array.isArray(item)) {
+          listItems[type].push({
+            type: 'security',
+            link: {
+              text: item[0],
+              href: item[1],
+            },
+          })
+        }
         break
       case 'theme':
         listItems[type].push({

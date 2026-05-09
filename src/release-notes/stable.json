@@ -3878,7 +3878,10 @@
     ],
     "security": [
       "https://www.mozilla.org/en-US/security/advisories/mfsa2026-30/",
-      "https://github.com/zen-browser/desktop/security/advisories"
+      [
+        "CVE-2026-41431",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-qpj9-m8jc-mw6q"
+      ]
     ],
     "knownIssues": [
       "Essentials and folders colors appear too-saturated when using certain themes. This will be fixed in the next release."
@@ -3938,5 +3941,49 @@
     "workflowId": 25126816496,
     "image": false,
     "date": "29/04/2026"
+  },
+  {
+    "version": "1.19.12b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed search engines not being visible in settings",
+        "issue": 13522
+      },
+      {
+        "description": "Fixed Previous Space in MacOS menu bar not working",
+        "issue": 13583
+      },
+      {
+        "description": "The loading indicator should now show on-top of the webview for double toolbar mode",
+        "issue": 13516
+      },
+      {
+        "description": "Fix macos crash when native popovers are closed on some occasions",
+        "issue": 13294
+      },
+      "Fixed glance having wrong image preview when zoomed in",
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": [
+      "Updated to Firefox 150.0.2",
+      "Improved space swiping feel and performance",
+      "The option for 'Create new space' keyboard shortcut has been added to the keyboard shortcuts settings.",
+      "Desktop files on linux should now ship with translations for desktop entries."
+    ],
+    "security": [
+      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-40/",
+      [
+        "CVE-2026-44658",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-cc9c-mmmf-c5j6"
+      ],
+      [
+        "CVE-2026-44659",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-7p2r-fp29-9w69"
+      ]
+    ],
+    "workflowId": 25509244910,
+    "image": false,
+    "date": "08/05/2026"
   }
 ]
