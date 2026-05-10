@@ -12,7 +12,7 @@ updates:
       - dependabot
     assignees:
       - taroj1205
-    open-pull-requests-limit: 3
+    open-pull-requests-limit: 10
     groups:
       security-updates:
         applies-to: security-updates
@@ -65,7 +65,7 @@ updates:
       - github-actions
     assignees:
       - taroj1205
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 10
     groups:
       security-updates:
         applies-to: security-updates
