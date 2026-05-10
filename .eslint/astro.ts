@@ -1,4 +1,4 @@
-import { type Linter } from 'eslint'
+import { ESLint, type Linter } from 'eslint'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 
 import { astroFiles } from './shared'
@@ -7,7 +7,7 @@ export const astroConfig: Linter.Config = {
   name: 'eslint/astro',
   files: astroFiles,
   plugins: {
-    'jsx-a11y': jsxA11y,
+    'jsx-a11y': jsxA11y as ESLint.Plugin,
   },
   rules: {
     // Astro specific adjustments
