@@ -60,6 +60,7 @@
     "ua-parser-js": "2.0.9"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@commitlint/cli": "21.0.0",
     "@commitlint/config-conventional": "21.0.0",
     "@cspell/dict-bash": "4.2.2",
