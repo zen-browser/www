@@ -18,7 +18,6 @@ jobs:
       - name: Ensure stale label exists
         env:
           GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
         run: gh label create stale --color ededed --description "No recent activity" --force
 
       - uses: actions/stale@v10.2.0
