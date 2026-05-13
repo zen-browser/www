@@ -3985,5 +3985,35 @@
     "workflowId": 25509244910,
     "image": false,
     "date": "08/05/2026"
+  },
+  {
+    "version": "1.19.13b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed native popovers not working after using dropdowns",
+        "issue": 13623
+      },
+      {
+        "description": "Fixed unresponsive tabs when opening external links",
+        "issue": 13620
+      },
+      {
+        "description": "Fixed tab renaming input fields being too narrow",
+        "issue": 13629
+      },
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": ["Updated to Firefox 150.0.3"],
+    "security": [
+      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-45/",
+      [
+        "CVE-2026-45150",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-vjfv-85qf-v25c"
+      ]
+    ],
+    "workflowId": 25762934682,
+    "image": false,
+    "date": "13/05/2026"
   }
 ]
