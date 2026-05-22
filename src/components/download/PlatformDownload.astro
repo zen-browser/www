@@ -59,7 +59,7 @@ function getReleaseLink(releases: PlatformReleases, { os, cpu }: { os: string; c
 <div
   id={`${platform}-${cpu}-downloads`}
   data-active={false}
-  class="platform-section data-[active='false']:hidden"
+  class="platform-section group/platform data-[active='false']:hidden"
   data-cpu={cpu}
   data-platform={platform}
 >
@@ -78,7 +78,7 @@ function getReleaseLink(releases: PlatformReleases, { os, cpu }: { os: string; c
       {
         platform === 'linux' && (
           <Button
-            class="download-button w-fit"
+            class="download-button w-fit group-data-[twilight='true']/platform:hidden"
             href={releases.flathub?.all.link || ''}
             aria-label="Download from Flathub"
             target="_blank"
@@ -94,6 +94,8 @@ function getReleaseLink(releases: PlatformReleases, { os, cpu }: { os: string; c
 </div>
 
 <style is:global>
+  @reference '../../styles/global.css';
+
   .download-button .svg-inline--fa {
     @apply size-5;
   }

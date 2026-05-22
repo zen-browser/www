@@ -16,12 +16,12 @@ const {
 <!-- Mobile Slide Menu -->
 <div
   id="mobile-menu"
-  class="fixed inset-y-0 right-0 z-40 w-64 translate-x-full transform bg-paper shadow-lg transition-transform duration-300 peer-checked:translate-x-0 lg:hidden"
+  class="bg-paper fixed inset-y-0 right-0 z-40 w-64 translate-x-full transform shadow-lg transition-transform duration-300 peer-checked:translate-x-0 lg:hidden"
 >
-  <div class="flex items-center justify-between border-b border-dark px-4 py-2">
+  <div class="border-dark flex items-center justify-between border-b px-4 py-2">
     <div class="text-lg font-bold">{menu.menu}</div>
     {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-    <label for="mobile-menu-toggle" class="cursor-pointer p-2 text-dark">
+    <label for="mobile-menu-toggle" class="text-dark cursor-pointer p-2">
       <span class="sr-only">Close menu</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"

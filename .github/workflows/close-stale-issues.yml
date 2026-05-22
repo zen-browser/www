@@ -1,0 +1,37 @@
+name: Close Stale Issues
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 8 * * 2"
+
+permissions:
+  actions: write
+  issues: write
+  pull-requests: read
+
+jobs:
+  stale:
+    name: Close Stale Issues
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure stale label exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh label create stale --color ededed --description "No recent activity" --force
+
+      - uses: actions/stale@v10.2.0
+        with:
+          days-before-issue-stale: 90
+          days-before-issue-close: 14
+          days-before-pr-stale: -1
+          days-before-pr-close: -1
+          stale-issue-label: stale
+          close-issue-reason: not_planned
+          exempt-issue-labels: security,bug,help wanted,good first issue,dependencies,mr. m ⌚
+          stale-issue-message: |
+            This issue has had no activity for 90 days, so it has been marked as stale.
+            It will be closed in 14 days if there is no further activity.
+          close-issue-message: |
+            This issue was closed because it remained inactive for 14 days after being marked stale.
+          operations-per-run: 30
