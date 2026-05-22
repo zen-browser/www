@@ -1795,7 +1795,7 @@
         "issue": 3269
       },
       {
-        "description": "Fixed wrong firefox version when using extensions API, therefor breaking some extensions",
+        "description": "Fixed wrong firefox version when using extensions API, therefore breaking some extensions",
         "issue": 1366
       }
     ],
@@ -3006,7 +3006,7 @@
       "Fixed pinned tabs / folders not initializing correctly on some occasions."
     ],
     "features": ["Updated to Firefox 142.0.1."],
-    "changed": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu."],
+    "changes": ["Moved 'Unpack Folder' next to 'Delete Folder' in the folder context menu."],
     "workflowId": 17281244121,
     "image": false,
     "date": "28/08/2025"
@@ -3304,7 +3304,7 @@
       "Enhanced Bounce Tracking Protection's stateless mode is now enabled by default in ETP Strict, blocking more advanced tracking techniques based on redirection",
       "For most Windows users, the existing desktop shortcut for launching Zen has been replaced with the desktop launcher, a small program that will launch Zen if it is installed"
     ],
-    "changed": [
+    "changes": [
       "Local translation models are now compressed with Zstandard, reducing download sizes and on-device storage consumption."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2025-87/",
@@ -3541,5 +3541,479 @@
     "workflowId": 21751781387,
     "image": false,
     "date": "05/02/2026"
+  },
+  {
+    "version": "1.18.6b",
+    "extra": "",
+    "fixes": [
+      "Zen will now restore unpinned tabs after a crash, even if the 'Restore previous session' setting is disabled.",
+      "Fixed syncing bookmarks with your Mozilla account not working correctly.",
+      "Other quality of life improvements and bug fixes."
+    ],
+    "features": [
+      "Zen will now follow the XDG Base Directory Specification for storing its configuration and data files. This means that on Linux, configuration files will be stored in `~/.config/zen`. Note that compatibility with the old configuration directory (`~/.zen`) will be enabled if the directory exists.",
+      "Dragging a tab to the center of the window to create a split will now give the option to split on top or below.",
+      "When typing directly an url or domain, a second search result will appear with the option to search for the url or domain on your selected search engine.",
+      "Added a '--blank-window' command line argument to open a blank window without pinned tabs, spaces, etc."
+    ],
+    "workflowId": 21967090031,
+    "image": false,
+    "date": "12/02/2026"
+  },
+  {
+    "version": "1.18.7b",
+    "extra": "",
+    "fixes": [
+      "Fixed accessibility issues with the workspace switcher and other buttons",
+      "Other session restore fixes and improvements"
+    ],
+    "features": [],
+    "workflowId": 22005390322,
+    "image": false,
+    "date": "14/02/2026"
+  },
+  {
+    "version": "1.18.8b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed back / forward buttons changing the page's history instead of switching spaces",
+        "issue": 9157
+      },
+      "Fixed drag and dropping tabs from multiple windows with different spaces acting weirdly",
+      "Other minor bug fixes and improvements"
+    ],
+    "features": [],
+    "workflowId": 22044886332,
+    "image": false,
+    "date": "16/02/2026"
+  },
+  {
+    "version": "1.18.9b",
+    "extra": "",
+    "fixes": ["Stability and performance improvements related to window sync and session restore."],
+    "features": [
+      "Updated to Firefox 147.0.4",
+      "Appimage .desktop file now includes 'X-AppImage-Version' metadata for better integration with application launchers and system tools.",
+      "Linux desktop files will now include an option to open a new blank window from the taskbar"
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-10/",
+    "workflowId": 22164432405,
+    "image": false,
+    "date": "16/02/2026"
+  },
+  {
+    "version": "1.18.10b",
+    "extra": "",
+    "fixes": ["Stability and performance improvements related to window sync and session restore."],
+    "features": [
+      "Improved greatly the performance for Linux users by removing bottom window rounded corners, which will be added once the core issue has been resolved upstream. To enable them back, turn 'widget.gtk.rounded-bottom-corners.enabled' to true in about:config.",
+      "Added more automatic recovery options when updating or restarting zen, to prevent tab loss.",
+      "Fixed some tabs becoming 'New Tabs' after focusing them from different windows"
+    ],
+    "workflowId": 22245081530,
+    "image": false,
+    "date": "21/02/2026"
+  },
+  {
+    "version": "1.19b",
+    "extra": "This update includes a new feature that allows you to automatically fill your folders with opened GitHub issues, pull requests or RSS feeds. To add a live folder, click the + button in the sidebar and select 'Live Folder'.\n\nLet us know what other live folder types you would like to see in the future!",
+    "fixes": [
+      "Fixed private mode windows having dark text on dark background in the sidebar.",
+      "Fixed popup windows not showing at all on certain occasions.",
+      "Other bug fixes and performance improvements."
+    ],
+    "features": [
+      "Updated to Firefox 148.0",
+      "Added live folders. Automatically fill your folders with opened GitHub issues, pull requests or RSS feeds. To add a live folder, click the + button in the sidebar and select 'Live Folder'.",
+      "Dragging a tab on top of another tab for one second will now allow the option to split those tabs.",
+      "MacOS users now get to use native popover UI, making the experience more consistent with the rest of the operating system.",
+      "Improved the icon picker for folders, tabs, etc. It now let you select icons without closing the picker.",
+      "Pressing the \"Un-split\" button while holding shift will not focus the un-split tab, allowing you to stay in the current split view."
+    ],
+    "changes": [
+      "Bluring the window will no longer close the urlbar if its open.",
+      "Emojis at the space switcher will now be larger and more visible."
+    ],
+    "themeChanges": [
+      "Removed the `-zen-window-transform-origin` CSS attribute as it is not needed anymore"
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-13/",
+    "workflowId": 22518892421,
+    "image": false,
+    "date": "27/02/2026"
+  },
+  {
+    "version": "1.19.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed certain popups on MacOS appearing with no background color, making them invisible.",
+      "Fixed Github Pull Request live folders not fetching the pull request data correctly.",
+      "Other minor bug fixes and improvements."
+    ],
+    "features": [],
+    "changes": [
+      "Middle clicking on the sidebar will now simply open a new tab instead of searching the content stored inside the clipboard. This is to prevent accidental middle clicks from opening sensitive information. Middle clicking on the new tab button will still search the clipboard content."
+    ],
+    "workflowId": 22657981427,
+    "image": false,
+    "date": "04/03/2026"
+  },
+  {
+    "version": "1.19.2b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed some RSS live folders not working with certain feeds.",
+        "issue": 12685
+      },
+      {
+        "description": "Improved performance for spaces, specially when switching between them.",
+        "issue": 11851
+      },
+      "Other minor bug fixes and improvements."
+    ],
+    "changes": [
+      "Clicking on 'reset pinned tab' will now also select the pinned tab if it is not currently selected."
+    ],
+    "features": ["Updated to Firefox 148.0.2"],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-19/",
+    "workflowId": 22929917826,
+    "image": false,
+    "date": "11/03/2026"
+  },
+  {
+    "version": "1.19.3b",
+    "extra": "",
+    "fixes": [
+      "Split views will now hide when toggling fullscreen mode.",
+      "Other minor bug fixes and improvements.",
+      "Improved accessibility for split view controls.",
+      "Fixed opening a new window making all tabs appear as 'New Tab' until they are selected.",
+      {
+        "description": "Fixed chrome hide toolbar flag not being respected for new windows.",
+        "issue": 12736
+      },
+      "Others fixes and quality of life improvements"
+    ],
+    "changes": [
+      "Pressing CTRL+T again while the urlbar is open will now close it.",
+      "Bookmarks bar will now stay visible on fullscreen mode."
+    ],
+    "features": [
+      "Holding ctrl/cmd while hovering 'Reset pinned tab' will now duplicate that tab in the background",
+      "Added 'Unload all spaces except current' context menu item to the space switcher"
+    ],
+    "workflowId": 23116589584,
+    "image": false,
+    "date": "16/03/2026"
+  },
+  {
+    "version": "1.19.4b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed background grain not showing properly",
+        "issue": 12765
+      },
+      {
+        "description": "Fixed not being able to switch spaces with scroll actions",
+        "issue": 12816
+      },
+      {
+        "description": "Fixed closing blank windows when asking for confirmation",
+        "issue": 12922
+      },
+      "Increased robustness of HTTP/3 upload performance for unstable network conditions.",
+      "Other minor bug fixes and improvements."
+    ],
+    "changes": [
+      "Live folders will now perform a refresh when waking up the computer to make sure the content is up to date.",
+      "On Linux, Zen will now default to the XDG portal file picker if available, rather than the GTK3 one, which is usually better integrated with the user's desktop environment, and more powerful.",
+      "On Windows, Zen will use the modern Windows.Devices.Geolocation API for geolocation instead of Windows 7 location API."
+    ],
+    "features": [
+      "Updated to Firefox 149.0",
+      "Optimized the performance glance and its animations, making it more responsive and smoother than before.",
+      "Added a 'Un-split tabs' context menu item when right-clicking on a tab inside a split view to quickly un-split it.",
+      "Many PDF files will now load significantly faster thanks to hardware acceleration.",
+      "Zen now automatically blocks notifications and permanently revokes permissions for any website flagged as malicious by SafeBrowsing. This prevents unsafe sites from sending background notifications to users, commonly used for ads, spam or phishing.",
+      "The WebRender layer compositor is now enabled on Windows, reducing power usage during full-screen video playback and improving WebGL/WebGPU performance."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-20/",
+    "workflowId": 23604204844,
+    "image": false,
+    "date": "26/03/2026"
+  },
+  {
+    "version": "1.19.5b",
+    "extra": "Quick fixes from the 1.19.4b release, please see their respective entries for more details.",
+    "fixes": [
+      {
+        "description": "Fixed new profiles freezing on startup",
+        "issue": 12940
+      },
+      "Fixed an issue with drag and dropping tabs, making folders have empty spaces",
+      {
+        "description": "Fixed Github Live Folders not fetching Pull Request data correctly",
+        "issue": 12942
+      }
+    ],
+    "workflowId": 23679666277,
+    "image": false,
+    "date": "27/03/2026"
+  },
+  {
+    "version": "1.19.6b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed compact mode toggle being appear checked incorrectly",
+        "issue": 12973
+      },
+      "Zen now respects more 'reduce motion' system settings to disable or simplify non-essential animations",
+      {
+        "description": "Switching spaces will not be blocking anymore, meaning you can switch to another space while the current one is still animating",
+        "issue": 8206
+      },
+      {
+        "description": "Fixed website notifications not being clickable when using the right sidebar",
+        "issue": 12104
+      },
+      {
+        "description": "Improved low-FPS performance on certain occasions, such as when playing videos or using glance on low-end devices",
+        "issue": 12979
+      },
+      {
+        "description": "Fixed restoring a pinned tab also scrolling the website to it's original position",
+        "issue": 13024
+      },
+      {
+        "description": "Fixed some toolbars having unreadable text colors when using certain themes",
+        "issue": 13024
+      }
+    ],
+    "changes": [
+      "Reverted to Firefox's old search bar due to compatibility issues with the new one",
+      "Context menu for split tabs has now been renamed to 'Join tabs' to be more intuitive"
+    ],
+    "workflowId": 23924571668,
+    "image": false,
+    "date": "03/04/2026"
+  },
+  {
+    "version": "1.19.7b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed MacOS setting 'disable page swipe' making switching spaces not work at all",
+        "issue": 10687
+      },
+      {
+        "description": "Fixed double separator lines in context menus in some places",
+        "issue": 13093
+      },
+      {
+        "description": "Fixed unable to install addons in compact mode",
+        "issue": 11667
+      },
+      "Fixed an issue on Linux where the browser toolbar could become unresponsive to mouse clicks after dragging a tab when using Wayland",
+      "Other stability fixes and improvements."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-25/",
+    "features": [
+      "Updated to Firefox 149.0.2",
+      "Added a new 'Duplicate tab' keyboard shortcut available in settings"
+    ],
+    "workflowId": 24104826155,
+    "image": false,
+    "date": "07/04/2026"
+  },
+  {
+    "version": "1.19.8b",
+    "extra": "Please see the 1.19.7b release for more details on the fixes included in this release.",
+    "fixes": [
+      {
+        "description": "Fixed some animations inside Zen not respecting the 'reduce motion' system setting",
+        "issue": 13140
+      },
+      {
+        "description": "Fixed compact mode not hiding the sidebar or toolbar when a site has permissions disabled",
+        "issue": 13121
+      },
+      "Fixed accessibility issues with some toolbars such as 'find on page' in private windows"
+    ],
+    "changes": [
+      "Modified sidebar context menu to be more intuitive and simplified, removing some options and moving others to more appropriate places.",
+      "Live folders option has been moved to the sidebar context menu"
+    ],
+    "workflowId": 70497878213,
+    "image": false,
+    "date": "09/04/2026"
+  },
+  {
+    "version": "1.19.9b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed halts / unresponsiveness happening every certain amount of time",
+        "issue": 10649
+      },
+      {
+        "description": "Fixed duplicate bookmarks appearing on startup",
+        "issue": 9540
+      },
+      "Fixed an issue on macOS where, when macOS Lockdown mode is enabled, emoji characters are not displayed in web content.",
+      "Fixed live folders not working with GitHub's new Pull Request UI",
+      "Windows users can now install updates without having to accept the User Account Control (UAC) prompt. It might need a re-install to work for existing users.",
+      "Other minor bug fixes and performance improvements."
+    ],
+    "changes": ["There's a new modal UI, thanks to @12th-devs on GitHub!"],
+    "features": [
+      "Updated to Firefox 150.0",
+      "(alt or opt)+clicking a tab will now split it with the selected tab",
+      "Added a 'Move to folder...' context menu item for tabs to quickly move them to a different folder",
+      "Added a new loading progress animation when a page is loading",
+      "Safebrowsing and geo-location APIs should work more reliably now"
+    ],
+    "security": [
+      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-30/",
+      [
+        "CVE-2026-41431",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-qpj9-m8jc-mw6q"
+      ]
+    ],
+    "knownIssues": [
+      "Essentials and folders colors appear too-saturated when using certain themes. This will be fixed in the next release."
+    ],
+    "workflowId": 24884426227,
+    "image": false,
+    "date": "23/04/2026"
+  },
+  {
+    "version": "1.19.10b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed video controls being off screen in compact mode",
+        "issue": 10594
+      },
+      {
+        "description": "Fixed startup crashes and not letting any tab to be selected",
+        "issue": 13414
+      },
+      {
+        "description": "Fixed dragging tabs between windows not hiding sidebar",
+        "issue": 8643
+      },
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": [
+      "(alt or opt)+clicking again on a merged tab will now split it from the selected tab"
+    ],
+    "workflowId": 24983103164,
+    "image": false,
+    "date": "27/04/2026"
+  },
+  {
+    "version": "1.19.11b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed topbar dropping down when titlebar is enabled",
+        "issue": 7094
+      },
+      {
+        "description": "Fixed auto hide not working after installing an extension",
+        "issue": 13488
+      },
+      {
+        "description": "Fixed dragging folders around not working properly",
+        "issue": 13492
+      },
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": [
+      "Updated to Firefox 150.0.1",
+      "Added a space-only search mode for the urlbar, which can be enabled by typing ` + space in the urlbar."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-35/",
+    "workflowId": 25126816496,
+    "image": false,
+    "date": "29/04/2026"
+  },
+  {
+    "version": "1.19.12b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed search engines not being visible in settings",
+        "issue": 13522
+      },
+      {
+        "description": "Fixed Previous Space in MacOS menu bar not working",
+        "issue": 13583
+      },
+      {
+        "description": "The loading indicator should now show on-top of the webview for double toolbar mode",
+        "issue": 13516
+      },
+      {
+        "description": "Fix macos crash when native popovers are closed on some occasions",
+        "issue": 13294
+      },
+      "Fixed glance having wrong image preview when zoomed in",
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": [
+      "Updated to Firefox 150.0.2",
+      "Improved space swiping feel and performance",
+      "The option for 'Create new space' keyboard shortcut has been added to the keyboard shortcuts settings.",
+      "Desktop files on linux should now ship with translations for desktop entries."
+    ],
+    "security": [
+      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-40/",
+      [
+        "CVE-2026-44658",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-cc9c-mmmf-c5j6"
+      ],
+      [
+        "CVE-2026-44659",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-7p2r-fp29-9w69"
+      ]
+    ],
+    "workflowId": 25509244910,
+    "image": false,
+    "date": "08/05/2026"
+  },
+  {
+    "version": "1.19.13b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed native popovers not working after using dropdowns",
+        "issue": 13623
+      },
+      {
+        "description": "Fixed unresponsive tabs when opening external links",
+        "issue": 13620
+      },
+      {
+        "description": "Fixed tab renaming input fields being too narrow",
+        "issue": 13629
+      },
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": ["Updated to Firefox 150.0.3"],
+    "security": [
+      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-45/",
+      [
+        "CVE-2026-45150",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-vjfv-85qf-v25c"
+      ]
+    ],
+    "workflowId": 25762934682,
+    "image": false,
+    "date": "13/05/2026"
   }
 ]

@@ -1,6 +1,6 @@
 import { type Linter } from 'eslint'
 import react from 'eslint-plugin-react'
-import * as reactHooks from 'eslint-plugin-react-hooks'
+import reactHooks from 'eslint-plugin-react-hooks'
 
 import { javascriptFiles, typescriptFiles } from './shared'
 
