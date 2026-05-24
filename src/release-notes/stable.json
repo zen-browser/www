@@ -4039,7 +4039,7 @@
       }
     ],
     "changes": [
-      "Geolocation on Windows now respects the user's Windows location permission setting, instead of overriding it, when the user grants location permission to a page. Firefox will ask users to enable the Windows permission if it is needed."
+      "Geolocation on Windows now respects the user's Windows location permission setting, instead of overriding it, when the user grants location permission to a page. Zen will ask users to enable the Windows permission if it is needed."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-46/",
     "features": [
