@@ -4049,8 +4049,8 @@
       "Zen now strengthens protection against fingerprinting in Standard Enhanced Tracking Protection, making it harder for websites to track you across sites by limiting the amount of information revealed about your device and browser. This reduces the number of users uniquely identifiable by common fingerprinting techniques by an average of ~14%, and by ~49% on macOS.",
       "You can now merge multiple PDFs directly in Zen PDF. Combine separate PDF files into a single document without ever leaving Zen or relying on third-party tools."
     ],
-    "workflowId": 26246299434,
+    "workflowId": 26357018965,
     "image": false,
-    "date": "22/05/2026"
+    "date": "21/05/2026"
   }
 ]
