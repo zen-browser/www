@@ -4015,5 +4015,42 @@
     "workflowId": 25762934682,
     "image": false,
     "date": "13/05/2026"
+  },
+  {
+    "version": "1.20b",
+    "extra": "This release includes a major new feature called Boosts! Boosts allow you to customize the look and feel of any website to your liking. To start boosting, click the site's control icon in the urlbar and click the new 'Boost' button.",
+    "fixes": [
+      {
+        "description": "Fixed a bug where the url would be cut off when the urlbar was too small.",
+        "issue": 13719
+      },
+      {
+        "description": "Fixed 'go back to original url' button on pinned tabs showing up even when the url was not modified.",
+        "issue": 12949
+      },
+      "Added better support for cyclic workspace switching",
+      {
+        "description": "Fixed video controls going under the screen when in fullscreen mode.",
+        "issue": 10594
+      },
+      {
+        "description": "Fixed closing a split view in one window selecting it on other windows.",
+        "issue": 13761
+      }
+    ],
+    "changes": [
+      "Geolocation on Windows now respects the user's Windows location permission setting, instead of overriding it, when the user grants location permission to a page. Firefox will ask users to enable the Windows permission if it is needed."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-46/",
+    "features": [
+      "Updated to Firefox 151.0 and 151.0.1",
+      "Boosts are now in Zen! This allows you to tint colors, customize fonts and styles, zap elements and enable automatic dark mode on any website!",
+      "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode.",
+      "Zen now strengthens protection against fingerprinting in Standard Enhanced Tracking Protection, making it harder for websites to track you across sites by limiting the amount of information revealed about your device and browser. This reduces the number of users uniquely identifiable by common fingerprinting techniques by an average of ~14%, and by ~49% on macOS.",
+      "You can now merge multiple PDFs directly in Zen PDF. Combine separate PDF files into a single document without ever leaving Zen or relying on third-party tools."
+    ],
+    "workflowId": 26357018965,
+    "image": false,
+    "date": "21/05/2026"
   }
 ]
