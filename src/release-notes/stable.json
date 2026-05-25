@@ -3878,7 +3878,10 @@
     ],
     "security": [
       "https://www.mozilla.org/en-US/security/advisories/mfsa2026-30/",
-      "https://github.com/zen-browser/desktop/security/advisories"
+      [
+        "CVE-2026-41431",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-qpj9-m8jc-mw6q"
+      ]
     ],
     "knownIssues": [
       "Essentials and folders colors appear too-saturated when using certain themes. This will be fixed in the next release."
@@ -3938,5 +3941,116 @@
     "workflowId": 25126816496,
     "image": false,
     "date": "29/04/2026"
+  },
+  {
+    "version": "1.19.12b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed search engines not being visible in settings",
+        "issue": 13522
+      },
+      {
+        "description": "Fixed Previous Space in MacOS menu bar not working",
+        "issue": 13583
+      },
+      {
+        "description": "The loading indicator should now show on-top of the webview for double toolbar mode",
+        "issue": 13516
+      },
+      {
+        "description": "Fix macos crash when native popovers are closed on some occasions",
+        "issue": 13294
+      },
+      "Fixed glance having wrong image preview when zoomed in",
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": [
+      "Updated to Firefox 150.0.2",
+      "Improved space swiping feel and performance",
+      "The option for 'Create new space' keyboard shortcut has been added to the keyboard shortcuts settings.",
+      "Desktop files on linux should now ship with translations for desktop entries."
+    ],
+    "security": [
+      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-40/",
+      [
+        "CVE-2026-44658",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-cc9c-mmmf-c5j6"
+      ],
+      [
+        "CVE-2026-44659",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-7p2r-fp29-9w69"
+      ]
+    ],
+    "workflowId": 25509244910,
+    "image": false,
+    "date": "08/05/2026"
+  },
+  {
+    "version": "1.19.13b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed native popovers not working after using dropdowns",
+        "issue": 13623
+      },
+      {
+        "description": "Fixed unresponsive tabs when opening external links",
+        "issue": 13620
+      },
+      {
+        "description": "Fixed tab renaming input fields being too narrow",
+        "issue": 13629
+      },
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": ["Updated to Firefox 150.0.3"],
+    "security": [
+      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-45/",
+      [
+        "CVE-2026-45150",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-vjfv-85qf-v25c"
+      ]
+    ],
+    "workflowId": 25762934682,
+    "image": false,
+    "date": "13/05/2026"
+  },
+  {
+    "version": "1.20b",
+    "extra": "This release includes a major new feature called Boosts! Boosts allow you to customize the look and feel of any website to your liking. To start boosting, click the site's control icon in the urlbar and click the new 'Boost' button.",
+    "fixes": [
+      {
+        "description": "Fixed a bug where the url would be cut off when the urlbar was too small.",
+        "issue": 13719
+      },
+      {
+        "description": "Fixed 'go back to original url' button on pinned tabs showing up even when the url was not modified.",
+        "issue": 12949
+      },
+      "Added better support for cyclic workspace switching",
+      {
+        "description": "Fixed video controls going under the screen when in fullscreen mode.",
+        "issue": 10594
+      },
+      {
+        "description": "Fixed closing a split view in one window selecting it on other windows.",
+        "issue": 13761
+      }
+    ],
+    "changes": [
+      "Geolocation on Windows now respects the user's Windows location permission setting, instead of overriding it, when the user grants location permission to a page. Zen will ask users to enable the Windows permission if it is needed."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-46/",
+    "features": [
+      "Updated to Firefox 151.0 and 151.0.1",
+      "Boosts are now in Zen! This allows you to tint colors, customize fonts and styles, zap elements and enable automatic dark mode on any website!",
+      "Overflowing web extensions will now appear below the urlbar instead of being added back into the site control panel. This only happens in single-sidebar mode.",
+      "Zen now strengthens protection against fingerprinting in Standard Enhanced Tracking Protection, making it harder for websites to track you across sites by limiting the amount of information revealed about your device and browser. This reduces the number of users uniquely identifiable by common fingerprinting techniques by an average of ~14%, and by ~49% on macOS.",
+      "You can now merge multiple PDFs directly in Zen PDF. Combine separate PDF files into a single document without ever leaving Zen or relying on third-party tools."
+    ],
+    "workflowId": 26357018965,
+    "image": false,
+    "date": "21/05/2026"
   }
 ]
