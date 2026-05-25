@@ -27,6 +27,7 @@ jobs:
         uses: yumemi-inc/path-filter@f89be296b0b9164143a12de7cc95668c75e97f0c # v2.3.0
         id: filter
         with:
+          head-ref: ${{ format('refs/pull/{0}/head', github.event.number) }}
           patterns: |
             **
             !**.md
@@ -51,6 +52,7 @@ jobs:
         uses: yumemi-inc/path-filter@f89be296b0b9164143a12de7cc95668c75e97f0c # v2.3.0
         id: filter
         with:
+          head-ref: ${{ format('refs/pull/{0}/head', github.event.number) }}
           patterns: |
             .github/workflows/**
             .github/actions/**
