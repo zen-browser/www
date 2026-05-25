@@ -27,7 +27,6 @@ on:
       - "**/action.yml"
       - "**/action.yaml"
   merge_group:
-  workflow_call:
   workflow_dispatch:
 
 permissions: {}
