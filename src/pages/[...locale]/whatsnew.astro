@@ -47,20 +47,20 @@ if (latestVersion.version.split('.').length > 2) {
         <Fragment set:html={whatsNewText[0].replace(/\n/g, '<br>')} />
       </div>
       <ul class="hidden list-disc flex-col gap-2 xl:container xl:flex">
-        <a href="https://github.com/zen-browser/desktop/issues/new/choose" target="_blank">
-          <li>
+        <li>
+          <a href="https://github.com/zen-browser/desktop/issues/new/choose" target="_blank">
             <Description class="text-base font-bold">
               {whatsNew.reportIssue}
             </Description>
-          </li>
-        </a>
-        <a href="https://discord.gg/zen-browser" target="_blank">
-          <li>
+          </a>
+        </li>
+        <li>
+          <a href="https://discord.gg/zen-browser" target="_blank">
             <Description class="text-base font-bold">
               {whatsNew.joinDiscord}
             </Description>
-          </li>
-        </a>
+          </a>
+        </li>
       </ul>
       <div class="flex flex-wrap gap-8 place-self-start xl:place-self-center">
         <Button
