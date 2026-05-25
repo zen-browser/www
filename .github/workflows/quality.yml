@@ -19,7 +19,6 @@ jobs:
       pull-requests: read
     outputs:
       quality: ${{ steps.changed-files.outputs.quality_any_changed }}
-      actions: ${{ steps.changed-files.outputs.actions_any_changed }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -37,16 +36,11 @@ jobs:
               - "!.gitattributes"
               - "!.vscode/**"
               - "!.env.example"
-            actions:
-              - ".github/workflows/**"
-              - ".github/actions/**"
-              - "**/action.yml"
-              - "**/action.yaml"
 
   actions:
     name: Actions
     needs: [changes]
-    if: ${{ needs.changes.outputs.actions == 'true' }}
+    if: ${{ needs.changes.outputs.quality == 'true' }}
     uses: ./.github/workflows/actions.yml
     permissions:
       actions: read
