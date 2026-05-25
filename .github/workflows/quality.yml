@@ -1,4 +1,4 @@
-name: Quality
+name: CI
 
 on:
   pull_request:
@@ -34,6 +34,37 @@ jobs:
             !.gitattributes
             !.vscode/**
             !.env.example
+
+  check_action_changes:
+    name: Check Action Changes
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      exists: ${{ steps.filter.outputs.exists }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Filter action changes
+        uses: yumemi-inc/path-filter@f89be296b0b9164143a12de7cc95668c75e97f0c # v2.3.0
+        id: filter
+        with:
+          patterns: |
+            .github/workflows/**
+            .github/actions/**
+            **/action.yml
+            **/action.yaml
+
+  actions:
+    name: Actions
+    needs: [check_action_changes]
+    if: ${{ needs.check_action_changes.outputs.exists == 'true' }}
+    uses: ./.github/workflows/security.yml
+    permissions:
+      actions: read
+      contents: read
 
   quality_checks:
     name: ${{ matrix.name }}
@@ -143,7 +174,7 @@ jobs:
 
   verify:
     name: Verify
-    needs: [check_changes, quality_checks, playwright]
+    needs: [check_changes, check_action_changes, actions, quality_checks, playwright]
     runs-on: ubuntu-latest
     if: always()
     permissions: {}

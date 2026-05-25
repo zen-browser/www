@@ -1,14 +1,8 @@
-name: Security
+name: Actions
 
 on:
   workflow_dispatch:
-  pull_request:
-    types: [opened, synchronize, reopened]
-    paths:
-      - ".github/workflows/**"
-      - ".github/actions/**"
-      - "**/action.yml"
-      - "**/action.yaml"
+  workflow_call:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,6 +11,34 @@ concurrency:
 permissions: {}
 
 jobs:
+  actionlint:
+    name: actionlint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      ACTIONLINT_VERSION: 1.7.12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Install actionlint
+        run: |
+          archive="actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          curl --fail --location --show-error --silent \
+            --output "$archive" \
+            "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/${archive}"
+          curl --fail --location --show-error --silent \
+            --output checksums.txt \
+            "https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}/actionlint_${ACTIONLINT_VERSION}_checksums.txt"
+          grep "  ${archive}$" checksums.txt | sha256sum --check -
+          tar --extract --gzip --file "$archive" actionlint
+
+      - name: Run actionlint
+        run: ./actionlint -color
+
   zizmor:
     name: zizmor
     runs-on: ubuntu-latest
