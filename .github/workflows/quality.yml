@@ -37,27 +37,6 @@ jobs:
               - "!.vscode/**"
               - "!.env.example"
 
-  zizmor:
-    name: zizmor
-    needs: [changes]
-    if: ${{ needs.changes.outputs.quality == 'true' }}
-    runs-on: ubuntu-latest
-    permissions:
-      actions: read
-      contents: read
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
-
-      - name: Run zizmor
-        uses: zizmorcore/zizmor-action@5f14fd08f7cf1cb1609c1e344975f152c7ee938d # v0.5.6
-        with:
-          inputs: .github/workflows
-          advanced-security: false
-          annotations: true
-
   quality_checks:
     name: ${{ matrix.name }}
     needs: [changes]
@@ -166,7 +145,7 @@ jobs:
 
   verify:
     name: Verify
-    needs: [changes, zizmor, quality_checks, playwright]
+    needs: [changes, quality_checks, playwright]
     runs-on: ubuntu-latest
     if: always()
     permissions: {}

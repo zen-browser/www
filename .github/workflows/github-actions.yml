@@ -1,0 +1,55 @@
+name: GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+      - v*
+    paths:
+      - ".github/workflows/**"
+      - ".github/composite-actions/**"
+      - ".github/dependabot.yml"
+      - "**/action.yml"
+      - "**/action.yaml"
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    branches:
+      - main
+      - v*
+    paths:
+      - ".github/workflows/**"
+      - ".github/composite-actions/**"
+      - ".github/dependabot.yml"
+      - "**/action.yml"
+      - "**/action.yaml"
+  merge_group:
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  zizmor:
+    name: zizmor
+    if: ${{ github.event_name != 'pull_request' || !github.event.pull_request.draft }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@5f14fd08f7cf1cb1609c1e344975f152c7ee938d # v0.5.6
+        with:
+          advanced-security: true
