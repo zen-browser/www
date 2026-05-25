@@ -11,67 +11,51 @@ concurrency:
 permissions: {}
 
 jobs:
-  check_changes:
-    name: Check Changes
+  changes:
+    name: Changes
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      pull-requests: read
     outputs:
-      exists: ${{ steps.filter.outputs.exists }}
+      quality: ${{ steps.changed-files.outputs.quality_any_changed }}
+      actions: ${{ steps.changed-files.outputs.actions_any_changed }}
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           persist-credentials: false
 
-      - name: Filter changes
-        uses: yumemi-inc/path-filter@f89be296b0b9164143a12de7cc95668c75e97f0c # v2.3.0
-        id: filter
+      - name: Check changed files
+        id: changed-files
+        uses: tj-actions/changed-files@9426d40962ed5378910ee2e21d5f8c6fcbf2dd96 # v47.0.6
         with:
-          head-ref: ${{ github.head_ref }}
-          patterns: |
-            **
-            !**.md
-            !.gitignore
-            !.gitattributes
-            !.vscode/**
-            !.env.example
-
-  check_action_changes:
-    name: Check Action Changes
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    outputs:
-      exists: ${{ steps.filter.outputs.exists }}
-    steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
-
-      - name: Filter action changes
-        uses: yumemi-inc/path-filter@f89be296b0b9164143a12de7cc95668c75e97f0c # v2.3.0
-        id: filter
-        with:
-          head-ref: ${{ github.head_ref }}
-          patterns: |
-            .github/workflows/**
-            .github/actions/**
-            **/action.yml
-            **/action.yaml
+          files_yaml: |
+            quality:
+              - "**"
+              - "!**.md"
+              - "!.gitignore"
+              - "!.gitattributes"
+              - "!.vscode/**"
+              - "!.env.example"
+            actions:
+              - ".github/workflows/**"
+              - ".github/actions/**"
+              - "**/action.yml"
+              - "**/action.yaml"
 
   actions:
     name: Actions
-    needs: [check_action_changes]
-    if: ${{ needs.check_action_changes.outputs.exists == 'true' }}
-    uses: ./.github/workflows/security.yml
+    needs: [changes]
+    if: ${{ needs.changes.outputs.actions == 'true' }}
+    uses: ./.github/workflows/actions.yml
     permissions:
       actions: read
       contents: read
 
   quality_checks:
     name: ${{ matrix.name }}
-    needs: [check_changes]
-    if: ${{ needs.check_changes.outputs.exists == 'true' }}
+    needs: [changes]
+    if: ${{ needs.changes.outputs.quality == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -128,8 +112,8 @@ jobs:
 
   playwright:
     name: Playwright Tests
-    needs: [check_changes, quality_checks]
-    if: ${{ needs.check_changes.outputs.exists == 'true' }}
+    needs: [changes, quality_checks]
+    if: ${{ needs.changes.outputs.quality == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -176,7 +160,7 @@ jobs:
 
   verify:
     name: Verify
-    needs: [check_changes, check_action_changes, actions, quality_checks, playwright]
+    needs: [changes, actions, quality_checks, playwright]
     runs-on: ubuntu-latest
     if: always()
     permissions: {}
@@ -186,7 +170,7 @@ jobs:
       - name: Set Result
         id: set-result
         env:
-          CHANGES_EXIST: ${{ needs.check_changes.outputs.exists }}
+          CHANGES_EXIST: ${{ needs.changes.outputs.quality }}
           HAS_FAILURE: ${{ contains(needs.*.result, 'failure') }}
           HAS_CANCELLED: ${{ contains(needs.*.result, 'cancelled') }}
         run: |
