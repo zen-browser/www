@@ -4052,5 +4052,32 @@
     "workflowId": 26357018965,
     "image": false,
     "date": "21/05/2026"
+  },
+  {
+    "version": "1.20.1b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed pressing `u` duplicating tabs.",
+        "issue": 13851
+      },
+      {
+        "description": "Fixed video controls going under the screen when in fullscreen mode.",
+        "issue": 10594
+      },
+      {
+        "description": "Fixed boosts not working for certain websites.",
+        "issue": 13844
+      },
+      "Fixed an issue on macOS where smart cards and security keys could fail to load certificates automatically",
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": [
+      "Updated to Firefox 151.0.2",
+      "You can now type `New Boost` in the urlbar to quickly create a new boost for the current site!"
+    ],
+    "workflowId": 26508951452,
+    "image": false,
+    "date": "27/05/2026"
   }
 ]
