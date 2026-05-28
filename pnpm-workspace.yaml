@@ -1,10 +1,9 @@
-onlyBuiltDependencies:
-  - esbuild
-  - lefthook
-  - sharp
-  - unrs-resolver
-  - workerd
-
+allowBuilds:
+  esbuild: false
+  lefthook: true
+  sharp: true
+  unrs-resolver: false
+  workerd: false
 overrides:
   "@eslint/plugin-kit@<0.3.4": ">=0.3.4"
   astro@<5.14.3: ">=5.14.3"
