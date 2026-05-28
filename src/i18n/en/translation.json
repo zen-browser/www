@@ -490,6 +490,7 @@
       "discord": "Discord",
       "uptimeStatus": "Uptime Status",
       "reportAnIssue": "Report an Issue",
+      "twilight": "Twilight",
       "madeWith": "Made with <span aria-label='love'>❤️</span> by the <a href='{link}' class='zen-link inline-block font-bold'>Zen Team</a>"
     },
     "nav": {
