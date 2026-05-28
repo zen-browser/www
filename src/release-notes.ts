@@ -7,6 +7,8 @@ type FixWithIssue = {
 
 type Fix = string | FixWithIssue
 
+type SecurityFix = string | string[]
+
 export type BreakingChange = string | { description: string; link: string }
 
 export type ReleaseNote = {
@@ -14,7 +16,7 @@ export type ReleaseNote = {
   date?: string // optional for twilight
   extra?: string
   fixes?: Fix[]
-  security?: string
+  security?: string | SecurityFix[]
   knownIssues?: string[]
   features?: string[]
   breakingChanges?: BreakingChange[]

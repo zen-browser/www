@@ -51,3 +51,7 @@ public/favicon.svg
 .github/PULL_REQUEST_TEMPLATE/
 CONTRIBUTING.md
 README.md
+
+# The ending ")" in the link is causing Prettier to format the code in a way that
+# it adds an empty space between the link and the parentheses.
+src/components/ReleaseNoteListItem.astro

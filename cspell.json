@@ -1,6 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "language": "en,es",
+  "caseSensitive": true,
   "files": ["**/*.{ts,js,astro,html,css,json,yml,yaml,md}"],
   "words": [
     "adam",
@@ -11,6 +12,7 @@
     "Brhm",
     "Briel",
     "bryan",
+    "Bokmål",
     "canoa",
     "Canoa",
     "cfasync",
@@ -18,6 +20,8 @@
     "createdDefault",
     "createdDesc",
     "daniel",
+    "devs",
+    "ededed",
     "ferrocyante",
     "flatpaks",
     "FMPEG",
@@ -45,6 +49,7 @@
     "Logitech",
     "mfsa",
     "mozilla",
+    "multiple",
     "Nehalem",
     "NSIS",
     "OCSP",

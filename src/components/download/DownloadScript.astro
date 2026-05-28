@@ -1,53 +1,35 @@
 <script>
-  import JSConfetti from 'js-confetti'
-  import { UAParser } from 'ua-parser-js'
+  import { detectDownloadPlatform } from './detect-platform'
 
   // Handle platform selection
   const platformSections = document.querySelectorAll('.platform-section')
 
-  // Function to detect OS and select appropriate platform
-  function detectOS() {
-    const userAgent = window.navigator.userAgent
-    const { cpu, os } = UAParser(userAgent)
-    let detectedOS = 'mac' // Default to macOS
-
-    if (os.name === 'Windows') {
-      detectedOS = 'windows'
-    } else if (os.name === 'Linux' || os.name === 'Ubuntu' || os.name === 'Chrome OS') {
-      detectedOS = 'linux'
-    }
-
-    let arch = cpu.architecture || 'x86_64' // Default to x86_64
-    if (arch === 'amd64' || arch === 'x86_64') {
-      arch = 'x86_64'
-    } else if (arch === 'arm64' || arch === 'aarch64') {
-      arch = 'aarch64'
-    } else if (arch === 'arm') {
-      arch = 'arm64' // Treat arm as arm64 for simplicity
-    }
-
-    return { os: detectedOS, cpu: arch }
+  type UserAgentData = {
+    getHighEntropyValues?: (hints: string[]) => Promise<{ architecture?: string }>
   }
 
-  function getRandomNumber(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
+  // Function to detect OS and select appropriate platform
+  async function detectOS() {
+    const userAgent = window.navigator.userAgent
+    const userAgentData = (window.navigator as Navigator & { userAgentData?: UserAgentData })
+      .userAgentData
+
+    if (userAgentData?.getHighEntropyValues) {
+      try {
+        const { architecture } = await userAgentData.getHighEntropyValues(['architecture'])
+        return detectDownloadPlatform(userAgent, architecture)
+      } catch {
+        // Fall back to the lower-entropy user agent when Client Hints are unavailable.
+      }
+    }
+
+    return detectDownloadPlatform(userAgent)
   }
 
   // Initialize platform based on user's OS
   async function initializePlatform() {
-    const detectedOS = detectOS()
+    const detectedOS = await detectOS()
     selectPlatform(detectedOS.os, detectedOS.cpu)
-
-    for (const button of document.querySelectorAll('.download-button')) {
-      button.addEventListener('click', () => {
-        const jsConfetti = new JSConfetti()
-        jsConfetti.addConfetti({
-          confettiNumber: 100,
-          // If we get a 1 to 10k chance, show only burger confetti
-          ...(getRandomNumber(1, 10000) === 1 ? { emojis: ['🍔'] } : {}),
-        })
-      })
-    }
   }
 
   // Function to select a platform
@@ -88,7 +70,7 @@
 
       // Apply twilight mode to all relevant elements
       const coralElements = document.querySelectorAll(
-        '.download-browser-logo, .release-type-tag, .decorative-gradient, .download-link, .download-arrow-icon, .download-card__icon, .checksum-icon-btn, .copy-btn, .flathub-download'
+        '.download-browser-logo, .decorative-gradient, .download-link, .download-card__icon, .platform-section'
       )
       for (const element of coralElements) {
         element.setAttribute('data-twilight', 'true')
@@ -101,7 +83,7 @@
         if (!link.id.includes('beta')) {
           const href = link.getAttribute('href')
           if (href && href.includes('/latest/download/')) {
-            const twilightHref = href.replace('/latest/download/', '/download/twilight/')
+            const twilightHref = href.replace('/latest/download/', '/download/twilight-1/')
             link.setAttribute('href', twilightHref)
           }
         }

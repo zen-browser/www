@@ -11,7 +11,7 @@ import whatsNewText from '~/release-notes/whats-new.json'
 import { getLocale, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
 
-const latestVersion = releaseNotes[0]
+let latestVersion = releaseNotes[0]
 
 const locale = getLocale(Astro)
 
@@ -21,14 +21,20 @@ const {
 } = getUI(locale)
 
 // Just redirect to the release notes if we are in a patch version
-if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVersion.version) {
-  return Astro.redirect(`/release-notes#${latestVersion.version}`)
+if (latestVersion.version.split('.').length > 2) {
+  if (whatsNewText[1] !== latestVersion.version) {
+    return Astro.redirect(`/release-notes#${latestVersion.version}`)
+  } else {
+    // We need to set the last major version for the text to make sense
+    const majorVersion = latestVersion.version.split('.').slice(0, 2).join('.') + 'b'
+    latestVersion = releaseNotes.find(v => v.version === majorVersion) || latestVersion
+  }
 }
 ---
 
 <Layout title={layout.whatsNew.title.replace('{latestVersion.version}', latestVersion.version)}>
   <main
-    class="xl:mt-22 container flex flex-col gap-12 py-12 xl:grid xl:min-h-[calc(100vh-12rem)] xl:grid-cols-[2fr_3fr]"
+    class="container flex flex-col gap-12 py-12 xl:grid xl:min-h-[calc(100vh-12rem)] xl:grid-cols-[2fr_3fr]"
   >
     <div class="flex flex-col gap-8">
       <div>
@@ -40,21 +46,21 @@ if (latestVersion.version.split('.').length > 2 && whatsNewText[1] !== latestVer
       <div>
         <Fragment set:html={whatsNewText[0].replace(/\n/g, '<br>')} />
       </div>
-      <ul class="hidden list-disc flex-col gap-2 xl:container xl:flex">
-        <a href="https://github.com/zen-browser/desktop/issues/new/choose" target="_blank">
-          <li>
-            <Description class="text-base font-bold">
+      <ul class="hidden list-disc space-y-2 xl:container xl:block">
+        <li>
+          <a href="https://github.com/zen-browser/desktop/issues/new/choose" target="_blank">
+            <Description class="m-0 inline text-base font-bold">
               {whatsNew.reportIssue}
             </Description>
-          </li>
-        </a>
-        <a href="https://discord.gg/zen-browser" target="_blank">
-          <li>
-            <Description class="text-base font-bold">
+          </a>
+        </li>
+        <li>
+          <a href="https://discord.gg/zen-browser" target="_blank">
+            <Description class="m-0 inline text-base font-bold">
               {whatsNew.joinDiscord}
             </Description>
-          </li>
-        </a>
+          </a>
+        </li>
       </ul>
       <div class="flex flex-wrap gap-8 place-self-start xl:place-self-center">
         <Button
