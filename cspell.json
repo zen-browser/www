@@ -1,6 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json",
   "language": "en,es",
+  "caseSensitive": true,
   "files": ["**/*.{ts,js,astro,html,css,json,yml,yaml,md}"],
   "words": [
     "adam",
