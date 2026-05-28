@@ -4076,6 +4076,7 @@
       "Updated to Firefox 151.0.2",
       "You can now type `New Boost` in the urlbar to quickly create a new boost for the current site!"
     ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-40/",
     "workflowId": 26508951452,
     "image": false,
     "date": "27/05/2026"
