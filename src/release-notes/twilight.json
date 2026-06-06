@@ -2,5 +2,7 @@
   "version": "1.21t",
   "extra": "",
   "fixes": [],
-  "features": []
+  "features": [
+    "Added 'Space Routing', a new feature that allows you to route links to a specific Space. To get started, click on the three dots in your Space name and click on 'Space Routing Settings'."
+  ]
 }
