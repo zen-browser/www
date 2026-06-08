@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "pnpm": "^10.28.2"
+    "pnpm": "^11.0.0"
   },
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.1.2",
   "scripts": {
     "dev": "astro dev --port 3000",
     "start": "astro preview --port 3000",
@@ -23,11 +23,6 @@
     "test:coverage": "vitest --coverage",
     "test:playwright": "playwright test --reporter=list",
     "prepare": "lefthook install"
-  },
-  "pnpm": {
-    "overrides": {
-      "eslint-plugin-import>minimatch": "3.1.5"
-    }
   },
   "dependencies": {
     "@astrojs/check": "0.9.9",
