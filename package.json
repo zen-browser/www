@@ -24,11 +24,6 @@
     "test:playwright": "playwright test --reporter=list",
     "prepare": "lefthook install"
   },
-  "pnpm": {
-    "overrides": {
-      "eslint-plugin-import>minimatch": "3.1.5"
-    }
-  },
   "dependencies": {
     "@astrojs/check": "0.9.9",
     "@astrojs/cloudflare": "13.5.2",
