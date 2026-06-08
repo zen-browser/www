@@ -20,7 +20,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: gh label create stale --repo "$GITHUB_REPOSITORY" --color ededed --description "No recent activity" --force
 
-      - uses: actions/stale@v10.2.0
+      - uses: actions/stale@b5d41d4e1d5dceea10e7104786b73624c18a190f # v10.2.0
         with:
           days-before-issue-stale: 90
           days-before-issue-close: 14

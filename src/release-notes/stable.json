@@ -4080,5 +4080,28 @@
     "workflowId": 26508951452,
     "image": false,
     "date": "27/05/2026"
+  },
+  {
+    "version": "1.20.2b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed auto focus for new windows not working.",
+        "issue": 12112
+      },
+      {
+        "description": "Fixed desktop shortcuts showing zen as 'Nightly'.",
+        "issue": 13745
+      },
+      "Other minor bug fixes and performance improvements."
+    ],
+    "features": [
+      "Updated to Firefox 151.0.3",
+      "Boosts now support a dark mode UI based on your system dark mode setting."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-54/",
+    "workflowId": 26919510900,
+    "image": false,
+    "date": "03/06/2026"
   }
 ]
