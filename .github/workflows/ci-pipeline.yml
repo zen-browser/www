@@ -45,8 +45,6 @@ jobs:
             check: format
           - name: Test
             check: test
-          - name: Build
-            check: build
           - name: TypeScript
             check: typecheck
           - name: Spell Check
@@ -78,16 +76,9 @@ jobs:
       - name: Run ${{ matrix.name }}
         run: pnpm turbo run ${{ matrix.check }}
 
-      - name: Upload Build Artifact
-        if: matrix.name == 'Build'
-        uses: actions/upload-artifact@v7
-        with:
-          name: build-dist-${{ github.sha }}
-          path: dist/
-
-  playwright:
-    name: Playwright Tests
-    needs: [check_changes, quality_checks]
+  build_and_playwright:
+    name: Build and Playwright Tests
+    needs: [check_changes]
     if: ${{ needs.check_changes.outputs.exists == 'true' }}
     runs-on: ubuntu-latest
     container:
@@ -116,23 +107,16 @@ jobs:
           node-version: 24
           cache: pnpm
 
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v8
-        with:
-          path: dist/
-          pattern: build-dist*
-          merge-multiple: true
-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run Playwright Tests
+      - name: Run Build and Playwright Tests
         run: pnpm turbo run test:playwright
         timeout-minutes: 10
 
   verify:
     name: Verify
-    needs: [check_changes, quality_checks, playwright]
+    needs: [check_changes, quality_checks, build_and_playwright]
     runs-on: ubuntu-latest
     if: always()
     outputs:
