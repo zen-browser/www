@@ -4103,5 +4103,31 @@
     "workflowId": 26919510900,
     "image": false,
     "date": "03/06/2026"
+  },
+  {
+    "version": "1.21b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed extension-opened tabs not being created with the correct container",
+        "issue": 14100
+      },
+      {
+        "description": "Fixed a bug with the Boosts editor having the wrong theme colors",
+        "issue": 14099
+      },
+      {
+        "description": "Improved overflowing space icons being inaccessible and improved the feeling when hovering over them",
+        "issue": 13747
+      },
+      "Other minor bug fixes and improvements"
+    ],
+    "features": [
+      "Updated to Firefox 151.0.4",
+      "Added 'Space Routing', a new feature that allows you to route links to a specific Space. To get started, click on the three dots in your Space name and click on 'Space Routing Settings'."
+    ],
+    "workflowId": 27273104941,
+    "image": false,
+    "date": "11/06/2026"
   }
 ]
