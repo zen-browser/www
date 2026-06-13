@@ -4129,5 +4129,28 @@
     "workflowId": 27273104941,
     "image": false,
     "date": "11/06/2026"
+  },
+  {
+    "version": "1.21.1b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed duplicate bookmarks appearing when re-opening a window in MacOS",
+        "issue": 9540
+      },
+      {
+        "description": "Fixed freezes when switching spaces on certain occasions",
+        "issue": 14110
+      },
+      "Improved performance for switching between tabs",
+      "Other minor bug fixes and improvements"
+    ],
+    "features": [
+      "Updated to Firefox 151.0.4",
+      "Added 'Space Routing', a new feature that allows you to route links to a specific Space. To get started, click on the three dots in your Space name and click on 'Space Routing Settings'."
+    ],
+    "workflowId": 27413914698,
+    "image": false,
+    "date": "13/06/2026"
   }
 ]
