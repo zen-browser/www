@@ -4145,10 +4145,6 @@
       "Improved performance for switching between tabs",
       "Other minor bug fixes and improvements"
     ],
-    "features": [
-      "Updated to Firefox 151.0.4",
-      "Added 'Space Routing', a new feature that allows you to route links to a specific Space. To get started, click on the three dots in your Space name and click on 'Space Routing Settings'."
-    ],
     "workflowId": 27413914698,
     "image": false,
     "date": "13/06/2026"
