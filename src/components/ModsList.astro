@@ -165,6 +165,24 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
 </div>
 
 <script define:vars={{ allMods, translations, locale }} is:inline>
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;')
+  }
+
+  function isSafeUrl(url) {
+    try {
+      const parsed = new URL(url, window.location.origin)
+      return parsed.protocol === 'https:' || parsed.protocol === 'http:'
+    } catch {
+      return false
+    }
+  }
+
   class ModsSearch {
     constructor() {
       this.allMods = allMods
@@ -184,11 +202,15 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       // Performance optimizations
       this.searchTimeout = null
       this.isRendering = false
+      this.pendingState = null
       this.lastFilteredMods = null
       this.lastRenderState = null
 
       // Cache DOM elements for better performance and intellisense
       this.elements = this.cacheElements()
+
+      this.onPaginationClick = this.onPaginationClick.bind(this)
+      this.onPaginationSubmit = this.onPaginationSubmit.bind(this)
 
       this.initializeFromURL()
       this.bindEvents()
@@ -336,11 +358,37 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           }
         })
       }
+
+      if (this.elements.pagination) {
+        this.elements.pagination.addEventListener('click', this.onPaginationClick)
+        this.elements.pagination.addEventListener('submit', this.onPaginationSubmit)
+      }
+    }
+    onPaginationClick(e) {
+      const link = e.target.closest('a[data-page]')
+      if (!link || !this.elements.pagination?.contains(link)) return
+      e.preventDefault()
+      this.navigatePage(parseInt(link.dataset.page, 10))
+    }
+    onPaginationSubmit(e) {
+      const form = e.target.closest('#page-form')
+      if (!form || !this.elements.pagination?.contains(form)) return
+      e.preventDefault()
+
+      const pageInput = form.querySelector('#page-input')
+      if (!(pageInput instanceof HTMLInputElement)) return
+
+      const filteredMods = this.getFilteredMods()
+      const totalPages = Math.max(1, Math.ceil(filteredMods.length / this.state.limit))
+      const newPage = this.validatePage(pageInput.value, this.state.page)
+
+      if (newPage >= 1 && newPage <= totalPages) {
+        this.navigatePage(newPage)
+      } else {
+        pageInput.value = this.state.page.toString()
+      }
     }
     setState(newState) {
-      // Prevent multiple renders
-      if (this.isRendering) return
-
       // Validate new state values before setting
       const validatedState = { ...newState }
 
@@ -373,6 +421,11 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         'updatedSort' in validatedState ||
         'limit' in validatedState ||
         ('page' in validatedState && validatedState.page === 1)
+
+      if (this.isRendering) {
+        this.pendingState = { ...this.pendingState, ...validatedState }
+        return
+      }
 
       this.state = { ...this.state, ...validatedState }
       this.updateURL(isSearchOrFilter)
@@ -500,7 +553,13 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       requestAnimationFrame(() => {
         try {
           const filteredMods = this.getFilteredMods()
-          const totalPages = Math.ceil(filteredMods.length / this.state.limit)
+          const totalPages = Math.max(1, Math.ceil(filteredMods.length / this.state.limit))
+
+          if (this.state.page > totalPages) {
+            this.state.page = totalPages
+            this.updateURL(true)
+          }
+
           const startIndex = (this.state.page - 1) * this.state.limit
           const endIndex = startIndex + this.state.limit
           const paginatedMods = filteredMods.slice(startIndex, endIndex)
@@ -528,29 +587,30 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
               const tempDiv = document.createElement('div')
 
               tempDiv.innerHTML = paginatedMods
-                .map(
-                  mod => `
+                .map(mod => {
+                  const imageSrc = isSafeUrl(mod.image) ? escapeHtml(mod.image) : ''
+                  return `
                 <a
                   class="mod-card flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
-                  href="${this.getLocalePath(`/mods/${mod.id}${this.buildSearchParams()}`)}"
+                  href="${escapeHtml(this.getLocalePath(`/mods/${encodeURIComponent(mod.id)}${this.buildSearchParams()}`))}"
                 >
                   <div class="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
                     <img
-                      alt="${mod.name}"
+                      alt="${escapeHtml(mod.name)}"
                       class="h-full w-full object-cover transition-transform duration-100 hover:scale-105"
                       loading="lazy"
-                      src="${mod.image}"
+                      src="${imageSrc}"
                     />
                   </div>
                   <div>
                     <h2 class="text-lg font-bold">
-                      ${mod.name} <span class="ml-1 text-sm font-normal">${this.translations.by} @${mod.author}</span>
+                      ${escapeHtml(mod.name)} <span class="ml-1 text-sm font-normal">${escapeHtml(this.translations.by)} @${escapeHtml(mod.author)}</span>
                     </h2>
-                    <p class="text-sm font-thin line-clamp-2">${mod.description}</p>
+                    <p class="text-sm font-thin line-clamp-2">${escapeHtml(mod.description)}</p>
                   </div>
                 </a>
               `
-                )
+                })
                 .join('')
 
               // Move all children to fragment
@@ -580,6 +640,11 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           this.renderPagination(totalPages, filteredMods.length)
         } finally {
           this.isRendering = false
+          if (this.pendingState) {
+            const pending = this.pendingState
+            this.pendingState = null
+            this.setState(pending)
+          }
         }
       })
     }
@@ -604,8 +669,9 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
       return `/mods?${params.toString()}`
     }
     navigatePage(pageNum) {
-      // Validate page number
-      const validatedPage = this.validatePage(pageNum, this.state.page)
+      const filteredMods = this.getFilteredMods()
+      const totalPages = Math.max(1, Math.ceil(filteredMods.length / this.state.limit))
+      const validatedPage = Math.min(this.validatePage(pageNum, this.state.page), totalPages)
 
       // Update state without going through setState to handle URL properly
       this.state = { ...this.state, page: validatedPage }
@@ -669,35 +735,7 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
         ${nextButton}
       `
 
-      // Bind pagination events
       paginationElement.classList.replace('hidden', 'flex')
-
-      const pageForm = document.getElementById('page-form')
-      const pageInput = document.getElementById('page-input')
-
-      if (pageForm && pageInput instanceof HTMLInputElement) {
-        pageForm.addEventListener('submit', e => {
-          e.preventDefault()
-          const inputValue = pageInput.value
-          const newPage = this.validatePage(inputValue, this.state.page)
-
-          // Additional validation for page range
-          if (newPage >= 1 && newPage <= totalPages) {
-            this.navigatePage(newPage)
-          } else {
-            // Reset to current page if out of range
-            pageInput.value = this.state.page.toString()
-          }
-        })
-      }
-
-      // Bind navigation links
-      paginationElement.addEventListener('click', e => {
-        if (e.target instanceof HTMLAnchorElement && e.target.dataset.page) {
-          e.preventDefault()
-          this.navigatePage(parseInt(e.target.dataset.page, 10))
-        }
-      })
     }
   }
 

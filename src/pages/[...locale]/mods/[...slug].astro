@@ -53,6 +53,9 @@ const {
     mods: { slug },
   },
 } = getUI(locale)
+
+const [createdByBefore, createdByAfter = ''] = slug.createdBy.split('{author}')
+const [createdByVersionBefore = '', createdByVersionAfter = ''] = createdByAfter.split('{version}')
 ---
 
 <Layout
@@ -93,14 +96,13 @@ const {
       />
       <div class="flex flex-col justify-between gap-2 sm:flex-row">
         <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
-          <p
-            set:html={slug.createdBy
-              .replace(
-                '{author}',
-                `<a href="${getAuthorLink(mod.author)}" class="zen-link font-bold">${mod.author}</a>`
-              )
-              .replace('{version}', mod.version)}
-          />
+          <p>
+            <Fragment set:html={createdByBefore} />
+            <a href={getAuthorLink(mod.author)} class="zen-link font-bold">{mod.author}</a>
+            <Fragment set:html={createdByVersionBefore} />
+            {mod.version}
+            <Fragment set:html={createdByVersionAfter} />
+          </p>
           <p set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)} />
           {
             dates.createdAt !== dates.updatedAt && (

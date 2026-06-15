@@ -2,11 +2,12 @@
 import { Image } from 'astro:assets'
 import Description from '~/components/Description.astro'
 import Layout from '~/layouts/Layout.astro'
-import { getLocale, getUI } from '~/utils/i18n'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
 import Button from '~/components/Button.astro'
 
 const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
 
 const {
   routes: { about },
@@ -21,7 +22,7 @@ const {
       <Description class="max-w-4xl">
         {about.description}
       </Description>
-      <Button href="/donate" class="w-fit" isPrimary>{about.littleHelp}</Button>
+      <Button href={getLocalePath('/donate')} class="w-fit" isPrimary>{about.littleHelp}</Button>
     </div>
     <div class="flex w-full flex-col gap-4">
       <div class="text-4xl leading-none font-bold lg:text-5xl">{about.mainTeam.title}</div>

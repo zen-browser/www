@@ -27,7 +27,7 @@ export type ReleaseNote = {
   changes?: string[]
 }
 
-export const releaseNotes: ReleaseNote[] = releaseNotesStable.reverse()
+export const releaseNotes: ReleaseNote[] = [...releaseNotesStable].reverse()
 export { default as releaseNotesTwilight } from './release-notes/twilight.json'
 
 export function getReleaseNoteFirefoxVersion(releaseNote: ReleaseNote): string | null {

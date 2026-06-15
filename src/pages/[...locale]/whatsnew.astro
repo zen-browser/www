@@ -8,12 +8,13 @@ import Layout from '~/layouts/Layout.astro'
 import Video from '~/components/Video.astro'
 import { releaseNotes } from '~/release-notes'
 import whatsNewText from '~/release-notes/whats-new.json'
-import { getLocale, getUI } from '~/utils/i18n'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
 
 let latestVersion = releaseNotes[0]
 
 const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
 
 const {
   routes: { whatsNew },
@@ -23,7 +24,7 @@ const {
 // Just redirect to the release notes if we are in a patch version
 if (latestVersion.version.split('.').length > 2) {
   if (whatsNewText[1] !== latestVersion.version) {
-    return Astro.redirect(`/release-notes#${latestVersion.version}`)
+    return Astro.redirect(`${getLocalePath('/release-notes')}#${latestVersion.version}`)
   } else {
     // We need to set the last major version for the text to make sense
     const majorVersion = latestVersion.version.split('.').slice(0, 2).join('.') + 'b'
@@ -64,7 +65,7 @@ if (latestVersion.version.split('.').length > 2) {
       </ul>
       <div class="flex flex-wrap gap-8 place-self-start xl:place-self-center">
         <Button
-          href={`/release-notes#${latestVersion.version}`}
+          href={`${getLocalePath('/release-notes')}#${latestVersion.version}`}
           isPrimary
           class="flex w-fit items-center gap-2"
         >

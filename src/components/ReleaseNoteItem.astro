@@ -22,7 +22,7 @@ const {
 let date: Date | undefined
 if (props.date) {
   const [day, month, year] = props.date.split('/')
-  date = new Date(Date.parse(`${year}-${month}-${day}`))
+  date = new Date(Number(year), Number(month) - 1, Number(day))
 }
 
 const ffVersion = getReleaseNoteFirefoxVersion(props)
@@ -102,7 +102,18 @@ const generateItems = (items: any, type: string) => {
       case 'break':
         listItems[type].push({
           type: 'break',
-          content: item,
+          content: typeof item === 'string' ? item : item.description,
+          ...(typeof item === 'object' &&
+          item !== null &&
+          'link' in item &&
+          typeof item.link === 'string'
+            ? {
+                link: {
+                  text: releaseNoteItem.learnMore,
+                  href: item.link,
+                },
+              }
+            : {}),
         })
         break
       case 'change':
@@ -161,7 +172,6 @@ generateItems(props.knownIssues, 'known')
                 class="text-coral text-xs underline decoration-wavy opacity-80"
                 href={`https://www.mozilla.org/en-US/firefox/${ffVersion}/releasenotes/`}
                 target="_blank"
-                rel="noopener noreferrer"
               >
                 {releaseNoteItem.firefoxVersion.replace('{version}', ffVersion)}
               </a>

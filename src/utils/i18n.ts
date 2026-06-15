@@ -169,5 +169,5 @@ export const getStaticPaths = (() => {
  * @returns {Locale[]} Combined array of all locales
  */
 export const getLocales = (): Locale[] => {
-  return [...locales, ...otherLocales]
+  return [...locales]
 }

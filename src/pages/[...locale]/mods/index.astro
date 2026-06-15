@@ -14,7 +14,7 @@ const {
   layout,
 } = getUI(locale)
 
-const allMods = (await getAllMods()) || []
+const allMods = await getAllMods()
 ---
 
 <Layout title={layout.mods.title}>

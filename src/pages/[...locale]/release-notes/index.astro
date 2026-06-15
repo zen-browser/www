@@ -6,10 +6,11 @@ import ReleaseNoteItem from '~/components/ReleaseNoteItem.astro'
 import ArrowUpIcon from '~/icons/ArrowUp.astro'
 import Layout from '~/layouts/Layout.astro'
 import { releaseNotes as releaseNotesData, releaseNotesTwilight } from '~/release-notes'
-import { getLocale, getUI } from '~/utils/i18n'
+import { getLocale, getPath, getUI } from '~/utils/i18n'
 export { getStaticPaths } from '~/utils/i18n'
 
 const locale = getLocale(Astro)
+const getLocalePath = getPath(locale)
 
 const {
   routes: { releaseNotes },
@@ -31,7 +32,7 @@ const {
         )}
       />
       <div class="mt-8 flex w-fit flex-col gap-4 sm:mr-0 sm:flex-row sm:items-center">
-        <Button class="flex" isPrimary href="/donate">
+        <Button class="flex" isPrimary href={getLocalePath('/donate')}>
           {releaseNotes.list.support}
         </Button>
         <Button id="navigate-to-version" href="#" class="flex" localePath={false}>
@@ -98,9 +99,10 @@ const {
 
   const navigateToVersion = (e: MouseEvent) => {
     const target = e.target as HTMLElement
-    if (!container || !target?.closest('[data-version]')) return
+    const button = target.closest('[data-version]') as HTMLElement | null
+    if (!container || !button) return
 
-    const version = target.getAttribute('data-version')
+    const version = button.getAttribute('data-version')
     if (!version) return
     window.location.hash = version
 

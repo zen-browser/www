@@ -6,4 +6,6 @@ export const PUBLIC_ROUTES = [
   '/download',
   '/donate',
   '/whatsnew',
+  '/mods',
+  '/release-notes',
 ] as const
