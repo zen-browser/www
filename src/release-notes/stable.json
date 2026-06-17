@@ -4148,5 +4148,37 @@
     "workflowId": 27413914698,
     "image": false,
     "date": "13/06/2026"
+  },
+  {
+    "version": "1.21.2b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed space routing overriding tabs with an explicit container",
+        "issue": 14242
+      },
+      {
+        "description": "Fixed background tabs focusing on routed tabs",
+        "issue": 14165
+      },
+      {
+        "description": "Fixed opening glance on links while selecting text in links",
+        "issue": 8391
+      },
+      "Other minor bug fixes and improvements"
+    ],
+    "features": [
+      "Updated to Firefox 152.0",
+      "Improved support for more advanced cursor movement commands, including those relating to paragraph boundaries, on macOS.",
+      "On Windows and Linux, you can now copy links via the tab context menu by right-clicking a tab and selecting Share > Copy Link, making it easy to copy a link without switching to the tab first."
+    ],
+    "changes": [
+      "Site zooming via keyboard or mouse now offers more zoom levels in smaller increments than before.",
+      "When a PDF or other file that Zen opens directly finishes downloading, it now opens in a background tab if you've switched tabs or closed the original page."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-57/",
+    "workflowId": 27676656745,
+    "image": false,
+    "date": "16/06/2026"
   }
 ]
