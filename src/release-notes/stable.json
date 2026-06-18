@@ -4180,5 +4180,22 @@
     "workflowId": 27676656745,
     "image": false,
     "date": "16/06/2026"
+  },
+  {
+    "version": "1.21.3b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed transparency not working after updating to 1.21.2b",
+        "issue": 14259
+      },
+      "Fixed frequent crashes affecting users with Intel Raptor Lake processors",
+      "Fixed an issue on macOS where choosing a PDF option, such as \"Save as PDF\", from the system print dialog would send the job to your printer instead of saving a file.",
+      "Other minor bug fixes and improvements."
+    ],
+    "features": ["Updated to Firefox 152.0.1"],
+    "workflowId": 27759888101,
+    "image": false,
+    "date": "18/06/2026"
   }
 ]
