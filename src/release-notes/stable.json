@@ -4197,5 +4197,32 @@
     "workflowId": 27759888101,
     "image": false,
     "date": "18/06/2026"
+  },
+  {
+    "version": "1.21.4b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Prevent sidebar from flickering when moving a tab",
+        "issue": 14131
+      },
+      {
+        "description": "Full-screening while on a glance tab will now expand the glance tab to a normal tab",
+        "issue": 11766
+      },
+      {
+        "description": "Fixed space routing tabs opening in background when it should be in foreground",
+        "issue": 14183
+      },
+      "Other minor bug fixes and improvements."
+    ],
+    "features": [
+      "Updated to Firefox 152.0.2 and 152.0.3",
+      "Added 'Edit pinned tab' context menu item to manually set a pinned tab's URL",
+      "Added 'Add Route for Domain' context menu item to quickly add a tab's domain to the Space Routing settings"
+    ],
+    "workflowId": 28178000489,
+    "image": false,
+    "date": "26/06/2026"
   }
 ]
