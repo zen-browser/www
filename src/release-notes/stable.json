@@ -4224,5 +4224,28 @@
     "workflowId": 28178000489,
     "image": false,
     "date": "26/06/2026"
+  },
+  {
+    "version": "1.21.5b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed overflowing addons not having context menus",
+        "issue": 14382
+      },
+      "Fixed copy, paste, undo, redo, and similar keyboard shortcuts not working inside macOS system dialogs such as the Save and Open panels.",
+      "Other bug fixes and improvements."
+    ],
+    "features": ["Updated to Firefox 152.0.4"],
+    "security": [
+      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-62/",
+      [
+        "CVE-2026-57501",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-vpvg-hp3v-rm5q"
+      ]
+    ],
+    "workflowId": 28578279004,
+    "image": false,
+    "date": "01/07/2026"
   }
 ]
