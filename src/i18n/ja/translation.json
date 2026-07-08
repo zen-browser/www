@@ -211,7 +211,7 @@
             "studio": {
               "name": "Studio Movie Girl",
               "description": "グラデーションジェネレーターの貢献者",
-              "link": "https://github.com/neurokitti"
+              "link": "https://github.com/StudioMovieGirl"
             }
           },
           "website": {
@@ -488,7 +488,7 @@
       "zenMods": "Zen Mods",
       "releaseNotes": "リリースノート",
       "getHelp": "ヘルプ",
-      "security": "Security",
+      "securtiy": "Security",
       "discord": "Discord",
       "uptimeStatus": "稼働状況",
       "reportAnIssue": "問題を報告",
