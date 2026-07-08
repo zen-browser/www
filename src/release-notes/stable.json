@@ -4247,5 +4247,32 @@
     "workflowId": 28578279004,
     "image": false,
     "date": "01/07/2026"
+  },
+  {
+    "version": "1.21.6b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed some localization strings not being translated in some places",
+        "issue": 10749
+      },
+      {
+        "description": "Fixed glance being able to be open a second time when it was already open",
+        "issue": 14460
+      },
+      {
+        "description": "Fixed some localization strings not being translated in some places",
+        "issue": 10749
+      },
+      {
+        "description": "Fixed some localization strings not being translated in some places",
+        "issue": 10749
+      },
+      "Other bug fixes and improvements."
+    ],
+    "features": ["Updated to Firefox 152.0.5"],
+    "workflowId": 28905722815,
+    "image": false,
+    "date": "07/07/2026"
   }
 ]
