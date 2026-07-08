@@ -1,6 +1,8 @@
 {
-  "version": "xxx",
+  "version": "1.22t",
   "extra": "",
   "fixes": [],
-  "features": []
+  "features": [
+    "By using your Mozilla account, you can now sync your Spaces between devices. Soon, you will be able to sync your folders, essentials, split views, etc between devices as well!"
+  ]
 }
