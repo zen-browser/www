@@ -4260,14 +4260,6 @@
         "description": "Fixed glance being able to be open a second time when it was already open",
         "issue": 14460
       },
-      {
-        "description": "Fixed some localization strings not being translated in some places",
-        "issue": 10749
-      },
-      {
-        "description": "Fixed some localization strings not being translated in some places",
-        "issue": 10749
-      },
       "Other bug fixes and improvements."
     ],
     "features": ["Updated to Firefox 152.0.5"],
