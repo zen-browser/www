@@ -5,38 +5,70 @@ const { class: classList } = Astro.props
 <div id="circles" class:list={['pointer-events-none inset-0 overflow-hidden', classList]}>
   <div class="circles-lottie-wrapper mx-auto opacity-10 lg:opacity-100">
     <dotlottie-wc
+      data-footer-lottie="dark"
       src="/lottie/logo_footer.lottie"
       autoplay
       loop
       style="width: 291px; height: 291px;"></dotlottie-wc>
+    <dotlottie-wc
+      data-footer-lottie="light"
+      src="/lottie/logo_footer_light.lottie"
+      autoplay
+      loop
+      style="width: 291px; height: 291px; display: none;"></dotlottie-wc>
   </div>
 </div>
 
 <script>
   import '@lottiefiles/dotlottie-wc'
 
-  document.querySelectorAll('.circles-lottie-wrapper').forEach(wrapper => {
-    const player = wrapper.querySelector('dotlottie-wc') as any
-    if (!player) return
+  function updateFooterLottieVisibility() {
+    const theme = document.documentElement.getAttribute('data-theme') || 'light'
+    document.querySelectorAll('[data-footer-lottie]').forEach(el => {
+      const variant = (el as HTMLElement).getAttribute('data-footer-lottie')
+      const isVisible = variant === theme
+      ;(el as HTMLElement).style.display = isVisible ? '' : 'none'
 
-    function setup(lottie: any) {
-      lottie.setLoop(true)
-      lottie.play()
-    }
-
-    if (player.dotLottie) {
-      setup(player.dotLottie)
-    } else {
-      const events = ['dotlottie-ready', 'ready', 'load']
-      const handler = () => {
-        if (player.dotLottie) {
-          events.forEach(e => player.removeEventListener(e, handler))
-          setup(player.dotLottie)
-        }
+      // needed to correct dim after theme switch!!!
+      if (isVisible && (el as any).dotLottie) {
+        ;(el as any).dotLottie.resize()
       }
-      events.forEach(e => player.addEventListener(e, handler))
+    })
+  }
+
+  document.querySelectorAll('.circles-lottie-wrapper').forEach(wrapper => {
+    wrapper.querySelectorAll('dotlottie-wc').forEach((player: any) => {
+      function setup(lottie: any) {
+        lottie.setLoop(true)
+        lottie.play()
+      }
+
+      if (player.dotLottie) {
+        setup(player.dotLottie)
+      } else {
+        const events = ['dotlottie-ready', 'ready', 'load']
+        const handler = () => {
+          if (player.dotLottie) {
+            events.forEach(e => player.removeEventListener(e, handler))
+            setup(player.dotLottie)
+          }
+        }
+        events.forEach(e => player.addEventListener(e, handler))
+      }
+    })
+  })
+
+  updateFooterLottieVisibility()
+
+  // Catch theme changes
+  const observer = new MutationObserver(mutations => {
+    for (const mutation of mutations) {
+      if (mutation.attributeName === 'data-theme') {
+        updateFooterLottieVisibility()
+      }
     }
   })
+  observer.observe(document.documentElement, { attributes: true })
 </script>
 
 <style>
