@@ -1,6 +1,6 @@
 <div align="center">
 <picture>
-    <img src="./public/favicon.svg" width="128px">
+    <img src="./public/favicon_animated.svg" width="128px">
 </picture>
 </div>
 <h1 align="center">
