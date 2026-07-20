@@ -1,25 +1,48 @@
 ---
-const { white, multiplier = 0.9, class: classList } = Astro.props
-const sizes = [216, 396, 576, 756]
-const borderWidths = [20, 30, 40, 50]
+const { class: classList } = Astro.props
 ---
 
 <div id="circles" class:list={['pointer-events-none inset-0 overflow-hidden', classList]}>
-  <div class="mx-auto opacity-10 lg:opacity-100">
-    {
-      [...Array(4)].map((_, i) => (
-        <div
-          class:list={[
-            'absolute -translate-x-1/2 -translate-y-1/2 rounded-full',
-            white ? 'border-paper' : 'border-coral',
-          ]}
-          style={{
-            width: `${multiplier * sizes[i]}px`,
-            height: `${multiplier * sizes[i]}px`,
-            borderWidth: `${multiplier * borderWidths[i]}px`,
-          }}
-        />
-      ))
-    }
+  <div class="circles-lottie-wrapper mx-auto opacity-10 lg:opacity-100">
+    <dotlottie-wc
+      src="/lottie/logo_footer.lottie"
+      autoplay
+      loop
+      style="width: 291px; height: 291px;"></dotlottie-wc>
   </div>
 </div>
+
+<script>
+  import '@lottiefiles/dotlottie-wc'
+
+  document.querySelectorAll('.circles-lottie-wrapper').forEach(wrapper => {
+    const player = wrapper.querySelector('dotlottie-wc') as any
+    if (!player) return
+
+    function setup(lottie: any) {
+      lottie.setLoop(true)
+      lottie.play()
+    }
+
+    if (player.dotLottie) {
+      setup(player.dotLottie)
+    } else {
+      const events = ['dotlottie-ready', 'ready', 'load']
+      const handler = () => {
+        if (player.dotLottie) {
+          events.forEach(e => player.removeEventListener(e, handler))
+          setup(player.dotLottie)
+        }
+      }
+      events.forEach(e => player.addEventListener(e, handler))
+    }
+  })
+</script>
+
+<style>
+  .circles-lottie-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
