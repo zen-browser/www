@@ -22,6 +22,18 @@ const { class: classList } = Astro.props
 <script>
   import '@lottiefiles/dotlottie-wc'
 
+  interface DotLottieInstance {
+    setLoop(loop: boolean): void
+    play(): void
+    stop(): void
+    resize(): void
+    setFrame(frame: number): void
+  }
+
+  interface DotLottieElement extends HTMLElement {
+    dotLottie?: DotLottieInstance
+  }
+
   function updateFooterLottieVisibility() {
     const theme = document.documentElement.getAttribute('data-theme') || 'light'
     document.querySelectorAll('[data-footer-lottie]').forEach(el => {
@@ -30,15 +42,15 @@ const { class: classList } = Astro.props
       ;(el as HTMLElement).style.display = isVisible ? '' : 'none'
 
       // needed to correct dim after theme switch!!!
-      if (isVisible && (el as any).dotLottie) {
-        ;(el as any).dotLottie.resize()
+      if (isVisible && (el as DotLottieElement).dotLottie) {
+        ;(el as DotLottieElement).dotLottie!.resize()
       }
     })
   }
 
   document.querySelectorAll('.circles-lottie-wrapper').forEach(wrapper => {
-    wrapper.querySelectorAll('dotlottie-wc').forEach((player: any) => {
-      function setup(lottie: any) {
+    wrapper.querySelectorAll<DotLottieElement>('dotlottie-wc').forEach(player => {
+      function setup(lottie: DotLottieInstance) {
         lottie.setLoop(true)
         lottie.play()
       }

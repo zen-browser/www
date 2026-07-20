@@ -9,11 +9,23 @@ const { class: className } = Astro.props
 <script>
   import '@lottiefiles/dotlottie-wc'
 
+  interface DotLottieInstance {
+    setLoop(loop: boolean): void
+    play(): void
+    stop(): void
+    resize(): void
+    setFrame(frame: number): void
+  }
+
+  interface DotLottieElement extends HTMLElement {
+    dotLottie?: DotLottieInstance
+  }
+
   document.querySelectorAll('.logo-lottie-wrapper').forEach(wrapper => {
-    const player = wrapper.querySelector('dotlottie-wc') as any
+    const player = wrapper.querySelector('dotlottie-wc') as DotLottieElement | null
     if (!player) return
 
-    function setup(lottie: any) {
+    function setup(lottie: DotLottieInstance) {
       wrapper.addEventListener('mouseenter', () => {
         lottie.setFrame(0)
         lottie.play()
