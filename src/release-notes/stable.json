@@ -4266,5 +4266,61 @@
     "workflowId": 28905722815,
     "image": false,
     "date": "07/07/2026"
+  },
+  {
+    "version": "1.21.7b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed essentials promo UI leaving gap on pressing Esc",
+        "issue": 14544
+      },
+      {
+        "description": "Fixed misaligned symbolic space icons in Space options menu on Linux",
+        "issue": 14495
+      },
+      {
+        "description": "Fixed Spaces switching when dragging tab to another monitor",
+        "issue": 14511
+      },
+      {
+        "description": "Fixed tab order flipping when moving tabs between workspaces",
+        "issue": 14495
+      },
+      "Fixed a hang that could occur after using a file picker dialog on macOS 26",
+      "Other bug fixes and improvements."
+    ],
+    "features": ["Updated to Firefox 152.0.6"],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-67/",
+    "workflowId": 29402615673,
+    "image": false,
+    "date": "15/07/2026"
+  },
+  {
+    "version": "1.21.8b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed essentials promo UI leaving gap on pressing Esc",
+        "issue": 14544
+      },
+      {
+        "description": "Fixed localization strings not being translated in some places",
+        "issue": 14605
+      },
+      {
+        "description": "Fixed new Spaces not being able to be removed",
+        "issue": 14618
+      },
+      {
+        "description": "Fixed split view drag and drop ending up opening new windows",
+        "issue": 14619
+      },
+      "Other bug fixes and improvements."
+    ],
+    "features": [],
+    "workflowId": 29532543398,
+    "image": false,
+    "date": "17/07/2026"
   }
 ]
