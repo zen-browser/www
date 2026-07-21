@@ -3,6 +3,10 @@ import BackButton from '~/components/BackButton.astro'
 import Button from '~/components/Button.astro'
 import Description from '~/components/Description.astro'
 import ArrowRightIcon from '~/icons/ArrowRightIcon.astro'
+import CalendarClockIcon from '~/icons/CalendarClockIcon.astro'
+import CalendarIcon from '~/icons/CalendarIcon.astro'
+import ExternalLink from '~/icons/ExternalLink.astro'
+import GitHubIcon from '~/icons/GitHubIcon.astro'
 import InfoIcon from '~/icons/InfoIcon.astro'
 import Layout from '~/layouts/Layout.astro'
 import { getAllMods, getAuthorLink, getLocalizedDate } from '~/mods'
@@ -44,13 +48,17 @@ const dates = {
   updatedAt: getLocalizedDate(mod.updatedAt),
 }
 
+// Check if the author is a GitHub user
+const authorUrl = getAuthorLink(mod.author)
+const isGitHubAuthor = authorUrl.includes('github.com')
+
 const locale = getLocale(Astro)
 
 const getLocalePath = getPath(locale)
 
 const {
   routes: {
-    mods: { slug },
+    mods: { slug, by: byLabel },
   },
 } = getUI(locale)
 ---
@@ -61,10 +69,10 @@ const {
   ogImage={mod.image}
 >
   <main class="container mt-6 2xl:mt-0">
-    <div class="mx-auto mt-12 mb-24 flex flex-col gap-6 lg:mt-32">
+    <div class="mx-auto mt-12 mb-24 flex flex-col gap-6">
       <div
         id="install-theme-error"
-        class="flex flex-col items-center justify-center gap-2 rounded-xl bg-red-200 p-2 pl-4 md:flex-row md:justify-between dark:bg-red-700"
+        class="mb-7 flex flex-col items-center justify-center gap-2 rounded-xl bg-red-200 p-2 pl-4 md:flex-row md:justify-between dark:bg-red-700"
       >
         <div class="flex items-center gap-2 text-center md:text-left">
           <InfoIcon />
@@ -74,7 +82,7 @@ const {
         </div>
         <Button
           href="/download"
-          class="inline-flex flex-shrink-0 !rounded-lg bg-red-300 whitespace-nowrap dark:bg-red-800"
+          class="inline-flex shrink-0 rounded-lg! bg-red-300 whitespace-nowrap dark:bg-red-800"
           isAlert
         >
           {slug.alert.button}
@@ -82,51 +90,94 @@ const {
         </Button>
       </div>
       <BackButton id="back-button" href={getLocalePath('/mods')} />
-      <div>
-        <Description class="text-6xl font-bold">{mod.name}</Description>
-        <Description>{mod.description}</Description>
-      </div>
-      <img
-        src={mod.image}
-        alt={mod.name}
-        class="border-dark h-full w-full rounded-xl border-2 object-cover shadow"
-      />
-      <div class="flex flex-col justify-between gap-2 sm:flex-row">
-        <div class="flex flex-shrink-0 flex-col gap-2 font-normal">
-          <p
-            set:html={slug.createdBy
-              .replace(
-                '{author}',
-                `<a href="${getAuthorLink(mod.author)}" class="zen-link font-bold">${mod.author}</a>`
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[3fr_2fr] lg:items-start">
+        <img
+          src={mod.image}
+          alt={mod.name}
+          class="border-dark aspect-[1.85/1] max-h-80 w-full rounded-xl border-2 object-cover shadow sm:max-h-96 md:max-h-112"
+        />
+        <div class="flex flex-col gap-5 font-normal">
+          <div class="flex flex-col gap-2">
+            <Description class="text-4xl leading-tight font-bold tracking-tight md:text-5xl">
+              {mod.name}
+            </Description>
+            <Description class="text-base leading-relaxed opacity-80 md:text-lg">
+              {mod.description}
+            </Description>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <a
+              href={authorUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="border-dark/20 hover:border-coral hover:text-coral bg-paper/50 inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm font-semibold transition-colors"
+            >
+              {isGitHubAuthor && <GitHubIcon class="size-3.5" />}
+              {byLabel}
+              {mod.author}
+            </a>
+            <span
+              class="border-dark/20 bg-paper/50 inline-flex items-center rounded-full border px-3 py-1.5 font-mono text-xs font-semibold"
+            >
+              v{mod.version}
+            </span>
+          </div>
+
+          <div class="flex flex-col">
+            <div class="flex items-center gap-3 py-2 text-sm">
+              <CalendarIcon class="size-4 shrink-0 text-stone-400" />
+              <span
+                class="opacity-70"
+                set:html={slug.creationDate.replace(
+                  '{createdAt}',
+                  `<span class="font-semibold opacity-100">${dates.createdAt}</span>`
+                )}
+              />
+            </div>
+            {
+              dates.createdAt !== dates.updatedAt && (
+                <div class="flex items-center gap-3 py-2 text-sm">
+                  <CalendarClockIcon class="size-4 shrink-0 text-stone-400" />
+                  <span
+                    class="opacity-70"
+                    set:html={slug.latestUpdate.replace(
+                      '{updatedAt}',
+                      `<span class="font-semibold opacity-100">${dates.updatedAt}</span>`
+                    )}
+                  />
+                </div>
               )
-              .replace('{version}', mod.version)}
-          />
-          <p set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)} />
-          {
-            dates.createdAt !== dates.updatedAt && (
-              <p set:html={slug.latestUpdate.replace('{updatedAt}', dates.updatedAt)} />
-            )
-          }
+            }
+          </div>
+
           {
             mod.homepage && (
-              <a href={mod.homepage} target="_blank" rel="noopener noreferrer" class="zen-link">
+              <a
+                href={mod.homepage}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="zen-link inline-flex w-fit items-center gap-1.5 text-sm font-semibold"
+              >
+                <ExternalLink class="size-3.5" />
                 {slug.visitModHomepage}
               </a>
             )
           }
-        </div>
-        <div class="flex flex-col sm:items-end">
-          <Button class="hidden" id="install-theme" extra={{ 'zen-theme-id': mod.id }} isPrimary>
-            {slug.installMod}
-          </Button>
-          <Button
-            class="hidden"
-            id="install-theme-uninstall"
-            extra={{ 'zen-theme-id': mod.id }}
-            isPrimary
-          >
-            {slug.uninstallMod}
-          </Button>
+
+          <div class="mt-1 flex flex-col gap-2 sm:flex-row">
+            <Button class="hidden" id="install-theme" extra={{ 'zen-theme-id': mod.id }} isPrimary>
+              {slug.installMod}
+            </Button>
+            <Button
+              class="hidden"
+              id="install-theme-uninstall"
+              extra={{ 'zen-theme-id': mod.id }}
+              isPrimary
+            >
+              {slug.uninstallMod}
+            </Button>
+          </div>
         </div>
       </div>
       <!-- TODO: Readme markdown
