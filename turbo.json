@@ -34,6 +34,7 @@
     },
     "test:playwright": {
       "cache": true,
+      "dependsOn": ["build"],
       "inputs": ["src"],
       "outputs": ["playwright-report/**", "test-results/**"]
     }
