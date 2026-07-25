@@ -4322,5 +4322,37 @@
     "workflowId": 29532543398,
     "image": false,
     "date": "17/07/2026"
+  },
+  {
+    "version": "1.21.9b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed 'Add tab to essentials' context menu item being always disabled",
+        "issue": 14616
+      },
+      {
+        "description": "Fixed external links not being routed properly by Space Routing",
+        "issue": 14600
+      },
+      {
+        "description": "Fixed boosts size override not persisting",
+        "issue": 14461
+      },
+      "Other bug fixes and improvements."
+    ],
+    "features": [
+      "Updated Firefox to 153.0",
+      "High Dynamic Range (HDR) video playback is now available on Windows - this feature needs HDR mode enabled for the display in Windows Settings - Display.",
+      "Improved UI for container selection and management",
+      "It is now possible to merge multiple PDFs by dragging a PDF into the PDF sidebar.",
+      "Added support for Apple's system-wide full-screen keyboard command (Globe-F).",
+      "Zen now verifies and displays Qualified Website Authentication Certificates (QWACs) in accordance with eIDAS regulations.",
+      "Added improved support for videos with overlays so users can more easily access video actions from context menus."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-68/",
+    "workflowId": 30140905933,
+    "image": false,
+    "date": "23/07/2026"
   }
 ]
