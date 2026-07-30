@@ -4354,5 +4354,44 @@
     "workflowId": 30140905933,
     "image": false,
     "date": "23/07/2026"
+  },
+  {
+    "version": "1.21.10b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Various performance fixes, RTX Super Resolution not working, and HDR video playback not working on Windows",
+        "issue": 14292
+      },
+      {
+        "description": "Fixed extra divider when urlbar has no results",
+        "issue": 14717
+      },
+      {
+        "description": "Fix boost applying wrong size override",
+        "issue": 14461
+      },
+      {
+        "description": "Fixed crashes/hangs when creating new spaces",
+        "issue": 14713
+      },
+      {
+        "description": "Fixed non-tab drags allowing to switch Spaces",
+        "issue": 14724
+      },
+      {
+        "description": "Fixed essential tab reordering not working at maximum capacity",
+        "issue": 14726
+      },
+      {
+        "description": "Fixed compact sidebar activation at right screen edge",
+        "issue": 14409
+      },
+      "Other bug fixes and improvements."
+    ],
+    "features": ["Updated Firefox to 153.0.1"],
+    "workflowId": 30437247993,
+    "image": false,
+    "date": "29/07/2026"
   }
 ]
