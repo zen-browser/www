@@ -4360,7 +4360,7 @@
     "extra": "",
     "fixes": [
       {
-        "description": "Various performance fixes, energy consumption, RTX Super Resolution not working, and HDR video playback not working on Windows.<br/><br/><b>NOTE: This might need a restart to take effect</b>",
+        "description": "Various performance fixes, energy consumption improvements, RTX Super Resolution not working, and HDR video playback not working on Windows.<br/><br/><b>NOTE: This might need a restart to take effect</b>",
         "issue": 14292
       },
       {
