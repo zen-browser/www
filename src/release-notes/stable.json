@@ -4406,6 +4406,7 @@
         "description": "Fix closing split tab in one window changing focus of other windows",
         "issue": 13761
       },
+      "Fixed audio and video failing to play, or hanging when seeking, on websites that load media from a Blob URL.",
       "Other bug fixes and improvements."
     ],
     "features": [
