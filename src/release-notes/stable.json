@@ -4393,5 +4393,31 @@
     "workflowId": 30437247993,
     "image": false,
     "date": "29/07/2026"
+  },
+  {
+    "version": "1.21.11b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixes issue setting keybinds with shift + digit or symbol",
+        "issue": 9918
+      },
+      {
+        "description": "Fix closing split tab in one window changing focus of other windows",
+        "issue": 13761
+      },
+      "Other bug fixes and improvements."
+    ],
+    "features": [
+      "Updated Firefox to 153.0.3",
+      "You can now filter draft GitHub pull requests in live folders.",
+      "Compact mode now tracks your mouse even after it leaves the window, the sidebar stays open while your cursor lingers near the window's edge and only tucks away once you move further out. This only changed for Windows and MacOS, Linux is still the same as before.",
+      "You can now move the window by dragging empty space in the top part of a webpage, with native snapping and tiling, just like dragging the titlebar. Links, buttons, and other interactive elements still work as usual.",
+      "You can now have multiple media controls in the sidebar, allowing you to control multiple media sources at once.",
+      "Improved startup performance and feeling"
+    ],
+    "workflowId": 31058908663,
+    "image": false,
+    "date": "05/07/2026"
   }
 ]

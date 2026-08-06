@@ -3,8 +3,6 @@
   "extra": "",
   "fixes": [],
   "features": [
-    "By using your Mozilla account, you can now sync your Spaces between devices. Soon, you will be able to sync your folders, essentials, split views, etc between devices as well!",
-    "Compact mode now tracks your mouse even after it leaves the window, the sidebar stays open while your cursor lingers near the window's edge and only tucks away once you move further out. This only changed for Windows and MacOS, Linux is still the same as before.",
-    "You can now move the window by dragging empty space in the top part of a webpage, with native snapping and tiling, just like dragging the titlebar. Links, buttons, and other interactive elements still work as usual."
+    "By using your Mozilla account, you can now sync your Spaces between devices. Soon, you will be able to sync your folders, essentials, split views, etc between devices as well!"
   ]
 }
