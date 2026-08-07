@@ -4420,5 +4420,17 @@
     "workflowId": 31058908663,
     "image": false,
     "date": "05/08/2026"
+  },
+  {
+    "version": "1.21.12b",
+    "extra": "",
+    "fixes": [
+      "Fixed selecting text at the top of a page making the window drag instead of selecting text.",
+      "Other bug fixes and improvements."
+    ],
+    "features": [],
+    "workflowId": 31133195036,
+    "image": false,
+    "date": "07/08/2026"
   }
 ]
