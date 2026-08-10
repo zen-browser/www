@@ -4438,10 +4438,6 @@
     "extra": "",
     "fixes": [
       "Fixed infinite media players appearing infinitely in the sidebar when a page has multiple media players.",
-      {
-        "description": "Fixed restoring pinned tab not moving it to pinned tabs container",
-        "issue": 14869
-      },
       "Other bug fixes and improvements."
     ],
     "features": [],
