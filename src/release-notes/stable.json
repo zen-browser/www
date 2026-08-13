@@ -4432,5 +4432,17 @@
     "workflowId": 31133195036,
     "image": false,
     "date": "07/08/2026"
+  },
+  {
+    "version": "1.21.13b",
+    "extra": "",
+    "fixes": [
+      "Fixed infinite media players appearing infinitely in the sidebar when a page has multiple media players.",
+      "Other bug fixes and improvements."
+    ],
+    "features": [],
+    "workflowId": 31271995042,
+    "image": false,
+    "date": "07/08/2026"
   }
 ]
