@@ -4444,5 +4444,24 @@
     "workflowId": 31271995042,
     "image": false,
     "date": "07/08/2026"
+  },
+  {
+    "version": "1.21.14b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed feature callouts not using native panels",
+        "issue": 14912
+      },
+      {
+        "description": "Fixed hang when using the same tab in 2 windows with different containers",
+        "issue": 14905
+      },
+      "Other bug fixes and improvements."
+    ],
+    "features": ["Update Firefox version to 153.0.4", "Added support for FFmpeg 63"],
+    "workflowId": 31542721861,
+    "image": false,
+    "date": "13/08/2026"
   }
 ]
