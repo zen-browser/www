@@ -4463,5 +4463,50 @@
     "workflowId": 31542721861,
     "image": false,
     "date": "13/08/2026"
+  },
+  {
+    "version": "1.21.15b",
+    "extra": "",
+    "fixes": [
+      "Improved battery life on MacOS when using vibrancy effects",
+      {
+        "description": "Improved performance of session restore, having spikes of CPU usage every time the session is stored into disk",
+        "issue": 14990
+      },
+      {
+        "description": "Fix multiple glance tabs when joining tabs",
+        "issue": 14975
+      },
+      {
+        "description": "Improved rendering performance on MacOS and memory leaks when using WebRTC",
+        "issue": 9649
+      },
+      "Fixed an issue on macOS where closing a browser window could leave behind an invisible window that continued to capture mouse clicks over the area where it used to be.",
+      "Fixed an issue on Windows where an auto-hiding taskbar would not appear until the Zen window had been minimized and restored after launch.",
+      "Fixed an issue where the Windows taskbar would appear in front of a full screen Picture-in-Picture window.",
+      "Fixed PDF documents not being scaled correctly in print preview when the Fit to Page Width option is used.",
+      "Other bug fixes and improvements."
+    ],
+    "changed": [
+      "Improved performance on all systems and benchmarks by using a different memory allocator",
+      "Video seeking is now significantly faster on all operating systems, making it quicker to jump to a point in a video.",
+      "Enabled webrender compositor on Linux, improving performance and reducing power usage on Linux systems that support it.",
+      "Text selected in a PDF is now highlighted the same way as text on a web page, and the highlight color follows operating system settings such as high-contrast mode."
+    ],
+    "features": [
+      "Update Firefox version to 154.0",
+      "Local Zen profile backups are now available on macOS in addition to Windows and Linux, and backups can be restored across all three platforms.",
+      "Sites can now be exempted from having their cookies and site data cleared on shutdown without also being exempted from tracking protection and other cookie restrictions.",
+      "The full-page Translations feature now translates <iframe> content.",
+      "The full-page Translations feature now runs language identification on all page loads, resulting in an improved experience for offering translations to users.",
+      "Performing a hard reload on a page (holding Shift while clicking the Refresh button) now also clears and updates its cached favicons."
+    ],
+    "knownIssues": [
+      "Following recent changes to Zen's password storage, some users may experience slower performance when Zen accesses saved passwords. Users with a Primary Password enabled may also see unexpected password prompts, such as when starting Zen or opening certain content."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-74/",
+    "workflowId": 32192158140,
+    "image": false,
+    "date": "19/08/2026"
   }
 ]
