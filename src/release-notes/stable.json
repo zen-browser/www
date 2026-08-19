@@ -4487,7 +4487,7 @@
       "Fixed PDF documents not being scaled correctly in print preview when the Fit to Page Width option is used.",
       "Other bug fixes and improvements."
     ],
-    "changed": [
+    "changes": [
       "Improved performance on all systems and benchmarks by using a different memory allocator",
       "Video seeking is now significantly faster on all operating systems, making it quicker to jump to a point in a video.",
       "Enabled webrender compositor on Linux, improving performance and reducing power usage on Linux systems that support it.",
@@ -4497,7 +4497,7 @@
       "Update Firefox version to 154.0",
       "Local Zen profile backups are now available on macOS in addition to Windows and Linux, and backups can be restored across all three platforms.",
       "Sites can now be exempted from having their cookies and site data cleared on shutdown without also being exempted from tracking protection and other cookie restrictions.",
-      "The full-page Translations feature now translates <iframe> content.",
+      "The full-page Translations feature now translates &lt;iframe&gt; content.",
       "The full-page Translations feature now runs language identification on all page loads, resulting in an improved experience for offering translations to users.",
       "Performing a hard reload on a page (holding Shift while clicking the Refresh button) now also clears and updates its cached favicons."
     ],
