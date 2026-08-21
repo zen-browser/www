@@ -131,7 +131,7 @@ generateItems(props.knownIssues, 'known')
     {
       isTwilight ? (
         <a
-          class="bg-coral text-paper !mb-2 block w-fit rounded-full px-3 py-1 text-xs"
+          class="bg-coral-on-paper text-paper !mb-2 block w-fit rounded-full px-3 py-1 text-xs"
           href={getLocalePath('/download?twilight')}
         >
           {releaseNoteItem.twilight}
@@ -158,7 +158,7 @@ generateItems(props.knownIssues, 'known')
               <span class="text-muted-foreground mx-3 hidden sm:block">•</span>
               <a
                 rel="noopener noreferrer"
-                class="text-coral text-xs underline decoration-wavy opacity-80"
+                class="text-coral-on-paper text-xs underline decoration-wavy opacity-80"
                 href={`https://www.mozilla.org/en-US/firefox/${ffVersion}/releasenotes/`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -280,7 +280,7 @@ generateItems(props.knownIssues, 'known')
 
     .extra {
       & a {
-        @apply !text-coral underline underline-offset-4;
+        @apply !text-coral-on-paper underline underline-offset-4;
       }
     }
 
