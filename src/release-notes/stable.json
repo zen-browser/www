@@ -4508,5 +4508,33 @@
     "workflowId": 32192158140,
     "image": false,
     "date": "19/08/2026"
+  },
+  {
+    "version": "1.21.16b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Improved on session store performance, lowering CPU usage spikes and disk usage when storing the session",
+        "issue": 14990
+      },
+      {
+        "description": "Fixed duplicate separator on tab context menu",
+        "issue": 15031
+      },
+      {
+        "description": "Fixed minimizing PiP window failing to collapse into the sidebar",
+        "issue": 14710
+      },
+      "Fixed slower access to saved passwords and unexpected Primary Password prompts caused by recent changes to password storage.",
+      "Fixed an issue where addresses were failing to autofill on some sites.",
+      "Other bug fixes and improvements."
+    ],
+    "changes": [
+      "Updated Windows builds to renew the code signing certificate, which expired on 2026-09-03."
+    ],
+    "features": ["Update Firefox version to 154.0.1"],
+    "workflowId": 32986542050,
+    "image": false,
+    "date": "27/08/2026"
   }
 ]
