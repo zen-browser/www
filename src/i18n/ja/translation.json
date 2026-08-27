@@ -272,11 +272,11 @@
     "download": {
       "title": "Ready to experience Zen?",
       "description": "お使いのプラットフォーム向けにZenをダウンロード。すべてのダウンロードにはSHA256チェックサムが含まれています",
-      "twilightInfo": "現在Twilightモードです。最新の実験的機能とアップデートをダウンロードしています。",
+      "twilightInfo": "Twilightのリリースを表示しています。これらは、Zen Browserの最新の実験的な機能やアップデートを含むプレリリース版です。",
       "beta": "Zen is currently in ",
       "otherDownload": "If your device got wrongly detected, <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link ml-[1px]'>see other downloads</a>.<br />Please report any issues you encounter on <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>.",
       "alertInfo": {
-        "description": "You're currently in Twilight mode, this means you're downloading the latest experimental features and updates."
+        "description": "You're viewing Twilight releases. These are pre-release builds of Zen Browser with the latest experimental features and updates."
       },
       "platformSelector": {
         "title": "プラットフォーム選択",
