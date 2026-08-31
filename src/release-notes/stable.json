@@ -4529,9 +4529,6 @@
       "Fixed an issue where addresses were failing to autofill on some sites.",
       "Other bug fixes and improvements."
     ],
-    "changes": [
-      "Updated Windows builds to renew the code signing certificate, which expired on 2026-09-03."
-    ],
     "features": ["Update Firefox version to 154.0.1"],
     "workflowId": 32986542050,
     "image": false,
