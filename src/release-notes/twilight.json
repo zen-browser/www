@@ -3,6 +3,9 @@
   "extra": "",
   "fixes": [],
   "features": [
-    "By using your Mozilla account, you can now sync your Spaces, Folders, Tabs, and much more between devices!"
+    "By using your Mozilla account, you can now sync your Spaces, Folders, Tabs, and much more between devices!",
+    "The chrome UI now has a better look and feel, implementing squircles and other design elements to make it more visually appealing.",
+    "A new on-boarding experience has been added to help new users get started with the browser and its features.",
+    "Creating a new Space is now faster and requires less animation wait time, making the process more efficient."
   ]
 }
