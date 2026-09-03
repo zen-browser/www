@@ -131,7 +131,7 @@ const {
       aria-label="Copyright information"
     >
       <p
-        class="flex justify-center gap-2 lg:justify-start"
+        class="[&_.zen-link]:!text-paper flex justify-center gap-2 lg:justify-start"
         set:html={footer.madeWith.replace('{link}', getLocalePath('/about'))}
       />
     </section>
