@@ -4536,7 +4536,7 @@
   },
   {
     "version": "1.22b",
-    "extra": "",
+    "extra": "This release includes a major new feature to sync your Spaces across devices using your Mozilla account! Please note that the first time this feature is enabled, it will merge both your local and cloud Spaces.",
     "fixes": [
       "Fixed live folders for GitHub issues not working with the new GitHub UI",
       "Fixed Zen preventing Linux systems from going to sleep after a long browsing session.",
