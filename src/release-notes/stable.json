@@ -4533,5 +4533,33 @@
     "workflowId": 32986542050,
     "image": false,
     "date": "27/08/2026"
+  },
+  {
+    "version": "1.22b",
+    "extra": "",
+    "fixes": [
+      "Fixed live folders for GitHub issues not working with the new GitHub UI",
+      "Fixed Zen preventing Linux systems from going to sleep after a long browsing session.",
+      "Fixed arrow-key and Page Up/Down scrolling not working on some pages with embedded content from other sites.",
+      "Fixed live audio streams such as internet radio stopping when playing in the background.",
+      "Other bug fixes and improvements."
+    ],
+    "features": [
+      "Updated to Freifox 155.0 and 155.0.1",
+      "By using your Mozilla account, you can now sync your Spaces, Folders, Tabs, and much more between devices! This can be enabled in Settings > Sync > Sync your Spaces across devices.",
+      "The chrome UI now has a better look and feel, implementing squircles and other design elements to make it more visually appealing.",
+      "A new on-boarding experience has been added to help new users get started with the browser and its features.",
+      "Creating a new Space is now faster and requires less animation wait time, making the process more efficient.",
+      "Containers can now be reordered in Settings, and the new order is used wherever containers are listed."
+    ],
+    "changes": [
+      "Font size has been increased for the sidebar text, making it easier to read and navigate through tabs and spaces.",
+      "Zen now uses firefox-portal-detection.com instead of detectportal.firefox.com to detect captive portals and check network connectivity, so network allowlists referencing the old domain need updating.",
+      "PDFs smaller than the paper size can now be enlarged to fill the sheet when printing, by setting the scale above 100%."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-82/",
+    "workflowId": 33904187244,
+    "image": false,
+    "date": "03/09/2026"
   }
 ]
