@@ -29,7 +29,10 @@ const {
             hero.title.map(title =>
               title.text !== '\n' ? (
                 <b
-                  class:list={['font-normal', title.highlight && 'text-coral italic']}
+                  class:list={[
+                    'font-normal',
+                    title.highlight && 'dark:text-coral text-[#bf3316] italic',
+                  ]}
                   style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
                 >
                   {title.text}
