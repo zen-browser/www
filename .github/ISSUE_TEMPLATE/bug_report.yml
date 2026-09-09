@@ -1,0 +1,96 @@
+name: Bug report
+description: Report a problem on the Zen Browser website
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a website issue. Please include enough detail for maintainers to reproduce it.
+
+        Please search open and closed issues before submitting. Someone might have reported the same thing already.
+        Desktop app issues should be reported in https://github.com/zen-browser/desktop/issues.
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope
+      options:
+        - label: This issue is about the Zen Browser website, not the desktop app.
+          required: true
+
+  - type: input
+    id: page
+    attributes:
+      label: Affected page
+      description: Paste the URL or route where the issue appears.
+      placeholder: "https://zen-browser.app/download"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the visible problem or broken behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. See ...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Home / marketing pages
+        - Download page
+        - Release notes / what's new
+        - Mods pages
+        - Navigation / layout
+        - Translations
+        - Build / CI
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: "Firefox 145 on macOS, Safari on iPhone, etc."
+
+  - type: checkboxes
+    id: ai_use
+    attributes:
+      label: AI use
+      options:
+        - label: I did not use AI to create this issue.
+        - label: If there is no check above, I reviewed the generated content before submitting.
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or recordings
+      description: Drag screenshots, videos, or logs here if useful.
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
