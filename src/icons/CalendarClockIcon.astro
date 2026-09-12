@@ -1,0 +1,21 @@
+---
+const { class: className, ...props } = Astro.props
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class:list={['lucide lucide-calendar-clock-icon lucide-calendar-clock', className]}
+  {...props}
+  ><path d="M16 14v2.2l1.6 1"></path><path d="M16 2v4"></path><path
+    d="M21 7.5V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2 3 3 0 0 0 3-3"></path><path
+    d="M3 10h7"></path><path d="M21 15.5a2.5 2.5 0 0 1-2.5 2.5"></path><path
+    d="M21 15.5a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0Z"></path></svg
+>
