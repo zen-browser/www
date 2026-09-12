@@ -1,9 +1,6 @@
 {
-  "version": "1.22.1t",
+  "version": "xxx",
   "extra": "",
   "fixes": [],
-  "features": [
-    "You now have the option to sync normal tabs across devices along with your Spaces, Folders, and other data. This can be enabled in Settings > Sync > Sync your Spaces across devices.",
-    "You can now share Spaces, folders and split views to other Zen users and non-Zen users via a shareable link. This can be found in the context menu of a Space, folder or split view."
-  ]
+  "features": []
 }
