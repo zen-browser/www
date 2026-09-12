@@ -5,6 +5,9 @@
 @theme inline {
   --color-paper: var(--zen-paper);
   --color-coral: #f76f53;
+  --color-coral-strong: #a02f14;
+  --color-coral-on-paper: var(--zen-coral-on-paper);
+  --color-coral-on-dark: var(--zen-coral-on-dark);
   --color-dark: var(--zen-dark);
   --color-subtle: var(--zen-subtle);
   --color-muted: var(--zen-muted);
@@ -77,6 +80,10 @@
   --zen-dark: #2e2e2e;
   --zen-muted: rgba(0, 0, 0, 0.05);
   --zen-subtle: rgba(0, 0, 0, 0.05);
+  /* coral fails WCAG contrast against whichever surface is currently light,
+     so these flip opposite to --zen-paper/--zen-dark to stay readable on each */
+  --zen-coral-on-paper: #a02f14;
+  --zen-coral-on-dark: #f76f53;
 }
 
 :root[data-theme='dark'] {
@@ -84,6 +91,8 @@
   --zen-dark: #d1cfc0;
   --zen-muted: rgba(255, 255, 255, 0.05);
   --zen-subtle: rgba(255, 255, 255, 0.1);
+  --zen-coral-on-paper: #f76f53;
+  --zen-coral-on-dark: #a02f14;
 }
 
 @layer base {
@@ -115,7 +124,7 @@ h1 .italic {
 }
 
 .zen-link {
-  @apply text-coral underline underline-offset-4;
+  @apply text-coral-on-dark underline underline-offset-4;
 }
 
 .svg-inline--fa {
