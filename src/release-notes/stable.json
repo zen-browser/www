@@ -4577,5 +4577,47 @@
     "workflowId": 34618401337,
     "image": false,
     "date": "12/09/2026"
+  },
+  {
+    "version": "1.22.2b",
+    "extra": "",
+    "fixes": [
+      "Fixed high-sample-rate FLAC audio in MP4 failing to play on certain video sites.",
+      "Fixed subtitles not appearing in the Picture-in-Picture window when they are turned on in the video player after the window has already opened.",
+      "Fixed the find bar becoming permanently unavailable in a tab after reversing the panes in Split View.",
+      "Fixed some sites failing to load when DNS over HTTPS is enabled and the site does not support HTTPS.",
+      "Fixed an issue on Windows where Zen could block an auto-hiding taskbar from showing.",
+      {
+        "description": "Fixed the sidebar not hiding if the urlbar is open when compact mode is enabled.",
+        "issue": 13196
+      },
+      {
+        "description": "Fixed an issue where cross-space tab routing would freeze the browser under certain conditions.",
+        "issue": 14171
+      },
+      {
+        "description": "Fixed cross-device sync losing certain tabs if they are created too quickly",
+        "issue": 15380
+      },
+      "Fixed certain issues related to live folders appearing as active even when they are no tabs showing in them.",
+      "Other bug fixes and improvements."
+    ],
+    "features": [
+      "Updated to Firefox 156.0",
+      "Zen on macOS can now be set to open automatically when the computer starts up, from the Startup section of Settings.",
+      "Added the following actions to the command bar: 'Expand current view', 'New space', 'Reopen closed tab', 'Duplicate tab', 'Reset pinned tab'."
+    ],
+    "changes": [
+      "Zen's built-in PDF viewer now starts up to 45% faster.",
+      "Improved memory and CPU usage when Zen displays large JPEG images scaled down to fit a page.",
+      "On Windows devices with ARM64 processors, WebRTC video calls may now use hardware H264 decoding instead of falling back to software.",
+      "Live Folders will now ignore archived issues and pull requests.",
+      "Improved the look and feel of drag-and-drop interactions for tabs. Specially on MacOS, where the drag-and-drop behavior is now done natively.",
+      "Folders will now fully-expand if all tabs within them are visible. Folder animations has also been improved for smoother transitions."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-90/",
+    "workflowId": 35024088099,
+    "image": false,
+    "date": "16/09/2026"
   }
 ]
