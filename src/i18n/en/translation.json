@@ -493,25 +493,14 @@
     "nav": {
       "brand": "Zen Browser",
       "menu": {
-        "gettingStarted": "Getting Started",
-        "usefulLinks": "Useful Links",
+        "browse": "Browse",
+        "socialLinks": "Social Links",
         "mods": "Mods",
-        "download": "Download",
         "discord": "Discord",
         "releaseNotes": "Release Notes",
-        "zenMods": "Zen Mods",
-        "tryZenMods": "Try Zen Mods",
-        "zenModsDesc": "Customize your browsing experience with Zen Mods.",
-        "releaseNotesDesc": "Stay up to date with the latest features and improvements.",
-        "discordDesc": "Join our community on Discord to chat with other Zen users!",
-        "donate": "Donate ❤️",
-        "donateDesc": "Support the development of Zen with a donation.",
-        "aboutUs": "About Us 🌟",
-        "aboutUsDesc": "Learn more about the team behind Zen.",
+        "aboutUs": "About Us",
         "documentation": "Documentation",
-        "documentationDesc": "Learn how to use Zen with our documentation.",
         "github": "GitHub",
-        "githubDesc": "Contribute to the development of Zen on GitHub.",
         "menu": "Menu"
       }
     }
