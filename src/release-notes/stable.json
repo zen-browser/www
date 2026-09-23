@@ -4619,5 +4619,33 @@
     "workflowId": 35024088099,
     "image": false,
     "date": "16/09/2026"
+  },
+  {
+    "version": "1.22.3b",
+    "extra": "",
+    "fixes": [
+      "Fixed Zen leaking system handles on Windows as content processes were started and stopped.",
+      {
+        "description": "Fixed context menu actions on the urlbar not working.",
+        "issue": 15437
+      },
+      {
+        "description": "Fixed overflow-extension order in single toolbar mode.",
+        "issue": 15419
+      },
+      {
+        "description": "Fixed not being able to install add-ons while in compact mode.",
+        "issue": 15445
+      },
+      "Fixed Zen windows on macOS 27 immediately returning to maximized after being restored by double-clicking the title bar.",
+      "Other bug fixes and improvements."
+    ],
+    "features": [
+      "Updated to Firefox 156.0.1",
+      "The command bar now allows you to search through tabs and folders more efficiently."
+    ],
+    "workflowId": 35757934569,
+    "image": false,
+    "date": "23/09/2026"
   }
 ]
