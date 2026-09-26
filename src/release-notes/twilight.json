@@ -1,6 +1,12 @@
 {
-  "version": "xxx",
+  "version": "1.23t",
   "extra": "",
-  "fixes": [],
-  "features": []
+  "fixes": [
+    "Significant performance improvements on startups/new windows when there are lots of tabs open."
+  ],
+  "changes": ["On MacOS, buttons at the bottom of the sidebar now appear larger."],
+  "features": [
+    "Introducing Library! A better place to organize and access your history, media, downloads, spaces and more.",
+    "Some elements like the sidebar and the command bar now appear with blur effects."
+  ]
 }
