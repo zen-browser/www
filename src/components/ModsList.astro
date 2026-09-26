@@ -528,29 +528,36 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
               const tempDiv = document.createElement('div')
 
               tempDiv.innerHTML = paginatedMods
-                .map(
-                  mod => `
+                .map(mod => {
+                  const name = this.escapeHtml(mod.name)
+                  const author = this.escapeHtml(mod.author)
+                  const image = this.escapeHtml(mod.image)
+                  const description = this.escapeHtml(mod.description)
+                  const href = this.escapeHtml(
+                    this.getLocalePath(`/mods/${mod.id}${this.buildSearchParams()}`)
+                  )
+                  return `
                 <a
                   class="mod-card flex w-full flex-col gap-4 border-transparent transition-colors duration-100 hover:opacity-90"
-                  href="${this.getLocalePath(`/mods/${mod.id}${this.buildSearchParams()}`)}"
+                  href="${href}"
                 >
                   <div class="relative mb-0 block aspect-[1.85/1] h-48 overflow-hidden rounded-md border-2 border-dark object-cover shadow-md">
                     <img
-                      alt="${mod.name}"
+                      alt="${name}"
                       class="h-full w-full object-cover transition-transform duration-100 hover:scale-105"
                       loading="lazy"
-                      src="${mod.image}"
+                      src="${image}"
                     />
                   </div>
                   <div>
                     <h2 class="text-lg font-bold">
-                      ${mod.name} <span class="ml-1 text-sm font-normal">${this.translations.by} @${mod.author}</span>
+                      ${name} <span class="ml-1 text-sm font-normal">${this.escapeHtml(this.translations.by)} @${author}</span>
                     </h2>
-                    <p class="text-sm font-thin line-clamp-2">${mod.description}</p>
+                    <p class="text-sm font-thin line-clamp-2">${description}</p>
                   </div>
                 </a>
               `
-                )
+                })
                 .join('')
 
               // Move all children to fragment
@@ -582,6 +589,15 @@ const totalPages = Math.ceil(allMods.length / defaultLimit)
           this.isRendering = false
         }
       })
+    }
+
+    escapeHtml(value) {
+      return String(value)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;')
     }
 
     buildSearchParams() {
