@@ -51,7 +51,7 @@
     "tailwind-merge": "3.6.0",
     "tailwindcss": "4.3.2",
     "turbo": "2.10.4",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "ua-parser-js": "2.0.10"
   },
   "devDependencies": {
