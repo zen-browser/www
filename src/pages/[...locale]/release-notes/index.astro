@@ -18,9 +18,7 @@ const {
 ---
 
 <Layout title={layout.releaseNotes.title}>
-  <main
-    class="container flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4"
-  >
+  <main class="container flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4">
     <div id="release-notes" class="flex min-h-screen w-full flex-col justify-center gap-8">
       <Description class="mt-48 text-6xl font-bold">{releaseNotes.topSection.title}</Description>
       <p
@@ -38,12 +36,12 @@ const {
           {releaseNotes.list.navigateToVersion}
         </Button>
       </div>
-      {
-        releaseNotesTwilight.features.length || releaseNotesTwilight.fixes.length ? (
-          <ReleaseNoteItem {...releaseNotesTwilight} isTwilight />
-        ) : null
-      }
-      {releaseNotesData.map(notes => <ReleaseNoteItem {...notes} />)}
+      {releaseNotesTwilight.features.length || releaseNotesTwilight.fixes.length ? (
+        <ReleaseNoteItem {...releaseNotesTwilight} isTwilight />
+      ) : null}
+      {releaseNotesData.map(notes => (
+        <ReleaseNoteItem {...notes} />
+      ))}
     </div>
   </main>
   <Button id="scroll-top" isPrimary class="fixed right-8 bottom-8" onclick="window.scrollTo(0, 0)">
@@ -60,17 +58,15 @@ const {
   </ModalHeader>
   <ModalBody>
     <div id="version-list" class="text-dark flex flex-col gap-2 text-xl">
-      {
-        releaseNotesData.map(note => (
-          <button
-            aria-label={`Navigate to version ${note.version}`}
-            class="hover:text-coral w-full text-left transition-colors duration-150"
-            data-version={note.version}
-          >
-            {note.version}
-          </button>
-        ))
-      }
+      {releaseNotesData.map(note => (
+        <button
+          aria-label={`Navigate to version ${note.version}`}
+          class="hover:text-coral w-full text-left transition-colors duration-150"
+          data-version={note.version}
+        >
+          {note.version}
+        </button>
+      ))}
     </div>
   </ModalBody>
 </Modal>

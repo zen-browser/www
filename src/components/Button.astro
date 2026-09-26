@@ -16,48 +16,46 @@ const {
 } = Astro.props
 ---
 
-{
-  href ? (
-    <a
-      id={id}
-      {...extra}
-      href={localePath ? getLocalePath(href) : href}
-      class:list={[
-        'transition-bg flex items-center justify-center gap-2 rounded-xl px-6 py-4 transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]',
-        className,
-        isPrimary
-          ? 'border-dark bg-dark text-paper shadow-lg'
-          : isAlert
-            ? 'text-dark bg-red-300'
-            : !isBordered
-              ? 'bg-subtle'
-              : '!transition-bg border-dark hover:bg-dark hover:text-paper border-2 hover:shadow-sm',
-      ]}
-      {...props}
-    >
-      <slot />
-    </a>
-  ) : (
-    <button
-      id={id}
-      {...extra}
-      class:list={[
-        'transition-bg flex items-center justify-center gap-2 rounded-lg px-6 py-3 transition-transform duration-150 hover:scale-[1.02]',
-        className,
-        isPrimary
-          ? 'border-dark bg-dark text-paper shadow-md'
-          : isAlert
-            ? 'text-dark bg-red-300'
-            : !isBordered
-              ? ''
-              : '!transition-bg border-dark hover:bg-dark hover:text-paper border-2 hover:shadow-sm',
-      ]}
-      {...props}
-    >
-      <slot />
-    </button>
-  )
-}
+{href ? (
+  <a
+    id={id}
+    {...extra}
+    href={localePath ? getLocalePath(href) : href}
+    class:list={[
+      'transition-bg flex items-center justify-center gap-2 rounded-xl px-6 py-4 transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]',
+      className,
+      isPrimary
+        ? 'border-dark bg-dark text-paper shadow-lg'
+        : isAlert
+          ? 'text-dark bg-red-300'
+          : !isBordered
+            ? 'bg-subtle'
+            : '!transition-bg border-dark hover:bg-dark hover:text-paper border-2 hover:shadow-sm',
+    ]}
+    {...props}
+  >
+    <slot />
+  </a>
+) : (
+  <button
+    id={id}
+    {...extra}
+    class:list={[
+      'transition-bg flex items-center justify-center gap-2 rounded-lg px-6 py-3 transition-transform duration-150 hover:scale-[1.02]',
+      className,
+      isPrimary
+        ? 'border-dark bg-dark text-paper shadow-md'
+        : isAlert
+          ? 'text-dark bg-red-300'
+          : !isBordered
+            ? ''
+            : '!transition-bg border-dark hover:bg-dark hover:text-paper border-2 hover:shadow-sm',
+    ]}
+    {...props}
+  >
+    <slot />
+  </button>
+)}
 <style>
   button,
   a {

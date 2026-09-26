@@ -21,61 +21,55 @@ const descriptions = Object.values(features.featureTabs).map(tab => tab.descript
 
 <section id="features" class="relative flex w-full flex-col py-12 text-start lg:py-36">
   <Description class="mb-2 text-4xl font-bold sm:text-6xl">
-    {
-      (titles || features.titles).map((title, index) =>
-        title !== '\n' ? (
-          <span class="title-line opacity-0" data-index={index}>
-            {title}
-          </span>
-        ) : (
-          <br class="hidden md:block" />
-        )
+    {(titles || features.titles).map((title, index) =>
+      title !== '\n' ? (
+        <span class="title-line opacity-0" data-index={index}>
+          {title}
+        </span>
+      ) : (
+        <br class="hidden md:block" />
       )
-    }
+    )}
   </Description>
 
-  <p class="feature-description-text opacity-0 lg:w-1/2">
-    {features.description}
-  </p>
+  <p class="feature-description-text opacity-0 lg:w-1/2">{features.description}</p>
 
   <div class="mt-6 flex flex-col gap-6 lg:flex-row lg:justify-between lg:gap-2">
     <div class="flex w-full flex-col lg:w-1/3">
       <!-- Mobile Tabs -->
       <div class="flex gap-2 overflow-x-auto overflow-y-clip lg:hidden">
-        {
-          Object.entries(features.featureTabs).map(([key, tab], i) => (
-            <button
-              class="feature-tab whitespace-nowrap opacity-0"
-              data-index={i}
-              data-feature-key={key}
-              data-active={i === 0 ? 'true' : undefined}
-            >
-              {tab.title}
-            </button>
-          ))
-        }
+        {Object.entries(features.featureTabs).map(([key, tab], i) => (
+          <button
+            class="feature-tab whitespace-nowrap opacity-0"
+            data-index={i}
+            data-feature-key={key}
+            data-active={i === 0 ? 'true' : undefined}
+          >
+            {tab.title}
+          </button>
+        ))}
       </div>
 
       <!-- Desktop features list -->
       <div id="features-list" class="hidden lg:flex lg:flex-col lg:gap-3">
-        {
-          Object.entries(features.featureTabs).map(([key, tab], i) => (
-            <div
-              class="feature opacity-0"
-              data-index={i}
-              data-feature-key={key}
-              data-active={i === 0 ? 'true' : undefined}
-            >
-              <Description class="text-2xl font-bold">{tab.title}</Description>
-              <Description>{tab.description}</Description>
-            </div>
-          ))
-        }
+        {Object.entries(features.featureTabs).map(([key, tab], i) => (
+          <div
+            class="feature opacity-0"
+            data-index={i}
+            data-feature-key={key}
+            data-active={i === 0 ? 'true' : undefined}
+          >
+            <Description class="text-2xl font-bold">{tab.title}</Description>
+            <Description>{tab.description}</Description>
+          </div>
+        ))}
       </div>
 
       <!-- Mobile description -->
-      <div class="feature-description mt-4 lg:hidden" data-descriptions={descriptions.join('|||')}>
-      </div>
+      <div
+        class="feature-description mt-4 lg:hidden"
+        data-descriptions={descriptions.join('|||')}
+      ></div>
     </div>
 
     <!-- Video Section -->
