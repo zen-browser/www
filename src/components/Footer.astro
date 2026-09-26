@@ -25,13 +25,11 @@ const {
       aria-labelledby="footer-title"
     >
       <a href="/">
-        <Description id="footer-title" class="!text-paper text-6xl font-bold"
-          >{footer.title}</Description
-        >
+        <Description id="footer-title" class="!text-paper text-6xl font-bold">
+          {footer.title}
+        </Description>
       </a>
-      <Description class="mx-auto max-w-xl lg:mx-0">
-        {footer.description}
-      </Description>
+      <Description class="mx-auto max-w-xl lg:mx-0">{footer.description}</Description>
     </section>
     <section class="grid gap-10 place-self-center lg:place-self-start">
       <Button
@@ -66,14 +64,14 @@ const {
             <nav aria-label="About navigation">
               <ul class="grid gap-2 opacity-80">
                 <li>
-                  <a href={getLocalePath('/about')} class="font-normal"
-                    >{footer.teamAndContributors}</a
-                  >
+                  <a href={getLocalePath('/about')} class="font-normal">
+                    {footer.teamAndContributors}
+                  </a>
                 </li>
                 <li>
-                  <a href={getLocalePath('/privacy-policy')} class="font-normal"
-                    >{footer.privacyPolicy}</a
-                  >
+                  <a href={getLocalePath('/privacy-policy')} class="font-normal">
+                    {footer.privacyPolicy}
+                  </a>
                 </li>
               </ul>
             </nav>
@@ -85,18 +83,24 @@ const {
           </h2>
           <ul class="grid gap-2 opacity-80">
             <li>
-              <a href="https://docs.zen-browser.app/" class="font-normal">{footer.documentation}</a>
+              <a href="https://docs.zen-browser.app/" class="font-normal">
+                {footer.documentation}
+              </a>
             </li>
             <li>
-              <a href={getLocalePath('/mods')} class="font-normal">{footer.zenMods}</a>
+              <a href={getLocalePath('/mods')} class="font-normal">
+                {footer.zenMods}
+              </a>
             </li>
             <li>
-              <a href={getLocalePath('/release-notes')} class="font-normal">{footer.releaseNotes}</a
-              >
+              <a href={getLocalePath('/release-notes')} class="font-normal">
+                {footer.releaseNotes}
+              </a>
             </li>
             <li>
-              <a href={getLocalePath('/download?twilight')} class="font-normal">{footer.twilight}</a
-              >
+              <a href={getLocalePath('/download?twilight')} class="font-normal">
+                {footer.twilight}
+              </a>
             </li>
           </ul>
         </nav>
@@ -106,21 +110,27 @@ const {
           </h2>
           <ul class="grid gap-2 opacity-80">
             <li>
-              <a href="https://discord.gg/zen-browser" class="font-normal">{footer.discord}</a>
+              <a href="https://discord.gg/zen-browser" class="font-normal">
+                {footer.discord}
+              </a>
             </li>
             <li>
-              <a href="https://status.zen-browser.app/" class="font-normal">{footer.uptimeStatus}</a
-              >
+              <a href="https://status.zen-browser.app/" class="font-normal">
+                {footer.uptimeStatus}
+              </a>
             </li>
             <li>
-              <a href="https://github.com/zen-browser/desktop/issues/new/choose" class="font-normal"
-                >{footer.reportAnIssue}</a
+              <a
+                href="https://github.com/zen-browser/desktop/issues/new/choose"
+                class="font-normal"
               >
+                {footer.reportAnIssue}
+              </a>
             </li>
             <li>
-              <a href="https://github.com/zen-browser/desktop/security/policy" class="font-normal"
-                >{footer.securtiy}</a
-              >
+              <a href="https://github.com/zen-browser/desktop/security/policy" class="font-normal">
+                {footer.securtiy}
+              </a>
             </li>
           </ul>
         </nav>

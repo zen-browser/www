@@ -17,16 +17,12 @@ const {
   <main class="container flex flex-col items-center gap-12 pt-24 pb-52">
     <div class="flex flex-col gap-4 lg:text-center">
       <Description class="text-6xl font-bold">{donate.title}</Description>
-      <Description class="max-w-3xl">
-        {donate.description}
-      </Description>
+      <Description class="max-w-3xl">{donate.description}</Description>
     </div>
     <div class="grid max-w-5xl grid-cols-1 gap-12 text-center lg:grid-cols-[1fr_1px_1fr]">
       <div class="flex flex-col items-center gap-4">
         <div class="text-6xl font-bold">{donate.patreon.title}</div>
-        <Description>
-          {donate.patreon.description}
-        </Description>
+        <Description>{donate.patreon.description}</Description>
         <Button isPrimary href="https://www.patreon.com/zen_browser" class="w-fit">
           {donate.patreon.button}
           <ArrowRightIcon class="size-4" />
@@ -35,9 +31,7 @@ const {
       <hr class="bg-dark hidden h-72 w-[1px] opacity-15 lg:block" />
       <div class="flex flex-col items-center gap-4">
         <div class="text-6xl font-bold">{donate.koFi.title}</div>
-        <Description>
-          {donate.koFi.description}
-        </Description>
+        <Description>{donate.koFi.description}</Description>
         <Button href="https://ko-fi.com/zen_browser" isPrimary class="w-fit">
           {donate.koFi.button}
           <ArrowRightIcon class="size-4" />
