@@ -7,6 +7,8 @@ updates:
       day: monday
       time: "08:00"
       timezone: Etc/UTC
+    cooldown:
+      default-days: 7
     labels:
       - dependencies
       - dependabot
@@ -59,6 +61,8 @@ updates:
       day: monday
       time: "08:00"
       timezone: Etc/UTC
+    cooldown:
+      default-days: 7
     labels:
       - dependencies
       - dependabot
