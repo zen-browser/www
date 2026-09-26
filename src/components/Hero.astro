@@ -25,20 +25,18 @@ const {
     <div class="flex flex-col items-center justify-center gap-4 md:gap-8">
       <div>
         <Title class="relative px-12 text-center text-5xl md:text-7xl lg:px-0 lg:text-9xl">
-          {
-            hero.title.map(title =>
-              title.text !== '\n' ? (
-                <b
-                  class:list={['font-normal', title.highlight && 'text-coral italic']}
-                  style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
-                >
-                  {title.text}
-                </b>
-              ) : (
-                <br class="hidden md:block" />
-              )
+          {hero.title.map(title =>
+            title.text !== '\n' ? (
+              <b
+                class:list={['font-normal', title.highlight && 'text-coral italic']}
+                style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
+              >
+                {title.text}
+              </b>
+            ) : (
+              <br class="hidden md:block" />
             )
-          }
+          )}
         </Title>
         <p
           class="px-12 text-center lg:px-0"
@@ -49,9 +47,7 @@ const {
           {hero.description[1]}
         </p>
       </div>
-      <div
-        class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row"
-      >
+      <div class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row">
         <div style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">
           <Button class="w-fit" href={getLocalePath('/download')} isPrimary>
             {hero.buttons.beta}

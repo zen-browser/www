@@ -14,7 +14,9 @@ const {
 
 <Layout title={layout.privacyPolicy.title} description={layout.privacyPolicy.description}>
   <main class="mx-auto mt-52 w-1/2 pb-24">
-    <Title id="privacy-policy" class="xl:text-6xl xl:leading-none">{privacyPolicy.title}</Title>
+    <Title id="privacy-policy" class="xl:text-6xl xl:leading-none">
+      {privacyPolicy.title}
+    </Title>
     <div class="ml-4 font-bold">{privacyPolicy.lastUpdated}</div>
     <Title class="mt-16 text-4xl font-bold" id="introduction">
       {privacyPolicy.sections.introduction.title}
@@ -53,14 +55,12 @@ const {
     <p>{privacyPolicy.sections.browsingData.body}</p>
     <ul>
       <li>
-        <strong class="font-bold">{privacyPolicy.sections.cookies.title}</strong>: {
-          privacyPolicy.sections.cookies.body
-        }
+        <strong class="font-bold">{privacyPolicy.sections.cookies.title}</strong>:{' '}
+        {privacyPolicy.sections.cookies.body}
       </li>
       <li>
-        <strong class="font-bold">{privacyPolicy.sections.cache.title}</strong>: {
-          privacyPolicy.sections.cache.body
-        }
+        <strong class="font-bold">{privacyPolicy.sections.cache.title}</strong>:{' '}
+        {privacyPolicy.sections.cache.body}
       </li>
     </ul>
     <h3 class="mt-4 text-xl font-bold" id="-2-2-settings-and-preferences-">
@@ -73,16 +73,17 @@ const {
     <p>{privacyPolicy.sections.sync.body}</p>
     <ul>
       <li>
-        <a class="zen-link" href="https://www.mozilla.org/en-US/privacy/mozilla-accounts/"
-          >{privacyPolicy.sections.sync.link1}</a
-        >
+        <a class="zen-link" href="https://www.mozilla.org/en-US/privacy/mozilla-accounts/">
+          {privacyPolicy.sections.sync.link1}
+        </a>
       </li>
       <li>
         <a
           class="zen-link"
           href="https://support.mozilla.org/en-US/kb/how-firefox-securely-saves-passwords#:~:text=Firefox%20Desktop%20encrypts%20your%20passwords,cryptography%20to%20obscure%20your%20passwords."
-          >{privacyPolicy.sections.sync.link2}</a
         >
+          {privacyPolicy.sections.sync.link2}
+        </a>
       </li>
     </ul>
     <Title class="mt-16 text-4xl font-bold" id="4-add-ons-and-mods">
@@ -114,29 +115,24 @@ const {
     <Title class="mt-16 text-4xl font-bold" id="8-changes-to-this-privacy-policy">
       {privacyPolicy.sections.changes.title}
     </Title>
-    <p>
-      {privacyPolicy.sections.changes.body}
-    </p>
+    <p>{privacyPolicy.sections.changes.body}</p>
     <Title class="mt-16 text-4xl font-bold" id="9-other-telemetry-done-by-mozilla-firefox">
       {privacyPolicy.sections.otherTelemetry.title}
     </Title>
-    <p>
-      {privacyPolicy.sections.otherTelemetry.body}
-    </p>
+    <p>{privacyPolicy.sections.otherTelemetry.body}</p>
     <ul>
       <li>
-        Please check <a class="zen-link" href="https://www.mozilla.org/en-US/privacy/"
-          >{privacyPolicy.sections.otherTelemetry.firefoxPrivacyNotice}</a
-        >
+        Please check{' '}
+        <a class="zen-link" href="https://www.mozilla.org/en-US/privacy/">
+          {privacyPolicy.sections.otherTelemetry.firefoxPrivacyNotice}
+        </a>
         {privacyPolicy.sections.otherTelemetry.forMoreInformation}
       </li>
     </ul>
     <Title class="mt-16 text-4xl font-bold" id="10-contact-us">
       {privacyPolicy.sections.contact.title}
     </Title>
-    <p>
-      {privacyPolicy.sections.contact.body}
-    </p>
+    <p>{privacyPolicy.sections.contact.body}</p>
     <ul>
       <li>
         {privacyPolicy.sections.contact.discord}
