@@ -51,13 +51,13 @@
     "tailwind-merge": "3.6.0",
     "tailwindcss": "4.3.2",
     "turbo": "2.10.4",
-    "typescript": "6.0.3",
+    "typescript": "7.0.2",
     "ua-parser-js": "2.0.10"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
-    "@commitlint/cli": "21.2.2",
-    "@commitlint/config-conventional": "21.2.2",
+    "@commitlint/cli": "21.2.3",
+    "@commitlint/config-conventional": "21.2.3",
     "@cspell/dict-bash": "4.2.3",
     "@cspell/dict-css": "4.1.2",
     "@cspell/dict-es-es": "3.0.8",
