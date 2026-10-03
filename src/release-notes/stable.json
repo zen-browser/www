@@ -4647,5 +4647,40 @@
     "workflowId": 35757934569,
     "image": false,
     "date": "23/09/2026"
+  },
+  {
+    "version": "1.23b",
+    "extra": "Introducing Library! A better place to organize and access your history, media, downloads, spaces and more.",
+    "fixes": [
+      "Significant performance improvements on startups/new windows when there are lots of tabs open.",
+      {
+        "description": "Certain icon animations like the boost indicator or musical notes on the sidebar are now more performant.",
+        "issue": 15299
+      },
+      {
+        "description": "Fixed status panel and glance controls not using the correct theme colors.",
+        "issue": 15280
+      },
+      "Fixed some HDR videos encoded in 8-bit color formats looking dull and gray on Windows instead of displaying in HDR.",
+      "Improved audio and video synchronization when repeatedly changing the playback speed of videos, for example on YouTube.",
+      "Fixed an issue on Windows where making a video full screen would leave the Windows taskbar showing over the video."
+    ],
+    "changes": [
+      "When a link gets routed to a specific space, it will prioritize the window that has that space open.",
+      "Some elements like the sidebar and the command bar now appear with blur effects.",
+      "On MacOS, buttons at the bottom of the sidebar now appear larger.",
+      "Swiping to the right on the last space will now try to create a new space.",
+      "When the sidebar is at the right, the buttons at the bottom are now reversed."
+    ],
+    "features": [
+      "Introducing Library! A better place to organize and access your history, media, downloads, spaces and more.",
+      "You can now resize the sidebar even when its hidden. If the sidebar is resized too small, it will automatically hide itself.",
+      "Updated to Firefox 157.0",
+      "WebRTC video calls can now use hardware AV1 decoding on devices that support it, instead of always decoding AV1 video in software."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-97/",
+    "workflowId": 37027510274,
+    "image": false,
+    "date": "01/10/2026"
   }
 ]
