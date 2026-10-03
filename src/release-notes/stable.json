@@ -4669,7 +4669,7 @@
       "When a link gets routed to a specific space, it will prioritize the window that has that space open.",
       "Some elements like the sidebar and the command bar now appear with blur effects.",
       "On MacOS, buttons at the bottom of the sidebar now appear larger.",
-      "Swiping to the right on the last space will now try to create a new space.",
+      "Swiping to the right on the last space will now try to create a new space. (This can be disabled via <strong>zen.workspaces.swipe-actions</strong> set to <strong>false</strong> in about:config)",
       "When the sidebar is at the right, the buttons at the bottom are now reversed."
     ],
     "features": [
