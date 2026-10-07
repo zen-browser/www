@@ -4682,5 +4682,24 @@
     "workflowId": 37027510274,
     "image": false,
     "date": "01/10/2026"
+  },
+  {
+    "version": "1.23.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed transparent sidebars having low opacity.",
+      "Fixed downloads failing on macOS when Firefox is set to ask where to save files but doesn't have permission to access the Downloads folder.",
+      "Other bug fixes and improvements."
+    ],
+    "features": [
+      "Updated to Firefox 157.0.1",
+      "Added an option in the Library to filter closed tabs instead of history entries.",
+      "A keyboard shortcut (opt/alt + shift + L) has been added to quickly open the Library.",
+      "'Clear all downloads' and 'Clear history' options have been added to the Library by right clicking on the respective section tabs."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-104/",
+    "workflowId": 37495693564,
+    "image": false,
+    "date": "06/10/2026"
   }
 ]
