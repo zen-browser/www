@@ -4701,5 +4701,48 @@
     "workflowId": 37495693564,
     "image": false,
     "date": "06/10/2026"
+  },
+  {
+    "version": "1.23.2b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Changed session backup file names to use local dates",
+        "issue": 15806
+      },
+      {
+        "description": "Fixed the library getting stuck after opening and closing it quickly",
+        "issue": 15833
+      },
+      {
+        "description": "Fixed blocked/unsafe downloads not having the choice to be opened or saved.",
+        "issue": 15809
+      },
+      {
+        "description": "Fixed moving multiple tabs to new window irrecoverably loses unloaded tabs.",
+        "issue": 15810
+      },
+      {
+        "description": "Fixed the sidebar having too much minimum width when they are aligned to the right.",
+        "issue": 15794
+      },
+      {
+        "description": "Fixed HEIC media being listed in the media tab but do not render correctly.",
+        "issue": 15778
+      },
+      {
+        "description": "Fixed space-assigned bookmarks not being saved anymore.",
+        "issue": 12721
+      },
+      "Fixed a memory leak issue on startup.",
+      "Other bug fixes and improvements."
+    ],
+    "features": [
+      "Added an 'open library' command to the command palette.",
+      "You can now right-click the media tab in the Library to disable it."
+    ],
+    "workflowId": 37900069684,
+    "image": false,
+    "date": "09/10/2026"
   }
 ]
