@@ -42,9 +42,8 @@ const {
           class="px-12 text-center lg:px-0"
           style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)"
         >
-          {hero.description[0]}
-          <br class="hidden sm:inline" />
-          {hero.description[1]}
+          <span class="sm:block">{hero.description[0]}</span>{' '}
+          <span class="sm:block">{hero.description[1]}</span>
         </p>
       </div>
       <div class="flex w-2/3 flex-col items-center justify-center gap-3 sm:gap-6 md:w-fit md:flex-row">
