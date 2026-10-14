@@ -47,9 +47,9 @@ const platformDescriptions = download.platformDescriptions
             class="hidden w-32 translate-y-3 transform dark:block"
           />
         </div>
-        <Description id="download-title" class="mx-auto max-w-3xl text-center text-6xl font-bold"
-          >{download.title}</Description
-        >
+        <Description id="download-title" class="mx-auto max-w-3xl text-center text-6xl font-bold">
+          {download.title}
+        </Description>
         <Description class="mx-auto text-center text-pretty">
           <Fragment set:html={download.description} />
         </Description>
@@ -132,14 +132,11 @@ const platformDescriptions = download.platformDescriptions
       <div class="mt-20 flex flex-col items-center justify-center gap-2 text-center">
         <div class="flex cursor-default items-center justify-center gap-3 text-sm font-bold">
           {download.beta}
-          <span
-            class="caption border-dark inline-flex h-6 items-center rounded-md border px-2 text-xs leading-4"
-            >BETA</span
-          >
+          <span class="caption border-dark inline-flex h-6 items-center rounded-md border px-2 text-xs leading-4">
+            BETA
+          </span>
         </div>
-        <div
-          class="max-w-[55ch] cursor-default text-sm font-normal text-balance text-black/50 dark:text-white/50"
-        >
+        <div class="max-w-[55ch] cursor-default text-sm font-normal text-balance text-black/50 dark:text-white/50">
           <Fragment set:html={download.otherDownload} />
         </div>
       </div>

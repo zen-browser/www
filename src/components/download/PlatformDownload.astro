@@ -71,24 +71,21 @@ function getReleaseLink(releases: PlatformReleases, { os, cpu }: { os: string; c
         isPrimary
       >
         <Fragment set:html={icon} />
-        Download for {
-          platform === 'mac' ? 'MacOS' : platform.charAt(0).toUpperCase() + platform.slice(1)
-        }
+        Download for{' '}
+        {platform === 'mac' ? 'MacOS' : platform.charAt(0).toUpperCase() + platform.slice(1)}
       </Button>
-      {
-        platform === 'linux' && (
-          <Button
-            class="download-button w-fit group-data-[twilight='true']/platform:hidden"
-            href={releases.flathub?.all.link || ''}
-            aria-label="Download from Flathub"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Flathub
-            <ArrowRightIcon class="size-4" />
-          </Button>
-        )
-      }
+      {platform === 'linux' && (
+        <Button
+          class="download-button w-fit group-data-[twilight='true']/platform:hidden"
+          href={releases.flathub?.all.link || ''}
+          aria-label="Download from Flathub"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Flathub
+          <ArrowRightIcon class="size-4" />
+        </Button>
+      )}
     </div>
   </div>
 </div>

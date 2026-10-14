@@ -68,9 +68,7 @@ const {
       >
         <div class="flex items-center gap-2 text-center md:text-left">
           <InfoIcon />
-          <p class="text-sm">
-            {slug.alert.description}
-          </p>
+          <p class="text-sm">{slug.alert.description}</p>
         </div>
         <Button
           href="/download"
@@ -102,18 +100,14 @@ const {
               .replace('{version}', mod.version)}
           />
           <p set:html={slug.creationDate.replace('{createdAt}', dates.createdAt)} />
-          {
-            dates.createdAt !== dates.updatedAt && (
-              <p set:html={slug.latestUpdate.replace('{updatedAt}', dates.updatedAt)} />
-            )
-          }
-          {
-            mod.homepage && (
-              <a href={mod.homepage} target="_blank" rel="noopener noreferrer" class="zen-link">
-                {slug.visitModHomepage}
-              </a>
-            )
-          }
+          {dates.createdAt !== dates.updatedAt && (
+            <p set:html={slug.latestUpdate.replace('{updatedAt}', dates.updatedAt)} />
+          )}
+          {mod.homepage && (
+            <a href={mod.homepage} target="_blank" rel="noopener noreferrer" class="zen-link">
+              {slug.visitModHomepage}
+            </a>
+          )}
         </div>
         <div class="flex flex-col sm:items-end">
           <Button class="hidden" id="install-theme" extra={{ 'zen-theme-id': mod.id }} isPrimary>
@@ -134,8 +128,8 @@ const {
       -->
     </div>
     <div></div>
-  </main></Layout
->
+  </main>
+</Layout>
 
 <script>
   const backButton = document.getElementById('back-button') as HTMLAnchorElement

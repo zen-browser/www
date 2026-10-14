@@ -29,6 +29,9 @@ npm-debug.log*
 /blob-report/
 /playwright/.cache/
 
+# local visual verification
+/screenshots/
+
 /coverage
 
 # cache

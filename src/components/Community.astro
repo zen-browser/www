@@ -20,17 +20,13 @@ const {
   class="relative flex w-full flex-col items-center gap-6 py-12 text-start md:text-center lg:py-36"
 >
   <h2 class="mb-2 text-4xl font-bold sm:text-6xl">
-    {
-      community.title.map(title =>
-        title !== '\n' ? (
-          <span style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">
-            {title}
-          </span>
-        ) : (
-          <br class="hidden md:block" />
-        )
+    {community.title.map(title =>
+      title !== '\n' ? (
+        <span style="transform: translateY(20px); opacity: 0.001; filter: blur(4px)">{title}</span>
+      ) : (
+        <br class="hidden md:block" />
       )
-    }
+    )}
   </h2>
   <p
     class="text-base lg:w-1/2 lg:px-0"

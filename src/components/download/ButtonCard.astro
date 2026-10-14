@@ -27,55 +27,49 @@ const { label, href, checksum } = Astro.props
   >
     <div class="flex items-center gap-2">
       <p class="text-lg font-medium">{label}</p>
-      {
-        checksum && (
-          <span class="group/checksum relative hidden items-center md:flex">
+      {checksum && (
+        <span class="group/checksum relative hidden items-center md:flex">
+          <button
+            type="button"
+            class="checksum-icon-btn text-muted-foreground hover:text-coral focus:ring-coral group-data-[twilight='true']/download:hover:text-zen-blue group-data-[twilight='true']/download:focus:ring-zen-blue flex items-center justify-center rounded-full p-1 transition-colors duration-150 focus:ring-2 focus:outline-none"
+            aria-label="Show SHA-256 checksum"
+            tabindex="0"
+          >
+            <svg
+              width="18"
+              height="18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 3l8 4v5c0 5.25-3.5 9.74-8 11-4.5-1.26-8-5.75-8-11V7l8-4z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </button>
+          <span class="border-subtle absolute -top-10 left-1/2 z-50 hidden min-w-[120px] -translate-x-1/2 rounded-md border bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs whitespace-nowrap text-gray-700 opacity-100 shadow transition-opacity duration-150 select-none group-focus-within/checksum:hidden group-hover/checksum:flex group-focus-within/checksum:group-hover/checksum:hidden dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
+            {buttonCard.showChecksum}
+          </span>
+          <span class="checksum-tooltip popover border-subtle absolute -top-12 -left-14 z-50 hidden min-w-[220px] items-center gap-2 rounded-md border bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs whitespace-nowrap text-gray-700 opacity-100 shadow transition-opacity duration-150 group-focus-within/checksum:flex dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
+            <span class="flex-1 truncate font-mono text-xs">{checksum}</span>
             <button
               type="button"
-              class="checksum-icon-btn text-muted-foreground hover:text-coral focus:ring-coral group-data-[twilight='true']/download:hover:text-zen-blue group-data-[twilight='true']/download:focus:ring-zen-blue flex items-center justify-center rounded-full p-1 transition-colors duration-150 focus:ring-2 focus:outline-none"
-              aria-label="Show SHA-256 checksum"
-              tabindex="0"
+              class="copy-btn bg-coral hover:bg-coral/80 group-data-[twilight='true']/download:bg-zen-blue group-data-[twilight='true']/download:hover:bg-zen-blue/80 rounded px-2 py-1 text-xs text-white"
             >
-              <svg
-                width="18"
-                height="18"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 3l8 4v5c0 5.25-3.5 9.74-8 11-4.5-1.26-8-5.75-8-11V7l8-4z" />
-                <path d="M9 12l2 2 4-4" />
-              </svg>
+              {buttonCard.copy}
             </button>
-            <span class="border-subtle absolute -top-10 left-1/2 z-50 hidden min-w-[120px] -translate-x-1/2 rounded-md border bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs whitespace-nowrap text-gray-700 opacity-100 shadow transition-opacity duration-150 select-none group-focus-within/checksum:hidden group-hover/checksum:flex group-focus-within/checksum:group-hover/checksum:hidden dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
-              {buttonCard.showChecksum}
-            </span>
-            <span class="checksum-tooltip popover border-subtle absolute -top-12 -left-14 z-50 hidden min-w-[220px] items-center gap-2 rounded-md border bg-[rgba(255,255,255,0.98)] px-3 py-2 text-xs whitespace-nowrap text-gray-700 opacity-100 shadow transition-opacity duration-150 group-focus-within/checksum:flex dark:bg-[rgba(24,24,27,0.98)] dark:text-gray-100">
-              <span class="flex-1 truncate font-mono text-xs">{checksum}</span>
-              <button
-                type="button"
-                class="copy-btn bg-coral hover:bg-coral/80 group-data-[twilight='true']/download:bg-zen-blue group-data-[twilight='true']/download:hover:bg-zen-blue/80 rounded px-2 py-1 text-xs text-white"
-              >
-                {buttonCard.copy}
-              </button>
-            </span>
           </span>
-        )
-      }
+        </span>
+      )}
     </div>
     <div class="flex flex-col items-end gap-2">
       <div class="flex items-center gap-2">
-        <span
-          class="release-type-tag bg-coral/10 text-coral group-hover/download:bg-coral/20 group-data-[twilight='true']/download:bg-zen-blue/10 group-data-[twilight='true']/download:text-zen-blue group-data-[twilight='true']/download:group-hover/download:bg-zen-blue/20 rounded-full px-2 py-1 text-xs font-medium transition-colors duration-200"
-        >
+        <span class="release-type-tag bg-coral/10 text-coral group-hover/download:bg-coral/20 group-data-[twilight='true']/download:bg-zen-blue/10 group-data-[twilight='true']/download:text-zen-blue group-data-[twilight='true']/download:group-hover/download:bg-zen-blue/20 rounded-full px-2 py-1 text-xs font-medium transition-colors duration-200">
           {buttonCard.beta}
         </span>
-        <div
-          class="download-arrow-icon text-muted-foreground border-subtle group-hover/download:border-coral group-hover/download:text-coral group-data-[twilight='true']/download:group-hover/download:border-zen-blue group-data-[twilight='true']/download:group-hover/download:text-zen-blue rounded-xl border p-2 transition-colors duration-200"
-        >
+        <div class="download-arrow-icon text-muted-foreground border-subtle group-hover/download:border-coral group-hover/download:text-coral group-data-[twilight='true']/download:group-hover/download:border-zen-blue group-data-[twilight='true']/download:group-hover/download:text-zen-blue rounded-xl border p-2 transition-colors duration-200">
           <svg
             width="16"
             height="16"

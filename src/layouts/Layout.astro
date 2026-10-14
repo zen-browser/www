@@ -47,23 +47,21 @@ const locale = getLocale(Astro)
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-0.xml" />
 
-    {
-      isHome && (
-        <>
-          {/* Injecting schema to homepage only (for SEO) */}
-          <script
-            is:inline
-            type="application/ld+json"
-            set:html={JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: 'Zen Browser',
-              url: 'https://zen-browser.app/',
-            })}
-          />
-        </>
-      )
-    }
+    {isHome && (
+      <>
+        {/* Injecting schema to homepage only (for SEO) */}
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Zen Browser',
+            url: 'https://zen-browser.app/',
+          })}
+        ></script>
+      </>
+    )}
 
     <!-- ICO favicon as a fallback for browsers that don't support SVG favicons (Safari) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -97,9 +95,7 @@ const locale = getLocale(Astro)
       )
     </script>
   </head>
-  <body
-    class="bg-paper text-dark min-h-[max(100dvh,_64rem)] overflow-x-hidden font-['bricolage-grotesque'] text-balance"
-  >
+  <body class="bg-paper text-dark min-h-[max(100dvh,_64rem)] overflow-x-hidden font-['bricolage-grotesque'] text-balance">
     <NavBar />
     <slot />
     <Footer />
