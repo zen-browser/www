@@ -4744,5 +4744,45 @@
     "workflowId": 37900069684,
     "image": false,
     "date": "09/10/2026"
+  },
+  {
+    "version": "1.23.3b",
+    "extra": "",
+    "fixes": [
+      "Fixed various animation, urlbar and UI performance issues.",
+      {
+        "description": "Fixed Library media tab requesting onedrive to download all files from cloud.",
+        "issue": 15888
+      },
+      {
+        "description": "Fixed unwanted label next to the search icon in urlbar.",
+        "issue": 14856
+      },
+      {
+        "description": "Fixed Avahi access so CUPS printers are listed in flatpak sandbox.",
+        "issue": 9651
+      },
+      {
+        "description": "Fixed various memory leak issues.",
+        "issue": 15954
+      },
+      "Fixed a crash that could occur while Zen loaded website icons (favicons).",
+      "Fixed menus such as List all tabs, Settings, etc being hard to read with a Windows High Contrast theme. Menu background and text colors now follow the Background and Text colors chosen for a custom contrast theme in Windows Settings.",
+      "Other bug fixes and improvements."
+    ],
+    "changes": [
+      "Space routing regex will now match URLs as case-insensitive.",
+      "Zen no longer rounds scroll positions to whole screen pixels. Scrolling is now smoother and more precise, especially on high-resolution displays or when a page is zoomed."
+    ],
+    "features": [
+      "Updated Firefox to 158.0",
+      "Added a `--space <id|name>` option to the command line interface.",
+      "Library will now show a 'Open in Folder' option and download speed when hovering over the toolbar icon.",
+      "Zen now creates more accessible PDFs when saving a page as PDF, and when printing on Linux and macOS. This also fixes a variety of PDF rendering issues, such as missing math symbols."
+    ],
+    "security": "https://www.mozilla.org/security/advisories/mfsa2026-106",
+    "workflowId": 38728992109,
+    "image": false,
+    "date": "15/10/2026"
   }
 ]
