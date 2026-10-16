@@ -4772,6 +4772,7 @@
     ],
     "changes": [
       "Space routing regex will now match URLs as case-insensitive.",
+      "Library's widget hover list will now only display recently downloaded files.",
       "Zen no longer rounds scroll positions to whole screen pixels. Scrolling is now smoother and more precise, especially on high-resolution displays or when a page is zoomed."
     ],
     "features": [
