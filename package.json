@@ -69,7 +69,7 @@
     "@eslint/compat": "2.1.1",
     "@eslint/eslintrc": "3.3.7",
     "@eslint/js": "10.0.1",
-    "@playwright/test": "1.63.0",
+    "@playwright/test": "1.64.0",
     "@testing-library/jest-dom": "7.0.1",
     "@testing-library/user-event": "14.6.7",
     "@types/animejs": "4.0.0",
