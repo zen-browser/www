@@ -1,0 +1,519 @@
+{
+  "routes": {
+    "index": {
+      "title": "Zen Browser",
+      "hero": {
+        "title": [
+          { "text": "bun venit ", "highlight": false },
+          { "text": "pe ", "highlight": false },
+          { "text": "\n", "highlight": false },
+          { "text": "un ", "highlight": false },
+          { "text": "internet ", "highlight": false },
+          { "text": "mai liniștit", "highlight": true }
+        ],
+        "description": [
+          "Frumos conceput, axat pe confidențialitate și plin de funcționalități.",
+          "Ne pasă de experiența ta, nu de datele tale."
+        ],
+        "buttons": {
+          "beta": "Beta este acum disponibilă!",
+          "support": "Susține-ne ❤️"
+        }
+      },
+      "features": {
+        "titles": ["Productivitate ", "la ", "superlativ"],
+        "description": "Zen este plin de funcționalități care te ajută să rămâi productiv și concentrat. Browserele ar trebui să fie instrumente care te ajută să-ți termini treaba, nu distrageri care te țin departe de muncă.",
+        "featureTabs": {
+          "workspaces": {
+            "title": "Spații de lucru",
+            "description": "Organizează-ți filele în spații de lucru pentru a păstra proiectele separate și organizate și comută între ele cu ușurință."
+          },
+          "compactMode": {
+            "title": "Mod compact",
+            "description": "Modul compact din Zen îți oferă mai mult spațiu pe ecran ascunzând bara de file când nu ai nevoie de ea și afișând-o când ai nevoie."
+          },
+          "glance": {
+            "title": "Glance",
+            "description": "Glance îți permite să comuți rapid între cele mai utilizate file, fără a fi nevoie să derulezi prin istoric."
+          },
+          "splitView": {
+            "title": "Vizualizare împărțită",
+            "description": "Vizualizarea împărțită îți permite să vezi două file una lângă alta, făcând mai ușoară compararea și comutarea între ele."
+          }
+        }
+      },
+      "sponsors": {
+        "title": "Sponsorii noștri",
+        "description": "Suntem recunoscători sponsorilor noștri pentru sprijinul lor. Ei ne ajută să menținem proiectul în viață.<br />Poți fi și tu parte din această călătorie <a href=\"/donate\" class=\"zen-link\">făcând o donație direct către noi</a>!",
+        "sponsors": {
+          "tuta": {
+            "name": "Tuta",
+            "url": "https://tuta.com/"
+          },
+          "blacksmith": {
+            "name": "BlackSmith",
+            "url": "https://www.blacksmith.sh/"
+          },
+          "crowdin": {
+            "name": "Crowdin",
+            "url": "https://crowdin.com/"
+          }
+        }
+      },
+      "community": {
+        "title": ["Valorile ", "noastre ", "de bază"],
+        "description": "Facem nu doar o prioritate, ci o necesitate din a ne asigura că Zen atinge întotdeauna echilibrul corect între frumusețe, performanță și confidențialitate.",
+        "lists": {
+          "freeAndOpenSource": {
+            "title": "Gratuit și open-source",
+            "description": "Zen este un software gratuit și open-source, ceea ce înseamnă că îl poți folosi fără niciun cost și îl poți modifica pentru a se potrivi nevoilor tale."
+          },
+          "simpleYetPowerful": {
+            "title": "Simplu, dar puternic",
+            "description": "Zen este simplu de utilizat, dar suficient de puternic pentru a face față sarcinilor tale zilnice."
+          },
+          "privateAndAlwaysUpToDate": {
+            "title": "Privat și mereu actualizat",
+            "description": "Zen este privat și mereu actualizat, ceea ce înseamnă că îl poți folosi fără niciun cost și îl poți modifica pentru a se potrivi nevoilor tale."
+          }
+        },
+        "images": {
+          "community": {
+            "alt": "Comunitate"
+          }
+        }
+      }
+    },
+    "mods": {
+      "title": "Mod-uri Zen",
+      "description": "Răsfoiește colecția noastră diversă de Mod-uri Zen, plugin-uri și teme create de comunitate pentru Zen Browser. Descoperă o temă potrivită pentru fiecare stare de spirit și un plugin pentru a îndeplini fiecare cerință. Începe să-ți personalizezi experiența de navigare astăzi!",
+      "pagination": {
+        "pagination": "{input} din {totalPages} ({totalItems} elemente)"
+      },
+      "search": "Tastează pentru a căuta...",
+      "by": "de",
+      "sort": {
+        "lastCreated": "Creat recent",
+        "lastUpdated": "Actualizat recent",
+        "perPage": "Pe pagină"
+      },
+      "noResults": "Niciun rezultat găsit",
+      "noResultsDescription": "Încearcă să cauți un termen diferit sau revino mai târziu.",
+      "slug": {
+        "title": "{name} - Mod-uri Zen",
+        "description": "Află mai multe despre mod-ul {name} disponibil pe Zen Browser",
+        "alert": {
+          "description": "Trebuie să ai Zen Browser instalat pentru a instala această temă.",
+          "button": "Descarcă acum!"
+        },
+        "createdBy": "Creat de {author} • <b>v{version}</b>",
+        "creationDate": "Data creării: <b>{createdAt}</b>",
+        "latestUpdate": "Ultima actualizare: <b>{updatedAt}</b>",
+        "visitModHomepage": "Vizitează pagina mod-ului",
+        "installMod": "Instalează mod-ul 🎉",
+        "uninstallMod": "Dezinstalează mod-ul",
+        "back": "Înapoi"
+      }
+    },
+    "releaseNotes": {
+      "topSection": {
+        "title": "Jurnal de modificări",
+        "description": "Rămâi la curent cu ultimele schimbări din Zen! De la <a class=\"zen-link\" href=\"#1.0.0-a.1\">prima lansare</a> până la <a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>, am muncit din greu pentru a face Zen Browser cât mai bun posibil. Mulțumim tuturor pentru feedback! ❤️"
+      },
+      "list": {
+        "support": "Oferă-ne puțin sprijin!",
+        "navigateToVersion": "Navighează la versiunea..."
+      },
+      "itemType": {
+        "fix": "Remediat",
+        "feature": "Adăugat",
+        "known": "Cunoscut",
+        "break": "Incompatibilități",
+        "theme": "Temă",
+        "security": "Securitate",
+        "change": "Schimbare"
+      },
+      "backToTop": "Înapoi sus",
+      "chooseVersion": "Alege versiunea",
+      "components": {
+        "releaseNoteItem": {
+          "twilight": "Twilight",
+          "twilightChanges": "Modificări Twilight",
+          "releaseChanges": "v{version}",
+          "firefoxVersion": "Firefox {version}",
+          "githubRelease": "Lansare GitHub",
+          "workflowRun": "Rulare Workflow",
+          "compareChanges": "Compară schimbările",
+          "twilightWarning": "Te rugăm să reții că Twilight este o versiune pre-lansare a Zen Browser. Poate conține bug-uri și funcționalități neterminate.",
+          "reportIssues": " Dacă întâmpini probleme, te rugăm să le raportezi pe <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">pagina de probleme</a>.",
+          "learnMore": "Află mai multe",
+          "viewIssue": "Vezi problema numărul {issue} pe GitHub"
+        }
+      },
+      "slug": {
+        "title": "Note de lansare",
+        "redirect": "Se redirecționează către notele de lansare pentru versiunea {version}..."
+      }
+    },
+    "about": {
+      "title": "Despre Zen",
+      "description": "Suntem pur și simplu un grup de dezvoltatori și designeri cărora le pasă de experiența ta pe web. Credem că internetul ar trebui să fie un loc unde poți explora, învăța și te poți conecta fără grija că datele tale sunt colectate.",
+      "littleHelp": "Puțin ajutor?",
+      "mainTeam": {
+        "title": "Echipa principală",
+        "description": "Această listă prezintă membrii echipei principale care muncesc din greu pentru a-ți oferi cea mai bună experiență de navigare.",
+        "subTitle": {
+          "browser": "Browser",
+          "website": "Website și branding"
+        },
+        "members": {
+          "browser": {
+            "mauro": {
+              "name": "Mauro V.",
+              "description": "Creator, Dezvoltator principal",
+              "link": "https://cheff.dev/"
+            },
+            "jan": {
+              "name": "Jan Heres",
+              "description": "Contribuitor activ și ajută cu build-urile pentru macOS",
+              "link": "https://janheres.eu/"
+            },
+            "bryan": {
+              "name": "Bryan Galdámez",
+              "description": "Contribuitor major la funcționalitățile temelor",
+              "link": "https://josuegalre.netlify.app/"
+            },
+            "oscar": {
+              "name": "Oscar Gonzalez",
+              "description": "Inginer Fiabilitate Site (SRE) și semnare cod.",
+              "link": false
+            },
+            "daniel": {
+              "name": "Daniel García",
+              "description": "Menținător certificat macOS și notarizare aplicație",
+              "link": false
+            },
+            "brhm": {
+              "name": "BrhmDev",
+              "description": "Contribuitor activ cu contribuții excelente",
+              "link": "https://github.com/BrhmDev"
+            },
+            "kristijanribaric": {
+              "name": "Kristijan Ribaric",
+              "description": "Contribuitor activ la vizualizări împărțite / spații de lucru",
+              "link": "https://github.com/kristijanribaric"
+            },
+            "larvey": {
+              "name": "Larvey",
+              "description": "Menținător AUR",
+              "link": "https://github.com/LarveyOfficial/"
+            },
+            "studio": {
+              "name": "Studio Movie Girl",
+              "description": "Contribuitor important la generatorul de gradiente",
+              "link": "https://github.com/neurokitti"
+            }
+          },
+          "website": {
+            "taroj1205": {
+              "name": "Shintaro Jokagi",
+              "description": "Arhitect principal website, coordonator refactorizare și îmbunătățiri tehnice",
+              "link": "https://github.com/taroj1205"
+            },
+            "jace": {
+              "name": "Jace",
+              "description": "Contribuie la designul site-ului și branding",
+              "link": "https://x.com/JaceThings"
+            },
+            "canoa": {
+              "name": "Canoa",
+              "description": "Contribuitor activ, foarte implicat în gestionarea problemelor și administrarea site-ului",
+              "link": "https://thatcanoa.org/"
+            },
+            "adam": {
+              "name": "Adam",
+              "description": "Branding și design",
+              "link": "https://cybrneon.xyz/"
+            },
+            "n7itro": {
+              "name": "n7itro",
+              "description": "Contribuitor activ și scriitor note de lansare",
+              "link": "https://github.com/n7itro"
+            },
+            "jafeth": {
+              "name": "Jafeth Garro",
+              "description": "Scriitor documentație",
+              "link": "https://iamjafeth.com/"
+            }
+          }
+        }
+      },
+      "contributors": {
+        "title": "Contribuitori",
+        "description": "Această listă prezintă contribuitorii care ne-au ajutat să facem Zen Browser cât mai bun posibil.",
+        "browser": "Browser",
+        "website": "Website"
+      }
+    },
+    "donate": {
+      "title": "Donează",
+      "description": "Suntem o echipă mică de dezvoltatori care muncesc din greu pentru a-ți oferi cea mai bună experiență de navigare. Dacă îți place ceea ce facem, te rugăm să iei în considerare să ne susții.",
+      "patreon": {
+        "title": "Patreon",
+        "description": "Patreon îți permite să ne susții cu o donație lunară. Poți alege nivelul de sprijin care ți se potrivește cel mai bine.",
+        "button": "Mergi la Patreon"
+      },
+      "koFi": {
+        "title": "Ko-fi",
+        "description": "Ko-fi îți permite să ne susții cu o donație unică. Poți alege suma care ți se potrivește cel mai bine. Donațiile lunare sunt, de asemenea, disponibile.",
+        "button": "Mergi la Ko-fi"
+      }
+    },
+    "download": {
+      "title": "Începe călătoria",
+      "description": "Descarcă Zen pentru platforma ta și experimentează o navigare pe internet mai conștientă.<br/>Zen este disponibil pentru macOS, Windows și Linux.",
+      "twilightInfo": "Te afli în prezent în modul Twilight, ceea ce înseamnă că descarci cele mai recente funcționalități și actualizări experimentale.",
+      "beta": "Zen este momentan în ",
+      "otherDownload": "Dacă dispozitivul tău a fost detectat greșit, <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link'>vezi alte descărcări</a>.<br />Te rugăm să raportezi orice problemă întâmpinată pe <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>.",
+      "alertInfo": {
+        "description": "Te afli în prezent în modul Twilight, ceea ce înseamnă că descarci cele mai recente funcționalități și actualizări experimentale."
+      },
+      "platformSelector": {
+        "title": "Selector platformă",
+        "description": "Selectează platforma ta pentru a descărca Zen."
+      },
+      "additionalResources": {
+        "title": "Resurse suplimentare",
+        "sourceCode": {
+          "title": "Cod sursă",
+          "description": "Explorează codul sursă Zen pe GitHub. Contribuie la proiect sau construiește propria ta versiune."
+        },
+        "documentation": {
+          "title": "Documentație",
+          "description": "Accesează documentație cuprinzătoare, ghiduri și tutoriale pentru Zen."
+        }
+      },
+      "securityNotice": {
+        "title": "Descărcări verificate și securizate",
+        "description": "Toate descărcările Zen sunt semnate și verificate pentru securitatea ta. Recomandăm descărcarea direct de pe site-ul nostru oficial sau din depozitul GitHub. Dacă descărcarea pare deteriorată sau este marcată de antivirusul tău, te rugăm să <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>ne raportezi acest lucru</a>."
+      },
+      "platformNames": {
+        "mac": "macOS",
+        "windows": "Windows",
+        "linux": "Linux"
+      },
+      "platformDescriptions": {
+        "mac": "Funcționează atât pe noile Apple (seria M), cât și pe Mac-urile mai vechi cu Intel.<br />Necesită macOS 11.0 sau mai nou.",
+        "windows": "Funcționează pe Windows 10 și Windows 11.<br />Nu ești sigur ce versiune să iei? Majoritatea oamenilor ar trebui să aleagă instalatorul pe 64 de biți.",
+        "linux": "Funcționează cu multe versiuni de Linux.<br />Alege descărcarea care se potrivește cu sistemul tău."
+      },
+      "links": {
+        "macos": { "universal": "Universal" },
+        "windows": { "64bit": "64-biți (Recomandat)", "ARM64": "ARM64" },
+        "linux": {
+          "flathub": "Flathub",
+          "x86_64": "Tarball",
+          "aarch64": "Tarball"
+        }
+      },
+      "buttonCard": {
+        "copy": "Copiază",
+        "showChecksum": "Afișează SHA-256",
+        "beta": "Beta"
+      }
+    },
+    "privacyPolicy": {
+      "title": "Politică de confidențialitate",
+      "lastUpdated": "Ultima actualizare: 2025-02-5",
+      "sections": {
+        "introduction": {
+          "title": "Introducere",
+          "body": "Bun venit la Zen! Confidențialitatea ta este prioritatea noastră. Această Politică de confidențialitate descrie tipurile de informații personale pe care le colectăm, modul în care le utilizăm și pașii pe care îi luăm pentru a-ți proteja datele atunci când folosești Zen.",
+          "summary": "Nu vindem date - Nu colectăm date - Nu te urmărim"
+        },
+        "noCollect": {
+          "title": "1. Informații pe care NU le colectăm",
+          "body": "Zen este conceput cu confidențialitatea în minte. Nu colectăm, nu stocăm și nu partajăm niciuna dintre datele tale personale. Iată ce înseamnă asta:"
+        },
+        "noTelemetry": {
+          "title": "1.1. Fără telemetrie",
+          "body": "Nu colectăm date de telemetrie sau rapoarte de eroare.",
+          "body2": "Zen a eliminat telemetria integrată în Mozilla Firefox. Am eliminat toată colectarea de date de telemetrie și rapoartele de eroare."
+        },
+        "noPersonalData": {
+          "title": "1.2. Fără colectare de date personale",
+          "body": "Zen nu colectează informații personale precum adresa ta IP, istoricul de navigare, interogările de căutare sau datele din formulare."
+        },
+        "noThirdParty": {
+          "title": "1.3. Fără urmărire de la terți",
+          "body": "Nu permitem funcționarea trackerelor sau a instrumentelor de analiză terțe în cadrul Zen. Activitatea ta de navigare rămâne în întregime privată și nu este partajată cu nicio terță parte. Mozilla nu este considerată o terță parte, fiind baza Zen."
+        },
+        "externalConnections": {
+          "title": "1.4. Conexiuni externe realizate la pornire",
+          "body": "Zen poate realiza conexiuni externe la pornire pentru a verifica actualizările și pentru a se asigura că browserul este la zi cu plugin-urile, add-on-urile, pentru a verifica conectivitatea și serviciile de Geolocalizare/notificări push în vederea conformării cu standardele web. Noi, la Zen, nu colectăm date din aceste conexiuni, dar acestea pot fi înregistrate de servicii terțe sau de site-urile pe care le vizitezi. Aceste conexiuni sunt necesare pentru funcționarea corectă a browserului și nu sunt utilizate în scopuri de urmărire sau profilare. Ele pot fi dezactivate prin intermediul flag-urilor de browser (about:config)."
+        },
+        "localStorage": {
+          "title": "2. Informații stocate local pe dispozitivul tău"
+        },
+        "browsingData": {
+          "title": "2.1. Date de navigare",
+          "body": "Zen stochează anumite date local pe dispozitivul tău pentru a-ți îmbunătăți experiența de navigare. Acestea includ:"
+        },
+        "cookies": {
+          "title": "Cookie-uri",
+          "body": "Cookie-urile sunt stocate local pe dispozitivul tău și nu sunt partajate cu Zen sau cu vreo terță parte. Ai control deplin asupra gestionării cookie-urilor prin setările browserului."
+        },
+        "cache": {
+          "title": "Cache și fișiere temporare",
+          "body": "Zen poate stoca fișiere cache și alte date temporare local pentru a îmbunătăți performanța. Aceste fișiere pot fi șterse oricând din setările browserului."
+        },
+        "settings": {
+          "title": "2.2. Setări și preferințe",
+          "body": "Orice personalizări, setări și preferințe pe care le faci în Zen sunt stocate local pe dispozitivul tău. Nu avem acces la sau control asupra acestor date."
+        },
+        "sync": {
+          "title": "3. Funcția Sync (Sincronizare)",
+          "body": "Zen oferă o funcție \"Sync\", care este implementată folosind funcția Sync a Mozilla Firefox. Această funcție îți permite să sincronizezi marcajele, istoricul, parolele și alte date pe mai multe dispozitive. Pentru ca această funcție să funcționeze, datele tale sunt criptate și stocate pe serverele Mozilla și sunt tratate în conformitate cu Politica lor de confidențialitate. Noi, la Zen, nu putem vizualiza niciuna dintre aceste date.",
+          "link1": "Mozilla Firefox Sync",
+          "link2": "Iată cum îți stocăm parolele"
+        },
+        "addons": {
+          "title": "4. Add-on-uri și \"Mod-uri\"",
+          "body": "Poți instala Add-on-uri de pe addons.mozilla.org. Zen verifică periodic actualizările pentru aceste Add-on-uri.\nDe asemenea, poți instala \"Mod-uri\" de pe zen-browser.app/mods. Aceste Mod-uri sunt găzduite de serviciile noastre și urmează aceeași politică de confidențialitate ca site-ul nostru. Nu colectăm date din aceste Mod-uri, ele fiind conținut pur static descărcat pe dispozitivul tău."
+        },
+        "security": {
+          "title": "5. Securitatea datelor",
+          "body": "Deși Zen nu colectează datele tale, ne angajăm să protejăm informațiile stocate local pe dispozitivul tău și, dacă folosești funcția Sync, datele criptate stocate pe serverele Mozilla. Îți recomandăm să folosești parole sigure, să activezi criptarea dispozitivului și să îți actualizezi regulat software-ul pentru a te asigura că datele tale rămân în siguranță.",
+          "note": "Reține că majoritatea măsurilor de securitate sunt asigurate de Mozilla Firefox."
+        },
+        "control": {
+          "title": "6. Controlul tău",
+          "deletionTitle": "6.1. Ștergerea datelor",
+          "deletionBody": "Ai control deplin asupra tuturor datelor stocate local pe dispozitivul tău de către Zen. Poți șterge datele de navigare, cookie-urile și cache-ul oricând folosind setările browserului."
+        },
+        "website": {
+          "title": "7. Site-ul și serviciile noastre",
+          "body": "Site-ul și serviciile Zen nu utilizează servicii de analiză, urmărire sau CDN de la terți. Nu colectăm informații personale de la utilizatorii care vizitează site-ul nostru. Site-ul este găzduit pe Cloudflare, dar cu analizele și urmărirea dezactivate; Cloudflare poate colecta unele date de analiză din cererile HTTP pentru a oferi îmbunătățiri de securitate și performanță. Totuși, aceste date nu sunt legate de nicio informație personală și nu sunt utilizate în scopuri de urmărire.",
+          "externalLinksTitle": "7.1. Linkuri externe",
+          "externalLinksBody": "Zen poate conține linkuri către site-uri sau servicii externe care nu sunt deținute sau operate de noi. Nu suntem responsabili pentru conținutul sau practicile de confidențialitate ale acestor site-uri. Îți recomandăm să consulți politicile de confidențialitate ale acestor site-uri înainte de a le furniza orice informații personale."
+        },
+        "changes": {
+          "title": "8. Modificări ale acestei Politici de confidențialitate",
+          "body": "Putem actualiza această Politică de confidențialitate periodic pentru a reflecta schimbările din practicile noastre sau cerințele legale. Te vom notifica cu privire la orice schimbări semnificative prin actualizarea datei de intrare în vigoare din partea de sus a acestei politici. Utilizarea continuă a Zen după astfel de modificări constituie acceptarea noilor termeni."
+        },
+        "otherTelemetry": {
+          "title": "9. Altă telemetrie efectuată de Mozilla Firefox",
+          "body": "Încercăm să dezactivăm toată colectarea de date de telemetrie în Zen. Dar, este posibil să fi omis ceva. Verifică linkurile de mai jos pentru mai multe informații.",
+          "firefoxPrivacyNotice": "Notificare de confidențialitate Firefox",
+          "forMoreInformation": "pentru mai multe informații."
+        },
+        "contact": {
+          "title": "10. Contactează-ne",
+          "body": "Dacă ai întrebări sau nelămuriri despre această Politică de confidențialitate sau despre Zen, te rugăm să ne contactezi la:",
+          "discord": "Discord: ",
+          "discordLink": "Discord-ul Zen",
+          "github": "GitHub: ",
+          "githubLink": "Organizație"
+        }
+      }
+    },
+    "welcome": {
+      "title": ["Bun venit ", "în ", "Zen!"]
+    },
+    "whatsNew": {
+      "title": "Ce e nou în {latestVersion.version}!",
+      "reportIssue": "Raportează o problemă",
+      "joinDiscord": "Alătură-te Discord-ului nostru",
+      "readFullReleaseNotes": "Citește notele complete de lansare"
+    },
+    "notFound": {
+      "title": "Pagină negăsită",
+      "description": "Ne pare rău, pagina pe care o cauți nu există sau a fost mutată.",
+      "button": "Mergi acasă"
+    }
+  },
+  "layout": {
+    "index": {
+      "title": "Zen Browser",
+      "description": "Frumos conceput, axat pe confidențialitate și plin de funcționalități."
+    },
+    "mods": {
+      "title": "Mod-uri Zen",
+      "description": "Răsfoiește colecția noastră diversă de Mod-uri Zen, plugin-uri și teme create de comunitate pentru Zen. Descoperă o temă potrivită pentru fiecare stare de spirit și un plugin pentru a îndeplini fiecare cerință. Începe să-ți personalizezi experiența de navigare astăzi!"
+    },
+    "releaseNotes": {
+      "title": "Note de lansare - Zen",
+      "description": "Rămâi la curent cu ultimele schimbări din Zen! De la prima lansare până la {latestVersion}, am muncit din greu pentru a face Zen cât mai bun posibil. Mulțumim tuturor pentru feedback! ❤️"
+    },
+    "about": {
+      "title": "Despre Zen",
+      "description": "Suntem pur și simplu un grup de dezvoltatori și designeri cărora le pasă de experiența ta pe web. Credem că internetul ar trebui să fie un loc unde poți explora, învăța și te poți conecta fără grija că datele tale sunt colectate."
+    },
+    "donate": {
+      "title": "Donează - Zen",
+      "description": "Suntem o echipă mică de dezvoltatori care muncesc din greu pentru a-ți oferi cea mai bună experiență de navigare. Dacă îți place ceea ce facem, te rugăm să iei în considerare să ne susții."
+    },
+    "download": {
+      "title": "Descarcă - Zen",
+      "description": "Descarcă Zen pentru platforma ta și experimentează o navigare pe internet mai conștientă."
+    },
+    "privacyPolicy": {
+      "title": "Politică de confidențialitate - Zen",
+      "description": "Confidențialitatea ta este prioritatea noastră. Această Politică de confidențialitate descrie tipurile de informații personale pe care le colectăm, modul în care le utilizăm și pașii pe care îi luăm pentru a-ți proteja datele atunci când folosești Zen."
+    },
+    "welcome": {
+      "title": "Bun venit!",
+      "description": "Bun venit în Zen!"
+    },
+    "whatsNew": {
+      "title": "Ce e nou în {latestVersion.version}!"
+    }
+  },
+  "components": {
+    "footer": {
+      "title": "Zen Browser",
+      "description": "Frumos conceput, axat pe confidențialitate și plin de funcționalități. Ne pasă de experiența ta, nu de datele tale.",
+      "download": "Descarcă",
+      "followUs": "Urmărește-ne",
+      "aboutUs": "Despre noi",
+      "teamAndContributors": "Echipă & Contribuitori",
+      "privacyPolicy": "Politică de confidențialitate",
+      "getStarted": "Începe aici",
+      "documentation": "Documentație",
+      "zenMods": "Mod-uri Zen",
+      "releaseNotes": "Note de lansare",
+      "getHelp": "Obține ajutor",
+      "securtiy": "Securitate",
+      "discord": "Discord",
+      "uptimeStatus": "Stare funcționare",
+      "reportAnIssue": "Raportează o problemă",
+      "twilight": "Twilight",
+      "madeWith": "Realizat cu <span aria-label='love'>❤️</span> de <a href='{link}' class='zen-link inline-block font-bold'>Echipa Zen</a>"
+    },
+    "nav": {
+      "brand": "Zen Browser",
+      "menu": {
+        "gettingStarted": "Primii pași",
+        "usefulLinks": "Linkuri utile",
+        "mods": "Mod-uri",
+        "download": "Descarcă",
+        "discord": "Discord",
+        "releaseNotes": "Note de lansare",
+        "zenMods": "Mod-uri Zen",
+        "tryZenMods": "Încearcă Mod-uri Zen",
+        "zenModsDesc": "Personalizează-ți experiența de navigare cu Mod-uri Zen.",
+        "releaseNotesDesc": "Rămâi la curent cu ultimele funcționalități și îmbunătățiri.",
+        "discordDesc": "Alătură-te comunității noastre pe Discord pentru a discuta cu alți utilizatori Zen!",
+        "donate": "Donează ❤️",
+        "donateDesc": "Susține dezvoltarea Zen cu o donație.",
+        "aboutUs": "Despre noi 🌟",
+        "aboutUsDesc": "Află mai multe despre echipa din spatele Zen.",
+        "documentation": "Documentație",
+        "documentationDesc": "Învață cum să folosești Zen cu documentația noastră.",
+        "github": "GitHub",
+        "githubDesc": "Contribuie la dezvoltarea Zen pe GitHub.",
+        "menu": "Meniu"
+      }
+    }
+  }
+}
