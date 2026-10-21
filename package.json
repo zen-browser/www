@@ -75,7 +75,7 @@
     "@types/animejs": "4.0.0",
     "@types/eslint-plugin-jsx-a11y": "6.10.1",
     "@types/jsdom": "30.0.0",
-    "@types/node": "26.6.4",
+    "@types/node": "26.6.5",
     "@typescript-eslint/eslint-plugin": "8.71.1",
     "@typescript-eslint/parser": "8.71.1",
     "@typescript-eslint/utils": "8.71.1",
@@ -97,6 +97,6 @@
     "typescript-eslint": "8.71.1",
     "vite-tsconfig-paths": "6.1.1",
     "vitest": "5.0.3",
-    "wrangler": "^4.148.0"
+    "wrangler": "^4.149.0"
   }
 }
