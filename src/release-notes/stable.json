@@ -4787,7 +4787,7 @@
     "date": "15/10/2026"
   },
   {
-    "version": "1.22.4b",
+    "version": "1.23.4b",
     "extra": "",
     "fixes": [
       "Mozilla blocked compromised eMudhra intermediate certificates via OneCRL on October 17th. The blocks were distributed to clients via Remote Settings the same day. This update contains the updated OneCRL block list, ensuring clients will block the compromised certificates even if RemoteSettings is disabled by policy or otherwise unavailable in the user's network environment. (<a href=\"https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/\"><b><u>Learn More</u></b></a>)",
