@@ -1,22 +1,6 @@
 {
-  "version": "1.24t",
+  "version": "xxx",
   "extra": "",
-  "fixes": [
-    {
-      "description": "Fixed the sidebar hiding when the mouse is still over it.",
-      "issue": 15995
-    },
-    {
-      "description": "Fixed devtools not appearing on glance tabs.",
-      "issue": 15261
-    },
-    {
-      "description": "Boosts zap bar will now push the web contents up when activated.",
-      "issue": 13972
-    }
-  ],
-  "features": [
-    "Boosts now have a 'focus' feature, allowing you to concentrate on a specific part of the website.",
-    "Windows builds now run with CSIR PGO, improving performance and startup times. All other platforms also have performance improvements."
-  ]
+  "fixes": [],
+  "features": []
 }

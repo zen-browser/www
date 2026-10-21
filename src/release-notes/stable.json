@@ -4785,5 +4785,47 @@
     "workflowId": 38728992109,
     "image": false,
     "date": "15/10/2026"
+  },
+  {
+    "version": "1.24b",
+    "extra": "",
+    "fixes": [
+      "Mozilla blocked compromised eMudhra intermediate certificates via OneCRL on October 17th. The blocks were distributed to clients via Remote Settings the same day. This update contains the updated OneCRL block list, ensuring clients will block the compromised certificates even if RemoteSettings is disabled by policy or otherwise unavailable in the user's network environment. (<a href=\"https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/\"><b><u>Learn More</u></b></a>)",
+      {
+        "description": "Fixed the sidebar hiding when the mouse is still over it.",
+        "issue": 15995
+      },
+      {
+        "description": "Fixed devtools not appearing on glance tabs.",
+        "issue": 15261
+      },
+      {
+        "description": "Boosts zap bar will now push the web contents up when activated.",
+        "issue": 13972
+      },
+      {
+        "description": "Fixed sidebar scroll being reset when entering fullscreen.",
+        "issue": 14389
+      },
+      {
+        "description": "Fixed multiple windows launching on startup on Linux and Windows.",
+        "issue": 12140
+      },
+      "Fixed a crash on Windows when printing or saving a page as PDF while a screen reader or other assistive technology was running.",
+      "Fixed an issue where Zen was opening windows on the wrong monitor in multi-monitor setups on Linux.",
+      "Fixed multiple media bars appearing when 2 or more tabs are using WebRTC.",
+      "Fixed an issue where files dragged into Firefox from other applications were not dropped onto the page on macOS.",
+      "External links will now be routed through the Space Routing feature on startup",
+      "More bug fixes and improvements."
+    ],
+    "features": [
+      "Updated to Firefox 158.0.1",
+      "Boosts now have a 'focus' feature, allowing you to concentrate on a specific part of the website.",
+      "Windows builds now run with CSIR PGO, improving performance and startup times. All other platforms also have performance improvements."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-111/",
+    "workflowId": 39497770166,
+    "image": false,
+    "date": "20/10/2026"
   }
 ]
