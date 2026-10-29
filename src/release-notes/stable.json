@@ -4860,7 +4860,8 @@
       "You can now import Spaces and Profiles from Arc and Dia.",
       "Boosts gets a nice upgrade! THey can now be shared with others and they get an overall quality improvement.",
       "Holding 'ctrl' (or 'cmd' on macOS) while hovering over the new tab button will now give the option to 'Paste & Search'.",
-      "You can now remove/add tabs from the library."
+      "You can now remove/add tabs from the library.",
+      "An indicator will now show when a tab is not visible."
     ],
     "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/",
     "workflowId": 39497770166,
