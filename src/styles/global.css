@@ -125,3 +125,20 @@ h1 .italic {
   height: 1em;
   vertical-align: -0.125em;
 }
+@layer base {
+  p,
+  span,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  button,
+  td,
+  th {
+    word-break: keep-all;
+  }
+}

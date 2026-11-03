@@ -1,0 +1,518 @@
+{
+  "routes": {
+    "index": {
+      "title": "Zen Browser",
+      "hero": {
+        "title": [
+          { "text": "더 ", "highlight": false },
+          { "text": "차분한 ", "highlight": true },
+          { "text": "인터넷에 ", "highlight": false },
+          { "text": "\n", "highlight": false },
+          { "text": "오신 것을 환영합니다", "highlight": false }
+        ],
+        "description": [
+          "아름다운 디자인, 강력한 개인정보 보호, 그리고 다채로운 기능.",
+          "우리가 집중하는 것은 여러분의 데이터가 아닌, 오직 사용자 경험입니다."
+        ],
+        "buttons": {
+          "beta": "베타 버전을 체험해 보세요!",
+          "support": "프로젝트 후원하기 ❤️"
+        }
+      },
+      "features": {
+        "titles": ["최고의 ", "생산성을 ", "경험하세요"],
+        "description": "Zen은 여러분의 집중력을 높여줄 유용한 기능들로 가득합니다. 브라우저는 방해 요소가 아닌, 목표를 향해 나아가도록 돕는 도구여야 합니다.",
+        "featureTabs": {
+          "workspaces": {
+            "title": "워크스페이스",
+            "description": "탭을 워크스페이스로 묶어 프로젝트별로 깔끔하게 정리하고, 부드럽게 넘나들며 작업해 보세요."
+          },
+          "compactMode": {
+            "title": "컴팩트 모드",
+            "description": "필요할 때만 탭 바를 띄워보세요. 화면을 한층 더 넓고 시원하게 사용할 수 있습니다."
+          },
+          "glance": {
+            "title": "글랜스 (Glance)",
+            "description": "지나간 기록을 뒤적일 필요 없이, 자주 찾는 탭으로 빠르고 자연스럽게 전환할 수 있습니다."
+          },
+          "splitView": {
+            "title": "화면 분할",
+            "description": "두 개의 탭을 나란히 띄워보세요. 내용을 비교하거나 동시에 작업하기가 훨씬 수월해집니다."
+          }
+        }
+      },
+      "sponsors": {
+        "title": "든든한 후원자",
+        "description": "따뜻한 지원을 보내주시는 후원자분들께 깊이 감사드립니다. 덕분에 프로젝트가 계속 이어질 수 있습니다.<br /><a href=\"/donate\" class=\"zen-link\">직접 후원하기</a>를 통해 이 아름다운 여정에 동참해 보세요!",
+        "sponsors": {
+          "tuta": {
+            "name": "Tuta",
+            "url": "https://tuta.com/"
+          },
+          "blacksmith": {
+            "name": "BlackSmith",
+            "url": "https://www.blacksmith.sh/"
+          },
+          "crowdin": {
+            "name": "Crowdin",
+            "url": "https://crowdin.com/"
+          }
+        }
+      },
+      "community": {
+        "title": ["우리의 ", "핵심 ", "가치"],
+        "description": "Zen은 아름다움, 성능, 그리고 프라이버시 사이의 완벽한 균형을 최우선으로 생각하며, 이를 굳건히 지켜나갑니다.",
+        "lists": {
+          "freeAndOpenSource": {
+            "title": "무료 및 오픈소스",
+            "description": "Zen은 완전한 무료 오픈소스 소프트웨어입니다. 부담 없이 자유롭게 사용하고, 필요에 맞게 다듬어 쓸 수 있습니다."
+          },
+          "simpleYetPowerful": {
+            "title": "단순하지만 강력하게",
+            "description": "사용하기 쉽고 직관적이면서도, 일상의 모든 작업을 거뜬히 해내는 강력함을 품고 있습니다."
+          },
+          "privateAndAlwaysUpToDate": {
+            "title": "안전하고 늘 새롭게",
+            "description": "여러분의 프라이버시를 지키며 항상 최신 상태를 유지합니다. 비용 없이 사용하고 자유롭게 수정해 보세요."
+          }
+        },
+        "images": {
+          "community": {
+            "alt": "커뮤니티"
+          }
+        }
+      }
+    },
+    "mods": {
+      "title": "Zen 모드",
+      "description": "사용자들이 정성껏 만든 플러그인과 테마 모음을 둘러보세요. 취향에 맞는 테마와 필요한 기능을 채워줄 플러그인을 발견할 수 있습니다. 지금 바로 나만의 브라우저를 꾸며보세요!",
+      "pagination": {
+        "pagination": "{input} / {totalPages} (총 {totalItems}개)"
+      },
+      "search": "검색어를 입력하세요...",
+      "by": "제작:",
+      "sort": {
+        "lastCreated": "최근 등록순",
+        "lastUpdated": "최근 업데이트순",
+        "perPage": "페이지당 항목 수"
+      },
+      "noResults": "결과가 없습니다",
+      "noResultsDescription": "다른 검색어를 입력하거나 나중에 다시 확인해 보세요.",
+      "slug": {
+        "title": "{name} - Zen 모드",
+        "description": "Zen Browser에서 사용할 수 있는 {name} 모드에 대해 자세히 알아보세요.",
+        "alert": {
+          "description": "이 테마를 적용하려면 먼저 Zen Browser가 필요합니다.",
+          "button": "지금 다운로드"
+        },
+        "createdBy": "{author} 제작 • <b>v{version}</b>",
+        "creationDate": "등록일: <b>{createdAt}</b>",
+        "latestUpdate": "최근 업데이트: <b>{updatedAt}</b>",
+        "visitModHomepage": "모드 홈페이지 방문",
+        "installMod": "모드 설치 🎉",
+        "uninstallMod": "모드 삭제",
+        "back": "뒤로가기"
+      }
+    },
+    "releaseNotes": {
+      "topSection": {
+        "title": "업데이트 내역",
+        "description": "Zen의 최신 변경 사항을 확인해 보세요! <a class=\"zen-link\" href=\"#1.0.0-a.1\">첫 출시</a>부터 최신 <a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>에 이르기까지, 최고의 브라우저를 만들기 위해 끊임없이 노력해 왔습니다. 소중한 의견을 내어주신 모든 분들께 감사드립니다! ❤️"
+      },
+      "list": {
+        "support": "프로젝트에 힘을 보태주세요!",
+        "navigateToVersion": "다른 버전 보기..."
+      },
+      "itemType": {
+        "fix": "수정됨",
+        "feature": "추가됨",
+        "known": "알려진 문제",
+        "break": "호환성 변경",
+        "theme": "테마",
+        "security": "보안",
+        "change": "변경됨"
+      },
+      "backToTop": "맨 위로",
+      "chooseVersion": "버전 선택",
+      "components": {
+        "releaseNoteItem": {
+          "twilight": "Twilight",
+          "twilightChanges": "Twilight 변경 사항",
+          "releaseChanges": "v{version}",
+          "firefoxVersion": "Firefox {version}",
+          "githubRelease": "GitHub 릴리스",
+          "workflowRun": "워크플로우 실행",
+          "compareChanges": "변경 사항 비교",
+          "twilightWarning": "Twilight는 사전 출시 버전입니다. 약간의 버그가 있거나 다듬어지지 않은 기능이 포함되어 있을 수 있습니다.",
+          "reportIssues": " 문제가 발생하면 언제든 <a rel=\"noopener noreferrer\" target=\"_blank\" href=\"https://github.com/zen-browser/desktop/issues/\" class=\"zen-link\">이슈 페이지</a>를 통해 알려주세요.",
+          "learnMore": "자세히 알아보기",
+          "viewIssue": "GitHub에서 #{issue}번 이슈 보기"
+        }
+      },
+      "slug": {
+        "title": "릴리스 노트",
+        "redirect": "{version} 버전 릴리스 노트로 이동 중..."
+      }
+    },
+    "about": {
+      "title": "Zen 소개",
+      "description": "우리는 웹에서의 사용자 경험을 진심으로 아끼는 개발자와 디자이너들입니다. 인터넷은 누군가에게 감시받을 걱정 없이 자유롭게 탐험하고, 배우고, 연결될 수 있는 공간이어야 한다고 믿습니다.",
+      "littleHelp": "작은 보탬이 되어주세요",
+      "mainTeam": {
+        "title": "주요 팀원",
+        "description": "가장 편안한 브라우징 경험을 선사하기 위해 묵묵히 헌신하는 팀원들입니다.",
+        "subTitle": {
+          "browser": "브라우저",
+          "website": "웹사이트 및 브랜딩"
+        },
+        "members": {
+          "browser": {
+            "mauro": {
+              "name": "Mauro V.",
+              "description": "창립자, 메인 개발자",
+              "link": "https://cheff.dev/"
+            },
+            "jan": {
+              "name": "Jan Heres",
+              "description": "활발한 기여자, MacOS 빌드 담당",
+              "link": "https://janheres.eu/"
+            },
+            "bryan": {
+              "name": "Bryan Galdámez",
+              "description": "테마 기능 핵심 기여자",
+              "link": "https://josuegalre.netlify.app/"
+            },
+            "oscar": {
+              "name": "Oscar Gonzalez",
+              "description": "사이트 신뢰성 엔지니어 (SRE) 및 코드 서명",
+              "link": false
+            },
+            "daniel": {
+              "name": "Daniel García",
+              "description": "MacOS 인증서 및 앱 공증 관리",
+              "link": false
+            },
+            "brhm": {
+              "name": "BrhmDev",
+              "description": "훌륭한 성과를 내는 활발한 기여자",
+              "link": "https://github.com/BrhmDev"
+            },
+            "kristijanribaric": {
+              "name": "Kristijan Ribaric",
+              "description": "화면 분할 및 워크스페이스 기여자",
+              "link": "https://github.com/kristijanribaric"
+            },
+            "larvey": {
+              "name": "Larvey",
+              "description": "AUR 메인테이너",
+              "link": "https://github.com/LarveyOfficial/"
+            },
+            "studio": {
+              "name": "Studio Movie Girl",
+              "description": "그래디언트 생성기 핵심 기여자",
+              "link": "https://github.com/StudioMovieGirl"
+            }
+          },
+          "website": {
+            "taroj1205": {
+              "name": "Shintaro Jokagi",
+              "description": "핵심 웹사이트 아키텍트, 리팩토링 및 기술 고도화 주도",
+              "link": "https://github.com/taroj1205"
+            },
+            "jace": {
+              "name": "Jace",
+              "description": "웹사이트 디자인 및 브랜딩 기여",
+              "link": "https://x.com/JaceThings"
+            },
+            "canoa": {
+              "name": "Canoa",
+              "description": "웹사이트 관리 및 이슈 해결에 헌신하는 기여자",
+              "link": "https://thatcanoa.org/"
+            },
+            "adam": {
+              "name": "Adam",
+              "description": "브랜딩 및 디자인",
+              "link": "https://cybrneon.xyz/"
+            },
+            "n7itro": {
+              "name": "n7itro",
+              "description": "활발한 기여자, 릴리스 노트 작성",
+              "link": "https://github.com/n7itro"
+            },
+            "jafeth": {
+              "name": "Jafeth Garro",
+              "description": "문서 작성자",
+              "link": "https://iamjafeth.com/"
+            }
+          }
+        }
+      },
+      "contributors": {
+        "title": "기여자",
+        "description": "Zen Browser가 지금의 모습을 갖출 수 있도록 아낌없이 도와주신 기여자분들입니다.",
+        "browser": "브라우저",
+        "website": "웹사이트"
+      }
+    },
+    "donate": {
+      "title": "후원하기",
+      "description": "우리는 최고의 브라우저를 만들기 위해 노력하는 작은 개발 팀입니다. 우리의 철학을 응원하신다면 따뜻한 후원을 부탁드립니다.",
+      "patreon": {
+        "title": "Patreon",
+        "description": "Patreon을 통해 매월 정기적으로 후원하실 수 있습니다. 원하는 후원 등급을 자유롭게 선택해 보세요.",
+        "button": "Patreon으로 이동"
+      },
+      "koFi": {
+        "title": "Ko-fi",
+        "description": "Ko-fi를 통해 일회성으로 후원하실 수 있습니다. 원하시는 금액을 자유롭게 선택할 수 있으며, 정기 후원도 가능합니다.",
+        "button": "Ko-fi로 이동"
+      }
+    },
+    "download": {
+      "title": "새로운 여정의 시작",
+      "description": "플랫폼에 맞춰 Zen을 다운로드하고, 한결 평화로워진 웹서핑을 경험해 보세요.<br/>Zen은 macOS, Windows, Linux를 모두 지원합니다.",
+      "twilightInfo": "현재 twilight 모드를 보고 계십니다. 실험적인 최신 기능과 업데이트가 포함된 버전을 다운로드합니다.",
+      "beta": "현재 Zen의 단계: ",
+      "otherDownload": "기기가 잘못 감지되었다면, <a href='https://github.com/zen-browser/desktop/releases/latest/' class='zen-link'>다른 다운로드 옵션</a>을 확인해 주세요.<br />불편한 점이 있다면 언제든 <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-[1px]'>GitHub</a>로 제보해 주세요.",
+      "alertInfo": {
+        "description": "현재 twilight 모드를 보고 계십니다. 실험적인 최신 기능과 업데이트가 포함된 버전을 다운로드합니다."
+      },
+      "platformSelector": {
+        "title": "플랫폼 선택",
+        "description": "Zen을 다운로드할 기기의 운영체제를 선택해 주세요."
+      },
+      "additionalResources": {
+        "title": "추가 리소스",
+        "sourceCode": {
+          "title": "소스 코드",
+          "description": "GitHub에서 Zen의 소스 코드를 살펴보세요. 프로젝트에 기여하거나 직접 빌드해 볼 수 있습니다."
+        },
+        "documentation": {
+          "title": "공식 문서",
+          "description": "Zen의 원활한 사용을 돕는 가이드와 튜토리얼, 상세한 문서를 제공합니다."
+        }
+      },
+      "securityNotice": {
+        "title": "안전하고 검증된 다운로드",
+        "description": "모든 Zen 다운로드 파일은 안전을 위해 서명되고 검증됩니다. 공식 웹사이트나 GitHub 저장소에서 직접 다운로드하는 것을 권장합니다. 다운로드에 문제가 있거나 백신이 오진하는 경우 <a href='https://github.com/zen-browser/desktop/issues/new/choose' class='zen-link ml-1'>여기로 제보</a>해 주세요."
+      },
+      "platformNames": {
+        "mac": "macOS",
+        "windows": "Windows",
+        "linux": "Linux"
+      },
+      "platformDescriptions": {
+        "mac": "최신 Apple Silicon(M 시리즈) 및 기존 Intel Mac을 모두 지원합니다.<br />macOS 11.0 이상이 필요합니다.",
+        "windows": "Windows 10 및 Windows 11에서 작동합니다.<br />어떤 버전을 받을지 고민되신다면 64비트 설치 버전을 권장합니다.",
+        "linux": "다양한 Linux 배포판을 지원합니다.<br />사용 중인 시스템 환경에 맞는 파일을 선택해 주세요."
+      },
+      "links": {
+        "macos": { "universal": "통합 버전 (Universal)" },
+        "windows": { "64bit": "64비트 (권장)", "ARM64": "ARM64" },
+        "linux": {
+          "flathub": "Flathub",
+          "x86_64": "Tarball",
+          "aarch64": "Tarball"
+        }
+      },
+      "buttonCard": {
+        "copy": "복사",
+        "showChecksum": "SHA-256 확인",
+        "beta": "베타"
+      }
+    },
+    "privacyPolicy": {
+      "title": "개인정보 처리방침",
+      "lastUpdated": "최종 업데이트: 2025-02-05",
+      "sections": {
+        "introduction": {
+          "title": "소개",
+          "body": "Zen에 오신 것을 환영합니다! 여러분의 프라이버시는 우리의 최우선 가치입니다. 이 정책은 Zen이 수집하는 정보의 종류와 사용 방식, 그리고 여러분의 데이터를 보호하기 위한 조치를 투명하게 설명합니다.",
+          "summary": "우리는 데이터를 팔지 않습니다 - 데이터를 수집하지 않습니다 - 여러분을 추적하지 않습니다."
+        },
+        "noCollect": {
+          "title": "1. 수집하지 않는 정보",
+          "body": "Zen은 프라이버시를 염두에 두고 세심하게 설계되었습니다. 어떠한 개인 데이터도 수집, 저장, 또는 공유하지 않습니다. 구체적인 내용은 다음과 같습니다:"
+        },
+        "noTelemetry": {
+          "title": "1.1. 텔레메트리 (원격 수집) 없음",
+          "body": "어떠한 텔레메트리 데이터나 크래시 보고서도 수집하지 않습니다.",
+          "body2": "Zen은 Mozilla Firefox에 내장된 텔레메트리를 모두 제거했습니다. 데이터 수집 및 크래시 보고 기능이 완전히 삭제되었습니다."
+        },
+        "noPersonalData": {
+          "title": "1.2. 개인 데이터 수집 없음",
+          "body": "Zen은 IP 주소, 방문 기록, 검색어, 폼 입력 데이터 등 어떠한 개인 정보도 수집하지 않습니다."
+        },
+        "noThirdParty": {
+          "title": "1.3. 제3자 추적 차단",
+          "body": "Zen 내부에서 제3자 트래커나 분석 도구가 작동하는 것을 허용하지 않습니다. 브라우징 활동은 온전히 비공개로 유지되며 누구와도 공유되지 않습니다. Zen의 기반 기술인 Mozilla는 제3자로 간주하지 않습니다."
+        },
+        "externalConnections": {
+          "title": "1.4. 시작 시 외부 연결",
+          "body": "업데이트 확인, 플러그인 최신화, 네트워크 상태 점검, 그리고 웹 표준을 위한 위치 정보/푸시 서비스를 위해 시작 시 불가피한 외부 연결이 발생할 수 있습니다. Zen은 여기서 어떠한 데이터도 수집하지 않지만, 방문하는 제3자 서비스에 의해 로그가 남을 수는 있습니다. 이는 브라우저의 정상 작동을 위한 것일 뿐 사용자 추적용이 아니며, 브라우저 설정(about:config)에서 비활성화할 수 있습니다."
+        },
+        "localStorage": {
+          "title": "2. 기기에 로컬로 저장되는 정보"
+        },
+        "browsingData": {
+          "title": "2.1. 브라우징 데이터",
+          "body": "더 매끄러운 브라우징을 위해 일부 데이터를 사용자 기기에 로컬로 저장합니다. 포함되는 내용은 다음과 같습니다:"
+        },
+        "cookies": {
+          "title": "쿠키 (Cookies)",
+          "body": "쿠키는 기기에 로컬로 저장되며 Zen이나 제3자와 절대 공유되지 않습니다. 설정 메뉴를 통해 쿠키를 온전히 통제할 수 있습니다."
+        },
+        "cache": {
+          "title": "캐시 및 임시 파일",
+          "body": "성능 향상을 위해 캐시와 임시 파일이 기기에 저장될 수 있습니다. 이 파일들은 설정에서 언제든 깨끗하게 지울 수 있습니다."
+        },
+        "settings": {
+          "title": "2.2. 설정 및 환경설정",
+          "body": "Zen 내에서 조정한 모든 설정과 테마는 기기에 로컬로만 저장됩니다. 우리는 이 데이터에 접근하거나 통제할 권한이 없습니다."
+        },
+        "sync": {
+          "title": "3. 동기화 (Sync) 기능",
+          "body": "Zen은 Mozilla Firefox의 동기화 시스템을 활용한 'Sync' 기능을 제공합니다. 이를 통해 북마크, 방문 기록, 비밀번호를 여러 기기에서 안전하게 공유할 수 있습니다. 데이터는 철저히 암호화되어 Mozilla 서버에 저장되며, Mozilla의 정책을 따릅니다. Zen 팀은 이 데이터에 일절 접근할 수 없습니다.",
+          "link1": "Mozilla Firefox 동기화",
+          "link2": "비밀번호 보관 방식 알아보기"
+        },
+        "addons": {
+          "title": "4. 애드온과 모드 (Mods)",
+          "body": "addons.mozilla.org를 통해 다양한 애드온을 설치할 수 있습니다. Zen은 이 애드온들의 업데이트를 주기적으로 확인합니다.\n또한 zen-browser.app/mods에서 '모드'를 설치할 수 있습니다. 모드는 우리의 서버에 호스팅되며 본 웹사이트와 동일한 보호 정책을 따릅니다. 기기에 다운로드되는 단순한 정적 콘텐츠이므로 어떠한 데이터도 수집하지 않습니다."
+        },
+        "security": {
+          "title": "5. 데이터 보안",
+          "body": "우리는 사용자의 데이터를 수집하지 않으며, 기기에 저장되는 로컬 정보와 Mozilla 서버에 암호화되는 데이터를 보호하기 위해 최선을 다하고 있습니다. 안전한 비밀번호 사용, 기기 암호화, 소프트웨어의 꾸준한 업데이트를 권장합니다.",
+          "note": "대부분의 보안 기반 조치는 Mozilla Firefox 시스템에 의해 철저하게 관리됩니다."
+        },
+        "control": {
+          "title": "6. 사용자의 통제권",
+          "deletionTitle": "6.1. 데이터 삭제",
+          "deletionBody": "Zen이 로컬에 저장하는 모든 데이터의 통제권은 온전히 여러분에게 있습니다. 언제든 설정을 통해 방문 기록, 쿠키, 캐시를 지울 수 있습니다."
+        },
+        "website": {
+          "title": "7. 웹사이트 및 서비스",
+          "body": "Zen의 웹사이트는 제3자 분석기나 트래커, CDN 서비스를 사용하지 않습니다. 방문자로부터 어떠한 개인 정보도 수집하지 않습니다. 웹사이트는 분석 기능이 꺼진 상태로 Cloudflare에 호스팅되어 있으며, Cloudflare 측에서 보안 목적으로 일부 HTTP 요청 데이터를 수집할 수는 있습니다. 하지만 이는 개인 정보와 무관하며 추적 용도로 쓰이지 않습니다.",
+          "externalLinksTitle": "7.1. 외부 링크",
+          "externalLinksBody": "Zen 웹사이트에는 우리가 운영하지 않는 외부 사이트 링크가 포함될 수 있습니다. 우리는 해당 사이트의 내용이나 정책에 책임이 없습니다. 외부 사이트에 개인 정보를 제공하기 전 해당 사이트의 정책을 확인하시기 바랍니다."
+        },
+        "changes": {
+          "title": "8. 정책 변경",
+          "body": "법적 요구 사항의 변화를 반영하기 위해 본 개인정보 처리방침은 때때로 업데이트될 수 있습니다. 중요한 변경이 있을 경우 정책 상단의 날짜를 갱신해 안내해 드립니다. 변경 후에도 계속 사용하시면 새로운 방침에 동의하신 것으로 간주됩니다."
+        },
+        "otherTelemetry": {
+          "title": "9. Mozilla Firefox의 기타 텔레메트리",
+          "body": "Zen은 모든 텔레메트리 수집을 막기 위해 꼼꼼히 살폈지만, 놓친 부분이 있을지도 모릅니다. 자세한 내용은 아래 링크를 확인해 주세요.",
+          "firefoxPrivacyNotice": "Firefox 개인정보 취급방침",
+          "forMoreInformation": "에서 더 많은 정보를 알아보세요."
+        },
+        "contact": {
+          "title": "10. 문의하기",
+          "body": "본 방침이나 Zen에 대해 궁금한 점이 있으시다면 아래로 연락해 주세요:",
+          "discord": "Discord: ",
+          "discordLink": "Zen 공식 Discord",
+          "github": "GitHub: ",
+          "githubLink": "조직 페이지"
+        }
+      }
+    },
+    "welcome": {
+      "title": ["Zen에 ", "오신 것을 ", "환영합니다!"]
+    },
+    "whatsNew": {
+      "title": "{latestVersion.version} 버전의 새로운 점!",
+      "reportIssue": "이슈 제보하기",
+      "joinDiscord": "Discord 참여하기",
+      "readFullReleaseNotes": "전체 릴리스 노트 읽기"
+    },
+    "notFound": {
+      "title": "페이지를 찾을 수 없습니다",
+      "description": "죄송합니다. 찾으시는 페이지가 존재하지 않거나 주소가 변경되었습니다.",
+      "button": "홈으로 돌아가기"
+    }
+  },
+  "layout": {
+    "index": {
+      "title": "Zen Browser",
+      "description": "아름다운 디자인, 강력한 개인정보 보호, 그리고 다채로운 기능."
+    },
+    "mods": {
+      "title": "Zen 모드",
+      "description": "커뮤니티가 정성껏 만든 다양한 플러그인과 테마 모음을 둘러보세요. 나만의 취향에 맞는 테마를 발견하고 브라우저를 새롭게 꾸며보세요!"
+    },
+    "releaseNotes": {
+      "title": "릴리스 노트 - Zen",
+      "description": "Zen의 최신 변경 사항을 확인해 보세요! 첫 출시부터 {latestVersion}에 이르기까지, 최고의 브라우저를 만들기 위해 끊임없이 노력했습니다. 응원해 주신 모든 분들께 감사드립니다! ❤️"
+    },
+    "about": {
+      "title": "Zen 소개",
+      "description": "우리는 웹에서의 아름다운 경험을 소중히 여기는 개발자와 디자이너들입니다. 누군가에게 감시받을 걱정 없이 자유롭게 탐험하는 인터넷 환경을 만들어 갑니다."
+    },
+    "donate": {
+      "title": "후원하기 - Zen",
+      "description": "우리는 최고의 브라우저를 만들기 위해 헌신하는 작은 팀입니다. 저희의 여정을 응원하신다면 따뜻한 후원을 부탁드립니다."
+    },
+    "download": {
+      "title": "다운로드 - Zen",
+      "description": "운영체제에 맞춰 Zen을 다운로드하고, 한결 평화로워진 인터넷을 경험해 보세요."
+    },
+    "privacyPolicy": {
+      "title": "개인정보 처리방침 - Zen",
+      "description": "여러분의 프라이버시는 우리의 최우선 가치입니다. Zen 사용 시 데이터를 안전하게 보호하기 위한 철학과 정책을 투명하게 안내합니다."
+    },
+    "welcome": {
+      "title": "환영합니다!",
+      "description": "Zen에 오신 것을 진심으로 환영합니다!"
+    },
+    "whatsNew": {
+      "title": "{latestVersion.version} 버전의 새로운 점!"
+    }
+  },
+  "components": {
+    "footer": {
+      "title": "Zen Browser",
+      "description": "아름다운 디자인, 강력한 개인정보 보호, 다채로운 기능. 데이터가 아닌 오직 사용자의 경험에만 집중합니다.",
+      "download": "다운로드",
+      "followUs": "소셜 미디어",
+      "aboutUs": "Zen 소개",
+      "teamAndContributors": "팀 및 기여자",
+      "privacyPolicy": "개인정보 처리방침",
+      "getStarted": "시작하기",
+      "documentation": "공식 문서",
+      "zenMods": "Zen 모드",
+      "releaseNotes": "릴리스 노트",
+      "getHelp": "고객 지원",
+      "securtiy": "보안",
+      "discord": "Discord",
+      "uptimeStatus": "서버 상태",
+      "reportAnIssue": "이슈 제보",
+      "twilight": "Twilight",
+      "madeWith": "Made with <span aria-label='love'>❤️</span> by the <a href='{link}' class='zen-link inline-block font-bold'>Zen Team</a>"
+    },
+    "nav": {
+      "brand": "Zen Browser",
+      "menu": {
+        "gettingStarted": "시작하기",
+        "usefulLinks": "유용한 링크",
+        "mods": "모드",
+        "download": "다운로드",
+        "discord": "Discord",
+        "releaseNotes": "릴리스 노트",
+        "zenMods": "Zen 모드",
+        "tryZenMods": "Zen 모드 둘러보기",
+        "zenModsDesc": "Zen 모드로 나만의 브라우저를 세심하게 꾸며보세요.",
+        "releaseNotesDesc": "최신 기능과 개선 사항을 가장 먼저 확인해 보세요.",
+        "discordDesc": "Discord 커뮤니티에 합류하여 다른 사용자들과 다정하게 소통해 보세요!",
+        "donate": "후원하기 ❤️",
+        "donateDesc": "따뜻한 후원으로 Zen의 개발 여정에 힘을 보태주세요.",
+        "aboutUs": "팀 소개 🌟",
+        "aboutUsDesc": "Zen을 정성껏 만들어가는 사람들의 이야기를 들려드립니다.",
+        "documentation": "공식 문서",
+        "documentationDesc": "상세한 가이드를 통해 Zen을 100% 활용하는 방법을 알아보세요.",
+        "github": "GitHub",
+        "githubDesc": "GitHub에서 Zen의 오픈소스 여정에 동참해 보세요.",
+        "menu": "메뉴"
+      }
+    }
+  }
+}
