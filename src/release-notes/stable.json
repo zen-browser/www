@@ -4744,5 +4744,152 @@
     "workflowId": 37900069684,
     "image": false,
     "date": "09/10/2026"
+  },
+  {
+    "version": "1.23.3b",
+    "extra": "",
+    "fixes": [
+      "Fixed various animation, urlbar and UI performance issues.",
+      {
+        "description": "Fixed Library media tab requesting onedrive to download all files from cloud.",
+        "issue": 15888
+      },
+      {
+        "description": "Fixed unwanted label next to the search icon in urlbar.",
+        "issue": 14856
+      },
+      {
+        "description": "Fixed Avahi access so CUPS printers are listed in flatpak sandbox.",
+        "issue": 9651
+      },
+      {
+        "description": "Fixed various memory leak issues.",
+        "issue": 15954
+      },
+      "Fixed a crash that could occur while Zen loaded website icons (favicons).",
+      "Fixed menus such as List all tabs, Settings, etc being hard to read with a Windows High Contrast theme. Menu background and text colors now follow the Background and Text colors chosen for a custom contrast theme in Windows Settings.",
+      "Other bug fixes and improvements."
+    ],
+    "changes": [
+      "Space routing regex will now match URLs as case-insensitive.",
+      "Library's widget hover list will now only display recently downloaded files.",
+      "Zen no longer rounds scroll positions to whole screen pixels. Scrolling is now smoother and more precise, especially on high-resolution displays or when a page is zoomed."
+    ],
+    "features": [
+      "Updated Firefox to 158.0",
+      "Added a `--space <id|name>` option to the command line interface.",
+      "Library will now show a 'Open in Folder' option and download speed when hovering over the toolbar icon.",
+      "Zen now creates more accessible PDFs when saving a page as PDF, and when printing on Linux and macOS. This also fixes a variety of PDF rendering issues, such as missing math symbols."
+    ],
+    "security": "https://www.mozilla.org/security/advisories/mfsa2026-106",
+    "workflowId": 38728992109,
+    "image": false,
+    "date": "15/10/2026"
+  },
+  {
+    "version": "1.23.4b",
+    "extra": "",
+    "fixes": [
+      "Mozilla blocked compromised eMudhra intermediate certificates via OneCRL on October 17th. The blocks were distributed to clients via Remote Settings the same day. This update contains the updated OneCRL block list, ensuring clients will block the compromised certificates even if RemoteSettings is disabled by policy or otherwise unavailable in the user's network environment. (<a href=\"https://blog.mozilla.org/security/2026/10/20/protecting-firefox-users-following-the-compromise-of-emudhra-intermediate-certificates/\"><b><u>Learn More</u></b></a>)",
+      {
+        "description": "Fixed the sidebar hiding when the mouse is still over it.",
+        "issue": 15995
+      },
+      {
+        "description": "Fixed devtools not appearing on glance tabs.",
+        "issue": 15261
+      },
+      {
+        "description": "Boosts zap bar will now push the web contents up when activated.",
+        "issue": 13972
+      },
+      {
+        "description": "Fixed sidebar scroll being reset when entering fullscreen.",
+        "issue": 14389
+      },
+      {
+        "description": "Fixed multiple windows launching on startup on Linux and Windows.",
+        "issue": 12140
+      },
+      "Fixed a crash on Windows when printing or saving a page as PDF while a screen reader or other assistive technology was running.",
+      "Fixed an issue where Zen was opening windows on the wrong monitor in multi-monitor setups on Linux.",
+      "Fixed multiple media bars appearing when 2 or more tabs are using WebRTC.",
+      "Fixed an issue where files dragged into Firefox from other applications were not dropped onto the page on macOS.",
+      "External links will now be routed through the Space Routing feature on startup",
+      "More bug fixes and improvements."
+    ],
+    "features": [
+      "Updated to Firefox 158.0.1",
+      "Boosts now have a 'focus' feature, allowing you to concentrate on a specific part of the website.",
+      "Windows builds now run with CSIR PGO, improving performance and startup times. All other platforms also have performance improvements."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-111/",
+    "workflowId": 39497770166,
+    "image": false,
+    "date": "20/10/2026"
+  },
+  {
+    "version": "1.24b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed an issue where expanded glance tabs would not appear on the right Space.",
+        "issue": 16080
+      },
+      "Fixed the file upload dialog opening in the last folder a file was saved to, such as Downloads, instead of the folder last used for uploads.",
+      "Fixed memory usage growing rapidly when sites such as the Zoom web app were left open in a minimized window.",
+      "Fixed some videos displaying incorrectly on Windows when NVIDIA RTX Video HDR is enabled.",
+      "Fixed bookmarks not being imported from Google Chrome profiles that are signed in to a Google account.",
+      "Fixed the Replace button in Apple Writing Tools on macOS inserting the clipboard contents instead of the rewritten text on some sites.",
+      "Fixed long drop-down lists on web pages sometimes showing blank space in place of the last options until the list was scrolled.",
+      "Fixed some sites, such as Slack, failing to load instead of falling back to HTTP/2 when the site rejected an HTTP/3 request.",
+      "Fixed Zen using excessive memory on Linux with AMD graphics when viewing map or place results on sites such as ChatGPT.",
+      "Fixed quick gamepad button presses sometimes being missed in web games on macOS.",
+      "Fixed tabs sometimes detaching into a new window when clicked on Linux with Wayland.",
+      "Fixed menus and panels fading in on Windows and Linux when animation effects are turned off in the operating system.",
+      "More bug fixes and improvements."
+    ],
+    "changes": [
+      "Zen's keyboard shortcuts have been improved and moved to about:keyboard.",
+      "Space Routing settings have been moved to the Library",
+      "On the site center, the reader mode button has been moved next to the 'Secure' button and shown only if available.",
+      "Web addresses written in the Javanese, Balinese, Canadian Aboriginal Syllabics, and N'Ko scripts are now displayed in their own script instead of as encoded \"xn--\" text."
+    ],
+    "features": [
+      "Updated to Firefox 159.0",
+      "You can now import Spaces and Profiles from Arc and Dia.",
+      "Boosts gets a nice upgrade! They can now be shared with others and they get an overall quality improvement.",
+      "Holding 'ctrl' (or 'cmd' on macOS) while hovering over the new tab button will now give the option to 'Paste & Search'.",
+      "You can now remove/add tabs from the library.",
+      "An indicator will now show when a tab is not visible."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/",
+    "workflowId": 40795256828,
+    "image": false,
+    "date": "28/10/2026"
+  },
+  {
+    "version": "1.24.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed a command prompt window briefly appearing on Windows when Zen restarts to apply an update.",
+      "Fixed passkey sign-in failing on websites that share passkeys across related sites, such as Facebook and Instagram.",
+      "Fixed crashes on Windows that could occur with some antivirus or other security software installed, in some cases also leaving WebGL disabled.",
+      "Fixed red and blue colors appearing swapped on some websites that use WebGL on Linux, including video call background effects.",
+      "More bug fixes and improvements."
+    ],
+    "changes": [
+      "On macOS, icons on the UI will now start using SF Symbols.",
+      "The 'About Zen' window has been redesigned.",
+      "'My Review Request' option for Pull Requests live folder now searches for 'user-review-requested:@me' instead of 'review-requested:@me'"
+    ],
+    "features": [
+      "Updated to Firefox 159.0.1",
+      "New grain options have been added to the theme picker. You can cycle through different grain effects by clicking on the circle inside the dial."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-123/",
+    "workflowId": 42093687888,
+    "image": false,
+    "date": "05/11/2026"
   }
 ]

@@ -30,11 +30,11 @@
     "@astrojs/react": "7.0.1",
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.4",
-    "@fontsource/bricolage-grotesque": "5.2.10",
-    "@fortawesome/fontawesome-svg-core": "7.3.0",
-    "@fortawesome/free-brands-svg-icons": "7.3.0",
-    "@fortawesome/free-solid-svg-icons": "7.3.0",
-    "@tailwindcss/vite": "4.3.2",
+    "@fontsource/bricolage-grotesque": "5.3.0",
+    "@fortawesome/fontawesome-svg-core": "7.3.1",
+    "@fortawesome/free-brands-svg-icons": "7.3.1",
+    "@fortawesome/free-solid-svg-icons": "7.3.1",
+    "@tailwindcss/vite": "4.3.3",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "animejs": "4.5.0",
@@ -47,10 +47,10 @@
     "lefthook": "2.1.17",
     "react": "19.3.0",
     "react-dom": "19.3.0",
-    "sharp": "0.35.4",
-    "tailwind-merge": "3.6.0",
-    "tailwindcss": "4.3.2",
-    "turbo": "2.10.4",
+    "sharp": "0.35.5",
+    "tailwind-merge": "3.7.0",
+    "tailwindcss": "4.3.3",
+    "turbo": "2.11.7",
     "typescript": "6.0.3",
     "ua-parser-js": "2.0.10"
   },
@@ -75,7 +75,7 @@
     "@types/animejs": "4.0.0",
     "@types/eslint-plugin-jsx-a11y": "6.10.1",
     "@types/jsdom": "30.0.0",
-    "@types/node": "26.6.2",
+    "@types/node": "26.6.5",
     "@typescript-eslint/eslint-plugin": "8.71.1",
     "@typescript-eslint/parser": "8.71.1",
     "@typescript-eslint/utils": "8.71.1",
@@ -97,6 +97,6 @@
     "typescript-eslint": "8.71.1",
     "vite-tsconfig-paths": "6.1.1",
     "vitest": "5.0.3",
-    "wrangler": "^4.135.0"
+    "wrangler": "^4.149.0"
   }
 }
