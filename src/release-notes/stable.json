@@ -4867,29 +4867,5 @@
     "workflowId": 40795256828,
     "image": false,
     "date": "28/10/2026"
-  },
-  {
-    "version": "1.24.1b",
-    "extra": "",
-    "fixes": [
-      "Fixed a command prompt window briefly appearing on Windows when Zen restarts to apply an update.",
-      "Fixed passkey sign-in failing on websites that share passkeys across related sites, such as Facebook and Instagram.",
-      "Fixed crashes on Windows that could occur with some antivirus or other security software installed, in some cases also leaving WebGL disabled.",
-      "Fixed red and blue colors appearing swapped on some websites that use WebGL on Linux, including video call background effects.",
-      "More bug fixes and improvements."
-    ],
-    "changes": [
-      "On macOS, icons on the UI will now start using SF Symbols.",
-      "The 'About Zen' window has been redesigned.",
-      "'My Review Request' option for Pull Requests live folder now searches for 'user-review-requested:@me' instead of 'review-requested:@me'"
-    ],
-    "features": [
-      "Updated to Firefox 159.0.1",
-      "New grain options have been added to the theme picker. You can cycle through different grain effects by clicking on the circle inside the dial."
-    ],
-    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-123/",
-    "workflowId": 42093687888,
-    "image": false,
-    "date": "05/11/2026"
   }
 ]
