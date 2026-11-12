@@ -4910,7 +4910,7 @@
       "The address bar context menu now shows \"Paste and Search\" instead of \"Paste and Go\" when the copied text is a search term rather than a web address."
     ],
     "features": [
-      "Updated to Firefox 159.0.1",
+      "Updated to Firefox 160.0",
       "Added pause context menu button for the downloads section",
       "The urlbar now has a bit of transparency for a more modern look.",
       "The Picture-in-Picture player now has a playback speed setting, with options ranging from 0.25x to 2.0x speed. The setting appears only when the player window is medium-sized or larger.",
