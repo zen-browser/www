@@ -4827,5 +4827,101 @@
     "workflowId": 39497770166,
     "image": false,
     "date": "20/10/2026"
+  },
+  {
+    "version": "1.24b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed an issue where expanded glance tabs would not appear on the right Space.",
+        "issue": 16080
+      },
+      "Fixed the file upload dialog opening in the last folder a file was saved to, such as Downloads, instead of the folder last used for uploads.",
+      "Fixed memory usage growing rapidly when sites such as the Zoom web app were left open in a minimized window.",
+      "Fixed some videos displaying incorrectly on Windows when NVIDIA RTX Video HDR is enabled.",
+      "Fixed bookmarks not being imported from Google Chrome profiles that are signed in to a Google account.",
+      "Fixed the Replace button in Apple Writing Tools on macOS inserting the clipboard contents instead of the rewritten text on some sites.",
+      "Fixed long drop-down lists on web pages sometimes showing blank space in place of the last options until the list was scrolled.",
+      "Fixed some sites, such as Slack, failing to load instead of falling back to HTTP/2 when the site rejected an HTTP/3 request.",
+      "Fixed Zen using excessive memory on Linux with AMD graphics when viewing map or place results on sites such as ChatGPT.",
+      "Fixed quick gamepad button presses sometimes being missed in web games on macOS.",
+      "Fixed tabs sometimes detaching into a new window when clicked on Linux with Wayland.",
+      "Fixed menus and panels fading in on Windows and Linux when animation effects are turned off in the operating system.",
+      "More bug fixes and improvements."
+    ],
+    "changes": [
+      "Zen's keyboard shortcuts have been improved and moved to about:keyboard.",
+      "Space Routing settings have been moved to the Library",
+      "On the site center, the reader mode button has been moved next to the 'Secure' button and shown only if available.",
+      "Web addresses written in the Javanese, Balinese, Canadian Aboriginal Syllabics, and N'Ko scripts are now displayed in their own script instead of as encoded \"xn--\" text."
+    ],
+    "features": [
+      "Updated to Firefox 159.0",
+      "You can now import Spaces and Profiles from Arc and Dia.",
+      "Boosts gets a nice upgrade! They can now be shared with others and they get an overall quality improvement.",
+      "Holding 'ctrl' (or 'cmd' on macOS) while hovering over the new tab button will now give the option to 'Paste & Search'.",
+      "You can now remove/add tabs from the library.",
+      "An indicator will now show when a tab is not visible."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-118/",
+    "workflowId": 40795256828,
+    "image": false,
+    "date": "28/10/2026"
+  },
+  {
+    "version": "1.24.1b",
+    "extra": "",
+    "fixes": [
+      "Fixed a command prompt window briefly appearing on Windows when Zen restarts to apply an update.",
+      "Fixed passkey sign-in failing on websites that share passkeys across related sites, such as Facebook and Instagram.",
+      "Fixed crashes on Windows that could occur with some antivirus or other security software installed, in some cases also leaving WebGL disabled.",
+      "Fixed red and blue colors appearing swapped on some websites that use WebGL on Linux, including video call background effects.",
+      "More bug fixes and improvements."
+    ],
+    "changes": [
+      "On macOS, icons on the UI will now start using SF Symbols.",
+      "The 'About Zen' window has been redesigned.",
+      "'My Review Request' option for Pull Requests live folder now searches for 'user-review-requested:@me' instead of 'review-requested:@me'"
+    ],
+    "features": [
+      "Updated to Firefox 159.0.1",
+      "New grain options have been added to the theme picker. You can cycle through different grain effects by clicking on the circle inside the dial."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-123/",
+    "workflowId": 42220425548,
+    "image": false,
+    "date": "05/11/2026"
+  },
+  {
+    "version": "1.24.2b",
+    "extra": "",
+    "fixes": [
+      "Improved performance for boosts color tinting.",
+      "Fixed the first character typed into the address bar or search bar sometimes being lost when typing quickly right after clicking into it.",
+      "Fixed Zen freezing for several seconds when signing in to intranet sites that use NTLM or Kerberos (Negotiate) authentication.",
+      "Fixed double-tapping or long-pressing a word to select it, and tapping to place the cursor, not working near the cursor in text fields.",
+      "Fixed links opened in the background from other apps on macOS, such as RSS readers, bringing Zen to the foreground.",
+      "Fixed downloaded files on macOS sometimes opening in the wrong application instead of the default one set in Finder.",
+      "Fixed simultaneous downloads on macOS never finishing when Zen is set to ask where to save files. Only the first file showed a save dialog.",
+      "Restored meaningful filenames and the usual save workflow for PDFs opened in Preview from the macOS print dialog.",
+      "More bug fixes and improvements."
+    ],
+    "changes": [
+      "The address bar context menu now shows \"Paste and Search\" instead of \"Paste and Go\" when the copied text is a search term rather than a web address."
+    ],
+    "features": [
+      "Updated to Firefox 160.0",
+      "Added pause context menu button for the downloads section",
+      "The urlbar now has a bit of transparency for a more modern look.",
+      "The Picture-in-Picture player now has a playback speed setting, with options ranging from 0.25x to 2.0x speed. The setting appears only when the player window is medium-sized or larger.",
+      "Pages saved as PDF now make mathematical content (MathML) accessible to assistive technology such as screen readers.",
+      "Websites that repeatedly ask to handle email (mailto:) and other links can now be blocked with a new “Never allow” button, and blocked sites can be managed in Settings.",
+      "Zen now plays Matroska (MKV) files with FLAC, MP3, or PCM audio.",
+      "WebGL content on macOS is now rendered using Apple's Metal graphics API, which can improve performance on some sites."
+    ],
+    "security": "https://www.mozilla.org/en-US/security/advisories/mfsa2026-125/",
+    "workflowId": 42930903396,
+    "image": false,
+    "date": "11/11/2026"
   }
 ]
