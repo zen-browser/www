@@ -118,7 +118,7 @@
     "releaseNotes": {
       "topSection": {
         "title": "変更履歴",
-        "description": "Zenの最新情報はこちら！<a class=\"zen-link\" href=\"#1.0.0-a.1\">最初のリリース</a>から<a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>まで、最高のブラウザーを目指して努力しています。ご意見ありがとうございます！❤️"
+        "description": "Zenの最新情報はこちら！最新バージョンは<a class=\"zen-link\" href=\"#{latestVersion}\">{latestVersion}</a>です。最高のブラウザーを目指して努力しています。ご意見ありがとうございます！❤️"
       },
       "list": {
         "support": "応援してください！",
@@ -448,7 +448,7 @@
     },
     "releaseNotes": {
       "title": "リリースノート - Zen",
-      "description": "Zenの最新情報はこちら！最初のリリースから{latestVersion}まで、最高のブラウザーを目指して努力しています。ご意見ありがとうございます！❤️"
+      "description": "Zenの最新情報はこちら！最新バージョンは{latestVersion}です。最高のブラウザーを目指して努力しています。ご意見ありがとうございます！❤️"
     },
     "about": {
       "title": "Zenについて",
@@ -509,7 +509,7 @@
         "zenModsDesc": "Zen Modsでブラウザー体験をカスタマイズ。",
         "releaseNotesDesc": "最新機能・改善情報はこちら。",
         "discordDesc": "Discordコミュニティで他のZenユーザーと交流！",
-        "donate": "寄付 ❤️",
+        "donate": "寄付",
         "donateDesc": "Zen開発を寄付で応援。",
         "aboutUs": "私たちについて 🌟",
         "aboutUsDesc": "Zenのチームについて知る。",

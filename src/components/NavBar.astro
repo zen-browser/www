@@ -60,10 +60,6 @@ const {
         </button>
         <DropdownItems>
           <div class="navbar-dropdown !grid-cols-1 gap-1">
-            <a class="dropdown-item" href={getLocalePath('/donate')}>
-              <div class="dropdown-title">{menu.donate}</div>
-              <div class="dropdown-description">{menu.donateDesc}</div>
-            </a>
             <a class="dropdown-item" href={getLocalePath('/about')}>
               <div class="dropdown-title">{menu.aboutUs}</div>
               <div class="dropdown-description">{menu.aboutUsDesc}</div>
@@ -79,8 +75,8 @@ const {
           </div>
         </DropdownItems>
       </Dropdown>
-      <a class="hidden items-center lg:block" href={getLocalePath('/mods')}>
-        <span>{menu.mods}</span>
+      <a class="hidden items-center lg:block" href={getLocalePath('/donate')}>
+        <span>{menu.donate}</span>
       </a>
     </div>
     <div class="flex items-center gap-2 place-self-end lg:gap-4">
