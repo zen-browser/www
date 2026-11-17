@@ -1,6 +1,9 @@
 {
-  "version": "xxx",
+  "version": "1.25t",
   "extra": "",
   "fixes": [],
-  "features": []
+  "features": [
+    "Introducing Little Zen! A smaller, simpler Zen window, perfect for quick lookups and for links you only need for a moment.<br/><br/>Little Zen can be opened with a keyboard shortcut from any app, even while Zen isn't focused, and you can choose to have links from other apps open in it.",
+    "Zen now has its own settings window instead of using Firefox's preferences page."
+  ]
 }
