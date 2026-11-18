@@ -90,6 +90,7 @@
     "Zstandard"
   ],
   "flagWords": [],
+  "ignoreRegExpList": ["GHSA(-[a-z0-9]{4}){3}"],
   "ignorePaths": [
     "node_modules/**",
     ".git/**",

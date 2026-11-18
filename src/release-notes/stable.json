@@ -1489,5 +1489,76 @@
     "workflowId": 42930903396,
     "image": false,
     "date": "11/11/2026"
+  },
+  {
+    "version": "1.24.3b",
+    "extra": "",
+    "fixes": [
+      {
+        "description": "Fixed boosts color tinting and controls not working.",
+        "issue": 16586
+      },
+      {
+        "description": "Fixed closed browser and popup windows never being freed from memory, which made memory usage and pauses grow over time.",
+        "issue": 16587
+      },
+      {
+        "description": "Switching spaces is now smooth when spaces use gradient themes, instead of being choppy.",
+        "issue": 13029
+      },
+      {
+        "description": "Fixed tabs shown in a split view or behind a glance being unloaded when memory runs low.",
+        "issue": 16624
+      },
+      {
+        "description": "Fixed Spaces Sync for spaces and pinned tabs assigned to the built-in containers (Personal, Work, Banking, Shopping) on profiles that don't have them. Missing containers are now created when needed.",
+        "issue": 16614
+      },
+      {
+        "description": "Fixed the copy URL shortcut copying \"about:blank\" while a page is still loading.",
+        "issue": 16510
+      },
+      {
+        "description": "Improved performance when opening new windows with mods installed.",
+        "issue": 16674
+      },
+      "Fixed thin lines in PDFs printing as thick black boxes on some printers on Windows.",
+      "Fixed PDFs, web page graphics, and WebGL content appearing blank or broken on Macs with AMD graphics, such as black cells in Google Sheets.",
+      "Fixed incorrect colors in WebGL and canvas content, such as games and Google Meet backgrounds, on some Linux systems using Wayland.",
+      "Fixed links on some sites, such as the Google Store, taking a very long time to load.",
+      "Fixed tabs crashing on some sites, most notably ChatGPT.",
+      "Fixed WebTransport connections being unable to send datagrams after a site sent many in quick succession.",
+      "Fixed trackpad and mouse swipes sometimes scrolling the page when a site had blocked scrolling.",
+      "More bug fixes and improvements."
+    ],
+    "changes": [
+      "The zoom level button is now hidden in the single toolbar layout. A toast shows the current zoom level when you change it instead."
+    ],
+    "features": [
+      "Updated to Firefox 160.0.1",
+      "The copy URL and copy URL as Markdown shortcuts now copy the URLs of all selected tabs when multiple tabs are selected."
+    ],
+    "security": [
+      "https://www.mozilla.org/en-US/security/advisories/mfsa2026-130/",
+      [
+        "GHSA-384m-hxgx-xpph",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-384m-hxgx-xpph"
+      ],
+      [
+        "GHSA-gv58-qvc9-mhv2",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-gv58-qvc9-mhv2"
+      ],
+      [
+        "GHSA-gq43-4g7g-3fc9",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-gq43-4g7g-3fc9"
+      ],
+      [
+        "GHSA-p9x3-fx2f-hf87",
+        "https://github.com/zen-browser/desktop/security/advisories/GHSA-p9x3-fx2f-hf87"
+      ]
+    ],
+    "workflowId": 44224373786,
+    "image": false,
+    "date": "17/11/2026"
   }
 ]
