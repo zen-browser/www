@@ -20,7 +20,9 @@ const {
 <Layout title={layout.releaseNotes.title}>
   <main class="container flex h-full min-h-[1000px] flex-1 flex-col items-center justify-center py-4">
     <div id="release-notes" class="flex min-h-screen w-full flex-col justify-center gap-8">
-      <Description class="mt-48 text-6xl font-bold">{releaseNotes.topSection.title}</Description>
+      <Description as="h1" class="mt-48 text-6xl font-bold">
+        {releaseNotes.topSection.title}
+      </Description>
       <p
         class="text-base opacity-55"
         set:html={releaseNotes.topSection.description.replaceAll(

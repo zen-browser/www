@@ -1,4 +1,81 @@
+# Zen Browser is open source and welcomes search engines and answer engines.
+# Crawler-specific groups below override the wildcard group, so each repeats the shared rules.
+
 User-agent: *
+Allow: /
 Disallow: /.env/
 
-Sitemap: https://zen-browser.app/sitemap-0.xml
+# AI search / answer-engine and assistant crawlers (explicitly allowed)
+User-agent: GPTBot
+Allow: /
+Disallow: /.env/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /.env/
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /.env/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /.env/
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /.env/
+
+User-agent: Claude-User
+Allow: /
+Disallow: /.env/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /.env/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /.env/
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /.env/
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /.env/
+
+User-agent: Applebot
+Allow: /
+Disallow: /.env/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /.env/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /.env/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /.env/
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /.env/
+
+User-agent: CCBot
+Allow: /
+Disallow: /.env/
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /.env/
+
+User-agent: MistralAI-User
+Allow: /
+Disallow: /.env/
+
+Sitemap: https://zen-browser.app/sitemap-index.xml

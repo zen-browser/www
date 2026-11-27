@@ -18,14 +18,14 @@ const {
       {privacyPolicy.title}
     </Title>
     <div class="ml-4 font-bold">{privacyPolicy.lastUpdated}</div>
-    <Title class="mt-16 text-4xl font-bold" id="introduction">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="introduction">
       {privacyPolicy.sections.introduction.title}
     </Title>
     <p>{privacyPolicy.sections.introduction.body}</p>
     <div class="mx-12 my-12 flex gap-4 font-bold">
       {privacyPolicy.sections.introduction.summary}
     </div>
-    <Title class="mt-16 text-4xl font-bold" id="1-information-we-do-not-collect">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="1-information-we-do-not-collect">
       {privacyPolicy.sections.noCollect.title}
     </Title>
     <p>{privacyPolicy.sections.noCollect.body}</p>
@@ -46,7 +46,11 @@ const {
       <strong class="font-bold">{privacyPolicy.sections.externalConnections.title}</strong>
     </h3>
     <p>{privacyPolicy.sections.externalConnections.body}</p>
-    <Title class="mt-16 text-4xl font-bold" id="2-information-stored-locally-on-your-device">
+    <Title
+      as="h2"
+      class="mt-16 text-4xl font-bold"
+      id="2-information-stored-locally-on-your-device"
+    >
       {privacyPolicy.sections.localStorage.title}
     </Title>
     <h3 class="mt-4 text-xl font-bold" id="-2-1-browsing-data-">
@@ -67,7 +71,7 @@ const {
       <strong class="font-bold">{privacyPolicy.sections.settings.title}</strong>
     </h3>
     <p>{privacyPolicy.sections.settings.body}</p>
-    <Title class="mt-16 text-4xl font-bold" id="3-sync-feature">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="3-sync-feature">
       {privacyPolicy.sections.sync.title}
     </Title>
     <p>{privacyPolicy.sections.sync.body}</p>
@@ -86,25 +90,25 @@ const {
         </a>
       </li>
     </ul>
-    <Title class="mt-16 text-4xl font-bold" id="4-add-ons-and-mods">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="4-add-ons-and-mods">
       {privacyPolicy.sections.addons.title}
     </Title>
     <p>{privacyPolicy.sections.addons.body}</p>
-    <Title class="mt-16 text-4xl font-bold" id="5-data-security">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="5-data-security">
       {privacyPolicy.sections.security.title}
     </Title>
     <p>{privacyPolicy.sections.security.body}</p>
     <ul>
       <li>{privacyPolicy.sections.security.note}</li>
     </ul>
-    <Title class="mt-16 text-4xl font-bold" id="6-your-control">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="6-your-control">
       {privacyPolicy.sections.control.title}
     </Title>
     <h3 class="mt-4 text-xl font-bold" id="-6-1-data-deletion-">
       <strong class="font-bold">{privacyPolicy.sections.control.deletionTitle}</strong>
     </h3>
     <p>{privacyPolicy.sections.control.deletionBody}</p>
-    <Title class="mt-16 text-4xl font-bold" id="7-our-website-and-services">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="7-our-website-and-services">
       {privacyPolicy.sections.website.title}
     </Title>
     <p>{privacyPolicy.sections.website.body}</p>
@@ -112,11 +116,11 @@ const {
       <strong class="font-bold">{privacyPolicy.sections.website.externalLinksTitle}</strong>
     </h3>
     <p>{privacyPolicy.sections.website.externalLinksBody}</p>
-    <Title class="mt-16 text-4xl font-bold" id="8-changes-to-this-privacy-policy">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="8-changes-to-this-privacy-policy">
       {privacyPolicy.sections.changes.title}
     </Title>
     <p>{privacyPolicy.sections.changes.body}</p>
-    <Title class="mt-16 text-4xl font-bold" id="9-other-telemetry-done-by-mozilla-firefox">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="9-other-telemetry-done-by-mozilla-firefox">
       {privacyPolicy.sections.otherTelemetry.title}
     </Title>
     <p>{privacyPolicy.sections.otherTelemetry.body}</p>
@@ -129,7 +133,7 @@ const {
         {privacyPolicy.sections.otherTelemetry.forMoreInformation}
       </li>
     </ul>
-    <Title class="mt-16 text-4xl font-bold" id="10-contact-us">
+    <Title as="h2" class="mt-16 text-4xl font-bold" id="10-contact-us">
       {privacyPolicy.sections.contact.title}
     </Title>
     <p>{privacyPolicy.sections.contact.body}</p>

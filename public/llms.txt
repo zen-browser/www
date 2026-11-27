@@ -1,0 +1,31 @@
+# Zen Browser
+
+> Zen is a beautiful, fast, and productive web browser. Zen is built on the latest Firefox engine, providing speed, privacy, and security while offering our unique features and experience.
+
+Zen is free and open-source software for macOS, Windows, and Linux. It does not collect telemetry or personal data.
+
+## Get started
+
+- [Download Zen](https://zen-browser.app/download): Installers for macOS, Windows, and Linux (including Flathub).
+- [Documentation](https://docs.zen-browser.app/): Guides and the user manual.
+- [Zen Mods](https://zen-browser.app/mods): Community-made themes and plugins for Zen.
+
+## Project information
+
+- [Release notes](https://zen-browser.app/release-notes): Changelog for every stable version.
+- [Release notes feed (RSS)](https://zen-browser.app/feed.xml): Subscribe to new releases.
+- [About Zen](https://zen-browser.app/about): The team and contributors.
+- [Privacy policy](https://zen-browser.app/privacy-policy): What Zen does and does not collect.
+- [Donate](https://zen-browser.app/donate): Support development through Patreon or Ko-fi.
+
+## Source code and support
+
+- [Browser source code](https://github.com/zen-browser/desktop): The Zen Browser repository (MPL-2.0).
+- [Website source code](https://github.com/zen-browser/www): This website.
+- [Report an issue](https://github.com/zen-browser/desktop/issues/new/choose)
+- [Security policy](https://github.com/zen-browser/desktop/security/policy)
+- [Discord](https://discord.gg/zen-browser)
+
+## Optional
+
+- [日本語 (Japanese) site](https://zen-browser.app/ja/): The same site in Japanese.

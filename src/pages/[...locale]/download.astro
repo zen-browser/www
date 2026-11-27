@@ -31,7 +31,7 @@ const platformDescriptions = download.platformDescriptions
 
 <DownloadScript />
 
-<Layout title={layout.download.title} description={layout.download.description}>
+<Layout title={layout.download.title} description={layout.download.description} includeSoftware>
   <main class="data-[os='windows']:bg-zen-blue mt-48 flex flex-col px-6">
     <div class="relative container mx-auto pb-48">
       <div class="mb-6 flex flex-col gap-4">
@@ -47,7 +47,11 @@ const platformDescriptions = download.platformDescriptions
             class="hidden w-32 translate-y-3 transform dark:block"
           />
         </div>
-        <Description id="download-title" class="mx-auto max-w-3xl text-center text-6xl font-bold">
+        <Description
+          as="h1"
+          id="download-title"
+          class="mx-auto max-w-3xl text-center text-6xl font-bold"
+        >
           {download.title}
         </Description>
         <Description class="mx-auto text-center text-pretty">
