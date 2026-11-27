@@ -1,6 +1,15 @@
 ---
+import { type HTMLTag } from 'astro/types'
+
+interface Props {
+  /** Element to render. Defaults to a paragraph; pass a heading tag for page/section titles. */
+  as?: HTMLTag
+  [key: string]: unknown
+}
+
+const { as: Tag = 'p', ...props } = Astro.props
 ---
 
-<p {...Astro.props}>
+<Tag {...props}>
   <slot />
-</p>
+</Tag>

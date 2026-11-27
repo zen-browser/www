@@ -1,23 +1,130 @@
 ---
+import { type JsonLd } from '~/utils/schema'
+
 interface Props {
   title: string
   description?: string
   ogImage?: string
   isHome?: boolean
   redirect?: string
+  /** Adds `<meta name="robots" content="noindex, follow">` and drops canonical/hreflang. */
+  noindex?: boolean
+  /** Human-readable name of the page, used as the last breadcrumb item (defaults to `title`). */
+  pageName?: string
+  /** Emits `SoftwareApplication` JSON-LD (always emitted on the home page). */
+  includeSoftware?: boolean
+  /** Extra JSON-LD nodes for this page (e.g. `FAQPage`). */
+  schema?: JsonLd[]
 }
 
-const { title, description, ogImage, isHome, redirect } = Astro.props
+const {
+  title,
+  description,
+  ogImage,
+  isHome,
+  redirect,
+  noindex = false,
+  pageName,
+  includeSoftware = false,
+  schema = [],
+} = Astro.props
 const defaultDescription =
   'Zen Browser is built for speed, security, and true privacy. Download now to enjoy a beautifully-designed, distraction-free web experience packed with features.'
+import appIcon from '~/assets/app-icon.png'
 import '@fontsource/bricolage-grotesque/400.css'
 import '@fontsource/bricolage-grotesque/500.css'
 import '@fontsource/bricolage-grotesque/600.css'
 import '../styles/global.css'
 import Footer from '~/components/Footer.astro'
 import NavBar from '~/components/NavBar.astro'
-import { getLocale } from '~/utils/i18n'
+import { CONSTANT } from '~/constants'
+import { releaseNotes } from '~/release-notes'
+import { getLocale, getOtherLocales, getUI } from '~/utils/i18n'
+import {
+  breadcrumbSchema,
+  organizationSchema,
+  serializeJsonLd,
+  softwareApplicationSchema,
+  websiteSchema,
+} from '~/utils/schema'
+
 const locale = getLocale(Astro)
+const {
+  components: {
+    nav: { brand, menu },
+  },
+  routes,
+  layout,
+} = getUI(locale)
+
+const site = (Astro.site ?? new URL(Astro.url.origin)).origin
+const pathDescription = description ?? defaultDescription
+const isIndexable = !noindex && !redirect
+
+// --- Canonical + hreflang -------------------------------------------------------------------
+const { pathname } = Astro.url
+const otherLocales = getOtherLocales()
+const localePrefix = locale === CONSTANT.I18N.DEFAULT_LOCALE ? '' : `/${locale}`
+const basePath = pathname.replace(new RegExp(`^/(${otherLocales.join('|')})(?=/|$)`), '') || '/'
+const canonicalUrl = new URL(pathname, site).href
+const alternates = CONSTANT.I18N.LOCALES.map(({ value, intl }) => ({
+  hreflang: intl,
+  href: new URL(value === CONSTANT.I18N.DEFAULT_LOCALE ? basePath : `/${value}${basePath}`, site)
+    .href,
+}))
+const defaultAlternate =
+  alternates[CONSTANT.I18N.LOCALES.findIndex(({ value }) => value === CONSTANT.I18N.DEFAULT_LOCALE)]
+const currentIntl = CONSTANT.I18N.LOCALES.find(({ value }) => value === locale)?.intl
+const ogLocale = (currentIntl ?? 'en-US').replace('-', '_')
+const ogLocaleAlternates = CONSTANT.I18N.LOCALES.filter(({ value }) => value !== locale).map(
+  ({ intl }) => intl.replace('-', '_')
+)
+
+// --- Social image ---------------------------------------------------------------------------
+const socialImage = new URL(ogImage || '/share-pic.png', site).href
+
+// --- Structured data ------------------------------------------------------------------------
+const schemaContext = {
+  site,
+  name: brand,
+  description: layout.index.description,
+  logo: new URL(appIcon.src, site).href,
+  image: new URL('/share-pic.png', site).href,
+  version: releaseNotes[0]?.version,
+  features: Object.values(routes.index.features.featureTabs).map(tab => tab.title),
+  inLanguage: currentIntl ?? 'en-US',
+}
+
+const breadcrumbLabels: Record<string, string> = {
+  mods: menu.zenMods,
+  'release-notes': menu.releaseNotes,
+  about: routes.about.title,
+  donate: routes.donate.title,
+  download: menu.download,
+  'privacy-policy': routes.privacyPolicy.title,
+}
+const segments = basePath.split('/').filter(Boolean)
+const trailingSlash = pathname.endsWith('/') ? '/' : ''
+const breadcrumbs =
+  isIndexable && segments.length > 0 && segments[0] in breadcrumbLabels
+    ? [
+        { name: brand, url: new URL(`${localePrefix}/`, site).href },
+        ...segments.map((segment, index) => ({
+          name: index === 0 ? breadcrumbLabels[segment] : (pageName ?? title),
+          url: new URL(
+            `${localePrefix}/${segments.slice(0, index + 1).join('/')}${trailingSlash}`,
+            site
+          ).href,
+        })),
+      ]
+    : []
+
+const jsonLd: JsonLd[] = [
+  ...(isHome ? [organizationSchema(schemaContext), websiteSchema(schemaContext)] : []),
+  ...(isHome || includeSoftware ? [softwareApplicationSchema(schemaContext)] : []),
+  ...(breadcrumbs.length ? [breadcrumbSchema(breadcrumbs)] : []),
+  ...schema,
+]
 ---
 
 <script is:inline data-cfasync="false">
@@ -42,26 +149,24 @@ const locale = getLocale(Astro)
   <head>
     <meta charset="UTF-8" />
     {redirect ? <meta http-equiv="refresh" content={`0;url=${redirect}`} /> : null}
-    <meta name="description" content={description ?? defaultDescription} />
+    <meta name="description" content={pathDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap-0.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
-    {isHome && (
-      <>
-        {/* Injecting schema to homepage only (for SEO) */}
-        <script
-          is:inline
-          type="application/ld+json"
-          set:html={JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'Zen Browser',
-            url: 'https://zen-browser.app/',
-          })}
-        ></script>
-      </>
+    {isIndexable && <link rel="canonical" href={canonicalUrl} />}
+    {isIndexable &&
+      alternates.map(alternate => (
+        <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+      ))}
+    {isIndexable && defaultAlternate && (
+      <link rel="alternate" hreflang="x-default" href={defaultAlternate.href} />
     )}
+    {!isIndexable && <meta name="robots" content="noindex, follow" />}
+
+    {jsonLd.map(data => (
+      <script is:inline type="application/ld+json" set:html={serializeJsonLd(data)} />
+    ))}
 
     <!-- ICO favicon as a fallback for browsers that don't support SVG favicons (Safari) -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -73,11 +178,20 @@ const locale = getLocale(Astro)
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content={ogImage} />
-    <meta property="og:description" content={description ?? defaultDescription} />
+    <meta property="og:site_name" content={brand} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={ogLocale} />
+    {ogLocaleAlternates.map(alt => (
+      <meta property="og:locale:alternate" content={alt} />
+    ))}
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:description" content={pathDescription} />
     <meta property="og:color" content="#da755b" />
     <!-- Twitter card -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={pathDescription} />
+    <meta name="twitter:image" content={socialImage} />
     <!-- RSS Feed -->
     <link
       rel="alternate"

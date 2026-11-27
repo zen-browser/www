@@ -138,13 +138,16 @@ generateItems(props.knownIssues, 'known')
     ) : null}
     <div class="w-full justify-between sm:flex">
       <div class="flex flex-col gap-1 text-sm font-bold opacity-80 sm:flex-row sm:items-center sm:gap-0">
-        {isTwilight ? (
-          <>
-            {releaseNoteItem.twilightChanges} {props.version.replaceAll('{version}', props.version)}
-          </>
-        ) : (
-          <>{releaseNoteItem.releaseChanges.replaceAll('{version}', props.version)}</>
-        )}
+        <h2>
+          {isTwilight ? (
+            <>
+              {releaseNoteItem.twilightChanges}{' '}
+              {props.version.replaceAll('{version}', props.version)}
+            </>
+          ) : (
+            <>{releaseNoteItem.releaseChanges.replaceAll('{version}', props.version)}</>
+          )}
+        </h2>
         {ffVersion ? (
           <>
             <span class="text-muted-foreground mx-3 hidden sm:block">•</span>

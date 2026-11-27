@@ -13,14 +13,16 @@ const {
 
 interface Props {
   titles?: string[]
+  /** Heading level of the section title. Use `h1` when the page has no other `h1`. */
+  headingAs?: 'h1' | 'h2'
 }
 
-const { titles } = Astro.props
+const { titles, headingAs = 'h2' } = Astro.props
 const descriptions = Object.values(features.featureTabs).map(tab => tab.description)
 ---
 
 <section id="features" class="relative flex w-full flex-col py-12 text-start lg:py-36">
-  <Description class="mb-2 text-4xl font-bold sm:text-6xl">
+  <Description as={headingAs} class="mb-2 text-4xl font-bold sm:text-6xl">
     {(titles || features.titles).map((title, index) =>
       title !== '\n' ? (
         <span class="title-line opacity-0" data-index={index}>
@@ -59,7 +61,9 @@ const descriptions = Object.values(features.featureTabs).map(tab => tab.descript
             data-feature-key={key}
             data-active={i === 0 ? 'true' : undefined}
           >
-            <Description class="text-2xl font-bold">{tab.title}</Description>
+            <Description as={headingAs === 'h1' ? 'h2' : 'h3'} class="text-2xl font-bold">
+              {tab.title}
+            </Description>
             <Description>{tab.description}</Description>
           </div>
         ))}

@@ -1,10 +1,20 @@
 ---
+import { type HTMLTag } from 'astro/types'
 import { cn } from '~/utils/merge'
-const { class: className } = Astro.props
+
+interface Props {
+  /** Heading element to render. Defaults to `h1`; use `h2` for in-page section titles. */
+  as?: HTMLTag
+  class?: string
+  [key: string]: unknown
+}
+
+const { class: className, as: Tag = 'h1', ...props } = Astro.props
 ---
 
-<h1
+<Tag
   class={cn('font-junicode text-dark mb-[0.4rem] text-5xl leading-[0.9] font-semibold', className)}
+  {...props}
 >
   <slot />
-</h1>
+</Tag>

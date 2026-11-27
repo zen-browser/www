@@ -12,8 +12,8 @@ const {
 } = getUI(locale)
 ---
 
-<Layout title={layout.welcome.title} description={layout.welcome.description}>
+<Layout title={layout.welcome.title} description={layout.welcome.description} noindex>
   <main class="container">
-    <Features titles={welcome.title} />
+    <Features titles={welcome.title} headingAs="h1" />
   </main>
 </Layout>

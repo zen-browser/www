@@ -59,6 +59,7 @@ const {
   title={slug.title.replace('{name}', mod.name)}
   description={slug.description.replace('{name}', mod.name)}
   ogImage={mod.image}
+  pageName={mod.name}
 >
   <main class="container mt-6 2xl:mt-0">
     <div class="mx-auto mt-12 mb-24 flex flex-col gap-6 lg:mt-32">
@@ -81,7 +82,9 @@ const {
       </div>
       <BackButton id="back-button" href={getLocalePath('/mods')} />
       <div>
-        <Description class="text-6xl font-bold">{mod.name}</Description>
+        <Description as="h1" class="text-6xl font-bold">
+          {mod.name}
+        </Description>
         <Description>{mod.description}</Description>
       </div>
       <img
